@@ -121,6 +121,21 @@ export class MCPClient {
     return result.resources;
   }
 
+  async readResource(uri: string): Promise<Array<Record<string, unknown>>> {
+    const response = await this.transport.send({
+      jsonrpc: "2.0",
+      id: 0,
+      method: "resources/read",
+      params: { uri },
+    });
+
+    if (response.error) {
+      throw new Error(`resources/read failed: ${response.error.message}`);
+    }
+    const result = response.result as { contents: Array<Record<string, unknown>> };
+    return result.contents;
+  }
+
   async listToolsRaw(): Promise<Array<Record<string, unknown>>> {
     const response = await this.transport.send({
       jsonrpc: "2.0",

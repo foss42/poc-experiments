@@ -9,8 +9,8 @@
 A protocol-first conformance testing engine that validates any MCP server — regardless of transport — against the [Model Context Protocol](https://modelcontextprotocol.io) specification.
 
 **Key capabilities:**
-- **Transport-agnostic**: Same 19 core tests run over both **stdio** and **Streamable HTTP**
-- **MCP Apps support**: 8 additional tests for the [MCP Apps extension](https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i) (structuredContent, UI resources, tool metadata)
+- **Transport-agnostic**: 19 core protocol tests run identically over **stdio** and **Streamable HTTP**
+- **MCP Apps support**: 13 tests for the [MCP Apps extension](https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i) — covers all 4 Sales Analytics tools, `resources/read`, CSP validation, and the full select → data → visualize → PDF pipeline
 - **Zero runtime dependencies**: Uses native `fetch()` and `child_process` only
 - **Protocol-direct**: No MCP SDK — implements JSON-RPC 2.0 directly to prove understanding
 
@@ -40,7 +40,7 @@ npx tsx src/cli.ts --server "npx tsx fixtures/test-server.ts"
 ## Demo Output
 
 ```
-mcp-conformance v0.2.0
+mcp-conformance v0.3.0
 Transport: http | Target: http://localhost:3000/mcp
 Suite: all
 
@@ -86,13 +86,22 @@ MCP Apps: Resources
   ✓ UI resources use ui:// URI scheme (1ms)
 
 MCP Apps: Metadata
+  ✓ resources/read returns HTML content for UI resources (2ms)
+  ✓ UI resources with CSP declare resourceDomains (1ms)
+
+MCP Apps: Metadata
   ✓ tools declare UI resource bindings via _meta (1ms)
   ✓ tools declare visibility levels (1ms)
 
+MCP Apps: Tools
+  ✓ visualize-sales-data returns chart structuredContent (1ms)
+  ✓ show-sales-pdf-report returns PDF base64 (41ms)
+
 MCP Apps: Workflow
   ✓ tool workflow: select → fetch data pipeline (1ms)
+  ✓ full pipeline: select → data → visualize → PDF (37ms)
 
-27 passed (0.1s)
+32 passed (0.1s)
 ```
 
 ## Architecture
@@ -136,14 +145,15 @@ The same `MCPClient` and test suites run against **any** transport. Adding a new
 | Execution | 5 | Tool calls, unknown tool handling, content typing |
 | Edge Cases | 7 | Unknown methods, idempotency, concurrency, extra params, JSON-RPC version |
 
-### MCP Apps (8 tests)
+### MCP Apps (13 tests)
 
 | Category | Tests | What It Validates |
 |----------|-------|-------------------|
 | MCP Apps | 2 | `structuredContent` field presence and report data structure |
-| MCP Apps: Resources | 3 | UI resources via `resources/list`, `text/html;profile=mcp-app` MIME, `ui://` scheme |
+| MCP Apps: Resources | 5 | UI resources via `resources/list`, MIME type, `ui://` scheme, `resources/read` HTML content, CSP `resourceDomains` |
 | MCP Apps: Metadata | 2 | Tool `_meta.ui.resourceUri` bindings, visibility levels (`model`/`app`) |
-| MCP Apps: Workflow | 1 | End-to-end: `select-sales-metric` → `get-sales-data` pipeline |
+| MCP Apps: Tools | 2 | `visualize-sales-data` chart structuredContent, `show-sales-pdf-report` PDF base64 generation |
+| MCP Apps: Workflow | 2 | 2-step pipeline (select → data), full 4-step pipeline (select → data → visualize → PDF) |
 
 ## CLI Options
 

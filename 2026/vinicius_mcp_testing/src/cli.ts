@@ -106,7 +106,7 @@ async function main(): Promise<void> {
   const options = parseArgs();
 
   const target = options.transport === "http" ? options.url! : options.server!;
-  console.log(`${CYAN}${BOLD}mcp-conformance${RESET} ${DIM}v0.2.0${RESET}`);
+  console.log(`${CYAN}${BOLD}mcp-conformance${RESET} ${DIM}v0.3.0${RESET}`);
   console.log(`${DIM}Transport: ${options.transport} | Target: ${target}${RESET}`);
   console.log(`${DIM}Suite: ${options.suite}${RESET}`);
 
