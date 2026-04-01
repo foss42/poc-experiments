@@ -4,7 +4,7 @@ To demonstrate the feasibility of the framework, I have developed a functional P
 **[▶️ Watch the PoC Demo Video on Google Drive](https://drive.google.com/file/d/1yU1CVqcSTt9s4fWjEeRO6JzHmB7sXRpY/view?usp=drive_link)**
 
 ##Technical Highlights & AX (Agentic Experience):
-Interactive Evaluation Forms: Instead of relying on ambiguous text prompts, the PoC uses a Metric Selector UI (React). This allows users to deterministically select evaluation parameters (e.g., specific vision models, datasets, or latency thresholds), which are then serialized directly into the evaluation pipeline.
+Interactive Evaluation Forms: Instead of relying on normal text prompts, the PoC uses a metrice selector react UI. This allows users to surely select evaluation parameters (for example specific vision models, datasets, or latency thresholds), which are then serialized directly into the evaluation pipeline.
 
 Real-Time Data Hydration: Utilizing the ui/notifications/tool-input pattern, the UI is hydrated with structured JSON results from the evaluation engine. This avoids fragile string parsing and ensures a clean data flow from the FastAPI backend to the React charts.
 
@@ -17,6 +17,6 @@ Deterministic Control via "App-Only" Tools: To prevent model hallucination durin
 
 Interactive Reporting & ui/download-file: The framework will go beyond on-screen results. By integrating jsPDF/jspdf-autotable, the framework will generate comprehensive PDF evaluation reports server-side. These will be surfaced via a PDF Viewer UI Resource, allowing users to save results locally using the standardized ui/download-file request.
 
-Enforced Security Contract (CSP): Every evaluation UI resource will include explicit Content Security Policy (CSP) metadata. This ensures that the host (API Dash) maintains strict control over which external domains (e.g., Chart.js CDNs or Model APIs) the framework can access, upholding the project’s "Security-First" philosophy.
+Enforced Security Contract (CSP): Every evaluation UI resource will include explicit Content Security Policy (CSP) metadata. This ensures that the host (API Dash) maintains strict control over which external domains (for example Chart.js CDNs or Model APIs) the framework can access, upholding the project’s "Security-First" philosophy.
 
 Standardized Lifecycle (Handshake): The framework will follow the full MCP handshake (ui/initialize). By inspecting hostCapabilities, the framework will dynamically enable or disable features like "Open Link" or "Clipboard Write" based on the environment it's running in (Desktop vs. Web).
