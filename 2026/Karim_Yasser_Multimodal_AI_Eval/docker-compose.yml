@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    container_name: eval_framework_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Map persistent volumes for the database and uploaded datasets
+      - backend_data:/app/data
+      - backend_datasets:/app/datasets
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    container_name: eval_framework_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend_data:
+    name: ai_eval_db_volume
+  backend_datasets:
+    name: ai_eval_datasets_volume
