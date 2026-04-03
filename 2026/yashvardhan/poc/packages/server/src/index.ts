@@ -11,6 +11,7 @@ import {
   ConnectRequestSchema,
   InvokeRequestSchema,
   StdioConfigSchema,
+  HttpConfigSchema,
 } from '@mcp-suite/shared';
 
 function isZodError(err: unknown): err is ZodError {
@@ -62,28 +63,21 @@ app.post('/api/connect', async (req, res) => {
     const body = ConnectRequestSchema.parse(req.body);
     const profile = body.profile;
 
-    if (profile.transport !== 'stdio') {
-      res.status(400).json({ error: 'Only stdio transport supported in POC' });
+    let capabilities;
+
+    if (profile.transport === 'stdio') {
+      const config = StdioConfigSchema.parse(profile.config);
+      if (!config.workingDirectory) {
+        config.workingDirectory = PROJECT_ROOT;
+      }
+      capabilities = await engine.connectStdio(config);
+    } else if (profile.transport === 'streamable-http') {
+      const config = HttpConfigSchema.parse(profile.config);
+      capabilities = await engine.connectStreamableHttp(config);
+    } else {
+      res.status(400).json({ error: 'Unsupported transport. Use stdio or streamable-http.' });
       return;
     }
-
-    /* StdioConfigSchema
-
-      {
-        command: z.string().min(1, 'Command is required'),
-        args: z.array(z.string()),
-        workingDirectory: z.string().optional(),
-        env: z.record(z.string()).optional(),
-      }
-
-    */
-
-    const config = StdioConfigSchema.parse(profile.config);
-    // Default working directory to project root so relative paths work
-    if (!config.workingDirectory) {
-      config.workingDirectory = PROJECT_ROOT;
-    }
-    const capabilities = await engine.connectStdio(config);
     broadcast('connected', capabilities);
     res.json(capabilities);
   } catch (err: unknown) {
@@ -126,6 +120,21 @@ app.post('/api/invoke', async (req, res) => {
       res.status(400).json({ error: formatZodError(err as ZodError) });
       return;
     }
+    const message = err instanceof Error ? err.message : 'Unknown error';
+    res.status(500).json({ error: message });
+  }
+});
+
+app.post('/api/resources/read', async (req, res) => {
+  try {
+    const { uri } = req.body as { uri?: string };
+    if (!uri) {
+      res.status(400).json({ error: 'uri is required' });
+      return;
+    }
+    const result = await engine.readResource(uri);
+    res.json(result);
+  } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error';
     res.status(500).json({ error: message });
   }

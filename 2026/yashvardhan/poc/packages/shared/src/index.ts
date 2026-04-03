@@ -58,7 +58,7 @@ export const ConnectionProfileSchema = z.object({
   id: z.string(),
   name: z.string(),
   transport: TransportSchema,
-  config: z.union([StdioConfigSchema, HttpConfigSchema]),
+  config: z.record(z.unknown()),
   createdAt: z.string(),
   lastUsed: z.string().optional(),
 });
@@ -72,6 +72,7 @@ export const ToolInfoSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
   inputSchema: z.record(z.unknown()),
+  annotations: z.record(z.unknown()).optional(),
 });
 export type ToolInfo = z.infer<typeof ToolInfoSchema>;
 
@@ -148,6 +149,7 @@ export const InvokeResponseSchema = z.object({
   isError: z.boolean(),
   latencyMs: z.number(),
   _meta: z.unknown().optional(),
+  structuredContent: z.unknown().optional(),
 });
 export type InvokeResponse = z.infer<typeof InvokeResponseSchema>;
 

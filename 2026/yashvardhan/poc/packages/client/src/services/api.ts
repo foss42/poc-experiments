@@ -51,6 +51,14 @@ export const api = {
     return InvokeResponseSchema.parse(data);
   },
 
+  async readResource(uri: string): Promise<{ contents: unknown[] }> {
+    const data = await request('/resources/read', {
+      method: 'POST',
+      body: JSON.stringify({ uri }),
+    });
+    return data as { contents: unknown[] };
+  },
+
   async scan(): Promise<ScanResult> {
     const data = await request('/security/scan', { method: 'POST' });
     return ScanResultSchema.parse(data);
