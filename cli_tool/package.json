@@ -1,0 +1,23 @@
+{
+  "name": "cli-tool-monorepo",
+  "private": true,
+  "description": "Monorepo for CLI Tool and MCP Server",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm test --workspaces --if-present",
+    "start:server": "npm run start --workspace=packages/server",
+    "start:cli": "npm run start --workspace=packages/cli",
+    "dev:cli": "npm run dev --workspace=packages/cli",
+    "dev:server": "npm run dev --workspace=packages/server",
+    "cli-tool": "tsx packages/cli/src/index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.1",
+    "prettier": "^3.2.5",
+    "eslint": "^8.56.0"
+  }
+}
