@@ -1,36 +1,45 @@
 # MCP Testing & Security Suite — POC
 
-A proof-of-concept demonstrating MCP server connection, tool discovery, invocation, and **tool poisoning detection** 
+A proof-of-concept demonstrating MCP server connection, tool discovery, invocation, **tool poisoning detection**, and **MCP Apps UI testing** in a sandboxed iframe environment.
 
 ## What This Demonstrates
 
-1. **MCP Client Engine** — Connects to any MCP server via stdio transport, performs the JSON-RPC handshake, and discovers tools/resources/prompts
+1. **MCP Client Engine** — Connects to any MCP server via stdio or Streamable HTTP transport, performs the JSON-RPC handshake, and discovers tools/resources/prompts
 2. **Tool Poisoning Detector** — 10 rule-based security checks that analyze tool descriptions for malicious patterns (instruction injection, secrecy language, data exfiltration, Unicode obfuscation, etc.)
-3. **Web UI** — Clean light-themed dashboard built with Mantine UI to connect, explore tools, invoke them, and run security scans with a visual score ring + expandable findings
+3. **MCP Apps Tester** — Tests interactive UI resources from the MCP Apps extension (SEP-1865). Renders `ui://` resources in sandboxed iframes, validates postMessage JSON-RPC communication, handles tool call approval, and supports the full App API lifecycle
+4. **Web UI** — Clean light-themed dashboard built with Mantine UI with four views: Connection, Tool Explorer, Security Scan, and MCP Apps
 
 ## Demo Video for the POC
 https://github.com/user-attachments/assets/448fa305-c871-4d76-b613-8c74e7c5eaf0
 
-
-
-
 ## Architecture
 
 ```
-┌──────────────┐     HTTP/WS     ┌──────────────┐    stdio/JSON-RPC    ┌──────────────┐
-│   React UI   │ ◄────────────►  │  Express API  │ ◄──────────────────► │  MCP Server  │
-│   (Vite)     │                 │  + WebSocket  │                      │  (any)       │
-└──────────────┘                 └──────┬───────┘                      └──────────────┘
-                                        │
-                                        ├── McpClientEngine
-                                        └── ToolPoisoningDetector
+┌──────────────┐     HTTP/WS     ┌──────────────┐   stdio/HTTP/JSON-RPC  ┌──────────────┐
+│   React UI   │ ◄────────────►  │  Express API  │ ◄──────────────────►  │  MCP Server  │
+│   (Vite)     │                 │  + WebSocket  │                       │  (any)       │
+└──────┬───────┘                 └──────┬───────┘                       └──────────────┘
+       │                                │
+       │ postMessage                    ├── McpClientEngine
+       │ (JSON-RPC 2.0)                └── ToolPoisoningDetector
+       ▼
+┌──────────────┐
+│  Sandboxed   │
+│  iframe      │
+│  (MCP Apps)  │
+└──────────────┘
 ```
 
 ```
 packages/
   shared/    ← Zod schemas + derived TypeScript types (single source of truth)
   server/    ← Express API, MCP client engine, security analyzers
-  client/    ← React + Vite + Mantine UI + Tailwind CSS v4 + Framer Motion
+  client/
+    src/
+      views/         ← ConnectionView, ToolsView, SecurityView, McpAppsView
+      components/    ← IframePreview, MessageLog, ValidationPanel
+      utils/         ← parseToolArgs
+      services/      ← API client with Zod validation
 test/
   fixtures/  ← Deliberately poisoned MCP server for demo
 ```
@@ -40,45 +49,73 @@ test/
 ```bash
 # From the poc/ directory
 npm install
+
+# Start both backend + frontend (concurrently)
+npm run dev
 ```
 
-Start the backend and frontend in separate terminals:
+Or start separately:
 
 ```bash
 # Terminal 1 — API server (port 3001)
 npm run dev:server
 
-# Terminal 2 — React UI (port 3000)
+# Terminal 2 — React UI (port 5173)
 npm run dev:client
 ```
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:5173 in your browser.
 
 ## Demo Walkthrough
 
-### 1. Connect to the test server
+### 1. Connect to an MCP server
 
-The UI is pre-filled with the poisoned test fixture. Click **Connect** — this spawns the test MCP server as a child process and performs the full handshake.
+**stdio (local process):**
+- Command: `npx`, Args: `tsx test/fixtures/poisoned-server.ts`
 
-- **Command**: `npx`
-- **Args**: `tsx test/fixtures/poisoned-server.ts`
+**Streamable HTTP (remote server):**
+- URL: `http://localhost:3000/mcp` (or any MCP server URL)
 
-### 2. Explore tools
+### 2. Tool Explorer
 
-After connecting, switch to the **Tools** tab. You'll see 6 discovered tools. Click any tool to see its schema and invoke it with test arguments.
+Browse discovered tools, resources, and prompts. Click any tool to see its JSON Schema, fill parameters, and invoke it. Response shows status, latency, and formatted JSON output.
 
-### 3. Run a security scan
+### 3. Security Scan
 
-Switch to the **Security** tab and click **Run Scan**. The Tool Poisoning Detector analyzes all tool descriptions and returns findings:
+Run the Tool Poisoning Detector against all discovered tools. Results include a security score (0-100), severity breakdown, and expandable findings with evidence and remediation guidance.
 
-| Tool | Findings |
-|------|----------|
-| `get_weather` | Clean — no findings |
-| `search_notes` | Instruction injection, secrecy language, cross-tool reference |
-| `send_analytics` | Data exfiltration URL, cross-tool reference, scope escalation |
-| `get_forecast` | Scope escalation (weather tool asking for API keys) |
-| `translate_text` | Unicode zero-width character obfuscation |
-| `summarize_document` | Excessive description length hiding malicious instructions |
+### 4. MCP Apps Tester
+
+Test MCP servers that implement the [MCP Apps extension](https://modelcontextprotocol.io). The view has three panels:
+
+| Panel | Purpose |
+|-------|---------|
+| **Explorer sidebar** | Lists UI Tools (with `_meta.ui.resourceUri` + model visibility) and Standard Tools. App-only tools (visibility: `["app"]`) are hidden — they're called by iframes internally |
+| **Center workspace** | Sandboxed iframe rendering `ui://` resources, plus tool invocation panel |
+| **Right panel** | Live JSON-RPC message log + App API validation checklist |
+
+**Features:**
+- Detects UI tools via `_meta.ui.resourceUri` annotations from `tools/list`
+- Filters by `visibility` — only `"model"` visible tools shown in sidebar
+- Falls back to resource URI detection (`ui://` prefix, HTML mimeType) for servers without annotations
+- Clicking a UI tool auto-loads its resource in the iframe
+- UI tools with input parameters are auto-invoked with data from previous steps (chaining)
+- `structuredContent` from tool responses is captured and delivered to iframes
+- Iframe-initiated `tools/call` requests require user approval before execution
+- `ui/update-model-context` requests are acknowledged
+- `ui/download-file` requests trigger browser downloads (for sandboxed PDFs, etc.)
+- Data persists across iframe switches — visualization and PDF views receive the same data
+
+**App API Validation Checks:**
+
+| Check | What it validates |
+|-------|-------------------|
+| Iframe sandbox enforced | `allow-scripts` enabled, `allow-same-origin` blocked |
+| UI resource loaded | HTML content fetched from `ui://` resource and rendered |
+| Tool result delivered to UI | Host sends `ui/notifications/tool-input` to iframe |
+| UI-initiated tool call | Iframe sends `tools/call` request via postMessage |
+| Tool call approval | Host shows approval dialog before executing iframe tool calls |
+| Model context update | Iframe sends `ui/update-model-context` to host |
 
 ## Detection Rules
 
@@ -100,16 +137,18 @@ Switch to the **Security** tab and click **Run Scan**. The Tool Poisoning Detect
 - **Runtime**: TypeScript end-to-end, npm workspaces monorepo
 - **Shared**: Zod schemas as single source of truth, types derived via `z.infer`
 - **Backend**: Express, WebSocket (`ws`), `@modelcontextprotocol/sdk`
-- **Frontend**: React, Vite, Mantine UI (light theme, `primaryColor: cyan`), Tailwind CSS v4, Framer Motion
+- **Frontend**: React 19, Vite, Mantine UI (light theme), Tailwind CSS v4, Framer Motion, Lucide icons
 - **Validation**: Zod on all 4 layers (shared → server → engine → client)
+- **Transports**: stdio (local process) + Streamable HTTP (remote server)
 
 ## API Endpoints
 
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/api/connect` | Connect to an MCP server |
+| POST | `/api/connect` | Connect to an MCP server (stdio or Streamable HTTP) |
 | POST | `/api/disconnect` | Disconnect from current server |
-| GET | `/api/capabilities` | Get discovered tools/resources/prompts |
-| POST | `/api/invoke` | Invoke a tool with arguments |
+| GET | `/api/capabilities` | Get discovered tools/resources/prompts (includes `_meta` annotations) |
+| POST | `/api/invoke` | Invoke a tool with arguments (returns `structuredContent`) |
+| POST | `/api/resources/read` | Read a resource by URI |
 | POST | `/api/security/scan` | Run tool poisoning scan |
 | GET | `/api/status` | Connection status |
