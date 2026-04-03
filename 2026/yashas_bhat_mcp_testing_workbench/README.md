@@ -211,7 +211,7 @@ flowchart LR
 
 ### Frontend
 
-Location: [frontend](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/frontend)
+Location: [frontend](./frontend)
 
 Responsibilities:
 
@@ -223,7 +223,7 @@ Responsibilities:
 
 ### Runner
 
-Location: [runner](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/runner)
+Location: [runner](./runner)
 
 Responsibilities:
 
@@ -236,10 +236,10 @@ Responsibilities:
 
 Key parts:
 
-- [runner/src/client/mcp-http-client.ts](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/runner/src/client/mcp-http-client.ts)
-- [runner/src/runner/scenario-runner.ts](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/runner/src/runner/scenario-runner.ts)
-- [runner/src/apps-harness/mcp-apps-harness.ts](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/runner/src/apps-harness/mcp-apps-harness.ts)
-- [runner/src/server/app.ts](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/runner/src/server/app.ts)
+- [runner/src/client/mcp-http-client.ts](./runner/src/client/mcp-http-client.ts)
+- [runner/src/runner/scenario-runner.ts](./runner/src/runner/scenario-runner.ts)
+- [runner/src/apps-harness/mcp-apps-harness.ts](./runner/src/apps-harness/mcp-apps-harness.ts)
+- [runner/src/server/app.ts](./runner/src/server/app.ts)
 
 ```mermaid
 sequenceDiagram
@@ -267,7 +267,7 @@ sequenceDiagram
 
 ### Storage
 
-Saved artifacts go under [traces](/Users/yashasbhat/Documents/gsoc/gsoc-poc/2026/yashas_bhat_mcp_testing_workbench/traces).
+Saved artifacts go under [traces](./traces).
 
 This includes:
 
