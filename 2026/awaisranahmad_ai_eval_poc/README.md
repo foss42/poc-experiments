@@ -1,6 +1,8 @@
 # AI Model Evaluation Framework — MCP Apps PoC
 
-**Author:** Rana Awais Ahmad | **GSoC 2026** | API Dash  
+**Author:** Rana Awais Ahmad 
+**GSoC 2026**  API Dash  
+
 **Proposal:** End-to-End Multimodal AI & Agent Evaluation Framework
 
 ---
@@ -15,12 +17,19 @@ Just as the Sales Analytics chatflow lets users select regions/metrics via inter
 
 ## Architecture
 User (VS Code Agent Chat)
+
 ↓  "get eval config"
+
 AI Agent (GitHub Copilot / GPT-4.1)
+
 ↓  calls MCP tool
+
 ai-eval-poc MCP Server (Node.js / TypeScript)
+
 ├── select-eval-config  → Opens eval config UI panel
+
 ├── get-eval-data       → Fetches benchmark results
+
 └── show-eval-report    → Displays results table
 
 
@@ -78,16 +87,27 @@ VS Code Insiders Agent mode with `ai-eval-poc` MCP Server connected. Terminal sh
 ## Project Structure
 
 awaisranahmad_ai_eval_poc/
+
 ├── src/
+
 │   ├── index.ts           ← MCP server — 3 tools registered
+
 │   └── ui/
+
 │       ├── eval-form.ts   ← Eval config selector widget HTML
+
 │       └── eval-report.ts ← Results viewer widget HTML
+
 ├── .vscode/
+
 │   └── mcp.json           ← VS Code MCP server config
+
 ├── dist/                  ← Compiled JS (after npm run build)
+
 ├── package.json
+
 ├── tsconfig.json
+
 └── README.md
 
 ---
