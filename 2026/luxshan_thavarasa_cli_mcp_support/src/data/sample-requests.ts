@@ -68,7 +68,3 @@ export const SAMPLE_REQUESTS: SampleRequest[] = [
     queryParams: { text: "Hello World" },
   },
 ];
-
-export function getSampleRequestByName(name: string): SampleRequest | undefined {
-  return SAMPLE_REQUESTS.find((r) => r.name === name);
-}

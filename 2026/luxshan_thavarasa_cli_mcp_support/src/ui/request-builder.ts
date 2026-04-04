@@ -229,10 +229,9 @@ export function requestBuilderUI(): string {
         });
         setStatus('success', 'Request completed — check the response viewer');
 
-        // Update model context with the request data
-        sendNotification('ui/notifications/update-model-context', {
+        sendRequest('ui/update-model-context', {
           structuredContent: { request: args, response: result }
-        });
+        }).catch(function() {});
       } catch (err) {
         setStatus('error', 'Error: ' + (err.message || JSON.stringify(err)));
       } finally {
