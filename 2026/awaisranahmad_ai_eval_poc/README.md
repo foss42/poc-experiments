@@ -1,131 +1,142 @@
-# AI Model Evaluation Framework — MCP Apps PoC
 
+#  AI Model Evaluation Framework — MCP Apps PoC
 
-**GSoC 2026 Proof of Concept**
+### GSoC 2026 Proof of Concept
 
-**Student:** Rana Awais Ahmad
-
-**Project:** End-to-End Multimodal AI & Agent Evaluation Framework
-
-**Mentor:** @animator
+**Student:** Rana Awais Ahmad  
+**Project:** End-to-End Multimodal AI & Agent Evaluation Framework  
+**Mentor:** @animator  
 
 ---
 
-## Overview
+##  Overview
 
-This PoC demonstrates how an **AI Evaluation UI** can be built using the **MCP Apps chatflow** architecture — the same pattern used in the [sample-mcp-apps-chatflow](https://github.com/ashitaprasad/sample-mcp-apps-chatflow) reference project.
+ A working MCP Apps-based AI Evaluation system running inside an AI agent (VS Code Copilot).
 
-Instead of a sales analytics workflow, this PoC adapts the MCP Apps pattern to serve an **AI model benchmarking use case** — where users can select models, datasets, and metrics, trigger evaluations, and view results — all from inside an AI Agent chat window (VS Code Insiders + GitHub Copilot).
+This PoC demonstrates how an **AI Evaluation UI can be built using MCP Apps chatflow architecture** — adapted from the reference project.
 
-This directly addresses the mentor's requirement:
+Instead of a sales analytics workflow, this PoC transforms the MCP pattern into an **AI benchmarking system**, where users can:
 
-> *"Explore if AI evaluation UI can be built using MCP Apps to make it easy for end users to run evals from inside AI agents."*
-
----
-<img width="1499" height="890" alt="Screenshot 2026-04-04 092249" src="https://github.com/user-attachments/assets/bde1579a-4c74-49a3-b0c8-c46aff44c02a" />
-
-## Demo
-
-### 1. Agent retrieves eval config via MCP tool
-
-User types `get eval config` → Agent calls `select-eval-config` tool → returns available models, datasets, and metrics from the MCP server.
-
-
+- Select models, datasets, and metrics  
+- Run evaluations  
+- View results inside an AI agent  
 
 ---
 
-### 2. Agent fetches evaluation data & MCP server runs
+##  MCP Requirement Validation
 
-Agent calls `get-eval-data` tool with selected parameters → MCP server (`ai-eval-poc`) runs evaluation → results returned to agent context. Terminal confirms server is running with **3 tools discovered**.
+This PoC explicitly fulfills the mentor requirement:
 
-<img width="1882" height="912" alt="Screenshot 2026-04-04 094021" src="https://github.com/user-attachments/assets/a83cb77c-9f69-46cc-bc76-4e03e42f3fa1" />
+> "Explore if AI evaluation UI can be built using MCP Apps to make it easy for end users to run evals from inside AI agents."
 
+### ✔ What has been demonstrated:
+- Evaluation UI rendered inside an AI agent (VS Code Copilot)
+- MCP tools controlling the full evaluation workflow
+- User interaction via chat (agent-driven execution)
+- Structured evaluation results displayed inside agent
 
----
-
-### 3. Agent displays evaluation report
-
-Agent calls `show-eval-report` tool → returns benchmark results table with Accuracy, Latency, Cost, and F1 Score for each model.
-
-<img width="1065" height="899" alt="image" src="https://github.com/user-attachments/assets/db32164a-675f-4c36-977f-4a316c13029f" />
-
+ This confirms that **MCP Apps can power AI evaluation workflows inside agent environments.**
 
 ---
 
-## Architecture
+##  Key Innovation
+
+This PoC extends the MCP Apps pattern from:
+
+- Sales Analytics → **AI Model Evaluation Framework**
+
+It proves MCP Apps can support:
+
+- AI benchmarking workflows  
+- Agent-driven evaluation pipelines  
+- Interactive evaluation UI inside chat  
+
+---
+
+##  Demo Flow
+
+1. `get eval config`  
+   → Opens evaluation UI via MCP tool  
+
+2. `get-eval-data`  
+   → Runs evaluation on MCP server  
+
+3. `show-eval-report`  
+   → Displays benchmark results  
+
+---
+
+##  Architecture
 
 ```
+
 User (VS Code Chat)
-        │
-        ▼
-  AI Agent (Copilot)
-        │  calls MCP tools
-        ▼
-  MCP Server (ai-eval-poc)
-  ┌─────────────────────────────────┐
-  │  Tool 1: select-eval-config     │  ← Shows available models/datasets/metrics
-  │  Tool 2: get-eval-data          │  ← Fetches benchmark results (internal)
-  │  Tool 3: show-eval-report       │  ← Returns results table to agent
-  └─────────────────────────────────┘
-        │
-        ▼
-  UI Resources (HTML widgets)
-  ┌─────────────────────────────────┐
-  │  eval-form.ts   → eval-form     │  ← Interactive config selector
-  │  eval-report.ts → eval-report   │  ← Results viewer
-  └─────────────────────────────────┘
-```
+│
+▼
+AI Agent (Copilot)
+│  calls MCP tools
+▼
+MCP Server (ai-eval-poc)
+┌─────────────────────────────────┐
+│  Tool 1: select-eval-config     │
+│  Tool 2: get-eval-data          │
+│  Tool 3: show-eval-report       │
+└─────────────────────────────────┘
+│
+▼
+UI Resources (HTML widgets)
 
-**Pattern adopted from:** [sample-mcp-apps-chatflow](https://github.com/ashitaprasad/sample-mcp-apps-chatflow)
-- `select-sales-metric` → `select-eval-config`
-- `get-sales-data` → `get-eval-data`
-- `show-sales-pdf-report` → `show-eval-report`
-
----
-
-## Project Structure
-
-```
-awaisranahmad_ai_eval_poc/
-├── src/
-│   ├── index.ts              ← MCP server — tool & resource registration
-│   └── ui/
-│       ├── eval-form.ts      ← Eval config selector widget (HTML)
-│       └── eval-report.ts    ← Benchmark results viewer (HTML)
-├── dist/                     ← Compiled JS (auto-generated)
-├── .vscode/
-│   └── mcp.json              ← VS Code MCP server config
-├── package.json
-├── tsconfig.json
-└── README.md
 ```
 
 ---
 
 ## MCP Tools
 
-| Tool | Description | Visibility |
-|------|-------------|------------|
-| `select-eval-config` | Opens evaluation configuration panel | Agent |
-| `get-eval-data` | Fetches benchmark data for selected models | Agent + App |
-| `show-eval-report` | Displays results table with all metrics | Agent |
-
-## Supported Options
-
-**Models:** GPT-4o, Claude Sonnet 4.5, Gemini 1.5 Pro, LLaMA 3 70B
-
-**Datasets:** MMLU, HellaSwag, GSM8K, HumanEval, TruthfulQA
-
-**Metrics:** Accuracy, Latency (s), Cost/Token, F1 Score
+| Tool | Description |
+|------|------------|
+| select-eval-config | Opens evaluation configuration UI |
+| get-eval-data | Fetches benchmark data |
+| show-eval-report | Displays evaluation results |
 
 ---
 
-## Setup & Run
+## ⚙️ Supported Options
+
+**Models:** GPT-4o, Claude Sonnet, Gemini 1.5 Pro, LLaMA 3 70B  
+**Datasets:** MMLU, HellaSwag, GSM8K, HumanEval, TruthfulQA  
+**Metrics:** Accuracy, Latency, Cost, F1 Score  
+
+---
+
+##  Project Structure
+
+```
+
+awaisranahmad_ai_eval_poc/
+├── src/
+│   ├── index.ts
+│   └── ui/
+│       ├── eval-form.ts
+│       └── eval-report.ts
+├── dist/
+├── .vscode/
+│   └── mcp.json
+├── package.json
+├── tsconfig.json
+└── README.md
+
+````
+
+---
+
+## ⚙️ Setup & Run
 
 ### Prerequisites
 - Node.js 18+
 - VS Code Insiders
-- GitHub Copilot (free plan works)
+- GitHub Copilot
+
+---
 
 ### Install & Build
 
@@ -134,11 +145,13 @@ git clone https://github.com/foss42/gsoc-poc
 cd 2026/awaisranahmad_ai_eval_poc
 npm install
 npm run build
-```
+````
 
-### Configure VS Code
+---
 
-`.vscode/mcp.json` is already included:
+### VS Code MCP Config
+
+`.vscode/mcp.json`:
 
 ```json
 {
@@ -152,47 +165,107 @@ npm run build
 }
 ```
 
-Open project in VS Code Insiders — the MCP server starts automatically.
+---
 
-### Test in Agent Chat
+### Run
 
-Open Copilot Chat → select **Agent** mode → try:
+Open project in VS Code Insiders → MCP server starts automatically
+
+---
+
+##  Test Commands
 
 ```
 get eval config
-```
-```
-call the tool get-eval-data with models gpt-4o and claude-3-5-sonnet, dataset mmlu, metrics accuracy and latency
-```
-```
+call the tool get-eval-data with models gpt-4o and claude-sonnet, dataset mmlu, metrics accuracy and latency
 call the tool show-eval-report
 ```
 
 ---
 
-## Connection to Proposed GSoC Project
+##  Connection to GSoC Proposal
 
-This PoC directly validates the core technical components of my GSoC proposal:
-
-| Proposal Component | PoC Validation |
-|---|---|
-| MCP Apps chatflow architecture | ✅ Implemented — 3 tools, 2 UI resources |
-| Multimodal eval UI inside AI agent | ✅ Runs inside VS Code Copilot Agent |
-| Structured data flow between tools | ✅ `get-eval-data` passes structured results to agent context |
-| Real-time metrics (Accuracy, Latency, Cost, F1) | ✅ All 4 metrics returned in benchmark table |
-| TypeScript MCP server | ✅ Built with `@modelcontextprotocol/sdk` |
-
-The full GSoC project would extend this with: Flutter UI, FastAPI backend, `lm-harness` integration, SSE streaming, and multi-modal support (Image/Audio/Text).
+| Proposal Component                    | PoC Validation |
+| ------------------------------------- | -------------- |
+| MCP Apps architecture                 | ✅ Implemented  |
+| Agent-based UI                        | ✅ Working      |
+| Evaluation workflow                   | ✅ Implemented  |
+| Metrics (Accuracy, Latency, Cost, F1) | ✅ Implemented  |
+| TypeScript MCP server                 | ✅ Implemented  |
 
 ---
 
-## References
+##  Future Work
 
-- [sample-mcp-apps-chatflow](https://github.com/ashitaprasad/sample-mcp-apps-chatflow) — Reference implementation by mentor
-- [How I built MCP Apps based Sales Analytics Agentic UI](https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i) — Article by @ashitaprasad
-- [MCP Apps Protocol](https://github.com/modelcontextprotocol/ext-apps) — Official spec
-- [GSoC 2026 Proposal](https://github.com/foss42/api-dash) — API Dash
+* FastAPI backend for real evaluation jobs
+* Flutter UI integration
+* SSE real-time streaming
+* Multimodal inputs (Image, Audio, Text)
 
 ---
 
-*Built by Rana Awais Ahmad — GSoC 2026 applicant for API Dash (foss42)*
+##  References
+
+* sample-mcp-apps-chatflow
+* MCP Apps Protocol
+* API Dash GSoC Proposal
+
+---
+
+**Built by Rana Awais Ahmad — GSoC 2026 Applicant**
+
+````
+
+---
+
+#  **PR DESCRIPTION (COPY–PASTE)**
+
+```md
+##  AI Evaluation Framework — MCP Apps PoC
+
+This PR adds a Proof of Concept demonstrating how MCP Apps can be used to build an AI model evaluation system inside an AI agent.
+
+### ✅ Key Features
+
+- MCP-based agent workflow
+- AI evaluation UI inside VS Code Copilot
+- Tool-based architecture:
+  - select-eval-config
+  - get-eval-data
+  - show-eval-report
+- Benchmark metrics: Accuracy, Latency, Cost, F1 Score
+
+### 🎯 Mentor Requirement Covered
+
+This PoC directly addresses:
+
+> "Explore if AI evaluation UI can be built using MCP Apps..."
+
+✔ Evaluation UI inside agent  
+✔ MCP tool orchestration  
+✔ End-to-end evaluation workflow  
+
+### 🔥 Innovation
+
+- Extends MCP Apps beyond dashboards into AI evaluation
+- Demonstrates agent-driven evaluation pipelines
+- Shows feasibility of integrating evaluation systems into AI agents
+
+### 🧪 How to Test
+
+1. Open in VS Code Insiders  
+2. Start MCP server (auto)  
+3. Use Copilot Agent mode  
+4. Run:
+
+````
+
+get eval config
+get-eval-data
+show-eval-report
+
+```
+
+---
+
+
