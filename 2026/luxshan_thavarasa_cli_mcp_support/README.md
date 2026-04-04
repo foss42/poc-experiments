@@ -4,6 +4,27 @@
 
 A TypeScript MCP server that exposes API Dash's core features as interactive **MCP Apps** — rich HTML UIs rendered inside AI chat clients like Claude Desktop.
 
+## Demo
+
+MCP Apps rendering inside Claude Desktop:
+
+<table>
+  <tr>
+    <td align="center"><b>Request Builder</b></td>
+    <td align="center"><b>Response Viewer</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/request-builder.png" width="450" alt="Request Builder — interactive form with method, URL, params, headers, body tabs" /></td>
+    <td><img src="screenshots/response-viewer.png" width="450" alt="Response Viewer — status badge, timing, JSON body, headers table" /></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><b>Code Generator</b></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"><img src="screenshots/code-generator.png" width="450" alt="Code Generator — tabbed snippets in cURL, Python, JavaScript, Dart, Go" /></td>
+  </tr>
+</table>
+
 ## Architecture
 
 ```mermaid
