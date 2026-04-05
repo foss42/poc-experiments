@@ -6,6 +6,7 @@ class ModelConfig {
   final double temperature;
   final int maxTokens;
   final String baseUrl;
+  final bool supportsVision;
   final String createdAt;
 
   ModelConfig({
@@ -16,6 +17,7 @@ class ModelConfig {
     required this.temperature,
     required this.maxTokens,
     required this.baseUrl,
+    required this.supportsVision,
     required this.createdAt,
   });
 
@@ -28,6 +30,7 @@ class ModelConfig {
       temperature: (json['temperature'] ?? 0.7).toDouble(),
       maxTokens: json['max_tokens'] ?? 256,
       baseUrl: json['base_url'] ?? '',
+      supportsVision: json['supports_vision'] ?? false,
       createdAt: json['created_at'] ?? '',
     );
   }

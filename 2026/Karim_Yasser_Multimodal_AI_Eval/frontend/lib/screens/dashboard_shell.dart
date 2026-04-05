@@ -6,6 +6,7 @@ import 'dataset_screen.dart';
 import 'model_config_screen.dart';
 import 'evaluation_screen.dart';
 import 'results_screen.dart';
+import 'benchmark_screen.dart';
 
 class DashboardShell extends ConsumerWidget {
   const DashboardShell({super.key});
@@ -15,6 +16,7 @@ class DashboardShell extends ConsumerWidget {
     ModelConfigScreen(),
     EvaluationScreen(),
     ResultsScreen(),
+    BenchmarkScreen(),
   ];
 
   static const _navItems = <NavigationRailDestination>[
@@ -37,6 +39,11 @@ class DashboardShell extends ConsumerWidget {
       icon: Icon(Icons.analytics_outlined),
       selectedIcon: Icon(Icons.analytics),
       label: Text('Results'),
+    ),
+    NavigationRailDestination(
+      icon: Icon(Icons.leaderboard_outlined),
+      selectedIcon: Icon(Icons.leaderboard),
+      label: Text('Benchmarks'),
     ),
   ];
 
@@ -170,6 +177,7 @@ class DashboardShell extends ConsumerWidget {
                                 ref.invalidate(datasetsProvider);
                                 ref.invalidate(modelConfigsProvider);
                                 ref.invalidate(evaluationsProvider);
+                                ref.invalidate(benchmarkRunsProvider);
                                 ref.read(selectedNavIndexProvider.notifier).select(0);
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(

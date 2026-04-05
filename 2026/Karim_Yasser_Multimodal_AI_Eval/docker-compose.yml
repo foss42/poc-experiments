@@ -15,6 +15,7 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONUNBUFFERED=1
+      - HF_TOKEN=${HF_TOKEN:-}
 
   frontend:
     build:

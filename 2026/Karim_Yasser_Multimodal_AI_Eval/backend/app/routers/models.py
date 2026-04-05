@@ -25,6 +25,7 @@ async def create_model_config(
         temperature=config.temperature,
         max_tokens=config.max_tokens,
         base_url=config.base_url,
+        supports_vision=config.supports_vision,
     )
     db.add(model)
     await db.flush()
@@ -38,6 +39,7 @@ async def create_model_config(
         temperature=model.temperature,
         max_tokens=model.max_tokens,
         base_url=model.base_url,
+        supports_vision=model.supports_vision,
         created_at=model.created_at,
     )
 
@@ -56,6 +58,7 @@ async def list_model_configs(db: AsyncSession = Depends(get_db)):
             temperature=c.temperature,
             max_tokens=c.max_tokens,
             base_url=c.base_url,
+            supports_vision=c.supports_vision,
             created_at=c.created_at,
         )
         for c in configs
@@ -77,6 +80,7 @@ async def get_model_config(config_id: str, db: AsyncSession = Depends(get_db)):
         temperature=config.temperature,
         max_tokens=config.max_tokens,
         base_url=config.base_url,
+        supports_vision=config.supports_vision,
         created_at=config.created_at,
     )
 

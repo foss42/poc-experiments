@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/dataset.dart';
 import '../models/model_config.dart';
 import '../models/evaluation.dart';
+import '../models/benchmark.dart';
 import '../services/api_service.dart';
 
 // ─── API Service Singleton ─────────────────────────────────────────────
@@ -73,6 +74,50 @@ class EvaluationsNotifier extends AsyncNotifier<List<EvaluationRun>> {
   }
 }
 
+// ─── Benchmark Tasks (available) ───────────────────────────────────────
+
+final benchmarkTasksProvider =
+    AsyncNotifierProvider<BenchmarkTasksNotifier, List<AvailableTask>>(
+      BenchmarkTasksNotifier.new,
+    );
+
+class BenchmarkTasksNotifier extends AsyncNotifier<List<AvailableTask>> {
+  @override
+  Future<List<AvailableTask>> build() async {
+    final api = ref.read(apiServiceProvider);
+    return api.listBenchmarkTasks();
+  }
+
+  Future<void> refresh() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(
+      () => ref.read(apiServiceProvider).listBenchmarkTasks(),
+    );
+  }
+}
+
+// ─── Benchmark Runs ────────────────────────────────────────────────────
+
+final benchmarkRunsProvider =
+    AsyncNotifierProvider<BenchmarkRunsNotifier, List<BenchmarkRun>>(
+      BenchmarkRunsNotifier.new,
+    );
+
+class BenchmarkRunsNotifier extends AsyncNotifier<List<BenchmarkRun>> {
+  @override
+  Future<List<BenchmarkRun>> build() async {
+    final api = ref.read(apiServiceProvider);
+    return api.listBenchmarks();
+  }
+
+  Future<void> refresh() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(
+      () => ref.read(apiServiceProvider).listBenchmarks(),
+    );
+  }
+}
+
 // ─── Selected nav index ────────────────────────────────────────────────
 
 final selectedNavIndexProvider =
@@ -88,3 +133,4 @@ class SelectedNavIndexNotifier extends Notifier<int> {
     state = index;
   }
 }
+

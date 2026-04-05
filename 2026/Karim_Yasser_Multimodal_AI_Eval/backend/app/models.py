@@ -2,7 +2,7 @@
 
 import uuid
 from datetime import datetime, timezone
-from sqlalchemy import Column, String, Integer, Float, Text, ForeignKey
+from sqlalchemy import Column, String, Integer, Float, Text, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from app.database import Base
 
@@ -39,9 +39,11 @@ class ModelConfig(Base):
     temperature = Column(Float, default=0.7)
     max_tokens = Column(Integer, default=256)
     base_url = Column(String, default="https://api.openai.com/v1")
+    supports_vision = Column(Boolean, default=False)
     created_at = Column(String, default=utcnow_iso)
 
     evaluation_runs = relationship("EvaluationRun", back_populates="model_config")
+    benchmark_runs = relationship("BenchmarkRun", back_populates="model_config")
 
 
 class EvaluationRun(Base):
@@ -84,3 +86,49 @@ class EvaluationResult(Base):
     created_at = Column(String, default=utcnow_iso)
 
     run = relationship("EvaluationRun", back_populates="results")
+
+
+class BenchmarkRun(Base):
+    """A run of standardised benchmarks via LM Evaluation Harness."""
+    __tablename__ = "benchmark_runs"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    model_config_id = Column(String, ForeignKey("model_configs.id"), nullable=False)
+    model_type = Column(String, default="local-chat-completions")
+    tasks = Column(Text, nullable=False)           # JSON list of task names
+    status = Column(String, default="pending")     # pending, running, completed, failed
+    limit = Column(Integer, nullable=True)         # sample limit per task
+    num_fewshot = Column(Integer, nullable=True)
+    apply_chat_template = Column(Boolean, default=True)
+    fewshot_as_multiturn = Column(Boolean, default=True)
+    results_json = Column(Text, nullable=True)     # full lm_eval results dict as JSON
+    error_message = Column(Text, nullable=True)
+    created_at = Column(String, default=utcnow_iso)
+    completed_at = Column(String, nullable=True)
+
+    model_config = relationship("ModelConfig", back_populates="benchmark_runs")
+    task_results = relationship("BenchmarkTaskResult", back_populates="run", cascade="all, delete-orphan")
+
+
+class BenchmarkTaskResult(Base):
+    """Per-task metric result from a benchmark run."""
+    __tablename__ = "benchmark_task_results"
+
+    id = Column(String, primary_key=True, default=generate_uuid)
+    run_id = Column(String, ForeignKey("benchmark_runs.id"), nullable=False)
+    task_name = Column(String, nullable=False)
+    metric_name = Column(String, nullable=False)     # acc, acc_norm, exact_match, etc.
+    metric_value = Column(Float, default=0.0)
+    stderr = Column(Float, nullable=True)
+    is_multimodal = Column(Boolean, default=False)
+    created_at = Column(String, default=utcnow_iso)
+
+    run = relationship("BenchmarkRun", back_populates="task_results")
+
+
+class Setting(Base):
+    """Simple key-value settings store."""
+    __tablename__ = "settings"
+
+    key = Column(String, primary_key=True)
+    value = Column(Text, default="")

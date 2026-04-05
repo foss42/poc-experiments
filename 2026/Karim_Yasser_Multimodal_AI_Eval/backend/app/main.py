@@ -6,14 +6,27 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.schemas import HealthResponse
-from app.routers import datasets, models, evaluations
+from app.routers import datasets, models, evaluations, benchmarks, settings
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application startup/shutdown lifecycle."""
     await init_db()
+    # Load persisted HF token into environment on startup
+    await _load_hf_token()
     yield
+
+
+async def _load_hf_token():
+    """Read hf_token from settings DB and set os.environ."""
+    import os
+    from app.database import async_session
+    from app.models import Setting
+    async with async_session() as session:
+        setting = await session.get(Setting, "hf_token")
+        if setting and setting.value:
+            os.environ["HF_TOKEN"] = setting.value
 
 
 app = FastAPI(
@@ -36,6 +49,8 @@ app.add_middleware(
 app.include_router(datasets.router)
 app.include_router(models.router)
 app.include_router(evaluations.router)
+app.include_router(benchmarks.router)
+app.include_router(settings.router)
 
 
 @app.get("/api/health", response_model=HealthResponse, tags=["health"])

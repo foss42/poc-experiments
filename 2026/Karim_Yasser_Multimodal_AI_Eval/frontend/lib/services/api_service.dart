@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import '../models/dataset.dart';
 import '../models/model_config.dart';
 import '../models/evaluation.dart';
+import '../models/benchmark.dart';
 
 class ApiService {
   static const String baseUrl = 'http://127.0.0.1:8000/api';
@@ -65,6 +66,7 @@ class ApiService {
     double temperature = 0.7,
     int maxTokens = 256,
     String baseUrl = 'https://api.openai.com/v1',
+    bool supportsVision = false,
   }) async {
     final response = await _dio.post(
       '/models',
@@ -76,6 +78,7 @@ class ApiService {
         'temperature': temperature,
         'max_tokens': maxTokens,
         'base_url': baseUrl,
+        'supports_vision': supportsVision,
       },
     );
     return ModelConfig.fromJson(response.data);
@@ -155,9 +158,102 @@ class ApiService {
         .toList();
   }
 
+  // ─── Benchmarks ────────────────────────────────────────────────────
+
+  Future<List<AvailableTask>> listBenchmarkTasks() async {
+    final response = await _dio.get('/benchmarks/tasks');
+    return (response.data as List)
+        .map((e) => AvailableTask.fromJson(e))
+        .toList();
+  }
+
+  Future<BenchmarkRun> startBenchmark({
+    required String modelConfigId,
+    required List<String> tasks,
+    String modelType = 'local-chat-completions',
+    int? limit,
+    int? numFewshot,
+    bool applyChatTemplate = true,
+    bool fewshotAsMultiturn = true,
+  }) async {
+    final response = await _dio.post(
+      '/benchmarks',
+      data: {
+        'model_config_id': modelConfigId,
+        'model_type': modelType,
+        'tasks': tasks,
+        if (limit != null) 'limit': limit,
+        if (numFewshot != null) 'num_fewshot': numFewshot,
+        'apply_chat_template': applyChatTemplate,
+        'fewshot_as_multiturn': fewshotAsMultiturn,
+      },
+    );
+    return BenchmarkRun.fromJson(response.data);
+  }
+
+  Future<List<BenchmarkRun>> listBenchmarks() async {
+    final response = await _dio.get('/benchmarks');
+    return (response.data as List)
+        .map((e) => BenchmarkRun.fromJson(e))
+        .toList();
+  }
+
+  Stream<BenchmarkRun> streamBenchmark(String runId) async* {
+      final response = await _dio.get<ResponseBody>(
+        '/benchmarks/$runId/stream',
+        options: Options(
+          responseType: ResponseType.stream,
+          receiveTimeout: const Duration(minutes: 30),
+          headers: {
+            'Accept': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+          },
+        ),
+      );
+
+      final stream = response.data!.stream
+          .cast<List<int>>()
+          .transform(utf8.decoder)
+          .transform(const LineSplitter());
+
+      await for (final line in stream) {
+        if (line.startsWith('data: ')) {
+          final jsonStr = line.substring(6).trim();
+          if (jsonStr.isEmpty) continue;
+
+          try {
+            final data = jsonDecode(jsonStr);
+          if (data.containsKey('error')) continue;
+            yield BenchmarkRun.fromJson(data);
+          } catch (e) {
+          // Silent catch
+        }
+      }
+    }
+  }
+
+  Future<List<BenchmarkTaskResult>> getBenchmarkResults(String runId) async {
+    final response = await _dio.get('/benchmarks/$runId/results');
+    return (response.data as List)
+        .map((e) => BenchmarkTaskResult.fromJson(e))
+        .toList();
+  }
+
   // ─── Admin ─────────────────────────────────────────────────────────
 
   Future<void> resetData() async {
     await _dio.post('/reset');
   }
+
+  // ─── Settings ───────────────────────────────────────────────────────
+
+  Future<String> getSetting(String key) async {
+    final response = await _dio.get('/settings/$key');
+    return response.data['value'] as String? ?? '';
+  }
+
+  Future<void> setSetting(String key, String value) async {
+    await _dio.put('/settings/$key', data: {'value': value});
+  }
 }
+
