@@ -3,6 +3,9 @@
 ## Name
 Nitin Rathore
 
+## Screenshot
+<img width="1920" height="897" alt="screenshot" src="https://github.com/user-attachments/assets/993df4ac-ea4e-42aa-a0d4-4d6aa96190ef" />
+
 ## Repository
 https://github.com/tech-nitin/ai-model-playground
 
