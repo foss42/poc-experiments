@@ -17,7 +17,9 @@ interface CliOptions {
   transport: "stdio" | "http";
   server?: string;
   url?: string;
-  suite: "all" | "core" | "mcp-apps";
+  suite: "all" | "core" | "mcp-apps" | "mcp-apps-host";
+  viewer?: boolean;
+  viewerPort?: number;
 }
 
 function parseArgs(): CliOptions {
@@ -36,7 +38,13 @@ function parseArgs(): CliOptions {
         options.url = args[++i];
         break;
       case "--suite":
-        options.suite = args[++i] as "all" | "core" | "mcp-apps";
+        options.suite = args[++i] as "all" | "core" | "mcp-apps" | "mcp-apps-host";
+        break;
+      case "--viewer":
+        options.viewer = true;
+        break;
+      case "--viewer-port":
+        options.viewerPort = parseInt(args[++i], 10);
         break;
     }
   }
@@ -50,7 +58,7 @@ function parseArgs(): CliOptions {
       `  --transport stdio|http   Transport type (default: stdio)\n` +
       `  --server <command>       Server command (stdio transport)\n` +
       `  --url <url>              Server URL (http transport)\n` +
-      `  --suite all|core|mcp-apps  Test suite to run (default: all)`
+      `  --suite all|core|mcp-apps|mcp-apps-host  Test suite (default: all)`
     );
     process.exit(1);
   }
@@ -106,11 +114,29 @@ async function main(): Promise<void> {
   const options = parseArgs();
 
   const target = options.transport === "http" ? options.url! : options.server!;
-  console.log(`${CYAN}${BOLD}mcp-conformance${RESET} ${DIM}v0.3.0${RESET}`);
+  console.log(`${CYAN}${BOLD}mcp-conformance${RESET} ${DIM}v0.4.0${RESET}`);
   console.log(`${DIM}Transport: ${options.transport} | Target: ${target}${RESET}`);
   console.log(`${DIM}Suite: ${options.suite}${RESET}`);
 
   const transport = createTransport(options);
+
+  // ── Viewer mode: start interactive viewer instead of running tests ──
+  if (options.viewer) {
+    try {
+      const { startViewer } = await import("./viewer/server.js");
+      await startViewer(transport, target, options.viewerPort || 8080);
+      return; // Server runs indefinitely
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (msg.includes("express") || msg.includes("Cannot find module")) {
+        console.error(`${RED}Error: express not installed. Run: npm install express${RESET}`);
+      } else {
+        console.error(`${RED}Viewer error: ${msg}${RESET}`);
+      }
+      process.exitCode = 1;
+      return;
+    }
+  }
 
   try {
     await transport.connect();
@@ -128,6 +154,22 @@ async function main(): Promise<void> {
       console.log(`\n${YELLOW}▸ Running MCP Apps suite${RESET}`);
       const appsResults = await runMcpAppsSuite(client);
       results.push(...appsResults);
+    }
+
+    if (options.suite === "all" || options.suite === "mcp-apps-host") {
+      console.log(`\n${YELLOW}▸ Running MCP Apps Host suite (Playwright)${RESET}`);
+      try {
+        const { runMcpAppsHostSuite } = await import("./suite-mcp-apps-host.js");
+        const hostResults = await runMcpAppsHostSuite(client);
+        results.push(...hostResults);
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : String(err);
+        if (msg.includes("playwright") || msg.includes("Cannot find module")) {
+          console.log(`  ${YELLOW}⚠ Skipped: playwright not installed. Run: npm install -D playwright && npx playwright install chromium${RESET}`);
+        } else {
+          throw err;
+        }
+      }
     }
 
     printResults(results);
