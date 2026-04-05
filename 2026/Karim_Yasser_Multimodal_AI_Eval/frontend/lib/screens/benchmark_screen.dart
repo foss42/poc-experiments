@@ -309,9 +309,9 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
                         loading: () => const LinearProgressIndicator(),
                         error: (e, _) => Text('Error: $e'),
                         data: (models) {
-                          final isHfRouter = _isHuggingFaceRouterModel(models);
+                          _isHuggingFaceRouterModel(models);
                           return DropdownButtonFormField<String>(
-                            value: _selectedModelId,
+                            initialValue: _selectedModelId,
                             decoration: const InputDecoration(
                               labelText: 'Model',
                               prefixIcon: Icon(Icons.smart_toy, size: 20),
@@ -386,7 +386,7 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
                           final isHfRouter = _isHuggingFaceRouterModel(models);
 
                           return DropdownButtonFormField<String>(
-                            value: _modelType,
+                            initialValue: _modelType,
                             decoration: const InputDecoration(
                               labelText: 'Backend',
                               prefixIcon: Icon(Icons.dns, size: 20),
