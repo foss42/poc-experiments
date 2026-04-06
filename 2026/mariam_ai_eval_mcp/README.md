@@ -9,7 +9,7 @@ Simple MCP server for running prompt-based evaluations against Claude and Gemini
   Your viewer does not support embedded video playback.
 </video>
 
-If the embedded player does not render in your viewer, open the file directly: [images/full-run.mp4](images/full-run.mp4)
+[images/full-run.mp4](images/full-run.mp4)
 
 ## Requirements
 
