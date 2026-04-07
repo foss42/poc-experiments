@@ -6,6 +6,18 @@ An MCP (Model Context Protocol) Apps server that delivers **agentic API testing*
 
 **Proposal PR:** [foss42/apidash#1468](https://github.com/foss42/apidash/pull/1468)
 
+## Demo
+
+| Step 1: Generate Test Plan (Multi-Agent Pipeline) | Step 2: Interactive Test Plan Viewer |
+|:---:|:---:|
+| ![Generate Test Plan](screenshots/generate-test-plan.png) | ![Test Plan Viewer](screenshots/test-plan-img.png) |
+| Agent runs Generator -> Critic -> Reducer pipeline via Kimi AI. Produces validated, minimal test plan with 5 focused test cases. | Interactive MCP App UI with checkboxes for each test. User reviews, toggles, and approves tests before execution. |
+
+| Step 3: Run Approved Tests | Step 4: Test Report Dashboard |
+|:---:|:---:|
+| ![Run Tests](screenshots/run-approved-tests.png) | ![Test Report](screenshots/show-test-report.png) |
+| Context runner executes approved tests with variable extraction/injection between steps. Results show pass/fail per test. | KPI dashboard with stats (5 total, 3 passed, 3 failed), response time bar chart, and per-test results list. |
+
 ## What This PoC Demonstrates
 
 1. **Multi-Agent Test Generation** -- LLM-powered Generator -> Critic -> Reducer pipeline produces validated, minimal test plans (not just hardcoded templates)
