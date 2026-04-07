@@ -30,7 +30,7 @@ Main tools:
 - `list-api-reviews`
 - `suggest-api-change`
 
-The UI is for picking inputs and the useful result goes back into chat context.
+The UI is for picking inputs and the useful result goes back into chat context. To test, you can just fork the repo, run the server and then use these commands in your copilot right way.
 
 Community persistence:
 
