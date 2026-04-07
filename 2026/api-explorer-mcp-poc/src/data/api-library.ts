@@ -1,520 +1,66 @@
-import { SourceInput } from "../core/types.js";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { APILibraryEntry, ApiReview } from "./catalogs.js";
 
-export interface APILibraryEntry {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  tags: string[];
-  rating: number;
-  source: SourceInput;
-  featured: boolean;
+export type { APILibraryEntry, ApiTemplate, ApiEndpointEntry, EndpointSearchResult, ApiReview } from "./catalogs.js";
+export { API_ENDPOINTS } from "./catalogs.js";
+
+interface ApiCommunityData {
+  reviews: ApiReview[];
+  ratingStats: { votes: number; total: number };
 }
 
-export interface ApiTemplate {
-  title: string;
-  description: string;
-  method: string;
-  path: string;
-  query?: Record<string, string | number | boolean>;
-  pathParams?: Record<string, string | number | boolean>;
-  body?: Record<string, unknown>;
+interface CommunityStoreData {
+  [apiId: string]: ApiCommunityData;
 }
 
-export interface ApiEndpointEntry {
-  id: string;
-  apiId: string;
-  name: string;
-  description: string;
-  category: string;
-  method: "get" | "post" | "put" | "patch" | "delete";
-  path: string;
-  tags: string[];
-  template: ApiTemplate;
+interface DatabaseSchema {
+  apis: APILibraryEntry[];
+  community: CommunityStoreData;
 }
 
-export interface EndpointSearchResult {
-  endpoint: ApiEndpointEntry;
-  api: APILibraryEntry;
-}
+const DATABASE_PATH = path.join(process.cwd(), "src", "data", "database.json");
 
-export const API_LIBRARY: APILibraryEntry[] = [
-  {
-    id: "petstore",
-    name: "Swagger Petstore",
-    description: "Sample pet store API for testing and learning OpenAPI",
-    category: "general",
-    tags: ["sample", "testing", "rest"],
-    rating: 4.5,
-    featured: true,
-    source: {
-      id: "petstore",
-      name: "Swagger Petstore",
-      type: "openapi_url",
-      location: "https://petstore3.swagger.io/api/v3/openapi.json",
-    },
-  },
-  {
-    id: "github-api",
-    name: "GitHub REST API",
-    description: "Powerful collaborative development platform",
-    category: "developer_tools",
-    tags: ["github", "rest", "vcs"],
-    rating: 4.8,
-    featured: true,
-    source: {
-      id: "github",
-      name: "GitHub API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/github/rest-api-description/main/openapi.json",
-    },
-  },
-  {
-    id: "stripe",
-    name: "Stripe API",
-    description: "Payment processing and money movement API",
-    category: "finance",
-    tags: ["payments", "stripe", "rest"],
-    rating: 4.9,
-    featured: true,
-    source: {
-      id: "stripe",
-      name: "Stripe API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/stripe/stripe-openapi/master/openapi/spec3.json",
-    },
-  },
-  {
-    id: "openweather",
-    name: "OpenWeather API",
-    description: "Weather data and forecasts for any location",
-    category: "weather",
-    tags: ["weather", "forecast", "rest"],
-    rating: 4.6,
-    featured: true,
-    source: {
-      id: "openweather",
-      name: "OpenWeather API",
-      type: "openapi_url",
-      location: "https://api.openapis.org/openapi.json",
-    },
-  },
-  {
-    id: "twilio",
-    name: "Twilio API",
-    description: "SMS, voice, video, and messaging platform",
-    category: "messaging",
-    tags: ["sms", "voice", "messaging"],
-    rating: 4.7,
-    featured: true,
-    source: {
-      id: "twilio",
-      name: "Twilio API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/twilio/twilio-oai/main/rest/twilio-rest.json",
-    },
-  },
-  {
-    id: "spotify",
-    name: "Spotify Web API",
-    description: "Access Spotify music catalog and user data",
-    category: "social",
-    tags: ["music", "streaming", "rest"],
-    rating: 4.7,
-    featured: false,
-    source: {
-      id: "spotify",
-      name: "Spotify API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/spotify.com/1.0.0/openapi.yaml",
-    },
-  },
-  {
-    id: "airtable",
-    name: "Airtable API",
-    description: "Create and collaborate on databases and spreadsheets",
-    category: "developer_tools",
-    tags: ["database", "spreadsheet", "rest"],
-    rating: 4.6,
-    featured: false,
-    source: {
-      id: "airtable",
-      name: "Airtable API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/Airtable/openapi/main/openapi.json",
-    },
-  },
-  {
-    id: "slack",
-    name: "Slack API",
-    description: "Build apps and integrate tools with Slack",
-    category: "messaging",
-    tags: ["slack", "messaging", "rest"],
-    rating: 4.8,
-    featured: false,
-    source: {
-      id: "slack",
-      name: "Slack API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/slackapi/slack-api-specs/master/web-api/slack_web_openapi_v2.json",
-    },
-  },
-  {
-    id: "graphql-swapi",
-    name: "Star Wars API (GraphQL)",
-    description: "GraphQL API for Star Wars data",
-    category: "general",
-    tags: ["graphql", "sample", "rest"],
-    rating: 4.3,
-    featured: false,
-    source: {
-      id: "swapi",
-      name: "Star Wars API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/swapi.dev/1.0/openapi.json",
-    },
-  },
-  {
-    id: "coindesk",
-    name: "CoinDesk Bitcoin API",
-    description: "Real-time Bitcoin and cryptocurrency price data",
-    category: "finance",
-    tags: ["crypto", "bitcoin", "rest"],
-    rating: 4.4,
-    featured: false,
-    source: {
-      id: "coindesk",
-      name: "CoinDesk API",
-      type: "openapi_url",
-      location: "https://raw.githubusercontent.com/APIs-guru/openapi-directory/master/APIs/coindesk.com/1.0.0/openapi.yaml",
-    },
-  },
-];
-
-export const API_ENDPOINTS: ApiEndpointEntry[] = [
-  {
-    id: "petstore-list-pets",
-    apiId: "petstore",
-    name: "List pets",
-    description: "Get all pets with optional limit.",
-    category: "general",
-    method: "get",
-    path: "/pet/findByStatus",
-    tags: ["pets", "listing"],
-    template: {
-      title: "Petstore list pets",
-      description: "List available pets with status filter.",
-      method: "GET",
-      path: "/pet/findByStatus",
-      query: { status: "available" },
-    },
-  },
-  {
-    id: "petstore-create-pet",
-    apiId: "petstore",
-    name: "Create pet",
-    description: "Create a new pet record.",
-    category: "general",
-    method: "post",
-    path: "/pet",
-    tags: ["pets", "create"],
-    template: {
-      title: "Petstore create pet",
-      description: "Create a pet with basic details.",
-      method: "POST",
-      path: "/pet",
-      body: {
-        id: 9001,
-        name: "Snowball",
-        status: "available",
-      },
-    },
-  },
-  {
-    id: "github-get-repo",
-    apiId: "github-api",
-    name: "Get repository",
-    description: "Get repository metadata.",
-    category: "developer_tools",
-    method: "get",
-    path: "/repos/{owner}/{repo}",
-    tags: ["repository", "metadata"],
-    template: {
-      title: "GitHub get repository",
-      description: "Fetch repository details by owner and name.",
-      method: "GET",
-      path: "/repos/{owner}/{repo}",
-      pathParams: {
-        owner: "microsoft",
-        repo: "vscode",
-      },
-    },
-  },
-  {
-    id: "github-list-issues",
-    apiId: "github-api",
-    name: "List repository issues",
-    description: "List open issues for a repository.",
-    category: "developer_tools",
-    method: "get",
-    path: "/repos/{owner}/{repo}/issues",
-    tags: ["issues", "triage"],
-    template: {
-      title: "GitHub list issues",
-      description: "List open issues sorted by newest.",
-      method: "GET",
-      path: "/repos/{owner}/{repo}/issues",
-      pathParams: {
-        owner: "microsoft",
-        repo: "vscode",
-      },
-      query: {
-        state: "open",
-        per_page: 20,
-      },
-    },
-  },
-  {
-    id: "stripe-create-payment-intent",
-    apiId: "stripe",
-    name: "Create payment intent",
-    description: "Create a payment intent.",
-    category: "finance",
-    method: "post",
-    path: "/v1/payment_intents",
-    tags: ["payments", "checkout"],
-    template: {
-      title: "Stripe create payment intent",
-      description: "Create a basic USD payment intent.",
-      method: "POST",
-      path: "/v1/payment_intents",
-      body: {
-        amount: 2500,
-        currency: "usd",
-        automatic_payment_methods: { enabled: true },
-      },
-    },
-  },
-  {
-    id: "stripe-list-customers",
-    apiId: "stripe",
-    name: "List customers",
-    description: "List customer records.",
-    category: "finance",
-    method: "get",
-    path: "/v1/customers",
-    tags: ["customers", "billing"],
-    template: {
-      title: "Stripe list customers",
-      description: "List recently created customers.",
-      method: "GET",
-      path: "/v1/customers",
-      query: {
-        limit: 10,
-      },
-    },
-  },
-  {
-    id: "openweather-current",
-    apiId: "openweather",
-    name: "Current weather",
-    description: "Get current weather by city.",
-    category: "weather",
-    method: "get",
-    path: "/data/2.5/weather",
-    tags: ["weather", "current"],
-    template: {
-      title: "OpenWeather current weather",
-      description: "Get weather for a city in metric units.",
-      method: "GET",
-      path: "/data/2.5/weather",
-      query: {
-        q: "Bengaluru",
-        units: "metric",
-      },
-    },
-  },
-  {
-    id: "openweather-forecast",
-    apiId: "openweather",
-    name: "5-day forecast",
-    description: "Get 5-day weather forecast.",
-    category: "weather",
-    method: "get",
-    path: "/data/2.5/forecast",
-    tags: ["weather", "forecast"],
-    template: {
-      title: "OpenWeather 5-day forecast",
-      description: "Forecast by city in metric units.",
-      method: "GET",
-      path: "/data/2.5/forecast",
-      query: {
-        q: "Bengaluru",
-        units: "metric",
-        cnt: 8,
-      },
-    },
-  },
-  {
-    id: "twilio-send-sms",
-    apiId: "twilio",
-    name: "Send SMS",
-    description: "Send an SMS message.",
-    category: "messaging",
-    method: "post",
-    path: "/2010-04-01/Accounts/{AccountSid}/Messages.json",
-    tags: ["sms", "messaging"],
-    template: {
-      title: "Twilio send SMS",
-      description: "Send a transactional SMS message.",
-      method: "POST",
-      path: "/2010-04-01/Accounts/{AccountSid}/Messages.json",
-      pathParams: {
-        AccountSid: "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      },
-      body: {
-        From: "+14155550123",
-        To: "+14155559876",
-        Body: "Your code is 123456",
-      },
-    },
-  },
-  {
-    id: "twilio-list-messages",
-    apiId: "twilio",
-    name: "List messages",
-    description: "List recent SMS messages.",
-    category: "messaging",
-    method: "get",
-    path: "/2010-04-01/Accounts/{AccountSid}/Messages.json",
-    tags: ["sms", "history"],
-    template: {
-      title: "Twilio list messages",
-      description: "Get recent outbound and inbound messages.",
-      method: "GET",
-      path: "/2010-04-01/Accounts/{AccountSid}/Messages.json",
-      pathParams: {
-        AccountSid: "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      },
-      query: {
-        PageSize: 20,
-      },
-    },
-  },
-];
-
-export function searchAPIs(query: string, category?: string): APILibraryEntry[] {
-  let results = API_LIBRARY;
-
-  if (category) {
-    results = results.filter((api) => api.category === category);
+function loadDatabase(): DatabaseSchema {
+  if (!existsSync(DATABASE_PATH)) {
+    throw new Error(`Database file not found at ${DATABASE_PATH}`);
   }
 
-  if (query.trim()) {
-    const q = query.toLowerCase();
-    results = results.filter(
-      (api) =>
-        api.name.toLowerCase().includes(q) ||
-        api.description.toLowerCase().includes(q) ||
-        api.tags.some((tag) => tag.toLowerCase().includes(q)),
-    );
+  try {
+    const raw = readFileSync(DATABASE_PATH, "utf8");
+    const parsed = JSON.parse(raw) as DatabaseSchema;
+    return parsed;
+  } catch (error) {
+    throw new Error(`Failed to load database: ${error}`);
   }
-
-  return results.sort((a, b) => b.rating - a.rating);
 }
 
-export function getAPICategories(): string[] {
-  return Array.from(new Set(API_LIBRARY.map((api) => api.category))).sort();
+export function saveDatabase(db: DatabaseSchema): void {
+  writeFileSync(DATABASE_PATH, JSON.stringify(db, null, 2), "utf8");
 }
 
-export function getCategories(): string[] {
-  return getAPICategories();
-}
+const database = loadDatabase();
+export const API_LIBRARY: APILibraryEntry[] = database.apis;
+export const COMMUNITY_STORE: CommunityStoreData = database.community;
 
-export function getFeaturedAPIs(): APILibraryEntry[] {
-  return API_LIBRARY.filter((api) => api.featured).slice(0, 6);
-}
-
-export function browseAPIEndpoints(filters?: {
-  apiId?: string;
-  category?: string;
-  method?: ApiEndpointEntry["method"];
-}): EndpointSearchResult[] {
-  let endpoints = API_ENDPOINTS;
-
-  if (filters?.apiId) {
-    endpoints = endpoints.filter((endpoint) => endpoint.apiId === filters.apiId);
+// Update API ratings from persisted community data
+for (const api of API_LIBRARY) {
+  const apiData = COMMUNITY_STORE[api.id];
+  if (!apiData?.ratingStats || apiData.ratingStats.votes <= 0) {
+    continue;
   }
-
-  if (filters?.category) {
-    endpoints = endpoints.filter((endpoint) => endpoint.category === filters.category);
-  }
-
-  if (filters?.method) {
-    endpoints = endpoints.filter((endpoint) => endpoint.method === filters.method);
-  }
-
-  return endpoints
-    .map((endpoint) => {
-      const api = API_LIBRARY.find((item) => item.id === endpoint.apiId);
-      if (!api) {
-        return null;
-      }
-      return { endpoint, api };
-    })
-    .filter((item): item is EndpointSearchResult => item !== null)
-    .sort((a, b) => a.api.name.localeCompare(b.api.name));
+  api.rating = Number((apiData.ratingStats.total / apiData.ratingStats.votes).toFixed(2));
 }
 
-export function searchAPIEndpoints(
-  query: string,
-  filters?: {
-    apiId?: string;
-    category?: string;
-    method?: ApiEndpointEntry["method"];
-  },
-): EndpointSearchResult[] {
-  const normalized = query.trim().toLowerCase();
-  const browsed = browseAPIEndpoints(filters);
-
-  if (!normalized) {
-    return browsed;
+export function saveCommunityStore(store: CommunityStoreData): void {
+  // Ensure API_LIBRARY ratings are synced back to database
+  for (const api of API_LIBRARY) {
+    const idx = database.apis.findIndex((a) => a.id === api.id);
+    if (idx >= 0) {
+      database.apis[idx].rating = api.rating;
+    }
   }
-
-  return browsed.filter(({ endpoint, api }) => {
-    return (
-      endpoint.name.toLowerCase().includes(normalized) ||
-      endpoint.description.toLowerCase().includes(normalized) ||
-      endpoint.path.toLowerCase().includes(normalized) ||
-      endpoint.tags.some((tag) => tag.toLowerCase().includes(normalized)) ||
-      api.name.toLowerCase().includes(normalized)
-    );
-  });
+  database.community = store;
+  saveDatabase(database);
 }
 
-export function getAPISummaryList(): Array<{ id: string; name: string; category: string }> {
-  return API_LIBRARY.map((api) => ({
-    id: api.id,
-    name: api.name,
-    category: api.category,
-  })).sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export function getAPITemplate(apiId: string, endpointId: string): {
-  api: APILibraryEntry;
-  endpoint: ApiEndpointEntry;
-  template: ApiTemplate;
-} | null {
-  const api = API_LIBRARY.find((item) => item.id === apiId);
-  const endpoint = API_ENDPOINTS.find((item) => item.id === endpointId && item.apiId === apiId);
-
-  if (!api || !endpoint) {
-    return null;
-  }
-
-  return {
-    api,
-    endpoint,
-    template: endpoint.template,
-  };
-}

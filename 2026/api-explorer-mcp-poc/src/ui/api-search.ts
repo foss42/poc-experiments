@@ -1,5 +1,5 @@
 import { SHARED_STYLES } from "./shared.js";
-import { getAPISummaryList } from "../data/api-library.js";
+import { getAPISummaryList } from "../data/api-search.js";
 
 export function API_SEARCH_UI(
   apis = getAPISummaryList(),
@@ -41,7 +41,7 @@ export function API_SEARCH_UI(
             <select id="apiId">
               <option value="">All APIs</option>
               ${apis
-                .map((api) => `<option value="${api.id}">${api.name}</option>`)
+                .map((api: { id: string; name: string; category: string }) => `<option value="${api.id}">${api.name}</option>`)
                 .join("")}
             </select>
           </div>
