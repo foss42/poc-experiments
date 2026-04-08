@@ -87,14 +87,6 @@ node server.js
   ✓ tool: show-sales-pdf-report exists
   ...
 
-═══════════════════════════════════════════════════════
-  MCP SALES ANALYTICS SERVER — TEST REPORT
-═══════════════════════════════════════════════════════
-  Total: 42  Passed: 42  Failed: 0  Score: 100%
-
-  All tests passed! MCP server is fully compliant.
-```
-
 ## Tech Stack
 
 - **Runtime**: Node.js 20+
@@ -103,9 +95,6 @@ node server.js
 - **Testing**: Custom assertion engine (no external test framework)
 - **Dependencies**: `chalk` for terminal output only
 
-## Author
-
-Khushboo — GSoC 2026 PoC submission
 ## 🧠 How It Works
 
 ```text
@@ -120,3 +109,7 @@ Response
 Assertion Engine
    ↓
 Test Report (PASS / FAIL)
+
+## Author
+
+Khushboo — GSoC 2026 PoC submission
