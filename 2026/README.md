@@ -44,7 +44,68 @@ To demonstrate:
 - ✅ PASS / FAIL report with score  
 
 ---
+## Setup & Run
 
+### Step 1 — Start the real MCP server
+
+```bash
+git clone https://github.com/ashitaprasad/sample-mcp-apps-chatflow.git
+cd sample-mcp-apps-chatflow
+npm install
+npm run dev
+# Server starts at http://localhost:3000
+```
+
+### Step 2 — Run this tester
+
+```bash
+cd Khushboo_MCP_Sales_Tester
+npm install
+node server.js
+```
+
+### Expected output
+
+```
+🧪 MCP Sales Analytics Server Tester
+   Connecting to http://localhost:3000/mcp...
+
+✅ Server healthy: {"status":"ok","server":"sample-mcp-apps-chatflow"}
+
+━━━ Test 1: MCP Server Initialize ━━━
+  ✓ response has result
+  ✓ serverInfo present
+  ✓ server name matches
+  ✓ capabilities present
+  ✓ session ID assigned
+
+━━━ Test 2: List Tools ━━━
+  ✓ at least 3 tools registered
+  ✓ tool: select-sales-metric exists
+  ✓ tool: get-sales-data exists
+  ✓ tool: visualize-sales-data exists
+  ✓ tool: show-sales-pdf-report exists
+  ...
+
+═══════════════════════════════════════════════════════
+  MCP SALES ANALYTICS SERVER — TEST REPORT
+═══════════════════════════════════════════════════════
+  Total: 42  Passed: 42  Failed: 0  Score: 100%
+
+  All tests passed! MCP server is fully compliant.
+```
+
+## Tech Stack
+
+- **Runtime**: Node.js 20+
+- **Language**: JavaScript (ESM)
+- **Transport**: MCP Streamable HTTP (JSON-RPC 2.0)
+- **Testing**: Custom assertion engine (no external test framework)
+- **Dependencies**: `chalk` for terminal output only
+
+## Author
+
+Khushboo — GSoC 2026 PoC submission
 ## 🧠 How It Works
 
 ```text
