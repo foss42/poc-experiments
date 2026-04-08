@@ -1,35 +1,61 @@
-# GSoC Proof of Concepts
+# 🚀 MCP Sales Analytics Server Tester (PoC)
 
-1. Fork this repo & create a new branch.
-2. Create a new folder inside `2026` with the name `yourname_project_name`.
-3. Add your PoC inside it and send across a PR.
+## 📌 Overview
 
-We have some major updates with respect to the Proof of Concept (PoC) submission.
+This project is a Proof of Concept (PoC) built for GSoC 2026.
 
-👉 Any PoC that is a new project or is not directly dependent on API Dash source code should be submitted to the repository - https://github.com/foss42/gsoc-poc  
+It implements a **CLI-based MCP (Model Context Protocol) testing tool** that connects to a Sales Analytics MCP server, executes its tools, validates responses, and generates a structured test report.
 
-👉 PoCs should be sent through this process. You can have a version hosted on personal repo or any website/link, but this way it will be easier to keep track of the submitted PoC as your PoC link might be buried in your proposal. It will also ease the review process and declutter the main repo PRs.  
+---
 
-👉 If you PoC involves **MCP testing**, you must go thorough these resources - 
-1. https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i
-2. https://github.com/ashitaprasad/sample-mcp-apps-chatflow
+## 🎬 Demo
 
-and demonstrate the testing of the Sales Analytics MCP Apps server provided in the link via the PoC you are building.
+Click the image below to view the POC video:
 
-👉 If you are submitting **API Dash MCP Server** PoC or **AI Agents** PoC that include calling API Dash MCP server, you must go thorough these resource - 
-1. https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i
-2. https://github.com/ashitaprasad/sample-mcp-apps-chatflow
+[![POC Demo](demo/POC-preview1.png)](demo/POC.mp4)
 
-to understand the provided MCP Apps server code, and explore if API Dash MCP Apps can be served in the tool.
+---
 
-👉 Apart from the proposed solution, **Multimodal AI Eval** project candidates must also go through these resource - 
-1. https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i
-2. https://github.com/ashitaprasad/sample-mcp-apps-chatflow
+## 🎯 Objective
 
-and explore if AI evaluation UI can be built using it to make it easy for end users to run evals from inside AI agents.
+To demonstrate:
+- MCP server integration
+- Automated tool testing
+- Assertion-based validation
+- Edge case handling
 
-👉 For **Open Responses** project, you must also go through these resources - 
-1. https://dev.to/aws/how-i-built-mcp-apps-based-sales-analytics-agentic-ui-deployed-it-on-amazon-bedrock-agentcore-4e9i
-2. https://github.com/ashitaprasad/sample-mcp-apps-chatflow
+---
 
-and explore how Open Responses can be rendered from inside AI agents.
+## ⚙️ Features
+
+- ✅ Connects to real MCP server (`/mcp`)  
+- ✅ JSON-RPC based communication  
+- ✅ Tests multiple MCP tools:
+  - `initialize`
+  - `tools/list`
+  - `select-sales-metric`
+  - `get-sales-data`
+  - `visualize-sales-data`
+  - `show-sales-pdf-report`
+- ✅ Assertion Engine for validation  
+- ✅ Smart data validation (not just structure)  
+- ✅ Edge case testing (invalid inputs)  
+- ✅ CLI-based execution  
+- ✅ PASS / FAIL report with score  
+
+---
+
+## 🧠 How It Works
+
+```text
+Tester (CLI)
+   ↓
+MCP Request (JSON-RPC)
+   ↓
+MCP Server (Sales Analytics)
+   ↓
+Response
+   ↓
+Assertion Engine
+   ↓
+Test Report (PASS / FAIL)
