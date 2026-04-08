@@ -5,7 +5,7 @@
 ///   final parser = OpenResponseParser();
 ///   final result = parser.parse(jsonDecodedMap);
 ///   print(result.correlatedCalls);
-library open_responses_parser;
+library;
 
 export 'src/models/open_response.dart';
 export 'src/models/correlated_call.dart';
