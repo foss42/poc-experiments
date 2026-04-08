@@ -1,12 +1,15 @@
-// ignore_for_file: avoid_print
+import 'package:flutter/material.dart';
 import 'package:open_responses_parser/open_responses_parser.dart';
+import 'package:open_responses_parser/src/widgets/open_responses_view.dart';
 
-const Map<String, dynamic> kWeatherResponse = {
-  'id': 'resp_demo_001',
+// Sample payload with all five item types and one complete CorrelatedCall
+const Map<String, dynamic> kSampleResponse = {
+  'id': 'resp_demo_gsoc_2026',
   'object': 'response',
   'status': 'completed',
   'model': 'gpt-4o',
   'output': [
+    // 1. ReasoningItem
     {
       'type': 'reasoning',
       'id': 'rs_001',
@@ -14,10 +17,12 @@ const Map<String, dynamic> kWeatherResponse = {
         {
           'type': 'summary_text',
           'text':
-              'The user wants weather info for two cities. I will call the weather tool for each city, then compare and summarize.',
+              'The user wants weather info for Tokyo. I will call the weather '
+              'tool, then summarize the result in plain language.',
         },
       ],
     },
+    // 2. FunctionCallItem (complete — has a matching output below)
     {
       'type': 'function_call',
       'id': 'fc_001',
@@ -26,6 +31,7 @@ const Map<String, dynamic> kWeatherResponse = {
       'arguments': '{"city": "Tokyo", "units": "celsius"}',
       'status': 'completed',
     },
+    // 3. FunctionCallOutputItem (paired with fc_001)
     {
       'type': 'function_call_output',
       'id': 'fco_001',
@@ -33,21 +39,7 @@ const Map<String, dynamic> kWeatherResponse = {
       'output':
           '{"temperature": 22, "condition": "Partly cloudy", "humidity": 65}',
     },
-    {
-      'type': 'function_call',
-      'id': 'fc_002',
-      'call_id': 'call_weather_london',
-      'name': 'get_current_weather',
-      'arguments': '{"city": "London", "units": "celsius"}',
-      'status': 'completed',
-    },
-    {
-      'type': 'function_call_output',
-      'id': 'fco_002',
-      'call_id': 'call_weather_london',
-      'output':
-          '{"temperature": 14, "condition": "Overcast", "humidity": 78}',
-    },
+    // 4. MessageItem
     {
       'type': 'message',
       'id': 'msg_001',
@@ -55,41 +47,70 @@ const Map<String, dynamic> kWeatherResponse = {
       'content': [
         {
           'type': 'output_text',
-          'text':
-              'Tokyo is 22C and partly cloudy. London is 14C and overcast.',
+          'text': 'Tokyo is currently 22 °C and partly cloudy with 65 % humidity.',
         },
       ],
     },
+    // 5. UnknownItem — unrecognised type preserved as-is
+    {
+      'type': 'image_output',
+      'id': 'img_001',
+      'url': 'https://example.com/chart.png',
+      'alt': 'Weather chart',
+    },
   ],
   'usage': {
-    'input_tokens': 120,
-    'output_tokens': 85,
+    'input_tokens': 95,
+    'output_tokens': 60,
   },
 };
 
 void main() {
-  final parser = OpenResponseParser();
-  final result = parser.parse(kWeatherResponse);
+  runApp(const OpenResponsesDemoApp());
+}
 
-  print('Parsed response: ${result.id} (${result.status})');
-  print('Model: ${result.model}');
-  print(
-    'Items: ${result.totalItems} '
-    '(${result.reasoningItems.length} reasoning, '
-    '${result.functionCalls.length} calls, '
-    '${result.functionCallOutputs.length} outputs, '
-    '${result.messages.length} message, '
-    '${result.unknownItems.length} unknown)',
-  );
-  print('Correlated calls:');
-  for (final entry in result.correlatedCalls.entries) {
-    final call = entry.value.call;
-    final complete = entry.value.isComplete ? 'complete' : 'incomplete';
-    final temp = entry.value.output?.parsedOutput?['temperature'] ?? '?';
-    print('  ${entry.key}: ${call.name} -> $complete (temperature: $temp)');
+class OpenResponsesDemoApp extends StatelessWidget {
+  const OpenResponsesDemoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'OpenResponsesParser — GSoC 2026 POC',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorSchemeSeed: const Color(0xFF6366F1),
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: const Color(0xFF6366F1),
+        useMaterial3: true,
+        brightness: Brightness.dark,
+      ),
+      home: const _DemoPage(),
+    );
   }
-  if (result.usage != null) {
-    final u = result.usage!;
-    print('Usage: ${u.inputTokens} in / ${u.outputTokens} out / ${u.totalTokens} total');
+}
+
+class _DemoPage extends StatelessWidget {
+  const _DemoPage();
+
+  @override
+  Widget build(BuildContext context) {
+    final response = OpenResponseParser().parse(kSampleResponse);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'OpenResponsesParser',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+        centerTitle: false,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: OpenResponsesView(response: response),
+      ),
+    );
   }
 }
