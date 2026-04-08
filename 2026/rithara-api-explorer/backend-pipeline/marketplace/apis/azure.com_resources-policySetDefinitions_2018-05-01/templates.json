@@ -1,0 +1,233 @@
+{
+  "api_id": "azure.com:resources-policySetDefinitions:2018-05-01",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "retrieves-built-in-policy-set-definitions",
+      "name": "Retrieves built-in policy set definitions.",
+      "description": "This operation retrieves a list of all the built-in policy set definitions.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/policySetDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "retrieves-a-built-in-policy-set-definition",
+      "name": "Retrieves a built in policy set definition.",
+      "description": "This operation retrieves the built-in policy set definition with the given name.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "retrieves-all-policy-set-definitions-in-management-group",
+      "name": "Retrieves all policy set definitions in management group.",
+      "description": "This operation retrieves a list of all the a policy set definition in the given management group.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policySetDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid."
+    },
+    {
+      "id": "retrieves-a-policy-set-definition",
+      "name": "Retrieves a policy set definition.",
+      "description": "This operation retrieves the policy set definition in the given management group with the given name.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "creates-or-updates-a-policy-set-definition",
+      "name": "Creates or updates a policy set definition.",
+      "description": "This operation creates or updates a policy set definition in the given management group with the given name.",
+      "method": "PUT",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "deletes-a-policy-set-definition",
+      "name": "Deletes a policy set definition.",
+      "description": "This operation deletes the policy set definition in the given management group with the given name.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "retrieves-the-policy-set-definitions-for-a-subscription",
+      "name": "Retrieves the policy set definitions for a subscription.",
+      "description": "This operation retrieves a list of all the policy set definitions in the given subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policySetDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "retrieves-a-policy-set-definition-2",
+      "name": "Retrieves a policy set definition.",
+      "description": "This operation retrieves the policy set definition in the given subscription with the given name.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "creates-or-updates-a-policy-set-definition-2",
+      "name": "Creates or updates a policy set definition.",
+      "description": "This operation creates or updates a policy set definition in the given subscription with the given name.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    },
+    {
+      "id": "deletes-a-policy-set-definition-2",
+      "name": "Deletes a policy set definition.",
+      "description": "This operation deletes the policy set definition in the given subscription with the given name.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policySetDefinitions/{{POLICYSETDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYSETDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYSETDEFINITIONNAME}} with a real policysetdefinitionname."
+    }
+  ]
+}

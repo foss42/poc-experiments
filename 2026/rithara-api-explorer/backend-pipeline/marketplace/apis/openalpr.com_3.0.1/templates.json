@@ -1,0 +1,56 @@
+{
+  "api_id": "openalpr.com:3.0.1",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-config",
+      "name": "GET /config",
+      "description": "Get a list of available results for plate and vehicle recognition\n",
+      "method": "GET",
+      "url": "https://api.openalpr.com/v3/config",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-recognize",
+      "name": "POST /recognize",
+      "description": "Send an image for OpenALPR to analyze and provide metadata back\nThe image is sent as a file using a form data POST\n",
+      "method": "POST",
+      "url": "https://api.openalpr.com/v3/recognize",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "secret_key": "",
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-recognize-url",
+      "name": "POST /recognize_url",
+      "description": "Send an image for OpenALPR to analyze and provide metadata back\nThe image is sent as a URL.  The OpenALPR service will download the image \nand process it\n",
+      "method": "POST",
+      "url": "https://api.openalpr.com/v3/recognize_url",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "image_url": "",
+        "secret_key": "",
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

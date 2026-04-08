@@ -1,0 +1,242 @@
+{
+  "api_id": "6-dot-authentiqio.appspot.com:6",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "post-key",
+      "name": "POST /key",
+      "description": "Register a new ID `JWT(sub, devtoken)`\n\nv5: `JWT(sub, pk, devtoken, ...)`\n\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "POST",
+      "url": "https://6-dot-authentiqio.appspot.com/key",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "sub": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-key",
+      "name": "DELETE /key",
+      "description": "Revoke an Authentiq ID using email & phone.\n\nIf called with `email` and `phone` only, a verification code \nwill be sent by email. Do a second call adding `code` to \ncomplete the revocation.\n",
+      "method": "DELETE",
+      "url": "https://6-dot-authentiqio.appspot.com/key",
+      "headers": {},
+      "query_params": {
+        "email": "",
+        "phone": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-key-pk",
+      "name": "GET /key/{PK}",
+      "description": "Get public details of an Authentiq ID.\n",
+      "method": "GET",
+      "url": "https://6-dot-authentiqio.appspot.com/key/{{PK}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PK}}"
+      ],
+      "notes": "No authentication required. Replace {{PK}} with a real pk."
+    },
+    {
+      "id": "post-key-pk",
+      "name": "POST /key/{PK}",
+      "description": "update properties of an Authentiq ID.\n(not operational in v4; use PUT for now)\n\nv5: POST issuer-signed email & phone scopes in\na self-signed JWT\n\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "POST",
+      "url": "https://6-dot-authentiqio.appspot.com/key/{{PK}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "sub": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PK}}"
+      ],
+      "notes": "No authentication required. Replace {{PK}} with a real pk."
+    },
+    {
+      "id": "put-key-pk",
+      "name": "PUT /key/{PK}",
+      "description": "Update Authentiq ID by replacing the object.\n\nv4: `JWT(sub,email,phone)` to bind email/phone hash; \n\nv5: POST issuer-signed email & phone scopes\nand PUT to update registration `JWT(sub, pk, devtoken, ...)`\n\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "PUT",
+      "url": "https://6-dot-authentiqio.appspot.com/key/{{PK}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "sub": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PK}}"
+      ],
+      "notes": "No authentication required. Replace {{PK}} with a real pk."
+    },
+    {
+      "id": "delete-key-pk",
+      "name": "DELETE /key/{PK}",
+      "description": "Revoke an Identity (Key) with a revocation secret",
+      "method": "DELETE",
+      "url": "https://6-dot-authentiqio.appspot.com/key/{{PK}}",
+      "headers": {},
+      "query_params": {
+        "secret": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PK}}"
+      ],
+      "notes": "No authentication required. Replace {{PK}} with a real pk."
+    },
+    {
+      "id": "head-key-pk",
+      "name": "HEAD /key/{PK}",
+      "description": "HEAD info on Authentiq ID\n",
+      "method": "HEAD",
+      "url": "https://6-dot-authentiqio.appspot.com/key/{{PK}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PK}}"
+      ],
+      "notes": "No authentication required. Replace {{PK}} with a real pk."
+    },
+    {
+      "id": "post-login",
+      "name": "POST /login",
+      "description": "push sign-in request\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "POST",
+      "url": "https://6-dot-authentiqio.appspot.com/login",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "callback": ""
+      },
+      "body": {
+        "sub": "",
+        "iss": "",
+        "aud": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-scope",
+      "name": "POST /scope",
+      "description": "scope verification request\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "POST",
+      "url": "https://6-dot-authentiqio.appspot.com/scope",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "sub": "",
+        "scope": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-scope-job",
+      "name": "GET /scope/{job}",
+      "description": "get the status / current content of a verification job",
+      "method": "GET",
+      "url": "https://6-dot-authentiqio.appspot.com/scope/{{JOB}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB}}"
+      ],
+      "notes": "No authentication required. Replace {{JOB}} with a real job."
+    },
+    {
+      "id": "post-scope-job",
+      "name": "POST /scope/{job}",
+      "description": "this is a scope confirmation",
+      "method": "POST",
+      "url": "https://6-dot-authentiqio.appspot.com/scope/{{JOB}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB}}"
+      ],
+      "notes": "No authentication required. Replace {{JOB}} with a real job."
+    },
+    {
+      "id": "put-scope-job",
+      "name": "PUT /scope/{job}",
+      "description": "authority updates a JWT with its signature\nSee: https://github.com/skion/authentiq/wiki/JWT-Examples\n",
+      "method": "PUT",
+      "url": "https://6-dot-authentiqio.appspot.com/scope/{{JOB}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB}}"
+      ],
+      "notes": "No authentication required. Replace {{JOB}} with a real job."
+    },
+    {
+      "id": "delete-scope-job",
+      "name": "DELETE /scope/{job}",
+      "description": "delete a verification job",
+      "method": "DELETE",
+      "url": "https://6-dot-authentiqio.appspot.com/scope/{{JOB}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB}}"
+      ],
+      "notes": "No authentication required. Replace {{JOB}} with a real job."
+    },
+    {
+      "id": "head-scope-job",
+      "name": "HEAD /scope/{job}",
+      "description": "HEAD to get the status of a verification job",
+      "method": "HEAD",
+      "url": "https://6-dot-authentiqio.appspot.com/scope/{{JOB}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB}}"
+      ],
+      "notes": "No authentication required. Replace {{JOB}} with a real job."
+    }
+  ]
+}

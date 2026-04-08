@@ -1,0 +1,601 @@
+{
+  "api_id": "azure.com:iotcentral:preview",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "id": "get-the-list-of-api-tokens-in-an-application",
+      "name": "Get the list of API tokens in an application.",
+      "description": "Get the list of API tokens in an application.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/apiTokens",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-an-api-token-by-id",
+      "name": "Get an API token by ID.",
+      "description": "Get an API token by ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/apiTokens/{{TOKEN_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOKEN_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TOKEN_ID}} with a real token_id."
+    },
+    {
+      "id": "create-a-new-api-token-in-the-application",
+      "name": "Create a new API token in the application.",
+      "description": "Create a new API token in the application.",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/apiTokens/{{TOKEN_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOKEN_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TOKEN_ID}} with a real token_id."
+    },
+    {
+      "id": "delete-an-api-token",
+      "name": "Delete an API token.",
+      "description": "Delete an API token.",
+      "method": "DELETE",
+      "url": "https://azure.local/api/preview/apiTokens/{{TOKEN_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOKEN_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TOKEN_ID}} with a real token_id."
+    },
+    {
+      "id": "get-the-list-of-continuous-data-exports-in-an-application",
+      "name": "Get the list of continuous data exports in an application.",
+      "description": "Get the list of continuous data exports in an application.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/continuousDataExports",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-continuous-data-export-by-id",
+      "name": "Get a continuous data export by ID.",
+      "description": "Get a continuous data export by ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/continuousDataExports/{{EXPORT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EXPORT_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{EXPORT_ID}} with a real export_id."
+    },
+    {
+      "id": "create-a-new-continuous-data-export-or-update-an-existing-one-by-id",
+      "name": "Create a new continuous data export or update an existing one by ID.",
+      "description": "Create a new continuous data export or update an existing one by ID.",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/continuousDataExports/{{EXPORT_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "endpoint": {},
+        "enabled": false,
+        "sources": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EXPORT_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{EXPORT_ID}} with a real export_id."
+    },
+    {
+      "id": "delete-a-continuous-data-export",
+      "name": "Delete a continuous data export.",
+      "description": "Delete a continuous data export.",
+      "method": "DELETE",
+      "url": "https://azure.local/api/preview/continuousDataExports/{{EXPORT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EXPORT_ID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{EXPORT_ID}} with a real export_id."
+    },
+    {
+      "id": "get-the-list-of-device-templates-in-an-application",
+      "name": "Get the list of device templates in an application",
+      "description": "Get the list of device templates in an application",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/deviceTemplates",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-device-template-by-id",
+      "name": "Get a device template by ID",
+      "description": "Get a device template by ID",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/deviceTemplates/{{DEVICE_TEMPLATE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_TEMPLATE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_TEMPLATE_ID}} with a real device_template_id."
+    },
+    {
+      "id": "create-or-update-a-device-template-by-id",
+      "name": "Create or update a device template by ID",
+      "description": "Create or update a device template by ID",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/deviceTemplates/{{DEVICE_TEMPLATE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "types": [],
+        "capabilityModel": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_TEMPLATE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_TEMPLATE_ID}} with a real device_template_id."
+    },
+    {
+      "id": "delete-a-device-template",
+      "name": "Delete a device template",
+      "description": "Delete an existing device template by device ID.",
+      "method": "DELETE",
+      "url": "https://azure.local/api/preview/deviceTemplates/{{DEVICE_TEMPLATE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_TEMPLATE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_TEMPLATE_ID}} with a real device_template_id."
+    },
+    {
+      "id": "get-devices-for-a-template",
+      "name": "Get devices for a template",
+      "description": "Get devices for a template",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/deviceTemplates/{{DEVICE_TEMPLATE_ID}}/devices",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_TEMPLATE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_TEMPLATE_ID}} with a real device_template_id."
+    },
+    {
+      "id": "get-a-merged-device-template-by-id",
+      "name": "Get a merged device template by ID",
+      "description": "Get a merged device template by ID",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/deviceTemplates/{{DEVICE_TEMPLATE_ID}}/merged",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_TEMPLATE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_TEMPLATE_ID}} with a real device_template_id."
+    },
+    {
+      "id": "get-the-list-of-devices-in-an-application",
+      "name": "Get the list of devices in an application",
+      "description": "Get the list of devices in an application",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-device-by-id",
+      "name": "Get a device by ID",
+      "description": "Get details about an existing device by device ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "create-or-update-a-device",
+      "name": "Create or update a device",
+      "description": "Create a new device or update an existing one by device ID.",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "instanceOf": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "delete-a-device",
+      "name": "Delete a device",
+      "description": "Delete an existing device by device ID.",
+      "method": "DELETE",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-cloud-properties",
+      "name": "Get device cloud properties",
+      "description": "Get all cloud property values of a device by device ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/cloudProperties",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "update-device-cloud-properties",
+      "name": "Update device cloud properties",
+      "description": "Update all cloud property values of a device by device ID.",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/cloudProperties",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-command-history",
+      "name": "Get device command history",
+      "description": "Get device command history",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/components/{{COMPONENT_NAME}}/commands/{{COMMAND_NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMMAND_NAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{COMPONENT_NAME}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{COMMAND_NAME}} with a real command_name. Replace {{COMPONENT_NAME}} with a real component_name. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "execute-a-device-command",
+      "name": "Execute a device command",
+      "description": "Execute a command on a device.",
+      "method": "POST",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/components/{{COMPONENT_NAME}}/commands/{{COMMAND_NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "",
+        "request": "",
+        "response": "",
+        "responseCode": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMMAND_NAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{COMPONENT_NAME}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{COMMAND_NAME}} with a real command_name. Replace {{COMPONENT_NAME}} with a real component_name. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-properties-for-a-specific-component",
+      "name": "Get device properties for a specific component",
+      "description": "Get device properties for a specific component",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/components/{{COMPONENT_NAME}}/properties",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{COMPONENT_NAME}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{COMPONENT_NAME}} with a real component_name. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "update-device-properties-for-a-specific-component",
+      "name": "Update device properties for a specific component",
+      "description": "Update device properties for a specific component",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/components/{{COMPONENT_NAME}}/properties",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{COMPONENT_NAME}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{COMPONENT_NAME}} with a real component_name. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-telemetry-value",
+      "name": "Get device telemetry value",
+      "description": "Get device telemetry value",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/components/{{COMPONENT_NAME}}/telemetry/{{TELEMETRY_NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{COMPONENT_NAME}}",
+        "{{DEVICE_ID}}",
+        "{{TELEMETRY_NAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TELEMETRY_NAME}} with a real telemetry_name. Replace {{COMPONENT_NAME}} with a real component_name. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-credentials",
+      "name": "Get device credentials",
+      "description": "Get device credentials",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/credentials",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-device-properties",
+      "name": "Get device properties",
+      "description": "Get all property values of a device by device ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/properties",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "update-device-properties",
+      "name": "Update device properties",
+      "description": "Update all property values of a device by device ID.",
+      "method": "PUT",
+      "url": "https://azure.local/api/preview/devices/{{DEVICE_ID}}/properties",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{DEVICE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{DEVICE_ID}} with a real device_id."
+    },
+    {
+      "id": "get-the-list-of-roles-in-an-application",
+      "name": "Get the list of roles in an application.",
+      "description": "Get the list of roles in an application.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/roles",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-role-by-id",
+      "name": "Get a role by ID.",
+      "description": "Get a role by ID.",
+      "method": "GET",
+      "url": "https://azure.local/api/preview/roles/{{ROLE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ROLE_ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLE_ID}} with a real role_id."
+    }
+  ]
+}

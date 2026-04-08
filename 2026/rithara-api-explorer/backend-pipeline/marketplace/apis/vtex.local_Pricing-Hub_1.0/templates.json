@@ -1,0 +1,90 @@
+{
+  "api_id": "vtex.local:Pricing-Hub:1.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-prices",
+      "name": "Get Prices",
+      "description": "This route retrieves and applies prices for the items that are passed in the request. Pricing Hub will select the pricing method that will be used for each item and will fetch their respective price from the selected pricing method. \r\n\r\n>\u2139\ufe0f > This feature is in closed beta, available only for selected customers. If you have any questions, contact our [Support](https://support.vtex.com/hc/en-us/requests). ",
+      "method": "POST",
+      "url": "https://vtex.local/api/pricing-hub/prices",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "UtmCampaign": "summer",
+        "UtmInternalCampaign": "sale",
+        "UtmMedium": "social",
+        "UtmSource": "facebook",
+        "email": "customer@email.com",
+        "items": [
+          {
+            "brandId": "2000000",
+            "categoriesIds": [
+              "1"
+            ],
+            "index": 0,
+            "priceTableIds": [],
+            "quantity": 1,
+            "sellerId": "1",
+            "skuId": "13"
+          }
+        ],
+        "salesChannel": "1"
+      },
+      "sample_response": {
+        "items": [
+          {
+            "costPrice": 750,
+            "index": 0,
+            "listPrice": 2500,
+            "price": 1875,
+            "priceTable": "1",
+            "priceValidUntil": "2022-03-24T14:57:19Z",
+            "skuId": "14"
+          },
+          {
+            "costPrice": 200,
+            "index": 0,
+            "listPrice": 200,
+            "price": 200,
+            "priceTable": "1",
+            "priceValidUntil": "2022-03-04T20:00:18Z",
+            "skuId": "14"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "configure-external-price-source",
+      "name": "Configure External Price Source",
+      "description": "This route facilitates setting up an external price source in Pricing Hub. It also allows you to activate or deactivate that source in a given account. \r\n\r\n>\u2139\ufe0f This feature is in closed beta, available only for selected customers. If you have any questions, contact our [Support](https://support.vtex.com/hc/en-us/requests). ",
+      "method": "PUT",
+      "url": "https://vtex.local/config",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": true,
+        "appName": "apiexamples_app_name"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    }
+  ]
+}

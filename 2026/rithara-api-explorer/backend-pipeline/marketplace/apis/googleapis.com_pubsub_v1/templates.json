@@ -1,0 +1,696 @@
+{
+  "api_id": "googleapis.com:pubsub:v1",
+  "endpoint_count": 33,
+  "endpoints": [
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets a schema.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "put-v1-name",
+      "name": "PUT /v1/{name}",
+      "description": "Creates the given topic with the given name. See the [resource name rules] (https://cloud.google.com/pubsub/docs/admin#resource_names).",
+      "method": "PUT",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "kmsKeyName": "",
+        "labels": {},
+        "messageRetentionDuration": "",
+        "messageStoragePolicy": {},
+        "name": "",
+        "satisfiesPzs": false,
+        "schemaSettings": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a schema.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates an existing topic. Note that certain properties of a topic are not modifiable.",
+      "method": "PATCH",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "topic": {},
+        "updateMask": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-commit",
+      "name": "POST /v1/{name}:commit",
+      "description": "Commits a new schema revision to an existing schema.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}:commit",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "schema": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name-deleterevision",
+      "name": "DELETE /v1/{name}:deleteRevision",
+      "description": "Deletes a specific schema revision.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}:deleteRevision",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-listrevisions",
+      "name": "GET /v1/{name}:listRevisions",
+      "description": "Lists all schema revisions for the named schema.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}:listRevisions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-rollback",
+      "name": "POST /v1/{name}:rollback",
+      "description": "Creates a new schema revision that is a copy of the provided revision_id.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{NAME}}:rollback",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "revisionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-schemas",
+      "name": "GET /v1/{parent}/schemas",
+      "description": "Lists schemas in a project.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{PARENT}}/schemas",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-schemas",
+      "name": "POST /v1/{parent}/schemas",
+      "description": "Creates a schema.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{PARENT}}/schemas",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "definition": "",
+        "name": "",
+        "revisionCreateTime": "",
+        "revisionId": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-schemas-validate",
+      "name": "POST /v1/{parent}/schemas:validate",
+      "description": "Validates a schema.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{PARENT}}/schemas:validate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "schema": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-schemas-validatemessage",
+      "name": "POST /v1/{parent}/schemas:validateMessage",
+      "description": "Validates a message against a schema.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{PARENT}}/schemas:validateMessage",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "encoding": "",
+        "message": "",
+        "name": "",
+        "schema": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-project-snapshots",
+      "name": "GET /v1/{project}/snapshots",
+      "description": "Lists the existing snapshots. Snapshots are used in [Seek]( https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{PROJECT}}/snapshots",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PROJECT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECT}} with a real project."
+    },
+    {
+      "id": "get-v1-project-subscriptions",
+      "name": "GET /v1/{project}/subscriptions",
+      "description": "Lists matching subscriptions.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{PROJECT}}/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PROJECT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECT}} with a real project."
+    },
+    {
+      "id": "get-v1-project-topics",
+      "name": "GET /v1/{project}/topics",
+      "description": "Lists matching topics.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{PROJECT}}/topics",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PROJECT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECT}} with a real project."
+    },
+    {
+      "id": "get-v1-resource-getiampolicy",
+      "name": "GET /v1/{resource}:getIamPolicy",
+      "description": "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{RESOURCE}}:getIamPolicy",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v1-resource-setiampolicy",
+      "name": "POST /v1/{resource}:setIamPolicy",
+      "description": "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{RESOURCE}}:setIamPolicy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "policy": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v1-resource-testiampermissions",
+      "name": "POST /v1/{resource}:testIamPermissions",
+      "description": "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{RESOURCE}}:testIamPermissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "permissions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "get-v1-snapshot",
+      "name": "GET /v1/{snapshot}",
+      "description": "Gets the configuration details of a snapshot. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{SNAPSHOT}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SNAPSHOT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SNAPSHOT}} with a real snapshot."
+    },
+    {
+      "id": "delete-v1-snapshot",
+      "name": "DELETE /v1/{snapshot}",
+      "description": "Removes an existing snapshot. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. When the snapshot is deleted, all messages retained in the snapshot are immediately dropped. After a snapshot is deleted, a new one may be created with the same name, but the new one has no association with the old snapshot or its subscription, unless the same subscription is specified.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1/{{SNAPSHOT}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SNAPSHOT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SNAPSHOT}} with a real snapshot."
+    },
+    {
+      "id": "get-v1-subscription",
+      "name": "GET /v1/{subscription}",
+      "description": "Gets the configuration details of a subscription.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "delete-v1-subscription",
+      "name": "DELETE /v1/{subscription}",
+      "description": "Deletes an existing subscription. All messages retained in the subscription are immediately dropped. Calls to `Pull` after deletion will return `NOT_FOUND`. After a subscription is deleted, a new one may be created with the same name, but the new one has no association with the old subscription or its topic unless the same topic is specified.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-acknowledge",
+      "name": "POST /v1/{subscription}:acknowledge",
+      "description": "Acknowledges the messages associated with the `ack_ids` in the `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages from the subscription. Acknowledging a message whose ack deadline has expired may succeed, but such a message may be redelivered later. Acknowledging a message more than once will not result in an error.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:acknowledge",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ackIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-detach",
+      "name": "POST /v1/{subscription}:detach",
+      "description": "Detaches a subscription from this topic. All messages retained in the subscription are dropped. Subsequent `Pull` and `StreamingPull` requests will return FAILED_PRECONDITION. If the subscription is a push subscription, pushes to the endpoint will stop.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:detach",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-modifyackdeadline",
+      "name": "POST /v1/{subscription}:modifyAckDeadline",
+      "description": "Modifies the ack deadline for a specific message. This method is useful to indicate that more time is needed to process a message by the subscriber, or to make the message available for redelivery if the processing was interrupted. Note that this does not modify the subscription-level `ackDeadlineSeconds` used for subsequent messages.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:modifyAckDeadline",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ackDeadlineSeconds": 0,
+        "ackIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-modifypushconfig",
+      "name": "POST /v1/{subscription}:modifyPushConfig",
+      "description": "Modifies the `PushConfig` for a specified subscription. This may be used to change a push subscription to a pull one (signified by an empty `PushConfig`) or vice versa, or change the endpoint URL and other attributes of a push subscription. Messages will accumulate for delivery continuously through the call regardless of changes to the `PushConfig`.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:modifyPushConfig",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "pushConfig": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-pull",
+      "name": "POST /v1/{subscription}:pull",
+      "description": "Pulls messages from the server.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:pull",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "maxMessages": 0,
+        "returnImmediately": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "post-v1-subscription-seek",
+      "name": "POST /v1/{subscription}:seek",
+      "description": "Seeks an existing subscription to a point in time or to a given snapshot, whichever is provided in the request. Snapshots are used in [Seek] (https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot. Note that both the subscription and the snapshot must be on the same topic.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{SUBSCRIPTION}}:seek",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "snapshot": "",
+        "time": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "get-v1-topic",
+      "name": "GET /v1/{topic}",
+      "description": "Gets the configuration of a topic.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{TOPIC}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "delete-v1-topic",
+      "name": "DELETE /v1/{topic}",
+      "description": "Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does not exist. After a topic is deleted, a new topic may be created with the same name; this is an entirely new topic with none of the old configuration or subscriptions. Existing subscriptions to this topic are not deleted, but their `topic` field is set to `_deleted-topic_`.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1/{{TOPIC}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "get-v1-topic-snapshots",
+      "name": "GET /v1/{topic}/snapshots",
+      "description": "Lists the names of the snapshots on this topic. Snapshots are used in [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations, which allow you to manage message acknowledgments in bulk. That is, you can set the acknowledgment state of messages in an existing subscription to the state captured by a snapshot.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{TOPIC}}/snapshots",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "get-v1-topic-subscriptions",
+      "name": "GET /v1/{topic}/subscriptions",
+      "description": "Lists the names of the attached subscriptions on this topic.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1/{{TOPIC}}/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "post-v1-topic-publish",
+      "name": "POST /v1/{topic}:publish",
+      "description": "Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does not exist.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1/{{TOPIC}}:publish",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "messages": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    }
+  ]
+}

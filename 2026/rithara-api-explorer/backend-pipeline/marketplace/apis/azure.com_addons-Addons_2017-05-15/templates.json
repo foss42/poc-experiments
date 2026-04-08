@@ -1,0 +1,118 @@
+{
+  "api_id": "azure.com:addons-Addons:2017-05-15",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-addons-operations",
+      "name": "GET /providers/Microsoft.Addons/operations",
+      "description": "Lists all of the available Addons RP operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Addons/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "returns-the-canonical-support-plans",
+      "name": "Returns the Canonical Support Plans.",
+      "description": "Returns the Canonical Support Plans as well as whether they are enabled or not for the subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Addons/supportProviders/{{PROVIDERNAME}}/supportPlanTypes",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PROVIDERNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PROVIDERNAME}} with a real providername."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-addons-supportproviders-providername-supportplantypes-plantypename",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName}",
+      "description": "Returns whether or not the canonical support plan of type {type} is enabled for the subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Addons/supportProviders/{{PROVIDERNAME}}/supportPlanTypes/{{PLANTYPENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{PLANTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PROVIDERNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PLANTYPENAME}} with a real plantypename. Replace {{PROVIDERNAME}} with a real providername."
+    },
+    {
+      "id": "put-subscriptions-subscriptionid-providers-microsoft-addons-supportproviders-providername-supportplantypes-plantypename",
+      "name": "PUT /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName}",
+      "description": "Creates or updates the Canonical support plan of type {type} for the subscription.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Addons/supportProviders/{{PROVIDERNAME}}/supportPlanTypes/{{PLANTYPENAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{PLANTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PROVIDERNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PLANTYPENAME}} with a real plantypename. Replace {{PROVIDERNAME}} with a real providername."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-providers-microsoft-addons-supportproviders-providername-supportplantypes-plantypename",
+      "name": "DELETE /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/{providerName}/supportPlanTypes/{planTypeName}",
+      "description": "Cancels the Canonical support plan of type {type} for the subscription.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Addons/supportProviders/{{PROVIDERNAME}}/supportPlanTypes/{{PLANTYPENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{PLANTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PROVIDERNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PLANTYPENAME}} with a real plantypename. Replace {{PROVIDERNAME}} with a real providername."
+    }
+  ]
+}

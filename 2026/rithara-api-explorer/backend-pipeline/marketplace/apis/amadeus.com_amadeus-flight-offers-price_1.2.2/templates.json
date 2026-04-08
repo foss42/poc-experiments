@@ -1,0 +1,224 @@
+{
+  "api_id": "amadeus.com:amadeus-flight-offers-price:1.2.2",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "confirm-pricing-of-given-flightoffers",
+      "name": "Confirm pricing of given flightOffers.",
+      "description": "Confirm pricing of given flightOffers.",
+      "method": "POST",
+      "url": "https://test.api.amadeus.com/v1/shopping/flight-offers/pricing",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "flightOffers": [
+            {
+              "id": "1",
+              "instantTicketingRequired": false,
+              "itineraries": [
+                {
+                  "duration": "PT32H15M",
+                  "segments": [
+                    {
+                      "aircraft": {
+                        "code": "789"
+                      },
+                      "arrival": {
+                        "at": "2021-02-02T00:30:00",
+                        "iataCode": "SIN",
+                        "terminal": "1"
+                      },
+                      "blacklistedInEU": false,
+                      "carrierCode": "TR",
+                      "departure": {
+                        "at": "2021-02-01T19:15:00",
+                        "iataCode": "SYD",
+                        "terminal": "1"
+                      },
+                      "duration": "PT8H15M",
+                      "id": "1",
+                      "number": "13",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "TR"
+                      }
+                    },
+                    {
+                      "aircraft": {
+                        "code": "788"
+                      },
+                      "arrival": {
+                        "at": "2021-02-02T23:30:00",
+                        "iataCode": "DMK",
+                        "terminal": "1"
+                      },
+                      "blacklistedInEU": false,
+                      "carrierCode": "TR",
+                      "departure": {
+                        "at": "2021-02-02T22:05:00",
+                        "iataCode": "SIN",
+                        "terminal": "1"
+                      },
+                      "duration": "PT2H25M",
+                      "id": "2",
+                      "number": "868",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "TR"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "duration": "PT15H",
+                  "segments": [
+                    {
+                      "aircraft": {
+                        "code": "788"
+                      },
+                      "arrival": {
+                        "at": "2021-02-06T02:50:00",
+                        "iataCode": "SIN",
+                        "terminal": "1"
+                      },
+                      "blacklistedInEU": false,
+                      "carrierCode": "TR",
+                      "departure": {
+                        "at": "2021-02-05T23:15:00",
+                        "iataCode": "DMK",
+                        "terminal": "1"
+                      },
+                      "duration": "PT2H35M",
+                      "id": "5",
+                      "number": "867",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "TR"
+                      }
+                    },
+                    {
+                      "aircraft": {
+                        "code": "789"
+                      },
+                      "arrival": {
+                        "at": "2021-02-06T18:15:00",
+                        "iataCode": "SYD",
+                        "terminal": "1"
+                      },
+                      "blacklistedInEU": false,
+                      "carrierCode": "TR",
+                      "departure": {
+                        "at": "2021-02-06T06:55:00",
+                        "iataCode": "SIN",
+                        "terminal": "1"
+                      },
+                      "duration": "PT8H20M",
+                      "id": "6",
+                      "number": "12",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "TR"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "lastTicketingDate": "2020-08-04",
+              "nonHomogeneous": false,
+              "numberOfBookableSeats": 9,
+              "oneWay": false,
+              "price": {
+                "base": "334.00",
+                "currency": "EUR",
+                "fees": [
+                  {
+                    "amount": "0.00",
+                    "type": "SUPPLIER"
+                  },
+                  {
+                    "amount": "0.00",
+                    "type": "TICKETING"
+                  }
+                ],
+                "grandTotal": "546.70",
+                "total": "546.70"
+              },
+              "pricingOptions": {
+                "fareType": [
+                  "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": true
+              },
+              "source": "GDS",
+              "travelerPricings": [
+                {
+                  "fareDetailsBySegment": [
+                    {
+                      "cabin": "ECONOMY",
+                      "class": "O",
+                      "fareBasis": "O2TR24",
+                      "includedCheckedBags": {
+                        "weight": 20,
+                        "weightUnit": "KG"
+                      },
+                      "segmentId": "1"
+                    },
+                    {
+                      "cabin": "ECONOMY",
+                      "class": "O",
+                      "fareBasis": "O2TR24",
+                      "includedCheckedBags": {
+                        "weight": 20,
+                        "weightUnit": "KG"
+                      },
+                      "segmentId": "2"
+                    },
+                    {
+                      "cabin": "ECONOMY",
+                      "class": "X",
+                      "fareBasis": "X2TR24",
+                      "includedCheckedBags": {
+                        "weight": 20,
+                        "weightUnit": "KG"
+                      },
+                      "segmentId": "5"
+                    },
+                    {
+                      "cabin": "ECONOMY",
+                      "class": "H",
+                      "fareBasis": "H2TR24",
+                      "includedCheckedBags": {
+                        "weight": 20,
+                        "weightUnit": "KG"
+                      },
+                      "segmentId": "6"
+                    }
+                  ],
+                  "fareOption": "STANDARD",
+                  "price": {
+                    "base": "334.00",
+                    "currency": "EUR",
+                    "total": "546.70"
+                  },
+                  "travelerId": "1",
+                  "travelerType": "ADULT"
+                }
+              ],
+              "type": "flight-offer",
+              "validatingAirlineCodes": [
+                "HR"
+              ]
+            }
+          ],
+          "type": "flight-offers-pricing"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

@@ -1,0 +1,1182 @@
+{
+  "api_id": "victorops.com:0.0.3",
+  "endpoint_count": 72,
+  "endpoints": [
+    {
+      "id": "retrieve-alert-details",
+      "name": "Retrieve alert details.",
+      "description": "Retrieve the details of an alert that was sent VictorOps by you.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/alerts/{{UUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UUID}}"
+      ],
+      "notes": "No authentication required. Replace {{UUID}} with a real uuid."
+    },
+    {
+      "id": "get-current-incident-information",
+      "name": "Get current incident information",
+      "description": "Get a list of the currently open, acknowledged and recently resolved incidents.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/incidents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-new-incident",
+      "name": "Create a new incident",
+      "description": "Create a new incident.\n\nThis call replicates the function of our\n<a href=\"https://help.victorops.com/knowledge-base/manual-incident-creation/\">manual incident creation process</a>.\nMonitoring tools and custom integrations\nshould be configured using our\n<a href=\"https://help.victorops.com/knowledge-base/victorops-restendpoint-integration/\">REST Endpoint</a>.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/incidents",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "summary": "",
+        "details": "",
+        "userName": "",
+        "targets": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "acknowledge-an-incident-or-list-of-incidents",
+      "name": "Acknowledge an incident or list of incidents",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/incidents/ack",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "userName": "",
+        "incidentNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "acknowledge-all-incidents-for-which-a-user-was-paged",
+      "name": "Acknowledge all incidents for which a user was paged.",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/incidents/byUser/ack",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "userName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "resolve-all-incidents-for-which-a-user-was-paged",
+      "name": "Resolve all incidents for which a user was paged.",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/incidents/byUser/resolve",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "userName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "reroute-one-or-more-incidents-to-one-or-more-new-routable-destinations",
+      "name": "Reroute one or more incidents to one or more new routable destinations.",
+      "description": "Reroute one or more incidents to one or more users and/or escalation policies\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/incidents/reroute",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "userName": "",
+        "reroutes": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "resolve-an-incident-or-list-of-incidents",
+      "name": "Resolve an incident or list of incidents",
+      "description": "The incident(s) must be currently open.  The user supplied must be a valid VictorOps user and a member of your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/incidents/resolve",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "userName": "",
+        "incidentNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-an-organization-s-current-maintenance-mode-state",
+      "name": "Get an organization's current maintenance mode state",
+      "description": "Get an organization's current maintenance mode state",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/maintenancemode",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "start-maintenance-mode-for-routing-keys",
+      "name": "Start maintenance mode for routing keys",
+      "description": "Start maintenance mode for routing keys",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/maintenancemode/start",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "names": [],
+        "purpose": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "end-maintenance-mode-for-routing-keys",
+      "name": "End maintenance mode for routing keys",
+      "description": "End maintenance mode for routing keys",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/maintenancemode/{{MAINTENANCEMODEID}}/end",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAINTENANCEMODEID}}"
+      ],
+      "notes": "No authentication required. Replace {{MAINTENANCEMODEID}} with a real maintenancemodeid."
+    },
+    {
+      "id": "get-an-organization-s-on-call-users",
+      "name": "Get an organization's on-call users",
+      "description": "Get all on-call users/teams for your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/oncall/current",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-routing-keys-with-associated-teams",
+      "name": "List routing keys with associated teams",
+      "description": "Retrieves a list of routing keys and associated teams.\nThis API may be called a maximum of 60 times per minute.",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/org/routing-keys",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-the-scheduled-overrides",
+      "name": "List the scheduled overrides",
+      "description": "List all the scheduled overrides on the organization\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/overrides",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "creates-a-new-scheduled-override",
+      "name": "Creates a new scheduled override",
+      "description": "Creates a new scheduled override. Start and end dates are in ISO8601 format. E.g. `2018-09-28'T'05:00:00Z`\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/overrides",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "end": "",
+        "start": "",
+        "timezone": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-specified-scheduled-override",
+      "name": "Get the specified scheduled override",
+      "description": "Get the specified scheduled override\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "deletes-a-scheduled-override",
+      "name": "Deletes a scheduled override",
+      "description": "Deletes a scheduled override\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "get-the-specified-scheduled-override-2",
+      "name": "Get the specified scheduled override",
+      "description": "Get the specified scheduled override assignments\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}/assignments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "get-the-specified-scheduled-override-assignment",
+      "name": "Get the specified scheduled override assignment",
+      "description": "Get the specified scheduled override assignments\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}/assignments/{{POLICYSLUG}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYSLUG}}",
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{POLICYSLUG}} with a real policyslug. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "update-the-scheduled-override-assignment",
+      "name": "Update the scheduled override assignment",
+      "description": "Update the scheduled override assignment\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}/assignments/{{POLICYSLUG}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "policy": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYSLUG}}",
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{POLICYSLUG}} with a real policyslug. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "delete-the-scheduled-override-assignment",
+      "name": "Delete the scheduled override assignment",
+      "description": "Delete the scheduled override assignment\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/overrides/{{PUBLICID}}/assignments/{{POLICYSLUG}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYSLUG}}",
+        "{{PUBLICID}}"
+      ],
+      "notes": "No authentication required. Replace {{POLICYSLUG}} with a real policyslug. Replace {{PUBLICID}} with a real publicid."
+    },
+    {
+      "id": "get-escalation-policy-info",
+      "name": "Get escalation policy info",
+      "description": "Retrieves a list of escalation policy information.\nThis API may be called a maximum of once a minute.",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/policies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-available-contact-types",
+      "name": "Get the available contact types",
+      "description": "Get the available contact types\n\ndescription: \"Email Address\", type: \"email\"\ndescription: \"Phone Number\", type: \"phone\"\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/policies/types/contacts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-available-notification-types",
+      "name": "Get the available notification types",
+      "description": "Get the available notification types\n\ndescription: \"Send a push notification to all my devices\", type: \"push\"\ndescription: \"Send an email to an email address\", type: \"email\"\ndescription: \"Send an SMS to a phone number\", type: \"sms\"\ndescription: \"Make a phone call to a phone number\", type: \"phone\"\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/policies/types/notifications",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-available-timeout-values",
+      "name": "Get the available timeout values",
+      "description": "Get the available timeout values\n\ndescription: \"If still unacked after 1 minute\", type: 1\ndescription: \"If still unacked after 5 minutes\", type: 5\ndescription: \"If still unacked after 10 minutes\", type: 10\ndescription: \"If still unacked after 15 minutes\", type: 15\ndescription: \"If still unacked after 20 minutes\", type: 20\ndescription: \"If still unacked after 25 minutes\", type: 25\ndescription: \"If still unacked after 30 minutes\", type: 30\ndescription: \"If still unacked after 45 minutes\", type: 45\ndescription: \"If still unacked after 60 minutes\", type: 60\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/policies/types/timeouts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-an-on-call-override-take-on-call",
+      "name": "Create an on-call override (take on-call)",
+      "description": "Replaces a currently on-call user in the escalation policy with another.  In many cases, the policy slug\nwill match the slug of the team that contains it.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/policies/{{POLICY}}/oncall/user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "fromUser": "",
+        "toUser": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICY}}"
+      ],
+      "notes": "No authentication required. Replace {{POLICY}} with a real policy."
+    },
+    {
+      "id": "get-the-user-s-paging-policy",
+      "name": "Get the user's paging policy",
+      "description": "Get all the paging policy steps for the user on the org associated with the API key\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-paging-policy-step",
+      "name": "Create a paging policy step",
+      "description": "Create a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "rules": [],
+        "timeout": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-a-paging-policy-step",
+      "name": "Get a paging policy step",
+      "description": "Get a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "create-a-rule-for-a-paging-policy-step",
+      "name": "Create a rule for a paging policy step",
+      "description": "Create a rule for a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "contact": {},
+        "type": "email"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "update-a-paging-policy-step",
+      "name": "Update a paging policy step",
+      "description": "Update a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "rules": [],
+        "timeout": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "get-a-rule-from-a-paging-policy-step",
+      "name": "Get a rule from a paging policy step",
+      "description": "Get a rule from a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}/{{RULE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RULE}}",
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{RULE}} with a real rule. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "update-a-rule-for-a-paging-policy-step",
+      "name": "Update a rule for a paging policy step",
+      "description": "Update a rule for a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}/{{RULE}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "contact": {},
+        "type": "email"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RULE}}",
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{RULE}} with a real rule. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "delete-a-rule-from-a-paging-policy-step",
+      "name": "Delete a rule from a paging policy step",
+      "description": "Delete a rule from a paging policy step\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/profile/{{USERNAME}}/policies/{{STEP}}/{{RULE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RULE}}",
+        "{{USERNAME}}",
+        "{{STEP}}"
+      ],
+      "notes": "No authentication required. Replace {{RULE}} with a real rule. Replace {{USERNAME}} with a real username. Replace {{STEP}} with a real step."
+    },
+    {
+      "id": "list-teams",
+      "name": "List teams",
+      "description": "Get a list of teams for your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-team",
+      "name": "Add a team",
+      "description": "Add a team to your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/team",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-information-for-a-team",
+      "name": "Retrieve information for a team",
+      "description": "Get the information for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "update-a-team",
+      "name": "Update a team",
+      "description": "Update the designated team\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "remove-a-team",
+      "name": "Remove a team",
+      "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "retrieve-a-list-of-team-admins-for-a-team",
+      "name": "Retrieve a list of team admins for a team",
+      "description": "Get the team admins for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/admins",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "retrieve-a-list-of-members-for-a-team",
+      "name": "Retrieve a list of members for a team",
+      "description": "Get the members for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/members",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "add-a-team-member",
+      "name": "Add a team member",
+      "description": "Add a team member to your team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/members",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "remove-a-team-member",
+      "name": "Remove a team member",
+      "description": "Remove a team from your organization.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/members/{{USER}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}",
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "get-a-team-s-on-call-schedule",
+      "name": "Get a team's on-call schedule",
+      "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/team/{team}/oncall/schedule`.__\n\nGet the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/oncall/schedule",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "create-an-on-call-override-take-on-call-2",
+      "name": "Create an on-call override (take on-call)",
+      "description": "__NOTE: This API call is deprecated. Please use `PATCH /api-public/v2/policies/{policy}/oncall/user`__\n\nReplaces a currently on-call user on the team with another.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PATCH",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/oncall/user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "fromUser": "",
+        "toUser": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "retrieve-a-list-of-escalation-policies-for-a-team",
+      "name": "Retrieve a list of escalation policies for a team",
+      "description": "Get the escalation policies for the specified team.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/team/{{TEAM}}/policies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "list-users",
+      "name": "List users",
+      "description": "Get a list of users for your organization\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-user",
+      "name": "Add a user",
+      "description": "Add a user to your organization\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "firstName": "",
+        "lastName": "",
+        "username": "",
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-information-for-a-user",
+      "name": "Retrieve information for a user",
+      "description": "Get the information for the specified user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a user",
+      "description": "Update the designated user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "firstName": "",
+        "lastName": "",
+        "username": "",
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "remove-a-user",
+      "name": "Remove a user",
+      "description": "Remove a user from your organization. If no replacement is specified, an empty JSON payload (\"{}\") is still required.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-list-of-all-contact-methods-for-a-user",
+      "name": "Get a list of all contact methods for a user",
+      "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-list-of-all-contact-devices-for-a-user",
+      "name": "Get a list of all contact devices for a user",
+      "description": "Get the contact methods for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/devices",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-the-indicated-contact-device-for-a-user",
+      "name": "Get the indicated contact device for a user",
+      "description": "Get the indicated contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/devices/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "update-a-contact-device-for-a-user",
+      "name": "Update a contact device for a user",
+      "description": "Update a contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "PUT",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/devices/{{CONTACTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "chat_escalation_sound": "",
+        "device_label": "",
+        "escalation_notification_sound": "",
+        "resolved_notification_sound": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "delete-a-contact-device-for-a-user",
+      "name": "Delete a contact device for a user",
+      "description": "Delete a contact device for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/devices/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-list-of-all-contact-emails-for-a-user",
+      "name": "Get a list of all contact emails for a user",
+      "description": "Get the contact emails for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/emails",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "create-a-contact-emails-for-a-user",
+      "name": "Create a contact emails for a user",
+      "description": "Create a contact email for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/emails",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "label": "",
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-the-indicated-contact-email-for-a-user",
+      "name": "Get the indicated contact email for a user",
+      "description": "Get the indicated contact email for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/emails/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "delete-a-contact-email-for-a-user",
+      "name": "Delete a contact email for a user",
+      "description": "Delete the indicated contact email for the user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/emails/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-list-of-all-contact-phones-for-a-user",
+      "name": "Get a list of all contact phones for a user",
+      "description": "Get the contact phones for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/phones",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "create-a-contact-phones-for-a-user",
+      "name": "Create a contact phones for a user",
+      "description": "Create a contact phone for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "POST",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/phones",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "label": "",
+        "phone": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-the-indicated-contact-phone-for-a-user",
+      "name": "Get the indicated contact phone for a user",
+      "description": "Get the indicated contact phone for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/phones/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "delete-a-contact-phone-for-a-user",
+      "name": "Delete a contact phone for a user",
+      "description": "Delete the indicated contact phone for the user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "DELETE",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/contact-methods/phones/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}",
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-user-s-on-call-schedule",
+      "name": "Get a user's on-call schedule",
+      "description": "__NOTE: This call is deprecated. Please use `GET /api-public/v2/user/{user}/oncall/schedule`.__\n\nGet the on-call schedule for a user for all teams, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/oncall/schedule",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-list-of-paging-policies-for-a-user",
+      "name": "Get a list of paging policies for a user",
+      "description": "Get paging policies for a user\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/policies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "retrieve-the-user-s-team-membership",
+      "name": "Retrieve the user's team membership",
+      "description": "This API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v1/user/{{USER}}/teams",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-a-team-s-on-call-schedule-2",
+      "name": "Get a team's on-call schedule",
+      "description": "Get the on-call schedule for a team, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v2/team/{{TEAM}}/oncall/schedule",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "get-a-user-s-on-call-schedule-2",
+      "name": "Get a user's on-call schedule",
+      "description": "Get the on-call schedule for a user for all teams the user is on, including on-call overrides.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-public/v2/user/{{USER}}/oncall/schedule",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER}}"
+      ],
+      "notes": "No authentication required. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "get-search-incident-history",
+      "name": "Get/search incident history",
+      "description": "\n__NOTE: This call is deprecated. Please use `GET /api-reporting/v2/incidents`.__\n\nRetrieve incident history for your company, searching over date ranges and with filtering options.  This is historical\ndata, and may be up to 15 minutes behind real-time incident data.  By default, only resolved incidents will be returned.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-reporting/v1/incidents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "a-list-of-shift-changes-for-a-team",
+      "name": "A list of shift changes for a team",
+      "description": "Returns a log of user shift changes for the specified team. This is historical\ndata, and may be up to 15 minutes behind real-time log data.\n\nThis API may be called a maximum of 60 times per minute.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-reporting/v1/team/{{TEAM}}/oncall/log",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}"
+      ],
+      "notes": "No authentication required. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "get-search-incident-history-2",
+      "name": "Get/search incident history",
+      "description": "Retrieve incident history for your company, searching over date ranges and with filtering options.\n\nThis API may be called a maximum of once a minute.\n\nIncident requests are paginated with a offset and limit query string parameters.\n  The query for incidents is run and offset records are skipped, after which limit records will be returned.\n\nThe default offset is 0 and the default limit is 20. The maximum value allowed for limit is 100.\n\nUnless specified otherwise with the parameter currentPhase, the response will only contain resolved incidents.\n\nOn return, the total number of records available for that query will be returned in the payload as 'total'.\n",
+      "method": "GET",
+      "url": "https://api.victorops.com/api-reporting/v2/incidents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

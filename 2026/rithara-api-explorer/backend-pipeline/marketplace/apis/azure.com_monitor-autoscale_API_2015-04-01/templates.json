@@ -1,0 +1,148 @@
+{
+  "api_id": "azure.com:monitor-autoscale_API:2015-04-01",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-insights-autoscalesettings",
+      "name": "GET /subscriptions/{subscriptionId}/providers/microsoft.insights/autoscalesettings",
+      "description": "Lists the autoscale settings for a subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/microsoft.insights/autoscalesettings",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-insights-autoscalesettings",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/autoscalesettings",
+      "description": "Lists the autoscale settings for a resource group",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/microsoft.insights/autoscalesettings",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-insights-autoscalesettings-autoscalesettingname",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/autoscalesettings/{autoscaleSettingName}",
+      "description": "Gets an autoscale setting",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/microsoft.insights/autoscalesettings/{{AUTOSCALESETTINGNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AUTOSCALESETTINGNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{AUTOSCALESETTINGNAME}} with a real autoscalesettingname."
+    },
+    {
+      "id": "put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-insights-autoscalesettings-autoscalesettingname",
+      "name": "PUT /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/autoscalesettings/{autoscaleSettingName}",
+      "description": "Creates or updates an autoscale setting.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/microsoft.insights/autoscalesettings/{{AUTOSCALESETTINGNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AUTOSCALESETTINGNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{AUTOSCALESETTINGNAME}} with a real autoscalesettingname."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-insights-autoscalesettings-autoscalesettingname",
+      "name": "DELETE /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/autoscalesettings/{autoscaleSettingName}",
+      "description": "Deletes and autoscale setting",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/microsoft.insights/autoscalesettings/{{AUTOSCALESETTINGNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AUTOSCALESETTINGNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{AUTOSCALESETTINGNAME}} with a real autoscalesettingname."
+    },
+    {
+      "id": "patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-insights-autoscalesettings-autoscalesettingname",
+      "name": "PATCH /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.insights/autoscalesettings/{autoscaleSettingName}",
+      "description": "Updates an existing AutoscaleSettingsResource. To update other fields use the CreateOrUpdate method.",
+      "method": "PATCH",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/microsoft.insights/autoscalesettings/{{AUTOSCALESETTINGNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": "",
+        "tags": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AUTOSCALESETTINGNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{AUTOSCALESETTINGNAME}} with a real autoscalesettingname."
+    }
+  ]
+}

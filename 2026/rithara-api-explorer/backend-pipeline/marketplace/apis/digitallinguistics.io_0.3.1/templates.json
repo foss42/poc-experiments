@@ -1,0 +1,354 @@
+{
+  "api_id": "digitallinguistics.io:0.3.1",
+  "endpoint_count": 18,
+  "endpoints": [
+    {
+      "id": "get-all-languages",
+      "name": "Get all Languages",
+      "description": "Retrieves all the Languages that the authenticated user or client has permission to access.",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/languages",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "add-a-new-language",
+      "name": "Add a new Language",
+      "description": "Add a new Language",
+      "method": "POST",
+      "url": "https://api.digitallinguistics.io/v0/languages",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "upsert-create-or-replace-a-language",
+      "name": "Upsert (create or replace) a Language",
+      "description": "Creates a Language if it does not yet exist (i.e. if the resource does not have an `id` property yet), or replaces the existing Language resource if it does. Note that this replaces the *entire* Language. It is not a partial update.",
+      "method": "PUT",
+      "url": "https://api.digitallinguistics.io/v0/languages",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "retrieve-a-language-by-id",
+      "name": "Retrieve a Language by ID",
+      "description": "Retrieve a Language by ID",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "delete-a-language-by-id",
+      "name": "Delete a Language by ID",
+      "description": "Delete a Language by ID",
+      "method": "DELETE",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "perform-a-partial-update-on-a-language",
+      "name": "Perform a partial update on a Language",
+      "description": "Performs a partial update the Language whose ID is specified in the URL. If the Language object has an `id` property, is ignored in favor of the ID in the URL.",
+      "method": "PATCH",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "get-all-lexemes-for-a-language",
+      "name": "Get all Lexemes for a Language",
+      "description": "Get all Lexemes for a Language",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "add-a-new-lexeme-to-a-language",
+      "name": "Add a new Lexeme to a Language",
+      "description": "Add a new Lexeme to a Language",
+      "method": "POST",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "upsert-add-or-replace-a-lexeme",
+      "name": "Upsert (add or replace) a Lexeme",
+      "description": "Upsert (add or replace) a Lexeme",
+      "method": "PUT",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "get-a-lexeme-by-id",
+      "name": "Get a Lexeme by ID",
+      "description": "Get a Lexeme by ID",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "delete-a-lexeme-by-id",
+      "name": "Delete a Lexeme by ID",
+      "description": "Delete a Lexeme by ID",
+      "method": "DELETE",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "perform-a-partial-update-on-a-lexeme",
+      "name": "Perform a partial update on a Lexeme",
+      "description": "Perform a partial update on a Lexeme",
+      "method": "PATCH",
+      "url": "https://api.digitallinguistics.io/v0/languages/{{LANGUAGEID}}/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{LANGUAGEID}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "get-all-lexemes",
+      "name": "Get all Lexemes",
+      "description": "Retrieve all Lexemes that the authenticated user has permission to access. Include a `languageID` query parameter to limit results to Lexemes from a particular Language.",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/lexemes",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "add-a-new-lexeme",
+      "name": "Add a new Lexeme",
+      "description": "Add a new Lexeme. A `languageID` must be provided either as a query parameter, or as an attribute on the Lexeme body.",
+      "method": "POST",
+      "url": "https://api.digitallinguistics.io/v0/lexemes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "upsert-add-or-replace-a-lexeme-2",
+      "name": "Upsert (add or replace) a Lexeme",
+      "description": "Upsert (add or replace) a Lexeme. A `languageID` must be provided either as a query parameter, or as an attribute on the Lexeme body.",
+      "method": "PUT",
+      "url": "https://api.digitallinguistics.io/v0/lexemes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY."
+    },
+    {
+      "id": "get-a-lexeme-by-id-2",
+      "name": "Get a Lexeme by ID",
+      "description": "Get a Lexeme by ID",
+      "method": "GET",
+      "url": "https://api.digitallinguistics.io/v0/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid."
+    },
+    {
+      "id": "delete-a-lexeme-by-id-2",
+      "name": "Delete a Lexeme by ID",
+      "description": "Delete a Lexeme by ID",
+      "method": "DELETE",
+      "url": "https://api.digitallinguistics.io/v0/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid."
+    },
+    {
+      "id": "perform-a-partial-update-on-a-lexeme-2",
+      "name": "Perform a partial update on a Lexeme",
+      "description": "Perform a partial update on a Lexeme.",
+      "method": "PATCH",
+      "url": "https://api.digitallinguistics.io/v0/lexemes/{{LEXEMEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEXEMEID}}",
+        "{{DIGITALLINGUISTICS_API_KEY}}",
+        "{{DIGITALLINGUISTICS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLINGUISTICS_API_KEY}} with your DIGITALLINGUISTICS API KEY. Replace {{LEXEMEID}} with a real lexemeid."
+    }
+  ]
+}

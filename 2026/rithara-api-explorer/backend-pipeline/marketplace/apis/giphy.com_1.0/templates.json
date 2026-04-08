@@ -1,0 +1,191 @@
+{
+  "api_id": "giphy.com:1.0",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "get-gifs-by-id",
+      "name": "Get GIFs by ID",
+      "description": "A multiget version of the get GIF by ID endpoint.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "random-gif",
+      "name": "Random GIF",
+      "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs/random",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "search-gifs",
+      "name": "Search GIFs",
+      "description": "Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ignored.  Use a plus or url encode for phrases. Example paul+rudd, ryan+gosling or american+psycho.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs/search",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}",
+        "q": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "translate-phrase-to-gif",
+      "name": "Translate phrase to GIF",
+      "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIF\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs/translate",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}",
+        "s": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "trending-gifs",
+      "name": "Trending GIFs",
+      "description": "Fetch GIFs currently trending online. Hand curated by the GIPHY editorial team.  The data returned mirrors the GIFs showcased on the GIPHY homepage. Returns 25 results by default.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs/trending",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "get-gif-by-id",
+      "name": "Get GIF by Id",
+      "description": "Returns a GIF given that GIF's unique ID\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/gifs/{{GIFID}}",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIFID}}",
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY. Replace {{GIFID}} with a real gifid."
+    },
+    {
+      "id": "random-sticker",
+      "name": "Random Sticker",
+      "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/stickers/random",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "search-stickers",
+      "name": "Search Stickers",
+      "description": "Replicates the functionality and requirements of the classic GIPHY search, but returns animated stickers rather than GIFs.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/stickers/search",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}",
+        "q": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "translate-phrase-to-sticker",
+      "name": "Translate phrase to Sticker",
+      "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIFs.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/stickers/translate",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}",
+        "s": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    },
+    {
+      "id": "trending-stickers",
+      "name": "Trending Stickers",
+      "description": "Fetch Stickers currently trending online. Hand curated by the GIPHY editorial team. Returns 25 results by default.\n",
+      "method": "GET",
+      "url": "https://api.giphy.com/v1/stickers/trending",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{GIPHY_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GIPHY_API_KEY}}",
+        "{{GIPHY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{GIPHY_API_KEY}} with your GIPHY API KEY."
+    }
+  ]
+}

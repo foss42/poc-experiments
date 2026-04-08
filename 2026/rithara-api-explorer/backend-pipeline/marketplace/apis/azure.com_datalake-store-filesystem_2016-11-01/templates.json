@@ -1,0 +1,66 @@
+{
+  "api_id": "azure.com:datalake-store-filesystem:2016-11-01",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "post-webhdfsext-path",
+      "name": "POST /WebHdfsExt/{path}",
+      "description": "Appends to the specified file, optionally first creating the file if it does not yet exist. This method supports multiple concurrent appends to the file. NOTE: The target must not contain data added by Create or normal (serial) Append. ConcurrentAppend and Append cannot be used interchangeably; once a target file has been modified using either of these append options, the other append option cannot be used on the target file. ConcurrentAppend does not guarantee order and can result in duplicated data landing in the target file.",
+      "method": "POST",
+      "url": "https://azure.local/WebHdfsExt/{{PATH}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "op": "",
+        "api-version": ""
+      },
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path."
+    },
+    {
+      "id": "put-webhdfsext-path",
+      "name": "PUT /WebHdfsExt/{path}",
+      "description": "Sets or removes the expiration time on the specified file. This operation can only be executed against files. Folders are not supported.",
+      "method": "PUT",
+      "url": "https://azure.local/WebHdfsExt/{{PATH}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "expiryOption": "",
+        "op": "",
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path."
+    },
+    {
+      "id": "get-webhdfs-v1-path",
+      "name": "GET /webhdfs/v1/{path}",
+      "description": "Checks if the specified access is available at the given path.",
+      "method": "GET",
+      "url": "https://azure.local/webhdfs/v1/{{PATH}}",
+      "headers": {},
+      "query_params": {
+        "fsaction": "",
+        "op": "",
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path."
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "api_id": "visiblethread.com:1.0",
+  "endpoint_count": 12,
+  "endpoints": [
+    {
+      "id": "get-your-list-of-dictionaries",
+      "name": "Get your list of dictionaries",
+      "description": "Get your list of dictionaries",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/dictionaries",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "upload-a-dictionary-csv",
+      "name": "Upload a dictionary (CSV)",
+      "description": "Upload a dictionary (CSV format) to your VisibleThread account. ",
+      "method": "POST",
+      "url": "https://api.visiblethread.com/api/v1/dictionaries",
+      "headers": {
+        "Content-Type": "application/json",
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "get-your-list-of-documents",
+      "name": "Get your list of documents",
+      "description": "Get your list of documents",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/documents",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "upload-a-document",
+      "name": "Upload a document",
+      "description": "Upload a document to your VisibleThread account. \nWe return a JSON response that contains a \"docId\" that represents your document.        \nYou can use this id in other requests to check on the analysis status for the document and run a dictionary search and retrieve search\nresults. ",
+      "method": "POST",
+      "url": "https://api.visiblethread.com/api/v1/documents",
+      "headers": {
+        "Content-Type": "application/json",
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "get-data-from-a-previously-submitted-document",
+      "name": "Get data from a previously submitted document",
+      "description": "Get data from a previously submitted document identified by ***docId***",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/documents/{{DOCID}}",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{DOCID}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY. Replace {{DOCID}} with a real docid."
+    },
+    {
+      "id": "get-your-list-of-searches",
+      "name": "Get your list of searches",
+      "description": "Get your list of searches",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/searches",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "run-a-search",
+      "name": "Run a search",
+      "description": "Run a search on document **docId** using dictionary **dictId** ",
+      "method": "POST",
+      "url": "https://api.visiblethread.com/api/v1/searches",
+      "headers": {
+        "Content-Type": "application/json",
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "docId": 56487,
+        "dictId": 47364
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "gets-search-results-for-a-particular-document-dictionary",
+      "name": "Gets search results for a particular document/dictionary",
+      "description": "Get detailed results for a scan/url (readability, long sentence and passive language instances), identified by **scanId** & **urlId**",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/searches/{{DOCID}}/{{DICTIONARYID}}",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {
+        "matchingOnly": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DICTIONARYID}}",
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{DOCID}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY. Replace {{DICTIONARYID}} with a real dictionaryid. Replace {{DOCID}} with a real docid."
+    },
+    {
+      "id": "get-your-list-of-scans",
+      "name": "Get your list of scans",
+      "description": "Get your list of scans",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/webscans",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "run-a-new-scan",
+      "name": "Run a new scan",
+      "description": "The scan runs in the background but returns immediately with a JSON response containing an \"id\" that represents your scan.        \nYou can use this id in other requests to retrieve your scan result. \n\nAlso, an \"id\" is returned for each url which can be used to retrieve detailed results for individual scan urls. ",
+      "method": "POST",
+      "url": "https://api.visiblethread.com/api/v1/webscans",
+      "headers": {
+        "Content-Type": "application/json",
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "title": "My fancy scan title",
+        "webUrls": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY."
+    },
+    {
+      "id": "get-data-from-a-previously-run-scan",
+      "name": "Get data from a previously run scan",
+      "description": "Get data from a previously run scan, identified by **scanId**",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/webscans/{{SCANID}}",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{SCANID}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY. Replace {{SCANID}} with a real scanid."
+    },
+    {
+      "id": "gets-data-for-a-particular-scan-weburl",
+      "name": "Gets data for a particular scan/webUrl",
+      "description": "Get detailed results for a scan/url (readability, long sentence and passive language instances), identified by **scanId** & **urlId**",
+      "method": "GET",
+      "url": "https://api.visiblethread.com/api/v1/webscans/{{SCANID}}/webUrls/{{URLID}}",
+      "headers": {
+        "apiKey": "{{VISIBLETHREAD_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VISIBLETHREAD_API_KEY}}",
+        "{{SCANID}}",
+        "{{URLID}}",
+        "{{VISIBLETHREAD_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{VISIBLETHREAD_API_KEY}} with your VISIBLETHREAD API KEY. Replace {{SCANID}} with a real scanid. Replace {{URLID}} with a real urlid."
+    }
+  ]
+}

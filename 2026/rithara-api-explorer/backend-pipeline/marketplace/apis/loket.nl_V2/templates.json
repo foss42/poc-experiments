@@ -1,0 +1,4248 @@
+{
+  "api_id": "loket.nl:V2",
+  "endpoint_count": 228,
+  "endpoints": [
+    {
+      "id": "acquire-the-aow-date",
+      "name": "Acquire the AOW date",
+      "description": "__Activity name:__ GetAowDateByDateOfBirth\n\nThis endpoint allows the user to acquire the AOW date of an employee.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/aowDate",
+      "headers": {},
+      "query_params": {
+        "dateOfBirth": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "download-the-application-logo",
+      "name": "Download the application logo",
+      "description": "__Activity name :__ GetApplicationLogo\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.\n\nGet the logo of the application. In case no logo is know the service will return a 404.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/applications/{{APPLICATIONID}}/logo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPLICATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{APPLICATIONID}} with a real applicationid."
+    },
+    {
+      "id": "get-a-list-of-functions",
+      "name": "Get a list of functions",
+      "description": "__Activity name :__  GetDataNewBusinessFunctions <br/> Get a list of functions known by Data New Business. <br/>\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/datanewbusiness/functions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-data-new-business-token",
+      "name": "Get Data New Business token",
+      "description": "__Activity name :__ GetDataNewBusinessToken\n\nGet a token for calling the Data New Business (DNB) API.  DNB is a part of Van Spaendonck and with its API, DNB provides users data-based insights such as the salary checker. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/datanewbusiness/token",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-of-providers",
+      "name": "List of providers",
+      "description": "__Activity name :__ GetProvidersByUser\n\nGet a list of all providers accessible to the current user.\nNote: With the current functioning of Loket, the list will always contain 1 provider.\n\nNote: This endpoint is typically not relevant for most external parties, as the GetEmployerByUser endpoint will be much more relevant as starting point.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-of-employers",
+      "name": "List of employers",
+      "description": "__Activity name :__ GetEmployersByUserId\n\nGet a list of all employers accessible to the current user\n\nPlease note the following general remark regarding the Loket API. If an id is required as a path parameter, in almost all cases the UUID of the specific resource should be used. In the employer resource this corresponds to the the 'id' field, as is typical. (so do NOT use employerNumber as your path parameter for any following requests)\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "mark-one-or-more-announcements-as-read",
+      "name": "Mark one or more announcements as read.",
+      "description": "__Activity name :__ PatchAnnouncementsByEmployerId\n\nMark announcements as read\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/announcements",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+          "action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-concept-employee-dossier-documents",
+      "name": "Get a list of concept employee dossier documents",
+      "description": "__Activity name :__ GetDocumentsByConceptEmployeeId\n\nGet a list of documents within the concept employee's dossier (werknemerdossier). Via Qwoater.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/conceptemployees/{{CONCEPTEMPLOYEEID}}/documents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONCEPTEMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONCEPTEMPLOYEEID}} with a real conceptemployeeid."
+    },
+    {
+      "id": "details-of-a-contract-code",
+      "name": "Details of a contract code",
+      "description": "__Activity name :__ GetContractCodeByContractCodeId\n\n\nGet the details of a contract code\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/contractcodes/{{CONTRACTCODEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRACTCODEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTRACTCODEID}} with a real contractcodeid."
+    },
+    {
+      "id": "edit-a-contract-code-record",
+      "name": "Edit a contract code record",
+      "description": "__Activity name :__ PutContractCodeByContractCodeId\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/contractcodes/{{CONTRACTCODEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "code": 1022,
+        "description": "Special contract",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRACTCODEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTRACTCODEID}} with a real contractcodeid."
+    },
+    {
+      "id": "details-of-a-custom-field",
+      "name": "Details of a custom field",
+      "description": "__Activity name :__ GetCustomFieldByCustomFieldId\n\nGet the details of a custom field\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/customfields/{{CUSTOMFIELDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOMFIELDID}}"
+      ],
+      "notes": "No authentication required. Replace {{CUSTOMFIELDID}} with a real customfieldid."
+    },
+    {
+      "id": "edit-a-custom-field-record",
+      "name": "Edit a custom field record",
+      "description": "__Activity name :__ PutCustomFieldByCustomFieldId\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/customfields/{{CUSTOMFIELDID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Shoe size",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOMFIELDID}}"
+      ],
+      "notes": "No authentication required. Replace {{CUSTOMFIELDID}} with a real customfieldid."
+    },
+    {
+      "id": "details-of-a-department",
+      "name": "Details of a department",
+      "description": "__Activity name:__ GetDepartmentByDepartmentId\n\nGet the details of department\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/departments/{{DEPARTMENTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEPARTMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{DEPARTMENTID}} with a real departmentid."
+    },
+    {
+      "id": "edit-the-details-of-a-department",
+      "name": "Edit the details of a department",
+      "description": "__Activity name:__ PutDepartmentByDepartmentId\n\nEdit the details for a department\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/departments/{{DEPARTMENTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Verkoop Binnendienst",
+        "emailLeaveRequest": "api@loket.nl",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "subDepartmentOf": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEPARTMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{DEPARTMENTID}} with a real departmentid."
+    },
+    {
+      "id": "details-of-an-absence",
+      "name": "Details of an Absence",
+      "description": "__Activity name :__ GetAbsenceByAbsenceId\n\nGet the details of an Absence        \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "edit-the-details-of-a-absence",
+      "name": "Edit the details of a Absence",
+      "description": "__Activity name :__ PutAbsenceByAbsenceId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the details of am Absence\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accidentType": {},
+        "actionToBeTakenByOccupationalHealthAndSafetyService": {},
+        "caseManager": {},
+        "causeOfAbsence": {},
+        "comments": "Lorem ipsum dolor sit amet, id nibh adhuc omnium vix, ne nec eius inani aliquip.",
+        "contactInformation": {},
+        "expectedDateOfChildbirth": "2018-01-21",
+        "expectedDuration": {},
+        "expectedEndDateOfMaternityLeave": "2018-04-21",
+        "hasMobilityIssue": false,
+        "hoursWorkedOnFirstDayOfAbsence": 3,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isDisruptedEmploymentRelationship": true,
+        "isHospitalised": false,
+        "isRecoveredWithinTwoWeeks": false,
+        "isThirdPartyLiability": false,
+        "isWorkRelatedIllness": false,
+        "progress": {},
+        "reintegration": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "delete-a-specific-absence-record",
+      "name": "Delete a specific absence record",
+      "description": "__Activity name :__ DeleteAbsenceByAbsenceId\n\nDelete an existing absence (for an employee). If succesfull, this function also deletes the underlying absence progress records\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "list-of-absence-progress-for-an-absence",
+      "name": "List of absence progress for an absence",
+      "description": "__Activity name :__ GetAbsenceProgressByAbsenceId\n\nGet a list of absence progress (verzuimverloop) for a specific absence (verzuimmelding).\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}/absenceprogress",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "create-an-absence-progress-for-an-absence",
+      "name": "Create an Absence Progress for an Absence",
+      "description": "__Activity name :__ PostAbsenceProgressByAbsenceId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL. \n\nAdd an Absence Progress (=Ziekteverloop) for an employee. As is common with closed chain entities, the endDate of the previous record will be filled depending on the startDate of the new one.\n\nPractically this means that a full recovery notification has been performed. \n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}/absenceprogress",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "comments": "Lorem ipsum dolor sit amet, id nibh adhuc omnium vix, ne nec eius inani aliquip.",
+        "endDate": "",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "incapacityPercentage": 100,
+        "startDate": "2018-01-21",
+        "typeOfWorkResumption": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "close-an-absence",
+      "name": "Close an absence",
+      "description": "__Activity name :__ PatchCloseAbsenceByAbsenceId\n\nA succesfull call to this endpoint will close the absence and the underlying absence progress (with an empty endDate). \n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}/closeabsence",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "endOfAbsence": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "reopen-an-absence",
+      "name": "Reopen an absence",
+      "description": "__Activity name :__ PatchReopenAbsenceByAbsenceId\n\nWhen performing a succesfull call to this endpoint, then the absence and the underlying absence progress will we reopend.\nBoth `endOfAbsenceDate` and `endOfAbsenceReason` will be set to null\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/absences/{{ABSENCEID}}/reopenabsence",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABSENCEID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABSENCEID}} with a real absenceid."
+    },
+    {
+      "id": "details-of-a-child",
+      "name": "Details of a child",
+      "description": "__Activity name :__ GetChildByChildId\n\nGet the details of a child        \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/children/{{CHILDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHILDID}}"
+      ],
+      "notes": "No authentication required. Replace {{CHILDID}} with a real childid."
+    },
+    {
+      "id": "edit-the-details-of-a-child",
+      "name": "Edit the details of a child",
+      "description": "__Activity name :__ PutChildByChildId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the details of a child\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/children/{{CHILDID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dateOfBirth": "1995-05-21",
+        "dateOfDeath": "",
+        "firstName": "Susan",
+        "gender": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "initials": "S.L.",
+        "lastName": "Bergen",
+        "prefix": "van",
+        "residenceStatus": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHILDID}}"
+      ],
+      "notes": "No authentication required. Replace {{CHILDID}} with a real childid."
+    },
+    {
+      "id": "delete-a-specific-child-record",
+      "name": "Delete a specific child record",
+      "description": "__Activity name :__ DeleteChildByChildId\n\nDelete an existing child (for an employee)\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/children/{{CHILDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHILDID}}"
+      ],
+      "notes": "No authentication required. Replace {{CHILDID}} with a real childid."
+    },
+    {
+      "id": "details-of-a-single-contact",
+      "name": "Details of a single contact",
+      "description": "__Activity name :__ GetContactByContactId  \n\nGet the details of a single contact\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/contacts/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid."
+    },
+    {
+      "id": "edit-a-contact",
+      "name": "Edit a contact",
+      "description": "__Activity name :__ PutContactByContactId  \n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the details of a contact\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/contacts/{{CONTACTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "address": {},
+        "description": "Moeder",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "name": "Johanna Bakker",
+        "particularities": "Genoemd adres is een priveadres",
+        "phoneNumber": "013-12345678"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid."
+    },
+    {
+      "id": "delete-a-specific-contact",
+      "name": "Delete a specific contact",
+      "description": "__Activity name :__ DeleteContactByContactId\n\nDelete an existing Contact (for an employee)\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/contacts/{{CONTACTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTACTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTACTID}} with a real contactid."
+    },
+    {
+      "id": "details-of-a-single-education",
+      "name": "Details of a single education",
+      "description": "__Activity name :__ GetEducationByEducationId  \n\nGet the details of a single education\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/educations/{{EMPLOYEEEDUCATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEEDUCATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEEDUCATIONID}} with a real employeeeducationid."
+    },
+    {
+      "id": "edit-a-education",
+      "name": "Edit a Education",
+      "description": "__Activity name :__ PutEducationByEducationId  \n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the details of a education\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/educations/{{EMPLOYEEEDUCATIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "educationLevel": {},
+        "employeeCosts": 150,
+        "employerCosts": 850,
+        "endDate": "2018-10-23",
+        "endOfValidityDate": "2023-12-31",
+        "furtherIndication": {},
+        "hasDiploma": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "institute": {},
+        "name": "HBO accountancy",
+        "particularities": "Van de opleiding is alleen een certificaat verkregen",
+        "startDate": "2018-01-01",
+        "typeOfEducation": {},
+        "yearOfDiploma": 1995
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEEDUCATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEEDUCATIONID}} with a real employeeeducationid."
+    },
+    {
+      "id": "delete-a-specific-education",
+      "name": "Delete a specific education",
+      "description": "__Activity name :__ DeleteEducationByEducationId\n\nDelete an existing Education (for an employee)\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/educations/{{EMPLOYEEEDUCATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEEDUCATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEEDUCATIONID}} with a real employeeeducationid."
+    },
+    {
+      "id": "details-of-an-abp-fund",
+      "name": "Details of an abp fund",
+      "description": "__Activity name :__ GetAbpFundByAbpFundId\n\nGet the details of an abp fund\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/abpfunds/{{ABPFUNDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABPFUNDID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABPFUNDID}} with a real abpfundid."
+    },
+    {
+      "id": "edit-a-abp-fund-record",
+      "name": "Edit a abp fund record",
+      "description": "__Activity name :__ PutAbpFundByAbpFundId\n\n__Metadata :__ Possible options for fields of the type \"metadata\" can be acquired (GET) by adding `/metadata` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/abpfunds/{{ABPFUNDID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "example1": {
+          "value": {
+            "deviations": null,
+            "endDate": "2018-10-23",
+            "fixedContribution": null,
+            "startDate": "2018-01-01"
+          }
+        },
+        "example2": {
+          "value": {
+            "deviations": {
+              "employmentContributionPercentage": "11.0000",
+              "totalContributionPercentage": "12.0007"
+            },
+            "endDate": "2018-10-23",
+            "fixedContribution": null,
+            "startDate": "2018-01-01"
+          }
+        },
+        "example3": {
+          "value": {
+            "deviations": null,
+            "endDate": "2018-10-23",
+            "fixedContribution": {
+              "employmentContribution": "1789.00",
+              "totalContribution": "2569.00"
+            },
+            "startDate": "2018-01-01"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABPFUNDID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABPFUNDID}} with a real abpfundid."
+    },
+    {
+      "id": "delete-a-specific-abp-fund-record",
+      "name": "Delete a specific abp fund record",
+      "description": "__Activity name :__ DeleteAbpFundByAbpFundId\n\nDelete an existing abp fund record.\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/abpfunds/{{ABPFUNDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABPFUNDID}}"
+      ],
+      "notes": "No authentication required. Replace {{ABPFUNDID}} with a real abpfundid."
+    },
+    {
+      "id": "details-of-a-company-car-record",
+      "name": "Details of a company car record",
+      "description": "__Activity name:__ GetCompanyCarByCompanyCarId\n\n\n Get the details of a company car \n\n\nPlease note this resource is related for the registration of the company car for HRM purposes. This resource is NOT related to the registration of the fiscal company car(s) which is used in salary calculations.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/companycars/{{COMPANYCARID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMPANYCARID}}"
+      ],
+      "notes": "No authentication required. Replace {{COMPANYCARID}} with a real companycarid."
+    },
+    {
+      "id": "edit-the-details-of-a-company-car-record",
+      "name": "Edit the details of a company car record",
+      "description": "__Activity name:__ PutCompanyCarByCompanyCarId\n\n\n Edit the details for a company car record.\n\n\nPlease note this resource is related for the registration of the company car for HRM purposes. This resource is NOT related to the registration of the fiscal company car(s) which is used in salary calculations.\n\n\n __Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/companycars/{{COMPANYCARID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "brand": "Volvo",
+        "catalogValue": 20000,
+        "comments": "This car is very nice",
+        "endDate": "2023-10-23",
+        "fuelCardNumber": "B100.323.903",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "kilometersPrivateUse": 10000,
+        "lease": {},
+        "leaseOrBuy": {},
+        "licensePlateNumber": "GP586D",
+        "model": "V60",
+        "startDate": "2021-01-01",
+        "supplier": "Leasemaatschappij Tilburg"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMPANYCARID}}"
+      ],
+      "notes": "No authentication required. Replace {{COMPANYCARID}} with a real companycarid."
+    },
+    {
+      "id": "delete-a-specific-company-car-record",
+      "name": "Delete a specific company car record",
+      "description": "__Activity name:__ DeleteCompanyCarByCompanyCarId\n\nDelete a company car record for the employment\n\nPlease note this resource is related for the registration of the company car for HRM purposes. This resource is NOT related to the registration of the fiscal company car(s) which is used in salary calculations.\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/companycars/{{COMPANYCARID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMPANYCARID}}"
+      ],
+      "notes": "No authentication required. Replace {{COMPANYCARID}} with a real companycarid."
+    },
+    {
+      "id": "details-of-cost-per-hour",
+      "name": "Details of cost per hour",
+      "description": "__Activity name :__ GetCostPerHourByCostPerHourId\n\nGet the details of a cost per hour record\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/costperhour/{{COSTPERHOURID}}",
+      "headers": {},
+      "query_params": {
+        "costPerHourId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COSTPERHOURID}}"
+      ],
+      "notes": "No authentication required. Replace {{COSTPERHOURID}} with a real costperhourid."
+    },
+    {
+      "id": "edit-a-cost-per-hour-record",
+      "name": "Edit a cost per hour record",
+      "description": "__Activity name :__ PutCostperhourByCostperhourId\n\n__Metadata :__ No metadata.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/costperhour/{{COSTPERHOURID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "costPerHourId": ""
+      },
+      "body": {
+        "costPerHour": 21.2,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "payrollPeriods": {},
+        "registrationMethod": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COSTPERHOURID}}"
+      ],
+      "notes": "No authentication required. Replace {{COSTPERHOURID}} with a real costperhourid."
+    },
+    {
+      "id": "details-of-a-declaration",
+      "name": "Details of a declaration",
+      "description": "__Activity name :__ GetDeclarationsByDeclarationId\n\nGet the details of a declaration\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/declarations/{{DECLARATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DECLARATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{DECLARATIONID}} with a real declarationid."
+    },
+    {
+      "id": "download-attachment",
+      "name": "Download attachment",
+      "description": "__Activity name :__ GetAttachmentByDeclarationId\n\nDownload the attachment (via Qwoater) for the given declarationId. In case no attachment is know the service will return a 404.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/declarations/{{DECLARATIONID}}/attachment",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DECLARATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{DECLARATIONID}} with a real declarationid."
+    },
+    {
+      "id": "a-single-leave-entry",
+      "name": "A single leave entry",
+      "description": "__Activity name :__ GetLeaveByLeaveId\n\nReturns one leave entry (either addition or subtraction).",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leave/{{LEAVEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEID}} with a real leaveid."
+    },
+    {
+      "id": "edit-the-details-of-a-leave",
+      "name": "Edit the details of a leave",
+      "description": "__Activity name :__ PutLeaveByLeaveId\n\nEdit the details of a leave\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leave/{{LEAVEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "some comment",
+        "endDate": "2017-11-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isAccrual": false,
+        "leaveType": {},
+        "numberOfUnits": 8,
+        "origin": {},
+        "relatedLeave": {},
+        "relatedLeaveRequest": {},
+        "startDate": "2017-11-01",
+        "unitType": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEID}} with a real leaveid."
+    },
+    {
+      "id": "delete-a-specific-leave-record",
+      "name": "Delete a specific leave record",
+      "description": "__Activity name :__ DeleteLeaveByLeaveId\n\nDelete an existing Leave record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leave/{{LEAVEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEID}} with a real leaveid."
+    },
+    {
+      "id": "get-the-values-for-the-metadata-fields",
+      "name": "Get the values for the metadata fields",
+      "description": "__Activity name :__ GetLeaveMetadataByLeaveId\n\nReturns the metadata values for all the metadata fields.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leave/{{LEAVEID}}/metadata",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEID}} with a real leaveid."
+    },
+    {
+      "id": "details-of-a-leave-request",
+      "name": "Details of a leave request",
+      "description": "__Activity name :__ GetLeaveRequestByLeaveRequestId\n\nGet the details of a single leave request\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leaverequests/{{LEAVEREQUESTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEREQUESTID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEREQUESTID}} with a real leaverequestid."
+    },
+    {
+      "id": "change-the-details-of-a-leave-request",
+      "name": "Change the details of a leave request",
+      "description": "__Activity name :__ PutLeaveRequestByLeaveRequestId\n   \n\nChange the details of a Leave request\n\n__Important:__ A PUT is only allowed when the leave requests is in the status \"submitted\"/\"ingediend\". Only the field of `commentHandler`  may be editied in other statuses.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/leaverequests/{{LEAVEREQUESTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "commentEmployee": "Vakantie naar Spanje",
+        "commentHandler": "Fijne vakantie!",
+        "currentlyAvailableUnits": 140,
+        "endDate": "2017-11-01",
+        "handledBy": {},
+        "handledTime": "2018-05-08T15:16:49+02:00",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isAccrual": false,
+        "leaveRequestStatus": {},
+        "leaveType": {},
+        "numberOfUnits": 8,
+        "startDate": "2017-11-01",
+        "submittedBy": {},
+        "submittedOn": "2018-05-08T15:16:49+02:00",
+        "unitType": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEREQUESTID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEREQUESTID}} with a real leaverequestid."
+    },
+    {
+      "id": "details-of-an-employment-note",
+      "name": "Details of an employment note",
+      "description": "__Activity name :__ GetEmploymentNoteByNoteId\n\nGet the details of an employment note\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "edit-an-employment-note-record",
+      "name": "Edit an employment note record",
+      "description": "__Activity name :__ PutEmploymentNoteByNoteId\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding ` / metadata ` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/notes/{{NOTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "delete-an-employment-note-record",
+      "name": "Delete an employment note record",
+      "description": "__Activity name :__ DeleteEmploymentNoteByNoteId\n\nDelete an existing note record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "details-of-wachtgeld",
+      "name": "Details of wachtgeld",
+      "description": "__Activity name :__ GetWachtgeldByWachtgeldId\n\nGet the details of a wachtgeld record\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wachtgeld/{{WACHTEGELDENID}}",
+      "headers": {},
+      "query_params": {
+        "wachtgeldId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WACHTEGELDENID}}"
+      ],
+      "notes": "No authentication required. Replace {{WACHTEGELDENID}} with a real wachtegeldenid."
+    },
+    {
+      "id": "edit-a-wachtgeld-record",
+      "name": "Edit a wachtgeld record",
+      "description": "__Activity name :__ PutWachtgeldByWachtgeldId\n\n__Metadata :__ No metadata.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wachtgeld/{{WACHTEGELDENID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "wachtgeldId": ""
+      },
+      "body": {
+        "endDate": "2018-10-23",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "startDate": "2021-06-01",
+        "value": 50.87,
+        "valueAdditionalIncomeCivilService": 50.87,
+        "valueAdditionalIncomeNonCivilService": 50.87
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WACHTEGELDENID}}"
+      ],
+      "notes": "No authentication required. Replace {{WACHTEGELDENID}} with a real wachtegeldenid."
+    },
+    {
+      "id": "delete-a-wachtgeld-record",
+      "name": "Delete a wachtgeld record",
+      "description": "__Activity name :__ DeleteWachtgeldByWachtgeldId\n\nDelete an existing wachtgeld record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wachtgeld/{{WACHTEGELDENID}}",
+      "headers": {},
+      "query_params": {
+        "wachtgeldId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WACHTEGELDENID}}"
+      ],
+      "notes": "No authentication required. Replace {{WACHTEGELDENID}} with a real wachtegeldenid."
+    },
+    {
+      "id": "details-of-a-single-wage",
+      "name": "Details of a single wage",
+      "description": "__Activity name :__ GetWageByWageId\n\nGet the details of a single wage\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wages/{{WAGEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WAGEID}}"
+      ],
+      "notes": "No authentication required. Replace {{WAGEID}} with a real wageid."
+    },
+    {
+      "id": "edit-a-wage",
+      "name": "Edit a wage",
+      "description": "__Activity name :__ PutWageByWageId\n\nEdit the details of a wage \n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT wage URL.\n\n        \nThe possible options for `payGrade` are scoped by a `payScale`. To obtain the pay grades for a pay scale a metadata call has to be performed with the following format `../wages/metadata/payscale/{key}`. Where {key} is the key of the `payScale` (obtained via the first metadata call) for which the pay grades are to be returned.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wages/{{WAGEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "applyPayGrade": true,
+        "employerCosts": 3500,
+        "employerCostsType": {},
+        "endDate": "",
+        "grossWage": 2300,
+        "grossWageType": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isGrossWageFullTime": true,
+        "netWage": 2400,
+        "netWageType": {},
+        "payGrade": {},
+        "payScale": {},
+        "payrollPeriodType": {},
+        "startDate": "1995-05-21"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WAGEID}}"
+      ],
+      "notes": "No authentication required. Replace {{WAGEID}} with a real wageid."
+    },
+    {
+      "id": "delete-a-specific-wage-record",
+      "name": "Delete a specific wage record",
+      "description": "__Activity name :__ DeleteWageByWageId\n\nDelete a wage record for the employment\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/wages/{{WAGEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WAGEID}}"
+      ],
+      "notes": "No authentication required. Replace {{WAGEID}} with a real wageid."
+    },
+    {
+      "id": "details-of-the-working-hours",
+      "name": "Details of the working hours",
+      "description": "__Activity name :__  GetWorkingHoursByWorkingHoursId <br/> <br/>  Get the details of a working hours record\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/workinghours/{{WORKINGHOURSID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKINGHOURSID}}"
+      ],
+      "notes": "No authentication required. Replace {{WORKINGHOURSID}} with a real workinghoursid."
+    },
+    {
+      "id": "edit-the-working-hours",
+      "name": "Edit the working hours",
+      "description": "__Activity name :__  PutWorkingHoursByWorkingHoursId       <br/> <br/>  Create a new working hours record for an employment<br/>  Please note that so-called chain validation exists for working hours records. In other words, the time periods of records for an employment cannot overlap with each other.<br/> A new or changed startDate affects the endDate of its preceding record.<br/>  When PUT-ing a new record, the startDate must be greater then the preceding record's startDate.\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/workinghours/{{WORKINGHOURSID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "aggregatedHoursPerWeek": 24,
+        "averageHoursPerWeek": 32,
+        "averageParttimeFactor": 0.0,
+        "calculateUsingWorkPattern": {},
+        "contractCode": {},
+        "deviatingHoursPerWeek": 32,
+        "deviatingSvDaysPerPeriod": 20,
+        "endDate": "2018-10-23",
+        "flexibleHoursContract": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "regularWorkPattern": true,
+        "shift": {},
+        "shiftRateSickLeave": {},
+        "startDate": "2018-01-01",
+        "workPattern": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKINGHOURSID}}"
+      ],
+      "notes": "No authentication required. Replace {{WORKINGHOURSID}} with a real workinghoursid."
+    },
+    {
+      "id": "details-of-an-employment",
+      "name": "Details of an employment",
+      "description": "__Activity name :__ GetEmploymentByEmploymentId\n\nGet the details for an employment\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-abp-funds-the-employment-partakes-in",
+      "name": "List of abp funds the employment partakes in",
+      "description": "__Activity name :__ GetAbpFundsByEmploymentId\n\nGet a list of the abp funds the employment partakes in.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/abpfunds",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "activate-an-abp-fund-for-an-employment",
+      "name": "Activate an abp fund for an employment",
+      "description": "__Activity name :__ PostAbpFundByEmploymentId\n\n__Metadata :__ Possible options for fields of the type \"metadata\" can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults\" to the POST URL.\n\nActivate an abp fund for an employment",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/abpfunds",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "example1": {
+          "value": {
+            "deviations": null,
+            "endDate": "2018-10-23",
+            "fixedContribution": null,
+            "fund": {
+              "key": 1
+            },
+            "startDate": "2018-01-01"
+          }
+        },
+        "example2": {
+          "value": {
+            "deviations": {
+              "employmentContributionPercentage": "11.0000",
+              "totalContributionPercentage": "12.0007"
+            },
+            "endDate": "2018-10-23",
+            "fixedContribution": null,
+            "fund": {
+              "key": 1
+            },
+            "startDate": "2018-01-01"
+          }
+        },
+        "example3": {
+          "value": {
+            "deviations": null,
+            "endDate": "2018-10-23",
+            "fixedContribution": {
+              "employmentContribution": "1789.00",
+              "totalContribution": "2569.00"
+            },
+            "fund": {
+              "key": 1
+            },
+            "startDate": "2018-01-01"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-benefits-in-kind",
+      "name": "List Benefits in kind",
+      "description": "__Activity name:__ GetBenefitsInKindByEmploymentId\nGet a list of the Benefits in kind of the employment.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/benefitsInKind",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "add-a-benefit-in-kind-for-an-employment",
+      "name": "Add a Benefit in kind for an employment",
+      "description": "__Activity name :__ PostBenefitInKindByEmploymentId\n\n__Metadata:__ Possible options for fields of the type 'metadata' can be acquired(GET)by adding `/metadata` to the POST URL.\n\n__Defaults:__ Default values for a new object can be acquired by adding `/defaults' to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/benefitsInKind",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "benefitInKindType": {},
+        "brand": "Apple",
+        "endDate": "2018-10-23",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "particularities": "geen bijzonderheden",
+        "startDate": "2018-01-01",
+        "supplier": "Mediamarkt",
+        "type": "Iphone 11",
+        "value": 1100
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-company-cars-for-an-employment",
+      "name": "List of  company cars for an employment",
+      "description": "__Activity name:__ GetCompanyCarsByEmploymentId\n    \n\nGet the list of company cars for an employment. \n\nPlease note this resource is related for the registration of the company car for HRM purposes. This resource is NOT related to the registration of the fiscal company car(s) which is used in salary calculations.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/companycars",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "create-a-company-car-record-for-an-employment",
+      "name": "Create a company car record for an employment",
+      "description": "__Activity name:__ PostCompanyCarByEmploymentId\n    \n\nCreate a company car record for an employment.\n\nPlease note this resource is related for the registration of the company car for HRM purposes. This resource is NOT related to the registration of the fiscal company car(s) which is used in salary calculations.\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ There are no defaults available.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/companycars",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "brand": "Volvo",
+        "catalogValue": 20000,
+        "comments": "This car is very nice",
+        "endDate": "2023-10-23",
+        "fuelCardNumber": "B100.323.903",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "kilometersPrivateUse": 10000,
+        "lease": {},
+        "leaseOrBuy": {},
+        "licensePlateNumber": "GP586D",
+        "model": "V60",
+        "startDate": "2021-01-01",
+        "supplier": "Leasemaatschappij Tilburg"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-costs-per-hour-for-an-employment",
+      "name": "List of costs per hour for an employment",
+      "description": "__Activity name:__ GetCostPerHourByEmploymentId\n    \n\nGet the list of costs per hour for an employment\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/costperhour",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "add-a-cost-per-hour-for-an-employment",
+      "name": "Add a cost per hour for an employment",
+      "description": "__Activity name :__ PostCostPerHourByEmploymentId\n\n__Metadata:__ Possible options for fields of the type 'metadata' can be acquired(GET)by adding `/metadata` to the POST URL.\n\n__Defaults:__ Defaults can be acquired(GET)by adding `/defaults` to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/costperhour",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "costPerHour": 21.2,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "payrollPeriods": {},
+        "registrationMethod": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-declarations-for-an-employment",
+      "name": "List of declarations for an employment",
+      "description": "__Activity name :__ GetDeclarationsByEmploymentId\n\nReturns a list of declarations for the employments of the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/declarations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "get-a-list-of-employment-dossier-documents",
+      "name": "Get a list of employment dossier documents",
+      "description": "__Activity name :__ GetDocumentsByEmploymentId\n\nGet a list of documents within the employee's employment dossier (werknemerdossier). Via Qwoater.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/documents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-all-the-leave-entries",
+      "name": "List of all the leave entries",
+      "description": "__Activity name :__ GetLeaveByEmploymentId <br/>  <br/>  Returns all the leave entries (both addition and subtraction) for the given employment.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leave",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "create-a-leave-record-for-an-employment",
+      "name": "Create a leave record for an employment",
+      "description": "__Activity name :__ PostLeaveByEmploymentId\n\nAdd a Leave record for an employment\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leave",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "some comment",
+        "endDate": "2017-11-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isAccrual": false,
+        "leaveType": {},
+        "numberOfUnits": 8,
+        "origin": {},
+        "relatedLeave": {},
+        "relatedLeaveRequest": {},
+        "startDate": "2017-11-01",
+        "unitType": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "get-the-default-values-to-be-used-when-posting-a-new-record",
+      "name": "Get the default values to be used when POSTing a new record",
+      "description": "__Activity name :__ GetLeaveDefaultsByEmploymentId\n\nReturns the default values for all the fields. In case no default is present `null` will be returned.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leave/defaults",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "get-the-values-for-the-metadata-fields-2",
+      "name": "Get the values for the metadata fields",
+      "description": "__Activity name :__ GetLeaveMetadataByEmploymentId\n\nReturns the metadata values for all the metadata fields.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leave/metadata",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-yearly-leave-balances-for-each-leave-type",
+      "name": "List of yearly leave balances for each leave type.",
+      "description": "__Activity name :__ GetLeaveBalancesByEmploymentId <br/>  <br/>  Returns the yearly leave balances for each leave type.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leavebalances",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "get-list-of-linked-leave-policies-for-the-employment",
+      "name": "Get list of linked leave policies for the employment",
+      "description": "__Activity name:__ GetLeavePoliciesByEmploymentId\n    \n\nGet the list of leave policies linked to the employment.\nIf a leave policy and employment are linked, that means the employment will be provided the leave based on the policy.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leavepolicies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "leave-requests-by-employment",
+      "name": "leave requests by employment",
+      "description": "__Activity name :__ GetLeaveRequestsByEmploymentId\n\nGet a list of all leave requests for the given employment\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/leaverequests",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-payslips-for-an-employment",
+      "name": "List of payslips for an employment",
+      "description": "__Activity name :__ GetPayslipsByEmploymentId\n\nGet a list of payslips for the specified employment, including the GUID of the corresponding payroll run.\n\nThe function of this endpoint is dependent on the role of the user;\n* For users with the role of 'werknemer';  The endpoint only returns results for payrollruns that have the status 'approved' AND for which results of the payroll are available for ESS (based on the ESS-date of the payrollrun) .\n* For users with any other role (in most cases); the endpoin returns results for approved payrollruns irregardless of the ESS date.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/payslips",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "undo-termination-for-an-employment",
+      "name": "Undo termination for an employment.",
+      "description": "__Activity name :__  PatchReinstateByEmploymentId\n\nreinstate for an employment. <br/> Effectively,  termination is reversed by using this endpoint and therefore the employment will be considered active again. \n\nMaak een uitdienst melding ongedaan.<br/> Effectief gezien, 'datum uit dienst' gegevens worden teruggedraaid waardoor het dienstverband weer als actief zal worden beschouwd in Loket <br/>\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/reinstate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-wachtgeld",
+      "name": "List wachtgeld",
+      "description": "__Activity name :__ GetWachtgeldByEmploymentId\n\nGet a list of wachtgeld of the employment.\n\n__Note:__ Wachtgeld, or redundancy pay, is an additional benefit that you receive on top of your unemployment benefit.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/wachtgeld",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "add-a-wachtgeld-for-an-employment",
+      "name": "Add a wachtgeld for an employment",
+      "description": "__Activity name :__ PostWachtgeldByEmploymentId __Metadata:__ Possible options for fields of the type 'metadata' can be acquired(GET)by adding `/metadata` to the POST URL. __Defaults:__ Default values for a new object can be acquired by adding `/defaults' to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/wachtgeld",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "endDate": "2018-10-23",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "startDate": "2021-06-01",
+        "value": 50.87,
+        "valueAdditionalIncomeCivilService": 50.87,
+        "valueAdditionalIncomeNonCivilService": 50.87
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-wages-for-an-employment",
+      "name": "List of wages for an employment",
+      "description": "__Activity name :__ GetWagesByEmploymentId\n\nGet the list of wages for the employment\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/wages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "create-an-wage-for-an-employment",
+      "name": "Create an wage for an employment",
+      "description": "__Activity name :__ PostWageByEmploymentId\n\nCreate a new wage record for the given employment\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST Wage URL.\n\n        \nThe possible options for `payGrade` are scoped by a `payScale`. To obtain the pay grades for a pay scale a metadata call has to be performed with the following format `../wages/metadata/payscale/{key}`. Where {key} is the key of the `payScale` (obtained via the first metadata call) for which the pay grades are to be returned.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL and performing a GET action.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/wages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "applyPayGrade": true,
+        "employerCosts": 3500,
+        "employerCostsType": {},
+        "endDate": "",
+        "grossWage": 2300,
+        "grossWageType": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isGrossWageFullTime": true,
+        "netWage": 2400,
+        "netWageType": {},
+        "payGrade": {},
+        "payScale": {},
+        "payrollPeriodType": {},
+        "startDate": "1995-05-21"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "list-of-working-hours-for-an-employment",
+      "name": "List of working hours for an employment",
+      "description": "__Activity name :__  GetWorkingHoursByEmploymentId  <br/> <br/>  Get the list of working hours for an employment <br/>\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/workinghours",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "create-the-working-hours-for-an-employment",
+      "name": "Create the working hours for an employment",
+      "description": "__Activity name :__  PostWorkingHoursByEmploymentId <br/> <br/>  Create a new working hours record for an employment<br/>  Please note that so-called chain validation exists for working hours records. In other words, the time periods of records for an employment cannot overlap with each other.<br/> A new or changed startDate affects the endDate of its preceding record.<br/>  When POST-ing a new record, the startDate must be greater then the preceding record's startDate.\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/employments/{{EMPLOYMENTID}}/workinghours",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "aggregatedHoursPerWeek": 24,
+        "averageHoursPerWeek": 32,
+        "averageParttimeFactor": 0.0,
+        "calculateUsingWorkPattern": {},
+        "contractCode": {},
+        "deviatingHoursPerWeek": 32,
+        "deviatingSvDaysPerPeriod": 20,
+        "endDate": "2018-10-23",
+        "flexibleHoursContract": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "regularWorkPattern": true,
+        "shift": {},
+        "shiftRateSickLeave": {},
+        "startDate": "2018-01-01",
+        "workPattern": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYMENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYMENTID}} with a real employmentid."
+    },
+    {
+      "id": "details-of-an-employee-note",
+      "name": "Details of an employee note",
+      "description": "__Activity name :__ GetEmployeeNoteByNoteId\n\nGet the details of a note\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "edit-an-employee-note-record",
+      "name": "Edit an employee note record",
+      "description": "__Activity name :__ PutEmployeeNoteByNoteId\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding ` / metadata ` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/notes/{{NOTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "delete-an-employee-note-record",
+      "name": "Delete an employee note record",
+      "description": "__Activity name :__ DeleteEmployeeNoteByNoteId\n\nDelete an existing note record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "details-of-a-single-partner",
+      "name": "Details of a single partner",
+      "description": "__Activity name :__ GetPartnerByPartnerId\n\nGet the details of a single partner\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/partners/{{PARTNERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "edit-the-details-for-a-partner",
+      "name": "Edit the details for a partner",
+      "description": "__Activity name :__ PutPartnerByPartnerId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the partner information\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/partners/{{PARTNERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dateOfBirth": "1995-05-21",
+        "dateOfDeath": "",
+        "endDate": "1995-05-21",
+        "firstName": "Susan",
+        "gender": {},
+        "howToFormatLastName": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "initials": "S.L.",
+        "lastName": "Bergen",
+        "placeOfBirth": "Amsterdam",
+        "prefix": "van",
+        "startDate": "1995-05-21",
+        "title": {},
+        "waoClassification": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "delete-a-specific-partner-record",
+      "name": "Delete a specific partner record",
+      "description": "__Activity name :__ DeletePartnerByPartnerId\n\nDelete an existing partner\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/partners/{{PARTNERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "details-of-an-employee",
+      "name": "Details of an employee",
+      "description": "__Activity name :__ GetEmployeeByEmployeeId\n\nGet the details of a single employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "edit-the-details-of-an-employee",
+      "name": "Edit the details of an employee",
+      "description": "__Activity name :__ PutEmployeeByEmployeeId\n\n\nEdit the employee details\n<br />\nPossible values for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the URL\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "address": {},
+        "contactInformation": {},
+        "deviatingPostalAddress": {},
+        "employeeNumber": 156,
+        "exclusionFromAbsenceStatus": false,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "identityDocument": {},
+        "personalDetails": {},
+        "revokeEmployeeSelfServiceAccessOn": "2018-10-23",
+        "statusEmployeeSelfService": {},
+        "travel": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-absences-for-an-employee",
+      "name": "List of absences for an employee",
+      "description": "__Activity name :__ GetAbsencesByEmployeeId\n\nGet a list of all absences for the given employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/absences",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-an-absence-for-an-employee",
+      "name": "Create an Absence for an employee",
+      "description": "__Activity name :__ PostAbsenceByEmployeeId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL. \n\nAdd an Absence (=verzuimmelding) for an employee. \n\n__Please note that if this endpoint is called succesfully both an absence (=verzuimmelding) AND one underlying absence progress (=verzuimverloop) will be created.__\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/absences",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accidentType": {},
+        "actionToBeTakenByOccupationalHealthAndSafetyService": {},
+        "caseManager": {},
+        "causeOfAbsence": {},
+        "comments": "Lorem ipsum dolor sit amet, id nibh adhuc omnium vix, ne nec eius inani aliquip.",
+        "contactInformation": {},
+        "expectedDateOfChildbirth": "2018-01-21",
+        "expectedDuration": {},
+        "expectedEndDateOfMaternityLeave": "2018-04-21",
+        "hasMobilityIssue": false,
+        "hoursWorkedOnFirstDayOfAbsence": 3,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isDisruptedEmploymentRelationship": true,
+        "isHospitalised": false,
+        "isRecoveredWithinTwoWeeks": false,
+        "isThirdPartyLiability": false,
+        "isWorkRelatedIllness": false,
+        "progress": {},
+        "reintegration": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "download-the-absence-overview-for-an-employee",
+      "name": "Download the absence overview for an employee",
+      "description": "__Activity name :__ GetAbsenceOverviewByEmployeeId\n\nDownload the absence overview (verzuim) for a given time frame\n\n__Metadata :__ No metadata\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/absences/overview",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "get-benify-url-for-an-employee",
+      "name": "Get Benify URL for an employee",
+      "description": "__Activity name :__ GetBenifyUrlByEmployeeId\n\nGet a URL to access the Benify portal for an employee.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/benifyurl",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-children-for-an-employee",
+      "name": "List of children for an employee",
+      "description": "__Activity name :__ GetChildrenByEmployeeId\n\n\n Get the list of children of the employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/children",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-an-child-for-an-employee",
+      "name": "Create an child for an employee",
+      "description": "__Activity name :__ PostChildByEmployeeId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL. \n\nAdd a child for an employee\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/children",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dateOfBirth": "1995-05-21",
+        "dateOfDeath": "",
+        "firstName": "Susan",
+        "gender": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "initials": "S.L.",
+        "lastName": "Bergen",
+        "prefix": "van",
+        "residenceStatus": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-contacts-for-an-employee",
+      "name": "List of contacts for an employee",
+      "description": "__Activity name :__ GetContactsByEmployeeId\n\nGet list of contacts for an employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/contacts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-a-contact-for-an-employee",
+      "name": "Create a contact for an employee",
+      "description": "__Activity name :__ PostContactByEmployeeId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ No default values\n\nCreate a new contact for an employee\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/contacts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "address": {},
+        "description": "Moeder",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "name": "Johanna Bakker",
+        "particularities": "Genoemd adres is een priveadres",
+        "phoneNumber": "013-12345678"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-educations-for-an-employee",
+      "name": "List of educations for an employee",
+      "description": "__Activity name :__ GetEducationsByEmployeeId\n\nGet list of educations for an employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/educations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-a-education-for-an-employee",
+      "name": "Create a education for an employee",
+      "description": "__Activity name :__ PostEducationByEmployeeId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ No default values\n\nCreate a new education for an employee\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/educations",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "educationLevel": {},
+        "employeeCosts": 150,
+        "employerCosts": 850,
+        "endDate": "2018-10-23",
+        "endOfValidityDate": "2023-12-31",
+        "furtherIndication": {},
+        "hasDiploma": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "institute": {},
+        "name": "HBO accountancy",
+        "particularities": "Van de opleiding is alleen een certificaat verkregen",
+        "startDate": "2018-01-01",
+        "typeOfEducation": {},
+        "yearOfDiploma": 1995
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-employments-for-an-employee",
+      "name": "List of employments for an employee",
+      "description": "__Activity name :__ GetEmploymentsByEmployeeId\n\nGet the list of employments for an employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/employments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-employment-for-existing-employee",
+      "name": "Create employment for existing employee",
+      "description": "__Activity name :__ PostEmploymentByEmployeeId\n\nCreate an additional employment for an already existing employee.\n\nPlease note that the creation of an Employment is not RESTful by design.\n\nIn Loket, when a new Employee is created it will have to be created including its underlying Employment and its accessory resources. This specific endpoint is relevant in the following scenario: there is already an Employee with at least one Employment, and one wishes to create an additional Employment for that currently existing Employee. When successfully calling this endpoint, an Employment with its accessory resources will be created.\n\n__Metadata :__ \n* Possible options (metadata) for generic fields of the type \"metadata\" can be acquired (GET) by adding `/metadata` to the URL.\n* Possible options dependent on a specific payrollAdministration can be acquired by adding `/metadata/payrolladministration/{payrollAdministrationId}` to the url.\n* Possible options for payGrade can be acquired by adding `metadata/payrolladministration/{payrollAdministrationId}/payscale/{payScaleKey}` to the url.\n\nA `payGrade` has time based values dictating the wage for a given period. These values can be acquired by performing another metadata request by adding `/metadata/payrolladministration/{payrollAdministrationId}/payscale/{payScaleKey}/paygrade/{payGradeKey}` to the url. This endpoint has the optional parameter \"date\" that may be used to specifying a measure date.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults` to the URL. \n\n        \nDefault values that are dependent on the selected payroll administration can be acquired by adding `../providers/employers/employees/employments/defaults/payrolladministration/{payrollAdministrationId}` to the URL.\n\n__NonPayrollAdministrations__ For nonPayrollAdministrations the equivalent metaData-endpoints are also available as described above.  Also, a defaults endpoint is available for the nonPayrollAdministration.  Please note that this requires `../nonpayrolladministrations/{nonPayrollAdministrationId}` in the path.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/employments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "employeeData": {},
+        "employmentData": {},
+        "fiscalData": {},
+        "organizationalEntityData": {},
+        "otherPayrollVariablesData": {},
+        "socialSecurityData": {},
+        "wageData": {},
+        "workingHoursData": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "get-a-list-of-notes-for-an-employee",
+      "name": "Get a list of notes for an employee.",
+      "description": "__Activity name :__ GetEmployeeNotesByEmployeeId\n\nGet a list of notes, available for the user, for the employee. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/notes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "add-a-note-for-an-employee",
+      "name": "Add a note for an employee",
+      "description": "__Activity name :__ PostEmployeeNoteByEmployeeId\n\n__Metadata:__ Possible options for fields of the type 'metadata' can be acquired(GET)by adding `/metadata` to the POST URL.\n\n__Defaults:__ Default values for a new object can be acquired by adding `/defaults' to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/notes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "list-of-partners-for-an-employee",
+      "name": "List of partners for an employee",
+      "description": "__Activity name :__ GetPartnersByEmployeeId\n\nGet the list of partners of the employee\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/partners",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "create-the-partner-for-an-employee",
+      "name": "Create the partner for an employee",
+      "description": "__Activity name :__ PostPartnerByEmployeeId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__  Default values for a new object can be acquired by adding `/defaults' to the POST URL. \n\nCreate the partner for an employee\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/partners",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dateOfBirth": "1995-05-21",
+        "dateOfDeath": "",
+        "endDate": "1995-05-21",
+        "firstName": "Susan",
+        "gender": {},
+        "howToFormatLastName": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "initials": "S.L.",
+        "lastName": "Bergen",
+        "placeOfBirth": "Amsterdam",
+        "prefix": "van",
+        "startDate": "1995-05-21",
+        "title": {},
+        "waoClassification": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "photo-of-an-employee",
+      "name": "Photo of an employee",
+      "description": "__Activity name :__ GetEmployeePhotoByEmployeeId\n\nPhoto of the employee to use as an avatar/profile picture\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/photo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "post-employee-photo",
+      "name": "Post employee photo",
+      "description": "__Activity name :__ PostEmployeePhotoByEmployeeId\n\nPhoto of the employee to use as an avatar/profile picture\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/photo",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": "YQ==",
+        "mimeType": "image/jpeg"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "delete-employee-photo",
+      "name": "Delete employee photo",
+      "description": "__Activity name :__ DeleteEmployeePhotoByEmployeeId\n\nPhoto of the employee to use as an avatar/profile picture\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/employees/{{EMPLOYEEID}}/photo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYEEID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYEEID}} with a real employeeid."
+    },
+    {
+      "id": "details-of-a-function",
+      "name": "Details of a function",
+      "description": "__Activity name:__ GetFunctionByFunctionId\n\nGet the details of function\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/functions/{{FUNCTIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "edit-the-details-of-a-function",
+      "name": "Edit the details of a function",
+      "description": "__Activity name:__ PutFunctionByFunctionId\n\nEdit the details for a function\n\n__Metadata:__ No metadata\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/functions/{{FUNCTIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Directeur",
+        "group": "Var",
+        "key": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "a-single-leave-policy",
+      "name": "A single leave policy",
+      "description": "__Activity name :__ GetLeavePolicyByLeavePolicyId\n\nReturns one leave policy",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/leavePolicies/{{LEAVEPOLICYID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEPOLICYID}} with a real leavepolicyid."
+    },
+    {
+      "id": "edit-the-details-of-a-leave-policy",
+      "name": "Edit the details of a leave policy",
+      "description": "__Activity name :__ PutLeavePolicyByLeavePolicyId\n\nEdit the details of a leave policy\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/leavePolicies/{{LEAVEPOLICYID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accrualType": {},
+        "additionalLeave": {},
+        "dayOfTheMonthToPerformAutomaticLeaveCalculationOn": 12,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "leaveEntitlement": {},
+        "leaveRequest": {},
+        "leaveUnitType": {},
+        "name": "Normal leave",
+        "payoutLeaveImmediately": false,
+        "roundTo": {},
+        "roundingMethod": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEPOLICYID}} with a real leavepolicyid."
+    },
+    {
+      "id": "age-based-leave",
+      "name": "Age based leave",
+      "description": "__Activity name :__ GetAgeBasedLeaveByLeavePolicyId <br/>  <br/>  Returns the age based leave for the given leave policy.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/leavePolicies/{{LEAVEPOLICYID}}/agebasedleave",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEPOLICYID}} with a real leavepolicyid."
+    },
+    {
+      "id": "get-list-of-linked-employments-for-the-leave-policy",
+      "name": "Get list of linked employments for the leave policy",
+      "description": "__Activity name:__ GetEmploymentsByLeavePolicyId\nGet the list of employments that are linked for this leave policy.\nWhen a leave policy and an employment are linked, that means the employment will be provided with leave based on the policy.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/leavepolicies/{{LEAVEPOLICYID}}/employments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEPOLICYID}} with a real leavepolicyid."
+    },
+    {
+      "id": "create-or-delete-multiple-linked-employments-for-the-leave-policy",
+      "name": "Create or delete multiple linked employments for the leave policy",
+      "description": "__Activity name:__ PatchEmploymentsByLeavePolicyId\nThis endpoint enables the user to create or delete multiple 'linkages' with one call. This is mostly useful updating a larger number of employments for the given leave policy.\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/leavepolicies/{{LEAVEPOLICYID}}/employments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+          "action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAVEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LEAVEPOLICYID}} with a real leavepolicyid."
+    },
+    {
+      "id": "list-of-employers-with-fewer-fields-for-performance-reasons",
+      "name": "List of employers with fewer fields for performance reasons",
+      "description": "__Activity name :__ GetEmployersMinimizedByUser\n\nGet a list of all employers accessible to the current user.  With this endpoint we introduced the \"Minimized\" resource which contains fewer fields then `/providers/employers`. This version should increase performance when requesting employments for large employers.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/minimized",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "details-of-an-employer-note",
+      "name": "Details of an employer note",
+      "description": "__Activity name :__ GetEmployerNoteByNoteId\n\nGet the details of a note\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "edit-an-employer-note-record",
+      "name": "Edit an employer note record",
+      "description": "__Activity name :__ PutEmployerNoteByNoteId\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding ` / metadata ` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/notes/{{NOTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "delete-an-employer-note-record",
+      "name": "Delete an employer note record",
+      "description": "__Activity name :__ DeleteEmployerNoteByNoteId\n\nDelete an existing note record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "mark-one-or-more-notifications-as-read",
+      "name": "Mark one or more notifications as read.",
+      "description": "__Activity name :__ PatchNotificationsByEmployerId\n\nMark notifications as read\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/notifications",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+          "action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "details-of-a-journal-run",
+      "name": "Details of a journal run",
+      "description": "__Activity name :__ GetJournalRunByJournalRunId\n\nReturns the details of a journal run. </br>\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/journalruns/{{JOURNALRUNID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOURNALRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOURNALRUNID}} with a real journalrunid."
+    },
+    {
+      "id": "change-the-status-of-a-journal-run",
+      "name": "Change the status of a journal run",
+      "description": "__Activity name :__ PatchJournalRunByJournalRunId\n\nUpdate the status of a journal run\n* Action 'markAsSuccessfullyExported'; will change the status of the journal run to 'exported'. Please note this action will not perform an actual export, but simply allows the user the manage status to match their actualities.</br>\n* Action 'MarkAsProcessingFailed'; will change the status of the journal run to 'export failed'. Please note this action will not perform an actual export, but simply allows the user the manage status to match their actualities.\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/journalruns/{{JOURNALRUNID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "application": {},
+        "message": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOURNALRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOURNALRUNID}} with a real journalrunid."
+    },
+    {
+      "id": "get-journal-run-overview-for-a-journal-run",
+      "name": "Get journal run overview for a journal run",
+      "description": "__Activity name :__ GetRunOverviewByJournalRunId\n\nReturns the journal run overview in csv for the journal run. Journal runs with journalRunStatus = 0,1,2,3 dont have results and this endpoint will return an error if called for a journal run with that status.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/journalruns/{{JOURNALRUNID}}/runoverview",
+      "headers": {},
+      "query_params": {
+        "reportJournalNumber": "",
+        "reportVoucherNumber": "",
+        "reportYear": "",
+        "reportPeriodNumber": "",
+        "reportDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOURNALRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOURNALRUNID}} with a real journalrunid."
+    },
+    {
+      "id": "change-the-status-of-payrollruns",
+      "name": "Change the status of payrollruns",
+      "description": "__Activity name :__ PatchPayrollrunsByPayrollRunIds\n\nThis action may only be performed succesfully of the following requirements are met;\n* The payroll run is ready for approval (status 1)\n\nUpdate the status of one or more payrollruns\n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+          "action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "details-of-a-payroll-run-note",
+      "name": "Details of a payroll run note",
+      "description": "__Activity name :__ GetPayrollRunNoteByNoteId\n\nGet the details of a note\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "edit-a-payroll-run-note-record",
+      "name": "Edit a payroll run note record",
+      "description": "__Activity name :__ PutPayrollRunNoteByNoteId\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding ` / metadata ` to the PUT URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/notes/{{NOTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "delete-a-payroll-run-note-record",
+      "name": "Delete a payroll run note record",
+      "description": "__Activity name :__ DeletePayrollRunNoteByNoteId\n\nDelete an existing note record\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/notes/{{NOTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{NOTEID}} with a real noteid."
+    },
+    {
+      "id": "download-a-sepa-file",
+      "name": "Download a SEPA file",
+      "description": "__Activity name :__ GetSepaFileBySepaFileId\n\nReturns the specified SEPA payments file as a XML file.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/sepafiles/{{SEPAFILEID}}",
+      "headers": {},
+      "query_params": {
+        "requestedExecutionDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEPAFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{SEPAFILEID}} with a real sepafileid."
+    },
+    {
+      "id": "details-of-a-payrollrun",
+      "name": "Details of a payrollrun",
+      "description": "__Activity name :__ GetPayrollRunByPayrollRunId\n\nGet the details of a single payrollrun\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "download-the-default-set-of-downloads-for-a-payroll-run",
+      "name": "Download the default set of downloads for a payroll run",
+      "description": "Returns the default set of downloads for the payroll run as a PDF file. The default set of downloads can be defined by the user.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/defaultset",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "download-payslips-for-a-payroll-run",
+      "name": "Download payslips for a payroll run",
+      "description": "__Activity name :__ GetPayslipsByPayrollRunId\n\n\nReturns the payslips for a payroll run as a PDF file. By default the payslips are sorted by `employeeNumber`.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/payslips",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "download-run-overviews-for-a-payroll-run",
+      "name": "Download run overviews for a payroll run",
+      "description": "__Activity name :__ GetRunOverviewsByPayrollRunId\n\nReturns run overviews for a payroll run as a PDF file.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/runoverviews",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "get-a-list-of-sepa-files-for-a-payroll-run",
+      "name": "Get a list of SEPA files for a payroll run",
+      "description": "__Activity name :__ GetSepaFilesByPayrollRunId\n\nReturns the SEPA file(s) for the specified payroll run.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/sepafiles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "download-a-total-sepa-file",
+      "name": "Download a total SEPA file",
+      "description": "__Activity name :__ GetTotalSepaFileByPayrollRunId\n\nReturns the total SEPA payments file as a XML file. This file contains the payments of all the available SEPA payment files available for the specified payroll run.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/totalsepafile",
+      "headers": {},
+      "query_params": {
+        "requestedExecutionDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "undo-payroll-run-verwijderen-loonrun",
+      "name": "Undo payroll run (verwijderen loonrun)",
+      "description": "__Activity name :__ UndoPayrollRunByPayrollRunId This is a controller endpoint to perform an action.\n\nIn the older Loket GUI this specific action is referred to as 'Verwijderen loonrun' If this action is performed succesfully then the payroll run will be 'deleted' in the sense that its results will be undone. Please note that situations where an approved payroll run would have to be 'undone' should be generally be avoided. Preferably any mistakes or consistencies should be picked out at an earlier stage in the payroll process.\n\nThis action may only be performed succesfully of the following requirements are met;\n\n* The payroll run is the very last payroll run that has been approved within this payroll administration\n* It is not possible to undo a  payroll run if there is currently a payroll run with status 0  (to be processed) or 1 (awaiting approval) within the payroll administation.\n* Additionally, no related (external) information should still be present for the given payroll run. This will be validated by the endpoint.\n\n__Metadata :__  No metadata endpoint available for this controller endpoint.\n\n__Defaults :__ No defaults endpoint available for this controller endpoint.",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/undo",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "download-wage-sheets-for-a-payroll-run",
+      "name": "Download wage sheets for a payroll run",
+      "description": "__Activity name :__ GetWageSheetsByPayrollRunId\n\nReturns the wage sheets for a payroll run as a PDF file or XLSX file. By default the wage sheets contain information on both the employer and the employees.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrollruns/{{PAYROLLRUNID}}/wagesheets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLRUNID}} with a real payrollrunid."
+    },
+    {
+      "id": "pay-payroll-taxes-using-ideal",
+      "name": "Pay payroll taxes using IDEAL",
+      "description": "__Activity name :__ GetIdealUrlByPayrollTaxReturnId\n\nGet URL which allows the user to pay payroll taxes via IDEAL\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrolltaxreturns/{{PAYROLLTAXRETURNID}}/ideal",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLTAXRETURNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLTAXRETURNID}} with a real payrolltaxreturnid."
+    },
+    {
+      "id": "download-the-message-of-a-payroll-tax-return",
+      "name": "Download the message of a payroll tax return",
+      "description": "__Activity name :__ GetMessageByPayrollTaxReturnId   \n\nDownload the message of the payroll tax return (loonaangiftebericht) in xml. Please note that this does NOT refer to the response message, but to the initial message i.e. loonaangiftebericht.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrolltaxreturns/{{PAYROLLTAXRETURNID}}/message",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLTAXRETURNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLTAXRETURNID}} with a real payrolltaxreturnid."
+    },
+    {
+      "id": "download-the-overview-report-of-a-payroll-tax-return",
+      "name": "Download the overview report of a payroll tax return",
+      "description": "__Activity name :__ GetOverviewByPayrollTaxReturnId\n\nDownload the payroll tax return overiew\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/payrolladministrations/payrolltaxreturns/{{PAYROLLTAXRETURNID}}/overview",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYROLLTAXRETURNID}}"
+      ],
+      "notes": "No authentication required. Replace {{PAYROLLTAXRETURNID}} with a real payrolltaxreturnid."
+    },
+    {
+      "id": "download-file-of-download-request",
+      "name": "Download file of download request",
+      "description": "__Activity name:__ GetFileByDownloadRequestId\n\nDownload the file of a download request record\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/users/downloadrequests/{{DOWNLOADREQUESTID}}/file",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOWNLOADREQUESTID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOWNLOADREQUESTID}} with a real downloadrequestid."
+    },
+    {
+      "id": "details-of-an-user",
+      "name": "Details of an user",
+      "description": "__Activity name :__ GetEmployerUserByUserId\n\nGet the details of an user\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "edit-the-details-of-an-user",
+      "name": "Edit the details of an user",
+      "description": "__Activity name :__ PutEmployerUserByUserId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the PUT URL.\n\nEdit the details of an user\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessStatus": {},
+        "azureActiveDirectory": {},
+        "contactInformation": {},
+        "dateTimeCreation": "2020-01-19",
+        "dateTimeLastLogin": "2021-01-19",
+        "hasAccessToPayrollingTestData": false,
+        "hasIntegrations": false,
+        "hasMultiFactorAuthentication": false,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isDepartmentManager": false,
+        "isLinkedToMultipleEmployers": false,
+        "loginMethod": {},
+        "personalDetails": {},
+        "twoFactorAuthenticationRequired": false,
+        "userCustomSpecifiedRole": "Secretariaat medewerker",
+        "userName": "User42",
+        "userSpecifiedRole": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-a-specific-user-record",
+      "name": "Delete a specific user record",
+      "description": "__Activity name :__ DeleteEmployerUserByUserId\n\nDelete an existing user\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "resend-or-change-the-status-of-an-invite-for-an-employer-user",
+      "name": "Resend or change the status of an invite for an employer user.",
+      "description": "__Activity name :__ PatchEmployerUserInviteByUserId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired via /providers/employers/{employerId}/users/metadata\n\n__Defaults :__ No defaults\n\nResend or change the status of an invite for an employer user. \n",
+      "method": "PATCH",
+      "url": "https://api.loket.nl/v2/providers/employers/users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "destinationForSecret": "0612345678"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "list-of-employers-linked-to-the-user",
+      "name": "List of employers linked to the user",
+      "description": "__Activity name :__ GetLinkedEmployersByUserId\n\n\n List of employers accessible by the user\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/users/{{USERID}}/employers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "details-of-a-workflow",
+      "name": "Details of a workflow",
+      "description": "__Activity name:__ GetWorkflowByWorkflowId\n\nGet the details of a workflow \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/workflows/{{WORKFLOWID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKFLOWID}}"
+      ],
+      "notes": "No authentication required. Replace {{WORKFLOWID}} with a real workflowid."
+    },
+    {
+      "id": "change-the-workflow",
+      "name": "Change the workflow",
+      "description": "__Activity name:__ PutWorkflowByWorkflowId\n  \n\nAllows the user to change certain asspects of the workflow\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/providers/employers/workflows/{{WORKFLOWID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "allowedTransitions": [],
+        "assignee": {},
+        "data": {
+          "address": {
+            "city": "Leiden",
+            "country": {
+              "key": 1
+            },
+            "houseNumber": 12,
+            "houseNumberAddition": "D",
+            "postalCode": "1234 AA",
+            "street": "Voordijk"
+          }
+        },
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "initiatedBy": {},
+        "initiatedOn": "2019-11-23T11:14:06Z",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2019-11-23T11:14:06Z",
+        "status": {},
+        "trigger": {},
+        "workflowTemplate": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKFLOWID}}"
+      ],
+      "notes": "No authentication required. Replace {{WORKFLOWID}} with a real workflowid."
+    },
+    {
+      "id": "allows-the-user-to-transition-the-workflow",
+      "name": "Allows the user to transition the workflow.",
+      "description": "__Activity name:__ TransitionWorkflowByWorkflowId\n  \n\nAllows the user to transition the workflow to a different state. \nUse the workflows endpoint and then the `allowedTransitions` element to determine what to submit to this endpoint.",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/workflows/{{WORKFLOWID}}/transition",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "approve": {
+          "value": {
+            "action": "fabf3b25-abf9-4e8c-a8f7-81400d1b0e96",
+            "description": "Approve"
+          }
+        },
+        "reject": {
+          "value": {
+            "action": "abc31d45-f593-4d73-8078-6caba9cebdcc",
+            "description": "Reject"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKFLOWID}}"
+      ],
+      "notes": "No authentication required. Replace {{WORKFLOWID}} with a real workflowid."
+    },
+    {
+      "id": "details-of-an-employer",
+      "name": "Details of an employer",
+      "description": "__Activity name :__ GetEmployerByEmployerId\n\nGet the details of a single employers\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-actual-wages-for-an-employer",
+      "name": "List of actual wages for an employer",
+      "description": "__Activity name:__ GetActualWagesByEmployerId\n    \n\nGet the list of actual wages for an employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/actualwages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-administrations-for-an-employer",
+      "name": "List of administrations for an employer",
+      "description": "__Activity name :__ GetAdministrationsByEmployerId\n\nGet a list of all administrations (both payroll and non-payroll) for an employer. This endpoint only returns properties that are shared between payroll and non-payroll administrations. For more detailed properties, use the respective endpoints for payroll and non-payroll administrations.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/administrations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-a-list-of-announcements-for-an-employer",
+      "name": "Get a list of announcements for an employer.",
+      "description": "__Activity name :__ GetAnnouncementsByEmployerId\n\nGet a list of announcements for an employer. The list contains a isRead parameter.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/announcements",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-assessments",
+      "name": "List of assessments",
+      "description": "__Activity name :__ GetAssessmentsByEmployerId\n\n\nRetrieve a list of assessments.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/assessments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-authorized-activities-with-regard-to-the-employer",
+      "name": "List of authorized activities with regard to the employer",
+      "description": "__Activity name :__ GetAuthorizationsByEmployerId\n\nGet the array of activities the user is authenticated for with regard to the specified employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/authorizations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-billable-items",
+      "name": "List of billable items",
+      "description": "__Activity name :__ GetBillableItemsByEmployerId\n\nGet a list of all billable items for the employer. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/billableitems",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-concept-employee-for-an-employer",
+      "name": "List of concept employee for an employer",
+      "description": "__Activity name :__ GetConceptEmployeesByEmployerId\n\nGet a list of all concept employee for the given employer. Concept employee can be used as a template/prefill when creating a new employee/employment.  <br/> This function may also be used in case one does not have all the required fields to create a new employee/employment. The validations are disabled for a concept employee allowing one to create a concept employee filling only a subset of available fields, then later \"promoting\" the Concept employee in loket.nl to employee/employment. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/conceptemployees",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-a-concept-employee-for-an-employer",
+      "name": "Create a concept employee for an employer",
+      "description": "__Activity name :__ PostConceptEmployeeByEmployerId\n\nCreate a concept employee for an employer\n\n* Possible options (metadata) for generic fields of the type \"metadata\" can be acquired (GET) by adding `/metadata` to the URL.\n* Possible options dependent on a specific payrollAdministration can be acquired via `../providers/employers/conceptemployees/metadata/payrolladministration/{payrollAdministrationId}`.\n* Possible options for payGrade can be acquired via `../providers/employers/conceptemployees/metadata/payrolladministration/{payrollAdministrationId}/payscale/{payScaleKey}`.\nA `payGrade` has time based values dictating the wage for a given period. These values can be acquired by performing another metadata request to GET `../providers/employers/conceptemployees/metadata/payrolladministration/{payrollAdministrationId}/payscale/{payScaleKey}/paygrade/{payGradeKey}`. This endpoint has the optional parameter \"date\" that may be used to specifying a measure date.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults` to the POST URL. \n\n        \nDefault values that are dependent on the selected payroll administration can be acquired by adding `/providers/employers/conceptemployees/defaults/payrolladministration/{payrollAdministrationId}` to the POST URL.\n\n__NonPayrollAdministrations__ For nonPayrollAdministrations the equivalent MetaData-endpoints are also available as described above. However NO specific defaults endpoint is available for the nonPayrollAdministration.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/conceptemployees",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "creationDate": "2018-05-08",
+        "employeeData": {},
+        "employmentData": {},
+        "fiscalData": {},
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "organizationalEntityData": {},
+        "otherPayrollVariablesData": {},
+        "selfService": {},
+        "socialSecurityData": {},
+        "uniqueName": "Sollicitant 013",
+        "wageData": {},
+        "workingHoursData": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-contract-codes-for-an-employer",
+      "name": "List contract codes for an employer",
+      "description": "__Activity name :__ GetContractCodesByEmployerId\n\n\nGet a list of the contract codes for an employer.\n\n__Note:__ The contract codes defined at the employer level can be used as value for the field contractCode in the WorkingHours and ConceptEmployee resource.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/contractcodes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "add-a-contract-code-for-an-employer",
+      "name": "Add a contract code for an employer",
+      "description": "__Activity name :__ PostContractCodeByEmployerId\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/contractcodes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "code": 1022,
+        "description": "Special contract",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-custom-fields-for-an-employer",
+      "name": "List custom fields for an employer",
+      "description": "__Activity name :__ GetCustomFieldsByEmployerId\n\nGet a list of the custom fields for an employer.\n\n__Note:__ The custom fields defined at the employer level can be used at the employee and employment level.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/customfields",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "add-a-custom-field-for-an-employer",
+      "name": "Add a custom field for an employer",
+      "description": "__Activity name :__ PostCustomFieldByEmployerId\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/customfields",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Shoe size",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-custom-holidays-for-an-employer",
+      "name": "List custom holidays for an employer",
+      "description": "__Activity name :__ GetCustomHolidaysByEmployerId\n\nGet a list of the custom holidays for an employer.\n\n__Note:__ The custom holidays defined at the employer level can be used at the employee and employment level.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/customholidays",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "add-a-custom-holiday-for-an-employer",
+      "name": "Add a custom holiday for an employer",
+      "description": "__Activity name :__ PostCustomHolidayByEmployerId\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/customholidays",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "date": "2021-01-01",
+        "description": "Company 100th year anniversary",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-departments",
+      "name": "List of departments",
+      "description": "__Activity name :__ GetDepartmentsByEmployerId\n\nGet a list of all departments for the employer. This is the point where the departments available for use at employment level (organizational entity) are managed.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/departments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-a-department-for-an-employer",
+      "name": "Create a department for an employer",
+      "description": "__Activity name:__ PostDepartmentByEmployerId\n    \n\nCreate a department for an employer\n\n__Metadata :__ Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults:__ No default values\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/departments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "code": 2,
+        "description": "Verkoop Binnendienst",
+        "emailLeaveRequest": "api@loket.nl",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "subDepartmentOf": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-a-list-of-employer-dossier-documents",
+      "name": "Get a list of employer dossier documents",
+      "description": "__Activity name :__ GetDocumentsByEmployerId\n\nGet a list of documents within the employer dossier (werkgeverdossier). Via Qwoater.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/documents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-education-types-for-an-employer",
+      "name": "List education types for an employer",
+      "description": "__Activity name :__ GetEducationTypesByEmployerId\n\nGet a list of the education types for an employer.\n\n__Note:__ The education types defined at the employer level can be used as value for the field typeOfEducation in the Education resource at the employee level.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/educationtypes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "add-an-education-type-for-an-employer",
+      "name": "Add an education type for an employer",
+      "description": "__Activity name :__ PostEducationTypeByEmployerId\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/educationtypes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "code": "WO",
+        "description": "Wetenschappelijk onderwijs",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-emailidentities-for-an-employer",
+      "name": "List of EmailIdentities for an employer",
+      "description": "__Activity name:__ GetEmailIdentitiesByEmployerId\n    \n\nGet the list of EmailIdentities for an employer. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/emailidentities",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-an-emailidentity-for-an-employer",
+      "name": "Create an EmailIdentity for an employer",
+      "description": "__Activity name:__ PostEmailIdentityByEmployerId\n    \n\nCreate an EmailIdentity for an employer.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/emailidentities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dkimTokens": [],
+        "emailIdentity": "provider.com",
+        "emailIdentityType": "",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isDkimVerified": true,
+        "isSpfVerified": true,
+        "lastDkimVerifiedOn": "2022-01-31",
+        "lastSpfVerifiedOn": "2022-01-31"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-email-templates-for-an-employer",
+      "name": "List email templates for an employer",
+      "description": "__Activity name :__ GetEmailTemplatesByEmployerId\n\nGet a list of the email templates for an employer.\n\n__Note:__ Email templates can be defined on employer, provider and loket level. This endpoint returns for each emailtype the email template which is currently in use for the employer.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/emailtemplates",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-employees-for-an-employer",
+      "name": "List of employees for an employer",
+      "description": "__Activity name :__ GetEmployeesByEmployerId\n\nGet a list of all employees for the given employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-partners-for-an-employer",
+      "name": "List of Partners for an employer",
+      "description": "__Activity name:__ GetActualPartnersByEmployerId\n    \n\nGet the list of Actual partners for all employees of an employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/actualpartners",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-children-for-an-employer",
+      "name": "List of Children for an employer",
+      "description": "__Activity name:__ GetChildrenByEmployerId\n    \n\nGet the list of Children for all employees of an employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/children",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-contacts-for-an-employer",
+      "name": "List of Contacts for an employer",
+      "description": "__Activity name:__ GetContactsByEmployerId\n    \n\nGet the list of Contacts for all employees of an employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/contacts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-employments-for-an-employer",
+      "name": "List of employments for an employer",
+      "description": "__Activity name :__ GetEmploymentsByEmployerId\n\nGet a list of employments for an employer\n\nThis endpoint only returns the employments that meet the filter settings set at the user level. Note that filter settings are set for a user <-> employer <-> client combination.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-wage-proposals-for-the-employments-of-an-employer",
+      "name": "List of wage proposals for the employments of an employer",
+      "description": "__Activity name :__ GetWageProposalsByEmployerId\n\nReturns a list of wage proposals for the employments of the employer.\nA wage proposal is created when an employment reaches the criteria set for the next tier of wage. \nE.G the minimum wage is linked to the age of a person so a wage proposal is created 60 days befor the birthday of an employment linked to the minimum wage and configured for wage proposals.\nVia this functionality the created wage proposal can be approved or rejected resulting in either a new wage record updated to reflect the correct wage or in case of a rejection the employment is disabled for wage proposals.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/WageProposals",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-absences-per-employment-for-calendar",
+      "name": "List absences per employment (for calendar)",
+      "description": "__Activity name :__ GetCalendarAbsencesByEmployerId\n\nFor a calendar, this endpoint return the absence calendar items PER specific employment.\n\nThis endpoint only returns objects for which the employment meets the filter settings set at the user level. Note that filter settings are set for a user <-> employer <-> client combination.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/calendar/absences",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-leave-per-employment-for-calendar",
+      "name": "List leave per employment (for calendar)",
+      "description": "__Activity name :__ GetCalendarLeaveByEmployerId\n\nThis endpoint return the leave calendar items for each employment. Please note: this endpoint only will return calendar items based on leave of the type 'opname'.\n\nThis endpoint only returns objects for which the employment meets the filter settings set at the user level. Note that filter settings are set for a user <-> employer <-> client combination.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/calendar/leave",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-declarations-for-the-employees-of-an-employer",
+      "name": "List of declarations for the employees of an employer",
+      "description": "__Activity name :__ GetDeclarationsByEmployerId\n\nReturns a list of declarations for the employments of the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/declarations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-leave-requests-for-the-employees-of-an-employer",
+      "name": "List of leave requests for the employees of an employer",
+      "description": "__Activity name :__ GetLeaveRequestsByEmployerId\n\nReturns a list of leave requests for the employments of the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/leaverequests",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-wages-for-multiple-employments",
+      "name": "Create wages for multiple employments",
+      "description": "__Activity name :__ PostCollectiveWageByEmployerId\n\nCreate new grosswage records for multiple employments of an employer\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/employees/employments/wages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "employmentId": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "grossWage": 2300,
+        "startDate": "1995-05-21"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-available-external-tenants-employer-scope",
+      "name": "Get available external tenants (employer scope)",
+      "description": "__Activity name:__ GetExternalTenantsByEmployerId\n    \n\nGet a list of external tenants that are available within the scope of this employer.\nAn external tenant may be registered for a Loket user, and may be used to login to Loket using Azure Active Directory. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/externaltenants",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-functions",
+      "name": "List of functions",
+      "description": "__Activity name :__ GetFunctionsByEmployerId\n\nGet a list of all functions for the employer. This is the point where the functions available for use at employment level (organizational entity) are managed.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/functions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-a-function-for-an-employer",
+      "name": "Create a function for an employer",
+      "description": "__Activity name:__ PostFunctionByEmployerId\n    \n\nCreate a function for an employer\n\n__Metadata:__ No metadata\n\n__Defaults:__ No default values\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/functions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Directeur",
+        "group": "Var",
+        "key": "b14acd0d-75d7-4fc8-8b22-4a3924585cab"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "post-leave-for-multiple-employments",
+      "name": "Post leave for multiple employments.",
+      "description": "__Activity name:__ PostCollectiveLeaveByEmployerId\n\nPost leave for a set of employments under an employer.\n\n__Metadata :__ There is no metadata endpoint for this resource.\n\n__Defaults :__ Defaults are available at /defaults.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/leave",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "comments": "This leave is added.",
+          "employmentId": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+          "endDate": "2022-10-22",
+          "isAccrual": true,
+          "leaveType": 1,
+          "numberOfUnits": 4.5,
+          "startDate": "2022-10-21"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-all-the-leave-policies",
+      "name": "List of all the leave policies",
+      "description": "__Activity name :__ GetLeavePoliciesByEmployerId <br/>  <br/>  Returns all the leave policies for the given employer.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/leavePolicies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-a-leave-policy",
+      "name": "Create a leave policy",
+      "description": "__Activity name :__ PostLeavePolicyByEmployerId\n\nAdd a leave policy\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/leavePolicies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accrualType": {},
+        "additionalLeave": {},
+        "dayOfTheMonthToPerformAutomaticLeaveCalculationOn": 12,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "leaveEntitlement": {},
+        "leaveRequest": {},
+        "leaveUnitType": {},
+        "name": "Normal leave",
+        "payoutLeaveImmediately": false,
+        "roundTo": {},
+        "roundingMethod": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "the-leave-balance-for-all-employments",
+      "name": "The leave balance for all employments",
+      "description": "__Activity name :__ GetLeaveBalancesByEmployerId <br/>  <br/>  Returns the yearly leave balances for all employments\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/leavebalances",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-leave-types",
+      "name": "List of leave types",
+      "description": "__Activity name :__ GetLeaveTypesByEmployerId\n\nGet a list of all leavetypes for the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/leavetypes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "logo-of-an-employer",
+      "name": "Logo of an employer",
+      "description": "__Activity name :__ GetEmployerLogoByEmployerId\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer period.\n\nGet the logo of the employer. In case no logo is know the service will return a 404.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/logo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "upload-a-logo-for-the-employer",
+      "name": "Upload a logo for the employer",
+      "description": "__Activity name :__ PostEmployerLogoByEmployerId\n\nUpload a logo for the employer.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/logo",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": "YQ==",
+        "mimeType": "image/jpeg"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "delete-the-employer-logo",
+      "name": "Delete the employer logo",
+      "description": "__Activity name:__ DeleteEmployerLogoByEmployerId\n\nDelete the logo of an employer\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/logo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "logo-of-an-employer-2",
+      "name": "Logo of an employer",
+      "description": "__Activity name :__ GetEmployerLogoByEmployerId\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer period.\n\nGet the logo of the employer. In case no logo is know the service will return a 404.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/logo/{{VERSION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}",
+        "{{VERSION}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid. Replace {{VERSION}} with a real version."
+    },
+    {
+      "id": "list-of-modules-enabled-for-the-employer",
+      "name": "List of modules enabled for the employer",
+      "description": "__Activity name :__ GetModulesByEmployerId\n\nGet the array of the modules enabled for the specified employer. A module enables a certain functionality for the given employer. These are typically called 'producten' in Loket.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/modules",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-national-holidays",
+      "name": "List of national holidays",
+      "description": "__Activity name :__ GetNationalHolidaysByEmployerId\n\nGet a list of all national holidays for the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/nationalholidays",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-a-list-of-notes-for-an-employer",
+      "name": "Get a list of notes for an employer.",
+      "description": "__Activity name :__ GetEmployerNotesByEmployerId\n\nGet a list of notes, available for the user, for the employer. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/notes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "add-a-note-for-an-employer",
+      "name": "Add a note for an employer",
+      "description": "__Activity name :__ PostEmployerNoteByEmployerId\n\n__Metadata:__ Possible options for fields of the type 'metadata' can be acquired(GET)by adding `/metadata` to the POST URL.\n\n__Defaults:__ Default values for a new object can be acquired by adding `/defaults' to the POST URL.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/notes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accessibleBy": {},
+        "createdBy": {},
+        "createdOn": "2018-01-01",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "lastModifiedBy": {},
+        "lastModifiedOn": "2018-01-01",
+        "note": "Remember to do xyz",
+        "subject": "Remember to do xyz"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-a-list-of-notifications-for-an-employer",
+      "name": "Get a list of notifications for an employer.",
+      "description": "__Activity name :__ GetNotificationsByEmployerId\n\nGet a list of unread notifications for an employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/notifications",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "get-the-status-of-proforma-for-this-employer",
+      "name": "Get the status of proforma for this employer",
+      "description": "__Activity name :__ GetProformaStatusByEmployerId\n\nGet the status of proforma for this employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/proforma",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "provider-logo",
+      "name": "Provider logo",
+      "description": "__Activity name :__ GetProviderLogoByEmployerId\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\nGet the (deviating) provider logo of the employers. In case no logo is know the service will return a 404.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/providerlogo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "provider-logo-2",
+      "name": "Provider logo",
+      "description": "__Activity name :__ GetProviderLogoByEmployerId\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\nGet the (deviating) provider logo of the employers. In case no logo is know the service will return a 404.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/providerlogo/{{VERSION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}",
+        "{{VERSION}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid. Replace {{VERSION}} with a real version."
+    },
+    {
+      "id": "list-of-users-for-an-employer",
+      "name": "List of users for an employer",
+      "description": "__Activity name :__ GetEmployerUsersByEmployerId\n\n\n Get the list of users of the employer\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/users",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "create-an-sso-or-azure-ad-user-for-an-employer",
+      "name": "Create an SSO or Azure AD user for an employer",
+      "description": "__Activity name :__ PostEmployerUserByEmployerId\n\n__Metadata :__  Possible options for fields of the type 'metadata' can be acquired (GET) by adding `/metadata` to the POST URL.\n\n__Defaults :__ Default values for a new object can be acquired by adding `/defaults' to the POST URL. \n\nAdd an SSO or Azure AD user for an employer. \n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "azureActiveDirectory": {},
+        "contactInformation": {},
+        "hasAccessToPayrollingTestData": false,
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "loginMethod": {},
+        "personalDetails": {},
+        "ssoAccount": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "workflows-for-the-employer",
+      "name": "Workflows for the employer",
+      "description": "__Activity name:__ GetWorkflowsByEmployerId\n    \n\nGet the list of all workflows for an employer. All as in both open as finished workflows are returned.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/employers/{{EMPLOYERID}}/workflows",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMPLOYERID}}"
+      ],
+      "notes": "No authentication required. Replace {{EMPLOYERID}} with a real employerid."
+    },
+    {
+      "id": "list-of-applicationsets-for-a-provider",
+      "name": "List of applicationsets for a provider",
+      "description": "__Activity name:__ GetApplicationsetsByProviderId\n    \n\nGet the list of Applicationsets for a provider. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/applicationsets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "create-an-applicationset-for-a-provider",
+      "name": "Create an applicationset for a provider",
+      "description": "__Activity name:__ PostApplicationSetByProviderId\n    \n\nCreate an applicationset for a provider.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/applicationsets",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "applicationSetType": "",
+        "data": "json object",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "name": "Exportset Dienstverband"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "list-of-authorized-activities-with-regard-to-the-provider",
+      "name": "List of authorized activities with regard to the provider",
+      "description": "__Activity name :__ GetAuthorizationsByProviderId\n\n\n\n\nGet the array of activities the user is authenticated for with regard to the specified provider. This endpoint is only accessible for providerusers.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/authorizations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "list-of-billable-items-2",
+      "name": "List of billable items",
+      "description": "__Activity name :__ GetBillableItemsByProviderId\n\nGet a list of all billable items for the provider. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/billableitems",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "list-of-emailidentities-for-a-provider",
+      "name": "List of EmailIdentities for a provider",
+      "description": "__Activity name:__ GetEmailIdentitiesByProviderId\n    \n\nGet the list of EmailIdentities for a provider. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/emailidentities",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "create-an-emailidentity-for-a-provider",
+      "name": "Create an EmailIdentity for a provider",
+      "description": "__Activity name:__ PostEmailIdentityByProviderId\n    \n\nCreate an EmailIdentity for a provider.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/emailidentities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "dkimTokens": [],
+        "emailIdentity": "provider.com",
+        "emailIdentityType": "",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "isDkimVerified": true,
+        "isSpfVerified": true,
+        "lastDkimVerifiedOn": "2022-01-31",
+        "lastSpfVerifiedOn": "2022-01-31"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "list-email-templates-for-an-provider",
+      "name": "List email templates for an provider",
+      "description": "__Activity name :__ GetEmailTemplatesByProviderId\n\nGet a list of the email templates for an provider.\n\n__Note:__ Email templates can be defined on employer, provider and loket level. This endpoint returns for each emailtype the email template which is currently in use for the provider.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/emailtemplates",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "get-available-external-tenants-provider-scope",
+      "name": "Get available external tenants (provider scope)",
+      "description": "__Activity name:__ GetExternalTenantsByProviderId\n    \n\nGet a list of external tenants that are available within the scope of this provider.\nAn external tenant may be registered for a Loket user, and may be used to login to Loket using Azure Active Directory. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/externaltenants",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "download-the-provider-logo",
+      "name": "Download the provider logo",
+      "description": "__Activity name :__ GetProviderLogo\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.\n\nGet the logo of the provider of the user. In case no logo is know the service will return a 404.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/logo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "download-the-provider-logo-2",
+      "name": "Download the provider logo",
+      "description": "__Activity name :__ GetProviderLogo\n\nThis activity is listed twice in the documentation due to the specified version caching path parameter. Including or exluding this parameter results in slightly different behaviour.\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.\n\nGet the logo of the provider of the user. In case no logo is know the service will return a 404.",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/logo/{{VERSION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}",
+        "{{VERSION}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid. Replace {{VERSION}} with a real version."
+    },
+    {
+      "id": "list-of-notification-sets",
+      "name": "List of notification sets",
+      "description": "__Activity name :__ GetNotificationSetsByProviderId \n\n\n List the available notification sets. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/providers/{{PROVIDERID}}/notificationsets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERID}} with a real providerid."
+    },
+    {
+      "id": "list-of-employers-using-qwoater",
+      "name": "List of employers using Qwoater",
+      "description": "__Activity name :__ GetQwoaterEmployersByUser\n\nReturns a list of employerIds that have at least one Qwoater product enabled with the corresponding providerId and lastModifiedVersionNumber for the employer.\n\n**What does the 'last modified' version number reflect**\n\nThe sequence number of an employer is a sequential number that reflects whether any changes have occurred in any of its UNDERLYING employments.\n\nMore precisely, it reflects the sequence number after the latest change of any database record that relates to an employment within this employer.   What we consider to be 'underlying' employment data is based on a predefined set of tables, and of course given id.  This predefined set of tables can be found [here](../TablesLastModifiedVersionNumber.xlsx)\n\nThe scope of this predefined set is to represent 'static' employment data (vaste gegevens), and thus excludes payroll period data (variabele gegevens).\n\n**When to use**\n\nThis endpoint is most useful for integrations that regularly synchronize Loket employment data with another system.  As there are no webhooks available, in practice these integrations would need to regularly poll all data to see whether there any changes in the employment data.  The most elementary approach of getting all employment data every time you sync acquires a LOT of calls, in some cases even millions per day.  Even though we can handle quite a lot, this is not always the desired way for both client and server. Hence, this endpoint enables an alternative solution to set up such an integration.\n\n**How to use**\n\nWith every update (including additions and deletions) the version number will increase. I.e. the version number will NEVER decrease over time.  (Please note this is not only true within the context of a single employer (or any other entity) but applies to all changes in the database).\nConsequently, in practice one would use this endpoint to check if any empLoyer version numbers have increased by applying the filter query parameter to the version field, for example `?filter=lastModifiedVersionNumber gt 70429274`.\n\n*Recommended usage*\n\n* Perform your regular synchronization of static employment data\n* Store the highest version number, for which you have now processed all changes. (You may use the following parameter to do this `?orderBy=-lastModifiedVersionNumber` )\n* Next time you want to perform synchronization. Call this endpoint with parameter `?filter=lastModifiedVersionNumber gt {{YourVersionNumber}}`\n* Only get employment information for employers that are included in that filtered list. (exclude all other employers as you already know there have been no changes since the last synchronization)\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/qwoater/employers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-current-user",
+      "name": "Get current user",
+      "description": "__Activity name:__ GetUserByToken\n    \n\nProperties of the current user.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/user",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "edit-current-user",
+      "name": "Edit current user",
+      "description": "__Activity name:__ PutUserByToken\n    \n\nEdit some of the properties of the current user. Metadata can be acquired by adding /metadata to the path.\n",
+      "method": "PUT",
+      "url": "https://api.loket.nl/v2/user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "contactInformation": {},
+        "personalDetails": {},
+        "photo": "https://api.loket.nl/v2/user/photo/{version}",
+        "user": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "photo-of-an-user",
+      "name": "Photo of an user",
+      "description": "__Activity name :__ GetUserPhotoByToken\n\nPhoto of the user to use as an avatar/profile picture\n\n__Caching:__ This resource changes very infrequently and can be cached for a longer time.\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/user/photo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-user-photo",
+      "name": "Post user photo",
+      "description": "__Activity name :__ PostUserPhotoByToken\n\nPhoto of the user to use as an avatar/profile picture\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/user/photo",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": "YQ==",
+        "mimeType": "image/jpeg"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-user-photo",
+      "name": "Delete user photo",
+      "description": "__Activity name :__ DeleteUserPhotoByToken\n\nPhoto of the user to use as an avatar/profile picture\n",
+      "method": "DELETE",
+      "url": "https://api.loket.nl/v2/user/photo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-of-all-the-integrations-for-the-logon-user",
+      "name": "List of all the integrations for the logon user",
+      "description": "__Activity name:__ GetIntegrationsByBearerToken\n    \n\nList of all the integrations for the logon user\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/users/integrations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-of-applicationsets-for-a-user",
+      "name": "List of applicationsets for a user",
+      "description": "__Activity name:__ GetApplicationsetsByUserId\n    \n\nGet the list of Applicationsets for a user. \n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/users/{{USERID}}/applicationsets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "create-an-applicationset-for-a-user",
+      "name": "Create an applicationset for a user",
+      "description": "__Activity name:__ PostApplicationSetByUserId\n    \n\nCreate an applicationset for a user.\n",
+      "method": "POST",
+      "url": "https://api.loket.nl/v2/users/{{USERID}}/applicationsets",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "applicationSetType": "",
+        "data": "json object",
+        "id": "b14acd0d-75d7-4fc8-8b22-4a3924585cab",
+        "name": "Exportset Dienstverband"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-yourcampus-url-for-a-user",
+      "name": "Get Yourcampus URL for a user",
+      "description": "__Activity name :__ GetYourcampusUrlByUserId\n\nGet a URL to access the Yourcampus portal for a user\n",
+      "method": "GET",
+      "url": "https://api.loket.nl/v2/users/{{USERID}}/yourcampusurl",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    }
+  ]
+}

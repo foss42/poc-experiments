@@ -1,0 +1,293 @@
+{
+  "api_id": "openapi.space:1.0.0",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "retrieves-a-list-of-currently-defined-apis-in-api-meta-list-format",
+      "name": "Retrieves a list of currently defined APIs in API meta list format.",
+      "description": "Retrieves a list of currently defined APIs in API meta list format.",
+      "method": "GET",
+      "url": "https://openapi.space/api/v1/apis",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    },
+    {
+      "id": "retrieves-an-api-meta-listing-of-all-apis-defined-for-this-owner",
+      "name": "Retrieves an API meta listing of all APIs defined for this owner",
+      "description": "Retrieves an API meta listing of all APIs defined for this owner",
+      "method": "GET",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OWNER}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "retrieves-an-api-meta-listing-for-all-api-versions-for-this-owner-and-api",
+      "name": "Retrieves an API meta listing for all API versions for this owner and API",
+      "description": "Retrieves an API meta listing for all API versions for this owner and API",
+      "method": "GET",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "saves-the-provided-swagger-definition",
+      "name": "Saves the provided Swagger definition",
+      "description": "Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definitions itself.",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "deletes-the-specified-api",
+      "name": "Deletes the specified API",
+      "description": "Deletes the specified API",
+      "method": "DELETE",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "publish-a-particular-version-of-the-specified-api",
+      "name": "Publish a particular version of the specified API",
+      "description": "Publish a particular version of the specified API",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}/{{VERSION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{VERSION}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{VERSION}} with a real version. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "deletes-a-particular-version-of-the-specified-api",
+      "name": "Deletes a particular version of the specified API",
+      "description": "Deletes a particular version of the specified API",
+      "method": "DELETE",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}/{{VERSION}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{VERSION}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{VERSION}} with a real version. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "retrieves-the-swagger-definition-for-the-specified-api-and-version-in-json-format",
+      "name": "Retrieves the Swagger definition for the specified API and version in JSON format",
+      "description": "Retrieves the Swagger definition for the specified API and version in JSON format",
+      "method": "GET",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}/{{VERSION}}/swagger.json",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{VERSION}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{VERSION}} with a real version. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "retrieves-the-swagger-definition-for-the-specified-api-and-version-in-yaml-format",
+      "name": "Retrieves the Swagger definition for the specified API and version in YAML format",
+      "description": "Retrieves the Swagger definition for the specified API and version in YAML format",
+      "method": "GET",
+      "url": "https://openapi.space/api/v1/apis/{{OWNER}}/{{API}}/{{VERSION}}/swagger.yaml",
+      "headers": {
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{API}}",
+        "{{OWNER}}",
+        "{{VERSION}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY. Replace {{VERSION}} with a real version. Replace {{API}} with a real api. Replace {{OWNER}} with a real owner."
+    },
+    {
+      "id": "log-in-to-openapi-space",
+      "name": "Log in to OpenAPI space",
+      "description": "Log in to OpenAPI space",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/auth/login",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "username": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    },
+    {
+      "id": "log-in-to-openapi-space-using-an-apinf-account",
+      "name": "Log in to OpenAPI space using an APInf account",
+      "description": "Log in to OpenAPI space using an APInf account",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/auth/login/apinf",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "username": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    },
+    {
+      "id": "log-in-to-openapi-space-using-an-apinf-authentication-token",
+      "name": "Log in to OpenAPI space using an APInf authentication token",
+      "description": "Log in to OpenAPI space using an APInf authentication token",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/auth/login/apinf_token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "user_id": "",
+        "auth_token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    },
+    {
+      "id": "log-out-from-openapi-space",
+      "name": "Log out from OpenAPI space",
+      "description": "Log out from OpenAPI space",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/auth/logout",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    },
+    {
+      "id": "check-whether-or-not-you-are-authenticated",
+      "name": "Check whether or not you are authenticated",
+      "description": "Check whether or not you are authenticated",
+      "method": "POST",
+      "url": "https://openapi.space/api/v1/auth/ping",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENAPI_SPACE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENAPI_API_KEY}}",
+        "{{OPENAPI_SPACE_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENAPI_API_KEY}} with your OPENAPI API KEY."
+    }
+  ]
+}

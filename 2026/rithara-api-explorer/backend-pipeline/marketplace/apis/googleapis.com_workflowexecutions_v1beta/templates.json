@@ -1,0 +1,95 @@
+{
+  "api_id": "googleapis.com:workflowexecutions:v1beta",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "get-v1beta-name",
+      "name": "GET /v1beta/{name}",
+      "description": "Returns an execution of the given name.",
+      "method": "GET",
+      "url": "https://workflowexecutions.googleapis.com/v1beta/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta-name-cancel",
+      "name": "POST /v1beta/{name}:cancel",
+      "description": "Cancels an execution of the given name.",
+      "method": "POST",
+      "url": "https://workflowexecutions.googleapis.com/v1beta/{{NAME}}:cancel",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta-parent-executions",
+      "name": "GET /v1beta/{parent}/executions",
+      "description": "Returns a list of executions which belong to the workflow with the given name. The method returns executions of all workflow revisions. Returned executions are ordered by their start time (newest first).",
+      "method": "GET",
+      "url": "https://workflowexecutions.googleapis.com/v1beta/{{PARENT}}/executions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta-parent-executions",
+      "name": "POST /v1beta/{parent}/executions",
+      "description": "Creates a new execution using the latest revision of the given workflow.",
+      "method": "POST",
+      "url": "https://workflowexecutions.googleapis.com/v1beta/{{PARENT}}/executions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "argument": "",
+        "callLogLevel": "",
+        "endTime": "",
+        "error": {},
+        "name": "",
+        "result": "",
+        "startTime": "",
+        "state": "",
+        "status": {},
+        "workflowRevisionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

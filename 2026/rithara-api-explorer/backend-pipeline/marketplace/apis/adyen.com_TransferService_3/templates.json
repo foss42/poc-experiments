@@ -1,0 +1,194 @@
+{
+  "api_id": "adyen.com:TransferService:3",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-all-transactions",
+      "name": "Get all transactions",
+      "description": "Returns all transactions related to a balance account with a payment instrument of type **bankAccount**.\n\nThis endpoint supports cursor-based pagination. The response returns the first page of results, and returns links to the next page when applicable. You can use the links to page through the results. The response also returns links to the previous page when applicable.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/btl/v3/transactions",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {
+        "createdSince": "",
+        "createdUntil": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-transaction",
+      "name": "Get a transaction",
+      "description": "Returns a transaction.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/btl/v3/transactions/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "transfer-funds",
+      "name": "Transfer funds",
+      "description": "Starts a request to transfer funds to [balance accounts](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/post/balanceAccounts), [transfer instruments](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments), or third-party bank accounts. Adyen sends the outcome of the transfer request through webhooks.\n\nTo use this endpoint, you need an additional role for your API credential and transfers must be enabled for the source balance account. Your Adyen contact will set these up for you.",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/btl/v3/transfers",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "payout-cross-border": {
+          "description": "Example request to make a cross-border transfer",
+          "summary": "Make a cross-border transfer",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 110000
+            },
+            "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+            "category": "bank",
+            "counterparty": {
+              "bankAccount": {
+                "accountHolder": {
+                  "address": {
+                    "city": "San Francisco",
+                    "country": "US",
+                    "postalCode": "94678",
+                    "stateOrProvince": "CA",
+                    "street": "Brannan Street",
+                    "street2": "274"
+                  },
+                  "fullName": "A. Klaassen"
+                },
+                "accountIdentification": {
+                  "accountNumber": "123456789",
+                  "bic": "BOFAUS3NXXX",
+                  "type": "numberAndBic"
+                }
+              }
+            },
+            "description": "Your description for the transfer",
+            "priority": "crossBorder",
+            "reference": "Your internal reference for the transfer",
+            "referenceForBeneficiary": "Your-reference-sent-to-the-beneficiary"
+          }
+        },
+        "payout-local-transfer-sepa": {
+          "description": "Example request to make a SEPA funds transfer",
+          "summary": "Make a SEPA funds transfer",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 110000
+            },
+            "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+            "category": "bank",
+            "counterparty": {
+              "bankAccount": {
+                "accountHolder": {
+                  "fullName": "A. Klaassen"
+                },
+                "accountIdentification": {
+                  "iban": "NL91ABNA0417164300",
+                  "type": "iban"
+                }
+              }
+            },
+            "description": "Your description for the transfer",
+            "priority": "regular",
+            "reference": "Your internal reference for the transfer",
+            "referenceForBeneficiary": "Your-reference-sent-to-the-beneficiary"
+          }
+        },
+        "payout-local-transfer-us": {
+          "description": "Example request to make a US local funds transfer",
+          "summary": "Make a US local funds transfer",
+          "value": {
+            "amount": {
+              "currency": "USD",
+              "value": 110000
+            },
+            "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+            "category": "bank",
+            "counterparty": {
+              "bankAccount": {
+                "accountHolder": {
+                  "fullName": "A. Klaassen"
+                },
+                "accountIdentification": {
+                  "accountNumber": "123456789",
+                  "routingNumber": "011000138",
+                  "type": "usLocal"
+                }
+              }
+            },
+            "description": "Your description for the transfer",
+            "priority": "regular",
+            "reference": "Your internal reference for the transfer",
+            "referenceForBeneficiary": "Your-reference-sent-to-the-beneficiary"
+          }
+        },
+        "payout-to-balance-account": {
+          "description": "Example request to transfer funds to another balance account",
+          "summary": "Transfer funds to another balance account",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 10000
+            },
+            "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+            "category": "internal",
+            "counterparty": {
+              "balanceAccountId": "BA32272223222B5LPRFDW7J9G"
+            },
+            "description": "Your description for the transfer",
+            "reference": "Your internal reference for the transfer",
+            "referenceForBeneficiary": "Your-reference-sent-to-the-beneficiary"
+          }
+        },
+        "payout-to-transfer-instrument": {
+          "description": "Example request to pay out to a transfer instrument",
+          "summary": "Pay out to a transfer instrument",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 80000
+            },
+            "balanceAccountId": "BAB8B2C3D4E5F6G7H8D9J6GD4",
+            "category": "bank",
+            "counterparty": {
+              "transferInstrumentId": "SE1234567890ABC1234567890"
+            },
+            "description": "Your description for the transfer",
+            "priority": "regular",
+            "reference": "Your internal reference for the transfer",
+            "referenceForBeneficiary": "Your-reference-sent-to-the-beneficiary"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

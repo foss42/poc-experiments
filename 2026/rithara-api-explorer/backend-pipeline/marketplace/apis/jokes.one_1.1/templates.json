@@ -1,0 +1,241 @@
+{
+  "api_id": "jokes.one:1.1",
+  "endpoint_count": 12,
+  "endpoints": [
+    {
+      "id": "get-jod",
+      "name": "GET /jod",
+      "description": "Gets `Joke of the Day`.\nOptional `category` param determines\nthe category of returned joke of the day\n",
+      "method": "GET",
+      "url": "https://api.jokes.one/jod",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-jod-categories",
+      "name": "GET /jod/categories",
+      "description": "Gets a list of `Joke of the Day` Categories.\n",
+      "method": "GET",
+      "url": "https://api.jokes.one/jod/categories",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-joke",
+      "name": "GET /joke",
+      "description": "Gets a `Joke` with a given `id`.",
+      "method": "GET",
+      "url": "https://api.jokes.one/joke",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "put-joke",
+      "name": "PUT /joke",
+      "description": "Add a new joke to your private collection.",
+      "method": "PUT",
+      "url": "https://api.jokes.one/joke",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "title": "",
+        "text": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "delete-joke",
+      "name": "DELETE /joke",
+      "description": "Delete a joke. The user needs to be the owner of the joke to be able to delete it.\n",
+      "method": "DELETE",
+      "url": "https://api.jokes.one/joke",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "patch-joke",
+      "name": "PATCH /joke",
+      "description": "Update a joke",
+      "method": "PATCH",
+      "url": "https://api.jokes.one/joke",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-joke-categories-search",
+      "name": "GET /joke/categories/search",
+      "description": "Gets a list of `Joke` Categories, based on a query term.\n",
+      "method": "GET",
+      "url": "https://api.jokes.one/joke/categories/search",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-joke-list",
+      "name": "GET /joke/list",
+      "description": "Get the list of jokes in your private collection.",
+      "method": "GET",
+      "url": "https://api.jokes.one/joke/list",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-joke-random",
+      "name": "GET /joke/random",
+      "description": "Gets a `Random Joke`. When you are in a hurry this is what you call to get a random famous joke.",
+      "method": "GET",
+      "url": "https://api.jokes.one/joke/random",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "get-joke-search",
+      "name": "GET /joke/search",
+      "description": "Search for a `Joke` in Jokes One platform. Optional `category` , `author`, `minlength`, `maxlength` params determines the filters applied while searching for the joke. ",
+      "method": "GET",
+      "url": "https://api.jokes.one/joke/search",
+      "headers": {
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "post-joke-tags-add",
+      "name": "POST /joke/tags/add",
+      "description": "Add a tag to a given Joke.",
+      "method": "POST",
+      "url": "https://api.jokes.one/joke/tags/add",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "id": "",
+        "tags": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    },
+    {
+      "id": "post-joke-tags-remove",
+      "name": "POST /joke/tags/remove",
+      "description": "Remove a tag from a given joke.",
+      "method": "POST",
+      "url": "https://api.jokes.one/joke/tags/remove",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-JokesOne-Api-Secret": "{{JOKES_ONE_API_KEY}}"
+      },
+      "query_params": {
+        "id": "",
+        "tags": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOKES_API_KEY}}",
+        "{{JOKES_ONE_API_KEY}}"
+      ],
+      "notes": "Replace {{JOKES_API_KEY}} with your JOKES API KEY."
+    }
+  ]
+}

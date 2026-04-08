@@ -1,0 +1,334 @@
+{
+  "api_id": "gov.bc.ca:geocoder:2.0.0",
+  "endpoint_count": 16,
+  "endpoints": [
+    {
+      "id": "geocode-an-address",
+      "name": "Geocode an address",
+      "description": "Represents the set of geocoded and standardized sites and intersections whose address best matches a given query address.",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/addresses.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-intersections-near-to-a-geographic-point",
+      "name": "Find intersections near to a geographic point",
+      "description": "Represents intersections near a given point",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/intersections/near.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": "",
+        "outputSRS": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-nearest-intersection-to-a-geographic-point",
+      "name": "Find nearest intersection to a geographic point",
+      "description": "Represents the closest intersection to a given point",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/intersections/nearest.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-intersections-in-a-geographic-area",
+      "name": "Find intersections in a geographic area",
+      "description": "Represents all intersections within a given area",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/intersections/within.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "bbox": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "get-an-intersection-by-its-unique-id",
+      "name": "Get an intersection by its unique ID",
+      "description": "Represents a individual intersection",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/intersections/{{INTERSECTIONID}}.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{INTERSECTIONID}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{INTERSECTIONID}} with a real intersectionid. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "geocode-an-address-and-identify-site-occupants",
+      "name": "Geocode an address and identify site occupants",
+      "description": "Represents the set of occupants whose addresses best match a given query address. Every occupant has an associated site which has a standardized address and a coordinate location on the Earth.",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/occupants/addresses.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-occupants-of-sites-near-to-a-geographic-point",
+      "name": "Find occupants of sites near to a geographic point",
+      "description": "Represents occupants near a given point in order of closest to farthest",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/occupants/near.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-occupants-of-the-site-nearest-to-a-geographic-point",
+      "name": "Find occupants of the site nearest to a geographic point",
+      "description": "Represents the closest occupant to a given point",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/occupants/nearest.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-occupants-of-sites-in-a-geographic-area",
+      "name": "Find occupants of sites in a geographic area",
+      "description": "Represents all occupants within a given area",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/occupants/within.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "bbox": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "get-an-occupant-of-a-site-by-its-unique-id",
+      "name": "Get an occupant (of a site) by its unique ID",
+      "description": "Represents an individual occupant",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/occupants/{{OCCUPANTID}}.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OCCUPANTID}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OCCUPANTID}} with a real occupantid. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "get-a-comma-separated-string-of-all-pids-for-a-given-site",
+      "name": "Get a comma-separated string of all pids for a given site",
+      "description": "Represents all parcel identifiers associated with an individual site",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/parcels/pids/{{SITEID}}.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{SITEID}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat. Replace {{SITEID}} with a real siteid."
+    },
+    {
+      "id": "find-sites-near-to-a-geographic-point",
+      "name": "Find sites near to a geographic point",
+      "description": "Represents sites near a given point in the order of closest to farthest",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/sites/near.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-the-site-nearest-to-a-geographic-point",
+      "name": "Find the site nearest to a geographic point",
+      "description": "Represents the site nearest a given point",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/sites/nearest.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "point": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "find-sites-in-a-geographic-area",
+      "name": "Find sites in a geographic area",
+      "description": "Represents sites within a given area",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/sites/within.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {
+        "bbox": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat."
+    },
+    {
+      "id": "get-a-site-by-its-unique-id",
+      "name": "Get a site by its unique ID",
+      "description": "Represents an individual site",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/sites/{{SITEID}}.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{SITEID}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat. Replace {{SITEID}} with a real siteid."
+    },
+    {
+      "id": "represents-all-subsites-of-a-given-site",
+      "name": "Represents all subsites of a given site",
+      "description": "Represents all subsites of a given site",
+      "method": "GET",
+      "url": "https://geocoder.api.gov.bc.ca/sites/{{SITEID}}/subsites.{{OUTPUTFORMAT}}",
+      "headers": {
+        "apikey": "{{GOV_BC_CA_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOV_API_KEY}}",
+        "{{OUTPUTFORMAT}}",
+        "{{SITEID}}",
+        "{{GOV_BC_CA_API_KEY}}"
+      ],
+      "notes": "Replace {{GOV_API_KEY}} with your GOV API KEY. Replace {{OUTPUTFORMAT}} with a real outputformat. Replace {{SITEID}} with a real siteid."
+    }
+  ]
+}

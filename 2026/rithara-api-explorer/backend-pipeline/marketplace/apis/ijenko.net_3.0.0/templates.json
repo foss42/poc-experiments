@@ -1,0 +1,1390 @@
+{
+  "api_id": "ijenko.net:3.0.0",
+  "endpoint_count": 66,
+  "endpoints": [
+    {
+      "id": "change-the-password",
+      "name": "Change the password",
+      "description": "Set a new password for the account.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/account/change-password",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "oldPassword": "",
+        "newPassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "list-places-of-the-account",
+      "name": "List Places of the Account",
+      "description": "List the *Places* of the account.\n\n**Note:** requires full access to the *Account*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/account/places",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "create-a-place",
+      "name": "Create a Place",
+      "description": "Create a new *Place*.\n\nA *Device* (`class`: `MINT`, `address`: `0`) is automatically created and attached to the new *Place*.\n\n**Note:** requires full access to the *Account*.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/account/places",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "\u2302 Home",
+        "zipCode": "",
+        "country": "FR",
+        "timeZone": "Europe/Paris"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "list-active-tokens-of-the-account",
+      "name": "List active Tokens of the Account",
+      "description": "List the active *Tokens* on the account.\n\n**Note:** requires full access to the *Account*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/account/tokens",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "revoke-a-token",
+      "name": "Revoke a Token",
+      "description": "Revoke the given *Token*.\n\n**Note:** requires full access to the *Account*.\n",
+      "method": "DELETE",
+      "url": "https://ioe2api.ijenko.net/account/tokens/{{TOKENID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{TOKENID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "list-users-of-the-account",
+      "name": "List Users of the Account",
+      "description": "Get the list of *Users* of this *Account*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/account/users",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "new-user",
+      "name": "New User",
+      "description": "Add a *User*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/account/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "name": "",
+        "locale": "fr-FR"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "information-about-a-user",
+      "name": "Information about a User",
+      "description": "Get information about a *User* in the same *Account*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/account/users/{{USERID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{USERID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a User",
+      "description": "Delete a *User* from this *Account*, and revoke all his/her *Tokens*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "DELETE",
+      "url": "https://ioe2api.ijenko.net/account/users/{{USERID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{USERID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "modify-a-user",
+      "name": "Modify a User",
+      "description": "Modify a *User*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/account/users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "locale": "fr-FR",
+        "name": "",
+        "phoneNumber": "+33177494646"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{USERID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "list-metadata",
+      "name": "List metadata",
+      "description": "Get the metadata.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/account/users/{{USERID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{USERID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "modify-metadata",
+      "name": "Modify metadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/account/users/{{USERID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{USERID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-a-token-using-login-password",
+      "name": "Get a token using login+password",
+      "description": "Get an access+refresh tokens pair from login and password information.\n\nThe *access token* obtained with this request can then be used in\nan `Access-Token` HTTP header or in a `token` URL query parameter\nin requests that require authentication.\n\nThe *refresh token* can be used with `/auth/refresh` when the *access\ntoken* expires to retrieve a new *access token*. The lifetime of the\nrefresh token is the maximum lifetime of this authentication request.\n\nThe default lifetime of the *refresh token* is defined by the `appId`\nused. The `ttl` input parameter allows to request a *refresh token*\nwith a shorter lifetime.\n\nTo implement *logout*, use `/auth/revoke`.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/auth/login",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "login": "",
+        "password": "",
+        "appId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "refresh-a-token",
+      "name": "Refresh a token",
+      "description": "Get a new *access token* using a valid *refresh token*.\n\nThis is a **replacement** of the *access token*: if an existing *access\ntoken* was still not expired, it is invalidated.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/auth/refresh",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "refreshToken": "",
+        "appId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "ask-for-a-new-password",
+      "name": "Ask for a new password",
+      "description": "Trigger the request of a new password.\n\nThe account administrator will receive an e-mail with an URL pointing to a form\nto allow him/her to enter a new password.\nThe old password is still functional until a new one is submitted.\n\nEither the login or e-mail of the account must be given.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/auth/reset-password",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "appId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "revoke-a-token-2",
+      "name": "Revoke a token",
+      "description": "Invalidate the authentication used for the request. The access token and the refresh token will be invalid after this request.\nThis request is typically called to implement logout.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/auth/revoke",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "information-about-a-device",
+      "name": "Information about a Device",
+      "description": "Get information about a *Device*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "update-a-device",
+      "name": "Update a Device",
+      "description": "Modify information about a *Device*: its name.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "add-dynamically-a-functionality",
+      "name": "Add dynamically a functionality",
+      "description": "Add a *Functionality* to the device.\n\nRequired parameters are :\n- functionality class\n- endpoint\n\nEach device class has its own restrictions on which Functionality classes can be added and on which endpoints.\nOnly a few devices allow to add Functionalities.\n\n|Device class|Functionality class|Endpoints|\n|------------|-------------------|---------|\n|MINT        |CurrentPeriod      |1,2,3    |\n|MINT        |ElectricityRates   |1,2,3    |\n|MINT        |GenericRate        |1,2,3    |\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/functionalities",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "class": "",
+        "endpoint": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "list-metadata-2",
+      "name": "List metadata",
+      "description": "Get the metadata.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "modify-metadata-2",
+      "name": "Modify metadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "run-actions",
+      "name": "Run actions",
+      "description": "Run an *Action* on zero, one or multiple Functionalities selected with tags.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/run/{{ACTION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "functionalities": ""
+      },
+      "body": [
+        true,
+        1,
+        "hello"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTION}}",
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{ACTION}} with a real action. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "list-tags",
+      "name": "List tags",
+      "description": "Get the tags of a *Device*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/tags",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "modify-tags",
+      "name": "Modify tags",
+      "description": "Modify the tags of a *Device*.",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/devices/{{DEVICEID}}/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": [],
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "information-about-a-functionality",
+      "name": "Information about a Functionality",
+      "description": "Get the *Functionality*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "modify-a-functionality",
+      "name": "Modify a Functionality",
+      "description": "Modify information about a *Functionality*: its name.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "get-history-of-multiple-attributes",
+      "name": "Get history of multiple attributes",
+      "description": "Get the values of multiple *Attributes* and their history.\n\nIf the `names` parameter is not given, all the attributes of the *Functionality*\nare returned. As the list may be huge, this must be avoided.\n\nIf the `to` parameter is set, `from` must also be set.\n\nIf `from` is not set, only the last value is returned.\n\nThe `surround` parameter allows to ask also for one value beyond each interval boundaries.\n\nThe request may fail if too many values are asked.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/attributes",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "get-an-attribute-value",
+      "name": "Get an Attribute value",
+      "description": "Get the *Attribute* value and the last time when it changed.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/attributes/{{ATTRIBUTENAME}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{FUNCTIONALITYID}}",
+        "{{ATTRIBUTENAME}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid. Replace {{ATTRIBUTENAME}} with a real attributename."
+    },
+    {
+      "id": "list-metadata-3",
+      "name": "List metadata",
+      "description": "Get the metadata.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "modify-metadata-3",
+      "name": "Modify metadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "run-an-action",
+      "name": "Run an action",
+      "description": "Run an action on the Functionality.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/run/{{ACTION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        true,
+        1,
+        "hello"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTION}}",
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{ACTION}} with a real action. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "list-tags-2",
+      "name": "List tags",
+      "description": "Get the tags of a *Functionality*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/tags",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "modify-tags-2",
+      "name": "Modify tags",
+      "description": "Modify the tags of a *Functionality*.",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/functionalities/{{FUNCTIONALITYID}}/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": [],
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNCTIONALITYID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{FUNCTIONALITYID}} with a real functionalityid."
+    },
+    {
+      "id": "information-about-the-user",
+      "name": "Information about the User",
+      "description": "Get information on the authenticated *User* who does the request.\n\nThe *login* property is returned only if the *User* is the administrator of\nthe *Account*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/me",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "update-user-information",
+      "name": "Update User information",
+      "description": "Update *User* information (locale).\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/me",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "locale": "fr-FR"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "information-about-a-notification",
+      "name": "Information about a Notification",
+      "description": "Get information about a *Notification*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/notifications/{{NOTIFICATIONID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTIFICATIONID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{NOTIFICATIONID}} with a real notificationid."
+    },
+    {
+      "id": "delete-a-notification",
+      "name": "Delete a Notification",
+      "description": "Delete a *Notification*.\n",
+      "method": "DELETE",
+      "url": "https://ioe2api.ijenko.net/notifications/{{NOTIFICATIONID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTIFICATIONID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{NOTIFICATIONID}} with a real notificationid."
+    },
+    {
+      "id": "modify-a-notification",
+      "name": "Modify a Notification",
+      "description": "Modify a *Notification*.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/notifications/{{NOTIFICATIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {},
+        "name": "",
+        "routing": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTIFICATIONID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{NOTIFICATIONID}} with a real notificationid."
+    },
+    {
+      "id": "list-metadata-4",
+      "name": "List metadata",
+      "description": "Get the metadata of the *Notification*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/notifications/{{NOTIFICATIONID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTIFICATIONID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{NOTIFICATIONID}} with a real notificationid."
+    },
+    {
+      "id": "modify-metadata-of-a-notification",
+      "name": "Modify metadata of a Notification",
+      "description": "Modify the metadata of a *Notification*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/notifications/{{NOTIFICATIONID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NOTIFICATIONID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{NOTIFICATIONID}} with a real notificationid."
+    },
+    {
+      "id": "list-accessible-places",
+      "name": "List accessible Places",
+      "description": "List the *Places* to which the *Token* has access.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY."
+    },
+    {
+      "id": "information-about-a-place",
+      "name": "Information about a Place",
+      "description": "Get information about a *Place*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "update-a-place",
+      "name": "Update a Place",
+      "description": "Change information about a *Place*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "country": "FR",
+        "name": "\u2302 Home",
+        "timeZone": "Europe/Paris",
+        "zipCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "list-buses",
+      "name": "List Buses",
+      "description": "Get the list of *Buses* available on the gateway of this *Place*.\nIf `withPairing` is `true`, return only buses that allow device pairing (see `/places/{placeId}/buses/{busId}/pairing`).",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/buses",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "state-of-the-pairing-window",
+      "name": "State of the pairing window",
+      "description": "Get the state of the pairing window of the *Bus*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/buses/{{BUSID}}/pairing",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{BUSID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid. Replace {{BUSID}} with a real busid."
+    },
+    {
+      "id": "open-close-the-pairing-window",
+      "name": "Open/Close the pairing window",
+      "description": "Open/Close the pairing window.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "PUT",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/buses/{{BUSID}}/pairing",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "enabled": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{BUSID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid. Replace {{BUSID}} with a real busid."
+    },
+    {
+      "id": "list-of-devices",
+      "name": "List of Devices",
+      "description": "Get the list of *Devices* available in this *Place*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/devices",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "get-autonomy-rate-of-the-place",
+      "name": "Get autonomy rate of the place",
+      "description": "Compute the autonomy rate of the *Place* on a time period.\n\n`autonomy = 1 - (elec_drawn / elec_total_usage)`\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/electricity/autonomy",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "when": "",
+        "span": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "get-electricity-virtual-flows",
+      "name": "Get electricity virtual flows",
+      "description": "Get the mapping of virtual electricity flows to functionalities.\n\nSome rules are applied to expand the virtual flows using the concrete\nflows available.\n\nThe `factor` tells how each energy value coming from a functionality\nmust be added with values from other functionality to compute the\nenergy of the virtual flow. Factors are usually `1` or `-1`.\n\nThe `code` property gives the result which may be partial:\n- If all flows are available, `200000` is returned.\n- If no flows are available (indicating that the place has no\n  electricity functionality or that no functionality has been attached\n  to a flow), the `code` is `200001`. The `missing` property contains\n  all the requested flows.\n- If some flows are missing, the `code` is `200002` and the `missing`\n  property lists them.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/electricity/flows",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "flows": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "get-electricity-flows-setup",
+      "name": "Get electricity flows setup",
+      "description": "Get the mapping of functionalities to electricity flows.\n\nA functionality is attached to *at most* one flow.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/electricity/flows/setup",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "get-self-consumption-rate-of-the-place",
+      "name": "Get self-consumption rate of the place",
+      "description": "Compute the self-consumption rate of the *Place* on a time period.\n\n`selfConsumption = 1 - (elec_feed_in / elec_total_usage)`\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/electricity/self-consumption",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "when": "",
+        "span": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "list-functionalities",
+      "name": "List Functionalities",
+      "description": "Get the list of *Functionalities* available in this *Place*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/functionalities",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "list-metadata-5",
+      "name": "List metadata",
+      "description": "Get the metadata.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "modify-metadata-4",
+      "name": "Modify metadata",
+      "description": "Modify the metadata.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "list-notifications",
+      "name": "List Notifications",
+      "description": "Get the list of *Notifications* available in this *Place*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/notifications",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "create-a-notification",
+      "name": "Create a Notification",
+      "description": "Create a new *Notification*.",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/notifications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "list-programs",
+      "name": "List Programs",
+      "description": "Get the list of *Programs* available in this *Place*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/programs",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "create-a-program",
+      "name": "Create a Program",
+      "description": "Create a new *Program*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/programs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "code": [],
+        "enabled": false,
+        "name": "NOOP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "run-actions-2",
+      "name": "Run actions",
+      "description": "Run an *Action* on zero, one or multiple *Functionalities* selected with tags.\n\n*Device* and *Functionality* selection are combined with \u00ab AND \u00bb.\n\nIf no functionality is matched by the device/functionality selection, an empty array is returned.\n",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/places/{{PLACEID}}/run/{{ACTION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "devices": "",
+        "functionalities": ""
+      },
+      "body": [
+        true,
+        1,
+        "hello"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTION}}",
+        "{{PLACEID}}",
+        "{{IJENKO_API_KEY}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{ACTION}} with a real action. Replace {{PLACEID}} with a real placeid."
+    },
+    {
+      "id": "information-about-a-program",
+      "name": "Information about a Program",
+      "description": "Get information about a *Program*.\n",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "delete-a-program",
+      "name": "Delete a Program",
+      "description": "Delete a *Program*.\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "DELETE",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "modify-a-program",
+      "name": "Modify a Program",
+      "description": "Modify a *Program*:\n- name\n- status (enabled/disabled)\n- code\n\n**Note**: requires full access to the *Account*.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "code": "",
+        "enabled": false,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "history-of-executions-of-a-program",
+      "name": "History of executions of a Program",
+      "description": "Get the execution history list of this *Program*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}/log",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {
+        "from": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "list-metadata-6",
+      "name": "List metadata",
+      "description": "Get the metadata of the *Program*.",
+      "method": "GET",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}/metadata",
+      "headers": {
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "modify-metadata-of-a-program",
+      "name": "Modify metadata of a Program",
+      "description": "Modify the metadata of a *Program*.\nKeys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.\n",
+      "method": "PATCH",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}/metadata",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "add": {},
+        "remove": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    },
+    {
+      "id": "run-the-program",
+      "name": "Run the Program",
+      "description": "Launch the *Program*.\nThe result will be available later in the run history.",
+      "method": "POST",
+      "url": "https://ioe2api.ijenko.net/programs/{{PROGRAMID}}/run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Access-Token": "{{IJENKO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IJENKO_API_KEY}}",
+        "{{PROGRAMID}}",
+        "{{IJENKO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{IJENKO_API_KEY}} with your IJENKO API KEY. Replace {{PROGRAMID}} with a real programid."
+    }
+  ]
+}

@@ -1,0 +1,859 @@
+{
+  "api_id": "twilio.com:twilio_serverless_v1:1.42.0",
+  "endpoint_count": 39,
+  "endpoints": [
+    {
+      "id": "get-v1-services",
+      "name": "GET /v1/Services",
+      "description": "Retrieve a list of all Services.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-services",
+      "name": "POST /v1/Services",
+      "description": "Create a new Service resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-services-servicesid-assets",
+      "name": "GET /v1/Services/{ServiceSid}/Assets",
+      "description": "Retrieve a list of all Assets.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-assets",
+      "name": "POST /v1/Services/{ServiceSid}/Assets",
+      "description": "Create a new Asset resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-assets-assetsid-versions",
+      "name": "GET /v1/Services/{ServiceSid}/Assets/{AssetSid}/Versions",
+      "description": "Retrieve a list of all Asset Versions.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets/{{ASSETSID}}/Versions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSETSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSETSID}} with a real assetsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-assets-assetsid-versions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Assets/{AssetSid}/Versions/{Sid}",
+      "description": "Retrieve a specific Asset Version.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets/{{ASSETSID}}/Versions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSETSID}} with a real assetsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-assets-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Assets/{Sid}",
+      "description": "Retrieve a specific Asset resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-assets-sid",
+      "name": "POST /v1/Services/{ServiceSid}/Assets/{Sid}",
+      "description": "Update a specific Asset resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-assets-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Assets/{Sid}",
+      "description": "Delete an Asset resource.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Assets/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-builds",
+      "name": "GET /v1/Services/{ServiceSid}/Builds",
+      "description": "Retrieve a list of all Builds.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Builds",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-builds",
+      "name": "POST /v1/Services/{ServiceSid}/Builds",
+      "description": "Create a new Build resource. At least one function version or asset version is required.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Builds",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AssetVersions": [],
+        "Dependencies": "",
+        "FunctionVersions": [],
+        "Runtime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-builds-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Builds/{Sid}",
+      "description": "Retrieve a specific Build resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Builds/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-builds-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Builds/{Sid}",
+      "description": "Delete a Build resource.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Builds/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-builds-sid-status",
+      "name": "GET /v1/Services/{ServiceSid}/Builds/{Sid}/Status",
+      "description": "Retrieve a specific Build resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Builds/{{SID}}/Status",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments",
+      "name": "GET /v1/Services/{ServiceSid}/Environments",
+      "description": "Retrieve a list of all environments.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-environments",
+      "name": "POST /v1/Services/{ServiceSid}/Environments",
+      "description": "Create a new environment.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-deployments",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Deployments",
+      "description": "Retrieve a list of all Deployments.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Deployments",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-environments-environmentsid-deployments",
+      "name": "POST /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Deployments",
+      "description": "Create a new Deployment.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Deployments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "BuildSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-deployments-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Deployments/{Sid}",
+      "description": "Retrieve a specific Deployment.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Deployments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-logs",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Logs",
+      "description": "Retrieve a list of all logs.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Logs",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-logs-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Logs/{Sid}",
+      "description": "Retrieve a specific log.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Logs/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-variables",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables",
+      "description": "Retrieve a list of all Variables.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Variables",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-environments-environmentsid-variables",
+      "name": "POST /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables",
+      "description": "Create a new Variable.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Variables",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Key": "",
+        "Value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-environmentsid-variables-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables/{Sid}",
+      "description": "Retrieve a specific Variable.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Variables/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-environments-environmentsid-variables-sid",
+      "name": "POST /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables/{Sid}",
+      "description": "Update a specific Variable.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Variables/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Key": "",
+        "Value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-environments-environmentsid-variables-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Environments/{EnvironmentSid}/Variables/{Sid}",
+      "description": "Delete a specific Variable.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{ENVIRONMENTSID}}/Variables/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{ENVIRONMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ENVIRONMENTSID}} with a real environmentsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-environments-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Environments/{Sid}",
+      "description": "Retrieve a specific environment.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-environments-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Environments/{Sid}",
+      "description": "Delete a specific environment.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Environments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-functions",
+      "name": "GET /v1/Services/{ServiceSid}/Functions",
+      "description": "Retrieve a list of all Functions.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-functions",
+      "name": "POST /v1/Services/{ServiceSid}/Functions",
+      "description": "Create a new Function resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-functions-functionsid-versions",
+      "name": "GET /v1/Services/{ServiceSid}/Functions/{FunctionSid}/Versions",
+      "description": "Retrieve a list of all Function Version resources.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{FUNCTIONSID}}/Versions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{FUNCTIONSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{FUNCTIONSID}} with a real functionsid."
+    },
+    {
+      "id": "get-v1-services-servicesid-functions-functionsid-versions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Functions/{FunctionSid}/Versions/{Sid}",
+      "description": "Retrieve a specific Function Version resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{FUNCTIONSID}}/Versions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FUNCTIONSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{FUNCTIONSID}} with a real functionsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-functions-functionsid-versions-sid-content",
+      "name": "GET /v1/Services/{ServiceSid}/Functions/{FunctionSid}/Versions/{Sid}/Content",
+      "description": "Retrieve a the content of a specific Function Version resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{FUNCTIONSID}}/Versions/{{SID}}/Content",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FUNCTIONSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{FUNCTIONSID}} with a real functionsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-functions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Functions/{Sid}",
+      "description": "Retrieve a specific Function resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-functions-sid",
+      "name": "POST /v1/Services/{ServiceSid}/Functions/{Sid}",
+      "description": "Update a specific Function resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-functions-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Functions/{Sid}",
+      "description": "Delete a Function resource.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SERVICESID}}/Functions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-sid",
+      "name": "GET /v1/Services/{Sid}",
+      "description": "Retrieve a specific Service resource.",
+      "method": "GET",
+      "url": "https://serverless.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-sid",
+      "name": "POST /v1/Services/{Sid}",
+      "description": "Update a specific Service resource.",
+      "method": "POST",
+      "url": "https://serverless.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "IncludeCredentials": false,
+        "UiEditable": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-sid",
+      "name": "DELETE /v1/Services/{Sid}",
+      "description": "Delete a Service resource.",
+      "method": "DELETE",
+      "url": "https://serverless.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "api_id": "azure.com:migrate:2017-11-11-preview",
+  "endpoint_count": 21,
+  "endpoints": [
+    {
+      "id": "get-list-of-operations-supported-in-the-api",
+      "name": "Get list of operations supported in the API.",
+      "description": "Get a list of REST API supported by Microsoft.Migrate provider.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Migrate/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-all-assessments-created-in-the-project",
+      "name": "Get all assessments created in the project.",
+      "description": "Get all assessments created in the project.\n\nReturns a json array of objects of type 'assessment' as specified in Models section.\n",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/assessments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-all-groups",
+      "name": "Get all groups",
+      "description": "Get all groups created in the project. Returns a json array of objects of type 'group' as specified in the Models section.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-a-specific-group",
+      "name": "Get a specific group.",
+      "description": "Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname. Replace {{GROUPNAME}} with a real groupname."
+    },
+    {
+      "id": "create-a-new-group-with-specified-settings-if-group-with-the-name-provided-already-exists-then-the-existing-group-is-updated",
+      "name": "Create a new group with specified settings. If group with the name provided already exists, then the existing group is updated.",
+      "description": "Create a new group by sending a json object of type 'group' as given in Models section as part of the Request Body. The group name in a project is unique. Labels can be applied on a group as part of creation.\n\nIf a group with the groupName specified in the URL already exists, then this call acts as an update.\n\nThis operation is Idempotent.\n",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname. Replace {{GROUPNAME}} with a real groupname."
+    },
+    {
+      "id": "delete-the-group",
+      "name": "Delete the group",
+      "description": "Delete the group from the project. The machines remain in the project. Deleting a non-existent group results in a no-operation.\n\nA group is an aggregation mechanism for machines in a project. Therefore, deleting group does not delete machines in it.\n",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname. Replace {{GROUPNAME}} with a real groupname."
+    },
+    {
+      "id": "get-all-assessments-created-for-the-specified-group",
+      "name": "Get all assessments created for the specified group.",
+      "description": "Get all assessments created for the specified group.\n\nReturns a json array of objects of type 'assessment' as specified in Models section.\n",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname. Replace {{GROUPNAME}} with a real groupname."
+    },
+    {
+      "id": "get-an-assessment",
+      "name": "Get an assessment.",
+      "description": "Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "create-or-update-assessment",
+      "name": "Create or Update assessment.",
+      "description": "Create a new assessment with the given name and the specified settings. Since name of an assessment in a project is a unique identifier, if an assessment with the name provided already exists, then the existing assessment is updated.\n\nAny PUT operation, resulting in either create or update on an assessment, will cause the assessment to go in a \"InProgress\" state. This will be indicated by the field 'computationState' on the Assessment object. During this time no other PUT operation will be allowed on that assessment object, nor will a Delete operation. Once the computation for the assessment is complete, the field 'computationState' will be updated to 'Ready', and then other PUT or DELETE operations can happen on the assessment.\n\nWhen assessment is under computation, any PUT will lead to a 400 - Bad Request error.\n",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "deletes-an-assessment-from-the-project",
+      "name": "Deletes an assessment from the project.",
+      "description": "Delete an assessment from the project. The machines remain in the assessment. Deleting a non-existent assessment results in a no-operation.\n\nWhen an assessment is under computation, as indicated by the 'computationState' field, it cannot be deleted. Any such attempt will return a 400 - Bad Request.\n",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-assessed-machines-for-assessment",
+      "name": "Get assessed machines for assessment.",
+      "description": "Get list of machines that assessed as part of the specified assessment. Returns a json array of objects of type 'assessedMachine' as specified in the Models section.\n\nWhenever an assessment is created or updated, it goes under computation. During this phase, the 'status' field of Assessment object reports 'Computing'.\nDuring the period when the assessment is under computation, the list of assessed machines is empty and no assessed machines are returned by this call.\n",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}/assessedMachines",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-an-assessed-machine",
+      "name": "Get an assessed machine.",
+      "description": "Get an assessed machine with its size & cost estimate that was evaluated in the specified assessment.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}/assessedMachines/{{ASSESSEDMACHINENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSEDMACHINENAME}}",
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSEDMACHINENAME}} with a real assessedmachinename. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-download-url-for-the-assessment-report",
+      "name": "Get download URL for the assessment report.",
+      "description": "Get the URL for downloading the assessment in a report format.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/groups/{{GROUPNAME}}/assessments/{{ASSESSMENTNAME}}/downloadUrl",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSESSMENTNAME}}",
+        "{{GROUPNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ASSESSMENTNAME}} with a real assessmentname. Replace {{GROUPNAME}} with a real groupname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-all-machines-in-the-project",
+      "name": "Get all machines in the project",
+      "description": "Get data of all the machines available in the project. Returns a json array of objects of type 'machine' defined in Models section.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/machines",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-a-specific-machine",
+      "name": "Get a specific machine.",
+      "description": "Get the machine with the specified name. Returns a json object of type 'machine' defined in Models section.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/machines/{{MACHINENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{MACHINENAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{MACHINENAME}} with a real machinename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-all-projects",
+      "name": "Get all projects.",
+      "description": "Get all the projects in the resource group.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-the-specified-project",
+      "name": "Get the specified project.",
+      "description": "Get the project with the specified name.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "create-or-update-project",
+      "name": "Create or update project.",
+      "description": "Create a project with specified name. If a project already exists, update it.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "eTag": "",
+        "id": "",
+        "location": "",
+        "name": "",
+        "properties": {},
+        "tags": {},
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "delete-the-project",
+      "name": "Delete the project",
+      "description": "Delete the project. Deleting non-existent project is a no-operation.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "update-project",
+      "name": "Update project.",
+      "description": "Update a project with specified name. Supports partial updates, for example only tags can be provided.",
+      "method": "PATCH",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "eTag": "",
+        "id": "",
+        "location": "",
+        "name": "",
+        "properties": {},
+        "tags": {},
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-shared-keys-for-the-project",
+      "name": "Get shared keys for the project.",
+      "description": "Gets the Log Analytics Workspace ID and Primary Key for the specified project.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Migrate/projects/{{PROJECTNAME}}/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{PROJECTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{PROJECTNAME}} with a real projectname."
+    }
+  ]
+}

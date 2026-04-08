@@ -1,0 +1,27 @@
+{
+  "api_id": "ebay.com:buy-marketing:v1_beta.2.0",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "get-merchandised-product",
+      "name": "GET /merchandised_product",
+      "description": "This method returns an array of products based on the category and metric specified. This includes details of the product, such as the eBay product ID (EPID), title, and user reviews and ratings for the product. You can use the <code>epid</code> returned by this method in the Browse API <b>search</b> method to retrieve items for this product. <h3><b>Restrictions </b></h3> <ul><li>To test <b> getMerchandisedProducts</b> in Sandbox, you must use category ID 9355 and the response will be mock data.  </li>   <li>For a list of supported sites and other restrictions, see <a href=\"/api-docs/buy/marketing/overview.html#API\">API Restrictions</a>.</li>  </ul>",
+      "method": "GET",
+      "url": "https://api.ebay.com/buy/marketing/v1_beta/merchandised_product",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "category_id": "",
+        "metric_name": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    }
+  ]
+}

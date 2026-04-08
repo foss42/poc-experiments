@@ -1,0 +1,169 @@
+{
+  "api_id": "googleapis.com:workflows:v1",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets details of a single workflow.",
+      "method": "GET",
+      "url": "https://workflows.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a workflow with the specified name. This method also cancels and deletes all running executions of the workflow.",
+      "method": "DELETE",
+      "url": "https://workflows.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates an existing workflow. Running this method has no impact on already running executions of the workflow. A new revision of the workflow might be created as a result of a successful update operation. In that case, the new revision is used in new workflow executions.",
+      "method": "PATCH",
+      "url": "https://workflows.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "callLogLevel": "",
+        "createTime": "",
+        "cryptoKeyName": "",
+        "description": "",
+        "labels": {},
+        "name": "",
+        "revisionCreateTime": "",
+        "revisionId": "",
+        "serviceAccount": "",
+        "sourceContents": "",
+        "state": "",
+        "stateError": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-locations",
+      "name": "GET /v1/{name}/locations",
+      "description": "Lists information about the supported locations for this service.",
+      "method": "GET",
+      "url": "https://workflows.googleapis.com/v1/{{NAME}}/locations",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-operations",
+      "name": "GET /v1/{name}/operations",
+      "description": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.",
+      "method": "GET",
+      "url": "https://workflows.googleapis.com/v1/{{NAME}}/operations",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-workflows",
+      "name": "GET /v1/{parent}/workflows",
+      "description": "Lists workflows in a given project and location. The default order is not specified.",
+      "method": "GET",
+      "url": "https://workflows.googleapis.com/v1/{{PARENT}}/workflows",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-workflows",
+      "name": "POST /v1/{parent}/workflows",
+      "description": "Creates a new workflow. If a workflow with the specified name already exists in the specified project and location, the long running operation returns a ALREADY_EXISTS error.",
+      "method": "POST",
+      "url": "https://workflows.googleapis.com/v1/{{PARENT}}/workflows",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "callLogLevel": "",
+        "createTime": "",
+        "cryptoKeyName": "",
+        "description": "",
+        "labels": {},
+        "name": "",
+        "revisionCreateTime": "",
+        "revisionId": "",
+        "serviceAccount": "",
+        "sourceContents": "",
+        "state": "",
+        "stateError": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

@@ -1,0 +1,413 @@
+{
+  "api_id": "azure.com:authorization-authorization-RoleBasedCalls:2018-01-01-preview",
+  "endpoint_count": 18,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-authorization-provideroperations",
+      "name": "GET /providers/Microsoft.Authorization/providerOperations",
+      "description": "Gets provider operations metadata for all resource providers.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/providerOperations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-providers-microsoft-authorization-provideroperations-resourceprovidernamespace",
+      "name": "GET /providers/Microsoft.Authorization/providerOperations/{resourceProviderNamespace}",
+      "description": "Gets provider operations metadata for the specified resource provider.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/providerOperations/{{RESOURCEPROVIDERNAMESPACE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-roleassignments",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments",
+      "description": "Gets all role assignments for the subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/roleAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-authorization-roleassignments",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/roleAssignments",
+      "description": "Gets role assignments for a resource group.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/roleAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-authorization-permissions",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/permissions",
+      "description": "Gets all permissions the caller has for a resource group.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/permissions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-resourceprovidernamespace-parentresourcepath-resourcetype-resourcename-providers-microsoft-authorization-permissions",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/permissions",
+      "description": "Gets all permissions the caller has for a resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/permissions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-resourceprovidernamespace-parentresourcepath-resourcetype-resourcename-providers-microsoft-authorization-roleassignments",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/roleAssignments",
+      "description": "Gets role assignments for a resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/roleAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-roleid",
+      "name": "GET /{roleId}",
+      "description": "Gets a role assignment by ID.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{ROLEID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ROLEID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEID}} with a real roleid."
+    },
+    {
+      "id": "put-roleid",
+      "name": "PUT /{roleId}",
+      "description": "Creates a role assignment by ID.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{ROLEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ROLEID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEID}} with a real roleid."
+    },
+    {
+      "id": "delete-roleid",
+      "name": "DELETE /{roleId}",
+      "description": "Deletes a role assignment.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{ROLEID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ROLEID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEID}} with a real roleid."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-roleassignments",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/roleAssignments",
+      "description": "Gets role assignments for a scope.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-roleassignments-roleassignmentname",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
+      "description": "Get the specified role assignment.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleAssignments/{{ROLEASSIGNMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ROLEASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEASSIGNMENTNAME}} with a real roleassignmentname. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "put-scope-providers-microsoft-authorization-roleassignments-roleassignmentname",
+      "name": "PUT /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
+      "description": "Creates a role assignment.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleAssignments/{{ROLEASSIGNMENTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ROLEASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEASSIGNMENTNAME}} with a real roleassignmentname. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "delete-scope-providers-microsoft-authorization-roleassignments-roleassignmentname",
+      "name": "DELETE /{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
+      "description": "Deletes a role assignment.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleAssignments/{{ROLEASSIGNMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ROLEASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEASSIGNMENTNAME}} with a real roleassignmentname. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-roledefinitions",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/roleDefinitions",
+      "description": "Get all role definitions that are applicable at scope and above.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-roledefinitions-roledefinitionid",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+      "description": "Get role definition by name (GUID).",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleDefinitions/{{ROLEDEFINITIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{ROLEDEFINITIONID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEDEFINITIONID}} with a real roledefinitionid. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "put-scope-providers-microsoft-authorization-roledefinitions-roledefinitionid",
+      "name": "PUT /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+      "description": "Creates or updates a role definition.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleDefinitions/{{ROLEDEFINITIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{ROLEDEFINITIONID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEDEFINITIONID}} with a real roledefinitionid. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "delete-scope-providers-microsoft-authorization-roledefinitions-roledefinitionid",
+      "name": "DELETE /{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}",
+      "description": "Deletes a role definition.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/roleDefinitions/{{ROLEDEFINITIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{ROLEDEFINITIONID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ROLEDEFINITIONID}} with a real roledefinitionid. Replace {{SCOPE}} with a real scope."
+    }
+  ]
+}

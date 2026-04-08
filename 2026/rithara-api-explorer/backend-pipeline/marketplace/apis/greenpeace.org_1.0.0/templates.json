@@ -1,0 +1,96 @@
+{
+  "api_id": "greenpeace.org:1.0.0",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "get-events",
+      "name": "GET /events",
+      "description": "Return the upcoming events (e.g. start date >= today). Gets an array of `Event` object. Mandatory query param of **domain** determines the site / country the event belongs to.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/events",
+      "headers": {},
+      "query_params": {
+        "domain": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-events-uuid",
+      "name": "GET /events/{UUID}",
+      "description": "Get one `Event` object by specifying its UUID in the url path.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/events/{{UUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UUID}}"
+      ],
+      "notes": "No authentication required. Replace {{UUID}} with a real uuid."
+    },
+    {
+      "id": "get-groups",
+      "name": "GET /groups",
+      "description": "Gets an array of `Group` object. Mandatory query param of **domain** determines the site / country the group belongs to.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/groups",
+      "headers": {},
+      "query_params": {
+        "domain": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-groups-uuid",
+      "name": "GET /groups/{UUID}",
+      "description": "Get one `Group` object by specifying its UUID in the url path.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/groups/{{UUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UUID}}"
+      ],
+      "notes": "No authentication required. Replace {{UUID}} with a real uuid."
+    },
+    {
+      "id": "get-volunteers",
+      "name": "GET /volunteers",
+      "description": "Gets an array of `Volunteer` object. Mandatory query param of **domain** determines the site / country the volunteers are from.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/volunteers",
+      "headers": {},
+      "query_params": {
+        "domain": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-volunteers-uuid",
+      "name": "GET /volunteers/{UUID}",
+      "description": "Get one specific `Volunteer` object by specifying its UUID in the url path.",
+      "method": "GET",
+      "url": "https://greenwire.greenpeace.org/api/public/volunteers/{{UUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UUID}}"
+      ],
+      "notes": "No authentication required. Replace {{UUID}} with a real uuid."
+    }
+  ]
+}

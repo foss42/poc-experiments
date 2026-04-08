@@ -1,0 +1,94 @@
+{
+  "api_id": "azure.com:serialconsole:2018-05-01",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-serialconsole-operations",
+      "name": "GET /providers/Microsoft.SerialConsole/operations",
+      "description": "Gets a list of Serial Console API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.SerialConsole/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-disabled-status-for-a-subscription",
+      "name": "Get the disabled status for a subscription",
+      "description": "Gets whether or not Serial Console is disabled for a given subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.SerialConsole/consoleServices/{{DEFAULT}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{DEFAULT}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{DEFAULT}} with a real default."
+    },
+    {
+      "id": "disable-serial-console-for-a-subscription",
+      "name": "Disable Serial Console for a subscription",
+      "description": "Disables the Serial Console service for all VMs and VM scale sets in the provided subscription",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.SerialConsole/consoleServices/{{DEFAULT}}/disableConsole",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{DEFAULT}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{DEFAULT}} with a real default."
+    },
+    {
+      "id": "enable-serial-console-for-a-subscription",
+      "name": "Enable Serial Console for a subscription",
+      "description": "Enables the Serial Console service for all VMs and VM scale sets in the provided subscription",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.SerialConsole/consoleServices/{{DEFAULT}}/enableConsole",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{DEFAULT}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{DEFAULT}} with a real default."
+    }
+  ]
+}

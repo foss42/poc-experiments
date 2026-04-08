@@ -1,0 +1,149 @@
+{
+  "api_id": "magick.nu:1.0",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-strategy-by-id",
+      "name": "Get Strategy by ID",
+      "description": "Get Strategy by ID",
+      "method": "GET",
+      "url": "http://devui.magick.nu/rest/strategies/strategyId/{{STRATEGYID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STRATEGYID}}"
+      ],
+      "notes": "No authentication required. Replace {{STRATEGYID}} with a real strategyid."
+    },
+    {
+      "id": "get-all-template-strategies",
+      "name": "Get all Template Strategies",
+      "description": "Get all Template Strategies",
+      "method": "GET",
+      "url": "http://devui.magick.nu/rest/strategies/templates",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-trading-account",
+      "name": "Add a Trading Account",
+      "description": "Add a Trading Account",
+      "method": "POST",
+      "url": "http://devui.magick.nu/rest/tradingAccounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "brokerServer": "",
+        "magickUsername": "",
+        "password": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-mt4-account-password",
+      "name": "Update MT4 Account Password",
+      "description": "Update MT4 Account Password",
+      "method": "PUT",
+      "url": "http://devui.magick.nu/rest/tradingAccounts/password/{{USERNAME}}/{{BROKERSERVER}}/{{MT4USERNAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "newPassword": "",
+        "oldPassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MT4USERNAME}}",
+        "{{BROKERSERVER}}",
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{MT4USERNAME}} with a real mt4username. Replace {{BROKERSERVER}} with a real brokerserver. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-tradeworks-user",
+      "name": "Create a new Tradeworks User",
+      "description": "Create a new Tradeworks User",
+      "method": "POST",
+      "url": "http://devui.magick.nu/rest/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "affiliateId": "",
+        "email": "",
+        "firstName": "",
+        "lastName": "",
+        "password": "",
+        "subscriptionType": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "check-if-email-is-available",
+      "name": "Check if email is available",
+      "description": "Check if email is available",
+      "method": "GET",
+      "url": "http://devui.magick.nu/rest/users/email/{{EMAIL}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EMAIL}}"
+      ],
+      "notes": "No authentication required. Replace {{EMAIL}} with a real email."
+    },
+    {
+      "id": "update-user-s-password",
+      "name": "Update user's password",
+      "description": "Update user's password",
+      "method": "PUT",
+      "url": "http://devui.magick.nu/rest/users/password/{{USERNAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "newPassword": "",
+        "oldPassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "check-if-username-is-available",
+      "name": "Check if username is available",
+      "description": "Check if username is available",
+      "method": "GET",
+      "url": "http://devui.magick.nu/rest/users/username/{{USERNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    }
+  ]
+}

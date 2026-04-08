@@ -1,0 +1,3012 @@
+{
+  "api_id": "probely.com:1.2.0",
+  "endpoint_count": 137,
+  "endpoints": [
+    {
+      "id": "retrieve-account-information",
+      "name": "Retrieve account information",
+      "description": "Retrieve account information",
+      "method": "GET",
+      "url": "https://api.probely.com/account/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "authenticate-user",
+      "name": "Authenticate user",
+      "description": "The received token should be used for authenticated requests by including in the Authorization header as `Authorization: JWT <token>`.\n",
+      "method": "POST",
+      "url": "https://api.probely.com/auth/obtain/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "username": "example@probely.com",
+        "password": "dolphins"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-billing-information",
+      "name": "Retrieve billing information",
+      "description": "Retrieve billing information",
+      "method": "GET",
+      "url": "https://api.probely.com/billing/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "update-billing-information",
+      "name": "Update billing information",
+      "description": "Update billing information",
+      "method": "PUT",
+      "url": "https://api.probely.com/billing/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "country": "DE",
+        "vat_number": "",
+        "first_name": "",
+        "last_name": "",
+        "city": "Munich",
+        "address": "",
+        "zip": "",
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "partial-update-billing-information",
+      "name": "Partial update billing information",
+      "description": "Partial update billing information",
+      "method": "PATCH",
+      "url": "https://api.probely.com/billing/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "country": "DE",
+        "vat_number": "",
+        "first_name": "",
+        "last_name": "",
+        "city": "Munich",
+        "address": "",
+        "zip": "",
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "action-that-should-be-taken-to-enable-the-selected-targets",
+      "name": "Action that should be taken to enable the selected targets",
+      "description": "Action that should be taken to enable the selected targets",
+      "method": "POST",
+      "url": "https://api.probely.com/billing/actions/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        "jMXUw-BE_2vd"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "estimate-costs-of-updating-a-subscription",
+      "name": "Estimate costs of updating a subscription",
+      "description": "Estimate costs of updating a subscription",
+      "method": "POST",
+      "url": "https://api.probely.com/billing/estimate/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "coupon_ids": [],
+        "plan_id": "jMXUw-BE_2vd",
+        "target_ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "update-a-subscription",
+      "name": "Update a subscription",
+      "description": "Update a subscription",
+      "method": "POST",
+      "url": "https://api.probely.com/billing/subscribe/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "coupon_ids": [],
+        "plan_id": "jMXUw-BE_2vd",
+        "target_ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "check-validity-of-password-reset-token",
+      "name": "Check validity of password reset token",
+      "description": "Check validity of password reset token",
+      "method": "POST",
+      "url": "https://api.probely.com/check/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": "KJUUCY2VIVEHO5KJGVHQ====-PJZXGNKSGNQVSODFPJGQ====-GYZDKOI=-8065bfbf8a0192774f3f/"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "enterprise-user-authentication",
+      "name": "Enterprise user authentication",
+      "description": "The received token should be used for authenticated requests by including in the Authorization header as `Authorization: JWT <token>`.\n",
+      "method": "POST",
+      "url": "https://api.probely.com/enterprise/auth/obtain/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "username": "example@probely.com",
+        "password": "dolphins"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-account-events",
+      "name": "List account events",
+      "description": "List account events",
+      "method": "GET",
+      "url": "https://api.probely.com/events/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-account-event",
+      "name": "Retrieve account event",
+      "description": "Retrieve account event",
+      "method": "GET",
+      "url": "https://api.probely.com/events/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-frameworks",
+      "name": "List frameworks",
+      "description": "List frameworks",
+      "method": "GET",
+      "url": "https://api.probely.com/frameworks/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-framework",
+      "name": "Retrieve framework",
+      "description": "Retrieve framework",
+      "method": "GET",
+      "url": "https://api.probely.com/frameworks/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "integrations-available-and-installed-in-the-account",
+      "name": "Integrations available and installed in the account",
+      "description": "Integrations available and installed in the account",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-jira-projects",
+      "name": "List Jira Projects",
+      "description": "List Jira Projects",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-cloud/projects/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-project-issue-types",
+      "name": "Retrieve project issue types",
+      "description": "Retrieve project issue types",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-cloud/projects/{{PROJECT_ID}}/issue_types/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "retrieve-issue-priorities",
+      "name": "Retrieve issue priorities",
+      "description": "Retrieve issue priorities",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-cloud/projects/{{PROJECT_ID}}/issue_types/{{ISSUE_TYPE_ID}}/priorities/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{ISSUE_TYPE_ID}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ISSUE_TYPE_ID}} with a real issue_type_id. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "retrieve-issue-statuses",
+      "name": "Retrieve issue statuses",
+      "description": "Retrieve issue statuses",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-cloud/projects/{{PROJECT_ID}}/issue_types/{{ISSUE_TYPE_ID}}/status/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{ISSUE_TYPE_ID}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ISSUE_TYPE_ID}} with a real issue_type_id. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "list-jira-projects-2",
+      "name": "List Jira Projects",
+      "description": "List Jira Projects",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-server/projects/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-project-issue-types-2",
+      "name": "Retrieve project issue types",
+      "description": "Retrieve project issue types",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-server/projects/{{PROJECT_ID}}/issue_types/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "retrieve-issue-priorities-2",
+      "name": "Retrieve issue priorities",
+      "description": "Retrieve issue priorities",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-server/projects/{{PROJECT_ID}}/issue_types/{{ISSUE_TYPE_ID}}/priorities/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{ISSUE_TYPE_ID}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ISSUE_TYPE_ID}} with a real issue_type_id. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "retrieve-issue-statuses-2",
+      "name": "Retrieve issue statuses",
+      "description": "Retrieve issue statuses",
+      "method": "GET",
+      "url": "https://api.probely.com/integrations/jira-server/projects/{{PROJECT_ID}}/issue_types/{{ISSUE_TYPE_ID}}/status/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{ISSUE_TYPE_ID}}",
+        "{{PROJECT_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ISSUE_TYPE_ID}} with a real issue_type_id. Replace {{PROJECT_ID}} with a real project_id."
+    },
+    {
+      "id": "list-api-keys-allowed-to-operate-on-account",
+      "name": "List API keys allowed to operate on account",
+      "description": "List API keys allowed to operate on account",
+      "method": "GET",
+      "url": "https://api.probely.com/keys/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-account-api-key",
+      "name": "Retrieve account API key",
+      "description": "Retrieve account API key",
+      "method": "GET",
+      "url": "https://api.probely.com/keys/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-account-api-key",
+      "name": "Delete account API key",
+      "description": "Delete account API key",
+      "method": "DELETE",
+      "url": "https://api.probely.com/keys/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-labels",
+      "name": "List labels",
+      "description": "List labels",
+      "method": "GET",
+      "url": "https://api.probely.com/labels/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "create-label",
+      "name": "Create label",
+      "description": "Create label",
+      "method": "POST",
+      "url": "https://api.probely.com/labels/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "jMXUw-BE_2vd",
+        "name": "Object name"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-framework-2",
+      "name": "Retrieve framework",
+      "description": "Retrieve framework",
+      "method": "GET",
+      "url": "https://api.probely.com/labels/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-label",
+      "name": "Update label",
+      "description": "Update label",
+      "method": "PUT",
+      "url": "https://api.probely.com/labels/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "jMXUw-BE_2vd",
+        "name": "Object name"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-label",
+      "name": "Delete label",
+      "description": "Delete label",
+      "method": "DELETE",
+      "url": "https://api.probely.com/labels/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "partial-update",
+      "name": "Partial update",
+      "description": "Partial update",
+      "method": "PATCH",
+      "url": "https://api.probely.com/labels/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "jMXUw-BE_2vd",
+        "name": "Object name"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "subscription-plans",
+      "name": "Subscription plans",
+      "description": "Subscription plans",
+      "method": "GET",
+      "url": "https://api.probely.com/plans/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "user-data",
+      "name": "User data",
+      "description": "User data",
+      "method": "GET",
+      "url": "https://api.probely.com/profile/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "change-user-password",
+      "name": "Change user password",
+      "description": "Our password policy requires a minimum password length of 10 chars with\nat least one symbol or number.\n",
+      "method": "POST",
+      "url": "https://api.probely.com/profile/change_password/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "current_password": "",
+        "password": "",
+        "confpassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "send-reset-password-email",
+      "name": "Send reset password email",
+      "description": "Send reset password email",
+      "method": "POST",
+      "url": "https://api.probely.com/reset/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "example@probely.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "reset-password-after-asking-for-a-reset-with-the-token-sent-by-email",
+      "name": "Reset password after asking for a reset (with the token sent by email).\n",
+      "description": "Reset password after asking for a reset (with the token sent by email).\n",
+      "method": "POST",
+      "url": "https://api.probely.com/setpassword/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": "KJUUCY2VIVEHO5KJGVHQ====-PJZXGNKSGNQVSODFPJGQ====-GYZDKOI=-8065bfbf8a0192774f3f/",
+        "password": "",
+        "confpassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "available-actions-for-the-selected-targets",
+      "name": "Available actions for the selected targets",
+      "description": "Available actions for the selected targets",
+      "method": "POST",
+      "url": "https://api.probely.com/target-actions/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        "jMXUw-BE_2vd"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-targets",
+      "name": "List targets",
+      "description": "List targets",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "create-target",
+      "name": "Create target",
+      "description": "Create target",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowed_scan_profiles": [],
+        "assets": [],
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "connected_target": "",
+        "enabled": false,
+        "environment": "testing",
+        "id": "jMXUw-BE_2vd",
+        "labels": [],
+        "name": "Object name",
+        "report_type": "",
+        "scan_profile": "normal",
+        "site": {},
+        "type": "single"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "activate-targets",
+      "name": "Activate targets",
+      "description": "Activate targets",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/activate/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        "jMXUw-BE_2vd"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "average-fix-time-graph-data-all-targets",
+      "name": "Average fix time graph data (all targets)",
+      "description": "Average fix time graph data (all targets)",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/average_fix_time/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "targets-with-open-vulnerabilities-pie-chart-data",
+      "name": "Targets with open vulnerabilities pie chart data",
+      "description": "Targets with open vulnerabilities pie chart data",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/needs_attention_pie/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "targets-with-open-vulnerabilities",
+      "name": "Targets with open vulnerabilities",
+      "description": "Targets with open vulnerabilities",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/needs_attention_top/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "risk-trend-graph-data-all-targets",
+      "name": "Risk trend graph data (all targets)",
+      "description": "Risk trend graph data (all targets)",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/risk_trend/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-scans-for-all-targets",
+      "name": "List scans for all targets",
+      "description": "List scans for all targets",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/scans/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-scheduled-scans-for-all-targets-expanding-recurrence",
+      "name": "List scheduled scans for all targets expanding recurrence",
+      "description": "List scheduled scans for all targets expanding recurrence",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/scheduledscans/expanded/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "severity-trend-graph-data-all-targets",
+      "name": "Severity trend graph data (all targets)",
+      "description": "Severity trend graph data (all targets)",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/severity_trend/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "top-5-vulnerabilities-all-targets",
+      "name": "Top 5 vulnerabilities (all targets).",
+      "description": "Top 5 vulnerabilities (all targets).",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/all/top_vulns/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "archive-targets",
+      "name": "Archive targets",
+      "description": "Archive targets",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/archive/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        "jMXUw-BE_2vd"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "list-archived-targets",
+      "name": "List archived targets",
+      "description": "List archived targets",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/archived/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        "jMXUw-BE_2vd"
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-target",
+      "name": "Retrieve target",
+      "description": "Retrieve target",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-target",
+      "name": "Update target",
+      "description": "Update target",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowed_scan_profiles": [],
+        "assets": [],
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "connected_target": "",
+        "enabled": false,
+        "environment": "testing",
+        "id": "jMXUw-BE_2vd",
+        "labels": [],
+        "name": "Object name",
+        "report_type": "",
+        "scan_profile": "normal",
+        "site": {},
+        "type": "single"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-target",
+      "name": "Delete target",
+      "description": "Delete target",
+      "method": "DELETE",
+      "url": "https://api.probely.com/targets/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "partial-update-target",
+      "name": "Partial update target",
+      "description": "Partial update target",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowed_scan_profiles": [],
+        "assets": [],
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "connected_target": "",
+        "enabled": false,
+        "environment": "testing",
+        "id": "jMXUw-BE_2vd",
+        "labels": [],
+        "name": "Object name",
+        "report_type": "",
+        "scan_profile": "normal",
+        "site": {},
+        "type": "single"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-target-s-assets",
+      "name": "List target's assets",
+      "description": "List target's assets",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "create-new-asset",
+      "name": "Create new asset",
+      "description": "Create new asset",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "cookies": [],
+        "desc": "Object description",
+        "headers": [],
+        "host": "",
+        "id": "jMXUw-BE_2vd",
+        "include": false,
+        "name": "Object name",
+        "stack": [],
+        "verification_date": "2018-01-31T16:32:52.226652Z",
+        "verification_last_error": "",
+        "verification_method": "",
+        "verification_token": "a38351cb-ede8-4dc8-9366-80d3a7042d9a",
+        "verified": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-asset",
+      "name": "Retrieve asset",
+      "description": "Retrieve asset",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-asset",
+      "name": "Update asset",
+      "description": "Update asset",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "cookies": [],
+        "desc": "Object description",
+        "headers": [],
+        "host": "",
+        "id": "jMXUw-BE_2vd",
+        "include": false,
+        "name": "Object name",
+        "stack": [],
+        "verification_date": "2018-01-31T16:32:52.226652Z",
+        "verification_last_error": "",
+        "verification_method": "",
+        "verification_token": "a38351cb-ede8-4dc8-9366-80d3a7042d9a",
+        "verified": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "delete-asset",
+      "name": "Delete asset",
+      "description": "Delete asset",
+      "method": "DELETE",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "partial-update-assets",
+      "name": "Partial update assets",
+      "description": "Partial update assets",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "cookies": [],
+        "desc": "Object description",
+        "headers": [],
+        "host": "",
+        "id": "jMXUw-BE_2vd",
+        "include": false,
+        "name": "Object name",
+        "stack": [],
+        "verification_date": "2018-01-31T16:32:52.226652Z",
+        "verification_last_error": "",
+        "verification_method": "",
+        "verification_token": "a38351cb-ede8-4dc8-9366-80d3a7042d9a",
+        "verified": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "verify-asset-ownership",
+      "name": "Verify asset ownership",
+      "description": "Verify asset ownership",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/assets/{{ID}}/verify/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "average-vulnerability-trend-graph-data",
+      "name": "Average vulnerability trend graph data",
+      "description": "Average vulnerability trend graph data",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/average_fix_time/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-target-events",
+      "name": "List target events",
+      "description": "List target events",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/events/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-target-event",
+      "name": "Retrieve target event",
+      "description": "Retrieve target event",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/events/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-target-findings",
+      "name": "List target findings",
+      "description": "List target findings",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "finding-report",
+      "name": "Finding report",
+      "description": "Finding report",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/bulk/report/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-finding-report-pdf-format",
+      "name": "Retrieve finding report PDF format",
+      "description": "Retrieve finding report PDF format",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/report/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {
+        "token": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-finding",
+      "name": "Retrieve finding",
+      "description": "Retrieve finding",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-finding",
+      "name": "Update finding",
+      "description": "Update finding",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignee": {},
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "comment": "",
+        "cvss_score": 6.5,
+        "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+        "definition": {},
+        "evidence": "",
+        "extra": "",
+        "fix": "",
+        "id": "jMXUw-BE_2vd",
+        "insertion_point": "",
+        "labels": [],
+        "last_found": "2018-02-19T18:58:50.906015Z",
+        "method": "",
+        "parameter": "",
+        "params": "",
+        "path": "",
+        "reporter": {},
+        "requests": [],
+        "scans": [],
+        "severity": "",
+        "state": "",
+        "target": {},
+        "url": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "partial-update-finding",
+      "name": "Partial update finding",
+      "description": "Partial update finding",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignee": {},
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "comment": "",
+        "cvss_score": 6.5,
+        "cvss_vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N",
+        "definition": {},
+        "evidence": "",
+        "extra": "",
+        "fix": "",
+        "id": "jMXUw-BE_2vd",
+        "insertion_point": "",
+        "labels": [],
+        "last_found": "2018-02-19T18:58:50.906015Z",
+        "method": "",
+        "parameter": "",
+        "params": "",
+        "path": "",
+        "reporter": {},
+        "requests": [],
+        "scans": [],
+        "severity": "",
+        "state": "",
+        "target": {},
+        "url": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-jira-cloud-finding-configuration",
+      "name": "Retrieve Jira Cloud finding configuration",
+      "description": "Retrieve Jira Cloud finding configuration",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-cloud-finding-configuration",
+      "name": "Update Jira Cloud finding configuration",
+      "description": "Update Jira Cloud finding configuration",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "issue_id": "",
+        "selective_sync": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-cloud-finding-configuration-2",
+      "name": "Update Jira Cloud finding configuration",
+      "description": "Update Jira Cloud finding configuration",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "issue_id": "",
+        "selective_sync": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-jira-server-finding-configuration",
+      "name": "Retrieve Jira Server finding configuration",
+      "description": "Retrieve Jira Server finding configuration",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-server/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-server-finding-configuration",
+      "name": "Update Jira Server finding configuration",
+      "description": "Update Jira Server finding configuration",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-server/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "issue_id": "",
+        "selective_sync": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-server-finding-configuration-2",
+      "name": "Update Jira Server finding configuration",
+      "description": "Update Jira Server finding configuration",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/integrations/jira-server/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "issue_id": "",
+        "selective_sync": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "finding-activity-log",
+      "name": "Finding activity log.",
+      "description": "Finding activity log.",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/log/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retest-finding",
+      "name": "Retest finding",
+      "description": "Retest finding",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/findings/{{ID}}/retest/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "integrations-available-and-installed-for-the-target",
+      "name": "Integrations available and installed for the target",
+      "description": "Integrations available and installed for the target",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-jira-cloud-target-configuration",
+      "name": "Retrieve Jira Cloud Target configuration",
+      "description": "Retrieve Jira Cloud Target configuration",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-cloud-target-configuration",
+      "name": "Update Jira Cloud target configuration",
+      "description": "Update Jira Cloud target configuration",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allow_jira": false,
+        "auto_sync": false,
+        "issue_type_id": "",
+        "priority_mapping": {},
+        "project_id": "",
+        "status_mapping": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-cloud-target-configuration-2",
+      "name": "Update Jira Cloud target configuration",
+      "description": "Update Jira Cloud target configuration",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-cloud/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allow_jira": false,
+        "auto_sync": false,
+        "issue_type_id": "",
+        "priority_mapping": {},
+        "project_id": "",
+        "status_mapping": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-jira-server-target-configuration",
+      "name": "Retrieve Jira Server Target configuration",
+      "description": "Retrieve Jira Server Target configuration",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-server/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-server-target-configuration",
+      "name": "Update Jira Server target configuration",
+      "description": "Update Jira Server target configuration",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-server/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allow_jira": false,
+        "auto_sync": false,
+        "issue_type_id": "",
+        "priority_mapping": {},
+        "project_id": "",
+        "status_mapping": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-jira-server-target-configuration-2",
+      "name": "Update Jira Server target configuration",
+      "description": "Update Jira Server target configuration",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/jira-server/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allow_jira": false,
+        "auto_sync": false,
+        "issue_type_id": "",
+        "priority_mapping": {},
+        "project_id": "",
+        "status_mapping": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-slack-integration-data",
+      "name": "Retrieve slack integration data",
+      "description": "Retrieve slack integration data",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/slack/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-slack-integration-data",
+      "name": "Update slack integration data",
+      "description": "Update slack integration data",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/slack/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "notify_finding_fixed": false,
+        "notify_high_findings": false,
+        "notify_low_findings": false,
+        "notify_medium_findings": false,
+        "notify_scan_completed": false,
+        "notify_scan_started": false,
+        "webhook_url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-slack-integration-data-2",
+      "name": "Update slack integration data",
+      "description": "Update slack integration data",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/integrations/slack/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "notify_finding_fixed": false,
+        "notify_high_findings": false,
+        "notify_low_findings": false,
+        "notify_medium_findings": false,
+        "notify_scan_completed": false,
+        "notify_scan_started": false,
+        "webhook_url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-target-specific-api-keys",
+      "name": "List target specific API keys",
+      "description": "List target specific API keys",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/keys/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-target-api-key",
+      "name": "Retrieve target API key",
+      "description": "Retrieve target API key",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/keys/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "delete-target-api-key",
+      "name": "Delete target API key",
+      "description": "Delete target API key",
+      "method": "DELETE",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/keys/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "risk-trend-graph-data",
+      "name": "Risk trend graph data",
+      "description": "Risk trend graph data",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/risk_trend/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "start-a-scan-on-the-target",
+      "name": "Start a scan on the target",
+      "description": "Start a scan on the target",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scan_now/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "scan_profile": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-scans",
+      "name": "List scans",
+      "description": "List scans",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "dates-where-scans-have-ocurred",
+      "name": "Dates where scans have ocurred",
+      "description": "Dates where scans have ocurred",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/dates/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-page",
+      "name": "Scan page",
+      "description": "Given a date return the page number",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/retrieve_page/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-scan",
+      "name": "Retrieve scan",
+      "description": "Retrieve scan",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "cancel-running-scan",
+      "name": "Cancel running scan",
+      "description": "Cancel running scan",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/cancel/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-endpoints-file",
+      "name": "Scan endpoints file",
+      "description": "Scan endpoints file",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/endpoints/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-report-pdf-using-the-report-type-specified-for-the-target",
+      "name": "Scan report PDF, using the report type specified for the target",
+      "description": "Scan report PDF, using the report type specified for the target",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/report/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-report-pdf-using-the-default-report-type",
+      "name": "Scan report PDF, using the default report type",
+      "description": "Scan report PDF, using the default report type",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/report/default/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-report-pdf-using-the-owasp-report-type",
+      "name": "Scan report PDF, using the OWASP report type",
+      "description": "Scan report PDF, using the OWASP report type",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/report/owasp/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "scan-report-pdf-using-the-pci-report-type",
+      "name": "Scan report PDF, using the PCI report type",
+      "description": "Scan report PDF, using the PCI report type",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scans/{{ID}}/report/pci/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-scheduled-scans",
+      "name": "List scheduled scans",
+      "description": "List scheduled scans",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "create-new-scheduled-scan",
+      "name": "Create new scheduled scan",
+      "description": "Create new scheduled scan",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "date_time": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-scheduled-scans-expanding-recurrence",
+      "name": "List scheduled scans expanding recurrence",
+      "description": "List scheduled scans expanding recurrence",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/expanded/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-a-scheduled-scan",
+      "name": "Retrieve a scheduled scan",
+      "description": "Retrieve a scheduled scan",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-a-scheduled-scan",
+      "name": "Update a scheduled scan",
+      "description": "Update a scheduled scan",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "date_time": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "delete",
+      "name": "Delete",
+      "description": "Delete",
+      "method": "DELETE",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "partial-update-2",
+      "name": "Partial update",
+      "description": "Partial update",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/scheduledscans/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "date_time": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "severity-trend-graph-data",
+      "name": "Severity trend graph data.",
+      "description": "Severity trend graph data.",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/severity_trend/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-target-s-site",
+      "name": "Retrieve target's site",
+      "description": "Retrieve target's site",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/site/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-target-s-site",
+      "name": "Update target's site",
+      "description": "Note that the URL can only be set once.",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/site/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic_auth": {},
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "cookies": [],
+        "desc": "Object description",
+        "form_login": [],
+        "form_login_check_pattern": "",
+        "form_login_url": "https://app.probely.com/",
+        "has_basic_auth": true,
+        "has_form_login": true,
+        "headers": [],
+        "host": "app.probely.com",
+        "id": "jMXUw-BE_2vd",
+        "name": "Object name",
+        "stack": [],
+        "url": "https://app.probely.com",
+        "verification_date": "2018-01-31T16:32:52.226652Z",
+        "verification_last_error": "",
+        "verification_method": "",
+        "verification_token": "a38351cb-ede8-4dc8-9366-80d3a7042d9a",
+        "verified": false,
+        "whitelist": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "partial-update-target-s-site",
+      "name": "Partial update target's site",
+      "description": "Note that the URL can only be set once.",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/site/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic_auth": {},
+        "changed": "2018-01-31T16:32:17.238553Z",
+        "changed_by": {},
+        "cookies": [],
+        "desc": "Object description",
+        "form_login": [],
+        "form_login_check_pattern": "",
+        "form_login_url": "https://app.probely.com/",
+        "has_basic_auth": true,
+        "has_form_login": true,
+        "headers": [],
+        "host": "app.probely.com",
+        "id": "jMXUw-BE_2vd",
+        "name": "Object name",
+        "stack": [],
+        "url": "https://app.probely.com",
+        "verification_date": "2018-01-31T16:32:52.226652Z",
+        "verification_last_error": "",
+        "verification_method": "",
+        "verification_token": "a38351cb-ede8-4dc8-9366-80d3a7042d9a",
+        "verified": false,
+        "whitelist": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "verify-site-ownership",
+      "name": "Verify site ownership",
+      "description": "Verify site ownership",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/site/verify/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "top-5-vulnerabilities",
+      "name": "Top 5 vulnerabilities",
+      "description": "Top 5 vulnerabilities",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/top_vulns/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-target-webhooks",
+      "name": "List target webhooks",
+      "description": "List target webhooks",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "create-new-target-webhook",
+      "name": "Create new target webhook",
+      "description": "Create new target webhook",
+      "method": "POST",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "retrieve-target-webhook",
+      "name": "Retrieve target webhook",
+      "description": "Retrieve target webhook",
+      "method": "GET",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "update-target-webhook",
+      "name": "Update target webhook",
+      "description": "Update target webhook",
+      "method": "PUT",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "delete-target-webhook",
+      "name": "Delete target webhook",
+      "description": "Delete target webhook",
+      "method": "DELETE",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "partial-update-target-webhook",
+      "name": "Partial update target webhook",
+      "description": "Partial update target webhook",
+      "method": "PATCH",
+      "url": "https://api.probely.com/targets/{{TARGET_ID}}/webhooks/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{TARGET_ID}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id. Replace {{TARGET_ID}} with a real target_id."
+    },
+    {
+      "id": "list-users",
+      "name": "List users",
+      "description": "List users",
+      "method": "GET",
+      "url": "https://api.probely.com/users/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "create-reactivate-a-user",
+      "name": "Create/Reactivate a user.",
+      "description": "Create/Reactivate a user.",
+      "method": "POST",
+      "url": "https://api.probely.com/users/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Henrique Cimento",
+        "email": "example@probely.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-user",
+      "name": "Retrieve user",
+      "description": "Retrieve user",
+      "method": "GET",
+      "url": "https://api.probely.com/users/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-user",
+      "name": "Update user",
+      "description": "Update user",
+      "method": "PUT",
+      "url": "https://api.probely.com/users/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Henrique Cimento",
+        "email": "example@probely.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deactivate-a-user",
+      "name": "Deactivate a user",
+      "description": "Deactivate a user",
+      "method": "DELETE",
+      "url": "https://api.probely.com/users/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "partial-update-user",
+      "name": "Partial update user",
+      "description": "Partial update user",
+      "method": "PATCH",
+      "url": "https://api.probely.com/users/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Henrique Cimento",
+        "email": "example@probely.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-vulnerability-definitions",
+      "name": "List vulnerability definitions",
+      "description": "List vulnerability definitions",
+      "method": "GET",
+      "url": "https://api.probely.com/vulnerability_definitions/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-vulnerability-definition",
+      "name": "Retrieve vulnerability definition",
+      "description": "Retrieve vulnerability definition",
+      "method": "GET",
+      "url": "https://api.probely.com/vulnerability_definitions/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-account-webhooks",
+      "name": "List account webhooks",
+      "description": "List account webhooks",
+      "method": "GET",
+      "url": "https://api.probely.com/webhooks/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "create-new-account-webhook",
+      "name": "Create new account webhook",
+      "description": "Create new account webhook",
+      "method": "POST",
+      "url": "https://api.probely.com/webhooks/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY."
+    },
+    {
+      "id": "retrieve-account-webhook",
+      "name": "Retrieve account webhook",
+      "description": "Retrieve account webhook",
+      "method": "GET",
+      "url": "https://api.probely.com/webhooks/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-account-webhook",
+      "name": "Update account webhook",
+      "description": "Update account webhook",
+      "method": "PUT",
+      "url": "https://api.probely.com/webhooks/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-account-webhook",
+      "name": "Delete account webhook",
+      "description": "Delete account webhook",
+      "method": "DELETE",
+      "url": "https://api.probely.com/webhooks/{{ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "partial-update-account-webhook",
+      "name": "Partial update account webhook",
+      "description": "Partial update account webhook",
+      "method": "PATCH",
+      "url": "https://api.probely.com/webhooks/{{ID}}/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PROBELY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PROBELY_API_KEY}}",
+        "{{PROBELY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PROBELY_API_KEY}} with your PROBELY API KEY. Replace {{ID}} with a real id."
+    }
+  ]
+}

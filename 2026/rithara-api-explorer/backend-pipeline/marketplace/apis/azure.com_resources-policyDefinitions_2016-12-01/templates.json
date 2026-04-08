@@ -1,0 +1,231 @@
+{
+  "api_id": "azure.com:resources-policyDefinitions:2016-12-01",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-authorization-policydefinitions",
+      "name": "GET /providers/Microsoft.Authorization/policyDefinitions",
+      "description": "Gets all the built in policy definitions.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/policyDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "GET /providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Gets the built in policy definition.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "get-providers-microsoft-management-managementgroups-managementgroupid-providers-microsoft-authorization-policydefinitions",
+      "name": "GET /providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions",
+      "description": "Gets all the policy definitions for a subscription at management group level.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policyDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid."
+    },
+    {
+      "id": "get-providers-microsoft-management-managementgroups-managementgroupid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "GET /providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Gets the policy definition at management group level.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "put-providers-microsoft-management-managementgroups-managementgroupid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "PUT /providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Creates or updates a policy definition at management group level.",
+      "method": "PUT",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "delete-providers-microsoft-management-managementgroups-managementgroupid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "DELETE /providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Deletes a policy definition at management group level.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/providers/Microsoft.Management/managementgroups/{{MANAGEMENTGROUPID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MANAGEMENTGROUPID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{MANAGEMENTGROUPID}} with a real managementgroupid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-policydefinitions",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions",
+      "description": "Gets all the policy definitions for a subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policyDefinitions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Gets the policy definition.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "put-subscriptions-subscriptionid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "PUT /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Creates or updates a policy definition.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-providers-microsoft-authorization-policydefinitions-policydefinitionname",
+      "name": "DELETE /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+      "description": "Deletes a policy definition.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policyDefinitions/{{POLICYDEFINITIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYDEFINITIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{POLICYDEFINITIONNAME}} with a real policydefinitionname."
+    }
+  ]
+}

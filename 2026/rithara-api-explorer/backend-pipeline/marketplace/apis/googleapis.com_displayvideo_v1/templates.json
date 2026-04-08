@@ -1,0 +1,3074 @@
+{
+  "api_id": "googleapis.com:displayvideo:v1",
+  "endpoint_count": 125,
+  "endpoints": [
+    {
+      "id": "get-download-resourcename",
+      "name": "GET /download/{resourceName}",
+      "description": "Downloads media. Download is supported on the URI `/download/{resource_name=**}?alt=media.` **Note**: Download requests will not be successful without including `alt=media` query string.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/download/{{RESOURCENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCENAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCENAME}} with a real resourcename."
+    },
+    {
+      "id": "post-media-resourcename",
+      "name": "POST /media/{resourceName}",
+      "description": "Uploads media. Upload is supported on the URI `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload requests will not be successful without including `upload_type=media` query string.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/media/{{RESOURCENAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "resourceName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCENAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCENAME}} with a real resourcename."
+    },
+    {
+      "id": "get-v1-advertisers",
+      "name": "GET /v1/advertisers",
+      "description": "Lists advertisers that are accessible to the current user. The order is defined by the order_by parameter. A single partner_id is required. Cross-partner listing is not supported.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-advertisers",
+      "name": "POST /v1/advertisers",
+      "description": "Creates a new advertiser. Returns the newly created advertiser if successful. This method can take up to 180 seconds to complete.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "adServerConfig": {},
+        "advertiserId": "",
+        "creativeConfig": {},
+        "dataAccessConfig": {},
+        "displayName": "",
+        "entityStatus": "",
+        "generalConfig": {},
+        "integrationDetails": {},
+        "name": "",
+        "partnerId": "",
+        "prismaEnabled": false,
+        "servingConfig": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid",
+      "name": "GET /v1/advertisers/{advertiserId}",
+      "description": "Gets an advertiser.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid",
+      "name": "DELETE /v1/advertisers/{advertiserId}",
+      "description": "Deletes an advertiser. Deleting an advertiser will delete all of its child resources, for example, campaigns, insertion orders and line items. A deleted advertiser cannot be recovered.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid",
+      "name": "PATCH /v1/advertisers/{advertiserId}",
+      "description": "Updates an existing advertiser. Returns the updated advertiser if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "adServerConfig": {},
+        "advertiserId": "",
+        "creativeConfig": {},
+        "dataAccessConfig": {},
+        "displayName": "",
+        "entityStatus": "",
+        "generalConfig": {},
+        "integrationDetails": {},
+        "name": "",
+        "partnerId": "",
+        "prismaEnabled": false,
+        "servingConfig": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-assets",
+      "name": "POST /v1/advertisers/{advertiserId}/assets",
+      "description": "Uploads an asset. Returns the ID of the newly uploaded asset if successful. The asset file size should be no more than 10 MB for images, 200 MB for ZIP files, and 1 GB for videos. Must be used within the [multipart media upload process](/display-video/api/guides/how-tos/upload#multipart). Examples using provided client libraries can be found in our [Creating Creatives guide](/display-video/api/guides/creating-creatives/overview#upload_an_asset).",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/assets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "filename": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-campaigns",
+      "name": "GET /v1/advertisers/{advertiserId}/campaigns",
+      "description": "Lists campaigns in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, campaigns with `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-campaigns",
+      "name": "POST /v1/advertisers/{advertiserId}/campaigns",
+      "description": "Creates a new campaign. Returns the newly created campaign if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "campaignBudgets": [],
+        "campaignFlight": {},
+        "campaignGoal": {},
+        "campaignId": "",
+        "displayName": "",
+        "entityStatus": "",
+        "frequencyCap": {},
+        "name": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-campaigns-campaignid",
+      "name": "GET /v1/advertisers/{advertiserId}/campaigns/{campaignId}",
+      "description": "Gets a campaign.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns/{{CAMPAIGNID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CAMPAIGNID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CAMPAIGNID}} with a real campaignid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-campaigns-campaignid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/campaigns/{campaignId}",
+      "description": "Permanently deletes a campaign. A deleted campaign cannot be recovered. The campaign should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns/{{CAMPAIGNID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CAMPAIGNID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CAMPAIGNID}} with a real campaignid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-campaigns-campaignid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/campaigns/{campaignId}",
+      "description": "Updates an existing campaign. Returns the updated campaign if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns/{{CAMPAIGNID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "campaignBudgets": [],
+        "campaignFlight": {},
+        "campaignGoal": {},
+        "campaignId": "",
+        "displayName": "",
+        "entityStatus": "",
+        "frequencyCap": {},
+        "name": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CAMPAIGNID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CAMPAIGNID}} with a real campaignid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-campaigns-campaignid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "GET /v1/advertisers/{advertiserId}/campaigns/{campaignId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Lists the targeting options assigned to a campaign for a specified targeting type.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns/{{CAMPAIGNID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{CAMPAIGNID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{CAMPAIGNID}} with a real campaignid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-campaigns-campaignid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "GET /v1/advertisers/{advertiserId}/campaigns/{campaignId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Gets a single targeting option assigned to a campaign.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/campaigns/{{CAMPAIGNID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{CAMPAIGNID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{CAMPAIGNID}} with a real campaignid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-channels",
+      "name": "GET /v1/advertisers/{advertiserId}/channels",
+      "description": "Lists channels for a partner or advertiser.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-channels",
+      "name": "POST /v1/advertisers/{advertiserId}/channels",
+      "description": "Creates a new channel. Returns the newly created channel if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "channelId": "",
+        "displayName": "",
+        "name": "",
+        "negativelyTargetedLineItemCount": "",
+        "partnerId": "",
+        "positivelyTargetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-channels-channelid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/channels/{channelId}",
+      "description": "Updates a channel. Returns the updated channel if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels/{{CHANNELID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "channelId": "",
+        "displayName": "",
+        "name": "",
+        "negativelyTargetedLineItemCount": "",
+        "partnerId": "",
+        "positivelyTargetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CHANNELID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CHANNELID}} with a real channelid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-channels-channelid-sites",
+      "name": "GET /v1/advertisers/{advertiserId}/channels/{channelId}/sites",
+      "description": "Lists sites in a channel.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels/{{CHANNELID}}/sites",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CHANNELID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CHANNELID}} with a real channelid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-channels-channelid-sites-urlorappid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/channels/{channelId}/sites/{urlOrAppId}",
+      "description": "Deletes a site from a channel.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels/{{CHANNELID}}/sites/{{URLORAPPID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{URLORAPPID}}",
+        "{{CHANNELID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{URLORAPPID}} with a real urlorappid. Replace {{CHANNELID}} with a real channelid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-channels-channelid-sites-bulkedit",
+      "name": "POST /v1/advertisers/{advertiserId}/channels/{channelId}/sites:bulkEdit",
+      "description": "Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels/{{CHANNELID}}/sites:bulkEdit",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "createdSites": [],
+        "deletedSites": [],
+        "partnerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CHANNELID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CHANNELID}} with a real channelid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-channels-channelid-sites-replace",
+      "name": "POST /v1/advertisers/{advertiserId}/channels/{channelId}/sites:replace",
+      "description": "Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/channels/{{CHANNELID}}/sites:replace",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "newSites": [],
+        "partnerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CHANNELID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CHANNELID}} with a real channelid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-creatives",
+      "name": "GET /v1/advertisers/{advertiserId}/creatives",
+      "description": "Lists creatives in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, creatives with `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/creatives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-creatives",
+      "name": "POST /v1/advertisers/{advertiserId}/creatives",
+      "description": "Creates a new creative. Returns the newly created creative if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/creatives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "additionalDimensions": [],
+        "advertiserId": "",
+        "appendedTag": "",
+        "assets": [],
+        "cmPlacementId": "",
+        "cmTrackingAd": {},
+        "companionCreativeIds": [],
+        "counterEvents": [],
+        "createTime": "",
+        "creativeAttributes": [],
+        "creativeId": "",
+        "creativeType": "",
+        "dimensions": {},
+        "displayName": "",
+        "dynamic": false,
+        "entityStatus": "",
+        "exitEvents": [],
+        "expandOnHover": false,
+        "expandingDirection": "",
+        "hostingSource": "",
+        "html5Video": false,
+        "iasCampaignMonitoring": false,
+        "integrationCode": "",
+        "jsTrackerUrl": "",
+        "lineItemIds": [],
+        "mediaDuration": "",
+        "mp3Audio": false,
+        "name": "",
+        "notes": "",
+        "obaIcon": {},
+        "oggAudio": false,
+        "progressOffset": {},
+        "requireHtml5": false,
+        "requireMraid": false,
+        "requirePingForAttribution": false,
+        "reviewStatus": {},
+        "skipOffset": {},
+        "skippable": false,
+        "thirdPartyTag": "",
+        "thirdPartyUrls": [],
+        "timerEvents": [],
+        "trackerUrls": [],
+        "transcodes": [],
+        "universalAdId": {},
+        "updateTime": "",
+        "vastTagUrl": "",
+        "vpaid": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-creatives-creativeid",
+      "name": "GET /v1/advertisers/{advertiserId}/creatives/{creativeId}",
+      "description": "Gets a creative.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/creatives/{{CREATIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CREATIVEID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CREATIVEID}} with a real creativeid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-creatives-creativeid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/creatives/{creativeId}",
+      "description": "Deletes a creative. Returns error code `NOT_FOUND` if the creative does not exist. The creative should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, before it can be deleted.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/creatives/{{CREATIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CREATIVEID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CREATIVEID}} with a real creativeid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-creatives-creativeid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/creatives/{creativeId}",
+      "description": "Updates an existing creative. Returns the updated creative if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/creatives/{{CREATIVEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "additionalDimensions": [],
+        "advertiserId": "",
+        "appendedTag": "",
+        "assets": [],
+        "cmPlacementId": "",
+        "cmTrackingAd": {},
+        "companionCreativeIds": [],
+        "counterEvents": [],
+        "createTime": "",
+        "creativeAttributes": [],
+        "creativeId": "",
+        "creativeType": "",
+        "dimensions": {},
+        "displayName": "",
+        "dynamic": false,
+        "entityStatus": "",
+        "exitEvents": [],
+        "expandOnHover": false,
+        "expandingDirection": "",
+        "hostingSource": "",
+        "html5Video": false,
+        "iasCampaignMonitoring": false,
+        "integrationCode": "",
+        "jsTrackerUrl": "",
+        "lineItemIds": [],
+        "mediaDuration": "",
+        "mp3Audio": false,
+        "name": "",
+        "notes": "",
+        "obaIcon": {},
+        "oggAudio": false,
+        "progressOffset": {},
+        "requireHtml5": false,
+        "requireMraid": false,
+        "requirePingForAttribution": false,
+        "reviewStatus": {},
+        "skipOffset": {},
+        "skippable": false,
+        "thirdPartyTag": "",
+        "thirdPartyUrls": [],
+        "timerEvents": [],
+        "trackerUrls": [],
+        "transcodes": [],
+        "universalAdId": {},
+        "updateTime": "",
+        "vastTagUrl": "",
+        "vpaid": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CREATIVEID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CREATIVEID}} with a real creativeid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-insertionorders",
+      "name": "GET /v1/advertisers/{advertiserId}/insertionOrders",
+      "description": "Lists insertion orders in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, insertion orders with `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-insertionorders",
+      "name": "POST /v1/advertisers/{advertiserId}/insertionOrders",
+      "description": "Creates a new insertion order. Returns the newly created insertion order if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "bidStrategy": {},
+        "billableOutcome": "",
+        "budget": {},
+        "campaignId": "",
+        "displayName": "",
+        "entityStatus": "",
+        "frequencyCap": {},
+        "insertionOrderId": "",
+        "insertionOrderType": "",
+        "integrationDetails": {},
+        "name": "",
+        "pacing": {},
+        "partnerCosts": [],
+        "performanceGoal": {},
+        "reservationType": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-insertionorders-insertionorderid",
+      "name": "GET /v1/advertisers/{advertiserId}/insertionOrders/{insertionOrderId}",
+      "description": "Gets an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders/{{INSERTIONORDERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INSERTIONORDERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INSERTIONORDERID}} with a real insertionorderid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-insertionorders-insertionorderid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/insertionOrders/{insertionOrderId}",
+      "description": "Deletes an insertion order. Returns error code `NOT_FOUND` if the insertion order does not exist. The insertion order should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders/{{INSERTIONORDERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INSERTIONORDERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INSERTIONORDERID}} with a real insertionorderid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-insertionorders-insertionorderid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/insertionOrders/{insertionOrderId}",
+      "description": "Updates an existing insertion order. Returns the updated insertion order if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders/{{INSERTIONORDERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "bidStrategy": {},
+        "billableOutcome": "",
+        "budget": {},
+        "campaignId": "",
+        "displayName": "",
+        "entityStatus": "",
+        "frequencyCap": {},
+        "insertionOrderId": "",
+        "insertionOrderType": "",
+        "integrationDetails": {},
+        "name": "",
+        "pacing": {},
+        "partnerCosts": [],
+        "performanceGoal": {},
+        "reservationType": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INSERTIONORDERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INSERTIONORDERID}} with a real insertionorderid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-insertionorders-insertionorderid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "GET /v1/advertisers/{advertiserId}/insertionOrders/{insertionOrderId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Lists the targeting options assigned to an insertion order.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders/{{INSERTIONORDERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INSERTIONORDERID}}",
+        "{{TARGETINGTYPE}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INSERTIONORDERID}} with a real insertionorderid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-insertionorders-insertionorderid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "GET /v1/advertisers/{advertiserId}/insertionOrders/{insertionOrderId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Gets a single targeting option assigned to an insertion order.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/insertionOrders/{{INSERTIONORDERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INSERTIONORDERID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{INSERTIONORDERID}} with a real insertionorderid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-invoices",
+      "name": "GET /v1/advertisers/{advertiserId}/invoices",
+      "description": "Lists invoices posted for an advertiser in a given month. Invoices generated by billing profiles with a \"Partner\" invoice level are not retrievable through this method.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/invoices",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-invoices-lookupinvoicecurrency",
+      "name": "GET /v1/advertisers/{advertiserId}/invoices:lookupInvoiceCurrency",
+      "description": "Retrieves the invoice currency used by an advertiser in a given month.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/invoices:lookupInvoiceCurrency",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-lineitems",
+      "name": "GET /v1/advertisers/{advertiserId}/lineItems",
+      "description": "Lists line items in an advertiser. The order is defined by the order_by parameter. If a filter by entity_status is not specified, line items with `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-lineitems",
+      "name": "POST /v1/advertisers/{advertiserId}/lineItems",
+      "description": "Creates a new line item. Returns the newly created line item if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "bidStrategy": {},
+        "budget": {},
+        "campaignId": "",
+        "conversionCounting": {},
+        "creativeIds": [],
+        "displayName": "",
+        "entityStatus": "",
+        "excludeNewExchanges": false,
+        "flight": {},
+        "frequencyCap": {},
+        "insertionOrderId": "",
+        "integrationDetails": {},
+        "inventorySourceIds": [],
+        "lineItemId": "",
+        "lineItemType": "",
+        "mobileApp": {},
+        "name": "",
+        "pacing": {},
+        "partnerCosts": [],
+        "partnerRevenueModel": {},
+        "reservationType": "",
+        "targetingExpansion": {},
+        "updateTime": "",
+        "warningMessages": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-lineitems-lineitemid",
+      "name": "GET /v1/advertisers/{advertiserId}/lineItems/{lineItemId}",
+      "description": "Gets a line item.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems/{{LINEITEMID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LINEITEMID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{LINEITEMID}} with a real lineitemid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-lineitems-lineitemid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/lineItems/{lineItemId}",
+      "description": "Deletes a line item. Returns error code `NOT_FOUND` if the line item does not exist. The line item should be archived first, i.e. set entity_status to `ENTITY_STATUS_ARCHIVED`, to be able to delete it.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems/{{LINEITEMID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LINEITEMID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{LINEITEMID}} with a real lineitemid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-lineitems-lineitemid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "GET /v1/advertisers/{advertiserId}/lineItems/{lineItemId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Lists the targeting options assigned to a line item.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems/{{LINEITEMID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{LINEITEMID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{LINEITEMID}} with a real lineitemid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-lineitems-lineitemid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "GET /v1/advertisers/{advertiserId}/lineItems/{lineItemId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Gets a single targeting option assigned to a line item.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems/{{LINEITEMID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{LINEITEMID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{LINEITEMID}} with a real lineitemid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-lineitems-generatedefault",
+      "name": "POST /v1/advertisers/{advertiserId}/lineItems:generateDefault",
+      "description": "Creates a new line item with settings (including targeting) inherited from the insertion order and an `ENTITY_STATUS_DRAFT` entity_status. Returns the newly created line item if successful. There are default values based on the three fields: * The insertion order's insertion_order_type * The insertion order's automation_type * The given line_item_type",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/lineItems:generateDefault",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "insertionOrderId": "",
+        "lineItemType": "",
+        "mobileApp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-locationlists",
+      "name": "GET /v1/advertisers/{advertiserId}/locationLists",
+      "description": "Lists location lists based on a given advertiser id.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-locationlists",
+      "name": "POST /v1/advertisers/{advertiserId}/locationLists",
+      "description": "Creates a new location list. Returns the newly created location list if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "displayName": "",
+        "locationListId": "",
+        "locationType": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-locationlists-locationlistid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/locationLists/{locationListId}",
+      "description": "Updates a location list. Returns the updated location list if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists/{{LOCATIONLISTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "displayName": "",
+        "locationListId": "",
+        "locationType": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LOCATIONLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{LOCATIONLISTID}} with a real locationlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-locationlists-locationlistid-assignedlocations",
+      "name": "GET /v1/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations",
+      "description": "Lists locations assigned to a location list.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists/{{LOCATIONLISTID}}/assignedLocations",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LOCATIONLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{LOCATIONLISTID}} with a real locationlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-locationlists-locationlistid-assignedlocations",
+      "name": "POST /v1/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations",
+      "description": "Creates an assignment between a location and a location list.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists/{{LOCATIONLISTID}}/assignedLocations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignedLocationId": "",
+        "name": "",
+        "targetingOptionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LOCATIONLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{LOCATIONLISTID}} with a real locationlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-locationlists-locationlistid-assignedlocations-assignedlocationid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/locationLists/{locationListId}/assignedLocations/{assignedLocationId}",
+      "description": "Deletes the assignment between a location and a location list.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/locationLists/{{LOCATIONLISTID}}/assignedLocations/{{ASSIGNEDLOCATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNEDLOCATIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{LOCATIONLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDLOCATIONID}} with a real assignedlocationid. Replace {{LOCATIONLISTID}} with a real locationlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-manualtriggers",
+      "name": "GET /v1/advertisers/{advertiserId}/manualTriggers",
+      "description": "Lists manual triggers that are accessible to the current user for a given advertiser ID. The order is defined by the order_by parameter. A single advertiser_id is required.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-manualtriggers",
+      "name": "POST /v1/advertisers/{advertiserId}/manualTriggers",
+      "description": "Creates a new manual trigger. Returns the newly created manual trigger if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "activationDurationMinutes": "",
+        "advertiserId": "",
+        "displayName": "",
+        "latestActivationTime": "",
+        "name": "",
+        "state": "",
+        "triggerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-manualtriggers-triggerid",
+      "name": "GET /v1/advertisers/{advertiserId}/manualTriggers/{triggerId}",
+      "description": "Gets a manual trigger.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers/{{TRIGGERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TRIGGERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TRIGGERID}} with a real triggerid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-manualtriggers-triggerid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/manualTriggers/{triggerId}",
+      "description": "Updates a manual trigger. Returns the updated manual trigger if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers/{{TRIGGERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "activationDurationMinutes": "",
+        "advertiserId": "",
+        "displayName": "",
+        "latestActivationTime": "",
+        "name": "",
+        "state": "",
+        "triggerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TRIGGERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TRIGGERID}} with a real triggerid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-manualtriggers-triggerid-activate",
+      "name": "POST /v1/advertisers/{advertiserId}/manualTriggers/{triggerId}:activate",
+      "description": "Activates a manual trigger. Each activation of the manual trigger must be at least 5 minutes apart, otherwise an error will be returned.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers/{{TRIGGERID}}:activate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TRIGGERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TRIGGERID}} with a real triggerid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-manualtriggers-triggerid-deactivate",
+      "name": "POST /v1/advertisers/{advertiserId}/manualTriggers/{triggerId}:deactivate",
+      "description": "Deactivates a manual trigger.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/manualTriggers/{{TRIGGERID}}:deactivate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TRIGGERID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TRIGGERID}} with a real triggerid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-negativekeywordlists",
+      "name": "GET /v1/advertisers/{advertiserId}/negativeKeywordLists",
+      "description": "Lists negative keyword lists based on a given advertiser id.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-negativekeywordlists",
+      "name": "POST /v1/advertisers/{advertiserId}/negativeKeywordLists",
+      "description": "Creates a new negative keyword list. Returns the newly created negative keyword list if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "displayName": "",
+        "name": "",
+        "negativeKeywordListId": "",
+        "targetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "patch-v1-advertisers-advertiserid-negativekeywordlists-negativekeywordlistid",
+      "name": "PATCH /v1/advertisers/{advertiserId}/negativeKeywordLists/{negativeKeywordListId}",
+      "description": "Updates a negative keyword list. Returns the updated negative keyword list if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists/{{NEGATIVEKEYWORDLISTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "displayName": "",
+        "name": "",
+        "negativeKeywordListId": "",
+        "targetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NEGATIVEKEYWORDLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NEGATIVEKEYWORDLISTID}} with a real negativekeywordlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-negativekeywordlists-negativekeywordlistid-negativekeywords",
+      "name": "GET /v1/advertisers/{advertiserId}/negativeKeywordLists/{negativeKeywordListId}/negativeKeywords",
+      "description": "Lists negative keywords in a negative keyword list.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists/{{NEGATIVEKEYWORDLISTID}}/negativeKeywords",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NEGATIVEKEYWORDLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NEGATIVEKEYWORDLISTID}} with a real negativekeywordlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-negativekeywordlists-negativekeywordlistid-negativekeywords-keywordvalue",
+      "name": "DELETE /v1/advertisers/{advertiserId}/negativeKeywordLists/{negativeKeywordListId}/negativeKeywords/{keywordValue}",
+      "description": "Deletes a negative keyword from a negative keyword list.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists/{{NEGATIVEKEYWORDLISTID}}/negativeKeywords/{{KEYWORDVALUE}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{KEYWORDVALUE}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NEGATIVEKEYWORDLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{KEYWORDVALUE}} with a real keywordvalue. Replace {{NEGATIVEKEYWORDLISTID}} with a real negativekeywordlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-negativekeywordlists-negativekeywordlistid-negativekeywords-bulkedit",
+      "name": "POST /v1/advertisers/{advertiserId}/negativeKeywordLists/{negativeKeywordListId}/negativeKeywords:bulkEdit",
+      "description": "Bulk edits negative keywords in a single negative keyword list. The operation will delete the negative keywords provided in BulkEditNegativeKeywordsRequest.deleted_negative_keywords and then create the negative keywords provided in BulkEditNegativeKeywordsRequest.created_negative_keywords. This operation is guaranteed to be atomic and will never result in a partial success or partial failure.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists/{{NEGATIVEKEYWORDLISTID}}/negativeKeywords:bulkEdit",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "createdNegativeKeywords": [],
+        "deletedNegativeKeywords": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NEGATIVEKEYWORDLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NEGATIVEKEYWORDLISTID}} with a real negativekeywordlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-negativekeywordlists-negativekeywordlistid-negativekeywords-replace",
+      "name": "POST /v1/advertisers/{advertiserId}/negativeKeywordLists/{negativeKeywordListId}/negativeKeywords:replace",
+      "description": "Replaces all negative keywords in a single negative keyword list. The operation will replace the keywords in a negative keyword list with keywords provided in ReplaceNegativeKeywordsRequest.new_negative_keywords.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/negativeKeywordLists/{{NEGATIVEKEYWORDLISTID}}/negativeKeywords:replace",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "newNegativeKeywords": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NEGATIVEKEYWORDLISTID}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NEGATIVEKEYWORDLISTID}} with a real negativekeywordlistid. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "GET /v1/advertisers/{advertiserId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Lists the targeting options assigned to an advertiser.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "post-v1-advertisers-advertiserid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "POST /v1/advertisers/{advertiserId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Assigns a targeting option to an advertiser. Returns the assigned targeting option if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ageRangeDetails": {},
+        "appCategoryDetails": {},
+        "appDetails": {},
+        "assignedTargetingOptionId": "",
+        "audienceGroupDetails": {},
+        "audioContentTypeDetails": {},
+        "authorizedSellerStatusDetails": {},
+        "browserDetails": {},
+        "businessChainDetails": {},
+        "carrierAndIspDetails": {},
+        "categoryDetails": {},
+        "channelDetails": {},
+        "contentDurationDetails": {},
+        "contentGenreDetails": {},
+        "contentInstreamPositionDetails": {},
+        "contentOutstreamPositionDetails": {},
+        "contentStreamTypeDetails": {},
+        "dayAndTimeDetails": {},
+        "deviceMakeModelDetails": {},
+        "deviceTypeDetails": {},
+        "digitalContentLabelExclusionDetails": {},
+        "environmentDetails": {},
+        "exchangeDetails": {},
+        "genderDetails": {},
+        "geoRegionDetails": {},
+        "householdIncomeDetails": {},
+        "inheritance": "",
+        "inventorySourceDetails": {},
+        "inventorySourceGroupDetails": {},
+        "keywordDetails": {},
+        "languageDetails": {},
+        "name": "",
+        "nativeContentPositionDetails": {},
+        "negativeKeywordListDetails": {},
+        "omidDetails": {},
+        "onScreenPositionDetails": {},
+        "operatingSystemDetails": {},
+        "parentalStatusDetails": {},
+        "poiDetails": {},
+        "proximityLocationListDetails": {},
+        "regionalLocationListDetails": {},
+        "sensitiveCategoryExclusionDetails": {},
+        "subExchangeDetails": {},
+        "targetingType": "",
+        "thirdPartyVerifierDetails": {},
+        "urlDetails": {},
+        "userRewardedContentDetails": {},
+        "videoPlayerSizeDetails": {},
+        "viewabilityDetails": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "GET /v1/advertisers/{advertiserId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Gets a single targeting option assigned to an advertiser.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "delete-v1-advertisers-advertiserid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "DELETE /v1/advertisers/{advertiserId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Deletes an assigned targeting option from an advertiser.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-advertisers-advertiserid-audit",
+      "name": "GET /v1/advertisers/{advertiserId}:audit",
+      "description": "Audits an advertiser. Returns the counts of used entities per resource type under the advertiser provided. Used entities count towards their respective resource limit. See https://support.google.com/displayvideo/answer/6071450.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/advertisers/{{ADVERTISERID}}:audit",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ADVERTISERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ADVERTISERID}} with a real advertiserid."
+    },
+    {
+      "id": "get-v1-combinedaudiences",
+      "name": "GET /v1/combinedAudiences",
+      "description": "Lists combined audiences. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/combinedAudiences",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-combinedaudiences-combinedaudienceid",
+      "name": "GET /v1/combinedAudiences/{combinedAudienceId}",
+      "description": "Gets a combined audience.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/combinedAudiences/{{COMBINEDAUDIENCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMBINEDAUDIENCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{COMBINEDAUDIENCEID}} with a real combinedaudienceid."
+    },
+    {
+      "id": "get-v1-custombiddingalgorithms",
+      "name": "GET /v1/customBiddingAlgorithms",
+      "description": "Lists custom bidding algorithms that are accessible to the current user and can be used in bidding stratgies. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-custombiddingalgorithms",
+      "name": "POST /v1/customBiddingAlgorithms",
+      "description": "Creates a new custom bidding algorithm. Returns the newly created custom bidding algorithm if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "customBiddingAlgorithmId": "",
+        "customBiddingAlgorithmState": "",
+        "customBiddingAlgorithmType": "",
+        "displayName": "",
+        "entityStatus": "",
+        "modelReadiness": [],
+        "name": "",
+        "partnerId": "",
+        "sharedAdvertiserIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-custombiddingalgorithms-custombiddingalgorithmid",
+      "name": "GET /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}",
+      "description": "Gets a custom bidding algorithm.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid."
+    },
+    {
+      "id": "patch-v1-custombiddingalgorithms-custombiddingalgorithmid",
+      "name": "PATCH /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}",
+      "description": "Updates an existing custom bidding algorithm. Returns the updated custom bidding algorithm if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "customBiddingAlgorithmId": "",
+        "customBiddingAlgorithmState": "",
+        "customBiddingAlgorithmType": "",
+        "displayName": "",
+        "entityStatus": "",
+        "modelReadiness": [],
+        "name": "",
+        "partnerId": "",
+        "sharedAdvertiserIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid."
+    },
+    {
+      "id": "get-v1-custombiddingalgorithms-custombiddingalgorithmid-scripts",
+      "name": "GET /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}/scripts",
+      "description": "Lists custom bidding scripts that belong to the given algorithm. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}/scripts",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid."
+    },
+    {
+      "id": "post-v1-custombiddingalgorithms-custombiddingalgorithmid-scripts",
+      "name": "POST /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}/scripts",
+      "description": "Creates a new custom bidding script. Returns the newly created script if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}/scripts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "createTime": "",
+        "customBiddingAlgorithmId": "",
+        "customBiddingScriptId": "",
+        "errors": [],
+        "name": "",
+        "script": {},
+        "state": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid."
+    },
+    {
+      "id": "get-v1-custombiddingalgorithms-custombiddingalgorithmid-scripts-custombiddingscriptid",
+      "name": "GET /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}/scripts/{customBiddingScriptId}",
+      "description": "Gets a custom bidding script.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}/scripts/{{CUSTOMBIDDINGSCRIPTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{CUSTOMBIDDINGSCRIPTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid. Replace {{CUSTOMBIDDINGSCRIPTID}} with a real custombiddingscriptid."
+    },
+    {
+      "id": "get-v1-custombiddingalgorithms-custombiddingalgorithmid-uploadscript",
+      "name": "GET /v1/customBiddingAlgorithms/{customBiddingAlgorithmId}:uploadScript",
+      "description": "Creates a custom bidding script reference object for a script file. The resulting reference object provides a resource path to which the script file should be uploaded. This reference object should be included in when creating a new custom bidding script object.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customBiddingAlgorithms/{{CUSTOMBIDDINGALGORITHMID}}:uploadScript",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMBIDDINGALGORITHMID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMBIDDINGALGORITHMID}} with a real custombiddingalgorithmid."
+    },
+    {
+      "id": "get-v1-customlists",
+      "name": "GET /v1/customLists",
+      "description": "Lists custom lists. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customLists",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-customlists-customlistid",
+      "name": "GET /v1/customLists/{customListId}",
+      "description": "Gets a custom list.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/customLists/{{CUSTOMLISTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CUSTOMLISTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CUSTOMLISTID}} with a real customlistid."
+    },
+    {
+      "id": "get-v1-firstandthirdpartyaudiences",
+      "name": "GET /v1/firstAndThirdPartyAudiences",
+      "description": "Lists first and third party audiences. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/firstAndThirdPartyAudiences",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-firstandthirdpartyaudiences",
+      "name": "POST /v1/firstAndThirdPartyAudiences",
+      "description": "Creates a FirstAndThirdPartyAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/firstAndThirdPartyAudiences",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "activeDisplayAudienceSize": "",
+        "appId": "",
+        "audienceSource": "",
+        "audienceType": "",
+        "contactInfoList": {},
+        "description": "",
+        "displayAudienceSize": "",
+        "displayDesktopAudienceSize": "",
+        "displayMobileAppAudienceSize": "",
+        "displayMobileWebAudienceSize": "",
+        "displayName": "",
+        "firstAndThirdPartyAudienceId": "",
+        "firstAndThirdPartyAudienceType": "",
+        "gmailAudienceSize": "",
+        "membershipDurationDays": "",
+        "mobileDeviceIdList": {},
+        "name": "",
+        "youtubeAudienceSize": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-firstandthirdpartyaudiences-firstandthirdpartyaudienceid",
+      "name": "GET /v1/firstAndThirdPartyAudiences/{firstAndThirdPartyAudienceId}",
+      "description": "Gets a first and third party audience.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/firstAndThirdPartyAudiences/{{FIRSTANDTHIRDPARTYAUDIENCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{FIRSTANDTHIRDPARTYAUDIENCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FIRSTANDTHIRDPARTYAUDIENCEID}} with a real firstandthirdpartyaudienceid."
+    },
+    {
+      "id": "patch-v1-firstandthirdpartyaudiences-firstandthirdpartyaudienceid",
+      "name": "PATCH /v1/firstAndThirdPartyAudiences/{firstAndThirdPartyAudienceId}",
+      "description": "Updates an existing FirstAndThirdPartyAudience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/firstAndThirdPartyAudiences/{{FIRSTANDTHIRDPARTYAUDIENCEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "activeDisplayAudienceSize": "",
+        "appId": "",
+        "audienceSource": "",
+        "audienceType": "",
+        "contactInfoList": {},
+        "description": "",
+        "displayAudienceSize": "",
+        "displayDesktopAudienceSize": "",
+        "displayMobileAppAudienceSize": "",
+        "displayMobileWebAudienceSize": "",
+        "displayName": "",
+        "firstAndThirdPartyAudienceId": "",
+        "firstAndThirdPartyAudienceType": "",
+        "gmailAudienceSize": "",
+        "membershipDurationDays": "",
+        "mobileDeviceIdList": {},
+        "name": "",
+        "youtubeAudienceSize": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{FIRSTANDTHIRDPARTYAUDIENCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FIRSTANDTHIRDPARTYAUDIENCEID}} with a real firstandthirdpartyaudienceid."
+    },
+    {
+      "id": "post-v1-firstandthirdpartyaudiences-firstandthirdpartyaudienceid-editcustomermatchmembers",
+      "name": "POST /v1/firstAndThirdPartyAudiences/{firstAndThirdPartyAudienceId}:editCustomerMatchMembers",
+      "description": "Updates the member list of a Customer Match audience. Only supported for the following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/firstAndThirdPartyAudiences/{{FIRSTANDTHIRDPARTYAUDIENCEID}}:editCustomerMatchMembers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "addedContactInfoList": {},
+        "addedMobileDeviceIdList": {},
+        "advertiserId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{FIRSTANDTHIRDPARTYAUDIENCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FIRSTANDTHIRDPARTYAUDIENCEID}} with a real firstandthirdpartyaudienceid."
+    },
+    {
+      "id": "get-v1-floodlightgroups-floodlightgroupid",
+      "name": "GET /v1/floodlightGroups/{floodlightGroupId}",
+      "description": "Gets a Floodlight group.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/floodlightGroups/{{FLOODLIGHTGROUPID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{FLOODLIGHTGROUPID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FLOODLIGHTGROUPID}} with a real floodlightgroupid."
+    },
+    {
+      "id": "get-v1-googleaudiences",
+      "name": "GET /v1/googleAudiences",
+      "description": "Lists Google audiences. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/googleAudiences",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-googleaudiences-googleaudienceid",
+      "name": "GET /v1/googleAudiences/{googleAudienceId}",
+      "description": "Gets a Google audience.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/googleAudiences/{{GOOGLEAUDIENCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAUDIENCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{GOOGLEAUDIENCEID}} with a real googleaudienceid."
+    },
+    {
+      "id": "get-v1-guaranteedorders",
+      "name": "GET /v1/guaranteedOrders",
+      "description": "Lists guaranteed orders that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, guaranteed orders with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/guaranteedOrders",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-guaranteedorders",
+      "name": "POST /v1/guaranteedOrders",
+      "description": "Creates a new guaranteed order. Returns the newly created guaranteed order if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/guaranteedOrders",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "defaultAdvertiserId": "",
+        "defaultCampaignId": "",
+        "displayName": "",
+        "exchange": "",
+        "guaranteedOrderId": "",
+        "legacyGuaranteedOrderId": "",
+        "name": "",
+        "publisherName": "",
+        "readAccessInherited": false,
+        "readAdvertiserIds": [],
+        "readWriteAdvertiserId": "",
+        "readWritePartnerId": "",
+        "status": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-guaranteedorders-guaranteedorderid",
+      "name": "GET /v1/guaranteedOrders/{guaranteedOrderId}",
+      "description": "Gets a guaranteed order.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/guaranteedOrders/{{GUARANTEEDORDERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GUARANTEEDORDERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{GUARANTEEDORDERID}} with a real guaranteedorderid."
+    },
+    {
+      "id": "patch-v1-guaranteedorders-guaranteedorderid",
+      "name": "PATCH /v1/guaranteedOrders/{guaranteedOrderId}",
+      "description": "Updates an existing guaranteed order. Returns the updated guaranteed order if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/guaranteedOrders/{{GUARANTEEDORDERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "defaultAdvertiserId": "",
+        "defaultCampaignId": "",
+        "displayName": "",
+        "exchange": "",
+        "guaranteedOrderId": "",
+        "legacyGuaranteedOrderId": "",
+        "name": "",
+        "publisherName": "",
+        "readAccessInherited": false,
+        "readAdvertiserIds": [],
+        "readWriteAdvertiserId": "",
+        "readWritePartnerId": "",
+        "status": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GUARANTEEDORDERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{GUARANTEEDORDERID}} with a real guaranteedorderid."
+    },
+    {
+      "id": "get-v1-inventorysourcegroups",
+      "name": "GET /v1/inventorySourceGroups",
+      "description": "Lists inventory source groups that are accessible to the current user. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-inventorysourcegroups",
+      "name": "POST /v1/inventorySourceGroups",
+      "description": "Creates a new inventory source group. Returns the newly created inventory source group if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "inventorySourceGroupId": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-inventorysourcegroups-inventorysourcegroupid",
+      "name": "GET /v1/inventorySourceGroups/{inventorySourceGroupId}",
+      "description": "Gets an inventory source group.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups/{{INVENTORYSOURCEGROUPID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEGROUPID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEGROUPID}} with a real inventorysourcegroupid."
+    },
+    {
+      "id": "delete-v1-inventorysourcegroups-inventorysourcegroupid",
+      "name": "DELETE /v1/inventorySourceGroups/{inventorySourceGroupId}",
+      "description": "Deletes an inventory source group.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups/{{INVENTORYSOURCEGROUPID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEGROUPID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEGROUPID}} with a real inventorysourcegroupid."
+    },
+    {
+      "id": "get-v1-inventorysourcegroups-inventorysourcegroupid-assignedinventorysources",
+      "name": "GET /v1/inventorySourceGroups/{inventorySourceGroupId}/assignedInventorySources",
+      "description": "Lists inventory sources assigned to an inventory source group.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups/{{INVENTORYSOURCEGROUPID}}/assignedInventorySources",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEGROUPID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEGROUPID}} with a real inventorysourcegroupid."
+    },
+    {
+      "id": "post-v1-inventorysourcegroups-inventorysourcegroupid-assignedinventorysources",
+      "name": "POST /v1/inventorySourceGroups/{inventorySourceGroupId}/assignedInventorySources",
+      "description": "Creates an assignment between an inventory source and an inventory source group.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups/{{INVENTORYSOURCEGROUPID}}/assignedInventorySources",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignedInventorySourceId": "",
+        "inventorySourceId": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEGROUPID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEGROUPID}} with a real inventorysourcegroupid."
+    },
+    {
+      "id": "delete-v1-inventorysourcegroups-inventorysourcegroupid-assignedinventorysources-assignedinventorysourceid",
+      "name": "DELETE /v1/inventorySourceGroups/{inventorySourceGroupId}/assignedInventorySources/{assignedInventorySourceId}",
+      "description": "Deletes the assignment between an inventory source and an inventory source group.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySourceGroups/{{INVENTORYSOURCEGROUPID}}/assignedInventorySources/{{ASSIGNEDINVENTORYSOURCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEGROUPID}}",
+        "{{ASSIGNEDINVENTORYSOURCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDINVENTORYSOURCEID}} with a real assignedinventorysourceid. Replace {{INVENTORYSOURCEGROUPID}} with a real inventorysourcegroupid."
+    },
+    {
+      "id": "get-v1-inventorysources",
+      "name": "GET /v1/inventorySources",
+      "description": "Lists inventory sources that are accessible to the current user. The order is defined by the order_by parameter. If a filter by entity_status is not specified, inventory sources with entity status `ENTITY_STATUS_ARCHIVED` will not be included in the results.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySources",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-inventorysources",
+      "name": "POST /v1/inventorySources",
+      "description": "Creates a new inventory source. Returns the newly created inventory source if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySources",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "commitment": "",
+        "creativeConfigs": [],
+        "dealId": "",
+        "deliveryMethod": "",
+        "displayName": "",
+        "exchange": "",
+        "guaranteedOrderId": "",
+        "inventorySourceId": "",
+        "inventorySourceProductType": "",
+        "inventorySourceType": "",
+        "name": "",
+        "publisherName": "",
+        "rateDetails": {},
+        "readAdvertiserIds": [],
+        "readPartnerIds": [],
+        "readWriteAccessors": {},
+        "status": {},
+        "subSitePropertyId": "",
+        "timeRange": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-inventorysources-inventorysourceid",
+      "name": "GET /v1/inventorySources/{inventorySourceId}",
+      "description": "Gets an inventory source.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySources/{{INVENTORYSOURCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEID}} with a real inventorysourceid."
+    },
+    {
+      "id": "patch-v1-inventorysources-inventorysourceid",
+      "name": "PATCH /v1/inventorySources/{inventorySourceId}",
+      "description": "Updates an existing inventory source. Returns the updated inventory source if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/inventorySources/{{INVENTORYSOURCEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "commitment": "",
+        "creativeConfigs": [],
+        "dealId": "",
+        "deliveryMethod": "",
+        "displayName": "",
+        "exchange": "",
+        "guaranteedOrderId": "",
+        "inventorySourceId": "",
+        "inventorySourceProductType": "",
+        "inventorySourceType": "",
+        "name": "",
+        "publisherName": "",
+        "rateDetails": {},
+        "readAdvertiserIds": [],
+        "readPartnerIds": [],
+        "readWriteAccessors": {},
+        "status": {},
+        "subSitePropertyId": "",
+        "timeRange": {},
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{INVENTORYSOURCEID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INVENTORYSOURCEID}} with a real inventorysourceid."
+    },
+    {
+      "id": "get-v1-partners",
+      "name": "GET /v1/partners",
+      "description": "Lists partners that are accessible to the current user. The order is defined by the order_by parameter.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-partners-partnerid",
+      "name": "GET /v1/partners/{partnerId}",
+      "description": "Gets a partner.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "get-v1-partners-partnerid-channels",
+      "name": "GET /v1/partners/{partnerId}/channels",
+      "description": "Lists channels for a partner or advertiser.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "post-v1-partners-partnerid-channels",
+      "name": "POST /v1/partners/{partnerId}/channels",
+      "description": "Creates a new channel. Returns the newly created channel if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "channelId": "",
+        "displayName": "",
+        "name": "",
+        "negativelyTargetedLineItemCount": "",
+        "partnerId": "",
+        "positivelyTargetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "patch-v1-partners-partnerid-channels-channelid",
+      "name": "PATCH /v1/partners/{partnerId}/channels/{channelId}",
+      "description": "Updates a channel. Returns the updated channel if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels/{{CHANNELID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "channelId": "",
+        "displayName": "",
+        "name": "",
+        "negativelyTargetedLineItemCount": "",
+        "partnerId": "",
+        "positivelyTargetedLineItemCount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{CHANNELID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{CHANNELID}} with a real channelid."
+    },
+    {
+      "id": "get-v1-partners-partnerid-channels-channelid-sites",
+      "name": "GET /v1/partners/{partnerId}/channels/{channelId}/sites",
+      "description": "Lists sites in a channel.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels/{{CHANNELID}}/sites",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{CHANNELID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{CHANNELID}} with a real channelid."
+    },
+    {
+      "id": "delete-v1-partners-partnerid-channels-channelid-sites-urlorappid",
+      "name": "DELETE /v1/partners/{partnerId}/channels/{channelId}/sites/{urlOrAppId}",
+      "description": "Deletes a site from a channel.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels/{{CHANNELID}}/sites/{{URLORAPPID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{URLORAPPID}}",
+        "{{CHANNELID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{URLORAPPID}} with a real urlorappid. Replace {{CHANNELID}} with a real channelid."
+    },
+    {
+      "id": "post-v1-partners-partnerid-channels-channelid-sites-bulkedit",
+      "name": "POST /v1/partners/{partnerId}/channels/{channelId}/sites:bulkEdit",
+      "description": "Bulk edits sites under a single channel. The operation will delete the sites provided in BulkEditSitesRequest.deleted_sites and then create the sites provided in BulkEditSitesRequest.created_sites.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels/{{CHANNELID}}/sites:bulkEdit",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "createdSites": [],
+        "deletedSites": [],
+        "partnerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{CHANNELID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{CHANNELID}} with a real channelid."
+    },
+    {
+      "id": "post-v1-partners-partnerid-channels-channelid-sites-replace",
+      "name": "POST /v1/partners/{partnerId}/channels/{channelId}/sites:replace",
+      "description": "Replaces all of the sites under a single channel. The operation will replace the sites under a channel with the sites provided in ReplaceSitesRequest.new_sites.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/channels/{{CHANNELID}}/sites:replace",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "newSites": [],
+        "partnerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{CHANNELID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{CHANNELID}} with a real channelid."
+    },
+    {
+      "id": "get-v1-partners-partnerid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "GET /v1/partners/{partnerId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Lists the targeting options assigned to a partner.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "post-v1-partners-partnerid-targetingtypes-targetingtype-assignedtargetingoptions",
+      "name": "POST /v1/partners/{partnerId}/targetingTypes/{targetingType}/assignedTargetingOptions",
+      "description": "Assigns a targeting option to a partner. Returns the assigned targeting option if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ageRangeDetails": {},
+        "appCategoryDetails": {},
+        "appDetails": {},
+        "assignedTargetingOptionId": "",
+        "audienceGroupDetails": {},
+        "audioContentTypeDetails": {},
+        "authorizedSellerStatusDetails": {},
+        "browserDetails": {},
+        "businessChainDetails": {},
+        "carrierAndIspDetails": {},
+        "categoryDetails": {},
+        "channelDetails": {},
+        "contentDurationDetails": {},
+        "contentGenreDetails": {},
+        "contentInstreamPositionDetails": {},
+        "contentOutstreamPositionDetails": {},
+        "contentStreamTypeDetails": {},
+        "dayAndTimeDetails": {},
+        "deviceMakeModelDetails": {},
+        "deviceTypeDetails": {},
+        "digitalContentLabelExclusionDetails": {},
+        "environmentDetails": {},
+        "exchangeDetails": {},
+        "genderDetails": {},
+        "geoRegionDetails": {},
+        "householdIncomeDetails": {},
+        "inheritance": "",
+        "inventorySourceDetails": {},
+        "inventorySourceGroupDetails": {},
+        "keywordDetails": {},
+        "languageDetails": {},
+        "name": "",
+        "nativeContentPositionDetails": {},
+        "negativeKeywordListDetails": {},
+        "omidDetails": {},
+        "onScreenPositionDetails": {},
+        "operatingSystemDetails": {},
+        "parentalStatusDetails": {},
+        "poiDetails": {},
+        "proximityLocationListDetails": {},
+        "regionalLocationListDetails": {},
+        "sensitiveCategoryExclusionDetails": {},
+        "subExchangeDetails": {},
+        "targetingType": "",
+        "thirdPartyVerifierDetails": {},
+        "urlDetails": {},
+        "userRewardedContentDetails": {},
+        "videoPlayerSizeDetails": {},
+        "viewabilityDetails": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARTNERID}} with a real partnerid. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "get-v1-partners-partnerid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "GET /v1/partners/{partnerId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Gets a single targeting option assigned to a partner.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{PARTNERID}} with a real partnerid. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "delete-v1-partners-partnerid-targetingtypes-targetingtype-assignedtargetingoptions-assignedtargetingoptionid",
+      "name": "DELETE /v1/partners/{partnerId}/targetingTypes/{targetingType}/assignedTargetingOptions/{assignedTargetingOptionId}",
+      "description": "Deletes an assigned targeting option from a partner.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/partners/{{PARTNERID}}/targetingTypes/{{TARGETINGTYPE}}/assignedTargetingOptions/{{ASSIGNEDTARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNEDTARGETINGOPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PARTNERID}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ASSIGNEDTARGETINGOPTIONID}} with a real assignedtargetingoptionid. Replace {{PARTNERID}} with a real partnerid. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "post-v1-sdfdownloadtasks",
+      "name": "POST /v1/sdfdownloadtasks",
+      "description": "Creates an SDF Download Task. Returns an Operation. An SDF Download Task is a long-running, asynchronous operation. The metadata type of this operation is SdfDownloadTaskMetadata. If the request is successful, the response type of the operation is SdfDownloadTask. The response will not include the download files, which must be retrieved with media.download. The state of operation can be retrieved with sdfdownloadtask.operations.get. Any errors can be found in the error.message. Note that error.details is expected to be empty.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/sdfdownloadtasks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "idFilter": {},
+        "inventorySourceFilter": {},
+        "parentEntityFilter": {},
+        "partnerId": "",
+        "version": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-targetingtypes-targetingtype-targetingoptions",
+      "name": "GET /v1/targetingTypes/{targetingType}/targetingOptions",
+      "description": "Lists targeting options of a given type.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/targetingTypes/{{TARGETINGTYPE}}/targetingOptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "get-v1-targetingtypes-targetingtype-targetingoptions-targetingoptionid",
+      "name": "GET /v1/targetingTypes/{targetingType}/targetingOptions/{targetingOptionId}",
+      "description": "Gets a single targeting option.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/targetingTypes/{{TARGETINGTYPE}}/targetingOptions/{{TARGETINGOPTIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{TARGETINGOPTIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype. Replace {{TARGETINGOPTIONID}} with a real targetingoptionid."
+    },
+    {
+      "id": "post-v1-targetingtypes-targetingtype-targetingoptions-search",
+      "name": "POST /v1/targetingTypes/{targetingType}/targetingOptions:search",
+      "description": "Searches for targeting options of a given type based on the given search terms.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/targetingTypes/{{TARGETINGTYPE}}/targetingOptions:search",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertiserId": "",
+        "businessChainSearchTerms": {},
+        "geoRegionSearchTerms": {},
+        "pageSize": 0,
+        "pageToken": "",
+        "poiSearchTerms": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TARGETINGTYPE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TARGETINGTYPE}} with a real targetingtype."
+    },
+    {
+      "id": "get-v1-users",
+      "name": "GET /v1/users",
+      "description": "Lists users that are accessible to the current user. If two users have user roles on the same partner or advertiser, they can access each other.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/users",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-users",
+      "name": "POST /v1/users",
+      "description": "Creates a new user. Returns the newly created user if successful.",
+      "method": "POST",
+      "url": "https://displayvideo.googleapis.com/v1/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignedUserRoles": [],
+        "displayName": "",
+        "email": "",
+        "name": "",
+        "userId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-users-userid",
+      "name": "GET /v1/users/{userId}",
+      "description": "Gets a user.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/users/{{USERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-v1-users-userid",
+      "name": "DELETE /v1/users/{userId}",
+      "description": "Deletes a user.",
+      "method": "DELETE",
+      "url": "https://displayvideo.googleapis.com/v1/users/{{USERID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "patch-v1-users-userid",
+      "name": "PATCH /v1/users/{userId}",
+      "description": "Updates an existing user. Returns the updated user if successful.",
+      "method": "PATCH",
+      "url": "https://displayvideo.googleapis.com/v1/users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignedUserRoles": [],
+        "displayName": "",
+        "email": "",
+        "name": "",
+        "userId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets the latest state of an asynchronous SDF download task operation. Clients should poll this method at intervals of 30 seconds.",
+      "method": "GET",
+      "url": "https://displayvideo.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    }
+  ]
+}

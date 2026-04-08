@@ -1,0 +1,1541 @@
+{
+  "api_id": "twitter.com:current:2.61",
+  "endpoint_count": 77,
+  "endpoints": [
+    {
+      "id": "list-compliance-jobs",
+      "name": "List Compliance Jobs",
+      "description": "Returns recent Compliance Jobs for a given job type and optional job status",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/compliance/jobs",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "type": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "create-compliance-job",
+      "name": "Create compliance job",
+      "description": "Creates a compliance for the given job type",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/compliance/jobs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "get-compliance-job",
+      "name": "Get Compliance Job",
+      "description": "Returns a single Compliance Job by ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/compliance/jobs/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-new-dm-conversation",
+      "name": "Create a new DM Conversation",
+      "description": "Creates a new DM Conversation.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/dm_conversations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "conversation_type": "",
+        "participant_ids": [],
+        "message": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "get-dm-events-for-a-dm-conversation",
+      "name": "Get DM Events for a DM Conversation",
+      "description": "Returns DM Events for a DM Conversation",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/dm_conversations/with/{{PARTICIPANT_ID}}/dm_events",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{PARTICIPANT_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{PARTICIPANT_ID}} with a real participant_id."
+    },
+    {
+      "id": "get-dm-events-for-a-dm-conversation-2",
+      "name": "Get DM Events for a DM Conversation",
+      "description": "Returns DM Events for a DM Conversation",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/dm_conversations/{{ID}}/dm_events",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-recent-dm-events",
+      "name": "Get recent DM Events",
+      "description": "Returns recent DM Events across DM conversations",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/dm_events",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "create-list",
+      "name": "Create List",
+      "description": "Creates a new List.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/lists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "list-lookup-by-list-id",
+      "name": "List lookup by List ID.",
+      "description": "Returns a List.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/lists/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-list",
+      "name": "Update List.",
+      "description": "Update a List that you own.",
+      "method": "PUT",
+      "url": "https://api.twitter.com/2/lists/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "name": "",
+        "private": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-list",
+      "name": "Delete List",
+      "description": "Delete a List that you own.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/lists/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-follow-a-list-by-the-provided-list-id",
+      "name": "Returns User objects that follow a List by the provided List ID",
+      "description": "Returns a list of Users that follow a List by the provided List ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/lists/{{ID}}/followers",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-are-members-of-a-list-by-the-provided-list-id",
+      "name": "Returns User objects that are members of a List by the provided List ID.",
+      "description": "Returns a list of Users that are members of a List by the provided List ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/lists/{{ID}}/members",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-a-list-member",
+      "name": "Add a List member",
+      "description": "Causes a User to become a member of a List.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/lists/{{ID}}/members",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "user_id": "2244994945"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-list-member",
+      "name": "Remove a List member",
+      "description": "Causes a User to be removed from the members of a List.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/lists/{{ID}}/members/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{USER_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "list-tweets-timeline-by-list-id",
+      "name": "List Tweets timeline by List ID.",
+      "description": "Returns a list of Tweets associated with the provided List ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/lists/{{ID}}/tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-the-openapi-specification-document",
+      "name": "Returns the OpenAPI Specification document.",
+      "description": "Full OpenAPI Specification in JSON format. (See https://github.com/OAI/OpenAPI-Specification/blob/master/README.md)",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/openapi.json",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "space-lookup-up-space-ids",
+      "name": "Space lookup up Space IDs",
+      "description": "Returns a variety of information about the Spaces specified by the requested IDs",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "space-lookup-by-their-creators",
+      "name": "Space lookup by their creators",
+      "description": "Returns a variety of information about the Spaces created by the provided User IDs",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces/by/creator_ids",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "user_ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "search-for-spaces",
+      "name": "Search for Spaces",
+      "description": "Returns Spaces that match the provided query.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces/search",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "space-lookup-by-space-id",
+      "name": "Space lookup by Space ID",
+      "description": "Returns a variety of information about the Space specified by the requested ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-the-list-of-users-who-purchased-a-ticket-to-the-given-space",
+      "name": "Retrieve the list of Users who purchased a ticket to the given space",
+      "description": "Retrieves the list of Users who purchased a ticket to the given space",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces/{{ID}}/buyers",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-tweets-from-a-space",
+      "name": "Retrieve Tweets from a Space.",
+      "description": "Retrieves Tweets shared in the specified Space.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/spaces/{{ID}}/tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "tweet-lookup-by-tweet-ids",
+      "name": "Tweet lookup by Tweet IDs",
+      "description": "Returns a variety of information about the Tweet specified by the requested ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "creation-of-a-tweet",
+      "name": "Creation of a Tweet",
+      "description": "Causes the User to create a Tweet under the authorized account.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/tweets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "card_uri": "",
+        "direct_message_deep_link": "",
+        "for_super_followers_only": false,
+        "geo": {},
+        "media": {},
+        "nullcast": false,
+        "poll": {},
+        "quote_tweet_id": "1346889436626259968",
+        "reply": {},
+        "reply_settings": "",
+        "text": "Learn how to use the user Tweet timeline and user mention timeline endpoints in the Twitter API v2 to explore Tweet\\u2026 https:\\/\\/t.co\\/56a0vZUx7i"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "tweets-compliance-stream",
+      "name": "Tweets Compliance stream",
+      "description": "Streams 100% of compliance data for Tweets",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/compliance/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "partition": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "full-archive-search-counts",
+      "name": "Full archive search counts",
+      "description": "Returns Tweet Counts that match a search query.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/counts/all",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "recent-search-counts",
+      "name": "Recent search counts",
+      "description": "Returns Tweet Counts from the last 7 days that match a search query.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/counts/recent",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "firehose-stream",
+      "name": "Firehose stream",
+      "description": "Streams 100% of public Tweets.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/firehose/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "partition": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "tweets-label-stream",
+      "name": "Tweets Label stream",
+      "description": "Streams 100% of labeling events applied to Tweets",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/label/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "sample-stream",
+      "name": "Sample stream",
+      "description": "Streams a deterministic 1% of public Tweets.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/sample/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "sample-10-stream",
+      "name": "Sample 10% stream",
+      "description": "Streams a deterministic 10% of public Tweets.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/sample10/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "partition": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "full-archive-search",
+      "name": "Full-archive search",
+      "description": "Returns Tweets that match a search query.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/search/all",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "recent-search",
+      "name": "Recent search",
+      "description": "Returns Tweets from the last 7 days that match a search query.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/search/recent",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "filtered-stream",
+      "name": "Filtered stream",
+      "description": "Streams Tweets matching the stream's active rule set.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/search/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "rules-lookup",
+      "name": "Rules lookup",
+      "description": "Returns rules from a User's active rule set. Users can fetch all of their rules or a subset, specified by the provided rule ids.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/search/stream/rules",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "tweet-lookup-by-tweet-id",
+      "name": "Tweet lookup by Tweet ID",
+      "description": "Returns a variety of information about the Tweet specified by the requested ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "tweet-delete-by-tweet-id",
+      "name": "Tweet delete by Tweet ID",
+      "description": "Delete specified Tweet (in the path) by ID.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/tweets/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-have-liked-the-provided-tweet-id",
+      "name": "Returns User objects that have liked the provided Tweet ID",
+      "description": "Returns a list of Users that have liked the provided Tweet ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/{{ID}}/liking_users",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-tweets-that-quote-a-tweet",
+      "name": "Retrieve Tweets that quote a Tweet.",
+      "description": "Returns a variety of information about each Tweet that quotes the Tweet specified by the requested ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/{{ID}}/quote_tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-have-retweeted-the-provided-tweet-id",
+      "name": "Returns User objects that have retweeted the provided Tweet ID",
+      "description": "Returns a list of Users that have retweeted the provided Tweet ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/tweets/{{ID}}/retweeted_by",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "hide-replies",
+      "name": "Hide replies",
+      "description": "Hides or unhides a reply to an owned conversation.",
+      "method": "PUT",
+      "url": "https://api.twitter.com/2/tweets/{{TWEET_ID}}/hidden",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "hidden": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWEET_ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{TWEET_ID}} with a real tweet_id."
+    },
+    {
+      "id": "user-lookup-by-ids",
+      "name": "User lookup by IDs",
+      "description": "This endpoint returns information about Users. Specify Users by their ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "user-lookup-by-usernames",
+      "name": "User lookup by usernames",
+      "description": "This endpoint returns information about Users. Specify Users by their username.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/by",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "usernames": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "user-lookup-by-username",
+      "name": "User lookup by username",
+      "description": "This endpoint returns information about a User. Specify User by username.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/by/username/{{USERNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{USERNAME}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "users-compliance-stream",
+      "name": "Users Compliance stream",
+      "description": "Streams 100% of compliance data for Users",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/compliance/stream",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {
+        "partition": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "user-lookup-me",
+      "name": "User lookup me",
+      "description": "This endpoint returns information about the requesting User.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/me",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY."
+    },
+    {
+      "id": "user-lookup-by-id",
+      "name": "User lookup by ID",
+      "description": "This endpoint returns information about a User. Specify User by ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-are-blocked-by-provided-user-id",
+      "name": "Returns User objects that are blocked by provided User ID",
+      "description": "Returns a list of Users that are blocked by the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/blocking",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "block-user-by-user-id",
+      "name": "Block User by User ID",
+      "description": "Causes the User (in the path) to block the target User. The User (in the path) must match the User context authorizing the request",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/blocking",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "target_user_id": "2244994945"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "bookmarks-by-user",
+      "name": "Bookmarks by User",
+      "description": "Returns Tweet objects that have been bookmarked by the requesting User",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/bookmarks",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-tweet-to-bookmarks",
+      "name": "Add Tweet to Bookmarks",
+      "description": "Adds a Tweet (ID in the body) to the requesting User's (in the path) bookmarks",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/bookmarks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tweet_id": "1346889436626259968"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-bookmarked-tweet",
+      "name": "Remove a bookmarked Tweet",
+      "description": "Removes a Tweet from the requesting User's bookmarked Tweets.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{ID}}/bookmarks/{{TWEET_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWEET_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{TWEET_ID}} with a real tweet_id."
+    },
+    {
+      "id": "get-user-s-followed-lists",
+      "name": "Get User's Followed Lists",
+      "description": "Returns a User's followed Lists.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/followed_lists",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "follow-a-list",
+      "name": "Follow a List",
+      "description": "Causes a User to follow a List.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/followed_lists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "list_id": "1146654567674912769"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unfollow-a-list",
+      "name": "Unfollow a List",
+      "description": "Causes a User to unfollow a List.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{ID}}/followed_lists/{{LIST_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{LIST_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{LIST_ID}} with a real list_id."
+    },
+    {
+      "id": "followers-by-user-id",
+      "name": "Followers by User ID",
+      "description": "Returns a list of Users who are followers of the specified User ID.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/followers",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "following-by-user-id",
+      "name": "Following by User ID",
+      "description": "Returns a list of Users that are being followed by the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/following",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "follow-user",
+      "name": "Follow User",
+      "description": "Causes the User(in the path) to follow, or \u201crequest to follow\u201d for protected Users, the target User. The User(in the path) must match the User context authorizing the request",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/following",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "target_user_id": "2244994945"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-tweet-objects-liked-by-the-provided-user-id",
+      "name": "Returns Tweet objects liked by the provided User ID",
+      "description": "Returns a list of Tweets liked by the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/liked_tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "causes-the-user-in-the-path-to-like-the-specified-tweet",
+      "name": "Causes the User (in the path) to like the specified Tweet",
+      "description": "Causes the User (in the path) to like the specified Tweet. The User in the path must match the User context authorizing the request.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/likes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tweet_id": "1346889436626259968"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "causes-the-user-in-the-path-to-unlike-the-specified-tweet",
+      "name": "Causes the User (in the path) to unlike the specified Tweet",
+      "description": "Causes the User (in the path) to unlike the specified Tweet. The User must match the User context authorizing the request",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{ID}}/likes/{{TWEET_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWEET_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{TWEET_ID}} with a real tweet_id."
+    },
+    {
+      "id": "get-a-user-s-list-memberships",
+      "name": "Get a User's List Memberships",
+      "description": "Get a User's List Memberships.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/list_memberships",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "user-mention-timeline-by-user-id",
+      "name": "User mention timeline by User ID",
+      "description": "Returns Tweet objects that mention username associated to the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/mentions",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "returns-user-objects-that-are-muted-by-the-provided-user-id",
+      "name": "Returns User objects that are muted by the provided User ID",
+      "description": "Returns a list of Users that are muted by the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/muting",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "mute-user-by-user-id",
+      "name": "Mute User by User ID.",
+      "description": "Causes the User (in the path) to mute the target User. The User (in the path) must match the User context authorizing the request.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/muting",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "target_user_id": "2244994945"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-user-s-owned-lists",
+      "name": "Get a User's Owned Lists.",
+      "description": "Get a User's Owned Lists.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/owned_lists",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-user-s-pinned-lists",
+      "name": "Get a User's Pinned Lists",
+      "description": "Get a User's Pinned Lists.",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/pinned_lists",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "pin-a-list",
+      "name": "Pin a List",
+      "description": "Causes a User to pin a List.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/pinned_lists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "list_id": "1146654567674912769"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unpin-a-list",
+      "name": "Unpin a List",
+      "description": "Causes a User to remove a pinned List.",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{ID}}/pinned_lists/{{LIST_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{LIST_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{LIST_ID}} with a real list_id."
+    },
+    {
+      "id": "causes-the-user-in-the-path-to-retweet-the-specified-tweet",
+      "name": "Causes the User (in the path) to retweet the specified Tweet.",
+      "description": "Causes the User (in the path) to retweet the specified Tweet. The User in the path must match the User context authorizing the request.",
+      "method": "POST",
+      "url": "https://api.twitter.com/2/users/{{ID}}/retweets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tweet_id": "1346889436626259968"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "causes-the-user-in-the-path-to-unretweet-the-specified-tweet",
+      "name": "Causes the User (in the path) to unretweet the specified Tweet",
+      "description": "Causes the User (in the path) to unretweet the specified Tweet. The User must match the User context authorizing the request",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{ID}}/retweets/{{SOURCE_TWEET_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{SOURCE_TWEET_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id. Replace {{SOURCE_TWEET_ID}} with a real source_tweet_id."
+    },
+    {
+      "id": "user-home-timeline-by-user-id",
+      "name": "User home timeline by User ID",
+      "description": "Returns Tweet objects that appears in the provided User ID's home timeline",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/timelines/reverse_chronological",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "user-tweets-timeline-by-user-id",
+      "name": "User Tweets timeline by User ID",
+      "description": "Returns a list of Tweets authored by the provided User ID",
+      "method": "GET",
+      "url": "https://api.twitter.com/2/users/{{ID}}/tweets",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{TWITTER_API_KEY}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unblock-user-by-user-id",
+      "name": "Unblock User by User ID",
+      "description": "Causes the source User to unblock the target User. The source User must match the User context authorizing the request",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{SOURCE_USER_ID}}/blocking/{{TARGET_USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{SOURCE_USER_ID}}",
+        "{{TARGET_USER_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{SOURCE_USER_ID}} with a real source_user_id. Replace {{TARGET_USER_ID}} with a real target_user_id."
+    },
+    {
+      "id": "unfollow-user",
+      "name": "Unfollow User",
+      "description": "Causes the source User to unfollow the target User. The source User must match the User context authorizing the request",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{SOURCE_USER_ID}}/following/{{TARGET_USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{SOURCE_USER_ID}}",
+        "{{TARGET_USER_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{SOURCE_USER_ID}} with a real source_user_id. Replace {{TARGET_USER_ID}} with a real target_user_id."
+    },
+    {
+      "id": "unmute-user-by-user-id",
+      "name": "Unmute User by User ID",
+      "description": "Causes the source User to unmute the target User. The source User must match the User context authorizing the request",
+      "method": "DELETE",
+      "url": "https://api.twitter.com/2/users/{{SOURCE_USER_ID}}/muting/{{TARGET_USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{TWITTER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWITTER_API_KEY}}",
+        "{{SOURCE_USER_ID}}",
+        "{{TARGET_USER_ID}}",
+        "{{TWITTER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TWITTER_API_KEY}} with your TWITTER API KEY. Replace {{SOURCE_USER_ID}} with a real source_user_id. Replace {{TARGET_USER_ID}} with a real target_user_id."
+    }
+  ]
+}

@@ -1,0 +1,1490 @@
+{
+  "api_id": "sportsdata.io:nfl-v3-stats:1.0",
+  "endpoint_count": 73,
+  "endpoints": [
+    {
+      "id": "legacy-box-scores-active",
+      "name": "Legacy Box Scores Active",
+      "description": "This method returns box scores for all games that are either in-progress or have been updated within the last 30 minutes.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/ActiveBoxScores",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "teams-all",
+      "name": "Teams (All)",
+      "description": "Gets all teams, including pro bowl teams.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/AllTeams",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "are-games-in-progress",
+      "name": "Are Games In Progress",
+      "description": "Returns <code>true</code> if there is at least one game being played at the time of the request or <code>false</code> if there are none.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/AreAnyGamesInProgress",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "legacy-box-score",
+      "name": "Legacy Box Score",
+      "description": "Legacy Box Score",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScore/{{SEASON}}/{{WEEK}}/{{HOMETEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{HOMETEAM}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{HOMETEAM}} with a real hometeam. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "box-score-by-scoreid-v3",
+      "name": "Box Score by ScoreID V3",
+      "description": "Box Score by ScoreID V3",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScoreByScoreIDV3/{{SCOREID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SCOREID}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SCOREID}} with a real scoreid."
+    },
+    {
+      "id": "box-score-v3",
+      "name": "Box Score V3",
+      "description": "Box Score V3",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScoreV3/{{SEASON}}/{{WEEK}}/{{HOMETEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{HOMETEAM}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{HOMETEAM}} with a real hometeam. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "legacy-box-scores",
+      "name": "Legacy Box Scores",
+      "description": "This method returns all box scores for a given season and week.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScores/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "legacy-box-scores-delta",
+      "name": "Legacy Box Scores Delta",
+      "description": "This method returns all box scores for a given season and week, but only returns player stats that have changed in the last X minutes.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScoresDelta/{{SEASON}}/{{WEEK}}/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{MINUTES}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{MINUTES}} with a real minutes. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "box-scores-delta-v3",
+      "name": "Box Scores Delta V3",
+      "description": "This method returns all box scores for a given season and week, but only returns player stats that have changed in the last X minutes. You can also filter by type of player stats to include, such as traditional fantasy players, IDP players or all players.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/BoxScoresDeltaV3/{{SEASON}}/{{WEEK}}/{{PLAYERSTOINCLUDE}}/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLAYERSTOINCLUDE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{MINUTES}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{PLAYERSTOINCLUDE}} with a real playerstoinclude. Replace {{MINUTES}} with a real minutes. Replace {{WEEK}} with a real week. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "bye-weeks",
+      "name": "Bye Weeks",
+      "description": "Get bye weeks for the teams during a specified NFL season. ",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Byes/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "season-current",
+      "name": "Season Current",
+      "description": "Year of the current NFL season. This value changes at the start of the new NFL league year. The earliest season for Fantasy data is 2001. The earliest season for Team data is 1985. The earliest season for Fantasy data is 2001. The earliest season for Team data is 1985.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/CurrentSeason",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "week-current",
+      "name": "Week Current",
+      "description": "Number of the current week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/CurrentWeek",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "daily-fantasy-players",
+      "name": "Daily Fantasy Players",
+      "description": "Daily Fantasy Players",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/DailyFantasyPlayers/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "daily-fantasy-scoring",
+      "name": "Daily Fantasy Scoring",
+      "description": "Daily Fantasy Scoring",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/DailyFantasyPoints/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "dfs-slates-by-date",
+      "name": "DFS Slates by Date",
+      "description": "DFS Slates by Date",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/DfsSlatesByDate/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "dfs-slates-by-week",
+      "name": "DFS Slates by Week",
+      "description": "DFS Slates by Week",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/DfsSlatesByWeek/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "fantasy-defense-game-stats",
+      "name": "Fantasy Defense Game Stats",
+      "description": "Fantasy Defense Game Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyDefenseByGame/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "fantasy-defense-game-stats-by-team",
+      "name": "Fantasy Defense Game Stats by Team",
+      "description": "Fantasy Defense Game Stats by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyDefenseByGameByTeam/{{SEASON}}/{{WEEK}}/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{TEAM}} with a real team. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "fantasy-defense-season-stats",
+      "name": "Fantasy Defense Season Stats",
+      "description": "Fantasy Defense Season Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyDefenseBySeason/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "fantasy-defense-season-stats-by-team",
+      "name": "Fantasy Defense Season Stats by Team",
+      "description": "Fantasy Defense Season Stats by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyDefenseBySeasonByTeam/{{SEASON}}/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{TEAM}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{TEAM}} with a real team. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "fantasy-players-with-adp",
+      "name": "Fantasy Players with ADP",
+      "description": "This method returns a comprehensive list of draftable fantasy football players, including QB, RB, WR, TE, K and DEF.  Players are sorted by ADP (AverageDraftPosition).",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyPlayers",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "idp-fantasy-players-with-adp",
+      "name": "IDP Fantasy Players with ADP",
+      "description": "This method returns the top 300+ IDP Fantasy Players for the current or upcoming season, ordered by AverageDraftPositionIDP.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FantasyPlayersIDP",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "legacy-box-scores-final",
+      "name": "Legacy Box Scores Final",
+      "description": "Legacy Box Scores Final",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FinalBoxScores",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "player-details-by-free-agents",
+      "name": "Player Details by Free Agents",
+      "description": "Player Details by Free Agents",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/FreeAgents",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "league-leaders-by-week",
+      "name": "League Leaders by Week",
+      "description": "League Leaders by Week",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/GameLeagueLeaders/{{SEASON}}/{{WEEK}}/{{POSITION}}/{{COLUMN}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COLUMN}}",
+        "{{POSITION}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{COLUMN}} with a real column. Replace {{POSITION}} with a real position. Replace {{WEEK}} with a real week. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "game-stats-by-season-deprecated-use-team-game-stats-instead",
+      "name": "Game Stats by Season (Deprecated, use Team Game Stats instead)",
+      "description": "Game stats for a specified season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/GameStats/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "game-stats-by-week-deprecated-use-team-game-stats-instead",
+      "name": "Game Stats by Week (Deprecated, use Team Game Stats instead)",
+      "description": "Game stats for a specified season and week.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/GameStatsByWeek/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "injuries",
+      "name": "Injuries",
+      "description": "Injuries",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Injuries/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "injuries-by-team",
+      "name": "Injuries by Team",
+      "description": "Injuries by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Injuries/{{SEASON}}/{{WEEK}}/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{TEAM}} with a real team. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "season-last-completed",
+      "name": "Season Last Completed",
+      "description": "Year of the most recently completed season. this value changes immediately after the Super Bowl. The earliest season for Fantasy data is 2001. The earliest season for Team data is 1985.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/LastCompletedSeason",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "week-last-completed",
+      "name": "Week Last Completed",
+      "description": "Number of the current week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/LastCompletedWeek",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "legacy-box-scores-live",
+      "name": "Legacy Box Scores Live",
+      "description": "Legacy Box Scores Live",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/LiveBoxScores",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "news",
+      "name": "News",
+      "description": "News",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/News",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "news-by-date",
+      "name": "News by Date",
+      "description": "News by Date",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/NewsByDate/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "news-by-player",
+      "name": "News by Player",
+      "description": "News by Player",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/NewsByPlayerID/{{PLAYERID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{PLAYERID}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{PLAYERID}} with a real playerid."
+    },
+    {
+      "id": "news-by-team",
+      "name": "News by Team",
+      "description": "News by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/NewsByTeam/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{TEAM}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "player-details-by-player",
+      "name": "Player Details by Player",
+      "description": "Player Details by Player",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Player/{{PLAYERID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{PLAYERID}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{PLAYERID}} with a real playerid."
+    },
+    {
+      "id": "player-game-red-zone-stats-inside-ten",
+      "name": "Player Game Red Zone Stats Inside Ten",
+      "description": "Player Game Red Zone Stats Inside Ten",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameRedZoneInsideTenStats/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-red-zone-stats",
+      "name": "Player Game Red Zone Stats",
+      "description": "Player Game Red Zone Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameRedZoneStats/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-stats-by-player",
+      "name": "Player Game Stats by Player",
+      "description": "Player Game Stats by Player",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsByPlayerID/{{SEASON}}/{{WEEK}}/{{PLAYERID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{WEEK}}",
+        "{{PLAYERID}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{PLAYERID}} with a real playerid. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-logs-by-season",
+      "name": "Player Game Logs By Season",
+      "description": "Player Game Logs By Season",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsBySeason/{{SEASON}}/{{PLAYERID}}/{{NUMBEROFGAMES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{NUMBEROFGAMES}}",
+        "{{PLAYERID}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{NUMBEROFGAMES}} with a real numberofgames. Replace {{FORMAT}} with a real format. Replace {{PLAYERID}} with a real playerid. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-stats-by-team",
+      "name": "Player Game Stats by Team",
+      "description": "Player Game Stats by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsByTeam/{{SEASON}}/{{WEEK}}/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{TEAM}} with a real team. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-stats-by-week",
+      "name": "Player Game Stats by Week",
+      "description": "Player Game Stats by Week",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsByWeek/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-stats-by-week-delta",
+      "name": "Player Game Stats by Week Delta",
+      "description": "Player Game Stats by Week Delta",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsByWeekDelta/{{SEASON}}/{{WEEK}}/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{MINUTES}}",
+        "{{WEEK}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{MINUTES}} with a real minutes. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-game-stats-delta",
+      "name": "Player Game Stats Delta",
+      "description": "Player Game Stats Delta",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerGameStatsDelta/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{MINUTES}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{MINUTES}} with a real minutes."
+    },
+    {
+      "id": "fantasy-player-ownership-percentages-season-long",
+      "name": "Fantasy Player Ownership Percentages (Season-Long)",
+      "description": "Fantasy Player Ownership Percentages (Season-Long)",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerOwnership/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-season-red-zone-stats",
+      "name": "Player Season Red Zone Stats",
+      "description": "Player Season Red Zone Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerSeasonRedZoneStats/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-season-stats",
+      "name": "Player Season Stats",
+      "description": "Player Season Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerSeasonStats/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-season-stats-by-player",
+      "name": "Player Season Stats by Player",
+      "description": "Player Season Stats by Player",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerSeasonStatsByPlayerID/{{SEASON}}/{{PLAYERID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{PLAYERID}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{PLAYERID}} with a real playerid. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-season-stats-by-team",
+      "name": "Player Season Stats by Team",
+      "description": "Player Season Stats by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerSeasonStatsByTeam/{{SEASON}}/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{TEAM}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{TEAM}} with a real team. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-season-third-down-stats",
+      "name": "Player Season Third Down Stats",
+      "description": "Player Season Third Down Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/PlayerSeasonThirdDownStats/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "player-details-by-available",
+      "name": "Player Details by Available",
+      "description": "Player Details by Available",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Players",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "player-details-by-team",
+      "name": "Player Details by Team",
+      "description": "Player Details by Team",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Players/{{TEAM}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{TEAM}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{TEAM}} with a real team."
+    },
+    {
+      "id": "pro-bowlers",
+      "name": "Pro Bowlers",
+      "description": "Pro Bowlers",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/ProBowlers/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "legacy-box-scores-delta-current-week",
+      "name": "Legacy Box Scores Delta (Current Week)",
+      "description": "Legacy Box Scores Delta (Current Week)",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/RecentlyUpdatedBoxScores/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{MINUTES}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{MINUTES}} with a real minutes."
+    },
+    {
+      "id": "player-details-by-rookie-draft-year",
+      "name": "Player Details by Rookie Draft Year",
+      "description": "Player Details by Rookie Draft Year",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Rookies/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "schedule",
+      "name": "Schedule",
+      "description": "Game schedule for a specified season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Schedules/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "scores-by-season",
+      "name": "Scores by Season ",
+      "description": "Game scores for a specified season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Scores/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "scores-by-date",
+      "name": "Scores by Date",
+      "description": "Get game scores for a specified week of a season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/ScoresByDate/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "scores-by-week",
+      "name": "Scores by Week",
+      "description": "Get game scores for a specified week of a season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/ScoresByWeek/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "league-leaders-by-season",
+      "name": "League Leaders by Season",
+      "description": "League Leaders by Season",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/SeasonLeagueLeaders/{{SEASON}}/{{POSITION}}/{{COLUMN}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COLUMN}}",
+        "{{POSITION}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{COLUMN}} with a real column. Replace {{POSITION}} with a real position. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "box-scores-v3-simulation",
+      "name": "Box Scores V3 Simulation",
+      "description": "Gets simulated live box scores of NFL games, covering the Conference Championship games on January 21, 2018.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/SimulatedBoxScoresV3/{{NUMBEROFPLAYS}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{NUMBEROFPLAYS}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{NUMBEROFPLAYS}} with a real numberofplays."
+    },
+    {
+      "id": "scores-by-week-simulation",
+      "name": "Scores by Week Simulation",
+      "description": "Gets simulated live scores of NFL games, covering the Conference Championship games on January 21, 2018.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/SimulatedScores/{{NUMBEROFPLAYS}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{NUMBEROFPLAYS}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{NUMBEROFPLAYS}} with a real numberofplays."
+    },
+    {
+      "id": "stadiums",
+      "name": "Stadiums",
+      "description": "This method returns all stadiums.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Stadiums",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "standings",
+      "name": "Standings",
+      "description": "Standings",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Standings/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "team-game-stats",
+      "name": "Team Game Stats",
+      "description": "Team Game Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/TeamGameStats/{{SEASON}}/{{WEEK}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WEEK}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{WEEK}} with a real week. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "team-game-logs-by-season",
+      "name": "Team Game Logs By Season",
+      "description": "Game by game log of total team statistics.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/TeamGameStatsBySeason/{{SEASON}}/{{TEAMID}}/{{NUMBEROFGAMES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SPORTSDATA_API_KEY}}",
+        "{{NUMBEROFGAMES}}",
+        "{{TEAMID}}",
+        "{{FORMAT}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{NUMBEROFGAMES}} with a real numberofgames. Replace {{FORMAT}} with a real format. Replace {{TEAMID}} with a real teamid. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "team-season-stats",
+      "name": "Team Season Stats",
+      "description": "Team Season Stats",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/TeamSeasonStats/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "teams-active",
+      "name": "Teams (Active)",
+      "description": "Gets all active teams.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Teams",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "teams-by-season",
+      "name": "Teams by Season",
+      "description": "List of teams playing in a specified season.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Teams/{{SEASON}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SEASON}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "timeframes",
+      "name": "Timeframes",
+      "description": "Get detailed information about past, present, and future timeframes.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/Timeframes/{{TYPE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{TYPE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{TYPE}} with a real type."
+    },
+    {
+      "id": "season-upcoming",
+      "name": "Season Upcoming",
+      "description": "Year of the current NFL season, if we are in the mid-season. If we are in the off-season, then year of the next upcoming season. This value changes immediately after the Super Bowl. The earliest season for Fantasy data is 2001. The earliest season for Team data is 1985.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/UpcomingSeason",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "week-upcoming",
+      "name": "Week Upcoming",
+      "description": "Number of the current week of the NFL season. This value usually changes on Tuesday nights or Wednesday mornings at midnight ET.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nfl/stats/{{FORMAT}}/UpcomingWeek",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format."
+    }
+  ]
+}

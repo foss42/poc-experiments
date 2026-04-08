@@ -1,0 +1,62 @@
+{
+  "api_id": "adyen.com:HopService:5",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-a-link-to-a-adyen-hosted-onboarding-page",
+      "name": "Get a link to a Adyen-hosted onboarding page",
+      "description": "Returns a link to an Adyen-hosted onboarding page (HOP) that you can send to your account holder. For more information on how to use HOP, refer to [Hosted onboarding](https://docs.adyen.com/marketplaces-and-platforms/classic/collect-verification-details/hosted-onboarding-page). ",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Hop/v5/getOnboardingUrl",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "get-onboarding-url": {
+          "description": "Returns a link to an Adyen-hosted onboarding page (HOP) that you can send to your account holder.",
+          "summary": "Get a hosted onboarding page link",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "returnUrl": "https://your.return-url.com/?submerchant=123"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-link-to-a-pci-compliance-questionnaire",
+      "name": "Get a link to a PCI compliance questionnaire",
+      "description": "Returns a link to a PCI compliance questionnaire that you can send to your account holder.\n > You should only use this endpoint if you have a [partner platform setup](https://docs.adyen.com/marketplaces-and-platforms/classic/platforms-for-partners).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Hop/v5/getPciQuestionnaireUrl",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "get-pci-questionnaire-url": {
+          "description": "Returns a link to an Adyen-hosted PCI compliance questionnaire that you can send to your account holder.",
+          "summary": "Get a PCI questionnaire link",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "returnUrl": "https://your.return-url.com/?submerchant=123"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "api_id": "googleapis.com:clouderrorreporting:v1beta1",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "get-v1beta1-groupname",
+      "name": "GET /v1beta1/{groupName}",
+      "description": "Get the specified group.",
+      "method": "GET",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{GROUPNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GROUPNAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{GROUPNAME}} with a real groupname."
+    },
+    {
+      "id": "put-v1beta1-name",
+      "name": "PUT /v1beta1/{name}",
+      "description": "Replace the data for the specified group. Fails if the group does not exist.",
+      "method": "PUT",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "groupId": "",
+        "name": "",
+        "resolutionStatus": "",
+        "trackingIssues": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta1-projectname-events",
+      "name": "GET /v1beta1/{projectName}/events",
+      "description": "Lists the specified events.",
+      "method": "GET",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{PROJECTNAME}}/events",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTNAME}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "delete-v1beta1-projectname-events",
+      "name": "DELETE /v1beta1/{projectName}/events",
+      "description": "Deletes all error events of a given project.",
+      "method": "DELETE",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{PROJECTNAME}}/events",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTNAME}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "post-v1beta1-projectname-events-report",
+      "name": "POST /v1beta1/{projectName}/events:report",
+      "description": "Report an individual error event and record the event to a log. This endpoint accepts **either** an OAuth token, **or** an [API key](https://support.google.com/cloud/answer/6158862) for authentication. To use an API key, append it to the URL as the value of a `key` parameter. For example: `POST https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456` **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a global service built on Cloud Logging and doesn't analyze logs stored in regional log buckets or logs routed to other Google Cloud projects.",
+      "method": "POST",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{PROJECTNAME}}/events:report",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "context": {},
+        "eventTime": "",
+        "message": "",
+        "serviceContext": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTNAME}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECTNAME}} with a real projectname."
+    },
+    {
+      "id": "get-v1beta1-projectname-groupstats",
+      "name": "GET /v1beta1/{projectName}/groupStats",
+      "description": "Lists the specified groups.",
+      "method": "GET",
+      "url": "https://clouderrorreporting.googleapis.com/v1beta1/{{PROJECTNAME}}/groupStats",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTNAME}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECTNAME}} with a real projectname."
+    }
+  ]
+}

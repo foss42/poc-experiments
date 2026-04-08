@@ -1,0 +1,1049 @@
+{
+  "api_id": "pandascore.co:2.23.1",
+  "endpoint_count": 56,
+  "endpoints": [
+    {
+      "id": "list-additions",
+      "name": "List additions",
+      "description": "Get the latest additions.\n\nThis endpoint only shows unchanged objects.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/additions",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "list-changes",
+      "name": "List changes",
+      "description": "Get the latest updates.\n\nThis endpoint only provides the latest change for an object. It does not keep track of previous changes.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/changes",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "list-deletions",
+      "name": "List deletions",
+      "description": "Get the latest deleted documents",
+      "method": "GET",
+      "url": "https://api.pandascore.co/deletions",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "list-changes-additions-and-deletions",
+      "name": "List changes, additions and deletions",
+      "description": " Get the latest updates and additions.\n\nThis endpoint only provides the latest incident for an object. It does not keep track of previous incidents.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/incidents",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "list-leagues",
+      "name": "List leagues",
+      "description": "List leagues",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-league",
+      "name": "Get a league",
+      "description": "Get a single league by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "get-matches-for-a-league",
+      "name": "Get matches for a league",
+      "description": "List matches of the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "get-past-matches-for-league",
+      "name": "Get past matches for league",
+      "description": "List past matches for the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/matches/past",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "get-running-matches-for-league",
+      "name": "Get running matches for league",
+      "description": "List currently running matches for the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/matches/running",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "get-upcoming-matches-for-league",
+      "name": "Get upcoming matches for league",
+      "description": "List upcoming matches for the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/matches/upcoming",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "list-series-of-a-league",
+      "name": "List series of a league",
+      "description": "List series for the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/series",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "get-tournaments-for-a-league",
+      "name": "Get tournaments for a league",
+      "description": "List tournaments of the given league",
+      "method": "GET",
+      "url": "https://api.pandascore.co/leagues/{{LEAGUE_ID_OR_SLUG}}/tournaments",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LEAGUE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{LEAGUE_ID_OR_SLUG}} with a real league_id_or_slug."
+    },
+    {
+      "id": "list-lives-matches",
+      "name": "List lives matches",
+      "description": "List currently running live matches, available from pandascore with live websocket data.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/lives",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "list-matches",
+      "name": "List matches",
+      "description": "List matches",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-past-matches",
+      "name": "Get past matches",
+      "description": "List past matches",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches/past",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-running-matches",
+      "name": "Get running matches",
+      "description": "List currently running matches",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches/running",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-upcoming-matches",
+      "name": "Get upcoming matches",
+      "description": "List upcoming matches",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches/upcoming",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-match",
+      "name": "Get a match",
+      "description": "Get a single match by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches/{{MATCH_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MATCH_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{MATCH_ID_OR_SLUG}} with a real match_id_or_slug."
+    },
+    {
+      "id": "get-match-s-opponents",
+      "name": "Get match's opponents",
+      "description": "List opponents (player or teams) for the given match",
+      "method": "GET",
+      "url": "https://api.pandascore.co/matches/{{MATCH_ID_OR_SLUG}}/opponents",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MATCH_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{MATCH_ID_OR_SLUG}} with a real match_id_or_slug."
+    },
+    {
+      "id": "list-players",
+      "name": "List players",
+      "description": "List players",
+      "method": "GET",
+      "url": "https://api.pandascore.co/players",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-player",
+      "name": "Get a player",
+      "description": "Get a single player by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/players/{{PLAYER_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLAYER_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{PLAYER_ID_OR_SLUG}} with a real player_id_or_slug."
+    },
+    {
+      "id": "get-matches-for-a-player",
+      "name": "Get matches for a player",
+      "description": "List matches for the given player. Only matches with detailed stats. Available with the plan _Historical data_.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/players/{{PLAYER_ID_OR_SLUG}}/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PLAYER_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{PLAYER_ID_OR_SLUG}} with a real player_id_or_slug."
+    },
+    {
+      "id": "list-series",
+      "name": "List series",
+      "description": "List series",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-past-series",
+      "name": "Get past series",
+      "description": "List past series",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/past",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-running-series",
+      "name": "Get running series",
+      "description": "List currently running series",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/running",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-upcoming-series",
+      "name": "Get upcoming series",
+      "description": "List upcoming series",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/upcoming",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-serie",
+      "name": "Get a serie",
+      "description": "Get a single serie by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-matches-for-a-serie",
+      "name": "Get matches for a serie",
+      "description": "List matches of the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-past-matches-for-serie",
+      "name": "Get past matches for serie",
+      "description": "List past matches for the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/matches/past",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-running-matches-for-serie",
+      "name": "Get running matches for serie",
+      "description": "List currently running matches for the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/matches/running",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-upcoming-matches-for-serie",
+      "name": "Get upcoming matches for serie",
+      "description": "List upcoming matches for the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/matches/upcoming",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-players-for-a-serie",
+      "name": "Get players for a serie",
+      "description": "List players for the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/players",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "get-tournaments-for-a-serie",
+      "name": "Get tournaments for a serie",
+      "description": "List tournaments of the given serie",
+      "method": "GET",
+      "url": "https://api.pandascore.co/series/{{SERIE_ID_OR_SLUG}}/tournaments",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIE_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{SERIE_ID_OR_SLUG}} with a real serie_id_or_slug."
+    },
+    {
+      "id": "list-teams",
+      "name": "List teams",
+      "description": "List teams",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-team",
+      "name": "Get a team",
+      "description": "Get a single team by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams/{{TEAM_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{TEAM_ID_OR_SLUG}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TEAM_ID_OR_SLUG}} with a real team_id_or_slug."
+    },
+    {
+      "id": "get-leagues-for-a-team",
+      "name": "Get leagues for a team",
+      "description": "List leagues in which the given team was part of",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams/{{TEAM_ID_OR_SLUG}}/leagues",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{TEAM_ID_OR_SLUG}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TEAM_ID_OR_SLUG}} with a real team_id_or_slug."
+    },
+    {
+      "id": "get-matches-for-team",
+      "name": "Get matches for team",
+      "description": "List matches for the given team",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams/{{TEAM_ID_OR_SLUG}}/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{TEAM_ID_OR_SLUG}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TEAM_ID_OR_SLUG}} with a real team_id_or_slug."
+    },
+    {
+      "id": "get-series-for-a-team",
+      "name": "Get series for a team",
+      "description": "List series in which the given team was part of",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams/{{TEAM_ID_OR_SLUG}}/series",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{TEAM_ID_OR_SLUG}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TEAM_ID_OR_SLUG}} with a real team_id_or_slug."
+    },
+    {
+      "id": "get-tournaments-for-a-team",
+      "name": "Get tournaments for a team",
+      "description": "List tournaments in which the given team was part of",
+      "method": "GET",
+      "url": "https://api.pandascore.co/teams/{{TEAM_ID_OR_SLUG}}/tournaments",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{TEAM_ID_OR_SLUG}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TEAM_ID_OR_SLUG}} with a real team_id_or_slug."
+    },
+    {
+      "id": "list-tournaments",
+      "name": "List tournaments",
+      "description": "List tournaments",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-past-tournaments",
+      "name": "Get past tournaments",
+      "description": "List past tournaments",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/past",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-running-tournaments",
+      "name": "Get running tournaments",
+      "description": "List currently running tournaments",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/running",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-upcoming-tournaments",
+      "name": "Get upcoming tournaments",
+      "description": "List upcoming tournaments",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/upcoming",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-tournament",
+      "name": "Get a tournament",
+      "description": "Get a single tournament by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-a-tournament-s-brackets",
+      "name": "Get a tournament's brackets",
+      "description": "Get the brackets of the given tournament",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/brackets",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-matches-for-tournament",
+      "name": "Get matches for tournament",
+      "description": "List matches for the given tournament",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/matches",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-players-for-a-tournament",
+      "name": "Get players for a tournament",
+      "description": "List players for the given tournament",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/players",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-rosters-for-a-tournament",
+      "name": "Get rosters for a tournament",
+      "description": "List participants (player or team) for a given tournament.",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/rosters",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-tournament-standings",
+      "name": "Get tournament standings",
+      "description": "Get the current standings for a given tournament",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/standings",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "get-teams-for-a-tournament",
+      "name": "Get teams for a tournament",
+      "description": "List teams for the given tournament",
+      "method": "GET",
+      "url": "https://api.pandascore.co/tournaments/{{TOURNAMENT_ID_OR_SLUG}}/teams",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOURNAMENT_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{TOURNAMENT_ID_OR_SLUG}} with a real tournament_id_or_slug."
+    },
+    {
+      "id": "list-videogames",
+      "name": "List videogames",
+      "description": "List videogames",
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY."
+    },
+    {
+      "id": "get-a-videogame",
+      "name": "Get a videogame",
+      "description": "Get a single videogame by ID or by slug",
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames/{{VIDEOGAME_ID_OR_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VIDEOGAME_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{VIDEOGAME_ID_OR_SLUG}} with a real videogame_id_or_slug."
+    },
+    {
+      "id": "get-videogames-videogame-id-or-slug-leagues",
+      "name": "GET /videogames/{videogame_id_or_slug}/leagues",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames/{{VIDEOGAME_ID_OR_SLUG}}/leagues",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VIDEOGAME_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{VIDEOGAME_ID_OR_SLUG}} with a real videogame_id_or_slug."
+    },
+    {
+      "id": "list-series-for-a-videogame",
+      "name": "List series for a videogame",
+      "description": "List series for the given videogame",
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames/{{VIDEOGAME_ID_OR_SLUG}}/series",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VIDEOGAME_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{VIDEOGAME_ID_OR_SLUG}} with a real videogame_id_or_slug."
+    },
+    {
+      "id": "get-tournaments-for-a-videogame",
+      "name": "Get tournaments for a videogame",
+      "description": "List tournaments of the given videogame",
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames/{{VIDEOGAME_ID_OR_SLUG}}/tournaments",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VIDEOGAME_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{VIDEOGAME_ID_OR_SLUG}} with a real videogame_id_or_slug."
+    },
+    {
+      "id": "list-videogame-versions",
+      "name": "List videogame versions",
+      "description": "List available versions for a given videogame",
+      "method": "GET",
+      "url": "https://api.pandascore.co/videogames/{{VIDEOGAME_ID_OR_SLUG}}/versions",
+      "headers": {
+        "Authorization": "Bearer{{PANDASCORE_CO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VIDEOGAME_ID_OR_SLUG}}",
+        "{{PANDASCORE_API_KEY}}",
+        "{{PANDASCORE_CO_API_KEY}}"
+      ],
+      "notes": "Replace {{PANDASCORE_API_KEY}} with your PANDASCORE API KEY. Replace {{VIDEOGAME_ID_OR_SLUG}} with a real videogame_id_or_slug."
+    }
+  ]
+}

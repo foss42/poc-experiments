@@ -1,0 +1,1663 @@
+{
+  "api_id": "namsor.com:2.0.24",
+  "endpoint_count": 80,
+  "endpoints": [
+    {
+      "id": "activate-deactivate-anonymization-for-a-source",
+      "name": "Activate/deactivate anonymization for a source.",
+      "description": "Activate/deactivate anonymization for a source.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/anonymize/{{SOURCE}}/{{ANONYMIZED}}/{{TOKEN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{ANONYMIZED}}",
+        "{{TOKEN}}",
+        "{{SOURCE}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{SOURCE}} with a real source. Replace {{ANONYMIZED}} with a real anonymized. Replace {{TOKEN}} with a real token."
+    },
+    {
+      "id": "read-api-key-info",
+      "name": "Read API Key info.",
+      "description": "Read API Key info.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiKeyInfo",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "list-of-classification-services-and-usage-cost-in-units-per-classification-default-is-1-one-unit-some-api-endpoints-ex-corridor-combine-multiple-classifiers",
+      "name": "List of classification services and usage cost in Units per classification (default is 1=ONE Unit). Some API endpoints (ex. Corridor) combine multiple classifiers.",
+      "description": "List of classification services and usage cost in Units per classification (default is 1=ONE Unit). Some API endpoints (ex. Corridor) combine multiple classifiers.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiServices",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "prints-the-current-status-of-the-classifiers-a-classifier-name-in-apistatus-corresponds-to-a-service-name-in-apiservices",
+      "name": "Prints the current status of the classifiers. A classifier name in apiStatus corresponds to a service name in apiServices.",
+      "description": "Prints the current status of the classifiers. A classifier name in apiStatus corresponds to a service name in apiServices.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiStatus",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "print-current-api-usage",
+      "name": "Print current API usage.",
+      "description": "Print current API usage.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiUsage",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "print-historical-api-usage",
+      "name": "Print historical API usage.",
+      "description": "Print historical API usage.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiUsageHistory",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "print-historical-api-usage-in-an-aggregated-view-by-service-by-day-hour-min",
+      "name": "Print historical API usage (in an aggregated view, by service, by day/hour/min).",
+      "description": "Print historical API usage (in an aggregated view, by service, by day/hour/min).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/apiUsageHistoryAggregate",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-indian-name-castegroup-of-a-personal-full-name",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely Indian name castegroup of a personal full name.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely Indian name castegroup of a personal full name.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/castegroupIndianFull/{{SUBDIVISIONISO31662}}/{{PERSONALNAMEFULL}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBDIVISIONISO31662}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{PERSONALNAMEFULL}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{SUBDIVISIONISO31662}} with a real subdivisioniso31662. Replace {{PERSONALNAMEFULL}} with a real personalnamefull."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-indian-name-castegroup-of-up-to-100-personal-full-names",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely Indian name castegroup of up to 100 personal full names. ",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely Indian name castegroup of up to 100 personal full names. ",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/castegroupIndianFullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "identify-chinese-name-candidates-based-on-the-romanized-name-ex-wang-xiaoming",
+      "name": "Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming",
+      "description": "Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/chineseNameCandidates/{{CHINESESURNAMELATIN}}/{{CHINESEGIVENNAMELATIN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESESURNAMELATIN}}",
+        "{{CHINESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESEGIVENNAMELATIN}} with a real chinesegivennamelatin. Replace {{CHINESESURNAMELATIN}} with a real chinesesurnamelatin."
+    },
+    {
+      "id": "identify-chinese-name-candidates-based-on-the-romanized-name-firstname-chinesegivenname-lastname-chinesesurname-ex-wang-xiaoming",
+      "name": "Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming",
+      "description": "Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/chineseNameCandidatesBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "identify-chinese-name-candidates-based-on-the-romanized-name-ex-wang-xiaoming-having-a-known-gender-male-or-female",
+      "name": "Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender ('male' or 'female')",
+      "description": "Identify Chinese name candidates, based on the romanized name ex. Wang Xiaoming - having a known gender ('male' or 'female')",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/chineseNameGenderCandidates/{{CHINESESURNAMELATIN}}/{{CHINESEGIVENNAMELATIN}}/{{KNOWNGENDER}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{KNOWNGENDER}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESESURNAMELATIN}}",
+        "{{CHINESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{KNOWNGENDER}} with a real knowngender. Replace {{CHINESEGIVENNAMELATIN}} with a real chinesegivennamelatin. Replace {{CHINESESURNAMELATIN}} with a real chinesesurnamelatin."
+    },
+    {
+      "id": "return-a-score-for-matching-chinese-name-ex-wang-xiao-ming-with-a-romanized-name-ex-wang-xiaoming",
+      "name": "Return a score for matching Chinese name ex. \u738b\u6653\u660e with a romanized name ex. Wang Xiaoming",
+      "description": "Return a score for matching Chinese name ex. \u738b\u6653\u660e with a romanized name ex. Wang Xiaoming",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/chineseNameMatch/{{CHINESESURNAMELATIN}}/{{CHINESEGIVENNAMELATIN}}/{{CHINESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESENAME}}",
+        "{{CHINESESURNAMELATIN}}",
+        "{{CHINESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESEGIVENNAMELATIN}} with a real chinesegivennamelatin. Replace {{CHINESENAME}} with a real chinesename. Replace {{CHINESESURNAMELATIN}} with a real chinesesurnamelatin."
+    },
+    {
+      "id": "identify-chinese-name-candidates-based-on-the-romanized-name-firstname-chinesegivenname-lastname-chinesesurname-ex-wang-xiaoming-3",
+      "name": "Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming",
+      "description": "Identify Chinese name candidates, based on the romanized name (firstName = chineseGivenName; lastName=chineseSurname), ex. Wang Xiaoming",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/chineseNameMatchBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-20-units-per-name-couple-infer-several-classifications-for-a-cross-border-interaction-between-names-ex-remit-travel-intl-com",
+      "name": "[USES 20 UNITS PER NAME COUPLE] Infer several classifications for a cross border interaction between names (ex. remit, travel, intl com)",
+      "description": "[USES 20 UNITS PER NAME COUPLE] Infer several classifications for a cross border interaction between names (ex. remit, travel, intl com)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/corridor/{{COUNTRYISO2FROM}}/{{FIRSTNAMEFROM}}/{{LASTNAMEFROM}}/{{COUNTRYISO2TO}}/{{FIRSTNAMETO}}/{{LASTNAMETO}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LASTNAMEFROM}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{COUNTRYISO2FROM}}",
+        "{{COUNTRYISO2TO}}",
+        "{{FIRSTNAMETO}}",
+        "{{LASTNAMETO}}",
+        "{{FIRSTNAMEFROM}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{LASTNAMEFROM}} with a real lastnamefrom. Replace {{COUNTRYISO2FROM}} with a real countryiso2from. Replace {{COUNTRYISO2TO}} with a real countryiso2to. Replace {{FIRSTNAMETO}} with a real firstnameto. Replace {{LASTNAMETO}} with a real lastnameto. Replace {{FIRSTNAMEFROM}} with a real firstnamefrom."
+    },
+    {
+      "id": "uses-20-units-per-name-pair-infer-several-classifications-for-up-to-100-cross-border-interaction-between-names-ex-remit-travel-intl-com",
+      "name": "[USES 20 UNITS PER NAME PAIR] Infer several classifications for up to 100 cross border interaction between names (ex. remit, travel, intl com)",
+      "description": "[USES 20 UNITS PER NAME PAIR] Infer several classifications for up to 100 cross border interaction between names (ex. remit, travel, intl com)",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/corridorBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "corridorFromTo": [],
+        "facts": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-country-of-residence-of-a-personal-full-name-or-one-surname-assumes-names-as-they-are-in-the-country-of-residence-or-the-country-of-origin",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely country of residence of a personal full name, or one surname. Assumes names as they are in the country of residence OR the country of origin.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/country/{{PERSONALNAMEFULL}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{PERSONALNAMEFULL}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{PERSONALNAMEFULL}} with a real personalnamefull."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-country-of-residence-of-up-to-100-personal-full-names-or-surnames-assumes-names-as-they-are-in-the-country-of-residence-or-the-country-of-origin",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely country of residence of up to 100 personal full names, or surnames. Assumes names as they are in the country of residence OR the country of origin.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/countryBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-20-units-per-name-infer-the-likely-ethnicity-diaspora-of-a-personal-name-given-a-country-of-residence-iso2-code-ex-us-ca-au-nz-etc",
+      "name": "[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)",
+      "description": "[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of a personal name, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/diaspora/{{COUNTRYISO2}}/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "uses-20-units-per-name-infer-the-likely-ethnicity-diaspora-of-up-to-100-personal-names-given-a-country-of-residence-iso2-code-ex-us-ca-au-nz-etc",
+      "name": "[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)",
+      "description": "[USES 20 UNITS PER NAME] Infer the likely ethnicity/diaspora of up to 100 personal names, given a country of residence ISO2 code (ex. US, CA, AU, NZ etc.)",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/diasporaBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-just-a-fiven-name-assuming-default-us-local-context-please-use-preferably-full-names-and-local-geographic-context-for-better-accuracy",
+      "name": "Infer the likely gender of a just a fiven name, assuming default 'US' local context. Please use preferably full names and local geographic context for better accuracy.",
+      "description": "Infer the likely gender of a just a fiven name, assuming default 'US' local context. Please use preferably full names and local geographic context for better accuracy.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/gender/{{FIRSTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-name",
+      "name": "Infer the likely gender of a name.",
+      "description": "Infer the likely gender of a name.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/gender/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-names-detecting-automatically-the-cultural-context",
+      "name": "Infer the likely gender of up to 100 names, detecting automatically the cultural context.",
+      "description": "Infer the likely gender of up to 100 names, detecting automatically the cultural context.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-chinese-full-name-ex-wang-xiao-ming",
+      "name": "Infer the likely gender of a Chinese full name ex. \u738b\u6653\u660e",
+      "description": "Infer the likely gender of a Chinese full name ex. \u738b\u6653\u660e",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderChineseName/{{CHINESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESENAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESENAME}} with a real chinesename."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-full-names-ex-wang-xiao-ming",
+      "name": "Infer the likely gender of up to 100 full names ex. \u738b\u6653\u660e",
+      "description": "Infer the likely gender of up to 100 full names ex. \u738b\u6653\u660e",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderChineseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-chinese-name-in-latin-pinyin",
+      "name": "Infer the likely gender of a Chinese name in LATIN (Pinyin).",
+      "description": "Infer the likely gender of a Chinese name in LATIN (Pinyin).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderChineseNamePinyin/{{CHINESESURNAMELATIN}}/{{CHINESEGIVENNAMELATIN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESESURNAMELATIN}}",
+        "{{CHINESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESEGIVENNAMELATIN}} with a real chinesegivennamelatin. Replace {{CHINESESURNAMELATIN}} with a real chinesesurnamelatin."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-chinese-names-in-latin-pinyin",
+      "name": "Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).",
+      "description": "Infer the likely gender of up to 100 Chinese names in LATIN (Pinyin).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderChineseNamePinyinBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-full-name-ex-john-h-smith",
+      "name": "Infer the likely gender of a full name, ex. John H. Smith",
+      "description": "Infer the likely gender of a full name, ex. John H. Smith",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderFull/{{FULLNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULLNAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FULLNAME}} with a real fullname."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-full-names-detecting-automatically-the-cultural-context",
+      "name": "Infer the likely gender of up to 100 full names, detecting automatically the cultural context.",
+      "description": "Infer the likely gender of up to 100 full names, detecting automatically the cultural context.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderFullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-full-name-given-a-local-context-iso2-country-code",
+      "name": "Infer the likely gender of a full name, given a local context (ISO2 country code).",
+      "description": "Infer the likely gender of a full name, given a local context (ISO2 country code).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderFullGeo/{{FULLNAME}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULLNAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FULLNAME}} with a real fullname. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-full-names-with-a-given-cultural-context-country-iso2-code",
+      "name": "Infer the likely gender of up to 100 full names, with a given cultural context (country ISO2 code).",
+      "description": "Infer the likely gender of up to 100 full names, with a given cultural context (country ISO2 code).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderFullGeoBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-name-given-a-local-context-iso2-country-code",
+      "name": "Infer the likely gender of a name, given a local context (ISO2 country code).",
+      "description": "Infer the likely gender of a name, given a local context (ISO2 country code).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderGeo/{{FIRSTNAME}}/{{LASTNAME}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-names-each-given-a-local-context-iso2-country-code",
+      "name": "Infer the likely gender of up to 100 names, each given a local context (ISO2 country code).",
+      "description": "Infer the likely gender of up to 100 names, each given a local context (ISO2 country code).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderGeoBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-japanese-name-in-latin-pinyin",
+      "name": "Infer the likely gender of a Japanese name in LATIN (Pinyin).",
+      "description": "Infer the likely gender of a Japanese name in LATIN (Pinyin).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderJapaneseName/{{JAPANESESURNAME}}/{{JAPANESEGIVENNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESEGIVENNAME}}",
+        "{{JAPANESESURNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESEGIVENNAME}} with a real japanesegivenname. Replace {{JAPANESESURNAME}} with a real japanesesurname."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-japanese-names-in-latin-pinyin",
+      "name": "Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).",
+      "description": "Infer the likely gender of up to 100 Japanese names in LATIN (Pinyin).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderJapaneseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-gender-of-a-japanese-full-name-ex-wang-xiao-ming",
+      "name": "Infer the likely gender of a Japanese full name ex. \u738b\u6653\u660e",
+      "description": "Infer the likely gender of a Japanese full name ex. \u738b\u6653\u660e",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderJapaneseNameFull/{{JAPANESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JAPANESENAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESENAME}} with a real japanesename."
+    },
+    {
+      "id": "infer-the-likely-gender-of-up-to-100-full-names",
+      "name": "Infer the likely gender of up to 100 full names",
+      "description": "Infer the likely gender of up to 100 full names",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/genderJapaneseNameFullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "identify-japanese-name-candidates-in-kanji-based-on-the-romanized-name-ex-yamamoto-sanae",
+      "name": "Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae",
+      "description": "Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameKanjiCandidates/{{JAPANESESURNAMELATIN}}/{{JAPANESEGIVENNAMELATIN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESESURNAMELATIN}}",
+        "{{JAPANESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESESURNAMELATIN}} with a real japanesesurnamelatin. Replace {{JAPANESEGIVENNAMELATIN}} with a real japanesegivennamelatin."
+    },
+    {
+      "id": "identify-japanese-name-candidates-in-kanji-based-on-the-romanized-name-ex-yamamoto-sanae-and-a-known-gender",
+      "name": "Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae - and a known gender.",
+      "description": "Identify japanese name candidates in KANJI, based on the romanized name ex. Yamamoto Sanae - and a known gender.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameKanjiCandidates/{{JAPANESESURNAMELATIN}}/{{JAPANESEGIVENNAMELATIN}}/{{KNOWNGENDER}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{KNOWNGENDER}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESESURNAMELATIN}}",
+        "{{JAPANESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{KNOWNGENDER}} with a real knowngender. Replace {{JAPANESESURNAMELATIN}} with a real japanesesurnamelatin. Replace {{JAPANESEGIVENNAMELATIN}} with a real japanesegivennamelatin."
+    },
+    {
+      "id": "romanize-japanese-name-based-on-the-name-in-kanji",
+      "name": "Romanize japanese name, based on the name in Kanji.",
+      "description": "Romanize japanese name, based on the name in Kanji.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameLatinCandidates/{{JAPANESESURNAMEKANJI}}/{{JAPANESEGIVENNAMEKANJI}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESESURNAMEKANJI}}",
+        "{{JAPANESEGIVENNAMEKANJI}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESESURNAMEKANJI}} with a real japanesesurnamekanji. Replace {{JAPANESEGIVENNAMEKANJI}} with a real japanesegivennamekanji."
+    },
+    {
+      "id": "return-a-score-for-matching-japanese-name-in-kanji-ex-shan-ben-zao-miao-with-a-romanized-name-ex-yamamoto-sanae",
+      "name": "Return a score for matching Japanese name in KANJI ex. \u5c71\u672c \u65e9\u82d7 with a romanized name ex. Yamamoto Sanae",
+      "description": "Return a score for matching Japanese name in KANJI ex. \u5c71\u672c \u65e9\u82d7 with a romanized name ex. Yamamoto Sanae",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameMatch/{{JAPANESESURNAMELATIN}}/{{JAPANESEGIVENNAMELATIN}}/{{JAPANESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JAPANESENAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESESURNAMELATIN}}",
+        "{{JAPANESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESENAME}} with a real japanesename. Replace {{JAPANESESURNAMELATIN}} with a real japanesesurnamelatin. Replace {{JAPANESEGIVENNAMELATIN}} with a real japanesegivennamelatin."
+    },
+    {
+      "id": "return-a-score-for-matching-a-list-of-japanese-names-in-kanji-ex-shan-ben-zao-miao-with-romanized-names-ex-yamamoto-sanae",
+      "name": "Return a score for matching a list of Japanese names in KANJI ex. \u5c71\u672c \u65e9\u82d7 with romanized names ex. Yamamoto Sanae",
+      "description": "Return a score for matching a list of Japanese names in KANJI ex. \u5c71\u672c \u65e9\u82d7 with romanized names ex. Yamamoto Sanae",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameMatchBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "credits-1-unit-feedback-loop-to-better-perform-matching-japanese-name-in-kanji-ex-shan-ben-zao-miao-with-a-romanized-name-ex-yamamoto-sanae",
+      "name": "[CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. \u5c71\u672c \u65e9\u82d7 with a romanized name ex. Yamamoto Sanae",
+      "description": "[CREDITS 1 UNIT] Feedback loop to better perform matching Japanese name in KANJI ex. \u5c71\u672c \u65e9\u82d7 with a romanized name ex. Yamamoto Sanae",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/japaneseNameMatchFeedbackLoop/{{JAPANESESURNAMELATIN}}/{{JAPANESEGIVENNAMELATIN}}/{{JAPANESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JAPANESENAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{JAPANESESURNAMELATIN}}",
+        "{{JAPANESEGIVENNAMELATIN}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESENAME}} with a real japanesename. Replace {{JAPANESESURNAMELATIN}} with a real japanesesurnamelatin. Replace {{JAPANESEGIVENNAMELATIN}} with a real japanesegivennamelatin."
+    },
+    {
+      "id": "activate-deactivate-learning-from-a-source",
+      "name": "Activate/deactivate learning from a source.",
+      "description": "Activate/deactivate learning from a source.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/learnable/{{SOURCE}}/{{LEARNABLE}}/{{TOKEN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{TOKEN}}",
+        "{{LEARNABLE}}",
+        "{{SOURCE}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{SOURCE}} with a real source. Replace {{TOKEN}} with a real token. Replace {{LEARNABLE}} with a real learnable."
+    },
+    {
+      "id": "infer-the-likely-type-of-a-proper-noun-personal-name-brand-name-place-name-etc",
+      "name": "Infer the likely type of a proper noun (personal name, brand name, place name etc.)",
+      "description": "Infer the likely type of a proper noun (personal name, brand name, place name etc.)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/nameType/{{PROPERNOUN}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROPERNOUN}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{PROPERNOUN}} with a real propernoun."
+    },
+    {
+      "id": "infer-the-likely-common-type-of-up-to-100-proper-nouns-personal-name-brand-name-place-name-etc",
+      "name": "Infer the likely common type of up to 100 proper nouns (personal name, brand name, place name etc.)",
+      "description": "Infer the likely common type of up to 100 proper nouns (personal name, brand name, place name etc.)",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/nameTypeBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "properNouns": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-type-of-a-proper-noun-personal-name-brand-name-place-name-etc-2",
+      "name": "Infer the likely type of a proper noun (personal name, brand name, place name etc.)",
+      "description": "Infer the likely type of a proper noun (personal name, brand name, place name etc.)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/nameTypeGeo/{{PROPERNOUN}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROPERNOUN}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{PROPERNOUN}} with a real propernoun. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "infer-the-likely-common-type-of-up-to-100-proper-nouns-personal-name-brand-name-place-name-etc-2",
+      "name": "Infer the likely common type of up to 100 proper nouns (personal name, brand name, place name etc.)",
+      "description": "Infer the likely common type of up to 100 proper nouns (personal name, brand name, place name etc.)",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/nameTypeGeoBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "properNouns": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-country-of-origin-of-a-personal-name-assumes-names-as-they-are-in-the-country-of-origin-for-us-ca-au-nz-and-other-melting-pots-use-diaspora-instead",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely country of origin of a personal name. Assumes names as they are in the country of origin. For US, CA, AU, NZ and other melting-pots : use 'diaspora' instead.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/origin/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-country-of-origin-of-up-to-100-names-detecting-automatically-the-cultural-context",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely country of origin of up to 100 names, detecting automatically the cultural context.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/originBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-wang-xiao-ming-wang-surname-xiao-ming-given-name",
+      "name": "Infer the likely first/last name structure of a name, ex. \u738b\u6653\u660e -> \u738b(surname) \u6653\u660e(given name)",
+      "description": "Infer the likely first/last name structure of a name, ex. \u738b\u6653\u660e -> \u738b(surname) \u6653\u660e(given name)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseChineseName/{{CHINESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESENAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESENAME}} with a real chinesename."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-wang-xiao-ming-wang-surname-xiao-ming-given-name-2",
+      "name": "Infer the likely first/last name structure of a name, ex. \u738b\u6653\u660e -> \u738b(surname) \u6653\u660e(given name).",
+      "description": "Infer the likely first/last name structure of a name, ex. \u738b\u6653\u660e -> \u738b(surname) \u6653\u660e(given name).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseChineseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-shan-ben-zao-miao-or-yamamoto-sanae",
+      "name": "Infer the likely first/last name structure of a name, ex. \u5c71\u672c \u65e9\u82d7 or Yamamoto Sanae",
+      "description": "Infer the likely first/last name structure of a name, ex. \u5c71\u672c \u65e9\u82d7 or Yamamoto Sanae",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseJapaneseName/{{JAPANESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JAPANESENAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{JAPANESENAME}} with a real japanesename."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-shan-ben-zao-miao-or-yamamoto-sanae-2",
+      "name": "Infer the likely first/last name structure of a name, ex. \u5c71\u672c \u65e9\u82d7 or Yamamoto Sanae ",
+      "description": "Infer the likely first/last name structure of a name, ex. \u5c71\u672c \u65e9\u82d7 or Yamamoto Sanae ",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseJapaneseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-john-smith-or-smith-john-or-smith-john",
+      "name": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. ",
+      "description": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. ",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseName/{{NAMEFULL}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMEFULL}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{NAMEFULL}} with a real namefull."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-john-smith-or-smith-john-or-smith-john-for-better-accuracy-provide-a-geographic-context",
+      "name": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.",
+      "description": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. For better accuracy, provide a geographic context.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseName/{{NAMEFULL}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMEFULL}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{NAMEFULL}} with a real namefull. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-john-smith-or-smith-john-or-smith-john-2",
+      "name": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.",
+      "description": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "infer-the-likely-first-last-name-structure-of-a-name-ex-john-smith-or-smith-john-or-smith-john-giving-a-local-context-improves-precision",
+      "name": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. ",
+      "description": "Infer the likely first/last name structure of a name, ex. John Smith or SMITH, John or SMITH; John. Giving a local context improves precision. ",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/parseNameGeoBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-11-units-per-name-infer-the-likely-country-and-phone-prefix-given-a-personal-name-and-formatted-unformatted-phone-number",
+      "name": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.",
+      "description": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, given a personal name and formatted / unformatted phone number.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/phoneCode/{{FIRSTNAME}}/{{LASTNAME}}/{{PHONENUMBER}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PHONENUMBER}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{PHONENUMBER}} with a real phonenumber. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "uses-11-units-per-name-infer-the-likely-country-and-phone-prefix-of-up-to-100-personal-names-detecting-automatically-the-local-context-given-a-name-and-formatted-unformatted-phone-number",
+      "name": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.",
+      "description": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, detecting automatically the local context given a name and formatted / unformatted phone number.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/phoneCodeBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNamesWithPhoneNumbers": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-11-units-per-name-infer-the-likely-phone-prefix-given-a-personal-name-and-formatted-unformatted-phone-number-with-a-local-context-iso2-country-of-residence",
+      "name": "[USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).",
+      "description": "[USES 11 UNITS PER NAME] Infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/phoneCodeGeo/{{FIRSTNAME}}/{{LASTNAME}}/{{PHONENUMBER}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COUNTRYISO2}}",
+        "{{PHONENUMBER}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{PHONENUMBER}} with a real phonenumber. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "uses-11-units-per-name-infer-the-likely-country-and-phone-prefix-of-up-to-100-personal-names-with-a-local-context-iso2-country-of-residence",
+      "name": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).",
+      "description": "[USES 11 UNITS PER NAME] Infer the likely country and phone prefix, of up to 100 personal names, with a local context (ISO2 country of residence).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/phoneCodeGeoBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNamesWithPhoneNumbers": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "credits-1-unit-feedback-loop-to-better-infer-the-likely-phone-prefix-given-a-personal-name-and-formatted-unformatted-phone-number-with-a-local-context-iso2-country-of-residence",
+      "name": "[CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).",
+      "description": "[CREDITS 1 UNIT] Feedback loop to better infer the likely phone prefix, given a personal name and formatted / unformatted phone number, with a local context (ISO2 country of residence).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/phoneCodeGeoFeedbackLoop/{{FIRSTNAME}}/{{LASTNAME}}/{{PHONENUMBER}}/{{PHONENUMBERE164}}/{{COUNTRYISO2}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COUNTRYISO2}}",
+        "{{PHONENUMBERE164}}",
+        "{{PHONENUMBER}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{COUNTRYISO2}} with a real countryiso2. Replace {{PHONENUMBERE164}} with a real phonenumbere164. Replace {{PHONENUMBER}} with a real phonenumber. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "romanize-the-chinese-name-to-pinyin-ex-wang-xiao-ming-wang-surname-xiaoming-given-name",
+      "name": "Romanize the Chinese name to Pinyin, ex. \u738b\u6653\u660e -> Wang (surname) Xiaoming (given name)",
+      "description": "Romanize the Chinese name to Pinyin, ex. \u738b\u6653\u660e -> Wang (surname) Xiaoming (given name)",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/pinyinChineseName/{{CHINESENAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{CHINESENAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CHINESENAME}} with a real chinesename."
+    },
+    {
+      "id": "romanize-a-list-of-chinese-name-to-pinyin-ex-wang-xiao-ming-wang-surname-xiaoming-given-name",
+      "name": "Romanize a list of Chinese name to Pinyin, ex. \u738b\u6653\u660e -> Wang (surname) Xiaoming (given name).",
+      "description": "Romanize a list of Chinese name to Pinyin, ex. \u738b\u6653\u660e -> Wang (surname) Xiaoming (given name).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/pinyinChineseNameBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "print-basic-source-statistics",
+      "name": "Print basic source statistics.",
+      "description": "Print basic source statistics.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/regions",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-religion-of-a-personal-full-name-nb-only-for-india-as-of-current-version",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely religion of a personal full name. NB: only for INDIA (as of current version).",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely religion of a personal full name. NB: only for INDIA (as of current version).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/religionFull/{{COUNTRYISO2}}/{{SUBDIVISIONISO31662}}/{{PERSONALNAMEFULL}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBDIVISIONISO31662}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{PERSONALNAMEFULL}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{SUBDIVISIONISO31662}} with a real subdivisioniso31662. Replace {{PERSONALNAMEFULL}} with a real personalnamefull. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-religion-of-up-to-100-personal-full-names-nb-only-for-india-as-of-currently",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely religion of up to 100 personal full names. NB: only for India as of currently.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely religion of up to 100 personal full names. NB: only for India as of currently.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/religionFullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-religion-of-a-personal-indian-full-name-provided-the-indian-state-or-union-territory-nb-this-can-be-inferred-using-the-subclassification-endpoint",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely religion of a personal Indian full name, provided the Indian state or Union territory (NB/ this can be inferred using the subclassification endpoint).",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely religion of a personal Indian full name, provided the Indian state or Union territory (NB/ this can be inferred using the subclassification endpoint).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/religionIndianFull/{{SUBDIVISIONISO31662}}/{{PERSONALNAMEFULL}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBDIVISIONISO31662}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{PERSONALNAMEFULL}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{SUBDIVISIONISO31662}} with a real subdivisioniso31662. Replace {{PERSONALNAMEFULL}} with a real personalnamefull."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-religion-of-up-to-100-personal-full-indian-names-provided-the-subclassification-at-state-or-union-territory-level-nb-can-be-inferred-using-the-subclassification-endpoint",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely religion of up to 100 personal full Indian names, provided the subclassification at State or Union territory level (NB/ can be inferred using the subclassification endpoint).",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely religion of up to 100 personal full Indian names, provided the subclassification at State or Union territory level (NB/ can be inferred using the subclassification endpoint).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/religionIndianFullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "get-the-current-software-version",
+      "name": "Get the current software version",
+      "description": "Get the current software version",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/softwareVersion",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-origin-of-a-name-at-a-country-subclassification-level-state-or-regeion-initially-this-is-only-supported-for-india-iso2-code-in",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely origin of a name at a country subclassification level (state or regeion). Initially, this is only supported for India (ISO2 code 'IN').",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely origin of a name at a country subclassification level (state or regeion). Initially, this is only supported for India (ISO2 code 'IN').",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/subclassification/{{COUNTRYISO2}}/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{COUNTRYISO2}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname. Replace {{COUNTRYISO2}} with a real countryiso2."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-origin-of-a-list-of-up-to-100-names-at-a-country-subclassification-level-state-or-regeion-initially-this-is-only-supported-for-india-iso2-code-in",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely origin of a list of up to 100 names at a country subclassification level (state or regeion). Initially, this is only supported for India (ISO2 code 'IN').",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely origin of a list of up to 100 names at a country subclassification level (state or regeion). Initially, this is only supported for India (ISO2 code 'IN').",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/subclassificationBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-indian-state-of-union-territory-according-to-iso-3166-2-in-based-on-the-name",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely Indian state of Union territory according to ISO 3166-2:IN based on the name.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely Indian state of Union territory according to ISO 3166-2:IN based on the name.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/subclassificationIndian/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-the-likely-indian-state-of-union-territory-according-to-iso-3166-2-in-based-on-a-list-of-up-to-100-names",
+      "name": "[USES 10 UNITS PER NAME] Infer the likely Indian state of Union territory according to ISO 3166-2:IN based on a list of up to 100 names.",
+      "description": "[USES 10 UNITS PER NAME] Infer the likely Indian state of Union territory according to ISO 3166-2:IN based on a list of up to 100 names.",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/subclassificationIndianBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "print-the-taxonomy-classes-valid-for-the-given-classifier",
+      "name": "Print the taxonomy classes valid for the given classifier.",
+      "description": "Print the taxonomy classes valid for the given classifier.",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/taxonomyClasses/{{CLASSIFIERNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLASSIFIERNAME}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{CLASSIFIERNAME}} with a real classifiername."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-a-us-resident-s-likely-race-ethnicity-according-to-us-census-taxonomy-w-nl-white-non-latino-hl-hispano-latino-a-asian-non-latino-b-nl-black-non-latino-optionally-add-header-x-option-usraceethnicity-taxonomy-usraceethnicity-6classes-for-two-additional-classes-ai-an-american-indian-or-alaskan-native-and-pi-pacific-islander",
+      "name": "[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "description": "[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/usRaceEthnicity/{{FIRSTNAME}}/{{LASTNAME}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-up-to-100-us-resident-s-likely-race-ethnicity-according-to-us-census-taxonomy-output-is-w-nl-white-non-latino-hl-hispano-latino-a-asian-non-latino-b-nl-black-non-latino-optionally-add-header-x-option-usraceethnicity-taxonomy-usraceethnicity-6classes-for-two-additional-classes-ai-an-american-indian-or-alaskan-native-and-pi-pacific-islander",
+      "name": "[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "description": "[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/usRaceEthnicityBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-a-us-resident-s-likely-race-ethnicity-according-to-us-census-taxonomy-using-optional-zip5-code-info-output-is-w-nl-white-non-latino-hl-hispano-latino-a-asian-non-latino-b-nl-black-non-latino-optionally-add-header-x-option-usraceethnicity-taxonomy-usraceethnicity-6classes-for-two-additional-classes-ai-an-american-indian-or-alaskan-native-and-pi-pacific-islander",
+      "name": "[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "description": "[USES 10 UNITS PER NAME] Infer a US resident's likely race/ethnicity according to US Census taxonomy, using (optional) ZIP5 code info. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "method": "GET",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/usRaceEthnicityZIP5/{{FIRSTNAME}}/{{LASTNAME}}/{{ZIP5CODE}}",
+      "headers": {
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ZIP5CODE}}",
+        "{{NAMSOR_API_KEY}}",
+        "{{FIRSTNAME}}",
+        "{{LASTNAME}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY. Replace {{ZIP5CODE}} with a real zip5code. Replace {{FIRSTNAME}} with a real firstname. Replace {{LASTNAME}} with a real lastname."
+    },
+    {
+      "id": "uses-10-units-per-name-infer-up-to-100-us-resident-s-likely-race-ethnicity-according-to-us-census-taxonomy-with-optional-zip-code-output-is-w-nl-white-non-latino-hl-hispano-latino-a-asian-non-latino-b-nl-black-non-latino-optionally-add-header-x-option-usraceethnicity-taxonomy-usraceethnicity-6classes-for-two-additional-classes-ai-an-american-indian-or-alaskan-native-and-pi-pacific-islander",
+      "name": "[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "description": "[USES 10 UNITS PER NAME] Infer up-to 100 US resident's likely race/ethnicity according to US Census taxonomy, with (optional) ZIP code. Output is W_NL (white, non latino), HL (hispano latino),  A (asian, non latino), B_NL (black, non latino). Optionally add header X-OPTION-USRACEETHNICITY-TAXONOMY: USRACEETHNICITY-6CLASSES for two additional classes, AI_AN (American Indian or Alaskan Native) and PI (Pacific Islander).",
+      "method": "POST",
+      "url": "https://v2.namsor.com/NamSorAPIv2/api2/json/usZipRaceEthnicityBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{NAMSOR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "facts": [],
+        "personalNames": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMSOR_API_KEY}}",
+        "{{NAMSOR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NAMSOR_API_KEY}} with your NAMSOR API KEY."
+    }
+  ]
+}

@@ -1,0 +1,442 @@
+{
+  "api_id": "googleapis.com:jobs:v4",
+  "endpoint_count": 16,
+  "endpoints": [
+    {
+      "id": "get-v4-name",
+      "name": "GET /v4/{name}",
+      "description": "Retrieves the specified job, whose status is OPEN or recently EXPIRED within the last 90 days.",
+      "method": "GET",
+      "url": "https://jobs.googleapis.com/v4/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v4-name",
+      "name": "DELETE /v4/{name}",
+      "description": "Deletes the specified job. Typically, the job becomes unsearchable within 10 seconds, but it may take up to 5 minutes.",
+      "method": "DELETE",
+      "url": "https://jobs.googleapis.com/v4/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v4-name",
+      "name": "PATCH /v4/{name}",
+      "description": "Updates specified job. Typically, updated contents become visible in search results within 10 seconds, but it may take up to 5 minutes.",
+      "method": "PATCH",
+      "url": "https://jobs.googleapis.com/v4/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "addresses": [],
+        "applicationInfo": {},
+        "company": "",
+        "companyDisplayName": "",
+        "compensationInfo": {},
+        "customAttributes": {},
+        "degreeTypes": [],
+        "department": "",
+        "derivedInfo": {},
+        "description": "",
+        "employmentTypes": [],
+        "incentives": "",
+        "jobBenefits": [],
+        "jobEndTime": "",
+        "jobLevel": "",
+        "jobStartTime": "",
+        "languageCode": "",
+        "name": "",
+        "postingCreateTime": "",
+        "postingExpireTime": "",
+        "postingPublishTime": "",
+        "postingRegion": "",
+        "postingUpdateTime": "",
+        "processingOptions": {},
+        "promotionValue": 0,
+        "qualifications": "",
+        "requisitionId": "",
+        "responsibilities": "",
+        "title": "",
+        "visibility": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v4-parent-clientevents",
+      "name": "POST /v4/{parent}/clientEvents",
+      "description": "Report events issued when end user interacts with customer's application that uses Cloud Talent Solution. You may inspect the created events in [self service tools](https://console.cloud.google.com/talent-solution/overview). [Learn more](https://cloud.google.com/talent-solution/docs/management-tools) about self service tools.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/clientEvents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "createTime": "",
+        "eventId": "",
+        "eventNotes": "",
+        "jobEvent": {},
+        "requestId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v4-parent-companies",
+      "name": "GET /v4/{parent}/companies",
+      "description": "Lists all companies associated with the project.",
+      "method": "GET",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/companies",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-companies",
+      "name": "POST /v4/{parent}/companies",
+      "description": "Creates a new company entity.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/companies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "careerSiteUri": "",
+        "derivedInfo": {},
+        "displayName": "",
+        "eeoText": "",
+        "externalId": "",
+        "headquartersAddress": "",
+        "hiringAgency": false,
+        "imageUri": "",
+        "keywordSearchableJobCustomAttributes": [],
+        "name": "",
+        "size": "",
+        "suspended": false,
+        "websiteUri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v4-parent-jobs",
+      "name": "GET /v4/{parent}/jobs",
+      "description": "Lists jobs by filter.",
+      "method": "GET",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs",
+      "name": "POST /v4/{parent}/jobs",
+      "description": "Creates a new job. Typically, the job becomes searchable within 10 seconds, but it may take up to 5 minutes.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "addresses": [],
+        "applicationInfo": {},
+        "company": "",
+        "companyDisplayName": "",
+        "compensationInfo": {},
+        "customAttributes": {},
+        "degreeTypes": [],
+        "department": "",
+        "derivedInfo": {},
+        "description": "",
+        "employmentTypes": [],
+        "incentives": "",
+        "jobBenefits": [],
+        "jobEndTime": "",
+        "jobLevel": "",
+        "jobStartTime": "",
+        "languageCode": "",
+        "name": "",
+        "postingCreateTime": "",
+        "postingExpireTime": "",
+        "postingPublishTime": "",
+        "postingRegion": "",
+        "postingUpdateTime": "",
+        "processingOptions": {},
+        "promotionValue": 0,
+        "qualifications": "",
+        "requisitionId": "",
+        "responsibilities": "",
+        "title": "",
+        "visibility": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs-batchcreate",
+      "name": "POST /v4/{parent}/jobs:batchCreate",
+      "description": "Begins executing a batch create jobs operation.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs:batchCreate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "jobs": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs-batchdelete",
+      "name": "POST /v4/{parent}/jobs:batchDelete",
+      "description": "Begins executing a batch delete jobs operation.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs:batchDelete",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "names": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs-batchupdate",
+      "name": "POST /v4/{parent}/jobs:batchUpdate",
+      "description": "Begins executing a batch update jobs operation.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs:batchUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "jobs": [],
+        "updateMask": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs-search",
+      "name": "POST /v4/{parent}/jobs:search",
+      "description": "Searches for jobs using the provided SearchJobsRequest. This call constrains the visibility of jobs present in the database, and only returns jobs that the caller has permission to search against.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs:search",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "customRankingInfo": {},
+        "disableKeywordMatch": false,
+        "diversificationLevel": "",
+        "enableBroadening": false,
+        "histogramQueries": [],
+        "jobQuery": {},
+        "jobView": "",
+        "keywordMatchMode": "",
+        "maxPageSize": 0,
+        "offset": 0,
+        "orderBy": "",
+        "pageToken": "",
+        "requestMetadata": {},
+        "searchMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-jobs-searchforalert",
+      "name": "POST /v4/{parent}/jobs:searchForAlert",
+      "description": "Searches for jobs using the provided SearchJobsRequest. This API call is intended for the use case of targeting passive job seekers (for example, job seekers who have signed up to receive email alerts about potential job opportunities), it has different algorithmic adjustments that are designed to specifically target passive job seekers. This call constrains the visibility of jobs present in the database, and only returns jobs the caller has permission to search against.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/jobs:searchForAlert",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "customRankingInfo": {},
+        "disableKeywordMatch": false,
+        "diversificationLevel": "",
+        "enableBroadening": false,
+        "histogramQueries": [],
+        "jobQuery": {},
+        "jobView": "",
+        "keywordMatchMode": "",
+        "maxPageSize": 0,
+        "offset": 0,
+        "orderBy": "",
+        "pageToken": "",
+        "requestMetadata": {},
+        "searchMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v4-parent-tenants",
+      "name": "GET /v4/{parent}/tenants",
+      "description": "Lists all tenants associated with the project.",
+      "method": "GET",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/tenants",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v4-parent-tenants",
+      "name": "POST /v4/{parent}/tenants",
+      "description": "Creates a new tenant entity.",
+      "method": "POST",
+      "url": "https://jobs.googleapis.com/v4/{{PARENT}}/tenants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "externalId": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v4-tenant-completequery",
+      "name": "GET /v4/{tenant}:completeQuery",
+      "description": "Completes the specified prefix with keyword suggestions. Intended for use by a job search auto-complete search box.",
+      "method": "GET",
+      "url": "https://jobs.googleapis.com/v4/{{TENANT}}:completeQuery",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TENANT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TENANT}} with a real tenant."
+    }
+  ]
+}

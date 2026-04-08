@@ -1,0 +1,336 @@
+{
+  "api_id": "googleapis.com:secretmanager:v1",
+  "endpoint_count": 15,
+  "endpoints": [
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets metadata for a SecretVersion. `projects/*/secrets/*/versions/latest` is an alias to the most recently created SecretVersion.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a Secret.",
+      "method": "DELETE",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates metadata of an existing Secret.",
+      "method": "PATCH",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "annotations": {},
+        "createTime": "",
+        "etag": "",
+        "expireTime": "",
+        "labels": {},
+        "name": "",
+        "replication": {},
+        "rotation": {},
+        "topics": [],
+        "ttl": "",
+        "versionAliases": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-locations",
+      "name": "GET /v1/{name}/locations",
+      "description": "Lists information about the supported locations for this service.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}/locations",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-access",
+      "name": "GET /v1/{name}:access",
+      "description": "Accesses a SecretVersion. This call returns the secret data. `projects/*/secrets/*/versions/latest` is an alias to the most recently created SecretVersion.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}:access",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-destroy",
+      "name": "POST /v1/{name}:destroy",
+      "description": "Destroys a SecretVersion. Sets the state of the SecretVersion to DESTROYED and irrevocably destroys the secret data.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}:destroy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "etag": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-disable",
+      "name": "POST /v1/{name}:disable",
+      "description": "Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}:disable",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "etag": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-enable",
+      "name": "POST /v1/{name}:enable",
+      "description": "Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{NAME}}:enable",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "etag": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-secrets",
+      "name": "GET /v1/{parent}/secrets",
+      "description": "Lists Secrets.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{PARENT}}/secrets",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-secrets",
+      "name": "POST /v1/{parent}/secrets",
+      "description": "Creates a new Secret containing no SecretVersions.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{PARENT}}/secrets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "annotations": {},
+        "createTime": "",
+        "etag": "",
+        "expireTime": "",
+        "labels": {},
+        "name": "",
+        "replication": {},
+        "rotation": {},
+        "topics": [],
+        "ttl": "",
+        "versionAliases": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-versions",
+      "name": "GET /v1/{parent}/versions",
+      "description": "Lists SecretVersions. This call does not return secret data.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{PARENT}}/versions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-addversion",
+      "name": "POST /v1/{parent}:addVersion",
+      "description": "Creates a new SecretVersion containing secret data and attaches it to an existing Secret.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{PARENT}}:addVersion",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payload": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-resource-getiampolicy",
+      "name": "GET /v1/{resource}:getIamPolicy",
+      "description": "Gets the access control policy for a secret. Returns empty policy if the secret exists and does not have a policy set.",
+      "method": "GET",
+      "url": "https://secretmanager.googleapis.com/v1/{{RESOURCE}}:getIamPolicy",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v1-resource-setiampolicy",
+      "name": "POST /v1/{resource}:setIamPolicy",
+      "description": "Sets the access control policy on the specified secret. Replaces any existing policy. Permissions on SecretVersions are enforced according to the policy set on the associated Secret.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{RESOURCE}}:setIamPolicy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "policy": {},
+        "updateMask": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v1-resource-testiampermissions",
+      "name": "POST /v1/{resource}:testIamPermissions",
+      "description": "Returns permissions that a caller has for the specified secret. If the secret does not exist, this call returns an empty set of permissions, not a NOT_FOUND error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.",
+      "method": "POST",
+      "url": "https://secretmanager.googleapis.com/v1/{{RESOURCE}}:testIamPermissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "permissions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    }
+  ]
+}

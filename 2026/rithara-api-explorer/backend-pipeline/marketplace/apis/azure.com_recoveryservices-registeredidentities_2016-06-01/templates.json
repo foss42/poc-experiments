@@ -1,0 +1,57 @@
+{
+  "api_id": "azure.com:recoveryservices-registeredidentities:2016-06-01",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-certificates-certificatename",
+      "name": "PUT /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/certificates/{certificateName}",
+      "description": "Uploads a certificate for a resource.",
+      "method": "PUT",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/certificates/{{CERTIFICATENAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CERTIFICATENAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{CERTIFICATENAME}} with a real certificatename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-registeredidentities-identityname",
+      "name": "DELETE /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/registeredIdentities/{identityName}",
+      "description": "Unregisters the given container from your Recovery Services vault.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/registeredIdentities/{{IDENTITYNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{IDENTITYNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{IDENTITYNAME}} with a real identityname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    }
+  ]
+}

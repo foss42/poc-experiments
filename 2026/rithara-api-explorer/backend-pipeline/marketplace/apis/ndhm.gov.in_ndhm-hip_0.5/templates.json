@@ -1,0 +1,565 @@
+{
+  "api_id": "ndhm.gov.in:ndhm-hip:0.5",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "id": "get-openid-configuration",
+      "name": "Get openid configuration",
+      "description": "Get openid configuration",
+      "method": "GET",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/.well-known/openid-configuration",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "discover-patient-s-accounts",
+      "name": "Discover patient's accounts",
+      "description": "Request for patient care context discover, made by Gateway intended for a specific HIP. It is expected that HIP will subsequently return either zero or one patient record with (potentially masked) associated care contexts\n  1. **At least one of the verified identifier matches**\n  2. **Name (fuzzy), gender matches**\n  3. **If YoB was given, age band(+-2) matches**\n  4. **If unverified identifiers were given, one of them matches**\n  5. **If more than one patient records would be found after aforementioned steps, then patient who matches most verified and unverified identifiers would be returned.**\n  6. **If there would be still more than one patients (after ranking) error would be returned**\n  7. **Intended HIP should be able to resolve and identify results returned in the subsequent link confirmation request via the specified transactionId**\n  8. **Intended HIP should store the discovery results with transactionId and care contexts discovered for subsequent link initiation**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/care-contexts/discover",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+        "timestamp": "",
+        "transactionId": "",
+        "patient": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "response-to-patient-s-account-discovery-request",
+      "name": "Response to patient's account discovery request",
+      "description": "Result of patient care-context discovery request at HIP end. If a matching patient found with zero or more care contexts associated, it is specified as result attribute. If the prior discovery request, resulted in errors then it is specified in the error attribute. Reasons of errors can be \n  1. **more than one definitive match for the given request** \n  2. **no verified identifer was specified**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/care-contexts/on-discover",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "transactionId": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-certs-for-jwt-verification",
+      "name": "Get certs for JWT verification",
+      "description": "Get certs for JWT verification",
+      "method": "GET",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/certs",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "consent-notification",
+      "name": "Consent notification",
+      "description": "Notification of consents to health information providers consent request granted, consent revoked, consent expired. Only the GRANTED and REVOKED status notifications will be sent to HIP.\n  1. If consent is granted, status=GRANTED, then consentDetail contains the consent artefact details and signature is available. \n  2. If consent is revoked, then status=REVOKED, and consentId specifes which consent artefact is revoked. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/consents/hip/notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "notification": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "consent-notification-2",
+      "name": "Consent notification",
+      "description": "This API is called by HIP as acknowledgement to notification of consents, in cases of consent revocation and expiration. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/consents/hip/on-notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "health-information-data-request",
+      "name": "Health information data request",
+      "description": "API called by HIP to acknowledge Health information request receipt. Either the **hiRequest** or **error** must be specified. **hiRequest** element returns the same transactionId as before with a status indicating that the request is acknowledged.  \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/health-information/hip/on-request",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "health-information-data-request-2",
+      "name": "Health information data request",
+      "description": "API called by CM to request Health information from HIP against a validated consent artefact. The transactionId is the correlation id that HIP should use use when pushing data to the **dataPushUrl**. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/health-information/hip/request",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+        "timestamp": "",
+        "transactionId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d",
+        "hiRequest": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "notifications-corresponding-to-events-during-data-flow",
+      "name": "Notifications corresponding to events during data flow",
+      "description": "API called by HIU and HIP during data-transfer. \n1. HIP on transfer of data would send **sessionStatus** - one of [TRANSFERRED, FAILED]\n2. HIP would also send **hiStatus** for each *careContextReference* - on of [DELIVERED, ERRORED]\n3. HIU on receipt of data would send **sessionStatus** - one of [TRANSFERRED, FAILED]. For example, FAILED when if data was not sent or if invalid data was sent\n4. HIU would also send **hiStatus** for each *careContextReference* - one of [OK, ERRORED] \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/health-information/notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+        "timestamp": "",
+        "notification": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "health-information-transfer-api",
+      "name": "health information transfer API",
+      "description": "**NOTE**: This API is actually the callback URL that is passed as **dataPushUrl** in the data request API - /v0.5/health-information/hip/request. This API is directly called by HIP Data Bridge and is not mediated via CM, and hence not routed through the Gateway. \n  1. This API should be implemented at HIU side. It maybe implemented by the Data Bridge representing the HIU. \n  2. Entry elements maybe ***content*** or ***link***, although for version 1, entry ***content*** is preferred. \n  3. Entry ***content*** (or even link reference content) must be encrypted by means of Elliptic-curve Diffie\u2013Hellman Key Exchange, utilizing the HIU keymaterials that are passed through the data request API - /v0.5/health-information/hip/request. \n  4. Media contains the mimetype of content, and for v1, it is \"application/fhir+json\"\n  5. checksum is Md5 checksum of the data conent, before encryption\n  6. Please refer to the NDHM Sandbox Documentation for the format of FHIR bundle that is passed through content \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/health-information/transfer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "transactionId": "",
+        "entries": [],
+        "keyMaterial": {},
+        "pageNumber": 0,
+        "pageCount": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-consent-request-status",
+      "name": "Get consent request status",
+      "description": "Get consent request status",
+      "method": "GET",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/heartbeat",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "api-for-hip-initiated-care-context-linking-for-patient",
+      "name": "API for HIP initiated care-context linking for patient",
+      "description": "API to submit care-context to CM for HIP initiated linking. The API must accompany the \"accessToken\" fetched in the users/auth process.  \n  1. subsequent usage for accessToken may be invalid if it was meant for one-time usage or if it expired\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/add-contexts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "link": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "token-submission-by-consent-manager-for-link-confirmation",
+      "name": "Token submission by Consent Manager for link confirmation",
+      "description": "API to submit the token that was sent by HIP during the link request. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/confirm",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "",
+        "timestamp": "",
+        "confirmation": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "link-patient-s-care-contexts",
+      "name": "Link patient's care contexts",
+      "description": "Request from Gateway to links care contexts associated with only one patient\n  1. **Validate account reference number and care context reference number**\n  2. **Validate transactionId in the request with discovery request entry to check whether there was a discovery\n      and were these care contexts discovered or not for a given patient**\n  3. **Before eventual link confirmation, HIP needs to authenticate the request with the patient(eg: OTP verification)**\n  4. **HIP should communicate the mode of authentication of a successful request to Consent Manager**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/init",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "",
+        "timestamp": "",
+        "patient": {},
+        "transactionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "callback-api-for-hip-initiated-patient-linking-link-add-context",
+      "name": "callback API for HIP initiated patient linking /link/add-context",
+      "description": "If the accessToken is valid for purpose of linking, and specified details provided, CM will send \"acknoweldgement.status\" as SUCCESS. If any error occcurred, for example invalid token, or other required patient or care-context information not provided, then \"error\" attribute conveys so. \n  1. **accessToken must be valid and must be for the purpose of linking**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/on-add-contexts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "token-authenticated-by-hip-indicating-completion-of-linkage-of-care-contexts",
+      "name": "Token authenticated by HIP, indicating completion of linkage of care-contexts",
+      "description": "Returns a list of linked care contexts with patient reference number.\n  1. **Validated and linked account reference number**\n  2. **Validated that the token sent from Consent Manager is same as the one generated by HIP**\n  3. **Verified that same Consent Manager which made the link request is sending the token**\n  4. **Results of unmasked linked care contexts with patient reference number**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/on-confirm",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "response-to-patient-s-care-context-link-request",
+      "name": "Response to patient's care context link request",
+      "description": "Result of patient care-context link request from HIP end. This happens in context of previous discovery of patient found at HIP end, therefore the link requests ought to be in reference to the patient reference and care-context references previously returned by the HIP. The correlation of discovery and link request is maintained through the transactionId. HIP should have\n  1. **Validated transactionId in the request to check whether there was a discovery done previously, and the link request corresponds to returned patient care care context references**\n  2. **Before returning the response, HIP should have sent an authentication request to the patient(eg: OTP verification)**\n  3. **HIP should communicate the mode of authentication of a successful request**\n  4. **HIP subsequently should expect the token passed via /link/confirm against the link.referenceNumber passed in this call**\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThe error section in the body, represents the potential errors that may have occurred. Possible reasons:\n  1. **Patient reference number is invalid**\n  2. **Care context reference numbers are invalid**\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/links/link/on-init",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {},
+        "transactionId": "a1s2c932-2f70-3ds3-a3b5-2sfd46b12a18d"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "response-to-patient-s-share-profile-request",
+      "name": "Response to patient's share profile request",
+      "description": "Result of patient share profile request at HIP end.\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/patients/profile/on-share",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "acknowledgement": {},
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "share-patient-profile-details",
+      "name": "Share patient profile details",
+      "description": "Request for sharing patient's profile details to HIP\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/patients/profile/share",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "499a5a4a-7dda-4f20-9b67-e24589627061",
+        "timestamp": "",
+        "patient": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "api-for-hip-to-send-sms-notifications-to-patients",
+      "name": "API for HIP to send SMS notifications to patients",
+      "description": "API to send SMS notifications to patient with custom deeplink.\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/patients/sms/notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "notification": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "acknowledgment-response-for-sms-notification-sent-to-patient-by-hip",
+      "name": "Acknowledgment response for SMS notification sent to patient by HIP",
+      "description": "If the SMS notification is successfully sent to patient then \"status\" will be \"ACKNOWLEDGED\" with no error.\nIf the SMS notification is failed then \"status\" will be \"ERRORED\" with error.\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/patients/sms/on-notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-access-token",
+      "name": "Get access token",
+      "description": "Get access token",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/sessions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "clientId": "",
+        "clientSecret": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "confirmation-request-sending-token-otp-or-other-authentication-details-from-hip-hiu-for-confirmation",
+      "name": "Confirmation request sending token, otp or other authentication details from HIP/HIU for confirmation",
+      "description": "This API is called by HIP/HIUs to confirm authentication of users. The transactionId returned by the previous callback API /users/auth/on-init must be sent. If Authentication is successful the callback API will send an \"access token\" for subsequent purpose specific API calls. Note only **credential.authCode** or **credential.demographic** should be sent\n  1. demographic details are only required for  demographic auth as of now. \n  2. demographic details are required only in MEDIATED cases and if the **auth.mode** so demands. e.g. if **auth.mode** is DEMOGRAPHICS. Usually for demographic authentication, the name, gender and DOB must be exactly as specified in User Account.\n  3. demographic.identifier is optional, however maybe required if authentication so mandates. \n  4. credential.authCode is required for other MEDIATED authentication like MOBILE_OTP, AADHAAR_OTP. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/confirm",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "transactionId": "",
+        "credential": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-patient-s-authentication-modes-relevant-to-specified-purpose",
+      "name": "Get a patient's authentication modes relevant to specified purpose",
+      "description": "This API is meant for identify supported authentication modes for a patient given a specific purpose\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/fetch-modes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "query": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "initialize-authentication-from-hip",
+      "name": "Initialize authentication from HIP",
+      "description": "This API is called by HIPs to initiate authentication of users. A transactionId is retuned by the corresponding callback API for confirmation of user auth.\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/init",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "query": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "notification-api-in-case-of-direct-mode-of-authentication-by-the-cm",
+      "name": "notification API in case of DIRECT mode of authentication by the CM",
+      "description": "This API is called by CM to confirm authentication of users. The transactionId returned is same as that passed in /auth/on-init. The \"auth.status\" conveys whether the request was GRANTED or DENIED.\n\n  1. **auth.accessToken** - is specific to the purpose mentioned in the /auth/init. This token needs to be used for initiating the intended action. For example for HIP initiated linking of care-contexts\n  2. **NOTE**, only one of **X-HIP-ID** or **X-HIU-ID** will be sent as part of header, not both.\n  3. The payload is conditional to the purpose of auth. If purpose specified in /auth/init is KYC or KYC_AND_LINK, then patient details are passed. **auth.accessToken** is passed only if the purpose is LINK or KYC_AND_LINK.\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "callback-api-for-auth-confirm-in-case-of-mediated-auth-to-confirm-user-authentication-or-not",
+      "name": "callback API for /auth/confirm (in case of MEDIATED auth) to confirm user authentication or not",
+      "description": "This API is called by CM to confirm authentication of users.\n\n  1. **auth.accessToken** - is specific to the purpose mentioned in the /auth/init. This token needs to be used for initiating the intended action. For example for HIP initiated linking of care-contexts\n  2. **NOTE**, only one of **X-HIP-ID** or **X-HIU-ID** will be sent as part of header, not both.     \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/on-confirm",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "identification-result-for-a-consent-manager-user-id",
+      "name": "Identification result for a consent-manager user-id",
+      "description": "If a patient is found then **auth** attribute contains the supported modes for the specified purpose. \nOtherwise, error is raised for invalid requests or for non-existent id.\nNote in addition to the \"Authorization\" header, one of the following headers must be specified\n1. **X-HIU-ID** if the requester is HIU (identified from /auth/fetch-modes requester.id)\n2. **X-HIP-ID** if the requester is HIP (identified from /auth/fetch-modes requester.id)\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/on-fetch-modes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "response-to-user-authentication-initialization-from-hip",
+      "name": "Response to user authentication initialization from HIP",
+      "description": "If the patient's id is valid, CM will return a transactionId as initialization of user auth. If the request is valid, then 'auth.mode' will convey how the authentication should be done. The authentication can be *mediated* or *direct*. For mediated authentication modes, HIP or HIU is epected to send over relevant code (OTP/token) or demographic info via subsequent API call to /auth/confirm. for direct authentication case, CM will notify requester through/users/auth/notify API. \n\n  1. **auth.mode** conveys whats the mode of authentication is, and what is expected from HIP/HIU in the subsequent /auth/confirm API call. Possible values \n      1. MOBILE_OTP - auth via OTP to registered mobile. Mediated. \n      2. AADHAAR_OTP - auth initiated with Aadhaar with OTP. Mediated. \n      3. DEMOGRAPHICS - auth initiated with demographic verification\n      4. DIRECT - for authentication directly with the patient. e.g. Mobile App, SMS. In this case, the HIP/HIU is not expected to call subsequent /auth/confirm call. CM will do direct authentication with the User (e.g. Mobile App, SMS etc) and will notify requester\n  2. **meta.expiry** conveys the expiry time of the token and the authentication session\n  3. **NOTE**, only one of **X-HIP-ID** or **X-HIU-ID** will be sent as part of header, not both. \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nThe error section in the body, represents the potential errors that may have occurred. Possible reasons:\n  1. Patient id is invalid\n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/on-init",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "callback-api-by-hiu-hips-as-acknowledgement-of-auth-notification",
+      "name": "callback API by HIU/HIPs as acknowledgement of auth notification",
+      "description": "This API is called by HIU/HIPs to confirm acknowledgement for receipt of auth notification is case of DIRECT authentication. \n",
+      "method": "POST",
+      "url": "https://dev.ndhm.gov.in/gateway/v0.5/users/auth/on-notify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "requestId": "5f7a535d-a3fd-416b-b069-c97d021fbacd",
+        "timestamp": "",
+        "resp": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

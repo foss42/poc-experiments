@@ -1,0 +1,137 @@
+{
+  "api_id": "azure.com:datalake-analytics-job:2016-03-20-preview",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "post-buildjob",
+      "name": "POST /BuildJob",
+      "description": "Builds (compiles) the specified job in the specified Data Lake Analytics account for job correctness and validation.",
+      "method": "POST",
+      "url": "https://azure.local/BuildJob",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "name": "",
+        "type": "",
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-jobs",
+      "name": "GET /Jobs",
+      "description": "Lists the jobs, if any, associated with the specified Data Lake Analytics account. The response includes a link to the next page of results, if any.",
+      "method": "GET",
+      "url": "https://azure.local/Jobs",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-jobs-jobidentity",
+      "name": "GET /Jobs/{jobIdentity}",
+      "description": "Gets the job information for the specified job ID.",
+      "method": "GET",
+      "url": "https://azure.local/Jobs/{{JOBIDENTITY}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBIDENTITY}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBIDENTITY}} with a real jobidentity."
+    },
+    {
+      "id": "put-jobs-jobidentity",
+      "name": "PUT /Jobs/{jobIdentity}",
+      "description": "Submits a job to the specified Data Lake Analytics account.",
+      "method": "PUT",
+      "url": "https://azure.local/Jobs/{{JOBIDENTITY}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "name": "",
+        "type": "",
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBIDENTITY}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBIDENTITY}} with a real jobidentity."
+    },
+    {
+      "id": "post-jobs-jobidentity-canceljob",
+      "name": "POST /Jobs/{jobIdentity}/CancelJob",
+      "description": "Cancels the running job specified by the job ID.",
+      "method": "POST",
+      "url": "https://azure.local/Jobs/{{JOBIDENTITY}}/CancelJob",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBIDENTITY}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBIDENTITY}} with a real jobidentity."
+    },
+    {
+      "id": "post-jobs-jobidentity-getdebugdatapath",
+      "name": "POST /Jobs/{jobIdentity}/GetDebugDataPath",
+      "description": "Gets the job debug data information specified by the job ID.",
+      "method": "POST",
+      "url": "https://azure.local/Jobs/{{JOBIDENTITY}}/GetDebugDataPath",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBIDENTITY}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBIDENTITY}} with a real jobidentity."
+    },
+    {
+      "id": "get-jobs-jobidentity-getstatistics",
+      "name": "GET /Jobs/{jobIdentity}/GetStatistics",
+      "description": "Gets statistics of the specified job.",
+      "method": "GET",
+      "url": "https://azure.local/Jobs/{{JOBIDENTITY}}/GetStatistics",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBIDENTITY}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBIDENTITY}} with a real jobidentity."
+    }
+  ]
+}

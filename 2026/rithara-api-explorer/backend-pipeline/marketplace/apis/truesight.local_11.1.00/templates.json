@@ -1,0 +1,438 @@
+{
+  "api_id": "truesight.local:11.1.00",
+  "endpoint_count": 22,
+  "endpoints": [
+    {
+      "id": "triggers-a-new-collect-on-a-specific-device",
+      "name": "Triggers a new collect on a specific device.",
+      "description": "You need to provide the <b>Device ID</b> and <b>Monitor Class</b> parameters to identify the device:<br>- Use the <b>/hardware/devices</b> service in the <b>Device</b> section to retrieve the <b>Device ID</b> of any device.<br>- Use the <b>/hardware/device-monitors/{deviceId}</b> service in the <b>Device</b> section to retrieve the <b>Monitor Class</b> of a device.",
+      "method": "POST",
+      "url": "http://truesight.local/hardware/actions/{{DEVICEID}}/collect-now",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "monitorClass": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "triggers-a-new-discovery-on-a-specific-device",
+      "name": "Triggers a new discovery on a specific device.",
+      "description": "You need to provide the <b>Device ID</b> to identify the device:<br>- Use the <b>/hardware/devices</b> service in the <b>Device</b> section to retrieve the <b>Device ID</b> of a device.",
+      "method": "POST",
+      "url": "http://truesight.local/hardware/actions/{{DEVICEID}}/rediscover",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "removes-a-specific-instance-from-the-monitoring-environment",
+      "name": "Removes a specific instance from the monitoring environment.",
+      "description": "You need to provide the <b>Device ID</b>, the <b>Monitor Class</b> and the <b>Monitor SID</b> parameters:<br>- Use the <b>/hardware/devices</b> service in the <b>Device</b> section to retrieve the <b>Device ID</b> of any device.<br>- Use the <b>/hardware/device-monitors/{deviceId}</b> service in the <b>Device</b> section to retrieve the <b>Monitor Class</b> and the <b>Monitor SID</b> for a device.<br><br>(Example:\"path\":\"/MS_HW_MAIN/10025150\" where <em>MS_HW_MAIN</em> is the Monitor Class and <em>10025150</em> is the Monitor SID).",
+      "method": "POST",
+      "url": "http://truesight.local/hardware/actions/{{DEVICEID}}/remove",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "monitorClass": "",
+        "monitorSid": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "resets-the-error-count-parameter",
+      "name": "Resets the Error Count parameter.",
+      "description": "Sets the Error Count parameter to 0.<br><br>You need to provide the <b>Device ID</b>, the <b>Monitor Class</b> and the <b>Monitor SID</b> parameters:<br>- Use the <b>/hardware/devices</b> service in the <b>Device</b> section to retrieve the <b>Device ID</b> of any device.<br>- Use the <b>/hardware/device-monitors/{deviceId}</b> service in the <b>Device</b> section to retrieve the <b>Monitor Class</b> and the <b>Monitor SID</b> for a device.<br><br>(Example:\"path\":\"/MS_HW_MAIN/10025150\" where <em>MS_HW_MAIN</em> is the Monitor Class and <em>10025150</em> is the monitorSid).",
+      "method": "POST",
+      "url": "http://truesight.local/hardware/actions/{{DEVICEID}}/reset-error-count",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "monitorClass": "",
+        "monitorSid": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-summarized-information-about-all-monitored-applications",
+      "name": "Gets summarized information about all monitored applications.",
+      "description": "Lists all the available ApplicationSummary instances.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/applications",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-detailed-information-for-a-specific-application",
+      "name": "Gets detailed information for a specific application.",
+      "description": "You need to provide an <b>Application ID</b>:<br>- use the <b>hardware/applications</b> service to retrieve all available application IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/applications/{{APPLICATIONID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPLICATIONID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{APPLICATIONID}} with a real applicationid."
+    },
+    {
+      "id": "gets-the-monitors-for-a-specific-device",
+      "name": "Gets the Monitors for a specific device.",
+      "description": "You need to provide a <b>Device ID</b>:<br>- use the <b>hardware/devices</b> service to get all available device IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/device-monitors/{{DEVICEID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-summarized-information-about-all-monitored-devices",
+      "name": "Gets summarized information about all monitored devices.",
+      "description": "Lists the available DeviceSummary instances.<br><br>If a parent ID (group ID, application ID, or service ID) is provided, the function narrows down the devices list to those attached to the specified parent:<br>- use the <b>hardware/groups</b> service in the <b>Groups</b> section to get all available group IDs.<br>- use the <b>hardware/applications</b> service in the <b>Applications</b> section to get all available application IDs.<br>- use the <b>hardware/services</b> service in the <b>Services</b> section to get all available service IDs.<br><br><b>Note</b>: At most, one parent ID is taken into account according to this order of precedence:<ol><li>group ID</li><li>application ID</li><li>service ID</li></ol>",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-overall-information-for-all-devices",
+      "name": "Gets overall information for all devices.",
+      "description": "Lists the GlobalSummary instance for all the monitored devices.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices-summary",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-detailed-information-about-a-specific-device",
+      "name": "Gets detailed information about a specific device.",
+      "description": "You need to provide a <b>Device ID</b>:<br>-use the <b>hardware/devices</b> service to get all available device IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices/{{DEVICEID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-detailed-information-about-an-agent",
+      "name": "Gets detailed information about an Agent.",
+      "description": "You need to provide a <b>Device ID</b> to retrieve detailed information about the Agent that Monitors the device:<br>-use the <b>hardware/devices</b> service to get all available device IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices/{{DEVICEID}}/agent",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-a-list-of-all-the-devices-monitored-by-an-agent",
+      "name": "Gets a list of all the devices monitored by an Agent.",
+      "description": "You need to provide the <b>Device ID</b> of a device to retrieve any other devices monitored by the same Agent:<br>-use the <b>hardware/devices</b> service to get all available device IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices/{{DEVICEID}}/agent-devices",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-data-history-for-a-parameter-of-a-specific-device-over-a-given-period",
+      "name": "Gets data history for a parameter of a specific device over a given period.",
+      "description": "You need to provide the <b>Device ID</b>, <b>Parameter Name</b>, <b>Monitor Type</b> and <b>Monitor SID</b>:<br>- use the <b>hardware/devices</b> service to get all available device IDs<br>- use the <b>/hardware/device-monitors/{deviceId}</b> to get the parameter name, the Monitor type and the Monitor SID.<br><br>Finally, define the period for which you wish to retrieve data history.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/devices/{{DEVICEID}}/parameter-history",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "parameterName": "",
+        "monitorType": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-the-energy-usage-for-a-specific-device-and-a-given-period",
+      "name": "Gets the energy usage for a specific device and a given period.",
+      "description": "You need to provide the device ID:<br>- use the <b>hardware/devices</b> service to get all available device IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/energy-usage/{{DEVICEID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{DEVICEID}} with a real deviceid."
+    },
+    {
+      "id": "gets-all-group-summaries",
+      "name": "Gets all group summaries.",
+      "description": "Lists the available GroupSummary instances.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/groups",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-detailed-information-about-a-specific-group",
+      "name": "Gets detailed information about a specific group.",
+      "description": "You need to provide a <b>Device ID</b>:<br>- use the <b>hardware/groups</b> service to get all available group ID.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/groups/{{GROUPID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "updates-the-values-of-the-energy-footprint-parameter-for-a-specific-group",
+      "name": "Updates the values of the energy footprint parameter for a specific group.",
+      "description": "You need to provide a <b>Device ID</b>:<br>- use the <b>hardware/groups</b> service to get all available group ID.<br><br>If the ID is <em>\"global\"</em>, then the group being updated is the GlobalSummary.",
+      "method": "PUT",
+      "url": "http://truesight.local/hardware/groups/{{GROUPID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "co2Emission": 0.3,
+        "energyCost": 0.3,
+        "groupNameFilter": "Group [0-9]+"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "gets-the-heating-margin-values-for-each-monitored-device-when-available",
+      "name": "Gets the heating margin values for each monitored device, when available.",
+      "description": "If a parent ID (group ID, application ID, or service ID) is provided, the function narrows down the devices list to those attached to the specified parent:<br>- use the <b>hardware/groups</b> service in the <b>Groups</b> section to get all available group IDs.<br>- use the <b>hardware/applications</b> service in the <b>Applications</b> section to get all available application IDs.<br>- use the <b>hardware/services</b> service in the <b>Services</b> section to get all available service IDs.<br><br><b>Note</b>: At most, one parent ID is taken into account according to this order of precedence:<ol><li>group ID</li><li>application ID</li><li>service ID</li></ol>",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/heating-margin-devices",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-historical-data-for-a-specific-group-application-or-service",
+      "name": "Gets historical data for a specific group, application or service.",
+      "description": "Gets the historical data for a specific group, application or service, for a given period.<br><br>If a parent ID (group ID, application ID, or service ID) is provided, the function narrows down the devices list to those attached to the specified parent:<br>- use the <b>hardware/groups</b> service in the <b>Groups</b> section to get all available group IDs.<br>- use the <b>hardware/applications</b> service in the <b>Applications</b> section to get all available application IDs.<br>- use the <b>hardware/services</b> service in the <b>Services</b> section to get all available service IDs.<br><br><b>Note</b>: At most, one parent ID is taken into account according to this order of precedence:<ol><li>group ID</li><li>application ID</li><li>service ID</li></ol>",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/history",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "searches-devices-by-name-model-manufacturer-or-serial-number",
+      "name": "Searches devices by name, model, manufacturer or serial number.",
+      "description": "Gets the DeviceSummary instances whose name, model, manufacturer or serial number match the specified criteria.<br><br>If a parent ID (group ID, application ID, or service ID) is provided, the function narrows down the devices list to those attached to the specified parent:<br>- use the <b>hardware/groups</b> service in the <b>Groups</b> section to get all available group IDs.<br>- use the <b>hardware/applications</b> service in the <b>Applications</b> section to get all available application IDs.<br>- use the <b>hardware/services</b> service in the <b>Services</b> section to get all available service IDs.<br><br><b>Note</b>: At most, one parent ID is taken into account according to this order of precedence:<ol><li>group ID</li><li>application ID</li><li>service ID</li></ol>",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/search-devices",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "searchTerms": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-summarized-information-about-all-monitored-services",
+      "name": "Gets summarized information about all monitored services.",
+      "description": "Lists the available ServiceSummary instances.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/services",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY."
+    },
+    {
+      "id": "gets-detailed-information-about-a-specific-service",
+      "name": "Gets detailed information about a specific service.",
+      "description": "You need to provide a <b>Service ID</b> ID :<br>- use the <b>hardware/services</b> service to get all available service IDs.",
+      "method": "GET",
+      "url": "http://truesight.local/hardware/services/{{SERVICEID}}",
+      "headers": {
+        "Cookie": "{{TRUESIGHT_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICEID}}",
+        "{{TRUESIGHT_API_KEY}}",
+        "{{TRUESIGHT_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{TRUESIGHT_API_KEY}} with your TRUESIGHT API KEY. Replace {{SERVICEID}} with a real serviceid."
+    }
+  ]
+}

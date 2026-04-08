@@ -1,0 +1,2256 @@
+{
+  "api_id": "launchdarkly.com:5.3.0",
+  "endpoint_count": 105,
+  "endpoints": [
+    {
+      "id": "get",
+      "name": "GET /",
+      "description": "You can issue a GET request to the root resource to find all of the resource categories supported by the API.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "returns-a-list-of-relay-proxy-configurations-in-the-account",
+      "name": "Returns a list of relay proxy configurations in the account.",
+      "description": "Returns a list of relay proxy configurations in the account.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-new-relay-proxy-config",
+      "name": "Create a new relay proxy config.",
+      "description": "Create a new relay proxy config.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "My relay proxy config",
+        "policy": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-single-relay-proxy-configuration-by-id",
+      "name": "Get a single relay proxy configuration by ID.",
+      "description": "Get a single relay proxy configuration by ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-relay-proxy-configuration-by-id",
+      "name": "Delete a relay proxy configuration by ID.",
+      "description": "Delete a relay proxy configuration by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "modify-a-relay-proxy-configuration-by-id",
+      "name": "Modify a relay proxy configuration by ID.",
+      "description": "Modify a relay proxy configuration by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "reset-a-relay-proxy-configuration-s-secret-key-with-an-optional-expiry-time-for-the-old-key",
+      "name": "Reset a relay proxy configuration's secret key with an optional expiry time for the old key.",
+      "description": "Reset a relay proxy configuration's secret key with an optional expiry time for the old key.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/account/relay-auto-configs/{{ID}}/reset",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-all-audit-log-entries-the-query-parameters-allow-you-to-restrict-the-returned-results-by-date-ranges-resource-specifiers-or-a-full-text-search-query",
+      "name": "Get a list of all audit log entries. The query parameters allow you to restrict the returned results by date ranges, resource specifiers, or a full-text search query.",
+      "description": "Get a list of all audit log entries. The query parameters allow you to restrict the returned results by date ranges, resource specifiers, or a full-text search query.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/auditlog",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "use-this-endpoint-to-fetch-a-single-audit-log-entry-by-its-resouce-id",
+      "name": "Use this endpoint to fetch a single audit log entry by its resouce ID.",
+      "description": "Use this endpoint to fetch a single audit log entry by its resouce ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/auditlog/{{RESOURCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{RESOURCEID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{RESOURCEID}} with a real resourceid."
+    },
+    {
+      "id": "returns-a-list-of-all-data-export-destinations",
+      "name": "Returns a list of all data export destinations.",
+      "description": "Returns a list of all data export destinations.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/destinations",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-new-data-export-destination",
+      "name": "Create a new data export destination",
+      "description": "Create a new data export destination",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/destinations/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Example Google Pub/Sub Destination",
+        "kind": "google-pubsub",
+        "config": {
+          "project": "cool-project",
+          "topic": "test"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-single-data-export-destination-by-id",
+      "name": "Get a single data export destination by ID",
+      "description": "Get a single data export destination by ID",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/destinations/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{DESTINATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{DESTINATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey. Replace {{DESTINATIONID}} with a real destinationid."
+    },
+    {
+      "id": "get-a-single-data-export-destination-by-id-2",
+      "name": "Get a single data export destination by ID",
+      "description": "Get a single data export destination by ID",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/destinations/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{DESTINATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{DESTINATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey. Replace {{DESTINATIONID}} with a real destinationid."
+    },
+    {
+      "id": "perform-a-partial-update-to-a-data-export-destination",
+      "name": "Perform a partial update to a data export destination.",
+      "description": "Perform a partial update to a data export destination.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/destinations/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{DESTINATIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{DESTINATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey. Replace {{DESTINATIONID}} with a real destinationid."
+    },
+    {
+      "id": "get-the-status-for-a-particular-feature-flag-across-environments",
+      "name": "Get the status for a particular feature flag across environments",
+      "description": "Get the status for a particular feature flag across environments",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flag-status/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "get-a-list-of-statuses-for-all-feature-flags-the-status-includes-the-last-time-the-feature-flag-was-requested-as-well-as-the-state-of-the-flag",
+      "name": "Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.",
+      "description": "Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flag-statuses/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-the-status-for-a-particular-feature-flag",
+      "name": "Get the status for a particular feature flag.",
+      "description": "Get the status for a particular feature flag.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flag-statuses/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-list-of-all-features-in-the-given-project",
+      "name": "Get a list of all features in the given project.",
+      "description": "Get a list of all features in the given project.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "creates-a-new-feature-flag",
+      "name": "Creates a new feature flag.",
+      "description": "Creates a new feature flag.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "new test flag",
+        "key": "new-test-flag",
+        "variations": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "get-dependent-flags-for-the-flag-in-the-environment-specified-in-path-parameters",
+      "name": "Get dependent flags for the flag in the environment specified in path parameters",
+      "description": "Get dependent flags for the flag in the environment specified in path parameters",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{FEATUREFLAGKEY}}/dependent-flags",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-single-feature-flag-by-key",
+      "name": "Get a single feature flag by key.",
+      "description": "Get a single feature flag by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "delete-a-feature-flag-in-all-environments-be-careful-only-delete-feature-flags-that-are-no-longer-being-used-by-your-application",
+      "name": "Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.",
+      "description": "Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "perform-a-partial-update-to-a-feature",
+      "name": "Perform a partial update to a feature.",
+      "description": "Perform a partial update to a feature.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "This is a comment string",
+        "patch": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "copies-the-feature-flag-configuration-from-one-environment-to-the-same-feature-flag-in-another-environment",
+      "name": "Copies the feature flag configuration from one environment to the same feature flag in another environment.",
+      "description": "Copies the feature flag configuration from one environment to the same feature flag in another environment.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}/copy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "This is a comment string",
+        "excludedActions": [],
+        "includedActions": [],
+        "source": {},
+        "target": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "get-dependent-flags-across-all-environments-for-the-flag-specified-in-the-path-parameters",
+      "name": "Get dependent flags across all environments for the flag specified in the path parameters",
+      "description": "Get dependent flags across all environments for the flag specified in the path parameters",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}/dependent-flags",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey."
+    },
+    {
+      "id": "get-expiring-user-targets-for-feature-flag",
+      "name": "Get expiring user targets for feature flag",
+      "description": "Get expiring user targets for feature flag",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "update-add-or-delete-expiring-user-targets-on-feature-flag",
+      "name": "Update, add, or delete expiring user targets on feature flag",
+      "description": "Update, add, or delete expiring user targets on feature flag",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/flags/{{PROJECTKEY}}/{{FEATUREFLAGKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-list-of-all-configured-audit-log-event-integrations-associated-with-this-account",
+      "name": "Get a list of all configured audit log event integrations associated with this account.",
+      "description": "Get a list of all configured audit log event integrations associated with this account.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/integrations",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-list-of-all-configured-integrations-of-a-given-kind",
+      "name": "Get a list of all configured integrations of a given kind.",
+      "description": "Get a list of all configured integrations of a given kind.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/integrations/{{INTEGRATIONKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{INTEGRATIONKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{INTEGRATIONKEY}} with a real integrationkey."
+    },
+    {
+      "id": "create-a-new-integration-subscription-of-a-given-kind",
+      "name": "Create a new integration subscription of a given kind.",
+      "description": "Create a new integration subscription of a given kind.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/integrations/{{INTEGRATIONKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Example Datadog Integration",
+        "config": {
+          "apiKey": "582**************************116",
+          "hostURL": "https://api.datadoghq.com"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{INTEGRATIONKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{INTEGRATIONKEY}} with a real integrationkey."
+    },
+    {
+      "id": "get-a-single-integration-subscription-by-id",
+      "name": "Get a single integration subscription by ID.",
+      "description": "Get a single integration subscription by ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/integrations/{{INTEGRATIONKEY}}/{{INTEGRATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{INTEGRATIONKEY}}",
+        "{{INTEGRATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{INTEGRATIONKEY}} with a real integrationkey. Replace {{INTEGRATIONID}} with a real integrationid."
+    },
+    {
+      "id": "delete-an-integration-subscription-by-id",
+      "name": "Delete an integration subscription by ID.",
+      "description": "Delete an integration subscription by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/integrations/{{INTEGRATIONKEY}}/{{INTEGRATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{INTEGRATIONKEY}}",
+        "{{INTEGRATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{INTEGRATIONKEY}} with a real integrationkey. Replace {{INTEGRATIONID}} with a real integrationid."
+    },
+    {
+      "id": "modify-an-integration-subscription-by-id",
+      "name": "Modify an integration subscription by ID.",
+      "description": "Modify an integration subscription by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/integrations/{{INTEGRATIONKEY}}/{{INTEGRATIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{INTEGRATIONKEY}}",
+        "{{INTEGRATIONID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{INTEGRATIONKEY}} with a real integrationkey. Replace {{INTEGRATIONID}} with a real integrationid."
+    },
+    {
+      "id": "returns-a-list-of-all-members-in-the-account",
+      "name": "Returns a list of all members in the account.",
+      "description": "Returns a list of all members in the account.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/members",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "invite-new-members",
+      "name": "Invite new members.",
+      "description": "Invite new members.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/members",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "email": "exampleuser@email.com"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-the-current-team-member-associated-with-the-token",
+      "name": "Get the current team member associated with the token",
+      "description": "Get the current team member associated with the token",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/members/me",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-single-team-member-by-id",
+      "name": "Get a single team member by ID.",
+      "description": "Get a single team member by ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/members/{{MEMBERID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{MEMBERID}} with a real memberid."
+    },
+    {
+      "id": "delete-a-team-member-by-id",
+      "name": "Delete a team member by ID.",
+      "description": "Delete a team member by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/members/{{MEMBERID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{MEMBERID}} with a real memberid."
+    },
+    {
+      "id": "modify-a-team-member-by-id",
+      "name": "Modify a team member by ID.",
+      "description": "Modify a team member by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/members/{{MEMBERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERID}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{MEMBERID}} with a real memberid."
+    },
+    {
+      "id": "returns-a-list-of-all-projects-in-the-account",
+      "name": "Returns a list of all projects in the account.",
+      "description": "Returns a list of all projects in the account.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-new-project-with-the-given-key-and-name",
+      "name": "Create a new project with the given key and name.",
+      "description": "Create a new project with the given key and name.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "New Project",
+        "key": "new-project"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "fetch-a-single-project-by-key",
+      "name": "Fetch a single project by key.",
+      "description": "Fetch a single project by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "delete-a-project-by-key-caution-deleting-a-project-will-delete-all-associated-environments-and-feature-flags-you-cannot-delete-the-last-project-in-an-account",
+      "name": "Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.",
+      "description": "Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "modify-a-project-by-id",
+      "name": "Modify a project by ID.",
+      "description": "Modify a project by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "create-a-new-environment-in-a-specified-project-with-a-given-name-key-and-swatch-color",
+      "name": "Create a new environment in a specified project with a given name, key, and swatch color.",
+      "description": "Create a new environment in a specified project with a given name, key, and swatch color.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Development",
+        "key": "dev",
+        "color": "417505"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey."
+    },
+    {
+      "id": "get-an-environment-given-a-project-and-key",
+      "name": "Get an environment given a project and key.",
+      "description": "Get an environment given a project and key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "delete-an-environment-in-a-specific-project",
+      "name": "Delete an environment in a specific project.",
+      "description": "Delete an environment in a specific project.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "modify-an-environment-by-id-if-you-try-to-patch-the-environment-by-setting-both-required-and-requiredapprovaltags-it-will-result-in-an-error-users-can-specify-either-required-approvals-for-all-flags-in-an-environment-or-those-with-specific-tags-but-not-both-only-customers-on-an-enterprise-plan-can-require-approval-for-flag-updates-with-either-mechanism",
+      "name": "Modify an environment by ID. If you try to patch the environment by setting both required and requiredApprovalTags, it will result in an error. Users can specify either required approvals for all flags in an environment or those with specific tags, but not both. Only customers on an Enterprise plan can require approval for flag updates with either mechanism.",
+      "description": "Modify an environment by ID. If you try to patch the environment by setting both required and requiredApprovalTags, it will result in an error. Users can specify either required approvals for all flags in an environment or those with specific tags, but not both. Only customers on an Enterprise plan can require approval for flag updates with either mechanism.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "reset-an-environment-s-sdk-key-with-an-optional-expiry-time-for-the-old-key",
+      "name": "Reset an environment's SDK key with an optional expiry time for the old key.",
+      "description": "Reset an environment's SDK key with an optional expiry time for the old key.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments/{{ENVIRONMENTKEY}}/apiKey",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "reset-an-environment-s-mobile-key-the-optional-expiry-for-the-old-key-is-deprecated-for-this-endpoint-so-the-old-key-will-always-expire-immediately",
+      "name": "Reset an environment's mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.",
+      "description": "Reset an environment's mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/environments/{{ENVIRONMENTKEY}}/mobileKey",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-all-approval-requests-for-a-feature-flag-config",
+      "name": "Get all approval requests for a feature flag config",
+      "description": "Get all approval requests for a feature flag config",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-single-approval-request-for-a-feature-flag-config",
+      "name": "Get a single approval request for a feature flag config",
+      "description": "Get a single approval request for a feature flag config",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests/{{APPROVALREQUESTID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{APPROVALREQUESTID}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{APPROVALREQUESTID}} with a real approvalrequestid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "create-an-approval-request-for-a-feature-flag-config",
+      "name": "Create an approval request for a feature flag config",
+      "description": "Create an approval request for a feature flag config",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests/{{APPROVALREQUESTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "instructions": [],
+        "notifyMemberIds": [
+          "memberId",
+          "memberId2"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{APPROVALREQUESTID}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{APPROVALREQUESTID}} with a real approvalrequestid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "delete-an-approval-request-for-a-feature-flag-config",
+      "name": "Delete an approval request for a feature flag config",
+      "description": "Delete an approval request for a feature flag config",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests/{{APPROVALREQUESTID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{APPROVALREQUESTID}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{APPROVALREQUESTID}} with a real approvalrequestid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "apply-approval-request-for-a-feature-flag-config",
+      "name": "Apply approval request for a feature flag config",
+      "description": "Apply approval request for a feature flag config",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests/{{APPROVALREQUESTID}}/apply",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "Applying approved changes"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{APPROVALREQUESTID}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{APPROVALREQUESTID}} with a real approvalrequestid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "review-approval-request-for-a-feature-flag-config",
+      "name": "Review approval request for a feature flag config",
+      "description": "Review approval request for a feature flag config",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/approval-requests/{{APPROVALREQUESTID}}/review",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "kind": "approve"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{APPROVALREQUESTID}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{APPROVALREQUESTID}} with a real approvalrequestid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-all-scheduled-workflows-for-a-feature-flag-by-key",
+      "name": "Get all scheduled workflows for a feature flag by key.",
+      "description": "Get all scheduled workflows for a feature flag by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "creates-a-new-scheduled-change-for-a-feature-flag",
+      "name": "Creates a new scheduled change for a feature flag.",
+      "description": "Creates a new scheduled change for a feature flag.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "",
+        "executionDate": 0,
+        "instructions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "lists-conflicts-between-the-given-instructions-and-any-existing-scheduled-changes-for-the-feature-flag-the-actual-http-verb-should-be-report-not-post",
+      "name": "Lists conflicts between the given instructions and any existing scheduled changes for the feature flag. The actual HTTP verb should be REPORT, not POST.",
+      "description": "Lists conflicts between the given instructions and any existing scheduled changes for the feature flag. The actual HTTP verb should be REPORT, not POST.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes-conflicts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "executionDate": 0,
+        "instructions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{FEATUREFLAGKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-scheduled-change-on-a-feature-flag-by-id",
+      "name": "Get a scheduled change on a feature flag by id.",
+      "description": "Get a scheduled change on a feature flag by id.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes/{{SCHEDULEDCHANGEID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SCHEDULEDCHANGEID}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{SCHEDULEDCHANGEID}} with a real scheduledchangeid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "delete-a-scheduled-change-on-a-feature-flag-in-an-environment",
+      "name": "Delete a scheduled change on a feature flag in an environment.",
+      "description": "Delete a scheduled change on a feature flag in an environment.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes/{{SCHEDULEDCHANGEID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SCHEDULEDCHANGEID}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{SCHEDULEDCHANGEID}} with a real scheduledchangeid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "updates-an-existing-scheduled-change-on-a-feature-flag-in-an-environment",
+      "name": "Updates an existing scheduled-change on a feature flag in an environment.",
+      "description": "Updates an existing scheduled-change on a feature flag in an environment.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/projects/{{PROJECTKEY}}/flags/{{FEATUREFLAGKEY}}/environments/{{ENVIRONMENTKEY}}/scheduled-changes/{{SCHEDULEDCHANGEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "",
+        "instructions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SCHEDULEDCHANGEID}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{SCHEDULEDCHANGEID}} with a real scheduledchangeid. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "return-a-complete-list-of-custom-roles",
+      "name": "Return a complete list of custom roles.",
+      "description": "Return a complete list of custom roles.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/roles",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-new-custom-role",
+      "name": "Create a new custom role.",
+      "description": "Create a new custom role.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/roles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "revenue team",
+        "key": "revenue-team",
+        "policy": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-one-custom-role-by-key",
+      "name": "Get one custom role by key.",
+      "description": "Get one custom role by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/roles/{{CUSTOMROLEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{CUSTOMROLEKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{CUSTOMROLEKEY}} with a real customrolekey."
+    },
+    {
+      "id": "delete-a-custom-role-by-key",
+      "name": "Delete a custom role by key.",
+      "description": "Delete a custom role by key.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/roles/{{CUSTOMROLEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{CUSTOMROLEKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{CUSTOMROLEKEY}} with a real customrolekey."
+    },
+    {
+      "id": "modify-a-custom-role-by-key",
+      "name": "Modify a custom role by key.",
+      "description": "Modify a custom role by key.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/roles/{{CUSTOMROLEKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{CUSTOMROLEKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{CUSTOMROLEKEY}} with a real customrolekey."
+    },
+    {
+      "id": "get-a-list-of-all-user-segments-in-the-given-project",
+      "name": "Get a list of all user segments in the given project.",
+      "description": "Get a list of all user segments in the given project.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "creates-a-new-user-segment",
+      "name": "Creates a new user segment.",
+      "description": "Creates a new user segment.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "new segment",
+        "key": "new-segment"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-single-user-segment-by-key",
+      "name": "Get a single user segment by key.",
+      "description": "Get a single user segment by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERSEGMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "delete-a-user-segment",
+      "name": "Delete a user segment.",
+      "description": "Delete a user segment.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERSEGMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "perform-a-partial-update-to-a-user-segment",
+      "name": "Perform a partial update to a user segment.",
+      "description": "Perform a partial update to a user segment.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERSEGMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "update-targets-included-or-excluded-in-a-big-segment",
+      "name": "Update targets included or excluded in a big segment",
+      "description": "Update targets included or excluded in a big segment",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERSEGMENTKEY}}/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "excluded": {},
+        "included": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-expiring-user-targets-for-user-segment",
+      "name": "Get expiring user targets for user segment",
+      "description": "Get expiring user targets for user segment",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{USERSEGMENTKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey."
+    },
+    {
+      "id": "update-add-or-delete-expiring-user-targets-on-user-segment",
+      "name": "Update, add, or delete expiring user targets on user segment",
+      "description": "Update, add, or delete expiring user targets on user segment",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/segments/{{PROJECTKEY}}/{{USERSEGMENTKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{USERSEGMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey. Replace {{USERSEGMENTKEY}} with a real usersegmentkey."
+    },
+    {
+      "id": "returns-a-list-of-tokens-in-the-account",
+      "name": "Returns a list of tokens in the account.",
+      "description": "Returns a list of tokens in the account.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/tokens",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-new-token",
+      "name": "Create a new token.",
+      "description": "Create a new token.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/tokens",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "customRoleIds": [],
+        "defaultApiVersion": 0,
+        "inlineRole": [],
+        "name": "My access token",
+        "role": "writer",
+        "serviceToken": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-single-access-token-by-id",
+      "name": "Get a single access token by ID.",
+      "description": "Get a single access token by ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/tokens/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{TOKENID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "delete-an-access-token-by-id",
+      "name": "Delete an access token by ID.",
+      "description": "Delete an access token by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/tokens/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{TOKENID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "modify-an-access-token-by-id",
+      "name": "Modify an access token by ID.",
+      "description": "Modify an access token by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/tokens/{{TOKENID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{TOKENID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "reset-an-access-token-s-secret-key-with-an-optional-expiry-time-for-the-old-key",
+      "name": "Reset an access token's secret key with an optional expiry time for the old key.",
+      "description": "Reset an access token's secret key with an optional expiry time for the old key.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/tokens/{{TOKENID}}/reset",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{TOKENID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "returns-of-the-usage-endpoints-available",
+      "name": "Returns of the usage endpoints available.",
+      "description": "Returns of the usage endpoints available.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-events-usage-by-event-id-and-the-feature-flag-key",
+      "name": "Get events usage by event id and the feature flag key.",
+      "description": "Get events usage by event id and the feature flag key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/evaluations/{{ENVID}}/{{FLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVID}}",
+        "{{FLAGKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{ENVID}} with a real envid. Replace {{FLAGKEY}} with a real flagkey."
+    },
+    {
+      "id": "get-events-usage-endpoints",
+      "name": "Get events usage endpoints.",
+      "description": "Get events usage endpoints.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/events",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-events-usage-by-event-type",
+      "name": "Get events usage by event type.",
+      "description": "Get events usage by event type.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/events/{{TYPE}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{TYPE}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{TYPE}} with a real type."
+    },
+    {
+      "id": "get-monthly-active-user-data",
+      "name": "Get monthly active user data.",
+      "description": "Get monthly active user data.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/mau",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-monthly-active-user-data-by-category",
+      "name": "Get monthly active user data by category.",
+      "description": "Get monthly active user data by category.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/mau/bycategory",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "returns-a-list-of-all-streams",
+      "name": "Returns a list of all streams.",
+      "description": "Returns a list of all streams.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/streams",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-stream-endpoint-and-return-timeseries-data",
+      "name": "Get a stream endpoint and return timeseries data.",
+      "description": "Get a stream endpoint and return timeseries data.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/streams/{{SOURCE}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SOURCE}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{SOURCE}} with a real source."
+    },
+    {
+      "id": "get-a-stream-timeseries-data-by-source-show-sdk-version-metadata",
+      "name": "Get a stream timeseries data by source show sdk version metadata.",
+      "description": "Get a stream timeseries data by source show sdk version metadata.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/streams/{{SOURCE}}/bysdkversion",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SOURCE}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{SOURCE}} with a real source."
+    },
+    {
+      "id": "get-a-stream-timeseries-data-by-source-and-show-all-sdk-version-associated",
+      "name": "Get a stream timeseries data by source and show all sdk version associated.",
+      "description": "Get a stream timeseries data by source and show all sdk version associated.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/usage/streams/{{SOURCE}}/sdkversions",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{SOURCE}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{SOURCE}} with a real source."
+    },
+    {
+      "id": "search-users-in-launchdarkly-based-on-their-last-active-date-or-a-search-query-it-should-not-be-used-to-enumerate-all-users-in-launchdarkly-use-the-list-users-api-resource",
+      "name": "Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.",
+      "description": "Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/user-search/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "list-all-users-in-the-environment-includes-the-total-count-of-users-in-each-page-there-will-be-up-to-limit-users-returned-default-20-this-is-useful-for-exporting-all-users-in-the-system-for-further-analysis-paginated-collections-will-include-a-next-link-containing-a-url-with-the-next-set-of-elements-in-the-collection",
+      "name": "List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.",
+      "description": "List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-a-user-by-key",
+      "name": "Get a user by key.",
+      "description": "Get a user by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "delete-a-user-by-id",
+      "name": "Delete a user by ID.",
+      "description": "Delete a user by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "fetch-a-single-flag-setting-for-a-user-by-key",
+      "name": "Fetch a single flag setting for a user by key.",
+      "description": "Fetch a single flag setting for a user by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERKEY}}/flags",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "fetch-a-single-flag-setting-for-a-user-by-key-2",
+      "name": "Fetch a single flag setting for a user by key.",
+      "description": "Fetch a single flag setting for a user by key.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERKEY}}/flags/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "specifically-enable-or-disable-a-feature-flag-for-a-user-based-on-their-key",
+      "name": "Specifically enable or disable a feature flag for a user based on their key.",
+      "description": "Specifically enable or disable a feature flag for a user based on their key.",
+      "method": "PUT",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{ENVIRONMENTKEY}}/{{USERKEY}}/flags/{{FEATUREFLAGKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "setting": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEATUREFLAGKEY}}",
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{FEATUREFLAGKEY}} with a real featureflagkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "get-expiring-dates-on-flags-for-user",
+      "name": "Get expiring dates on flags for user",
+      "description": "Get expiring dates on flags for user",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{USERKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "update-add-or-delete-expiring-user-targets-for-a-single-user-on-all-flags",
+      "name": "Update, add, or delete expiring user targets for a single user on all flags",
+      "description": "Update, add, or delete expiring user targets for a single user on all flags",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/users/{{PROJECTKEY}}/{{USERKEY}}/expiring-user-targets/{{ENVIRONMENTKEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTKEY}}",
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{USERKEY}}",
+        "{{ENVIRONMENTKEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{PROJECTKEY}} with a real projectkey. Replace {{USERKEY}} with a real userkey. Replace {{ENVIRONMENTKEY}} with a real environmentkey."
+    },
+    {
+      "id": "fetch-a-list-of-all-webhooks",
+      "name": "Fetch a list of all webhooks.",
+      "description": "Fetch a list of all webhooks.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/webhooks",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "create-a-webhook",
+      "name": "Create a webhook.",
+      "description": "Create a webhook.",
+      "method": "POST",
+      "url": "https://app.launchdarkly.com/api/v2/webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": "https://example.com/example",
+        "sign": false,
+        "on": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY."
+    },
+    {
+      "id": "get-a-webhook-by-id",
+      "name": "Get a webhook by ID.",
+      "description": "Get a webhook by ID.",
+      "method": "GET",
+      "url": "https://app.launchdarkly.com/api/v2/webhooks/{{RESOURCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{RESOURCEID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{RESOURCEID}} with a real resourceid."
+    },
+    {
+      "id": "delete-a-webhook-by-id",
+      "name": "Delete a webhook by ID.",
+      "description": "Delete a webhook by ID.",
+      "method": "DELETE",
+      "url": "https://app.launchdarkly.com/api/v2/webhooks/{{RESOURCEID}}",
+      "headers": {
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{RESOURCEID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{RESOURCEID}} with a real resourceid."
+    },
+    {
+      "id": "modify-a-webhook-by-id",
+      "name": "Modify a webhook by ID.",
+      "description": "Modify a webhook by ID.",
+      "method": "PATCH",
+      "url": "https://app.launchdarkly.com/api/v2/webhooks/{{RESOURCEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LAUNCHDARKLY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "op": "replace",
+          "path": "/name",
+          "value": "My resource name"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LAUNCHDARKLY_API_KEY}}",
+        "{{RESOURCEID}}",
+        "{{LAUNCHDARKLY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LAUNCHDARKLY_API_KEY}} with your LAUNCHDARKLY API KEY. Replace {{RESOURCEID}} with a real resourceid."
+    }
+  ]
+}

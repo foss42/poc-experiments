@@ -1,0 +1,614 @@
+{
+  "api_id": "microsoft.com:cognitiveservices-Training:1.2",
+  "endpoint_count": 34,
+  "endpoints": [
+    {
+      "id": "get-basic-information-about-your-account",
+      "name": "Get basic information about your account",
+      "description": "Get basic information about your account",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/account",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-the-available-domains",
+      "name": "Get a list of the available domains",
+      "description": "Get a list of the available domains",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/domains",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-information-about-a-specific-domain",
+      "name": "Get information about a specific domain",
+      "description": "Get information about a specific domain",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/domains/{{DOMAINID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "get-your-projects",
+      "name": "Get your projects",
+      "description": "Get your projects",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-project",
+      "name": "Create a project",
+      "description": "Create a project",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "name": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-specific-project",
+      "name": "Get a specific project",
+      "description": "Get a specific project",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "delete-a-specific-project",
+      "name": "Delete a specific project",
+      "description": "Delete a specific project",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "update-a-specific-project",
+      "name": "Update a specific project",
+      "description": "Update a specific project",
+      "method": "PATCH",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Created": "",
+        "CurrentIterationId": "",
+        "Description": "",
+        "Id": "",
+        "LastModified": "",
+        "Name": "",
+        "Settings": {},
+        "ThumbnailUri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "add-the-provided-images-to-the-set-of-training-images",
+      "name": "Add the provided images to the set of training images",
+      "description": "This API accepts body content as multipart/form-data and application/octet-stream. When using multipart\r\nmultiple image files can be sent at once, with a maximum of 64 files",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "imageData": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "delete-images-from-the-set-of-training-images",
+      "name": "Delete images from the set of training images",
+      "description": "Delete images from the set of training images",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images",
+      "headers": {},
+      "query_params": {
+        "imageIds": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "add-the-provided-batch-of-images-to-the-set-of-training-images",
+      "name": "Add the provided batch of images to the set of training images",
+      "description": "Add the provided batch of images to the set of training images",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/files",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Images": [],
+        "TagIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "add-the-specified-predicted-images-to-the-set-of-training-images",
+      "name": "Add the specified predicted images to the set of training images",
+      "description": "Add the specified predicted images to the set of training images",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/predictions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Images": [],
+        "TagIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-tagged-images-for-a-given-project-iteration",
+      "name": "Get tagged images for a given project iteration",
+      "description": "This API supports batching and range selection. By default it will only return first 50 images matching images.\r\nUse the {take} and {skip} parameters to control how many images to return in a given batch.\r\nThe filtering is on an and/or relationship. For example, if the provided tag ids are for the \"Dog\" and\r\n\"Cat\" tags, then only images tagged with Dog and/or Cat will be returned",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/tagged",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "associate-a-set-of-images-with-a-set-of-tags",
+      "name": "Associate a set of images with a set of tags",
+      "description": "Associate a set of images with a set of tags",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/tags",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Tags": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "remove-a-set-of-tags-from-a-set-of-images",
+      "name": "Remove a set of tags from a set of images",
+      "description": "Remove a set of tags from a set of images",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/tags",
+      "headers": {},
+      "query_params": {
+        "imageIds": "",
+        "tagIds": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-untagged-images-for-a-given-project-iteration",
+      "name": "Get untagged images for a given project iteration",
+      "description": "This API supports batching and range selection. By default it will only return first 50 images matching images.\r\nUse the {take} and {skip} parameters to control how many images to return in a given batch.",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/untagged",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "add-the-provided-images-urls-to-the-set-of-training-images",
+      "name": "Add the provided images urls to the set of training images",
+      "description": "Add the provided images urls to the set of training images",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/images/urls",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Images": [],
+        "TagIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-iterations-for-the-project",
+      "name": "Get iterations for the project",
+      "description": "Get iterations for the project",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-a-specific-iteration",
+      "name": "Get a specific iteration",
+      "description": "Get a specific iteration",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "delete-a-specific-iteration-of-a-project",
+      "name": "Delete a specific iteration of a project",
+      "description": "Delete a specific iteration of a project",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "update-a-specific-iteration",
+      "name": "Update a specific iteration",
+      "description": "Update a specific iteration",
+      "method": "PATCH",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Created": "",
+        "DomainId": "",
+        "Exportable": false,
+        "Id": "",
+        "IsDefault": false,
+        "LastModified": "",
+        "Name": "",
+        "ProjectId": "",
+        "Status": "",
+        "TrainedAt": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "get-the-list-of-exports-for-a-specific-iteration",
+      "name": "Get the list of exports for a specific iteration",
+      "description": "Get the list of exports for a specific iteration",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}/export",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "export-a-trained-iteration",
+      "name": "Export a trained iteration",
+      "description": "Export a trained iteration",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}/export",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "platform": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "get-detailed-performance-information-about-a-trained-iteration",
+      "name": "Get detailed performance information about a trained iteration",
+      "description": "Get detailed performance information about a trained iteration",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/iterations/{{ITERATIONID}}/performance",
+      "headers": {},
+      "query_params": {
+        "threshold": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{ITERATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{ITERATIONID}} with a real iterationid."
+    },
+    {
+      "id": "delete-a-set-of-predicted-images-and-their-associated-prediction-results",
+      "name": "Delete a set of predicted images and their associated prediction results",
+      "description": "Delete a set of predicted images and their associated prediction results",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/predictions",
+      "headers": {},
+      "query_params": {
+        "ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-images-that-were-sent-to-your-prediction-endpoint",
+      "name": "Get images that were sent to your prediction endpoint",
+      "description": "Get images that were sent to your prediction endpoint",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/predictions/query",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Application": "",
+        "Continuation": "",
+        "EndTime": "",
+        "IterationId": "",
+        "MaxCount": 0,
+        "OrderBy": "",
+        "Session": "",
+        "StartTime": "",
+        "Tags": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "quick-test-an-image",
+      "name": "Quick test an image",
+      "description": "Quick test an image",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/quicktest/image",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "imageData": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "quick-test-an-image-url",
+      "name": "Quick test an image url",
+      "description": "Quick test an image url",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/quicktest/url",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-the-tags-for-a-given-project-and-iteration",
+      "name": "Get the tags for a given project and iteration",
+      "description": "Get the tags for a given project and iteration",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/tags",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "create-a-tag-for-the-project",
+      "name": "Create a tag for the project",
+      "description": "Create a tag for the project",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/tags",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "name": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    },
+    {
+      "id": "get-information-about-a-specific-tag",
+      "name": "Get information about a specific tag",
+      "description": "Get information about a specific tag",
+      "method": "GET",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/tags/{{TAGID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{TAGID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{TAGID}} with a real tagid."
+    },
+    {
+      "id": "delete-a-tag-from-the-project",
+      "name": "Delete a tag from the project",
+      "description": "Delete a tag from the project",
+      "method": "DELETE",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/tags/{{TAGID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{TAGID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{TAGID}} with a real tagid."
+    },
+    {
+      "id": "update-a-tag",
+      "name": "Update a tag",
+      "description": "Update a tag",
+      "method": "PATCH",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/tags/{{TAGID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "Id": "",
+        "ImageCount": 0,
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}",
+        "{{TAGID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid. Replace {{TAGID}} with a real tagid."
+    },
+    {
+      "id": "queues-project-for-training",
+      "name": "Queues project for training",
+      "description": "Queues project for training",
+      "method": "POST",
+      "url": "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.2/Training/projects/{{PROJECTID}}/train",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECTID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROJECTID}} with a real projectid."
+    }
+  ]
+}

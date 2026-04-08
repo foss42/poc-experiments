@@ -1,0 +1,210 @@
+{
+  "api_id": "azure.com:recoveryservicesbackup-bms:2017-07-01",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "it-will-validate-followings-1-vault-capacity-2-vm-is-already-protected-3-any-vm-related-configuration-passed-in-properties",
+      "name": "It will validate followings\r\n1. Vault capacity\r\n2. VM is already protected\r\n3. Any VM related configuration passed in properties.",
+      "description": "It will validate followings\r\n1. Vault capacity\r\n2. VM is already protected\r\n3. Any VM related configuration passed in properties.",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupPreValidateProtection",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": "",
+        "resourceId": "",
+        "resourceType": "",
+        "vaultId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-the-container-backup-status",
+      "name": "Get the container backup status",
+      "description": "Get the container backup status",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupStatus",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "poLogicalName": "",
+        "resourceId": "",
+        "resourceType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "it-will-validate-if-given-feature-with-resource-properties-is-supported-in-service",
+      "name": "It will validate if given feature with resource properties is supported in service",
+      "description": "It will validate if given feature with resource properties is supported in service",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupValidateFeatures",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "featureType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupfabrics-fabricname-backupprotectionintent-intentobjectname",
+      "name": "GET /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/backupProtectionIntent/{intentObjectName}",
+      "description": "Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,\r\ncall the GetItemOperationResult API.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupFabrics/{{FABRICNAME}}/backupProtectionIntent/{{INTENTOBJECTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FABRICNAME}}",
+        "{{INTENTOBJECTNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{FABRICNAME}} with a real fabricname. Replace {{INTENTOBJECTNAME}} with a real intentobjectname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupfabrics-fabricname-backupprotectionintent-intentobjectname",
+      "name": "PUT /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/backupProtectionIntent/{intentObjectName}",
+      "description": "Create Intent for Enabling backup of an item. This is a synchronous operation.",
+      "method": "PUT",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupFabrics/{{FABRICNAME}}/backupProtectionIntent/{{INTENTOBJECTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FABRICNAME}}",
+        "{{INTENTOBJECTNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{FABRICNAME}} with a real fabricname. Replace {{INTENTOBJECTNAME}} with a real intentobjectname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupfabrics-fabricname-backupprotectionintent-intentobjectname",
+      "name": "DELETE /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/backupProtectionIntent/{intentObjectName}",
+      "description": "Used to remove intent from an item",
+      "method": "DELETE",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupFabrics/{{FABRICNAME}}/backupProtectionIntent/{{INTENTOBJECTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FABRICNAME}}",
+        "{{INTENTOBJECTNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{FABRICNAME}} with a real fabricname. Replace {{INTENTOBJECTNAME}} with a real intentobjectname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupprotectionintents",
+      "name": "GET /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectionIntents",
+      "description": "Provides a pageable list of all intents that are present within a vault.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupProtectionIntents",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupusagesummaries",
+      "name": "GET /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupUsageSummaries",
+      "description": "Fetches the backup management usage summaries of the vault.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupUsageSummaries",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    }
+  ]
+}

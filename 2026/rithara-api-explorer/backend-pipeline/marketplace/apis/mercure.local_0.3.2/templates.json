@@ -1,0 +1,105 @@
+{
+  "api_id": "mercure.local:0.3.2",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "subscribe-to-updates",
+      "name": "Subscribe to updates",
+      "description": "Subscribe to updates",
+      "method": "GET",
+      "url": "http://mercure.local/.well-known/mercure",
+      "headers": {
+        "Authorization": "Bearer{{MERCURE_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "topic": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MERCURE_API_KEY}}",
+        "{{MERCURE_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{MERCURE_API_KEY}} with your MERCURE API KEY."
+    },
+    {
+      "id": "publish-an-update",
+      "name": "Publish an update",
+      "description": "Publish an update",
+      "method": "POST",
+      "url": "http://mercure.local/.well-known/mercure",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MERCURE_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "topic": [],
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MERCURE_API_KEY}}",
+        "{{MERCURE_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{MERCURE_API_KEY}} with your MERCURE API KEY."
+    },
+    {
+      "id": "active-subscriptions",
+      "name": "Active subscriptions",
+      "description": "Active subscriptions",
+      "method": "GET",
+      "url": "http://mercure.local/.well-known/mercure/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{MERCURE_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MERCURE_API_KEY}}",
+        "{{MERCURE_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{MERCURE_API_KEY}} with your MERCURE API KEY."
+    },
+    {
+      "id": "active-subscriptions-for-the-given-topic",
+      "name": "Active subscriptions for the given topic",
+      "description": "Active subscriptions for the given topic",
+      "method": "GET",
+      "url": "http://mercure.local/.well-known/mercure/subscriptions/{{TOPIC}}",
+      "headers": {
+        "Authorization": "Bearer{{MERCURE_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MERCURE_API_KEY}}",
+        "{{TOPIC}}",
+        "{{MERCURE_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{MERCURE_API_KEY}} with your MERCURE API KEY. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "active-subscription-for-the-given-topic-and-subscriber",
+      "name": "Active subscription for the given topic and subscriber",
+      "description": "Active subscription for the given topic and subscriber",
+      "method": "GET",
+      "url": "http://mercure.local/.well-known/mercure/subscriptions/{{TOPIC}}/{{SUBSCRIBER}}",
+      "headers": {
+        "Authorization": "Bearer{{MERCURE_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIBER}}",
+        "{{MERCURE_API_KEY}}",
+        "{{TOPIC}}",
+        "{{MERCURE_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{MERCURE_API_KEY}} with your MERCURE API KEY. Replace {{SUBSCRIBER}} with a real subscriber. Replace {{TOPIC}} with a real topic."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "api_id": "azure.com:attestation:2018-09-01-preview",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "retrieves-the-openid-configuration-data-for-the-azure-attestation-service",
+      "name": "Retrieves the OpenID Configuration data for the Azure Attestation Service",
+      "description": "Retrieves metadata about the attestation signing keys in use by the  attestation service",
+      "method": "GET",
+      "url": "https://azure.local/.well-known/openid-configuration",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "retrieves-the-openid-configuration-data-for-the-azure-attestation-service-2",
+      "name": "Retrieves the OpenID Configuration data for the Azure Attestation Service",
+      "description": "Retrieves attestation signing keys in use by the attestation service",
+      "method": "GET",
+      "url": "https://azure.local/certs",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "retrieves-the-current-policy-for-a-given-kind-of-tee",
+      "name": "Retrieves the current policy for a given kind of TEE.",
+      "description": "Retrieves the current policy for a given kind of TEE.",
+      "method": "GET",
+      "url": "https://azure.local/operations/policy/current",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": "",
+        "tee": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    }
+  ]
+}

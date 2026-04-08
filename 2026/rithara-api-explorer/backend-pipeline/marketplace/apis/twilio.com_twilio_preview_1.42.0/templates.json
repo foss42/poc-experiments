@@ -1,0 +1,3279 @@
+{
+  "api_id": "twilio.com:twilio_preview:1.42.0",
+  "endpoint_count": 147,
+  "endpoints": [
+    {
+      "id": "get-deployeddevices-fleets",
+      "name": "GET /DeployedDevices/Fleets",
+      "description": "Retrieve a list of all Fleets belonging to your account.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-deployeddevices-fleets",
+      "name": "POST /DeployedDevices/Fleets",
+      "description": "Create a new Fleet for scoping of deployed devices within your account.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-certificates",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Certificates",
+      "description": "Retrieve a list of all Certificate credentials belonging to the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Certificates",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-certificates",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Certificates",
+      "description": "Enroll a new Certificate credential to the Fleet, optionally giving it a friendly name and assigning to a Device.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Certificates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CertificateData": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-certificates-sid",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Certificates/{Sid}",
+      "description": "Fetch information about a specific Certificate credential in the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Certificates/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-certificates-sid",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Certificates/{Sid}",
+      "description": "Update the given properties of a specific Certificate credential in the Fleet, giving it a friendly name or assigning to a Device.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Certificates/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DeviceSid": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-deployeddevices-fleets-fleetsid-certificates-sid",
+      "name": "DELETE /DeployedDevices/Fleets/{FleetSid}/Certificates/{Sid}",
+      "description": "Unregister a specific Certificate credential from the Fleet, effectively disallowing any inbound client connections that are presenting it.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Certificates/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-deployments",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Deployments",
+      "description": "Retrieve a list of all Deployments belonging to the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Deployments",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-deployments",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Deployments",
+      "description": "Create a new Deployment in the Fleet, optionally giving it a friendly name and linking to a specific Twilio Sync service instance.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Deployments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "SyncServiceSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-deployments-sid",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Deployments/{Sid}",
+      "description": "Fetch information about a specific Deployment in the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Deployments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-deployments-sid",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Deployments/{Sid}",
+      "description": "Update the given properties of a specific Deployment credential in the Fleet, giving it a friendly name or linking to a specific Twilio Sync service instance.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Deployments/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "SyncServiceSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-deployeddevices-fleets-fleetsid-deployments-sid",
+      "name": "DELETE /DeployedDevices/Fleets/{FleetSid}/Deployments/{Sid}",
+      "description": "Delete a specific Deployment from the Fleet, leaving associated devices effectively undeployed.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Deployments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-devices",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Devices",
+      "description": "Retrieve a list of all Devices belonging to the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Devices",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-devices",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Devices",
+      "description": "Create a new Device in the Fleet, optionally giving it a unique name, friendly name, and assigning to a Deployment and/or human identity.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Devices",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DeploymentSid": "",
+        "Enabled": false,
+        "FriendlyName": "",
+        "Identity": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-devices-sid",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Devices/{Sid}",
+      "description": "Fetch information about a specific Device in the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Devices/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-devices-sid",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Devices/{Sid}",
+      "description": "Update the given properties of a specific Device in the Fleet, giving it a friendly name, assigning to a Deployment, or a human identity.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Devices/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DeploymentSid": "",
+        "Enabled": false,
+        "FriendlyName": "",
+        "Identity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-deployeddevices-fleets-fleetsid-devices-sid",
+      "name": "DELETE /DeployedDevices/Fleets/{FleetSid}/Devices/{Sid}",
+      "description": "Delete a specific Device from the Fleet, also removing it from associated Deployments.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Devices/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-keys",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Keys",
+      "description": "Retrieve a list of all Keys credentials belonging to the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Keys",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-keys",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Keys",
+      "description": "Create a new Key credential in the Fleet, optionally giving it a friendly name and assigning to a Device.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DeviceSid": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-fleetsid-keys-sid",
+      "name": "GET /DeployedDevices/Fleets/{FleetSid}/Keys/{Sid}",
+      "description": "Fetch information about a specific Key credential in the Fleet.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Keys/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-fleetsid-keys-sid",
+      "name": "POST /DeployedDevices/Fleets/{FleetSid}/Keys/{Sid}",
+      "description": "Update the given properties of a specific Key credential in the Fleet, giving it a friendly name or assigning to a Device.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Keys/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DeviceSid": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-deployeddevices-fleets-fleetsid-keys-sid",
+      "name": "DELETE /DeployedDevices/Fleets/{FleetSid}/Keys/{Sid}",
+      "description": "Delete a specific Key credential from the Fleet, effectively disallowing any inbound client connections that are presenting it.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{FLEETSID}}/Keys/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLEETSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLEETSID}} with a real fleetsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-deployeddevices-fleets-sid",
+      "name": "GET /DeployedDevices/Fleets/{Sid}",
+      "description": "Fetch information about a specific Fleet in your account.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-deployeddevices-fleets-sid",
+      "name": "POST /DeployedDevices/Fleets/{Sid}",
+      "description": "Update the friendly name property of a specific Fleet in your account.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DefaultDeploymentSid": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-deployeddevices-fleets-sid",
+      "name": "DELETE /DeployedDevices/Fleets/{Sid}",
+      "description": "Delete a specific Fleet from your account, also destroys all nested resources: Devices, Deployments, Certificates, Keys.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/DeployedDevices/Fleets/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-hostednumbers-authorizationdocuments",
+      "name": "GET /HostedNumbers/AuthorizationDocuments",
+      "description": "Retrieve a list of AuthorizationDocuments belonging to the account initiating the request.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/HostedNumbers/AuthorizationDocuments",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-hostednumbers-authorizationdocuments",
+      "name": "POST /HostedNumbers/AuthorizationDocuments",
+      "description": "Create an AuthorizationDocument for authorizing the hosting of phone number capabilities on Twilio's platform.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/HostedNumbers/AuthorizationDocuments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "HostedNumberOrderSids": [],
+        "AddressSid": "",
+        "Email": "",
+        "ContactTitle": "",
+        "ContactPhoneNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-hostednumbers-authorizationdocuments-sid",
+      "name": "GET /HostedNumbers/AuthorizationDocuments/{Sid}",
+      "description": "Fetch a specific AuthorizationDocument.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/HostedNumbers/AuthorizationDocuments/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-hostednumbers-authorizationdocuments-sid",
+      "name": "POST /HostedNumbers/AuthorizationDocuments/{Sid}",
+      "description": "Updates a specific AuthorizationDocument.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/HostedNumbers/AuthorizationDocuments/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AddressSid": "",
+        "CcEmails": [],
+        "ContactPhoneNumber": "",
+        "ContactTitle": "",
+        "Email": "",
+        "HostedNumberOrderSids": [],
+        "Status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-hostednumbers-authorizationdocuments-signingdocumentsid-dependenthostednumberorders",
+      "name": "GET /HostedNumbers/AuthorizationDocuments/{SigningDocumentSid}/DependentHostedNumberOrders",
+      "description": "Retrieve a list of dependent HostedNumberOrders belonging to the AuthorizationDocument.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/HostedNumbers/AuthorizationDocuments/{{SIGNINGDOCUMENTSID}}/DependentHostedNumberOrders",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SIGNINGDOCUMENTSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SIGNINGDOCUMENTSID}} with a real signingdocumentsid."
+    },
+    {
+      "id": "get-hostednumbers-hostednumberorders",
+      "name": "GET /HostedNumbers/HostedNumberOrders",
+      "description": "Retrieve a list of HostedNumberOrders belonging to the account initiating the request.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/HostedNumbers/HostedNumberOrders",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-hostednumbers-hostednumberorders",
+      "name": "POST /HostedNumbers/HostedNumberOrders",
+      "description": "Host a phone number's capability on Twilio's platform.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/HostedNumbers/HostedNumberOrders",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "PhoneNumber": "",
+        "SmsCapability": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-hostednumbers-hostednumberorders-sid",
+      "name": "GET /HostedNumbers/HostedNumberOrders/{Sid}",
+      "description": "Fetch a specific HostedNumberOrder.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/HostedNumbers/HostedNumberOrders/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-hostednumbers-hostednumberorders-sid",
+      "name": "POST /HostedNumbers/HostedNumberOrders/{Sid}",
+      "description": "Updates a specific HostedNumberOrder.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/HostedNumbers/HostedNumberOrders/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallDelay": 0,
+        "CcEmails": [],
+        "Email": "",
+        "Extension": "",
+        "FriendlyName": "",
+        "Status": "",
+        "UniqueName": "",
+        "VerificationCode": "",
+        "VerificationDocumentSid": "",
+        "VerificationType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-hostednumbers-hostednumberorders-sid",
+      "name": "DELETE /HostedNumbers/HostedNumberOrders/{Sid}",
+      "description": "Cancel the HostedNumberOrder (only available when the status is in `received`).",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/HostedNumbers/HostedNumberOrders/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-sync-services",
+      "name": "GET /Sync/Services",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-sync-services",
+      "name": "POST /Sync/Services",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AclEnabled": false,
+        "FriendlyName": "",
+        "ReachabilityWebhooksEnabled": false,
+        "WebhookUrl": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-sync-services-servicesid-documents",
+      "name": "GET /Sync/Services/{ServiceSid}/Documents",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-documents",
+      "name": "POST /Sync/Services/{ServiceSid}/Documents",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Data": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-documents-documentsid-permissions",
+      "name": "GET /Sync/Services/{ServiceSid}/Documents/{DocumentSid}/Permissions",
+      "description": "Retrieve a list of all Permissions applying to a Sync Document.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{DOCUMENTSID}}/Permissions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{DOCUMENTSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{DOCUMENTSID}} with a real documentsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-documents-documentsid-permissions-identity",
+      "name": "GET /Sync/Services/{ServiceSid}/Documents/{DocumentSid}/Permissions/{Identity}",
+      "description": "Fetch a specific Sync Document Permission.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{DOCUMENTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{DOCUMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{DOCUMENTSID}} with a real documentsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-documents-documentsid-permissions-identity",
+      "name": "POST /Sync/Services/{ServiceSid}/Documents/{DocumentSid}/Permissions/{Identity}",
+      "description": "Update an identity's access to a specific Sync Document.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{DOCUMENTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Read": false,
+        "Write": false,
+        "Manage": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{DOCUMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{DOCUMENTSID}} with a real documentsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "delete-sync-services-servicesid-documents-documentsid-permissions-identity",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Documents/{DocumentSid}/Permissions/{Identity}",
+      "description": "Delete a specific Sync Document Permission.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{DOCUMENTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{DOCUMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{DOCUMENTSID}} with a real documentsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-documents-sid",
+      "name": "GET /Sync/Services/{ServiceSid}/Documents/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-sync-services-servicesid-documents-sid",
+      "name": "POST /Sync/Services/{ServiceSid}/Documents/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-sync-services-servicesid-documents-sid",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Documents/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Documents/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-lists",
+      "name": "POST /Sync/Services/{ServiceSid}/Lists",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists-listsid-items",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists/{ListSid}/Items",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Items",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{LISTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-lists-listsid-items",
+      "name": "POST /Sync/Services/{ServiceSid}/Lists/{ListSid}/Items",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{LISTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists-listsid-items-index",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists/{ListSid}/Items/{Index}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Items/{{INDEX}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{INDEX}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid. Replace {{INDEX}} with a real index."
+    },
+    {
+      "id": "post-sync-services-servicesid-lists-listsid-items-index",
+      "name": "POST /Sync/Services/{ServiceSid}/Lists/{ListSid}/Items/{Index}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Items/{{INDEX}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{INDEX}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid. Replace {{INDEX}} with a real index."
+    },
+    {
+      "id": "delete-sync-services-servicesid-lists-listsid-items-index",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Lists/{ListSid}/Items/{Index}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Items/{{INDEX}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{INDEX}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid. Replace {{INDEX}} with a real index."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists-listsid-permissions",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists/{ListSid}/Permissions",
+      "description": "Retrieve a list of all Permissions applying to a Sync List.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Permissions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{LISTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists-listsid-permissions-identity",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists/{ListSid}/Permissions/{Identity}",
+      "description": "Fetch a specific Sync List Permission.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-lists-listsid-permissions-identity",
+      "name": "POST /Sync/Services/{ServiceSid}/Lists/{ListSid}/Permissions/{Identity}",
+      "description": "Update an identity's access to a specific Sync List.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Read": false,
+        "Write": false,
+        "Manage": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "delete-sync-services-servicesid-lists-listsid-permissions-identity",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Lists/{ListSid}/Permissions/{Identity}",
+      "description": "Delete a specific Sync List Permission.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{LISTSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{LISTSID}} with a real listsid. Replace {{IDENTITY}} with a real identity. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-lists-sid",
+      "name": "GET /Sync/Services/{ServiceSid}/Lists/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-sync-services-servicesid-lists-sid",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Lists/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Lists/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-maps",
+      "name": "POST /Sync/Services/{ServiceSid}/Maps",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps-mapsid-items",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps/{MapSid}/Items",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Items",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{MAPSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-sync-services-servicesid-maps-mapsid-items",
+      "name": "POST /Sync/Services/{ServiceSid}/Maps/{MapSid}/Items",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Key": "",
+        "Data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{MAPSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps-mapsid-items-key",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps/{MapSid}/Items/{Key}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Items/{{KEY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{KEY}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "post-sync-services-servicesid-maps-mapsid-items-key",
+      "name": "POST /Sync/Services/{ServiceSid}/Maps/{MapSid}/Items/{Key}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Items/{{KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{KEY}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "delete-sync-services-servicesid-maps-mapsid-items-key",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Maps/{MapSid}/Items/{Key}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Items/{{KEY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{KEY}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps-mapsid-permissions",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps/{MapSid}/Permissions",
+      "description": "Retrieve a list of all Permissions applying to a Sync Map.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Permissions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{MAPSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps-mapsid-permissions-identity",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps/{MapSid}/Permissions/{Identity}",
+      "description": "Fetch a specific Sync Map Permission.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{IDENTITY}} with a real identity."
+    },
+    {
+      "id": "post-sync-services-servicesid-maps-mapsid-permissions-identity",
+      "name": "POST /Sync/Services/{ServiceSid}/Maps/{MapSid}/Permissions/{Identity}",
+      "description": "Update an identity's access to a specific Sync Map.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Read": false,
+        "Write": false,
+        "Manage": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{IDENTITY}} with a real identity."
+    },
+    {
+      "id": "delete-sync-services-servicesid-maps-mapsid-permissions-identity",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Maps/{MapSid}/Permissions/{Identity}",
+      "description": "Delete a specific Sync Map Permission.",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{MAPSID}}/Permissions/{{IDENTITY}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAPSID}}",
+        "{{SERVICESID}}",
+        "{{IDENTITY}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MAPSID}} with a real mapsid. Replace {{SERVICESID}} with a real servicesid. Replace {{IDENTITY}} with a real identity."
+    },
+    {
+      "id": "get-sync-services-servicesid-maps-sid",
+      "name": "GET /Sync/Services/{ServiceSid}/Maps/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-sync-services-servicesid-maps-sid",
+      "name": "DELETE /Sync/Services/{ServiceSid}/Maps/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SERVICESID}}/Maps/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-sync-services-sid",
+      "name": "GET /Sync/Services/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/Sync/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-sync-services-sid",
+      "name": "POST /Sync/Services/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/Sync/Services/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AclEnabled": false,
+        "FriendlyName": "",
+        "ReachabilityWebhooksEnabled": false,
+        "WebhookUrl": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-sync-services-sid",
+      "name": "DELETE /Sync/Services/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/Sync/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-marketplace-availableaddons",
+      "name": "GET /marketplace/AvailableAddOns",
+      "description": "Retrieve a list of Add-ons currently available to be installed.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/AvailableAddOns",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-marketplace-availableaddons-availableaddonsid-extensions",
+      "name": "GET /marketplace/AvailableAddOns/{AvailableAddOnSid}/Extensions",
+      "description": "Retrieve a list of Extensions for the Available Add-on.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/AvailableAddOns/{{AVAILABLEADDONSID}}/Extensions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{AVAILABLEADDONSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{AVAILABLEADDONSID}} with a real availableaddonsid."
+    },
+    {
+      "id": "get-marketplace-availableaddons-availableaddonsid-extensions-sid",
+      "name": "GET /marketplace/AvailableAddOns/{AvailableAddOnSid}/Extensions/{Sid}",
+      "description": "Fetch an instance of an Extension for the Available Add-on.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/AvailableAddOns/{{AVAILABLEADDONSID}}/Extensions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{AVAILABLEADDONSID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{AVAILABLEADDONSID}} with a real availableaddonsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-marketplace-availableaddons-sid",
+      "name": "GET /marketplace/AvailableAddOns/{Sid}",
+      "description": "Fetch an instance of an Add-on currently available to be installed.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/AvailableAddOns/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-marketplace-installedaddons",
+      "name": "GET /marketplace/InstalledAddOns",
+      "description": "Retrieve a list of Add-ons currently installed on this Account.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-marketplace-installedaddons",
+      "name": "POST /marketplace/InstalledAddOns",
+      "description": "Install an Add-on for the Account specified.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AvailableAddOnSid": "",
+        "AcceptTermsOfService": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-marketplace-installedaddons-installedaddonsid-extensions",
+      "name": "GET /marketplace/InstalledAddOns/{InstalledAddOnSid}/Extensions",
+      "description": "Retrieve a list of Extensions for the Installed Add-on.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{INSTALLEDADDONSID}}/Extensions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{INSTALLEDADDONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{INSTALLEDADDONSID}} with a real installedaddonsid."
+    },
+    {
+      "id": "get-marketplace-installedaddons-installedaddonsid-extensions-sid",
+      "name": "GET /marketplace/InstalledAddOns/{InstalledAddOnSid}/Extensions/{Sid}",
+      "description": "Fetch an instance of an Extension for the Installed Add-on.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{INSTALLEDADDONSID}}/Extensions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{INSTALLEDADDONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{INSTALLEDADDONSID}} with a real installedaddonsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-marketplace-installedaddons-installedaddonsid-extensions-sid",
+      "name": "POST /marketplace/InstalledAddOns/{InstalledAddOnSid}/Extensions/{Sid}",
+      "description": "Update an Extension for an Add-on installation.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{INSTALLEDADDONSID}}/Extensions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Enabled": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{INSTALLEDADDONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{INSTALLEDADDONSID}} with a real installedaddonsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-marketplace-installedaddons-sid",
+      "name": "GET /marketplace/InstalledAddOns/{Sid}",
+      "description": "Fetch an instance of an Add-on currently installed on this Account.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-marketplace-installedaddons-sid",
+      "name": "POST /marketplace/InstalledAddOns/{Sid}",
+      "description": "Update an Add-on installation for the Account specified.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Configuration": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-marketplace-installedaddons-sid",
+      "name": "DELETE /marketplace/InstalledAddOns/{Sid}",
+      "description": "Remove an Add-on installation from your account",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/marketplace/InstalledAddOns/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants",
+      "name": "GET /understand/Assistants",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-understand-assistants",
+      "name": "POST /understand/Assistants",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallbackEvents": "",
+        "CallbackUrl": "",
+        "FallbackActions": "",
+        "FriendlyName": "",
+        "InitiationActions": "",
+        "LogQueries": false,
+        "StyleSheet": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-dialogues-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/Dialogues/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Dialogues/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-fallbackactions",
+      "name": "GET /understand/Assistants/{AssistantSid}/FallbackActions",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FallbackActions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-fallbackactions",
+      "name": "POST /understand/Assistants/{AssistantSid}/FallbackActions",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FallbackActions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FallbackActions": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-fieldtypes",
+      "name": "GET /understand/Assistants/{AssistantSid}/FieldTypes",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-fieldtypes",
+      "name": "POST /understand/Assistants/{AssistantSid}/FieldTypes",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-fieldtypes-fieldtypesid-fieldvalues",
+      "name": "GET /understand/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{FIELDTYPESID}}/FieldValues",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FIELDTYPESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{FIELDTYPESID}} with a real fieldtypesid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-fieldtypes-fieldtypesid-fieldvalues",
+      "name": "POST /understand/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{FIELDTYPESID}}/FieldValues",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Language": "",
+        "Value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{FIELDTYPESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{FIELDTYPESID}} with a real fieldtypesid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-fieldtypes-fieldtypesid-fieldvalues-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{FIELDTYPESID}}/FieldValues/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{FIELDTYPESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{FIELDTYPESID}} with a real fieldtypesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-fieldtypes-fieldtypesid-fieldvalues-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{FIELDTYPESID}}/FieldValues/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{FIELDTYPESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{FIELDTYPESID}} with a real fieldtypesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-fieldtypes-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/FieldTypes/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-fieldtypes-sid",
+      "name": "POST /understand/Assistants/{AssistantSid}/FieldTypes/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-fieldtypes-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/FieldTypes/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/FieldTypes/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-initiationactions",
+      "name": "GET /understand/Assistants/{AssistantSid}/InitiationActions",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/InitiationActions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-initiationactions",
+      "name": "POST /understand/Assistants/{AssistantSid}/InitiationActions",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/InitiationActions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "InitiationActions": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-modelbuilds",
+      "name": "GET /understand/Assistants/{AssistantSid}/ModelBuilds",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/ModelBuilds",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-modelbuilds",
+      "name": "POST /understand/Assistants/{AssistantSid}/ModelBuilds",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/ModelBuilds",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "StatusCallback": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-modelbuilds-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/ModelBuilds/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/ModelBuilds/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-modelbuilds-sid",
+      "name": "POST /understand/Assistants/{AssistantSid}/ModelBuilds/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/ModelBuilds/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-modelbuilds-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/ModelBuilds/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/ModelBuilds/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-queries",
+      "name": "GET /understand/Assistants/{AssistantSid}/Queries",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Queries",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-queries",
+      "name": "POST /understand/Assistants/{AssistantSid}/Queries",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Queries",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Language": "",
+        "Query": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-queries-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/Queries/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Queries/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-queries-sid",
+      "name": "POST /understand/Assistants/{AssistantSid}/Queries/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Queries/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "SampleSid": "",
+        "Status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-queries-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/Queries/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Queries/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-stylesheet",
+      "name": "GET /understand/Assistants/{AssistantSid}/StyleSheet",
+      "description": "Returns Style sheet JSON object for this Assistant",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/StyleSheet",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-stylesheet",
+      "name": "POST /understand/Assistants/{AssistantSid}/StyleSheet",
+      "description": "Updates the style sheet for an assistant identified by {AssistantSid} or {AssistantUniqueName}.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/StyleSheet",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "StyleSheet": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks-sid",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Actions": "",
+        "ActionsUrl": "",
+        "FriendlyName": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-tasks-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/Tasks/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-actions",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Actions",
+      "description": "Returns JSON actions for this Task.",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Actions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks-tasksid-actions",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Actions",
+      "description": "Updates the actions of an Task identified by {TaskSid} or {TaskUniqueName}.",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Actions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Actions": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-fields",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Fields",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks-tasksid-fields",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Fields",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FieldType": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-fields-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Fields/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-tasks-tasksid-fields-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Fields/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-samples",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Samples",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks-tasksid-samples",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Samples",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Language": "",
+        "TaggedText": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-samples-sid",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Samples/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-assistantsid-tasks-tasksid-samples-sid",
+      "name": "POST /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Samples/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Language": "",
+        "SourceChannel": "",
+        "TaggedText": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-assistantsid-tasks-tasksid-samples-sid",
+      "name": "DELETE /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Samples/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-understand-assistants-assistantsid-tasks-tasksid-statistics",
+      "name": "GET /understand/Assistants/{AssistantSid}/Tasks/{TaskSid}/Statistics",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{ASSISTANTSID}}/Tasks/{{TASKSID}}/Statistics",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TASKSID}}",
+        "{{ASSISTANTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{TASKSID}} with a real tasksid. Replace {{ASSISTANTSID}} with a real assistantsid."
+    },
+    {
+      "id": "get-understand-assistants-sid",
+      "name": "GET /understand/Assistants/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/understand/Assistants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-understand-assistants-sid",
+      "name": "POST /understand/Assistants/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/understand/Assistants/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallbackEvents": "",
+        "CallbackUrl": "",
+        "FallbackActions": "",
+        "FriendlyName": "",
+        "InitiationActions": "",
+        "LogQueries": false,
+        "StyleSheet": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-understand-assistants-sid",
+      "name": "DELETE /understand/Assistants/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/understand/Assistants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-wireless-commands",
+      "name": "GET /wireless/Commands",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/Commands",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-wireless-commands",
+      "name": "POST /wireless/Commands",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/wireless/Commands",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Command": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-wireless-commands-sid",
+      "name": "GET /wireless/Commands/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/Commands/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-wireless-rateplans",
+      "name": "GET /wireless/RatePlans",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/RatePlans",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-wireless-rateplans",
+      "name": "POST /wireless/RatePlans",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/wireless/RatePlans",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CommandsEnabled": false,
+        "DataEnabled": false,
+        "DataLimit": 0,
+        "DataMetering": "",
+        "FriendlyName": "",
+        "InternationalRoaming": [],
+        "MessagingEnabled": false,
+        "NationalRoamingEnabled": false,
+        "UniqueName": "",
+        "VoiceEnabled": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-wireless-rateplans-sid",
+      "name": "GET /wireless/RatePlans/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/RatePlans/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-wireless-rateplans-sid",
+      "name": "POST /wireless/RatePlans/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/wireless/RatePlans/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-wireless-rateplans-sid",
+      "name": "DELETE /wireless/RatePlans/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "DELETE",
+      "url": "https://preview.twilio.com/wireless/RatePlans/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-wireless-sims",
+      "name": "GET /wireless/Sims",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/Sims",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-wireless-sims-sid",
+      "name": "GET /wireless/Sims/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/Sims/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-wireless-sims-sid",
+      "name": "POST /wireless/Sims/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "POST",
+      "url": "https://preview.twilio.com/wireless/Sims/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallbackMethod": "",
+        "CallbackUrl": "",
+        "CommandsCallbackMethod": "",
+        "CommandsCallbackUrl": "",
+        "FriendlyName": "",
+        "RatePlan": "",
+        "SmsFallbackMethod": "",
+        "SmsFallbackUrl": "",
+        "SmsMethod": "",
+        "SmsUrl": "",
+        "Status": "",
+        "UniqueName": "",
+        "VoiceFallbackMethod": "",
+        "VoiceFallbackUrl": "",
+        "VoiceMethod": "",
+        "VoiceUrl": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-wireless-sims-simsid-usage",
+      "name": "GET /wireless/Sims/{SimSid}/Usage",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://preview.twilio.com/wireless/Sims/{{SIMSID}}/Usage",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SIMSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SIMSID}} with a real simsid."
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+{
+  "api_id": "azure.com:resources-locks:2016-09-01",
+  "endpoint_count": 17,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-authorization-operations",
+      "name": "GET /providers/Microsoft.Authorization/operations",
+      "description": "Lists all of the available Microsoft.Authorization REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Authorization/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-locks",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks",
+      "description": "Gets all the management locks for a subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/locks",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-locks-lockname",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Gets a management lock at the subscription level.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "creates-or-updates-a-management-lock-at-the-subscription-level",
+      "name": "Creates or updates a management lock at the subscription level.",
+      "description": "When you apply a lock at a parent scope, all child resources inherit the same lock. To create management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "deletes-the-management-lock-at-the-subscription-level",
+      "name": "Deletes the management lock at the subscription level.",
+      "description": "To delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-authorization-locks",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks",
+      "description": "Gets all the management locks for a resource group.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/locks",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-authorization-locks-lockname",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Gets a management lock at the resource group level.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "creates-or-updates-a-management-lock-at-the-resource-group-level",
+      "name": "Creates or updates a management lock at the resource group level.",
+      "description": "When you apply a lock at a parent scope, all child resources inherit the same lock. To create management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "deletes-a-management-lock-at-the-resource-group-level",
+      "name": "Deletes a management lock at the resource group level.",
+      "description": "To delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-resourceprovidernamespace-parentresourcepath-resourcetype-resourcename-providers-microsoft-authorization-locks",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks",
+      "description": "Gets all the management locks for a resource or any level below resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/locks",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-resourceprovidernamespace-parentresourcepath-resourcetype-resourcename-providers-microsoft-authorization-locks-lockname",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Get the management lock of a resource or any level below resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "creates-or-updates-a-management-lock-at-the-resource-level-or-any-level-below-the-resource",
+      "name": "Creates or updates a management lock at the resource level or any level below the resource.",
+      "description": "When you apply a lock at a parent scope, all child resources inherit the same lock. To create management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "deletes-the-management-lock-of-a-resource-or-any-level-below-the-resource",
+      "name": "Deletes the management lock of a resource or any level below the resource.",
+      "description": "To delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-locks",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/locks",
+      "description": "Gets all the management locks for a scope.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/locks",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-locks-lockname",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Get a management lock by scope.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "put-scope-providers-microsoft-authorization-locks-lockname",
+      "name": "PUT /{scope}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Create or update a management lock by scope.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{LOCKNAME}} with a real lockname."
+    },
+    {
+      "id": "delete-scope-providers-microsoft-authorization-locks-lockname",
+      "name": "DELETE /{scope}/providers/Microsoft.Authorization/locks/{lockName}",
+      "description": "Delete a management lock by scope.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/locks/{{LOCKNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{LOCKNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{LOCKNAME}} with a real lockname."
+    }
+  ]
+}

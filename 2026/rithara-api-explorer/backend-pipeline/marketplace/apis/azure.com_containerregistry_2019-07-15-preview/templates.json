@@ -1,0 +1,391 @@
+{
+  "api_id": "azure.com:containerregistry:2019-07-15-preview",
+  "endpoint_count": 19,
+  "endpoints": [
+    {
+      "id": "get-acr-v1-catalog",
+      "name": "GET /acr/v1/_catalog",
+      "description": "List repositories",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/_catalog",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-acr-v1-name",
+      "name": "GET /acr/v1/{name}",
+      "description": "Get repository attributes",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-acr-v1-name",
+      "name": "DELETE /acr/v1/{name}",
+      "description": "Delete the repository identified by `name`",
+      "method": "DELETE",
+      "url": "https://azure.local/acr/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-acr-v1-name",
+      "name": "PATCH /acr/v1/{name}",
+      "description": "Update the attribute identified by `name` where `reference` is the name of the repository.",
+      "method": "PATCH",
+      "url": "https://azure.local/acr/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "deleteEnabled": true,
+        "listEnabled": true,
+        "readEnabled": true,
+        "writeEnabled": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-acr-v1-name-manifests",
+      "name": "GET /acr/v1/{name}/_manifests",
+      "description": "List manifests of a repository",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_manifests",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-acr-v1-name-manifests-reference",
+      "name": "GET /acr/v1/{name}/_manifests/{reference}",
+      "description": "Get manifest attributes",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_manifests/{{REFERENCE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-acr-v1-name-manifests-reference",
+      "name": "PATCH /acr/v1/{name}/_manifests/{reference}",
+      "description": "Update attributes of a manifest",
+      "method": "PATCH",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_manifests/{{REFERENCE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "deleteEnabled": true,
+        "listEnabled": true,
+        "readEnabled": true,
+        "writeEnabled": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-acr-v1-name-tags",
+      "name": "GET /acr/v1/{name}/_tags",
+      "description": "List tags of a repository",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_tags",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-acr-v1-name-tags-reference",
+      "name": "GET /acr/v1/{name}/_tags/{reference}",
+      "description": "Get tag attributes by tag",
+      "method": "GET",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_tags/{{REFERENCE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-acr-v1-name-tags-reference",
+      "name": "DELETE /acr/v1/{name}/_tags/{reference}",
+      "description": "Delete tag",
+      "method": "DELETE",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_tags/{{REFERENCE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-acr-v1-name-tags-reference",
+      "name": "PATCH /acr/v1/{name}/_tags/{reference}",
+      "description": "Update tag attributes",
+      "method": "PATCH",
+      "url": "https://azure.local/acr/v1/{{NAME}}/_tags/{{REFERENCE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "deleteEnabled": true,
+        "listEnabled": true,
+        "readEnabled": true,
+        "writeEnabled": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-oauth2-exchange",
+      "name": "POST /oauth2/exchange",
+      "description": "Exchange AAD tokens for an ACR refresh Token",
+      "method": "POST",
+      "url": "https://azure.local/oauth2/exchange",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-oauth2-token",
+      "name": "GET /oauth2/token",
+      "description": "Exchange Username, Password and Scope an ACR Access Token",
+      "method": "GET",
+      "url": "https://azure.local/oauth2/token",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "service": "",
+        "scope": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "post-oauth2-token",
+      "name": "POST /oauth2/token",
+      "description": "Exchange ACR Refresh token for an ACR Access Token",
+      "method": "POST",
+      "url": "https://azure.local/oauth2/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-v2",
+      "name": "GET /v2/",
+      "description": "Tells whether this Docker Registry instance supports Docker Registry HTTP API v2",
+      "method": "GET",
+      "url": "https://azure.local/v2/",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-v2-catalog",
+      "name": "GET /v2/_catalog",
+      "description": "List repositories",
+      "method": "GET",
+      "url": "https://azure.local/v2/_catalog",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-v2-name-manifests-reference",
+      "name": "GET /v2/{name}/manifests/{reference}",
+      "description": "Pulls the image manifest file associated with the specified name and reference. Reference may be a tag or a digest",
+      "method": "GET",
+      "url": "https://azure.local/v2/{{NAME}}/manifests/{{REFERENCE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v2-name-manifests-reference",
+      "name": "DELETE /v2/{name}/manifests/{reference}",
+      "description": "Delete the manifest identified by `name` and `reference`. Note that a manifest can _only_ be deleted by `digest`.",
+      "method": "DELETE",
+      "url": "https://azure.local/v2/{{NAME}}/manifests/{{REFERENCE}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REFERENCE}}",
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{REFERENCE}} with a real reference. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v2-name-tags-list",
+      "name": "GET /v2/{name}/tags/list",
+      "description": "Fetch the tags under the repository identified by name",
+      "method": "GET",
+      "url": "https://azure.local/v2/{{NAME}}/tags/list",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{NAME}} with a real name."
+    }
+  ]
+}

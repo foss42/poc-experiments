@@ -1,0 +1,62 @@
+{
+  "api_id": "deutschebahn.com:fasta:2.1",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-facilities",
+      "name": "GET /facilities",
+      "description": "Access to public facilities (escalators and elevators) in railway stations",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/fasta/v2/facilities",
+      "headers": {
+        "Authorization": "Bearer{{DEUTSCHEBAHN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEUTSCHEBAHN_API_KEY}}",
+        "{{DEUTSCHEBAHN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DEUTSCHEBAHN_API_KEY}} with your DEUTSCHEBAHN API KEY."
+    },
+    {
+      "id": "get-facilities-equipmentnumber",
+      "name": "GET /facilities/{equipmentnumber}",
+      "description": "Returns the facility identified by its equipmentnumber.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/fasta/v2/facilities/{{EQUIPMENTNUMBER}}",
+      "headers": {
+        "Authorization": "Bearer{{DEUTSCHEBAHN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEUTSCHEBAHN_API_KEY}}",
+        "{{EQUIPMENTNUMBER}}",
+        "{{DEUTSCHEBAHN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DEUTSCHEBAHN_API_KEY}} with your DEUTSCHEBAHN API KEY. Replace {{EQUIPMENTNUMBER}} with a real equipmentnumber."
+    },
+    {
+      "id": "get-stations-stationnumber",
+      "name": "GET /stations/{stationnumber}",
+      "description": "Returns information about a station (and its corresponding facilities) identified by a stationnumber.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/fasta/v2/stations/{{STATIONNUMBER}}",
+      "headers": {
+        "Authorization": "Bearer{{DEUTSCHEBAHN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATIONNUMBER}}",
+        "{{DEUTSCHEBAHN_API_KEY}}",
+        "{{DEUTSCHEBAHN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DEUTSCHEBAHN_API_KEY}} with your DEUTSCHEBAHN API KEY. Replace {{STATIONNUMBER}} with a real stationnumber."
+    }
+  ]
+}

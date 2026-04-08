@@ -1,0 +1,552 @@
+{
+  "api_id": "googleapis.com:adexchangebuyer:v1.3",
+  "endpoint_count": 21,
+  "endpoints": [
+    {
+      "id": "get-accounts",
+      "name": "GET /accounts",
+      "description": "Retrieves the authenticated user's list of accounts.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/accounts",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-accounts-id",
+      "name": "GET /accounts/{id}",
+      "description": "Gets one account by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/accounts/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-accounts-id",
+      "name": "PUT /accounts/{id}",
+      "description": "Updates an existing account.",
+      "method": "PUT",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/accounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "bidderLocation": [],
+        "cookieMatchingNid": "",
+        "cookieMatchingUrl": "",
+        "id": 0,
+        "kind": "adexchangebuyer#account",
+        "maximumActiveCreatives": 0,
+        "maximumTotalQps": 0,
+        "numberActiveCreatives": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "patch-accounts-id",
+      "name": "PATCH /accounts/{id}",
+      "description": "Updates an existing account. This method supports patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/accounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "bidderLocation": [],
+        "cookieMatchingNid": "",
+        "cookieMatchingUrl": "",
+        "id": 0,
+        "kind": "adexchangebuyer#account",
+        "maximumActiveCreatives": 0,
+        "maximumTotalQps": 0,
+        "numberActiveCreatives": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-billinginfo",
+      "name": "GET /billinginfo",
+      "description": "Retrieves a list of billing information for all accounts of the authenticated user.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-billinginfo-accountid",
+      "name": "GET /billinginfo/{accountId}",
+      "description": "Returns the billing information for one account specified by account ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/{{ACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-billinginfo-accountid-billingid",
+      "name": "GET /billinginfo/{accountId}/{billingId}",
+      "description": "Returns the budget information for the adgroup specified by the accountId and billingId.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/{{ACCOUNTID}}/{{BILLINGID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BILLINGID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{BILLINGID}} with a real billingid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "put-billinginfo-accountid-billingid",
+      "name": "PUT /billinginfo/{accountId}/{billingId}",
+      "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request.",
+      "method": "PUT",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/{{ACCOUNTID}}/{{BILLINGID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountId": "",
+        "billingId": "",
+        "budgetAmount": "",
+        "currencyCode": "",
+        "id": "",
+        "kind": "adexchangebuyer#budget"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BILLINGID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{BILLINGID}} with a real billingid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "patch-billinginfo-accountid-billingid",
+      "name": "PATCH /billinginfo/{accountId}/{billingId}",
+      "description": "Updates the budget amount for the budget of the adgroup specified by the accountId and billingId, with the budget amount in the request. This method supports patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/billinginfo/{{ACCOUNTID}}/{{BILLINGID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountId": "",
+        "billingId": "",
+        "budgetAmount": "",
+        "currencyCode": "",
+        "id": "",
+        "kind": "adexchangebuyer#budget"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BILLINGID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{BILLINGID}} with a real billingid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-creatives",
+      "name": "GET /creatives",
+      "description": "Retrieves a list of the authenticated user's active creatives. A creative will be available 30-40 minutes after submission.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/creatives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-creatives",
+      "name": "POST /creatives",
+      "description": "Submit a new creative.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/creatives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "HTMLSnippet": "",
+        "accountId": 0,
+        "adTechnologyProviders": {},
+        "advertiserId": [],
+        "advertiserName": "",
+        "agencyId": "",
+        "apiUploadTimestamp": "",
+        "attribute": [],
+        "buyerCreativeId": "",
+        "clickThroughUrl": [],
+        "corrections": [],
+        "disapprovalReasons": [],
+        "filteringReasons": {},
+        "height": 0,
+        "impressionTrackingUrl": [],
+        "kind": "adexchangebuyer#creative",
+        "nativeAd": {},
+        "productCategories": [],
+        "restrictedCategories": [],
+        "sensitiveCategories": [],
+        "status": "",
+        "vendorType": [],
+        "version": 0,
+        "videoURL": "",
+        "width": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-creatives-accountid-buyercreativeid",
+      "name": "GET /creatives/{accountId}/{buyerCreativeId}",
+      "description": "Gets the status for a single creative. A creative will be available 30-40 minutes after submission.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/creatives/{{ACCOUNTID}}/{{BUYERCREATIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BUYERCREATIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{BUYERCREATIVEID}} with a real buyercreativeid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-directdeals",
+      "name": "GET /directdeals",
+      "description": "Retrieves the authenticated user's list of direct deals.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/directdeals",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-directdeals-id",
+      "name": "GET /directdeals/{id}",
+      "description": "Gets one direct deal by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/directdeals/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-performancereport",
+      "name": "GET /performancereport",
+      "description": "Retrieves the authenticated user's list of performance metrics.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/performancereport",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "accountId": "",
+        "endDateTime": "",
+        "startDateTime": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-pretargetingconfigs-accountid",
+      "name": "GET /pretargetingconfigs/{accountId}",
+      "description": "Retrieves a list of the authenticated user's pretargeting configurations.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "post-pretargetingconfigs-accountid",
+      "name": "POST /pretargetingconfigs/{accountId}",
+      "description": "Inserts a new pretargeting configuration.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "billingId": "",
+        "configId": "",
+        "configName": "",
+        "creativeType": [],
+        "dimensions": [],
+        "excludedContentLabels": [],
+        "excludedGeoCriteriaIds": [],
+        "excludedPlacements": [],
+        "excludedUserLists": [],
+        "excludedVerticals": [],
+        "geoCriteriaIds": [],
+        "isActive": false,
+        "kind": "adexchangebuyer#pretargetingConfig",
+        "languages": [],
+        "maximumQps": "",
+        "mobileCarriers": [],
+        "mobileDevices": [],
+        "mobileOperatingSystemVersions": [],
+        "placements": [],
+        "platforms": [],
+        "supportedCreativeAttributes": [],
+        "userLists": [],
+        "vendorTypes": [],
+        "verticals": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-pretargetingconfigs-accountid-configid",
+      "name": "GET /pretargetingconfigs/{accountId}/{configId}",
+      "description": "Gets a specific pretargeting configuration",
+      "method": "GET",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}/{{CONFIGID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CONFIGID}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CONFIGID}} with a real configid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "put-pretargetingconfigs-accountid-configid",
+      "name": "PUT /pretargetingconfigs/{accountId}/{configId}",
+      "description": "Updates an existing pretargeting config.",
+      "method": "PUT",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}/{{CONFIGID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "billingId": "",
+        "configId": "",
+        "configName": "",
+        "creativeType": [],
+        "dimensions": [],
+        "excludedContentLabels": [],
+        "excludedGeoCriteriaIds": [],
+        "excludedPlacements": [],
+        "excludedUserLists": [],
+        "excludedVerticals": [],
+        "geoCriteriaIds": [],
+        "isActive": false,
+        "kind": "adexchangebuyer#pretargetingConfig",
+        "languages": [],
+        "maximumQps": "",
+        "mobileCarriers": [],
+        "mobileDevices": [],
+        "mobileOperatingSystemVersions": [],
+        "placements": [],
+        "platforms": [],
+        "supportedCreativeAttributes": [],
+        "userLists": [],
+        "vendorTypes": [],
+        "verticals": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CONFIGID}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CONFIGID}} with a real configid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "delete-pretargetingconfigs-accountid-configid",
+      "name": "DELETE /pretargetingconfigs/{accountId}/{configId}",
+      "description": "Deletes an existing pretargeting config.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}/{{CONFIGID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CONFIGID}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CONFIGID}} with a real configid. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "patch-pretargetingconfigs-accountid-configid",
+      "name": "PATCH /pretargetingconfigs/{accountId}/{configId}",
+      "description": "Updates an existing pretargeting config. This method supports patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/adexchangebuyer/v1.3/pretargetingconfigs/{{ACCOUNTID}}/{{CONFIGID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "billingId": "",
+        "configId": "",
+        "configName": "",
+        "creativeType": [],
+        "dimensions": [],
+        "excludedContentLabels": [],
+        "excludedGeoCriteriaIds": [],
+        "excludedPlacements": [],
+        "excludedUserLists": [],
+        "excludedVerticals": [],
+        "geoCriteriaIds": [],
+        "isActive": false,
+        "kind": "adexchangebuyer#pretargetingConfig",
+        "languages": [],
+        "maximumQps": "",
+        "mobileCarriers": [],
+        "mobileDevices": [],
+        "mobileOperatingSystemVersions": [],
+        "placements": [],
+        "platforms": [],
+        "supportedCreativeAttributes": [],
+        "userLists": [],
+        "vendorTypes": [],
+        "verticals": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{CONFIGID}}",
+        "{{ACCOUNTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{CONFIGID}} with a real configid. Replace {{ACCOUNTID}} with a real accountid."
+    }
+  ]
+}

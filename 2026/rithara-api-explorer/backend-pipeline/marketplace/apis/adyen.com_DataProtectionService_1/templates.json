@@ -1,0 +1,29 @@
+{
+  "api_id": "adyen.com:DataProtectionService:1",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "submit-a-subject-erasure-request",
+      "name": "Submit a Subject Erasure Request.",
+      "description": "Sends the PSP reference containing the shopper data that should be deleted.",
+      "method": "POST",
+      "url": "https://ca-test.adyen.com/ca/services/DataProtectionService/v1/requestSubjectErasure",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "forceErasure": false,
+        "merchantAccount": "",
+        "pspReference": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

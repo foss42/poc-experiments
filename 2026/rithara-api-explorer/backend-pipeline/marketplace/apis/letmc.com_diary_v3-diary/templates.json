@@ -1,0 +1,311 @@
+{
+  "api_id": "letmc.com:diary:v3-diary",
+  "endpoint_count": 13,
+  "endpoints": [
+    {
+      "id": "get-a-list-of-all-available-allocations-for-a-date-7-days-for-a-specified-appointment-type",
+      "name": "Get a list of all available allocations for a date + 7 days for a specified appointment type",
+      "description": "Get a list of all available allocations for a date + 7 days for a specified appointment type",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/allocations",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "preferredDate": "",
+        "appointmentType": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "get-an-appointment-by-id",
+      "name": "Get an appointment by ID",
+      "description": "Get an appointment by ID",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "appointmentID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "post-an-appointment-into-a-valid-diary-allocation",
+      "name": "Post an appointment into a valid diary allocation",
+      "description": "Post an appointment into a valid diary allocation",
+      "method": "POST",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment",
+      "headers": {
+        "Content-Type": "application/json",
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "propertyIdentifier": ""
+      },
+      "body": {
+        "AllocationDetails": {},
+        "AppointmentType": "",
+        "ExtraComments": "",
+        "Guests": [],
+        "Subject": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "update-an-existing-appointment-using-its-unique-identifier",
+      "name": "Update an existing appointment using its unique identifier",
+      "description": "Update an existing appointment using its unique identifier",
+      "method": "PUT",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment",
+      "headers": {
+        "Content-Type": "application/json",
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "appointmentID": ""
+      },
+      "body": {
+        "AllocationDetails": {},
+        "AppointmentType": "",
+        "ExtraComments": "",
+        "Guests": [],
+        "Subject": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "delete-an-existing-appointment-using-its-unique-identifier",
+      "name": "Delete an existing appointment using its unique identifier",
+      "description": "Delete an existing appointment using its unique identifier",
+      "method": "DELETE",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "appointmentID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "submit-appointment-feedback",
+      "name": "Submit appointment feedback",
+      "description": "Submit appointment feedback",
+      "method": "POST",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment/feedback",
+      "headers": {
+        "Content-Type": "application/json",
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "AppointmentID": "",
+        "Feedback": "",
+        "PropertyID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "cancel-an-existing-appointment-using-its-unique-identifier",
+      "name": "Cancel an existing appointment using its unique identifier",
+      "description": "Cancel an existing appointment using its unique identifier",
+      "method": "PATCH",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointment/{{APPOINTMENTID}}/cancel",
+      "headers": {
+        "Content-Type": "application/json",
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{APPOINTMENTID}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{APPOINTMENTID}} with a real appointmentid. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "a-collection-of-diary-appointments-linked-to-a-company-filtered-between-specific-dates-and-by-appointment-type",
+      "name": "A collection of diary appointments linked to a company filtered between specific dates and by appointment type",
+      "description": "A collection of diary appointments linked to a company filtered between specific dates and by appointment type",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointmentsbetweendates",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "branchID": "",
+        "startDate": "",
+        "endDate": "",
+        "appointmentTypesToSearch": "",
+        "offset": "",
+        "count": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "a-collection-of-all-diary-appointment-types",
+      "name": "A collection of all diary appointment types",
+      "description": "A collection of all diary appointment types",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/appointmenttypes",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "offset": "",
+        "count": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "all-branches-defined-for-a-company",
+      "name": "All branches defined for a company",
+      "description": "All branches defined for a company",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/company/branches",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "offset": "",
+        "count": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "get-a-specific-branch-given-its-unique-object-id-oid",
+      "name": "Get a specific branch given its unique Object ID (OID)",
+      "description": "Get a specific branch given its unique Object ID (OID)",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/company/branches/{{BRANCHID}}",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{BRANCHID}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname. Replace {{BRANCHID}} with a real branchid."
+    },
+    {
+      "id": "retrieves-all-recurring-appointments",
+      "name": "Retrieves all recurring appointments:-",
+      "description": "Retrieves all recurring appointments:-",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/recurringappointment",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "branchID": "",
+        "appointmentTypesToSearch": "",
+        "offset": "",
+        "count": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname."
+    },
+    {
+      "id": "match-guest-parameters-with-existing-applicants",
+      "name": "Match Guest Parameters with existing applicants",
+      "description": "Match Guest Parameters with existing applicants",
+      "method": "GET",
+      "url": "https://live-api.letmc.com/v3/diary/{{SHORTNAME}}/{{BRANCHID}}/guest/search",
+      "headers": {
+        "ApiKey": "{{LETMC_COM_API_KEY}}"
+      },
+      "query_params": {
+        "forename": "",
+        "emailaddress": "",
+        "surname": "",
+        "offset": "",
+        "count": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LETMC_API_KEY}}",
+        "{{SHORTNAME}}",
+        "{{BRANCHID}}",
+        "{{LETMC_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LETMC_API_KEY}} with your LETMC API KEY. Replace {{SHORTNAME}} with a real shortname. Replace {{BRANCHID}} with a real branchid."
+    }
+  ]
+}

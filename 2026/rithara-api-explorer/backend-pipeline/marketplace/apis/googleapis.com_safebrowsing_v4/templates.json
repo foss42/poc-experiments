@@ -1,0 +1,127 @@
+{
+  "api_id": "googleapis.com:safebrowsing:v4",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "get-v4-encodedfullhashes-encodedrequest",
+      "name": "GET /v4/encodedFullHashes/{encodedRequest}",
+      "description": null,
+      "method": "GET",
+      "url": "https://safebrowsing.googleapis.com/v4/encodedFullHashes/{{ENCODEDREQUEST}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ENCODEDREQUEST}}"
+      ],
+      "notes": "No authentication required. Replace {{ENCODEDREQUEST}} with a real encodedrequest."
+    },
+    {
+      "id": "get-v4-encodedupdates-encodedrequest",
+      "name": "GET /v4/encodedUpdates/{encodedRequest}",
+      "description": null,
+      "method": "GET",
+      "url": "https://safebrowsing.googleapis.com/v4/encodedUpdates/{{ENCODEDREQUEST}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ENCODEDREQUEST}}"
+      ],
+      "notes": "No authentication required. Replace {{ENCODEDREQUEST}} with a real encodedrequest."
+    },
+    {
+      "id": "post-v4-fullhashes-find",
+      "name": "POST /v4/fullHashes:find",
+      "description": "Finds the full hashes that match the requested hash prefixes.",
+      "method": "POST",
+      "url": "https://safebrowsing.googleapis.com/v4/fullHashes:find",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "apiClient": {},
+        "client": {},
+        "clientStates": [],
+        "threatInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v4-threathits",
+      "name": "POST /v4/threatHits",
+      "description": "Reports a Safe Browsing threat list hit to Google. Only projects with TRUSTED_REPORTER visibility can use this method.",
+      "method": "POST",
+      "url": "https://safebrowsing.googleapis.com/v4/threatHits",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "clientInfo": {},
+        "entry": {},
+        "platformType": "",
+        "resources": [],
+        "threatType": "",
+        "userInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v4-threatlistupdates-fetch",
+      "name": "POST /v4/threatListUpdates:fetch",
+      "description": "Fetches the most recent threat list updates. A client can request updates for multiple lists at once.",
+      "method": "POST",
+      "url": "https://safebrowsing.googleapis.com/v4/threatListUpdates:fetch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "client": {},
+        "listUpdateRequests": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v4-threatlists",
+      "name": "GET /v4/threatLists",
+      "description": "Lists the Safe Browsing threat lists available for download.",
+      "method": "GET",
+      "url": "https://safebrowsing.googleapis.com/v4/threatLists",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v4-threatmatches-find",
+      "name": "POST /v4/threatMatches:find",
+      "description": "Finds the threat entries that match the Safe Browsing lists.",
+      "method": "POST",
+      "url": "https://safebrowsing.googleapis.com/v4/threatMatches:find",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "client": {},
+        "threatInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

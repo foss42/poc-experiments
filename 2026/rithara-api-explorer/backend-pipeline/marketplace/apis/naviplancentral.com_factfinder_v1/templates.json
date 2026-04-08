@@ -1,0 +1,2410 @@
+{
+  "api_id": "naviplancentral.com:factfinder:v1",
+  "endpoint_count": 144,
+  "endpoints": [
+    {
+      "id": "get-api-accounttypes",
+      "name": "GET /api/AccountTypes",
+      "description": "Description: This operation retrieves all Account Types for the specified country.<br />\r\n              Purpose: Provides access to the Account Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/AccountTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-accounttypes-id",
+      "name": "GET /api/AccountTypes/{id}",
+      "description": "Description: This operation retrieves all Account Types for the specified id.<br />\r\n              Purpose: Provides access to the Account Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/AccountTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-accounts",
+      "name": "GET /api/Accounts",
+      "description": "Description: This operation retrieves all Accounts for the specified Fact Finder ID and/or external source ID.<br />\r\n              Purpose: Provides access to the Account information including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-accounts",
+      "name": "POST /api/Accounts",
+      "description": "Description: The operation creates an Account.<br />\r\n              Purpose: Allows for creation of Accounts on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-accounts-accountid-holdings",
+      "name": "GET /api/Accounts/{accountId}/Holdings",
+      "description": "Retrieves all holdings in the specified Account.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "post-api-accounts-accountid-holdings",
+      "name": "POST /api/Accounts/{accountId}/Holdings",
+      "description": "Creates a holding and adds it to an existing Account.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "put-api-accounts-accountid-holdings",
+      "name": "PUT /api/Accounts/{accountId}/Holdings",
+      "description": "Updates all holdings associated with an account",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "holdings": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-api-accounts-accountid-holdings-id",
+      "name": "GET /api/Accounts/{accountId}/Holdings/{id}",
+      "description": "Description: This operation retrieves a single Account Holding for the specified Account Holding ID and Account ID.<br />\r\n              Purpose: Provides access to the Account Holding information including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "put-api-accounts-accountid-holdings-id",
+      "name": "PUT /api/Accounts/{accountId}/Holdings/{id}",
+      "description": "Updates a holding associated with an account",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "delete-api-accounts-accountid-holdings-id",
+      "name": "DELETE /api/Accounts/{accountId}/Holdings/{id}",
+      "description": "Description: This operation deletes a single Account Holding for the specified Account Holding ID and Account ID.<br />\r\n              Purpose: Provides the ability to remove individual holdings from a specified Account.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/Holdings/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-api-accounts-accountid-savingsstrategies",
+      "name": "GET /api/Accounts/{accountId}/SavingsStrategies",
+      "description": "Get all of the savings strategies for a specific account",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "post-api-accounts-accountid-savingsstrategies",
+      "name": "POST /api/Accounts/{accountId}/SavingsStrategies",
+      "description": "Creates a savings strategy on a specific account",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "employerSavingsAmount": 0.0,
+        "employerSavingsAmountType": "",
+        "endDate": "",
+        "externalDestinationId": "",
+        "frequencyId": 0,
+        "mandatoryAmount": 0.0,
+        "mandatoryAmountType": "",
+        "postTaxSavingsAmount": 0.0,
+        "postTaxSavingsAmountType": "",
+        "preTaxSavingsAmount": 0.0,
+        "preTaxSavingsAmountType": "",
+        "startDate": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "delete-api-accounts-accountid-savingsstrategies",
+      "name": "DELETE /api/Accounts/{accountId}/SavingsStrategies",
+      "description": "Deletes all savings strategies tied to an account",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-api-accounts-accountid-savingsstrategies-id",
+      "name": "GET /api/Accounts/{accountId}/SavingsStrategies/{id}",
+      "description": "Get a specific savings strategy for an account",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "put-api-accounts-accountid-savingsstrategies-id",
+      "name": "PUT /api/Accounts/{accountId}/SavingsStrategies/{id}",
+      "description": "Updates a specific savings strategy",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "employerSavingsAmount": 0.0,
+        "employerSavingsAmountType": "",
+        "endDate": "",
+        "externalDestinationId": "",
+        "frequencyId": 0,
+        "mandatoryAmount": 0.0,
+        "mandatoryAmountType": "",
+        "postTaxSavingsAmount": 0.0,
+        "postTaxSavingsAmountType": "",
+        "preTaxSavingsAmount": 0.0,
+        "preTaxSavingsAmountType": "",
+        "startDate": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "delete-api-accounts-accountid-savingsstrategies-id",
+      "name": "DELETE /api/Accounts/{accountId}/SavingsStrategies/{id}",
+      "description": "Deletes a specific savings strategy",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ACCOUNTID}}/SavingsStrategies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCOUNTID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCOUNTID}} with a real accountid."
+    },
+    {
+      "id": "get-api-accounts-id",
+      "name": "GET /api/Accounts/{id}",
+      "description": "Description: This operation retrieves a single Account for the specified Account ID.<br />\r\n              Purpose: Provides access to the Account information including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-accounts-id",
+      "name": "PUT /api/Accounts/{id}",
+      "description": "Description: The operation updates an Account, deletes associated saving strategies if the account type changes.<br />\r\n              Purpose: Allows for complete replacement of an Account on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-accounts-id",
+      "name": "DELETE /api/Accounts/{id}",
+      "description": "Description: The operation removes an Account tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of an Account from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Accounts/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-api-clients",
+      "name": "POST /api/Clients",
+      "description": "Description: This operation submits the Fact Finder data to an external system.<br />\r\n              Purpose: Allows Fact Finder data to be persisted in another system for that system's consumption and use.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Clients",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "planAction": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-definedbenefitpensions",
+      "name": "GET /api/DefinedBenefitPensions",
+      "description": "Description: This operation retrieves all Defined Benefit Pensions for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Defined Benefit Pensions including description and start date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DefinedBenefitPensions",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-definedbenefitpensions",
+      "name": "POST /api/DefinedBenefitPensions",
+      "description": "Description: The operation creates a Defined Benefit Pension.<br />\r\n              Purpose: Allows for creation of Defined Benefit Pensions on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DefinedBenefitPensions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-definedbenefitpensions-id",
+      "name": "GET /api/DefinedBenefitPensions/{id}",
+      "description": "Description: This operation retrieves a single Defined Benefit Pension for the specified Defined Benefit Pension ID.<br />\r\n              Purpose: Provides access to the Defined Benefit Pension including description and start date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DefinedBenefitPensions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-definedbenefitpensions-id",
+      "name": "PUT /api/DefinedBenefitPensions/{id}",
+      "description": "Description: The operation updates a Defined Benefit Pension.<br />\r\n              Purpose: Allows for complete replacement of a Defined Benefit Pension on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DefinedBenefitPensions/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-definedbenefitpensions-id",
+      "name": "DELETE /api/DefinedBenefitPensions/{id}",
+      "description": "Description: The operation removes a Defined Benefit Pension tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Defined Benefit Pension from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DefinedBenefitPensions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-demographics",
+      "name": "GET /api/Demographics",
+      "description": "Description: This operation retrieves all Demographic information for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Demographic information including city and state.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-demographics",
+      "name": "POST /api/Demographics",
+      "description": "Description: The operation creates Demographic information.<br />\r\n              Purpose: Allows for creation of Demographic information on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "jointAnalysis": false,
+        "head1": {},
+        "factFinderId": 0,
+        "city": "",
+        "state": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-demographics-demographicid-dependents",
+      "name": "GET /api/Demographics/{demographicId}/Dependents",
+      "description": "Description: This operation retrieves all Dependents for the specified Demographic information ID.<br />\r\n              Purpose: Provides access to the Dependents including first and last name.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{DEMOGRAPHICID}}/Dependents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEMOGRAPHICID}}"
+      ],
+      "notes": "No authentication required. Replace {{DEMOGRAPHICID}} with a real demographicid."
+    },
+    {
+      "id": "post-api-demographics-demographicid-dependents",
+      "name": "POST /api/Demographics/{demographicId}/Dependents",
+      "description": "Description: The operation creates a Dependent.<br />\r\n              Purpose: Allows for creation of Dependents on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{DEMOGRAPHICID}}/Dependents",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "firstName": "",
+        "lastName": "",
+        "birthDate": "",
+        "relationship": "",
+        "dependentOf": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEMOGRAPHICID}}"
+      ],
+      "notes": "No authentication required. Replace {{DEMOGRAPHICID}} with a real demographicid."
+    },
+    {
+      "id": "get-api-demographics-demographicid-dependents-id",
+      "name": "GET /api/Demographics/{demographicId}/Dependents/{id}",
+      "description": "Description: This operation retrieves a single Dependent for the specified Dependent ID.<br />\r\n              Purpose: Provides access to the Dependent including first and last name.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{DEMOGRAPHICID}}/Dependents/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEMOGRAPHICID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{DEMOGRAPHICID}} with a real demographicid."
+    },
+    {
+      "id": "put-api-demographics-demographicid-dependents-id",
+      "name": "PUT /api/Demographics/{demographicId}/Dependents/{id}",
+      "description": "Description: The operation updates a Dependent.<br />\r\n              Purpose: Allows for complete replacement of a Dependent on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{DEMOGRAPHICID}}/Dependents/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "firstName": "",
+        "lastName": "",
+        "birthDate": "",
+        "relationship": "",
+        "dependentOf": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEMOGRAPHICID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{DEMOGRAPHICID}} with a real demographicid."
+    },
+    {
+      "id": "delete-api-demographics-demographicid-dependents-id",
+      "name": "DELETE /api/Demographics/{demographicId}/Dependents/{id}",
+      "description": "Description: The operation removes a Dependent tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Dependent from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{DEMOGRAPHICID}}/Dependents/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEMOGRAPHICID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{DEMOGRAPHICID}} with a real demographicid."
+    },
+    {
+      "id": "get-api-demographics-id",
+      "name": "GET /api/Demographics/{id}",
+      "description": "Description: This operation retrieves Demographic information for the specified Demographic information ID.<br />\r\n              Purpose: Provides access to the Demographic information including city and state.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-demographics-id",
+      "name": "PUT /api/Demographics/{id}",
+      "description": "Description: The operation updates Demographic information.<br />\r\n              Purpose: Allows for complete replacement of Demographic information on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Demographics/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "jointAnalysis": false,
+        "head1": {},
+        "factFinderId": 0,
+        "city": "",
+        "state": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-disabilityinsurancepolicies",
+      "name": "GET /api/DisabilityInsurancePolicies",
+      "description": "Description: This operation retrieves all Disability Insurance Policies for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Disability Insurance Policies including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicies",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-disabilityinsurancepolicies",
+      "name": "POST /api/DisabilityInsurancePolicies",
+      "description": "Description: The operation creates a Disability Insurance Policy.<br />\r\n              Purpose: Allows for creation of Disability Insurance Policies on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-disabilityinsurancepolicies-id",
+      "name": "GET /api/DisabilityInsurancePolicies/{id}",
+      "description": "Description: This operation retrieves a single Disability Insurance Policy for the specified Disability Insurance Policy ID.<br />\r\n              Purpose: Provides access to the Disability Insurance Policy including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-disabilityinsurancepolicies-id",
+      "name": "PUT /api/DisabilityInsurancePolicies/{id}",
+      "description": "Description: The operation updates a Disability Insurance Policy.<br />\r\n              Purpose: Allows for complete replacement of a Disability Insurance Policy on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-disabilityinsurancepolicies-id",
+      "name": "DELETE /api/DisabilityInsurancePolicies/{id}",
+      "description": "Description: The operation removes a Disability Insurance Policy tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Disability Insurance Policy from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-disabilityinsurancepolicytypes",
+      "name": "GET /api/DisabilityInsurancePolicyTypes",
+      "description": "Description: This operation retrieves all Disability Insurance Policy Types for the specified country.<br />\r\n              Purpose: Provides access to the Disability Insurance Policy Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicyTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-disabilityinsurancepolicytypes-id",
+      "name": "GET /api/DisabilityInsurancePolicyTypes/{id}",
+      "description": "Description: This operation retrieves all Disability Insurance Policy Types for the specified id.<br />\r\n              Purpose: Provides access to the Disability Insurance Policy Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/DisabilityInsurancePolicyTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-educationgoals",
+      "name": "GET /api/EducationGoals",
+      "description": "Description: This operation retrieves all Education Goals for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Education Goals including description and projected cost.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-educationgoals",
+      "name": "POST /api/EducationGoals",
+      "description": "Description: The operation creates an Education Goal.<br />\r\n              Purpose: Allows for creation of Education Goals on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-educationgoals-educationgoalid-expenses",
+      "name": "GET /api/EducationGoals/{educationGoalId}/Expenses",
+      "description": "Description: This operation retrieves all Education Goal Expenses for the specified Education Goal ID.<br />\r\n              Purpose: Provides access to the Education Goal Expenses including description and annual cost.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{EDUCATIONGOALID}}/Expenses",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDUCATIONGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{EDUCATIONGOALID}} with a real educationgoalid."
+    },
+    {
+      "id": "post-api-educationgoals-educationgoalid-expenses",
+      "name": "POST /api/EducationGoals/{educationGoalId}/Expenses",
+      "description": "Description: The operation creates an Education Goal Expense.<br />\r\n              Purpose: Allows for creation of Education Goal Expenses on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{EDUCATIONGOALID}}/Expenses",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "annualCost": 0.0,
+        "externalDestinationId": "",
+        "member": "",
+        "memberDependentId": 0,
+        "startYear": "",
+        "years": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDUCATIONGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{EDUCATIONGOALID}} with a real educationgoalid."
+    },
+    {
+      "id": "get-api-educationgoals-educationgoalid-expenses-id",
+      "name": "GET /api/EducationGoals/{educationGoalId}/Expenses/{id}",
+      "description": "Description: This operation retrieves a single Education Goal Expense for the specified Education Goal Expense ID.<br />\r\n              Purpose: Provides access to the Education Goal Expense including description and annual cost.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{EDUCATIONGOALID}}/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{EDUCATIONGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{EDUCATIONGOALID}} with a real educationgoalid."
+    },
+    {
+      "id": "put-api-educationgoals-educationgoalid-expenses-id",
+      "name": "PUT /api/EducationGoals/{educationGoalId}/Expenses/{id}",
+      "description": "Description: The operation updates an Education Goal Expense.<br />\r\n              Purpose: Allows for complete replacement of an Education Goal Expense on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{EDUCATIONGOALID}}/Expenses/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "annualCost": 0.0,
+        "externalDestinationId": "",
+        "member": "",
+        "memberDependentId": 0,
+        "startYear": "",
+        "years": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{EDUCATIONGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{EDUCATIONGOALID}} with a real educationgoalid."
+    },
+    {
+      "id": "delete-api-educationgoals-educationgoalid-expenses-id",
+      "name": "DELETE /api/EducationGoals/{educationGoalId}/Expenses/{id}",
+      "description": "Description: The operation removes an Education Goal Expense tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of an Education Goal Expense from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{EDUCATIONGOALID}}/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{EDUCATIONGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{EDUCATIONGOALID}} with a real educationgoalid."
+    },
+    {
+      "id": "get-api-educationgoals-id",
+      "name": "GET /api/EducationGoals/{id}",
+      "description": "Description: This operation retrieves a single Education Goal for the specified Education Goal ID.<br />\r\n              Purpose: Provides access to the Education Goal including description and projected cost.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-educationgoals-id",
+      "name": "PUT /api/EducationGoals/{id}",
+      "description": "Description: The operation creates an Education Goal Expense.<br />\r\n              Purpose: Allows for creation of Education Goal Expenses on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-educationgoals-id",
+      "name": "DELETE /api/EducationGoals/{id}",
+      "description": "Description: The operation removes an Education Goal tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of an Education Goal from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/EducationGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-expensetypes",
+      "name": "GET /api/ExpenseTypes",
+      "description": "Description: This operation retrieves all Expense Types for the specified country.<br />\r\n              Purpose: Provides access to the Expense Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/ExpenseTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-expensetypes-id",
+      "name": "GET /api/ExpenseTypes/{id}",
+      "description": "Description: This operation retrieves all Expense Types for the specified country.<br />\r\n              Purpose: Provides access to the Expense Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/ExpenseTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-expenses",
+      "name": "GET /api/Expenses",
+      "description": "Description: This operation retrieves all Expenses for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Expenses including description and Expense type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Expenses",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-expenses",
+      "name": "POST /api/Expenses",
+      "description": "Description: The operation creates an Expense.<br />\r\n              Purpose: Allows for creation of Expenses on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Expenses",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-expenses-id",
+      "name": "GET /api/Expenses/{id}",
+      "description": "Description: This operation retrieves a single Expense for the specified Expense ID.<br />\r\n              Purpose: Provides access to the Expense including description and Expense type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-expenses-id",
+      "name": "PUT /api/Expenses/{id}",
+      "description": "Description: The operation updates an Expense.<br />\r\n              Purpose: Allows for complete replacement of an Expense on a Fact Finder. <br /><br />\r\n              Note: Expense type cannot be changed for expenses prepopulated from NaviPlan.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Expenses/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-expenses-id",
+      "name": "DELETE /api/Expenses/{id}",
+      "description": "Description: The operation removes an Expense tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of an Expense from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-factfinders",
+      "name": "GET /api/FactFinders",
+      "description": "Description: This operation retrieves all Fact Finders for the specified householdId, \r\n              or if null, all households associated with the user.<br />\r\n              Purpose: Provides access to the Fact Finder including status.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-factfinders",
+      "name": "POST /api/FactFinders",
+      "description": "Description: The operation creates a completely empty draft Fact Finder.<br />\r\n              Requirements: A householdId and list of modules must be provided.<br />\r\n              Purpose: Stages a Fact Finder for population.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "householdId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-factfinders-populate",
+      "name": "POST /api/FactFinders/Populate",
+      "description": "Description: The operation creates a new Populated Fact Finder.<br />\r\n              Requirements: A householdId and list of modules must be provided.<br />\r\n              Purpose: Creation of a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/Populate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "householdId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-factfinders-factfinderid-modules",
+      "name": "GET /api/FactFinders/{factFinderId}/Modules",
+      "description": "Description: This operation retrieves all Fact Finder Modules for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Fact Finder Modules including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{FACTFINDERID}}/Modules",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FACTFINDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{FACTFINDERID}} with a real factfinderid."
+    },
+    {
+      "id": "get-api-factfinders-factfinderid-modules-id",
+      "name": "GET /api/FactFinders/{factFinderId}/Modules/{id}",
+      "description": "Description: This operation retrieves a single Fact Finder Module for the specified Fact Finder Module ID.<br />\r\n              Purpose: Provides access to the Fact Finder Module including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{FACTFINDERID}}/Modules/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FACTFINDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{FACTFINDERID}} with a real factfinderid."
+    },
+    {
+      "id": "put-api-factfinders-factfinderid-modules-id",
+      "name": "PUT /api/FactFinders/{factFinderId}/Modules/{id}",
+      "description": "Description: The operation updates a Fact Finder Module.<br />\r\n              Purpose: Allows for complete replacement of a Fact Finder Module on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{FACTFINDERID}}/Modules/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "moduleName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FACTFINDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{FACTFINDERID}} with a real factfinderid."
+    },
+    {
+      "id": "get-api-factfinders-factfinderid-snapshots",
+      "name": "GET /api/FactFinders/{factFinderId}/Snapshots",
+      "description": "Description: The operation retrieves Snapshots of a Fact Finder.<br />\r\n              Purpose: Allows for advisors to view all Snapshots taken of a Fact Finder.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{FACTFINDERID}}/Snapshots",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FACTFINDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{FACTFINDERID}} with a real factfinderid."
+    },
+    {
+      "id": "post-api-factfinders-factfinderid-snapshots",
+      "name": "POST /api/FactFinders/{factFinderId}/Snapshots",
+      "description": "Description: The operation creates a Snapshot of a Fact Finder.<br />\r\n              Purpose: Allows for advisors to compare the current fact finder to a snapshot prior to acceptance.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{FACTFINDERID}}/Snapshots",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FACTFINDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{FACTFINDERID}} with a real factfinderid."
+    },
+    {
+      "id": "get-api-factfinders-id",
+      "name": "GET /api/FactFinders/{id}",
+      "description": "Description: This operation retrieves a single Fact Finder for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Fact Finder including status.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-factfinders-id",
+      "name": "PUT /api/FactFinders/{id}",
+      "description": "Description: The operation updates a Fact Finder.<br />\r\n              Purpose: Allows for the updating of a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-factfinders-id",
+      "name": "DELETE /api/FactFinders/{id}",
+      "description": "Description: This operation deletes a single Fact Finder for the specified Fact Finder ID.<br />\r\n              Purpose: Deletes the fact finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-factfinders-id-populate",
+      "name": "PUT /api/FactFinders/{id}/Populate",
+      "description": "Description: The operation populates a fact finder.<br />\r\n              Purpose: Allows for the population of a Fact Finder based on a NaviPlan plan or client. This\r\n                       operation cannot be performed on a Fact Finder more than once.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FactFinders/{{ID}}/Populate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "planId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-filingstatustypes",
+      "name": "GET /api/FilingStatusTypes",
+      "description": "Description: This operation retrieves all Filing Status Types for the specified country.<br />\r\n              Purpose: Provides access to the Filing Status Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FilingStatusTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-filingstatustypes-id",
+      "name": "GET /api/FilingStatusTypes/{id}",
+      "description": "Description: This operation retrieves all Filing Status Type for the specified id.<br />\r\n              Purpose: Provides access to the Filing Status Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FilingStatusTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-frequencytypes",
+      "name": "GET /api/FrequencyTypes",
+      "description": "Description: This operation retrieves all Frequency Types for the specified country and entity.<br />\r\n              Purpose: Provides access to the Frequency Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FrequencyTypes",
+      "headers": {},
+      "query_params": {
+        "entity": "",
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-frequencytypes-id",
+      "name": "GET /api/FrequencyTypes/{id}",
+      "description": "Description: This operation retrieves the Frequency Type for the specified id.<br />\r\n              Purpose: Provides access to the Frequency Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/FrequencyTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-incometypes",
+      "name": "GET /api/IncomeTypes",
+      "description": "Description: This operation retrieves all Income Types for the specified country.<br />\r\n              Purpose: Provides access to the Income Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/IncomeTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-incometypes-id",
+      "name": "GET /api/IncomeTypes/{id}",
+      "description": "Description: This operation retrieves the Income Type for the specified id.<br />\r\n              Purpose: Provides access to the Income Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/IncomeTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-incomes",
+      "name": "GET /api/Incomes",
+      "description": "Description: This operation retrieves all Incomes for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Incomes including annual amount and start date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Incomes",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-incomes",
+      "name": "POST /api/Incomes",
+      "description": "Description: The operation creates an Income.<br />\r\n              Purpose: Allows for creation of Incomes on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Incomes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-incomes-id",
+      "name": "GET /api/Incomes/{id}",
+      "description": "Description: This operation retrieves a single Income for the specified Income ID.<br />\r\n              Purpose: Provides access to the Income including annual amount and start date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Incomes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-incomes-id",
+      "name": "PUT /api/Incomes/{id}",
+      "description": "Description: The operation updates an Income.<br />\r\n              Purpose: Allows for complete replacement of an Income on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Incomes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-incomes-id",
+      "name": "DELETE /api/Incomes/{id}",
+      "description": "Description: The operation removes an Income tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of an Income from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Incomes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-liabilities",
+      "name": "GET /api/Liabilities",
+      "description": "Description: This operation retrieves all Liabilities for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Liabilities including owner and type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Liabilities",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-liabilities",
+      "name": "POST /api/Liabilities",
+      "description": "Description: The operation creates a Liability.<br />\r\n              Purpose: Allows for creation of Liabilities on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Liabilities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-liabilities-id",
+      "name": "GET /api/Liabilities/{id}",
+      "description": "Description: This operation retrieves a single Liability for the specified Liability ID.<br />\r\n              Purpose: Provides access to the Liability including owner and type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Liabilities/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-liabilities-id",
+      "name": "PUT /api/Liabilities/{id}",
+      "description": "Description: The operation updates a Liability.<br />\r\n              Purpose: Allows for complete replacement of a Liability on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Liabilities/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-liabilities-id",
+      "name": "DELETE /api/Liabilities/{id}",
+      "description": "Description: The operation removes a Liability tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Liability from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Liabilities/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-liabilitytypes",
+      "name": "GET /api/LiabilityTypes",
+      "description": "Description: This operation retrieves all Liability Types for the specified country.<br />\r\n              Purpose: Provides access to the Liability Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LiabilityTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-liabilitytypes-id",
+      "name": "GET /api/LiabilityTypes/{id}",
+      "description": "Description: This operation retrieves the Liability Type for the specified id.<br />\r\n              Purpose: Provides access to the Liability Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LiabilityTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicies",
+      "name": "GET /api/LifeInsurancePolicies",
+      "description": "Description: This operation retrieves all Life Insurance Policies for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Life Insurance Policies including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-lifeinsurancepolicies",
+      "name": "POST /api/LifeInsurancePolicies",
+      "description": "Description: The operation creates a Life Insurance Policy.<br />\r\n              Purpose: Allows for creation of Life Insurance Policies on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicies-id",
+      "name": "GET /api/LifeInsurancePolicies/{id}",
+      "description": "Description: This operation retrieves a single Life Insurance Policy for the specified Life Insurance Policy ID.<br />\r\n              Purpose: Provides access to the Life Insurance Policy including description and policy type.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-lifeinsurancepolicies-id",
+      "name": "PUT /api/LifeInsurancePolicies/{id}",
+      "description": "Description: The operation updates a Life Insurance Policy, deletes associated sub-accounts if the policy type changes.<br />\r\n              Purpose: Allows for complete replacement of a Life Insurance Policy on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-lifeinsurancepolicies-id",
+      "name": "DELETE /api/LifeInsurancePolicies/{id}",
+      "description": "Description: The operation removes a Life Insurance Policy tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Life Insurance Policy and associated subaccounts from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicies-lifeinsurancepolicyid-subaccounts",
+      "name": "GET /api/LifeInsurancePolicies/{lifeInsurancePolicyId}/Subaccounts",
+      "description": "Description: Get all the subaccounts for an existing Life Insurance Policy.<br />\r\n              Purpose: Provides access to all the Life Insurance Policy subaccounts.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{LIFEINSURANCEPOLICYID}}/Subaccounts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LIFEINSURANCEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LIFEINSURANCEPOLICYID}} with a real lifeinsurancepolicyid."
+    },
+    {
+      "id": "post-api-lifeinsurancepolicies-lifeinsurancepolicyid-subaccounts",
+      "name": "POST /api/LifeInsurancePolicies/{lifeInsurancePolicyId}/Subaccounts",
+      "description": "Description: Creates a subaccount and adds it to an existing Life Insurance Policy.<br />\r\n              Purpose: Allows for creation of subaccount on a Life Insurance Policy.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{LIFEINSURANCEPOLICYID}}/Subaccounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LIFEINSURANCEPOLICYID}}"
+      ],
+      "notes": "No authentication required. Replace {{LIFEINSURANCEPOLICYID}} with a real lifeinsurancepolicyid."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicies-lifeinsurancepolicyid-subaccounts-id",
+      "name": "GET /api/LifeInsurancePolicies/{lifeInsurancePolicyId}/Subaccounts/{id}",
+      "description": "Description: Get a specific subaccount for an existing Life Insurance Policy.<br />\r\n              Purpose: Provides access to the Life Insurance Policy subaccount.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{LIFEINSURANCEPOLICYID}}/Subaccounts/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LIFEINSURANCEPOLICYID}}",
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{LIFEINSURANCEPOLICYID}} with a real lifeinsurancepolicyid. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-lifeinsurancepolicies-lifeinsurancepolicyid-subaccounts-id",
+      "name": "PUT /api/LifeInsurancePolicies/{lifeInsurancePolicyId}/Subaccounts/{id}",
+      "description": "Description: Updates an existing Life Insurance Policy Subaccount for an existing Life Insurance Policy.<br />\r\n              Purpose: Allows for complete replacement of a subaccount on a Life Insurance Policy.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{LIFEINSURANCEPOLICYID}}/Subaccounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LIFEINSURANCEPOLICYID}}",
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{LIFEINSURANCEPOLICYID}} with a real lifeinsurancepolicyid. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-lifeinsurancepolicies-lifeinsurancepolicyid-subaccounts-id",
+      "name": "DELETE /api/LifeInsurancePolicies/{lifeInsurancePolicyId}/Subaccounts/{id}",
+      "description": "Description: Deletes an existing Life Insurance Policy Subaccount for an existing Life Insurance Policy.<br />\r\n              Purpose: Allows for removal of a subaccount from a Life Insurance Policy.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicies/{{LIFEINSURANCEPOLICYID}}/Subaccounts/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LIFEINSURANCEPOLICYID}}",
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{LIFEINSURANCEPOLICYID}} with a real lifeinsurancepolicyid. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicytypes",
+      "name": "GET /api/LifeInsurancePolicyTypes",
+      "description": "Description: This operation retrieves all Life Insurance Policy Types for the specified country.<br />\r\n              Purpose: Provides access to the Life Insurance Policy Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicyTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-lifeinsurancepolicytypes-id",
+      "name": "GET /api/LifeInsurancePolicyTypes/{id}",
+      "description": "Description: This operation retrieves the Life Insurance Policy Type for the specified id.<br />\r\n              Purpose: Provides access to the Life Insurance Policy Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifeInsurancePolicyTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-lifestyleassettypes",
+      "name": "GET /api/LifestyleAssetTypes",
+      "description": "Description: This operation retrieves all Lifestyle Asset Types for the specified country.<br />\r\n              Purpose: Provides access to the Lifestyle Asset Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssetTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-lifestyleassettypes-id",
+      "name": "GET /api/LifestyleAssetTypes/{id}",
+      "description": "Description: This operation retrieves the Lifestyle Asset Type for the specified id.<br />\r\n              Purpose: Provides access to the Lifestyle Asset Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssetTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-lifestyleassets",
+      "name": "GET /api/LifestyleAssets",
+      "description": "Description: This operation retrieves all Lifestyle Assets for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Lifestyle Assets including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssets",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-lifestyleassets",
+      "name": "POST /api/LifestyleAssets",
+      "description": "Description: The operation creates a Lifestyle Asset.<br />\r\n              Purpose: Allows for creation of Lifestyle Assets on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssets",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-lifestyleassets-id",
+      "name": "GET /api/LifestyleAssets/{id}",
+      "description": "Description: This operation retrieves a single Lifestyle Asset for the specified Lifestyle Asset ID.<br />\r\n              Purpose: Provides access to the Lifestyle Asset including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssets/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-lifestyleassets-id",
+      "name": "PUT /api/LifestyleAssets/{id}",
+      "description": "Description: The operation updates a Lifestyle Asset.<br />\r\n              Purpose: Allows for complete replacement of a Lifestyle Asset on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssets/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-lifestyleassets-id",
+      "name": "DELETE /api/LifestyleAssets/{id}",
+      "description": "Description: The operation removes a Lifestyle Asset tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Lifestyle Asset from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LifestyleAssets/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-longtermcareinsurancepolicies",
+      "name": "GET /api/LongTermCareInsurancePolicies",
+      "description": "Description: This operation retrieves all Long Term Care Insurance Policies for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Long Term Care Insurance Policies including description and premium.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LongTermCareInsurancePolicies",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-longtermcareinsurancepolicies",
+      "name": "POST /api/LongTermCareInsurancePolicies",
+      "description": "Description: The operation creates a Long Term Care Insurance Policy.<br />\r\n              Purpose: Allows for creation of Long Term Care Insurance Policies on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LongTermCareInsurancePolicies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-longtermcareinsurancepolicies-id",
+      "name": "GET /api/LongTermCareInsurancePolicies/{id}",
+      "description": "Description: This operation retrieves a single Long Term Care Insurance Policy for the specified Long Term Care Insurance Policy ID.<br />\r\n              Purpose: Provides access to the Long Term Care Insurance Policy including description and premium.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LongTermCareInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-longtermcareinsurancepolicies-id",
+      "name": "PUT /api/LongTermCareInsurancePolicies/{id}",
+      "description": "Description: The operation updates a Long Term Care Insurance Policy.<br />\r\n              Purpose: Allows for complete replacement of a Long Term Care Insurance Policy on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LongTermCareInsurancePolicies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-longtermcareinsurancepolicies-id",
+      "name": "DELETE /api/LongTermCareInsurancePolicies/{id}",
+      "description": "Description: The operation removes a Long Term Care Insurance Policy tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Long Term Care Insurance Policy from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/LongTermCareInsurancePolicies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-majorpurchasegoaltypes",
+      "name": "GET /api/MajorPurchaseGoalTypes",
+      "description": "Description: This operation retrieves all Major Purchase Goal Types for the specified country.<br />\r\n              Purpose: Provides access to the Major Purchase Goal Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoalTypes",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-majorpurchasegoaltypes-id",
+      "name": "GET /api/MajorPurchaseGoalTypes/{id}",
+      "description": "Description: This operation retrieves the Major Purchase Goal Type for the specified id.<br />\r\n              Purpose: Provides access to the Major Purchase Goal Types including id and type description.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoalTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-majorpurchasegoals",
+      "name": "GET /api/MajorPurchaseGoals",
+      "description": "Description: This operation retrieves all Major Purchases for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Major Purchases including description and amount.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoals",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-majorpurchasegoals",
+      "name": "POST /api/MajorPurchaseGoals",
+      "description": "Description: The operation creates a Major Purchase.<br />\r\n              Purpose: Allows for creation of Major Purchases on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoals",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-majorpurchasegoals-id",
+      "name": "GET /api/MajorPurchaseGoals/{id}",
+      "description": "Description: This operation retrieves a single Major Purchase for the specified Major Purchase ID.<br />\r\n              Purpose: Provides access to the Major Purchase including description and amount.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-majorpurchasegoals-id",
+      "name": "PUT /api/MajorPurchaseGoals/{id}",
+      "description": "Description: The operation updates a Major Purchase.<br />\r\n              Purpose: Allows for complete replacement of a Major Purchase on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoals/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-majorpurchasegoals-id",
+      "name": "DELETE /api/MajorPurchaseGoals/{id}",
+      "description": "Description: The operation removes a Major Purchase tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Major Purchase from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/MajorPurchaseGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-presentation-accounts",
+      "name": "GET /api/Presentation/Accounts",
+      "description": "Description: This operation retrieves all current Accounts for the specified Fact Finder ID, as well as\r\n                           all of the holdings and savings strategies belonging to those accounts.<br />\r\n              Purpose: Provides access to the Accounts in a Fact Finder as well as any sub-entities belonging to them.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Accounts",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-demographics-owners",
+      "name": "GET /api/Presentation/Demographics/Owners",
+      "description": "Description: This operation retrieves owner values for the fact finder based on demographics data\r\n              Purpose: Provides the list of valid options for owner, student, beneficiary, etc.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Demographics/Owners",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-demographics-relationships",
+      "name": "GET /api/Presentation/Demographics/Relationships",
+      "description": "Description: This operation retrieves all relationship types relevant to demographics.<br />\r\n              Purpose: Provides a list of relationship types organized by whether or not they can be defined as children.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Demographics/Relationships",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-incomes",
+      "name": "GET /api/Presentation/Incomes",
+      "description": "Description: This operation retrieves all current Incomes for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Incomes in a Fact Finder, filtered by Incomes that are current.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Incomes",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-liabilities",
+      "name": "GET /api/Presentation/Liabilities",
+      "description": "Description: This operation retrieves all current Liabilities for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Liabilities in a Fact Finder, filtered by Liabilities that are current.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Liabilities",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-lifeinsurancepolicies",
+      "name": "GET /api/Presentation/LifeInsurancePolicies",
+      "description": "Description: This operation retrieves all life insurance policies, including subaccounts if available, for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Life Insurance Policies in a Fact Finder.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/LifeInsurancePolicies",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-presentation-pensions",
+      "name": "GET /api/Presentation/Pensions",
+      "description": "Description: This operation retrieves all future Defined Benefit Pensions for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Pensions in a Fact Finder, filtered by Pensions that are in the future.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/Presentation/Pensions",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-realestateassets",
+      "name": "GET /api/RealEstateAssets",
+      "description": "Description: This operation retrieves all Real Estate Assets for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Real Estate Assets including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RealEstateAssets",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-realestateassets",
+      "name": "POST /api/RealEstateAssets",
+      "description": "Description: The operation creates a Real Estate Asset.<br />\r\n              Purpose: Allows for creation of Real Estate Assets on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RealEstateAssets",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-realestateassets-id",
+      "name": "GET /api/RealEstateAssets/{id}",
+      "description": "Description: This operation retrieves a single Real Estate Asset for the specified Real Estate Asset ID.<br />\r\n              Purpose: Provides access to the Real Estate Asset including description and market value.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RealEstateAssets/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-realestateassets-id",
+      "name": "PUT /api/RealEstateAssets/{id}",
+      "description": "Description: The operation updates a Real Estate Asset.<br />\r\n              Purpose: Allows for complete replacement of a Real Estate Asset on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RealEstateAssets/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0,
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-realestateassets-id",
+      "name": "DELETE /api/RealEstateAssets/{id}",
+      "description": "Description: The operation removes a Real Estate Asset tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Real Estate Asset from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RealEstateAssets/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-retirementgoals",
+      "name": "GET /api/RetirementGoals",
+      "description": "Description: This operation retrieves all Retirement Goals for the specified Fact Finder ID.<br />\r\n              Purpose: Provides access to the Retirement Goals including retirement date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals",
+      "headers": {},
+      "query_params": {
+        "factFinderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-api-retirementgoals",
+      "name": "POST /api/RetirementGoals",
+      "description": "Description: The operation creates a Retirement Goal.<br />\r\n              Purpose: Allows for creation of Retirement Goals on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-retirementgoals-id",
+      "name": "GET /api/RetirementGoals/{id}",
+      "description": "Description: This operation retrieves a single Retirement Goal for the specified Retirement Goal ID.<br />\r\n              Purpose: Provides access to the Retirement Goal including retirement date.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-api-retirementgoals-id",
+      "name": "PUT /api/RetirementGoals/{id}",
+      "description": "Description: The operation updates a Retirement Goal.<br />\r\n              Purpose: Allows for complete replacement of a Retirement Goal on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "factFinderId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-api-retirementgoals-id",
+      "name": "DELETE /api/RetirementGoals/{id}",
+      "description": "Description: The operation removes a Retirement Goal tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Retirement Goal from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-api-retirementgoals-retirementgoalid-expenses",
+      "name": "GET /api/RetirementGoals/{retirementGoalId}/Expenses",
+      "description": "Description: This operation retrieves all Retirement Goal Expenses for the specified Retirement Goal ID.<br />\r\n              Purpose: Provides access to the Retirement Goal Expenses including description and amount.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{RETIREMENTGOALID}}/Expenses",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RETIREMENTGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{RETIREMENTGOALID}} with a real retirementgoalid."
+    },
+    {
+      "id": "post-api-retirementgoals-retirementgoalid-expenses",
+      "name": "POST /api/RetirementGoals/{retirementGoalId}/Expenses",
+      "description": "Description: The operation creates a Retirement Goal Expense.<br />\r\n              Purpose: Allows for creation of Retirement Goal Expenses on a Fact Finder.",
+      "method": "POST",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{RETIREMENTGOALID}}/Expenses",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RETIREMENTGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{RETIREMENTGOALID}} with a real retirementgoalid."
+    },
+    {
+      "id": "get-api-retirementgoals-retirementgoalid-expenses-id",
+      "name": "GET /api/RetirementGoals/{retirementGoalId}/Expenses/{id}",
+      "description": "Description: This operation retrieves a single Retirement Goal Expense for the specified Retirement Goal Expense ID.<br />\r\n              Purpose: Provides access to the Retirement Goal Expense including description and amount.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{RETIREMENTGOALID}}/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RETIREMENTGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RETIREMENTGOALID}} with a real retirementgoalid."
+    },
+    {
+      "id": "put-api-retirementgoals-retirementgoalid-expenses-id",
+      "name": "PUT /api/RetirementGoals/{retirementGoalId}/Expenses/{id}",
+      "description": "Description: The operation updates a Retirement Goal Expense.<br />\r\n              Purpose: Allows for complete replacement of a Retirement Goal Expense on a Fact Finder.",
+      "method": "PUT",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{RETIREMENTGOALID}}/Expenses/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RETIREMENTGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RETIREMENTGOALID}} with a real retirementgoalid."
+    },
+    {
+      "id": "delete-api-retirementgoals-retirementgoalid-expenses-id",
+      "name": "DELETE /api/RetirementGoals/{retirementGoalId}/Expenses/{id}",
+      "description": "Description: The operation removes a Retirement Goal Expense tied to a Fact Finder.<br />\r\n              Purpose: Allows for removal of a Retirement Goal Expense from a Fact Finder.",
+      "method": "DELETE",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/RetirementGoals/{{RETIREMENTGOALID}}/Expenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RETIREMENTGOALID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RETIREMENTGOALID}} with a real retirementgoalid."
+    },
+    {
+      "id": "get-api-serviceinformation",
+      "name": "GET /api/ServiceInformation",
+      "description": "Description: This operation retrieves information statistics for the current service.<br />\r\n              Purpose: Provides access to Service Information.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/ServiceInformation",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-statesprovinces",
+      "name": "GET /api/StatesProvinces",
+      "description": "Description: This operation retrieves all States and Provinces for the specified country.<br />\r\n              Purpose: Provides access to the States and Provinces.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/StatesProvinces",
+      "headers": {},
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-statesprovinces-id",
+      "name": "GET /api/StatesProvinces/{id}",
+      "description": "Description: This operation retrieves the States and Provinces for the specified id.<br />\r\n              Purpose: Provides access to the States and Provinces.",
+      "method": "GET",
+      "url": "https://demo.uat.naviplancentral.com/factfinder/api/StatesProvinces/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    }
+  ]
+}

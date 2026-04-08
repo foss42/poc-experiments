@@ -1,0 +1,433 @@
+{
+  "api_id": "twilio.com:twilio_studio_v1:1.42.0",
+  "endpoint_count": 20,
+  "endpoints": [
+    {
+      "id": "get-v1-flows",
+      "name": "GET /v1/Flows",
+      "description": "Retrieve a list of all Flows.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements",
+      "description": "Retrieve a list of all Engagements for the Flow.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "post-v1-flows-flowsid-engagements",
+      "name": "POST /v1/Flows/{FlowSid}/Engagements",
+      "description": "Triggers a new Engagement for the Flow",
+      "method": "POST",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "To": "",
+        "From": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements-engagementsid-context",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements/{EngagementSid}/Context",
+      "description": "Retrieve the most recent context for an Engagement.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{ENGAGEMENTSID}}/Context",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{ENGAGEMENTSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{ENGAGEMENTSID}} with a real engagementsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements-engagementsid-steps",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements/{EngagementSid}/Steps",
+      "description": "Retrieve a list of all Steps for an Engagement.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{ENGAGEMENTSID}}/Steps",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{ENGAGEMENTSID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{ENGAGEMENTSID}} with a real engagementsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements-engagementsid-steps-sid",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements/{EngagementSid}/Steps/{Sid}",
+      "description": "Retrieve a Step.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{ENGAGEMENTSID}}/Steps/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{ENGAGEMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{ENGAGEMENTSID}} with a real engagementsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements-engagementsid-steps-stepsid-context",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements/{EngagementSid}/Steps/{StepSid}/Context",
+      "description": "Retrieve the context for an Engagement Step.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{ENGAGEMENTSID}}/Steps/{{STEPSID}}/Context",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STEPSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{ENGAGEMENTSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{STEPSID}} with a real stepsid. Replace {{FLOWSID}} with a real flowsid. Replace {{ENGAGEMENTSID}} with a real engagementsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-engagements-sid",
+      "name": "GET /v1/Flows/{FlowSid}/Engagements/{Sid}",
+      "description": "Retrieve an Engagement",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-flows-flowsid-engagements-sid",
+      "name": "DELETE /v1/Flows/{FlowSid}/Engagements/{Sid}",
+      "description": "Delete this Engagement and all Steps relating to it.",
+      "method": "DELETE",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Engagements/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions",
+      "name": "GET /v1/Flows/{FlowSid}/Executions",
+      "description": "Retrieve a list of all Executions for the Flow.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "post-v1-flows-flowsid-executions",
+      "name": "POST /v1/Flows/{FlowSid}/Executions",
+      "description": "Triggers a new Execution for the Flow",
+      "method": "POST",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "To": "",
+        "From": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions-executionsid-context",
+      "name": "GET /v1/Flows/{FlowSid}/Executions/{ExecutionSid}/Context",
+      "description": "Retrieve the most recent context for an Execution.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{EXECUTIONSID}}/Context",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{EXECUTIONSID}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{EXECUTIONSID}} with a real executionsid. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions-executionsid-steps",
+      "name": "GET /v1/Flows/{FlowSid}/Executions/{ExecutionSid}/Steps",
+      "description": "Retrieve a list of all Steps for an Execution.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{EXECUTIONSID}}/Steps",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{EXECUTIONSID}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{EXECUTIONSID}} with a real executionsid. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions-executionsid-steps-sid",
+      "name": "GET /v1/Flows/{FlowSid}/Executions/{ExecutionSid}/Steps/{Sid}",
+      "description": "Retrieve a Step.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{EXECUTIONSID}}/Steps/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{EXECUTIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{EXECUTIONSID}} with a real executionsid. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions-executionsid-steps-stepsid-context",
+      "name": "GET /v1/Flows/{FlowSid}/Executions/{ExecutionSid}/Steps/{StepSid}/Context",
+      "description": "Retrieve the context for an Execution Step.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{EXECUTIONSID}}/Steps/{{STEPSID}}/Context",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STEPSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{EXECUTIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{EXECUTIONSID}} with a real executionsid. Replace {{STEPSID}} with a real stepsid. Replace {{FLOWSID}} with a real flowsid."
+    },
+    {
+      "id": "get-v1-flows-flowsid-executions-sid",
+      "name": "GET /v1/Flows/{FlowSid}/Executions/{Sid}",
+      "description": "Retrieve an Execution",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-flows-flowsid-executions-sid",
+      "name": "POST /v1/Flows/{FlowSid}/Executions/{Sid}",
+      "description": "Update the status of an Execution to `ended`.",
+      "method": "POST",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-flows-flowsid-executions-sid",
+      "name": "DELETE /v1/Flows/{FlowSid}/Executions/{Sid}",
+      "description": "Delete the Execution and all Steps relating to it.",
+      "method": "DELETE",
+      "url": "https://studio.twilio.com/v1/Flows/{{FLOWSID}}/Executions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{FLOWSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{FLOWSID}} with a real flowsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-flows-sid",
+      "name": "GET /v1/Flows/{Sid}",
+      "description": "Retrieve a specific Flow.",
+      "method": "GET",
+      "url": "https://studio.twilio.com/v1/Flows/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-flows-sid",
+      "name": "DELETE /v1/Flows/{Sid}",
+      "description": "Delete a specific Flow.",
+      "method": "DELETE",
+      "url": "https://studio.twilio.com/v1/Flows/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    }
+  ]
+}

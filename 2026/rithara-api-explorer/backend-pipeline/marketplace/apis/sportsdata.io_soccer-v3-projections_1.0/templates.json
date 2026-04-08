@@ -1,0 +1,86 @@
+{
+  "api_id": "sportsdata.io:soccer-v3-projections:1.0",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "dfs-slates-by-date",
+      "name": "Dfs Slates By Date",
+      "description": "Dfs Slates By Date",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/soccer/projections/{{FORMAT}}/DfsSlatesByDate/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "injured-players-by-competition",
+      "name": "Injured Players By Competition",
+      "description": "This endpoint provides all currently injured soccer players by competition, along with injury details.",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/soccer/projections/{{FORMAT}}/InjuredPlayers/{{COMPETITION}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{COMPETITION}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{COMPETITION}} with a real competition."
+    },
+    {
+      "id": "projected-player-game-stats-by-date-w-dfs-salaries",
+      "name": "Projected Player Game Stats by Date (w/ DFS Salaries)",
+      "description": "Projected Player Game Stats by Date (w/ DFS Salaries)",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/soccer/projections/{{FORMAT}}/PlayerGameProjectionStatsByDate/{{DATE}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{DATE}} with a real date."
+    },
+    {
+      "id": "upcoming-dfs-slates-by-competition",
+      "name": "Upcoming Dfs Slates By Competition",
+      "description": "Upcoming Dfs Slates By Competition",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/soccer/projections/{{FORMAT}}/UpcomingDfsSlatesByCompetition/{{COMPETITIONID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COMPETITIONID}}",
+        "{{FORMAT}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{COMPETITIONID}} with a real competitionid. Replace {{FORMAT}} with a real format."
+    }
+  ]
+}

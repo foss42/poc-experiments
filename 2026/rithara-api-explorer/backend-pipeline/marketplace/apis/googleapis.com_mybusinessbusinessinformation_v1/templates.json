@@ -1,0 +1,231 @@
+{
+  "api_id": "googleapis.com:mybusinessbusinessinformation:v1",
+  "endpoint_count": 13,
+  "endpoints": [
+    {
+      "id": "get-v1-attributes",
+      "name": "GET /v1/attributes",
+      "description": "Returns the list of attributes that would be available for a location with the given primary category and country.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/attributes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v1-categories",
+      "name": "GET /v1/categories",
+      "description": "Returns a list of business categories. Search will match the category name but not the category ID. Search only matches the front of a category name (that is, 'food' may return 'Food Court' but not 'Fast Food Restaurant').",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/categories",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v1-categories-batchget",
+      "name": "GET /v1/categories:batchGet",
+      "description": "Returns a list of business categories for the provided language and GConcept ids.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/categories:batchGet",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v1-chains-search",
+      "name": "GET /v1/chains:search",
+      "description": "Searches the chain based on chain name.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/chains:search",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v1-googlelocations-search",
+      "name": "POST /v1/googleLocations:search",
+      "description": "Search all of the possible locations that are a match to the specified request.",
+      "method": "POST",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/googleLocations:search",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "location": {},
+        "pageSize": 0,
+        "query": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Looks up all the attributes set for a given location.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a location. If this location cannot be deleted using the API and it is marked so in the `google.mybusiness.businessinformation.v1.LocationState`, use the [Google Business Profile](https://business.google.com/manage/) website.",
+      "method": "DELETE",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Update attributes for a given location.",
+      "method": "PATCH",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": [],
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-associate",
+      "name": "POST /v1/{name}:associate",
+      "description": "Associates a location to a place ID. Any previous association is overwritten. This operation is only valid if the location is unverified. The association must be valid, that is, it appears in the list of `SearchGoogleLocations`.",
+      "method": "POST",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}:associate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "placeId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-clearlocationassociation",
+      "name": "POST /v1/{name}:clearLocationAssociation",
+      "description": "Clears an association between a location and its place ID. This operation is only valid if the location is unverified.",
+      "method": "POST",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}:clearLocationAssociation",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-getgoogleupdated",
+      "name": "GET /v1/{name}:getGoogleUpdated",
+      "description": "Gets the Google-updated version of the specified location.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{NAME}}:getGoogleUpdated",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-locations",
+      "name": "GET /v1/{parent}/locations",
+      "description": "Lists the locations for the specified account.",
+      "method": "GET",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{PARENT}}/locations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-locations",
+      "name": "POST /v1/{parent}/locations",
+      "description": "Creates a new Location that will be owned by the logged in user.",
+      "method": "POST",
+      "url": "https://mybusinessbusinessinformation.googleapis.com/v1/{{PARENT}}/locations",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "adWordsLocationExtensions": {},
+        "categories": {},
+        "labels": [],
+        "languageCode": "",
+        "latlng": {},
+        "metadata": {},
+        "moreHours": [],
+        "name": "",
+        "openInfo": {},
+        "phoneNumbers": {},
+        "profile": {},
+        "regularHours": {},
+        "relationshipData": {},
+        "serviceArea": {},
+        "serviceItems": [],
+        "specialHours": {},
+        "storeCode": "",
+        "storefrontAddress": {},
+        "title": "",
+        "websiteUri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

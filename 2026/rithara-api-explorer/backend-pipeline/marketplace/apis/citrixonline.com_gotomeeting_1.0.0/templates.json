@@ -1,0 +1,437 @@
+{
+  "api_id": "citrixonline.com:gotomeeting:1.0.0",
+  "endpoint_count": 26,
+  "endpoints": [
+    {
+      "id": "get-groups",
+      "name": "Get groups",
+      "description": "List all groups for an account. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-attendees-by-group",
+      "name": "Get attendees by group",
+      "description": "Returns all attendees for all meetings within specified date range held by organizers within the specified group. This API call is only available to users with the admin role. This API call can be used only for groups with maximum 50 organizers.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/attendees",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "get-historical-meetings-by-group",
+      "name": "Get historical meetings by group",
+      "description": "Get historical meetings for the specified group that started within the specified date/time range. This API call is only available to users with the admin role. This API call is restricted to groups with a maximum of 50 organizers. Remark: Meetings which are still ongoing at the time of the request are NOT contained in the result array.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/historicalMeetings",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "deprecated-get-historical-meetings-by-group",
+      "name": "DEPRECATED: Get historical meetings by group",
+      "description": "DEPRECATED: Please use the new API calls 'Get historical meetings by group' and 'Get upcoming meetings by group'. Get meetings for a specified group. Additional filters can be used to view only meetings within a specified date range. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/meetings",
+      "headers": {},
+      "query_params": {
+        "history": "",
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "get-organizers-by-group",
+      "name": "Get organizers by group",
+      "description": "Returns all the organizers within a specific group. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/organizers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "create-organizer-in-group",
+      "name": "Create organizer in group",
+      "description": "Creates a new organizer and sends an email to the email address defined in request. This API call is only available to users with the admin role. You may also pass 'G2W' or 'G2T' or 'OPENVOICE' as productType variables, creating organizers for those products. A G2W or G2T organizer will also have access to G2M.",
+      "method": "POST",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/organizers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "organizerEmail": "",
+        "firstName": "",
+        "lastName": "",
+        "productType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "get-upcoming-meetings-by-group",
+      "name": "Get upcoming meetings by group",
+      "description": "Get upcoming meetings for a specified group. This API call is only available to users with the admin role. This API call can be used only for groups with maximum 50 organizers.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/groups/{{GROUPKEY}}/upcomingMeetings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{GROUPKEY}} with a real groupkey."
+    },
+    {
+      "id": "get-historical-meetings",
+      "name": "Get historical meetings",
+      "description": "Get historical meetings for the currently authenticated organizer that started within the specified date/time range. Remark: Meetings which are still ongoing at the time of the request are NOT contained in the result array.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/historicalMeetings",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "deprecated-get-historical-meetings",
+      "name": "DEPRECATED: Get historical meetings",
+      "description": "DEPRECATED: Please use the new API calls 'Get historical meetings' and 'Get upcoming meetings'.  Gets historical meetings for the current authenticated organizer. Requires date range for filtering results to only meetings within specified dates. History searches will contain the parameter 'meetingInstanceKey' which is used in conjunction with the call 'Get Attendees by Meeting' to get attendee information for a past meeting.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-meeting",
+      "name": "Create meeting",
+      "description": "Create a new meeting based on the parameters specified.",
+      "method": "POST",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "subject": "",
+        "starttime": "",
+        "endtime": "",
+        "passwordrequired": false,
+        "conferencecallinfo": "",
+        "timezonekey": "",
+        "meetingtype": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-meeting",
+      "name": "Get meeting",
+      "description": "Returns the meeting details for the specified meeting.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings/{{MEETINGID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEETINGID}}"
+      ],
+      "notes": "No authentication required. Replace {{MEETINGID}} with a real meetingid."
+    },
+    {
+      "id": "update-meeting",
+      "name": "Update meeting",
+      "description": "Updates an existing meeting specified by meetingId.",
+      "method": "PUT",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings/{{MEETINGID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "subject": "",
+        "starttime": "",
+        "endtime": "",
+        "passwordrequired": false,
+        "conferencecallinfo": "",
+        "timezonekey": "",
+        "meetingtype": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEETINGID}}"
+      ],
+      "notes": "No authentication required. Replace {{MEETINGID}} with a real meetingid."
+    },
+    {
+      "id": "delete-meeting",
+      "name": "Delete meeting",
+      "description": "Deletes the meeting identified by the meetingId.",
+      "method": "DELETE",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings/{{MEETINGID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEETINGID}}"
+      ],
+      "notes": "No authentication required. Replace {{MEETINGID}} with a real meetingid."
+    },
+    {
+      "id": "get-attendees-by-meeting",
+      "name": "Get attendees by meeting",
+      "description": "List all attendees for specified meetingId of historical meeting. The historical meetings can be fetched using 'Get historical meetings', 'Get historical meetings by organizer', and 'Get historical meetings by group'. For users with the admin role this call returns attendees for any meeting. For any other user the call will return attendees for meetings on which the user is a valid organizer.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings/{{MEETINGID}}/attendees",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEETINGID}}"
+      ],
+      "notes": "No authentication required. Replace {{MEETINGID}} with a real meetingid."
+    },
+    {
+      "id": "start-meeting",
+      "name": "Start meeting",
+      "description": "Returns a host URL that can be used to start a meeting. When this URL is opened in a web browser, the GoToMeeting client will be downloaded and launched and the meeting will start. The end user is not required to login to a client.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/meetings/{{MEETINGID}}/start",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEETINGID}}"
+      ],
+      "notes": "No authentication required. Replace {{MEETINGID}} with a real meetingid."
+    },
+    {
+      "id": "get-organizer-by-email-get-all-organizers",
+      "name": "Get organizer by email / Get all organizers",
+      "description": "Gets the individual organizer specified by the organizer's email address. If an email address is not specified, all organizers are returned. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-organizer",
+      "name": "Create organizer",
+      "description": "Creates a new organizer and sends an email to the email address defined in the request. This API call is only available to users with the admin role. You may also pass 'G2W' or 'G2T' or 'OPENVOICE' as productType variables, creating organizers for those products. A G2W or G2T organizer will also have access to G2M.",
+      "method": "POST",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "organizerEmail": "",
+        "firstName": "",
+        "lastName": "",
+        "productType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-organizer-by-email",
+      "name": "Delete organizer by email",
+      "description": "Deletes the individual organizer specified by the email address. This API call is only available to users with the admin role.",
+      "method": "DELETE",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers",
+      "headers": {},
+      "query_params": {
+        "email": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-organizer",
+      "name": "Get organizer",
+      "description": "Returns the individual organizer specified by the key. This API call is only available to users with the admin role. Non-admin users can only make this call for their own organizerKey.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "update-organizer",
+      "name": "Update organizer",
+      "description": "Updates the products of the specified organizer. To add a product (G2M, G2W, G2T, OPENVOICE) for the organizer, the call must be sent once for each product you want to add. To remove all products for the organizer, set status to 'suspended'. The call is limited to users with the admin role.",
+      "method": "PUT",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "productType": "",
+        "status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "delete-organizer",
+      "name": "Delete organizer",
+      "description": "Deletes the individual organizer specified by the organizer key. This API call is only available to users with the admin role.",
+      "method": "DELETE",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "get-attendees-by-organizer",
+      "name": "Get attendees by organizer",
+      "description": "Lists all attendees for all meetings within a specified date range for a specified organizer. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}/attendees",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "get-historical-meetings-by-organizer",
+      "name": "Get historical meetings by organizer",
+      "description": "Get historical meetings for the specified organizer that started within the specified date/time range. Remark: Meetings which are still ongoing at the time of the request are NOT contained in the result array.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}/historicalMeetings",
+      "headers": {},
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "deprecated-get-meetings-by-organizer",
+      "name": "DEPRECATED: Get meetings by organizer",
+      "description": "DEPRECATED: Please use the new API calls 'Get historical meetings by organizer' and 'Get upcoming meetings by organizer'. Gets future (scheduled) or past (history) meetings for a specified organizer. Include 'history=true' and the past start and end dates in the URL to retrieve past meetings. Enter 'scheduled=true' (without dates) to get scheduled meetings.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}/meetings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "get-upcoming-meetings-by-organizer",
+      "name": "Get upcoming meetings by organizer",
+      "description": "Get upcoming meetings for a specified organizer. This API call is only available to users with the admin role.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/organizers/{{ORGANIZERKEY}}/upcomingMeetings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZERKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{ORGANIZERKEY}} with a real organizerkey."
+    },
+    {
+      "id": "get-upcoming-meetings",
+      "name": "Get upcoming meetings",
+      "description": "Gets upcoming meetings for the current authenticated organizer.",
+      "method": "GET",
+      "url": "https://api.citrixonline.com/G2M/rest/upcomingMeetings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

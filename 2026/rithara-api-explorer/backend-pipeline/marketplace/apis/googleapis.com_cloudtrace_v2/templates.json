@@ -1,0 +1,63 @@
+{
+  "api_id": "googleapis.com:cloudtrace:v2",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "post-v2-name",
+      "name": "POST /v2/{name}",
+      "description": "Creates a new span.",
+      "method": "POST",
+      "url": "https://cloudtrace.googleapis.com/v2/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "childSpanCount": 0,
+        "displayName": {},
+        "endTime": "",
+        "links": {},
+        "name": "",
+        "parentSpanId": "",
+        "sameProcessAsParentSpan": false,
+        "spanId": "",
+        "spanKind": "",
+        "stackTrace": {},
+        "startTime": "",
+        "status": {},
+        "timeEvents": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v2-name-traces-batchwrite",
+      "name": "POST /v2/{name}/traces:batchWrite",
+      "description": "Batch writes new spans to new or existing traces. You cannot update existing spans.",
+      "method": "POST",
+      "url": "https://cloudtrace.googleapis.com/v2/{{NAME}}/traces:batchWrite",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "spans": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    }
+  ]
+}

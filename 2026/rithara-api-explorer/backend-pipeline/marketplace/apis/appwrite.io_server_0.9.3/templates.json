@@ -1,0 +1,1882 @@
+{
+  "api_id": "appwrite.io:server:0.9.3",
+  "endpoint_count": 95,
+  "endpoints": [
+    {
+      "id": "get-account",
+      "name": "Get Account",
+      "description": "Get currently logged in user data as JSON object.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/account",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "delete-account",
+      "name": "Delete Account",
+      "description": "Delete a currently logged in user account. Behind the scene, the user record is not deleted but permanently blocked from any access. This is done to avoid deleted accounts being overtaken by new users with the same email address. Any user-related resources like documents or storage files should be deleted separately.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/account",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "update-account-email",
+      "name": "Update Account Email",
+      "description": "Update currently logged in user account email address. After changing user address, user confirmation status is being reset and a new confirmation mail is sent. For security measures, user password is required to complete this request.\nThis endpoint can also be used to convert an anonymous account to a normal one, by passing an email address and a new password.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/account/email",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-account-logs",
+      "name": "Get Account Logs",
+      "description": "Get currently logged in user list of latest security activity logs. Each log returns user IP address, location and date and time of log.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/account/logs",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "update-account-name",
+      "name": "Update Account Name",
+      "description": "Update currently logged in user account name.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/account/name",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "update-account-password",
+      "name": "Update Account Password",
+      "description": "Update currently logged in user password. For validation, user is required to pass in the new password, and the old password. For users created with OAuth and Team Invites, oldPassword is optional.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/account/password",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-account-preferences",
+      "name": "Get Account Preferences",
+      "description": "Get currently logged in user preferences as a key-value object.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/account/prefs",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "update-account-preferences",
+      "name": "Update Account Preferences",
+      "description": "Update currently logged in user account preferences. You can pass only the specific settings you wish to update.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/account/prefs",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "prefs": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-password-recovery",
+      "name": "Create Password Recovery",
+      "description": "Sends the user an email with a temporary secret key for password reset. When the user clicks the confirmation link he is redirected back to your app password reset URL with the secret key and email address values attached to the URL query string. Use the query string params to submit a request to the [PUT /account/recovery](/docs/client/account#accountUpdateRecovery) endpoint to complete the process. The verification link sent to the user's email address is valid for 1 hour.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/account/recovery",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "complete-password-recovery",
+      "name": "Complete Password Recovery",
+      "description": "Use this endpoint to complete the user account password reset. Both the **userId** and **secret** arguments will be passed as query parameters to the redirect URL you have provided when sending your request to the [POST /account/recovery](/docs/client/account#accountCreateRecovery) endpoint.\n\nPlease note that in order to avoid a [Redirect Attack](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md) the only valid redirect URLs are the ones from domains you have set when adding your platforms in the console interface.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/account/recovery",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "userId": "",
+        "secret": "",
+        "password": "",
+        "passwordAgain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-account-sessions",
+      "name": "Get Account Sessions",
+      "description": "Get currently logged in user list of active sessions across different devices.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/account/sessions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "delete-all-account-sessions",
+      "name": "Delete All Account Sessions",
+      "description": "Delete all sessions from the user account and remove any sessions cookies from the end client.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/account/sessions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-session-by-id",
+      "name": "Get Session By ID",
+      "description": "Use this endpoint to get a logged in user's session using a Session ID. Inputting 'current' will return the current session being used.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/account/sessions/{{SESSIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{SESSIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{SESSIONID}} with a real sessionid."
+    },
+    {
+      "id": "delete-account-session",
+      "name": "Delete Account Session",
+      "description": "Use this endpoint to log out the currently logged in user from all their account sessions across all of their different devices. When using the option id argument, only the session unique ID provider will be deleted.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/account/sessions/{{SESSIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{SESSIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{SESSIONID}} with a real sessionid."
+    },
+    {
+      "id": "create-email-verification",
+      "name": "Create Email Verification",
+      "description": "Use this endpoint to send a verification message to your user email address to confirm they are the valid owners of that address. Both the **userId** and **secret** arguments will be passed as query parameters to the URL you have provided to be attached to the verification email. The provided URL should redirect the user back to your app and allow you to complete the verification process by verifying both the **userId** and **secret** parameters. Learn more about how to [complete the verification process](/docs/client/account#accountUpdateVerification). The verification link sent to the user's email address is valid for 7 days.\n\nPlease note that in order to avoid a [Redirect Attack](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md), the only valid redirect URLs are the ones from domains you have set when adding your platforms in the console interface.\n",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/account/verification",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "complete-email-verification",
+      "name": "Complete Email Verification",
+      "description": "Use this endpoint to complete the user email verification process. Use both the **userId** and **secret** parameters that were attached to your app URL to verify the user email ownership. If confirmed this route will return a 200 status code.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/account/verification",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "userId": "",
+        "secret": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-browser-icon",
+      "name": "Get Browser Icon",
+      "description": "You can use this endpoint to show different browser icons to your users. The code argument receives the browser code as it appears in your user /account/sessions endpoint. Use width, height and quality arguments to change the output settings.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/browsers/{{CODE}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{CODE}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{CODE}} with a real code."
+    },
+    {
+      "id": "get-credit-card-icon",
+      "name": "Get Credit Card Icon",
+      "description": "The credit card endpoint will return you the icon of the credit card provider you need. Use width, height and quality arguments to change the output settings.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/credit-cards/{{CODE}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{CODE}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{CODE}} with a real code."
+    },
+    {
+      "id": "get-favicon",
+      "name": "Get Favicon",
+      "description": "Use this endpoint to fetch the favorite icon (AKA favicon) of any remote website URL.\n",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/favicon",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {
+        "url": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-country-flag",
+      "name": "Get Country Flag",
+      "description": "You can use this endpoint to show different country flags icons to your users. The code argument receives the 2 letter country code. Use width, height and quality arguments to change the output settings.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/flags/{{CODE}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{CODE}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{CODE}} with a real code."
+    },
+    {
+      "id": "get-image-from-url",
+      "name": "Get Image from URL",
+      "description": "Use this endpoint to fetch a remote image URL and crop it to any image size you want. This endpoint is very useful if you need to crop and display remote images in your app or in case you want to make sure a 3rd party image is properly served using a TLS protocol.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/image",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {
+        "url": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-user-initials",
+      "name": "Get User Initials",
+      "description": "Use this endpoint to show your user initials avatar icon on your website or app. By default, this route will try to print your logged-in user name or email initials. You can also overwrite the user name if you pass the 'name' parameter. If no name is given and no user is logged, an empty avatar will be returned.\n\nYou can use the color and background params to change the avatar colors. By default, a random theme will be selected. The random theme will persist for the user's initials when reloading the same theme will always return for the same initials.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/initials",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-qr-code",
+      "name": "Get QR Code",
+      "description": "Converts a given plain text to a QR code image. You can use the query parameters to change the size and style of the resulting image.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/avatars/qr",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {
+        "text": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-collections",
+      "name": "List Collections",
+      "description": "Get a list of all the user collections. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's collections. [Learn more about different API modes](/docs/admin).",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/database/collections",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-collection",
+      "name": "Create Collection",
+      "description": "Create a new Collection.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/database/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "read": [],
+        "write": [],
+        "rules": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-collection",
+      "name": "Get Collection",
+      "description": "Get a collection by its unique ID. This endpoint response returns a JSON object with the collection metadata.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid."
+    },
+    {
+      "id": "update-collection",
+      "name": "Update Collection",
+      "description": "Update a collection by its unique ID.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid."
+    },
+    {
+      "id": "delete-collection",
+      "name": "Delete Collection",
+      "description": "Delete a collection by its unique ID. Only users with write permissions have access to delete this resource.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid."
+    },
+    {
+      "id": "list-documents",
+      "name": "List Documents",
+      "description": "Get a list of all the user documents. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's documents. [Learn more about different API modes](/docs/admin).",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}/documents",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid."
+    },
+    {
+      "id": "create-document",
+      "name": "Create Document",
+      "description": "Create a new Document. Before using this route, you should create a new collection resource using either a [server integration](/docs/server/database#databaseCreateCollection) API or directly from your database console.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}/documents",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid."
+    },
+    {
+      "id": "get-document",
+      "name": "Get Document",
+      "description": "Get a document by its unique ID. This endpoint response returns a JSON object with the document data.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}/documents/{{DOCUMENTID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{DOCUMENTID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid. Replace {{DOCUMENTID}} with a real documentid."
+    },
+    {
+      "id": "delete-document",
+      "name": "Delete Document",
+      "description": "Delete a document by its unique ID. This endpoint deletes only the parent documents, its attributes and relations to other documents. Child documents **will not** be deleted.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}/documents/{{DOCUMENTID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{DOCUMENTID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid. Replace {{DOCUMENTID}} with a real documentid."
+    },
+    {
+      "id": "update-document",
+      "name": "Update Document",
+      "description": "Update a document by its unique ID. Using the patch method you can pass only specific fields that will get updated.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/database/collections/{{COLLECTIONID}}/documents/{{DOCUMENTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{COLLECTIONID}}",
+        "{{DOCUMENTID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{COLLECTIONID}} with a real collectionid. Replace {{DOCUMENTID}} with a real documentid."
+    },
+    {
+      "id": "list-functions",
+      "name": "List Functions",
+      "description": "Get a list of all the project's functions. You can use the query params to filter your results.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-function",
+      "name": "Create Function",
+      "description": "Create a new function. You can pass a list of [permissions](/docs/permissions) to allow different project users or team with access to execute the function using the client API.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/functions",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "execute": [],
+        "runtime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-function",
+      "name": "Get Function",
+      "description": "Get a function by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "update-function",
+      "name": "Update Function",
+      "description": "Update function by its unique ID.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "execute": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "delete-function",
+      "name": "Delete Function",
+      "description": "Delete a function by its unique ID.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "list-executions",
+      "name": "List Executions",
+      "description": "Get a list of all the current user function execution logs. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's executions. [Learn more about different API modes](/docs/admin).",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/executions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "create-execution",
+      "name": "Create Execution",
+      "description": "Trigger a function execution. The returned object will return you the current execution status. You can ping the `Get Execution` endpoint to get updates on the current execution status. Once this endpoint is called, your function execution process will start asynchronously.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/executions",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "get-execution",
+      "name": "Get Execution",
+      "description": "Get a function execution log by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/executions/{{EXECUTIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{EXECUTIONID}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{EXECUTIONID}} with a real executionid. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "update-function-tag",
+      "name": "Update Function Tag",
+      "description": "Update the function code tag ID using the unique function ID. Use this endpoint to switch the code tag that should be executed by the execution endpoint.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/tag",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tag": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "list-tags",
+      "name": "List Tags",
+      "description": "Get a list of all the project's code tags. You can use the query params to filter your results.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/tags",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "create-tag",
+      "name": "Create Tag",
+      "description": "Create a new function code tag. Use this endpoint to upload a new version of your code function. To execute your newly uploaded code, you'll need to update the function's tag to use your new tag UID.\n\nThis endpoint accepts a tar.gz file compressed with your code. Make sure to include any dependencies your code has within the compressed file. You can learn more about code packaging in the [Appwrite Cloud Functions tutorial](/docs/functions).\n\nUse the \"command\" param to set the entry point used to execute your code.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "command": "",
+        "code": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "get-tag",
+      "name": "Get Tag",
+      "description": "Get a code tag by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/tags/{{TAGID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{TAGID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TAGID}} with a real tagid. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "delete-tag",
+      "name": "Delete Tag",
+      "description": "Delete a code tag by its unique ID.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/functions/{{FUNCTIONID}}/tags/{{TAGID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{FUNCTIONID}}",
+        "{{TAGID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TAGID}} with a real tagid. Replace {{FUNCTIONID}} with a real functionid."
+    },
+    {
+      "id": "get-http",
+      "name": "Get HTTP",
+      "description": "Check the Appwrite HTTP server is up and responsive.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-anti-virus",
+      "name": "Get Anti virus",
+      "description": "Check the Appwrite Anti Virus server is up and connection is successful.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/anti-virus",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-cache",
+      "name": "Get Cache",
+      "description": "Check the Appwrite in-memory cache server is up and connection is successful.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/cache",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-db",
+      "name": "Get DB",
+      "description": "Check the Appwrite database server is up and connection is successful.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/db",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-certificate-queue",
+      "name": "Get Certificate Queue",
+      "description": "Get the number of certificates that are waiting to be issued against [Letsencrypt](https://letsencrypt.org/) in the Appwrite internal queue server.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/certificates",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-functions-queue",
+      "name": "Get Functions Queue",
+      "description": "Get Functions Queue",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/functions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-logs-queue",
+      "name": "Get Logs Queue",
+      "description": "Get the number of logs that are waiting to be processed in the Appwrite internal queue server.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/logs",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-tasks-queue",
+      "name": "Get Tasks Queue",
+      "description": "Get the number of tasks that are waiting to be processed in the Appwrite internal queue server.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/tasks",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-usage-queue",
+      "name": "Get Usage Queue",
+      "description": "Get the number of usage stats that are waiting to be processed in the Appwrite internal queue server.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/usage",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-webhooks-queue",
+      "name": "Get Webhooks Queue",
+      "description": "Get the number of webhooks that are waiting to be processed in the Appwrite internal queue server.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/queue/webhooks",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-local-storage",
+      "name": "Get Local Storage",
+      "description": "Check the Appwrite local storage device is up and connection is successful.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/storage/local",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-time",
+      "name": "Get Time",
+      "description": "Check the Appwrite server time is synced with Google remote NTP server. We use this technology to smoothly handle leap seconds with no disruptive events. The [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) is used by hundreds of millions of computers and devices to synchronize their clocks over the Internet. If your computer sets its own clock, it likely uses NTP.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/health/time",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-user-locale",
+      "name": "Get User Locale",
+      "description": "Get the current user location based on IP. Returns an object with user country code, country name, continent name, continent code, ip address and suggested currency. You can use the locale header to get the data in a supported language.\n\n([IP Geolocation by DB-IP](https://db-ip.com))",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-continents",
+      "name": "List Continents",
+      "description": "List of all continents. You can use the locale header to get the data in a supported language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/continents",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-countries",
+      "name": "List Countries",
+      "description": "List of all countries. You can use the locale header to get the data in a supported language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/countries",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-eu-countries",
+      "name": "List EU Countries",
+      "description": "List of all countries that are currently members of the EU. You can use the locale header to get the data in a supported language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/countries/eu",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-countries-phone-codes",
+      "name": "List Countries Phone Codes",
+      "description": "List of all countries phone codes. You can use the locale header to get the data in a supported language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/countries/phones",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-currencies",
+      "name": "List Currencies",
+      "description": "List of all currencies, including currency symbol, name, plural, and decimal digits for all major and minor currencies. You can use the locale header to get the data in a supported language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/currencies",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-languages",
+      "name": "List Languages",
+      "description": "List of all languages classified by ISO 639-1 including 2-letter code, name in English, and name in the respective language.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/locale/languages",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "list-files",
+      "name": "List Files",
+      "description": "Get a list of all the user files. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's files. [Learn more about different API modes](/docs/admin).",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/storage/files",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-file",
+      "name": "Create File",
+      "description": "Create a new file. The user who creates the file will automatically be assigned to read and write access unless he has passed custom values for read and write arguments.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/storage/files",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "file": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-file",
+      "name": "Get File",
+      "description": "Get a file by its unique ID. This endpoint response returns a JSON object with the file metadata.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "update-file",
+      "name": "Update File",
+      "description": "Update a file by its unique ID. Only users with write permissions have access to update this resource.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "read": [],
+        "write": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "delete-file",
+      "name": "Delete File",
+      "description": "Delete a file by its unique ID. Only users with write permissions have access to delete this resource.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-file-for-download",
+      "name": "Get File for Download",
+      "description": "Get a file content by its unique ID. The endpoint response return with a 'Content-Disposition: attachment' header that tells the browser to start downloading the file to user downloads directory.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}/download",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-file-preview",
+      "name": "Get File Preview",
+      "description": "Get a file preview image. Currently, this method supports preview for image files (jpg, png, and gif), other supported formats, like pdf, docs, slides, and spreadsheets, will return the file icon image. You can also pass query string arguments for cutting and resizing your preview image.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}/preview",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-file-for-view",
+      "name": "Get File for View",
+      "description": "Get a file content by its unique ID. This endpoint is similar to the download method but returns with no  'Content-Disposition: attachment' header.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/storage/files/{{FILEID}}/view",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "list-teams",
+      "name": "List Teams",
+      "description": "Get a list of all the current user teams. You can use the query params to filter your results. On admin mode, this endpoint will return a list of all of the project's teams. [Learn more about different API modes](/docs/admin).",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/teams",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-team",
+      "name": "Create Team",
+      "description": "Create a new team. The user who creates the team will automatically be assigned as the owner of the team. The team owner can invite new members, who will be able add new owners and update or delete the team from your project.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/teams",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-team",
+      "name": "Get Team",
+      "description": "Get a team by its unique ID. All team members have read access for this resource.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "update-team",
+      "name": "Update Team",
+      "description": "Update a team by its unique ID. Only team owners have write access for this resource.",
+      "method": "PUT",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "delete-team",
+      "name": "Delete Team",
+      "description": "Delete a team by its unique ID. Only team owners have write access for this resource.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "get-team-memberships",
+      "name": "Get Team Memberships",
+      "description": "Get a team members by the team unique ID. All team members have read access for this list of resources.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}/memberships",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "create-team-membership",
+      "name": "Create Team Membership",
+      "description": "Use this endpoint to invite a new member to join your team. If initiated from Client SDK, an email with a link to join the team will be sent to the new member's email address if the member doesn't exist in the project it will be created automatically. If initiated from server side SDKs, new member will automatically be added to the team.\n\nUse the 'URL' parameter to redirect the user from the invitation email back to your app. When the user is redirected, use the [Update Team Membership Status](/docs/client/teams#teamsUpdateMembershipStatus) endpoint to allow the user to accept the invitation to the team.  While calling from side SDKs the redirect url can be empty string.\n\nPlease note that in order to avoid a [Redirect Attacks](https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.md) the only valid redirect URL's are the once from domains you have set when added your platforms in the console interface.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}/memberships",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "roles": [],
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "delete-team-membership",
+      "name": "Delete Team Membership",
+      "description": "This endpoint allows a user to leave a team or for a team owner to delete the membership of any other team member. You can also use this endpoint to delete a user membership even if it is not accepted.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}/memberships/{{MEMBERSHIPID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERSHIPID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{MEMBERSHIPID}} with a real membershipid. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "update-membership-roles",
+      "name": "Update Membership Roles",
+      "description": "Update Membership Roles",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}/memberships/{{MEMBERSHIPID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "roles": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERSHIPID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{MEMBERSHIPID}} with a real membershipid. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "update-team-membership-status",
+      "name": "Update Team Membership Status",
+      "description": "Use this endpoint to allow a user to accept an invitation to join a team after being redirected back to your app from the invitation email recieved by the user.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/teams/{{TEAMID}}/memberships/{{MEMBERSHIPID}}/status",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "userId": "",
+        "secret": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MEMBERSHIPID}}",
+        "{{APPWRITE_API_KEY}}",
+        "{{TEAMID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{MEMBERSHIPID}} with a real membershipid. Replace {{TEAMID}} with a real teamid."
+    },
+    {
+      "id": "list-users",
+      "name": "List Users",
+      "description": "Get a list of all the project's users. You can use the query params to filter your results.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/users",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "create-user",
+      "name": "Create User",
+      "description": "Create a new user.",
+      "method": "POST",
+      "url": "https://appwrite.io/v1/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY."
+    },
+    {
+      "id": "get-user",
+      "name": "Get User",
+      "description": "Get a user by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/users/{{USERID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-user",
+      "name": "Delete User",
+      "description": "Delete a user by its unique ID.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/users/{{USERID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-user-logs",
+      "name": "Get User Logs",
+      "description": "Get a user activity logs list by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/logs",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-user-preferences",
+      "name": "Get User Preferences",
+      "description": "Get the user preferences by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/prefs",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "update-user-preferences",
+      "name": "Update User Preferences",
+      "description": "Update the user preferences by its unique ID. You can pass only the specific settings you wish to update.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/prefs",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "prefs": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-user-sessions",
+      "name": "Get User Sessions",
+      "description": "Get the user sessions list by its unique ID.",
+      "method": "GET",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/sessions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-user-sessions",
+      "name": "Delete User Sessions",
+      "description": "Delete all user's sessions by using the user's unique ID.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/sessions",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-user-session",
+      "name": "Delete User Session",
+      "description": "Delete a user sessions by its unique ID.",
+      "method": "DELETE",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/sessions/{{SESSIONID}}",
+      "headers": {
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{SESSIONID}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{SESSIONID}} with a real sessionid. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "update-user-status",
+      "name": "Update User Status",
+      "description": "Update the user status by its unique ID.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/status",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "status": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "update-email-verification",
+      "name": "Update Email Verification",
+      "description": "Update the user email verification status by its unique ID.",
+      "method": "PATCH",
+      "url": "https://appwrite.io/v1/users/{{USERID}}/verification",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Appwrite-JWT": "{{APPWRITE_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "emailVerification": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPWRITE_API_KEY}}",
+        "{{USERID}}",
+        "{{APPWRITE_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APPWRITE_API_KEY}} with your APPWRITE API KEY. Replace {{USERID}} with a real userid."
+    }
+  ]
+}

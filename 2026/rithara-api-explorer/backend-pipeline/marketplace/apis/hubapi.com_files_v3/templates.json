@@ -1,0 +1,381 @@
+{
+  "api_id": "hubapi.com:files:v3",
+  "endpoint_count": 18,
+  "endpoints": [
+    {
+      "id": "upload-file",
+      "name": "Upload file",
+      "description": "Upload a single file with content specified in request body.",
+      "method": "POST",
+      "url": "https://api.hubapi.com/files/v3/files",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "charsetHunch": "",
+        "file": "",
+        "fileName": "",
+        "folderId": "",
+        "folderPath": "",
+        "options": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "import-a-file-from-a-url-into-the-file-manager",
+      "name": "Import a file from a URL into the file manager.",
+      "description": "Asynchronously imports the file at the given URL into the file manager.",
+      "method": "POST",
+      "url": "https://api.hubapi.com/files/v3/files/import-from-url/async",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "access": "",
+        "duplicateValidationScope": "",
+        "duplicateValidationStrategy": "",
+        "overwrite": false,
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "check-import-status",
+      "name": "Check import status.",
+      "description": "Check the status of requested import.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/files/import-from-url/async/tasks/{{TASKID}}/status",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{TASKID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{TASKID}} with a real taskid."
+    },
+    {
+      "id": "search-files",
+      "name": "Search files",
+      "description": "Search through files in the file manager. Does not display hidden or archived files.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/files/search",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "get-file",
+      "name": "Get file.",
+      "description": "Get file by ID.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "replace-file",
+      "name": "Replace file.",
+      "description": "Replace existing file data with new file data. Can be used to change image content without having to upload a new file and update all references.",
+      "method": "PUT",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "charsetHunch": "",
+        "file": "",
+        "options": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "delete-file",
+      "name": "Delete file",
+      "description": "Delete file by ID",
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "update-file-properties",
+      "name": "update file properties",
+      "description": "Update properties of file by ID.",
+      "method": "PATCH",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "access": "",
+        "isUsableInContent": false,
+        "name": "",
+        "parentFolderId": "",
+        "parentFolderPath": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "gdpr-delete",
+      "name": "GDPR delete",
+      "description": "GDRP delete file",
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}/gdpr-delete",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-signed-url-to-access-private-file",
+      "name": "Get signed URL to access private file.",
+      "description": "Generates signed URL that allows temporary access to a private file.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/files/{{FILEID}}/signed-url",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "create-folder",
+      "name": "Create folder.",
+      "description": "Creates a folder.",
+      "method": "POST",
+      "url": "https://api.hubapi.com/files/v3/folders",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "search-folders",
+      "name": "Search folders",
+      "description": "Search for folders. Does not contain hidden or archived folders.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/folders/search",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "update-folder-properties",
+      "name": "Update folder properties",
+      "description": "Update properties of folder by given ID. This action happens asynchronously and will update all of the folder's children as well.",
+      "method": "POST",
+      "url": "https://api.hubapi.com/files/v3/folders/update/async",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "id": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "check-folder-update-status",
+      "name": "Check folder update status.",
+      "description": "Check status of folder update. Folder updates happen asynchronously.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/folders/update/async/tasks/{{TASKID}}/status",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{TASKID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{TASKID}} with a real taskid."
+    },
+    {
+      "id": "get-folder",
+      "name": "Get folder",
+      "description": "Get folder by ID",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/folders/{{FOLDERID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{FOLDERID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FOLDERID}} with a real folderid."
+    },
+    {
+      "id": "delete-folder",
+      "name": "Delete folder.",
+      "description": "Delete folder by ID.",
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/files/v3/folders/{{FOLDERID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{FOLDERID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FOLDERID}} with a real folderid."
+    },
+    {
+      "id": "get-folder-2",
+      "name": "Get folder.",
+      "description": "Get folder by path.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/files/v3/folders/{{FOLDERPATH}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{FOLDERPATH}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FOLDERPATH}} with a real folderpath."
+    },
+    {
+      "id": "delete-folder-2",
+      "name": "Delete folder.",
+      "description": "Delete folder by path.",
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/files/v3/folders/{{FOLDERPATH}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{FOLDERPATH}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{FOLDERPATH}} with a real folderpath."
+    }
+  ]
+}

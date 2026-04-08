@@ -1,0 +1,422 @@
+{
+  "api_id": "postmarkapp.com:account:0.9.0",
+  "endpoint_count": 23,
+  "endpoints": [
+    {
+      "id": "list-domains",
+      "name": "List Domains",
+      "description": "List Domains",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/domains",
+      "headers": {},
+      "query_params": {
+        "count": "",
+        "offset": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-domain",
+      "name": "Create a Domain",
+      "description": "Create a Domain",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/domains",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "ReturnPathDomain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-domain",
+      "name": "Get a Domain",
+      "description": "Get a Domain",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "update-a-domain",
+      "name": "Update a Domain",
+      "description": "Update a Domain",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ReturnPathDomain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "delete-a-domain",
+      "name": "Delete a Domain",
+      "description": "Delete a Domain",
+      "method": "DELETE",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "rotate-dkim-key",
+      "name": "Rotate DKIM Key",
+      "description": "Creates a new DKIM key to replace your current key. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}/rotatedkim",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "request-dns-verification-for-dkim",
+      "name": "Request DNS Verification for DKIM",
+      "description": "Request DNS Verification for DKIM",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}/verifydkim",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "request-dns-verification-for-return-path",
+      "name": "Request DNS Verification for Return-Path",
+      "description": "Request DNS Verification for Return-Path",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}/verifyreturnpath",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "request-dns-verification-for-spf",
+      "name": "Request DNS Verification for SPF",
+      "description": "Request DNS Verification for SPF",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/domains/{{DOMAINID}}/verifyspf",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINID}}"
+      ],
+      "notes": "No authentication required. Replace {{DOMAINID}} with a real domainid."
+    },
+    {
+      "id": "list-sender-signatures",
+      "name": "List Sender Signatures",
+      "description": "List Sender Signatures",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/senders",
+      "headers": {},
+      "query_params": {
+        "count": "",
+        "offset": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-sender-signature",
+      "name": "Create a Sender Signature",
+      "description": "Create a Sender Signature",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/senders",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "FromEmail": "",
+        "Name": "",
+        "ReplyToEmail": "",
+        "ReturnPathDomain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-sender-signature",
+      "name": "Get a Sender Signature",
+      "description": "Get a Sender Signature",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "update-a-sender-signature",
+      "name": "Update a Sender Signature",
+      "description": "Update a Sender Signature",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "ReplyToEmail": "",
+        "ReturnPathDomain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "delete-a-sender-signature",
+      "name": "Delete a Sender Signature",
+      "description": "Delete a Sender Signature",
+      "method": "DELETE",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "request-a-new-dkim-key",
+      "name": "Request a new DKIM Key",
+      "description": "Requests a new DKIM key to be created. Until the DNS entries are confirmed,\nthe new values will be in the `DKIMPendingHost` and `DKIMPendingTextValue` fields.\nAfter the new DKIM value is verified in DNS, the pending values will migrate to\n`DKIMTextValue` and `DKIMPendingTextValue` and Postmark will begin to sign emails\nwith the new DKIM key.\n",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}/requestnewdkim",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "resend-signature-confirmation-email",
+      "name": "Resend Signature Confirmation Email",
+      "description": "Resend Signature Confirmation Email",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}/resend",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "request-dns-verification-for-spf-2",
+      "name": "Request DNS Verification for SPF",
+      "description": "Request DNS Verification for SPF",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/senders/{{SIGNATUREID}}/verifyspf",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SIGNATUREID}}"
+      ],
+      "notes": "No authentication required. Replace {{SIGNATUREID}} with a real signatureid."
+    },
+    {
+      "id": "list-servers",
+      "name": "List servers",
+      "description": "List servers",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/servers",
+      "headers": {},
+      "query_params": {
+        "count": "",
+        "offset": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-server",
+      "name": "Create a Server",
+      "description": "Create a Server",
+      "method": "POST",
+      "url": "https://api.postmarkapp.com/servers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BounceHookUrl": "",
+        "ClickHookUrl": "",
+        "Color": "",
+        "DeliveryHookUrl": "",
+        "InboundDomain": "",
+        "InboundHookUrl": "",
+        "InboundSpamThreshold": 0,
+        "Name": "",
+        "OpenHookUrl": "",
+        "PostFirstOpenOnly": false,
+        "RawEmailEnabled": false,
+        "SmtpApiActivated": false,
+        "TrackLinks": "",
+        "TrackOpens": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-server",
+      "name": "Get a Server",
+      "description": "Get a Server",
+      "method": "GET",
+      "url": "https://api.postmarkapp.com/servers/{{SERVERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVERID}}"
+      ],
+      "notes": "No authentication required. Replace {{SERVERID}} with a real serverid."
+    },
+    {
+      "id": "edit-a-server",
+      "name": "Edit a Server",
+      "description": "Edit a Server",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/servers/{{SERVERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BounceHookUrl": "",
+        "ClickHookUrl": "",
+        "Color": "",
+        "DeliveryHookUrl": "",
+        "InboundDomain": "",
+        "InboundHookUrl": "",
+        "InboundSpamThreshold": 0,
+        "Name": "",
+        "OpenHookUrl": "",
+        "PostFirstOpenOnly": false,
+        "RawEmailEnabled": false,
+        "SmtpApiActivated": false,
+        "TrackLinks": "",
+        "TrackOpens": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVERID}}"
+      ],
+      "notes": "No authentication required. Replace {{SERVERID}} with a real serverid."
+    },
+    {
+      "id": "delete-a-server",
+      "name": "Delete a Server",
+      "description": "Delete a Server",
+      "method": "DELETE",
+      "url": "https://api.postmarkapp.com/servers/{{SERVERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVERID}}"
+      ],
+      "notes": "No authentication required. Replace {{SERVERID}} with a real serverid."
+    },
+    {
+      "id": "push-templates-from-one-server-to-another",
+      "name": "Push templates from one server to another",
+      "description": "Push templates from one server to another",
+      "method": "PUT",
+      "url": "https://api.postmarkapp.com/templates/push",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "DestinationServerId": 0,
+        "PerformChanges": false,
+        "SourceServerId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

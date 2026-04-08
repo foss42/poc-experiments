@@ -1,0 +1,109 @@
+{
+  "api_id": "twilio.com:twilio_oauth_v1:1.42.0",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "get-v1-well-known-openid-configuration",
+      "name": "GET /v1/.well-known/openid-configuration",
+      "description": "Fetch configuration details about the OpenID Connect Authorization Server",
+      "method": "GET",
+      "url": "https://oauth.twilio.com/v1/.well-known/openid-configuration",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-certs",
+      "name": "GET /v1/certs",
+      "description": "Fetches public JWKs",
+      "method": "GET",
+      "url": "https://oauth.twilio.com/v1/certs",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-device-code",
+      "name": "POST /v1/device/code",
+      "description": "Issues a new Access token (optionally identity_token & refresh_token) in exchange of Oauth grant",
+      "method": "POST",
+      "url": "https://oauth.twilio.com/v1/device/code",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "ClientSid": "",
+        "Scopes": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-token",
+      "name": "POST /v1/token",
+      "description": "Issues a new Access token (optionally identity_token & refresh_token) in exchange of Oauth grant",
+      "method": "POST",
+      "url": "https://oauth.twilio.com/v1/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "GrantType": "",
+        "ClientSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-userinfo",
+      "name": "GET /v1/userinfo",
+      "description": "Retrieves the consented UserInfo and other claims about the logged-in subject (end-user).",
+      "method": "GET",
+      "url": "https://oauth.twilio.com/v1/userinfo",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    }
+  ]
+}

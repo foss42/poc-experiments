@@ -1,0 +1,81 @@
+{
+  "api_id": "d7networks.com:1.0.2",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "balance",
+      "name": "Balance",
+      "description": "Check account balance",
+      "method": "GET",
+      "url": "https://rest-api.d7networks.com/secure/balance",
+      "headers": {
+        "Authorization": "Basic{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{D7NETWORKS_PASSWORD}}",
+        "{{D7NETWORKS_USERNAME}}",
+        "{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{D7NETWORKS_USERNAME}} with your D7NETWORKS USERNAME. Replace {{D7NETWORKS_PASSWORD}} with your D7NETWORKS PASSWORD."
+    },
+    {
+      "id": "sendsms",
+      "name": "SendSMS",
+      "description": "Send SMS  to recipients using D7 SMS Gateway",
+      "method": "POST",
+      "url": "https://rest-api.d7networks.com/secure/send",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "content": "Send single SMS Testing",
+        "from": "SignSMS",
+        "to": 971562316353
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{D7NETWORKS_PASSWORD}}",
+        "{{D7NETWORKS_USERNAME}}",
+        "{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{D7NETWORKS_USERNAME}} with your D7NETWORKS USERNAME. Replace {{D7NETWORKS_PASSWORD}} with your D7NETWORKS PASSWORD."
+    },
+    {
+      "id": "bulk-sms",
+      "name": "Bulk SMS",
+      "description": "Send Bulk SMS  to multiple recipients using D7 SMS Gateway",
+      "method": "POST",
+      "url": "https://rest-api.d7networks.com/secure/sendbatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "messages": [
+          {
+            "content": "Same content goes to three numbers",
+            "from": "SignSMS",
+            "to": [
+              "971562316353",
+              "971562316354",
+              "971562316355"
+            ]
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{D7NETWORKS_PASSWORD}}",
+        "{{D7NETWORKS_USERNAME}}",
+        "{{D7NETWORKS_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{D7NETWORKS_USERNAME}} with your D7NETWORKS USERNAME. Replace {{D7NETWORKS_PASSWORD}} with your D7NETWORKS PASSWORD."
+    }
+  ]
+}

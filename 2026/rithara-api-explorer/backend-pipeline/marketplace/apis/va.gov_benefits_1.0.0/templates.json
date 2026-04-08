@@ -1,0 +1,103 @@
+{
+  "api_id": "va.gov:benefits:1.0.0",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "get-a-location-for-subsequent-document-upload-put-request",
+      "name": "Get a location for subsequent document upload PUT request",
+      "description": "Get a location for subsequent document upload PUT request",
+      "method": "POST",
+      "url": "https://sandbox-api.va.gov/services/vba_documents/{version}/uploads",
+      "headers": {
+        "Content-Type": "application/json",
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY."
+    },
+    {
+      "id": "get-a-bulk-status-report-for-a-list-of-previous-uploads",
+      "name": "Get a bulk status report for a list of previous uploads",
+      "description": "Get a bulk status report for a list of previous uploads",
+      "method": "POST",
+      "url": "https://sandbox-api.va.gov/services/vba_documents/{version}/uploads/report",
+      "headers": {
+        "Content-Type": "application/json",
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY."
+    },
+    {
+      "id": "validate-an-individual-document-against-system-file-requirements",
+      "name": "Validate an individual document against system file requirements",
+      "description": "Using this endpoint will decrease the likelihood of errors associated with individual documents during\nthe submission process. Validations performed:\n* Document is a valid PDF (Note: `Content-Type` header value must be \"application/pdf\")\n* Document does not have a user password (an owner password is acceptable)\n* File size does not exceed 100 MB\n* Page size does not exceed 21\" x 21\"\n\nEach PDF document is sent as a direct file upload. The request body should contain nothing other than the document in\nbinary format. Binary multipart/form-data encoding is not supported. This endpoint does NOT validate metadata in JSON\nformat.\n\nThis endpoint does NOT initiate the claims intake process or submit data to that process. After using this endpoint,\nindividual PDF documents can be combined and submitted as a payload using PUT `/path`.\n\nA `200` response confirms that the individual document provided passes the system requirements.\n\nA `422` response indicates one or more problems with the document that should be resolved before submitting it in the\nfull document submission payload.\n",
+      "method": "POST",
+      "url": "https://sandbox-api.va.gov/services/vba_documents/{version}/uploads/validate_document",
+      "headers": {
+        "Content-Type": "application/json",
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY."
+    },
+    {
+      "id": "get-status-for-a-previous-benefits-document-upload",
+      "name": "Get status for a previous benefits document upload",
+      "description": "Get status for a previous benefits document upload",
+      "method": "GET",
+      "url": "https://sandbox-api.va.gov/services/vba_documents/{version}/uploads/{{ID}}",
+      "headers": {
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "download-zip-of-what-the-server-sees",
+      "name": "Download zip of \"what the server sees\"",
+      "description": "An endpoint that will allow you to see exactly what the server sees. We split apart all submitted docs and metadata and zip the file to make it available to you to help with debugging purposes. Files are deleted after 10 days. Only available in testing environments, not production.",
+      "method": "GET",
+      "url": "https://sandbox-api.va.gov/services/vba_documents/{version}/uploads/{{ID}}/download",
+      "headers": {
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY. Replace {{ID}} with a real id."
+    }
+  ]
+}

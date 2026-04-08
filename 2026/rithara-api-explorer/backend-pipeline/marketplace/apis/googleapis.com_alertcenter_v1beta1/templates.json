@@ -1,0 +1,232 @@
+{
+  "api_id": "googleapis.com:alertcenter:v1beta1",
+  "endpoint_count": 11,
+  "endpoints": [
+    {
+      "id": "get-v1beta1-alerts",
+      "name": "GET /v1beta1/alerts",
+      "description": "Lists the alerts.",
+      "method": "GET",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1beta1-alerts-alertid",
+      "name": "GET /v1beta1/alerts/{alertId}",
+      "description": "Gets the specified alert. Attempting to get a nonexistent alert returns `NOT_FOUND` error.",
+      "method": "GET",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "delete-v1beta1-alerts-alertid",
+      "name": "DELETE /v1beta1/alerts/{alertId}",
+      "description": "Marks the specified alert for deletion. An alert that has been marked for deletion is removed from Alert Center after 30 days. Marking an alert for deletion has no effect on an alert which has already been marked for deletion. Attempting to mark a nonexistent alert for deletion results in a `NOT_FOUND` error.",
+      "method": "DELETE",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "get-v1beta1-alerts-alertid-feedback",
+      "name": "GET /v1beta1/alerts/{alertId}/feedback",
+      "description": "Lists all the feedback for an alert. Attempting to list feedbacks for a non-existent alert returns `NOT_FOUND` error.",
+      "method": "GET",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}/feedback",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "post-v1beta1-alerts-alertid-feedback",
+      "name": "POST /v1beta1/alerts/{alertId}/feedback",
+      "description": "Creates new feedback for an alert. Attempting to create a feedback for a non-existent alert returns `NOT_FOUND` error. Attempting to create a feedback for an alert that is marked for deletion returns `FAILED_PRECONDITION' error.",
+      "method": "POST",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}/feedback",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "alertId": "",
+        "createTime": "",
+        "customerId": "",
+        "email": "",
+        "feedbackId": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "get-v1beta1-alerts-alertid-metadata",
+      "name": "GET /v1beta1/alerts/{alertId}/metadata",
+      "description": "Returns the metadata of an alert. Attempting to get metadata for a non-existent alert returns `NOT_FOUND` error.",
+      "method": "GET",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}/metadata",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "post-v1beta1-alerts-alertid-undelete",
+      "name": "POST /v1beta1/alerts/{alertId}:undelete",
+      "description": "Restores, or \"undeletes\", an alert that was marked for deletion within the past 30 days. Attempting to undelete an alert which was marked for deletion over 30 days ago (which has been removed from the Alert Center database) or a nonexistent alert returns a `NOT_FOUND` error. Attempting to undelete an alert which has not been marked for deletion has no effect.",
+      "method": "POST",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts/{{ALERTID}}:undelete",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "customerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{ALERTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ALERTID}} with a real alertid."
+    },
+    {
+      "id": "post-v1beta1-alerts-batchdelete",
+      "name": "POST /v1beta1/alerts:batchDelete",
+      "description": "Performs batch delete operation on alerts.",
+      "method": "POST",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts:batchDelete",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "alertId": [],
+        "customerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1-alerts-batchundelete",
+      "name": "POST /v1beta1/alerts:batchUndelete",
+      "description": "Performs batch undelete operation on alerts.",
+      "method": "POST",
+      "url": "https://alertcenter.googleapis.com/v1beta1/alerts:batchUndelete",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "alertId": [],
+        "customerId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1beta1-settings",
+      "name": "GET /v1beta1/settings",
+      "description": "Returns customer-level settings.",
+      "method": "GET",
+      "url": "https://alertcenter.googleapis.com/v1beta1/settings",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "patch-v1beta1-settings",
+      "name": "PATCH /v1beta1/settings",
+      "description": "Updates the customer-level settings.",
+      "method": "PATCH",
+      "url": "https://alertcenter.googleapis.com/v1beta1/settings",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "notifications": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    }
+  ]
+}

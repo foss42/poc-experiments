@@ -1,0 +1,320 @@
+{
+  "api_id": "googleapis.com:pubsub:v1beta1a",
+  "endpoint_count": 15,
+  "endpoints": [
+    {
+      "id": "get-v1beta1a-subscriptions",
+      "name": "GET /v1beta1a/subscriptions",
+      "description": "Lists matching subscriptions.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions",
+      "name": "POST /v1beta1a/subscriptions",
+      "description": "Creates a subscription on a given topic for a given subscriber. If the subscription already exists, returns ALREADY_EXISTS. If the corresponding topic doesn't exist, returns NOT_FOUND. If the name is not provided in the request, the server will assign a random name for this subscription on the same project as the topic.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ackDeadlineSeconds": 0,
+        "name": "",
+        "pushConfig": {},
+        "topic": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions-acknowledge",
+      "name": "POST /v1beta1a/subscriptions/acknowledge",
+      "description": "Acknowledges a particular received message: the Pub/Sub system can remove the given message from the subscription. Acknowledging a message whose Ack deadline has expired may succeed, but the message could have been already redelivered. Acknowledging a message more than once will not result in an error. This is only used for messages received via pull.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/acknowledge",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ackId": [],
+        "subscription": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions-modifyackdeadline",
+      "name": "POST /v1beta1a/subscriptions/modifyAckDeadline",
+      "description": "Modifies the Ack deadline for a message received from a pull request.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/modifyAckDeadline",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "ackDeadlineSeconds": 0,
+        "ackId": "",
+        "ackIds": [],
+        "subscription": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions-modifypushconfig",
+      "name": "POST /v1beta1a/subscriptions/modifyPushConfig",
+      "description": "Modifies the PushConfig for a specified subscription. This method can be used to suspend the flow of messages to an endpoint by clearing the PushConfig field in the request. Messages will be accumulated for delivery even if no push configuration is defined or while the configuration is modified.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/modifyPushConfig",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "pushConfig": {},
+        "subscription": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions-pull",
+      "name": "POST /v1beta1a/subscriptions/pull",
+      "description": "Pulls a single message from the server. If return_immediately is true, and no messages are available in the subscription, this method returns FAILED_PRECONDITION. The system is free to return an UNAVAILABLE error if no messages are available in a reasonable amount of time (to reduce system load).",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/pull",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "returnImmediately": false,
+        "subscription": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-subscriptions-pullbatch",
+      "name": "POST /v1beta1a/subscriptions/pullBatch",
+      "description": "Pulls messages from the server. Returns an empty list if there are no messages available in the backlog. The system is free to return UNAVAILABLE if there are too many pull requests outstanding for the given subscription.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/pullBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "maxEvents": 0,
+        "returnImmediately": false,
+        "subscription": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1beta1a-subscriptions-subscription",
+      "name": "GET /v1beta1a/subscriptions/{subscription}",
+      "description": "Gets the configuration details of a subscription.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/{{SUBSCRIPTION}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "delete-v1beta1a-subscriptions-subscription",
+      "name": "DELETE /v1beta1a/subscriptions/{subscription}",
+      "description": "Deletes an existing subscription. All pending messages in the subscription are immediately dropped. Calls to Pull after deletion will return NOT_FOUND.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1beta1a/subscriptions/{{SUBSCRIPTION}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{SUBSCRIPTION}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTION}} with a real subscription."
+    },
+    {
+      "id": "get-v1beta1a-topics",
+      "name": "GET /v1beta1a/topics",
+      "description": "Lists matching topics.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-topics",
+      "name": "POST /v1beta1a/topics",
+      "description": "Creates the given topic with the given name.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-topics-publish",
+      "name": "POST /v1beta1a/topics/publish",
+      "description": "Adds a message to the topic. Returns NOT_FOUND if the topic does not exist.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics/publish",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "message": {},
+        "topic": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1beta1a-topics-publishbatch",
+      "name": "POST /v1beta1a/topics/publishBatch",
+      "description": "Adds one or more messages to the topic. Returns NOT_FOUND if the topic does not exist.",
+      "method": "POST",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics/publishBatch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "messages": [],
+        "topic": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1beta1a-topics-topic",
+      "name": "GET /v1beta1a/topics/{topic}",
+      "description": "Gets the configuration of a topic. Since the topic only has the name attribute, this method is only useful to check the existence of a topic. If other attributes are added in the future, they will be returned here.",
+      "method": "GET",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics/{{TOPIC}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    },
+    {
+      "id": "delete-v1beta1a-topics-topic",
+      "name": "DELETE /v1beta1a/topics/{topic}",
+      "description": "Deletes the topic with the given name. Returns NOT_FOUND if the topic does not exist. After a topic is deleted, a new topic may be created with the same name.",
+      "method": "DELETE",
+      "url": "https://pubsub.googleapis.com/v1beta1a/topics/{{TOPIC}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{TOPIC}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TOPIC}} with a real topic."
+    }
+  ]
+}

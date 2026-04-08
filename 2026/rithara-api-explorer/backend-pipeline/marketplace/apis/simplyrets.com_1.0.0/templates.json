@@ -1,0 +1,62 @@
+{
+  "api_id": "simplyrets.com:1.0.0",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "the-simplyrets-openhouses-api",
+      "name": "The SimplyRETS OpenHouses API",
+      "description": "This is the main endpoint for accessing openhouses.\n",
+      "method": "GET",
+      "url": "https://api.simplyrets.com/openhouses",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "single-openhouse-endpoint",
+      "name": "Single OpenHouse Endpoint",
+      "description": "Use this endpoint for accessing a single OpenHouse.\n",
+      "method": "GET",
+      "url": "https://api.simplyrets.com/openhouses/{{OPENHOUSEKEY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENHOUSEKEY}}"
+      ],
+      "notes": "No authentication required. Replace {{OPENHOUSEKEY}} with a real openhousekey."
+    },
+    {
+      "id": "the-simplyrets-listings-api",
+      "name": "The SimplyRETS Listings API",
+      "description": "This is the main endpoint for accessing your properties. View\nall of the available query parameters and make requests below!\nThe API uses Basic Authentication, which most HTTP libraries\nwill handle for you. To use the test data (which is what this\npages uses), you can use the api key `simplyrets` and secret\n`simplyrets`. Note that these test listings are not live MLS\nlistings but the data, query parameters, and response bodies\nwill all work the same.\n",
+      "method": "GET",
+      "url": "https://api.simplyrets.com/properties",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "single-listing-endpoint",
+      "name": "Single Listing Endpoint",
+      "description": "Use this endpoint for accessing a single listing. When you\nmake a search to the `/properties` endpoint, each listing in\nthe response will contain a unique `mlsId` field which should\nbe used to request that listing on this route.\n\nThe `mlsId` field is a unique identifier for a listing which\nis specific to the SimplyRETS API only.  It is different from\nthe `listingId` field is the public number given to a listing\nby the MLS and is not used here.\n",
+      "method": "GET",
+      "url": "https://api.simplyrets.com/properties/{{MLSID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MLSID}}"
+      ],
+      "notes": "No authentication required. Replace {{MLSID}} with a real mlsid."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "api_id": "sportsdata.io:nhl-v3-play-by-play:1.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "play-by-play",
+      "name": "Play By Play",
+      "description": "Play By Play",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nhl/pbp/{{FORMAT}}/PlayByPlay/{{GAMEID}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{GAMEID}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{GAMEID}} with a real gameid."
+    },
+    {
+      "id": "play-by-play-delta",
+      "name": "Play By Play Delta",
+      "description": "Play By Play Delta",
+      "method": "GET",
+      "url": "http://azure-api.sportsdata.io/v3/nhl/pbp/{{FORMAT}}/PlayByPlayDelta/{{DATE}}/{{MINUTES}}",
+      "headers": {
+        "Ocp-Apim-Subscription-Key": "{{SPORTSDATA_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{MINUTES}}",
+        "{{DATE}}",
+        "{{SPORTSDATA_API_KEY}}",
+        "{{SPORTSDATA_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{SPORTSDATA_API_KEY}} with your SPORTSDATA API KEY. Replace {{FORMAT}} with a real format. Replace {{MINUTES}} with a real minutes. Replace {{DATE}} with a real date."
+    }
+  ]
+}

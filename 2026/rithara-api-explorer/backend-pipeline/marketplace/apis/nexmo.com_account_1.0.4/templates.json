@@ -1,0 +1,78 @@
+{
+  "api_id": "nexmo.com:account:1.0.4",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-account-balance",
+      "name": "Get Account Balance",
+      "description": "Retrieve the current balance of your Vonage API account",
+      "method": "GET",
+      "url": "https://api.nexmo.com/account/get-balance",
+      "headers": {
+        "Authorization": "Basic{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "api_key": "",
+        "api_secret": ""
+      },
+      "body": null,
+      "sample_response": {
+        "autoReload": false,
+        "value": 10.171275
+      },
+      "auth_placeholders": [
+        "{{NEXMO_PASSWORD}}",
+        "{{NEXMO_USERNAME}}",
+        "{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEXMO_USERNAME}} with your NEXMO USERNAME. Replace {{NEXMO_PASSWORD}} with your NEXMO PASSWORD."
+    },
+    {
+      "id": "register-an-email-sender",
+      "name": "Register an email sender",
+      "description": "Register an email sender with an API Key for using email with Verify V2.",
+      "method": "POST",
+      "url": "https://api.nexmo.com/account/register-sender",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "api_key": "",
+        "api_secret": ""
+      },
+      "body": {
+        "provider": "email",
+        "value": "bob@company.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_PASSWORD}}",
+        "{{NEXMO_USERNAME}}",
+        "{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEXMO_USERNAME}} with your NEXMO USERNAME. Replace {{NEXMO_PASSWORD}} with your NEXMO PASSWORD."
+    },
+    {
+      "id": "revoke-an-api-secret",
+      "name": "Revoke an API Secret",
+      "description": "Revoke an API Secret",
+      "method": "DELETE",
+      "url": "https://api.nexmo.com/accounts/{{API_KEY}}/secrets/{{SECRET_ID}}",
+      "headers": {
+        "Authorization": "Basic{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_PASSWORD}}",
+        "{{NEXMO_USERNAME}}",
+        "{{API_KEY}}",
+        "{{SECRET_ID}}",
+        "{{NEXMO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEXMO_USERNAME}} with your NEXMO USERNAME. Replace {{NEXMO_PASSWORD}} with your NEXMO PASSWORD. Replace {{SECRET_ID}} with a real secret_id. Replace {{API_KEY}} with a real api_key."
+    }
+  ]
+}

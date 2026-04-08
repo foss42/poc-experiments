@@ -1,0 +1,1446 @@
+{
+  "api_id": "traccar.org:5.6",
+  "endpoint_count": 61,
+  "endpoints": [
+    {
+      "id": "fetch-a-list-of-attributes",
+      "name": "Fetch a list of Attributes",
+      "description": "Without params, it returns a list of Attributes the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/attributes/computed",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-an-attribute",
+      "name": "Create an Attribute",
+      "description": "Create an Attribute",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/attributes/computed",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attribute": "",
+        "description": "",
+        "expression": "",
+        "id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-an-attribute",
+      "name": "Update an Attribute",
+      "description": "Update an Attribute",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/attributes/computed/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attribute": "",
+        "description": "",
+        "expression": "",
+        "id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-an-attribute",
+      "name": "Delete an Attribute",
+      "description": "Delete an Attribute",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/attributes/computed/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-calendars",
+      "name": "Fetch a list of Calendars",
+      "description": "Without params, it returns a list of Calendars the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/calendars",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-calendar",
+      "name": "Create a Calendar",
+      "description": "Create a Calendar",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/calendars",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "data": "",
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-calendar",
+      "name": "Update a Calendar",
+      "description": "Update a Calendar",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/calendars/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "data": "",
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-calendar",
+      "name": "Delete a Calendar",
+      "description": "Delete a Calendar",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/calendars/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-saved-commands",
+      "name": "Fetch a list of Saved Commands",
+      "description": "Without params, it returns a list of Saved Commands the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/commands",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-saved-command",
+      "name": "Create a Saved Command",
+      "description": "Create a Saved Command",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/commands",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "description": "",
+        "deviceId": 0,
+        "id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-saved-commands-supported-by-device-at-the-moment",
+      "name": "Fetch a list of Saved Commands supported by Device at the moment",
+      "description": "Return a list of saved commands linked to Device and its groups, filtered by current Device protocol support",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/commands/send",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "dispatch-commands-to-device",
+      "name": "Dispatch commands to device",
+      "description": "Dispatch a new command or Saved Command if _body.id_ set",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/commands/send",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "description": "",
+        "deviceId": 0,
+        "id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-available-commands-for-the-device-or-all-possible-commands-if-device-ommited",
+      "name": "Fetch a list of available Commands for the Device or all possible Commands if Device ommited",
+      "description": "Fetch a list of available Commands for the Device or all possible Commands if Device ommited",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/commands/types",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-saved-command",
+      "name": "Update a Saved Command",
+      "description": "Update a Saved Command",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/commands/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "description": "",
+        "deviceId": 0,
+        "id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-saved-command",
+      "name": "Delete a Saved Command",
+      "description": "Delete a Saved Command",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/commands/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-devices",
+      "name": "Fetch a list of Devices",
+      "description": "Without any params, returns a list of the user's devices",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/devices",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-device",
+      "name": "Create a Device",
+      "description": "Create a Device",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/devices",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "category": "",
+        "contact": "",
+        "disabled": false,
+        "geofenceIds": [],
+        "groupId": 0,
+        "id": 0,
+        "lastUpdate": "",
+        "model": "",
+        "name": "",
+        "phone": "",
+        "positionId": 0,
+        "status": "",
+        "uniqueId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-device",
+      "name": "Update a Device",
+      "description": "Update a Device",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/devices/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "category": "",
+        "contact": "",
+        "disabled": false,
+        "geofenceIds": [],
+        "groupId": 0,
+        "id": 0,
+        "lastUpdate": "",
+        "model": "",
+        "name": "",
+        "phone": "",
+        "positionId": 0,
+        "status": "",
+        "uniqueId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-device",
+      "name": "Delete a Device",
+      "description": "Delete a Device",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/devices/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-total-distance-and-hours-of-the-device",
+      "name": "Update total distance and hours of the Device",
+      "description": "Update total distance and hours of the Device",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/devices/{{ID}}/accumulators",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "deviceId": 0,
+        "hours": 0.0,
+        "totalDistance": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-drivers",
+      "name": "Fetch a list of Drivers",
+      "description": "Without params, it returns a list of Drivers the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/drivers",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-driver",
+      "name": "Create a Driver",
+      "description": "Create a Driver",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/drivers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "id": 0,
+        "name": "",
+        "uniqueId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-driver",
+      "name": "Update a Driver",
+      "description": "Update a Driver",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/drivers/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "id": 0,
+        "name": "",
+        "uniqueId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-driver",
+      "name": "Delete a Driver",
+      "description": "Delete a Driver",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/drivers/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-events-id",
+      "name": "GET /events/{id}",
+      "description": null,
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/events/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-geofences",
+      "name": "Fetch a list of Geofences",
+      "description": "Without params, it returns a list of Geofences the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/geofences",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-geofence",
+      "name": "Create a Geofence",
+      "description": "Create a Geofence",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/geofences",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "area": "",
+        "attributes": {},
+        "calendarId": 0,
+        "description": "",
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-geofence",
+      "name": "Update a Geofence",
+      "description": "Update a Geofence",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/geofences/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "area": "",
+        "attributes": {},
+        "calendarId": 0,
+        "description": "",
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-geofence",
+      "name": "Delete a Geofence",
+      "description": "Delete a Geofence",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/geofences/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-groups",
+      "name": "Fetch a list of Groups",
+      "description": "Without any params, returns a list of the Groups the user belongs to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/groups",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-group",
+      "name": "Create a Group",
+      "description": "Create a Group",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "groupId": 0,
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-group",
+      "name": "Update a Group",
+      "description": "Update a Group",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/groups/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "groupId": 0,
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-group",
+      "name": "Delete a Group",
+      "description": "Delete a Group",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/groups/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-maintenance",
+      "name": "Fetch a list of Maintenance",
+      "description": "Without params, it returns a list of Maintenance the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/maintenance",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-maintenance",
+      "name": "Create a Maintenance",
+      "description": "Create a Maintenance",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/maintenance",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "id": 0,
+        "name": "",
+        "period": 0.0,
+        "start": 0.0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-maintenance",
+      "name": "Update a Maintenance",
+      "description": "Update a Maintenance",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/maintenance/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "id": 0,
+        "name": "",
+        "period": 0.0,
+        "start": 0.0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-maintenance",
+      "name": "Delete a Maintenance",
+      "description": "Delete a Maintenance",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/maintenance/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-a-list-of-notifications",
+      "name": "Fetch a list of Notifications",
+      "description": "Without params, it returns a list of Notifications the user has access to",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/notifications",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-notification",
+      "name": "Create a Notification",
+      "description": "Create a Notification",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/notifications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "always": false,
+        "attributes": {},
+        "calendarId": 0,
+        "id": 0,
+        "mail": false,
+        "sms": false,
+        "type": "",
+        "web": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "send-test-notification-to-current-user-via-email-and-sms",
+      "name": "Send test notification to current user via Email and SMS",
+      "description": "Send test notification to current user via Email and SMS",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/notifications/test",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-available-notification-types",
+      "name": "Fetch a list of available Notification types",
+      "description": "Fetch a list of available Notification types",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/notifications/types",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-notification",
+      "name": "Update a Notification",
+      "description": "Update a Notification",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/notifications/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "always": false,
+        "attributes": {},
+        "calendarId": 0,
+        "id": 0,
+        "mail": false,
+        "sms": false,
+        "type": "",
+        "web": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-notification",
+      "name": "Delete a Notification",
+      "description": "Delete a Notification",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/notifications/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "link-an-object-to-another-object",
+      "name": "Link an Object to another Object",
+      "description": "Link an Object to another Object",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/permissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributeId": 0,
+        "calendarId": 0,
+        "deviceId": 0,
+        "driverId": 0,
+        "geofenceId": 0,
+        "groupId": 0,
+        "managedUserId": 0,
+        "notificationId": 0,
+        "userId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "unlink-an-object-from-another-object",
+      "name": "Unlink an Object from another Object",
+      "description": "Unlink an Object from another Object",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/permissions",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetches-a-list-of-positions",
+      "name": "Fetches a list of Positions",
+      "description": "We strongly recommend using [Traccar WebSocket API](https://www.traccar.org/traccar-api/) instead of periodically polling positions endpoint. Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_.",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/positions",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-events-within-the-time-period-for-the-devices-or-groups",
+      "name": "Fetch a list of Events within the time period for the Devices or Groups",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/reports/events",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-positions-within-the-time-period-for-the-devices-or-groups",
+      "name": "Fetch a list of Positions within the time period for the Devices or Groups",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/reports/route",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-reportstops-within-the-time-period-for-the-devices-or-groups",
+      "name": "Fetch a list of ReportStops within the time period for the Devices or Groups",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/reports/stops",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-reportsummary-within-the-time-period-for-the-devices-or-groups",
+      "name": "Fetch a list of ReportSummary within the time period for the Devices or Groups",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/reports/summary",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-reporttrips-within-the-time-period-for-the-devices-or-groups",
+      "name": "Fetch a list of ReportTrips within the time period for the Devices or Groups",
+      "description": "At least one _deviceId_ or one _groupId_ must be passed",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/reports/trips",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-server-information",
+      "name": "Fetch Server information",
+      "description": "Fetch Server information",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/server",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-server-information",
+      "name": "Update Server information",
+      "description": "Update Server information",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/server",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributes": {},
+        "bingKey": "",
+        "coordinateFormat": "",
+        "deviceReadonly": false,
+        "forceSettings": false,
+        "id": 0,
+        "latitude": 0.0,
+        "limitCommands": false,
+        "longitude": 0.0,
+        "map": "",
+        "mapUrl": "",
+        "poiLayer": "",
+        "readonly": false,
+        "registration": false,
+        "twelveHourFormat": false,
+        "version": "",
+        "zoom": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-session-information",
+      "name": "Fetch Session information",
+      "description": "Fetch Session information",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/session",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-new-session",
+      "name": "Create a new Session",
+      "description": "Create a new Session",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/session",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "close-the-session",
+      "name": "Close the Session",
+      "description": "Close the Session",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/session",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-server-statistics",
+      "name": "Fetch server Statistics",
+      "description": "Fetch server Statistics",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/statistics",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "fetch-a-list-of-users",
+      "name": "Fetch a list of Users",
+      "description": "Fetch a list of Users",
+      "method": "GET",
+      "url": "https://demo.traccar.org/api/users",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "create-a-user",
+      "name": "Create a User",
+      "description": "Create a User",
+      "method": "POST",
+      "url": "https://demo.traccar.org/api/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "administrator": false,
+        "attributes": {},
+        "coordinateFormat": "",
+        "deviceLimit": 0,
+        "deviceReadonly": false,
+        "disabled": false,
+        "email": "",
+        "expirationTime": "",
+        "id": 0,
+        "latitude": 0.0,
+        "limitCommands": false,
+        "longitude": 0.0,
+        "map": "",
+        "name": "",
+        "password": "",
+        "phone": "",
+        "poiLayer": "",
+        "readonly": false,
+        "twelveHourFormat": false,
+        "userLimit": 0,
+        "zoom": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a User",
+      "description": "Update a User",
+      "method": "PUT",
+      "url": "https://demo.traccar.org/api/users/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "administrator": false,
+        "attributes": {},
+        "coordinateFormat": "",
+        "deviceLimit": 0,
+        "deviceReadonly": false,
+        "disabled": false,
+        "email": "",
+        "expirationTime": "",
+        "id": 0,
+        "latitude": 0.0,
+        "limitCommands": false,
+        "longitude": 0.0,
+        "map": "",
+        "name": "",
+        "password": "",
+        "phone": "",
+        "poiLayer": "",
+        "readonly": false,
+        "twelveHourFormat": false,
+        "userLimit": 0,
+        "zoom": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a User",
+      "description": "Delete a User",
+      "method": "DELETE",
+      "url": "https://demo.traccar.org/api/users/{{ID}}",
+      "headers": {
+        "Authorization": "Basic{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRACCAR_USERNAME}}",
+        "{{TRACCAR_PASSWORD}}",
+        "{{ID}}",
+        "{{TRACCAR_ORG_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TRACCAR_USERNAME}} with your TRACCAR USERNAME. Replace {{TRACCAR_PASSWORD}} with your TRACCAR PASSWORD. Replace {{ID}} with a real id."
+    }
+  ]
+}

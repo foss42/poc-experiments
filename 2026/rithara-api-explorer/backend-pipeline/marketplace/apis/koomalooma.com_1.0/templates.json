@@ -1,0 +1,50 @@
+{
+  "api_id": "koomalooma.com:1.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "create-a-user",
+      "name": "Create a User",
+      "description": "Create a User",
+      "method": "POST",
+      "url": "https://api.koomalooma.com/api/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-KoomaLooma-JWT": "{{KOOMALOOMA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{KOOMALOOMA_API_KEY}}",
+        "{{KOOMALOOMA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{KOOMALOOMA_API_KEY}} with your KOOMALOOMA API KEY."
+    },
+    {
+      "id": "assign-points-to-a-user",
+      "name": "Assign points to a User",
+      "description": "Assign points to a User",
+      "method": "POST",
+      "url": "https://api.koomalooma.com/api/users/{{USER_ID}}/commitments",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-KoomaLooma-JWT": "{{KOOMALOOMA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "campaign_id": "",
+        "transaction_value": "",
+        "promotion_goal_description": "",
+        "promotion_goal_category": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_ID}}",
+        "{{KOOMALOOMA_API_KEY}}",
+        "{{KOOMALOOMA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{KOOMALOOMA_API_KEY}} with your KOOMALOOMA API KEY. Replace {{USER_ID}} with a real user_id."
+    }
+  ]
+}

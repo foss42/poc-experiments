@@ -1,0 +1,81 @@
+{
+  "api_id": "ebay.com:buy-deal:v1.3.0",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "get-deal-item",
+      "name": "GET /deal_item",
+      "description": "This method retrieves a paginated set of deal items. The result set contains all deal items associated with the specified search criteria and marketplace ID. Request headers This method uses the X-EBAY-C-ENDUSERCTX request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations. For details see, Request headers in the Buying Integration Guide. Restrictions This method can return a maximum of 10,000 items. For a list of supported sites and other restrictions, see API Restrictions. eBay Partner Network: In order to receive a commission for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site.",
+      "method": "GET",
+      "url": "https://api.ebay.com{basePath}/deal_item",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    },
+    {
+      "id": "get-event",
+      "name": "GET /event",
+      "description": "This method returns paginated results containing all eBay events for the specified marketplace. Request headers This method uses the X-EBAY-C-ENDUSERCTX request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations. For details see, Request headers in the Buying Integration Guide. Restrictions This method can return a maximum of 10,000 items. For a list of supported sites and other restrictions, see API Restrictions. eBay Partner Network: In order to receive a commission for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site.",
+      "method": "GET",
+      "url": "https://api.ebay.com{basePath}/event",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    },
+    {
+      "id": "get-event-event-id",
+      "name": "GET /event/{event_id}",
+      "description": "This method retrieves the details for an eBay event. The result set contains detailed information associated with the specified event ID, such as applicable coupons, start and end dates, and event terms. Request headers This method uses the X-EBAY-C-ENDUSERCTX request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations. For details see, Request headers in the Buying Integration Guide. Restrictions This method can return a maximum of 10,000 items. For a list of supported sites and other restrictions, see API Restrictions. eBay Partner Network: In order to receive a commission for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site.",
+      "method": "GET",
+      "url": "https://api.ebay.com{basePath}/event/{{EVENT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EVENT_ID}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN. Replace {{EVENT_ID}} with a real event_id."
+    },
+    {
+      "id": "get-event-item",
+      "name": "GET /event_item",
+      "description": "This method returns a paginated set of event items. The result set contains all event items associated with the specified search criteria and marketplace ID. Request headers This method uses the X-EBAY-C-ENDUSERCTX request header to support revenue sharing for eBay Partner Networks and to improve the accuracy of shipping and delivery time estimations. For details see, Request headers in the Buying Integration Guide. Restrictions This method can return a maximum of 10,000 items. For a list of supported sites and other restrictions, see API Restrictions. eBay Partner Network: In order to receive a commission for your sales, you must use the URL returned in the itemAffiliateWebUrl field to forward your buyer to the ebay.com site.",
+      "method": "GET",
+      "url": "https://api.ebay.com{basePath}/event_item",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "event_ids": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    }
+  ]
+}

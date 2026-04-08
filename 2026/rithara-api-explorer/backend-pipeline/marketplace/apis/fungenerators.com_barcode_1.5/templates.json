@@ -1,0 +1,83 @@
+{
+  "api_id": "fungenerators.com:barcode:1.5",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "post-barcode-decode",
+      "name": "POST /barcode/decode",
+      "description": "Decode a Barcode image and return the cotents if successful",
+      "method": "POST",
+      "url": "http://api.fungenerators.com/barcode/decode",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "barimage": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    },
+    {
+      "id": "get-barcode-decode-types",
+      "name": "GET /barcode/decode/types",
+      "description": "Get the supported barcode types for the decoding process.",
+      "method": "GET",
+      "url": "http://api.fungenerators.com/barcode/decode/types",
+      "headers": {
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    },
+    {
+      "id": "get-barcode-encode",
+      "name": "GET /barcode/encode",
+      "description": "Get a Bar Code image for the given barcode number",
+      "method": "GET",
+      "url": "http://api.fungenerators.com/barcode/encode",
+      "headers": {
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {
+        "number": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    },
+    {
+      "id": "get-barcode-encode-types",
+      "name": "GET /barcode/encode/types",
+      "description": "Get the supported barcode types for encoding / image generation.",
+      "method": "GET",
+      "url": "http://api.fungenerators.com/barcode/encode/types",
+      "headers": {
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    }
+  ]
+}

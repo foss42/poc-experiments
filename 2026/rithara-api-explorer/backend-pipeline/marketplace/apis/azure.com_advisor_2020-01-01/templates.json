@@ -1,0 +1,341 @@
+{
+  "api_id": "azure.com:advisor:2020-01-01",
+  "endpoint_count": 15,
+  "endpoints": [
+    {
+      "id": "gets-the-list-of-metadata-entities",
+      "name": "Gets the list of metadata entities.",
+      "description": "Gets the list of metadata entities.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Advisor/metadata",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "gets-the-metadata-entity",
+      "name": "Gets the metadata entity.",
+      "description": "Gets the metadata entity.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Advisor/metadata/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-providers-microsoft-advisor-operations",
+      "name": "GET /providers/Microsoft.Advisor/operations",
+      "description": "Lists all the available Advisor REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Advisor/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-azure-advisor-configurations",
+      "name": "Retrieve Azure Advisor configurations.",
+      "description": "Retrieve Azure Advisor configurations and also retrieve configurations of contained resource groups.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/configurations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "create-overwrite-azure-advisor-configuration",
+      "name": "Create/Overwrite Azure Advisor configuration.",
+      "description": "Create/Overwrite Azure Advisor configuration and also delete all configurations of contained resource groups.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/configurations/{{CONFIGURATIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{CONFIGURATIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{CONFIGURATIONNAME}} with a real configurationname."
+    },
+    {
+      "id": "post-subscriptions-subscriptionid-providers-microsoft-advisor-generaterecommendations",
+      "name": "POST /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations",
+      "description": "Initiates the recommendation generation or computation process for a subscription. This operation is asynchronous. The generated recommendations are stored in a cache in the Advisor service.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/generateRecommendations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-advisor-generaterecommendations-operationid",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations/{operationId}",
+      "description": "Retrieves the status of the recommendation computation or generation process. Invoke this API after calling the generation recommendation. The URI of this API is returned in the Location field of the response header.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/generateRecommendations/{{OPERATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{OPERATIONID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{OPERATIONID}} with a real operationid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-advisor-recommendations",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/recommendations",
+      "description": "Obtains cached recommendations for a subscription. The recommendations are generated or computed by invoking generateRecommendations.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-advisor-suppressions",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/suppressions",
+      "description": "Retrieves the list of snoozed or dismissed suppressions for a subscription. The snoozed or dismissed attribute of a recommendation is referred to as a suppression.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Advisor/suppressions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "retrieve-azure-advisor-configurations-2",
+      "name": "Retrieve Azure Advisor configurations.",
+      "description": "Retrieve Azure Advisor configurations.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.Advisor/configurations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "create-overwrite-azure-advisor-configuration-2",
+      "name": "Create/Overwrite Azure Advisor configuration.",
+      "description": "Create/Overwrite Azure Advisor configuration.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.Advisor/configurations/{{CONFIGURATIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{CONFIGURATIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{CONFIGURATIONNAME}} with a real configurationname."
+    },
+    {
+      "id": "get-resourceuri-providers-microsoft-advisor-recommendations-recommendationid",
+      "name": "GET /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}",
+      "description": "Obtains details of a cached recommendation.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/Microsoft.Advisor/recommendations/{{RECOMMENDATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RECOMMENDATIONID}}",
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RECOMMENDATIONID}} with a real recommendationid. Replace {{RESOURCEURI}} with a real resourceuri."
+    },
+    {
+      "id": "get-resourceuri-providers-microsoft-advisor-recommendations-recommendationid-suppressions-name",
+      "name": "GET /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}/suppressions/{name}",
+      "description": "Obtains the details of a suppression.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/Microsoft.Advisor/recommendations/{{RECOMMENDATIONID}}/suppressions/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RECOMMENDATIONID}}",
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RECOMMENDATIONID}} with a real recommendationid. Replace {{RESOURCEURI}} with a real resourceuri. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "put-resourceuri-providers-microsoft-advisor-recommendations-recommendationid-suppressions-name",
+      "name": "PUT /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}/suppressions/{name}",
+      "description": "Enables the snoozed or dismissed attribute of a recommendation. The snoozed or dismissed attribute is referred to as a suppression. Use this API to create or update the snoozed or dismissed status of a recommendation.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/Microsoft.Advisor/recommendations/{{RECOMMENDATIONID}}/suppressions/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RECOMMENDATIONID}}",
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RECOMMENDATIONID}} with a real recommendationid. Replace {{RESOURCEURI}} with a real resourceuri. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-resourceuri-providers-microsoft-advisor-recommendations-recommendationid-suppressions-name",
+      "name": "DELETE /{resourceUri}/providers/Microsoft.Advisor/recommendations/{recommendationId}/suppressions/{name}",
+      "description": "Enables the activation of a snoozed or dismissed recommendation. The snoozed or dismissed attribute of a recommendation is referred to as a suppression.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/Microsoft.Advisor/recommendations/{{RECOMMENDATIONID}}/suppressions/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RECOMMENDATIONID}}",
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RECOMMENDATIONID}} with a real recommendationid. Replace {{RESOURCEURI}} with a real resourceuri. Replace {{NAME}} with a real name."
+    }
+  ]
+}

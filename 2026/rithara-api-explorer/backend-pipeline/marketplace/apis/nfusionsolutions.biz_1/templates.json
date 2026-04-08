@@ -1,0 +1,327 @@
+{
+  "api_id": "nfusionsolutions.biz:1",
+  "endpoint_count": 17,
+  "endpoints": [
+    {
+      "id": "get-historical-prices-for-requested-currency-pairs",
+      "name": "Get historical prices for requested currency pairs",
+      "description": "Historical OHLC data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/history",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "pairs": "",
+        "start": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-currency-pairs-supported-by-the-history-endpoint",
+      "name": "Get list of currency pairs supported by the history endpoint",
+      "description": "Only the currency pairs in the direction noted can be used with the history endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/history/supported",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-latest-mid-rate-for-requested-currency-pairs",
+      "name": "Get latest mid rate for requested currency pairs",
+      "description": "Current Mid Rate",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/rate",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "pairs": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-currencies-supported-by-the-rate-endpoint",
+      "name": "Get list of currencies supported by the rate endpoint",
+      "description": "Any of the currencies in this list can be paired with any other currency in this list when supplied to the Rate endpoint.\r\nFor example: USD/CAD,CAD/USD,USD/EUR,EUR/CAD",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/rate/supported",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-latest-summary-for-requested-currency-pairs",
+      "name": "Get latest Summary for requested currency pairs",
+      "description": "Current and daily summary information combined into a single quote",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/summary",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "pairs": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-currency-pairs-supported-by-the-summary-endpoint",
+      "name": "Get list of currency pairs supported by the Summary endpoint",
+      "description": "Only the currency pairs in the direction noted can be used with the Summary endpoint.\r\nFor example: USD/CAD is not the same as CAD/USD",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Currencies/summary/supported",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-historical-benchmark-prices-for-requested-metals",
+      "name": "Get historical benchmark prices for requested metals",
+      "description": "Historical OHLC data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.\r\n\r\nThe historicalfx flag is used to determine whether to apply today's fx rates to a historical period, or to apply the historical rates from that same time frame.",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/benchmark/history",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": "",
+        "start": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-latest-benchmark-prices-for-requested-metals",
+      "name": "Get latest Benchmark prices for requested metals",
+      "description": "Benchmark price information",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/benchmark/summary",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-symbols-supported-by-the-benchmark-endpoints",
+      "name": "Get list of symbols supported by the benchmark endpoints",
+      "description": "Get list of symbols supported by the benchmark endpoints",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/benchmark/supported",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-historical-spot-prices-for-requested-metals",
+      "name": "Get historical Spot prices for requested metals",
+      "description": "Historical OHLC data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.\r\n\r\nThe historicalfx flag is used to determine whether to apply today's fx rates to a historical period, or to apply the historical rates from that same time frame.",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/history",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": "",
+        "start": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-historical-performance-for-requested-metals",
+      "name": "Get Historical Performance for requested metals",
+      "description": "Historical Performance information",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/performance",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-historical-annual-performance-for-requested-metals",
+      "name": "Get Historical Annual Performance for requested metals",
+      "description": "Annual Historical Performance information",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/performance/annual",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-historical-spot-ratio-prices-for-requested-metals",
+      "name": "Get historical Spot Ratio prices for requested metals",
+      "description": "Historical data for the specified period and interval size\r\n\r\nThe combination of the interval parameter and start and end dates can result in results\r\nbeing truncated to conform to result size limits. See comments on interval parameter for details on valid interval values.",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/ratio/history",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "pairs": "",
+        "start": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-latest-spot-summary-for-requested-metal-ratios",
+      "name": "Get latest Spot Summary for requested metal ratios",
+      "description": "Ratios between prices of two metals",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/ratio/summary",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "pairs": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-latest-spot-summary-for-requested-metals",
+      "name": "Get latest Spot Summary for requested metals",
+      "description": "Current and daily summary information combined into a single quote",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/summary",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}",
+        "metals": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-symbols-supported-by-the-spot-endpoints",
+      "name": "Get list of symbols supported by the spot endpoints",
+      "description": "Get list of symbols supported by the spot endpoints",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/spot/supported",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    },
+    {
+      "id": "get-list-of-currencies-supported-by-metals-endpoints-for-currency-conversion",
+      "name": "Get list of currencies supported by metals endpoints for currency conversion",
+      "description": "Get list of currencies supported by metals endpoints for currency conversion",
+      "method": "GET",
+      "url": "https://api.nfusionsolutions.biz/api/v1/Metals/supported/currency",
+      "headers": {},
+      "query_params": {
+        "token": "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NFUSIONSOLUTIONS_API_KEY}}",
+        "{{NFUSIONSOLUTIONS_BIZ_API_KEY}}"
+      ],
+      "notes": "Replace {{NFUSIONSOLUTIONS_API_KEY}} with your NFUSIONSOLUTIONS API KEY."
+    }
+  ]
+}

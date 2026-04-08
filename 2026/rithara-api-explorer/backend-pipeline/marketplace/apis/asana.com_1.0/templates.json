@@ -1,0 +1,3403 @@
+{
+  "api_id": "asana.com:1.0",
+  "endpoint_count": 166,
+  "endpoints": [
+    {
+      "id": "get-attachments-from-an-object",
+      "name": "Get attachments from an object",
+      "description": "Returns the compact records for all attachments on the object.\n\nThere are three possible `parent` values for this request: `project`, `project_brief`, and `task`. For a project, an attachment refers to a file uploaded to the \"Key resources\" section in the project Overview. For a project brief, an attachment refers to inline files in the project brief itself. For a task, an attachment refers to a file directly associated to that task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/attachments",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "parent": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "upload-an-attachment",
+      "name": "Upload an attachment",
+      "description": "Upload an attachment.\n\nThis method uploads an attachment on an object and returns the compact\nrecord for the created attachment object. This is possible by either:\n\n- Providing the URL of the external resource being attached, or\n- Downloading the file content first and then uploading it as any other attachment. Note that it is not possible to attach\nfiles from third party services such as Dropbox, Box, Vimeo & Google Drive via the API\n\nThe 100MB size limit on attachments in Asana is enforced on this endpoint.\n\nThis endpoint expects a multipart/form-data encoded request containing the full contents of the file to be uploaded.\n\nRequests made should follow the HTTP/1.1 specification that line\nterminators are of the form `CRLF` or `\\r\\n` outlined\n[here](http://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Basic-Rules) in order for the server to reliably and properly handle the request.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/attachments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "connect_to_app": false,
+        "file": "",
+        "name": "",
+        "parent": "",
+        "resource_subtype": "external",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-an-attachment",
+      "name": "Get an attachment",
+      "description": "Get the full record for a single attachment.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/attachments/{{ATTACHMENT_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ATTACHMENT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{ATTACHMENT_GID}} with a real attachment_gid."
+    },
+    {
+      "id": "delete-an-attachment",
+      "name": "Delete an attachment",
+      "description": "Deletes a specific, existing attachment.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/attachments/{{ATTACHMENT_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ATTACHMENT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{ATTACHMENT_GID}} with a real attachment_gid."
+    },
+    {
+      "id": "submit-parallel-requests",
+      "name": "Submit parallel requests",
+      "description": "Make multiple requests in parallel to Asana's API.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/batch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-custom-field",
+      "name": "Create a custom field",
+      "description": "Creates a new custom field in a workspace. Every custom field is required\nto be created in a specific workspace, and this workspace cannot be\nchanged once set.\n\nA custom field\u2019s name must be unique within a workspace and not conflict\nwith names of existing task properties such as `Due Date` or `Assignee`.\nA custom field\u2019s type must be one of `text`, `enum`, `multi_enum`, `number`,\n`date`, or `people`.\n\nReturns the full record of the newly created custom field.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/custom_fields",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-custom-field",
+      "name": "Get a custom field",
+      "description": "Get the complete definition of a custom field\u2019s metadata.\n\nSince custom fields can be defined for one of a number of types, and\nthese types have different data and behaviors, there are fields that are\nrelevant to a particular type. For instance, as noted above, enum_options\nis only relevant for the enum type and defines the set of choices that\nthe enum could represent. The examples below show some of these\ntype-specific custom field definitions.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/custom_fields/{{CUSTOM_FIELD_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOM_FIELD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{CUSTOM_FIELD_GID}} with a real custom_field_gid."
+    },
+    {
+      "id": "update-a-custom-field",
+      "name": "Update a custom field",
+      "description": "A specific, existing custom field can be updated by making a PUT request on the URL for that custom field. Only the fields provided in the `data` block will be updated; any unspecified fields will remain unchanged\nWhen using this method, it is best to specify only those fields you wish to change, or else you may overwrite changes made by another user since you last retrieved the custom field.\nA custom field\u2019s `type` cannot be updated.\nAn enum custom field\u2019s `enum_options` cannot be updated with this endpoint. Instead see \u201cWork With Enum Options\u201d for information on how to update `enum_options`.\nLocked custom fields can only be updated by the user who locked the field.\nReturns the complete updated custom field record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/custom_fields/{{CUSTOM_FIELD_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOM_FIELD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{CUSTOM_FIELD_GID}} with a real custom_field_gid."
+    },
+    {
+      "id": "delete-a-custom-field",
+      "name": "Delete a custom field",
+      "description": "A specific, existing custom field can be deleted by making a DELETE request on the URL for that custom field.\nLocked custom fields can only be deleted by the user who locked the field.\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/custom_fields/{{CUSTOM_FIELD_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOM_FIELD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{CUSTOM_FIELD_GID}} with a real custom_field_gid."
+    },
+    {
+      "id": "create-an-enum-option",
+      "name": "Create an enum option",
+      "description": "Creates an enum option and adds it to this custom field\u2019s list of enum options. A custom field can have at most 500 enum options (including disabled options). By default new enum options are inserted at the end of a custom field\u2019s list.\nLocked custom fields can only have enum options added by the user who locked the field.\nReturns the full record of the newly created enum option.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/custom_fields/{{CUSTOM_FIELD_GID}}/enum_options",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOM_FIELD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{CUSTOM_FIELD_GID}} with a real custom_field_gid."
+    },
+    {
+      "id": "reorder-a-custom-field-s-enum",
+      "name": "Reorder a custom field's enum",
+      "description": "Moves a particular enum option to be either before or after another specified enum option in the custom field.\nLocked custom fields can only be reordered by the user who locked the field.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/custom_fields/{{CUSTOM_FIELD_GID}}/enum_options/insert",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CUSTOM_FIELD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{CUSTOM_FIELD_GID}} with a real custom_field_gid."
+    },
+    {
+      "id": "update-an-enum-option",
+      "name": "Update an enum option",
+      "description": "Updates an existing enum option. Enum custom fields require at least one enabled enum option.\nLocked custom fields can only be updated by the user who locked the field.\nReturns the full record of the updated enum option.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/enum_options/{{ENUM_OPTION_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ENUM_OPTION_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{ENUM_OPTION_GID}} with a real enum_option_gid."
+    },
+    {
+      "id": "get-events-on-a-resource",
+      "name": "Get events on a resource",
+      "description": "Returns the full record for all events that have occurred since the sync\ntoken was created.\n\nA `GET` request to the endpoint `/[path_to_resource]/events` can be made in\nlieu of including the resource ID in the data for the request.\n\nAsana limits a single sync token to 100 events. If more than 100 events exist\nfor a given resource, `has_more: true` will be returned in the response, indicating\nthat there are more events to pull. \n\n*Note: The resource returned will be the resource that triggered the\nevent. This may be different from the one that the events were requested\nfor. For example, a subscription to a project will contain events for\ntasks contained within the project.*",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/events",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "resource": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-goal-relationships",
+      "name": "Get goal relationships",
+      "description": "Returns compact goal relationship records.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/goal_relationships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "supported_goal": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-goal-relationship",
+      "name": "Get a goal relationship",
+      "description": "Returns the complete updated goal relationship record for a single goal relationship.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/goal_relationships/{{GOAL_RELATIONSHIP_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{GOAL_RELATIONSHIP_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_RELATIONSHIP_GID}} with a real goal_relationship_gid."
+    },
+    {
+      "id": "update-a-goal-relationship",
+      "name": "Update a goal relationship",
+      "description": "An existing goal relationship can be updated by making a PUT request on the URL for\nthat goal relationship. Only the fields provided in the `data` block will be updated;\nany unspecified fields will remain unchanged.\n\nReturns the complete updated goal relationship record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/goal_relationships/{{GOAL_RELATIONSHIP_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{GOAL_RELATIONSHIP_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_RELATIONSHIP_GID}} with a real goal_relationship_gid."
+    },
+    {
+      "id": "get-goals",
+      "name": "Get goals",
+      "description": "Returns compact goal records.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/goals",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-goal",
+      "name": "Create a goal",
+      "description": "Creates a new goal in a workspace or team.\n\nReturns the full record of the newly created goal.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-goal",
+      "name": "Get a goal",
+      "description": "Returns the complete goal record for a single goal.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "update-a-goal",
+      "name": "Update a goal",
+      "description": "An existing goal can be updated by making a PUT request on the URL for\nthat goal. Only the fields provided in the `data` block will be updated;\nany unspecified fields will remain unchanged.\n\nReturns the complete updated goal record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "delete-a-goal",
+      "name": "Delete a goal",
+      "description": "A specific, existing goal can be deleted by making a DELETE request on the URL for that goal.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "add-a-collaborator-to-a-goal",
+      "name": "Add a collaborator to a goal",
+      "description": "Adds followers to a goal. Returns the goal the followers were added to.\nEach goal can be associated with zero or more followers in the system.\nRequests to add/remove followers, if successful, will return the complete updated goal record, described above.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/addFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "add-a-supporting-goal-relationship",
+      "name": "Add a supporting goal relationship",
+      "description": "Creates a goal relationship by adding a supporting resource to a given goal.\n\nReturns the newly created goal relationship record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/addSupportingRelationship",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "get-parent-goals-from-a-goal",
+      "name": "Get parent goals from a goal",
+      "description": "Returns a compact representation of all of the parent goals of a goal.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/parentGoals",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "remove-a-collaborator-from-a-goal",
+      "name": "Remove a collaborator from a goal",
+      "description": "Removes followers from a goal. Returns the goal the followers were removed from.\nEach goal can be associated with zero or more followers in the system.\nRequests to add/remove followers, if successful, will return the complete updated goal record, described above.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/removeFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "removes-a-supporting-goal-relationship",
+      "name": "Removes a supporting goal relationship",
+      "description": "Removes a goal relationship for a given parent goal.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/removeSupportingRelationship",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "create-a-goal-metric",
+      "name": "Create a goal metric",
+      "description": "Creates and adds a goal metric to a specified goal. Note that this replaces an existing goal metric if one already exists.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/setMetric",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "update-a-goal-metric",
+      "name": "Update a goal metric",
+      "description": "Updates a goal's existing metric's `current_number_value` if one exists,\notherwise responds with a 400 status code.\n\nReturns the complete updated goal metric record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/goals/{{GOAL_GID}}/setMetricCurrentValue",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOAL_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{GOAL_GID}} with a real goal_gid."
+    },
+    {
+      "id": "get-a-job-by-id",
+      "name": "Get a job by id",
+      "description": "Returns the full record for a job.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/jobs/{{JOB_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOB_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{JOB_GID}} with a real job_gid."
+    },
+    {
+      "id": "create-an-organization-export-request",
+      "name": "Create an organization export request",
+      "description": "This method creates a request to export an Organization. Asana will complete the export at some point after you create the request.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/organization_exports",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-details-on-an-org-export-request",
+      "name": "Get details on an org export request",
+      "description": "Returns details of a previously-requested Organization export.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/organization_exports/{{ORGANIZATION_EXPORT_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATION_EXPORT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{ORGANIZATION_EXPORT_GID}} with a real organization_export_gid."
+    },
+    {
+      "id": "get-multiple-portfolio-memberships",
+      "name": "Get multiple portfolio memberships",
+      "description": "Returns a list of portfolio memberships in compact representation. You must specify `portfolio`, `portfolio` and `user`, or `workspace` and `user`.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolio_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-portfolio-membership",
+      "name": "Get a portfolio membership",
+      "description": "Returns the complete portfolio record for a single portfolio membership.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolio_memberships/{{PORTFOLIO_MEMBERSHIP_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_MEMBERSHIP_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_MEMBERSHIP_GID}} with a real portfolio_membership_gid."
+    },
+    {
+      "id": "get-multiple-portfolios",
+      "name": "Get multiple portfolios",
+      "description": "Returns a list of the portfolios in compact representation that are owned by the current API user.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolios",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspace": "",
+        "owner": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-portfolio",
+      "name": "Create a portfolio",
+      "description": "Creates a new portfolio in the given workspace with the supplied name.\n\nNote that portfolios created in the Asana UI may have some state\n(like the \u201cPriority\u201d custom field) which is automatically added\nto the portfolio when it is created. Portfolios created via our\nAPI will *not* be created with the same initial state to allow\nintegrations to create their own starting state on a portfolio.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-portfolio",
+      "name": "Get a portfolio",
+      "description": "Returns the complete portfolio record for a single portfolio.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "update-a-portfolio",
+      "name": "Update a portfolio",
+      "description": "An existing portfolio can be updated by making a PUT request on the URL for\nthat portfolio. Only the fields provided in the `data` block will be updated;\nany unspecified fields will remain unchanged.\n\nReturns the complete updated portfolio record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "delete-a-portfolio",
+      "name": "Delete a portfolio",
+      "description": "An existing portfolio can be deleted by making a DELETE request on\nthe URL for that portfolio.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "add-a-custom-field-to-a-portfolio",
+      "name": "Add a custom field to a portfolio",
+      "description": "Custom fields are associated with portfolios by way of custom field settings.  This method creates a setting for the portfolio.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/addCustomFieldSetting",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "add-a-portfolio-item",
+      "name": "Add a portfolio item",
+      "description": "Add an item to a portfolio.\nReturns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/addItem",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "add-users-to-a-portfolio",
+      "name": "Add users to a portfolio",
+      "description": "Adds the specified list of users as members of the portfolio.\nReturns the updated portfolio record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/addMembers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "get-a-portfolio-s-custom-fields",
+      "name": "Get a portfolio's custom fields",
+      "description": "Returns a list of all of the custom fields settings on a portfolio, in compact form.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/custom_field_settings",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "get-portfolio-items",
+      "name": "Get portfolio items",
+      "description": "Get a list of the items in compact form in a portfolio.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "get-memberships-from-a-portfolio",
+      "name": "Get memberships from a portfolio",
+      "description": "Returns the compact portfolio membership records for the portfolio.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/portfolio_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "remove-a-custom-field-from-a-portfolio",
+      "name": "Remove a custom field from a portfolio",
+      "description": "Removes a custom field setting from a portfolio.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/removeCustomFieldSetting",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "remove-a-portfolio-item",
+      "name": "Remove a portfolio item",
+      "description": "Remove an item from a portfolio.\nReturns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/removeItem",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "remove-users-from-a-portfolio",
+      "name": "Remove users from a portfolio",
+      "description": "Removes the specified list of users from members of the portfolio.\nReturns the updated portfolio record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/portfolios/{{PORTFOLIO_GID}}/removeMembers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PORTFOLIO_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PORTFOLIO_GID}} with a real portfolio_gid."
+    },
+    {
+      "id": "get-a-project-brief",
+      "name": "Get a project brief",
+      "description": "Get the full record for a project brief.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/project_briefs/{{PROJECT_BRIEF_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_BRIEF_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_BRIEF_GID}} with a real project_brief_gid."
+    },
+    {
+      "id": "update-a-project-brief",
+      "name": "Update a project brief",
+      "description": "An existing project brief can be updated by making a PUT request on the URL for\nthat project brief. Only the fields provided in the `data` block will be updated;\nany unspecified fields will remain unchanged.\n\nReturns the complete updated project brief record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/project_briefs/{{PROJECT_BRIEF_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_BRIEF_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_BRIEF_GID}} with a real project_brief_gid."
+    },
+    {
+      "id": "delete-a-project-brief",
+      "name": "Delete a project brief",
+      "description": "Deletes a specific, existing project brief.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/project_briefs/{{PROJECT_BRIEF_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_BRIEF_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_BRIEF_GID}} with a real project_brief_gid."
+    },
+    {
+      "id": "get-a-project-membership",
+      "name": "Get a project membership",
+      "description": "Returns the complete project record for a single project membership.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/project_memberships/{{PROJECT_MEMBERSHIP_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{PROJECT_MEMBERSHIP_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_MEMBERSHIP_GID}} with a real project_membership_gid."
+    },
+    {
+      "id": "get-a-project-status",
+      "name": "Get a project status",
+      "description": "*Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*\n\nReturns the complete record for a single status update.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/project_statuses/{{PROJECT_STATUS_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_STATUS_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_STATUS_GID}} with a real project_status_gid."
+    },
+    {
+      "id": "delete-a-project-status",
+      "name": "Delete a project status",
+      "description": "*Deprecated: new integrations should prefer the `/status_updates/{status_gid}` route.*\n\nDeletes a specific, existing project status update.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/project_statuses/{{PROJECT_STATUS_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_STATUS_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_STATUS_GID}} with a real project_status_gid."
+    },
+    {
+      "id": "get-multiple-project-templates",
+      "name": "Get multiple project templates",
+      "description": "Returns the compact project template records for all project templates in the given team or workspace.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/project_templates",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-project-template",
+      "name": "Get a project template",
+      "description": "Returns the complete project template record for a single project template.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/project_templates/{{PROJECT_TEMPLATE_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_TEMPLATE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_TEMPLATE_GID}} with a real project_template_gid."
+    },
+    {
+      "id": "instantiate-a-project-from-a-project-template",
+      "name": "Instantiate a project from a project template",
+      "description": "Creates and returns a job that will asynchronously handle the project instantiation.\n\nTo form this request, it is recommended to first make a request to [get a project template](/docs/get-a-project-template). Then, from the response, copy the `gid` from the object in the `requested_dates` array. This `gid` should be used in `requested_dates` to instantiate a project.\n\n_Note: The body of this request will differ if your workspace is an organization. To determine if your workspace is an organization, use the [is_organization](/docs/workspace) parameter._",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/project_templates/{{PROJECT_TEMPLATE_GID}}/instantiateProject",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_TEMPLATE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_TEMPLATE_GID}} with a real project_template_gid."
+    },
+    {
+      "id": "get-multiple-projects",
+      "name": "Get multiple projects",
+      "description": "Returns the compact project records for some filtered set of projects. Use one or more of the parameters provided to filter the projects returned.\n*Note: This endpoint may timeout for large domains. Try filtering by team!*",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-project",
+      "name": "Create a project",
+      "description": "Create a new project in a workspace or team.\n\nEvery project is required to be created in a specific workspace or\norganization, and this cannot be changed once set. Note that you can use\nthe `workspace` parameter regardless of whether or not it is an\norganization.\n\nIf the workspace for your project is an organization, you must also\nsupply a `team` to share the project with.\n\nReturns the full record of the newly created project.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-project",
+      "name": "Get a project",
+      "description": "Returns the complete project record for a single project.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "update-a-project",
+      "name": "Update a project",
+      "description": "A specific, existing project can be updated by making a PUT request on\nthe URL for that project. Only the fields provided in the `data` block\nwill be updated; any unspecified fields will remain unchanged.\n\nWhen using this method, it is best to specify only those fields you wish\nto change, or else you may overwrite changes made by another user since\nyou last retrieved the task.\n\nReturns the complete updated project record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "delete-a-project",
+      "name": "Delete a project",
+      "description": "A specific, existing project can be deleted by making a DELETE request on\nthe URL for that project.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "add-a-custom-field-to-a-project",
+      "name": "Add a custom field to a project",
+      "description": "Custom fields are associated with projects by way of custom field settings.  This method creates a setting for the project.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/addCustomFieldSetting",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "add-followers-to-a-project",
+      "name": "Add followers to a project",
+      "description": "Adds the specified list of users as followers to the project. Followers are a subset of members who have opted in to receive \"tasks added\" notifications for a project. Therefore, if the users are not already members of the project, they will also become members as a result of this operation.\nReturns the updated project record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/addFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "add-users-to-a-project",
+      "name": "Add users to a project",
+      "description": "Adds the specified list of users as members of the project. Note that a user being added as a member may also be added as a *follower* as a result of this operation. This is because the user's default notification settings (i.e., in the \"Notifcations\" tab of \"My Profile Settings\") will override this endpoint's default behavior of setting \"Tasks added\" notifications to `false`.\nReturns the updated project record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/addMembers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-a-project-s-custom-fields",
+      "name": "Get a project's custom fields",
+      "description": "Returns a list of all of the custom fields settings on a project, in compact form. Note that, as in all queries to collections which return compact representation, `opt_fields` can be used to include more data than is returned in the compact representation. See the [getting started guide on input/output options](https://developers.asana.com/docs/#input-output-options) for more information.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/custom_field_settings",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "duplicate-a-project",
+      "name": "Duplicate a project",
+      "description": "Creates and returns a job that will asynchronously handle the duplication.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/duplicate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "create-a-project-brief",
+      "name": "Create a project brief",
+      "description": "Creates a new project brief.\n\nReturns the full record of the newly created project brief.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/project_briefs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-memberships-from-a-project",
+      "name": "Get memberships from a project",
+      "description": "Returns the compact project membership records for the project.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/project_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-statuses-from-a-project",
+      "name": "Get statuses from a project",
+      "description": "*Deprecated: new integrations should prefer the `/status_updates` route.*\n\nReturns the compact project status update records for all updates on the project.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/project_statuses",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "create-a-project-status",
+      "name": "Create a project status",
+      "description": "*Deprecated: new integrations should prefer the `/status_updates` route.*\n\nCreates a new status update on the project.\n\nReturns the full record of the newly created project status update.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/project_statuses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "remove-a-custom-field-from-a-project",
+      "name": "Remove a custom field from a project",
+      "description": "Removes a custom field setting from a project.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/removeCustomFieldSetting",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "remove-followers-from-a-project",
+      "name": "Remove followers from a project",
+      "description": "Removes the specified list of users from following the project, this will not affect project membership status.\nReturns the updated project record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/removeFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "remove-users-from-a-project",
+      "name": "Remove users from a project",
+      "description": "Removes the specified list of users from members of the project.\nReturns the updated project record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/removeMembers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "create-a-project-template-from-a-project",
+      "name": "Create a project template from a project",
+      "description": "Creates and returns a job that will asynchronously handle the project template creation. Note that\nwhile the resulting project template can be accessed with the API, it won't be visible in the Asana\nUI until Project Templates 2.0 is launched in the app. See more in [this forum post](https://forum.asana.com/t/a-new-api-for-project-templates/156432).",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/saveAsTemplate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-sections-in-a-project",
+      "name": "Get sections in a project",
+      "description": "Returns the compact records for all sections in the specified project.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/sections",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "create-a-section-in-a-project",
+      "name": "Create a section in a project",
+      "description": "Creates a new section in a project.\nReturns the full record of the newly created section.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/sections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "move-or-insert-sections",
+      "name": "Move or Insert sections",
+      "description": "Move sections relative to each other. One of\n`before_section` or `after_section` is required.\n\nSections cannot be moved between projects.\n\nReturns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/sections/insert",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-task-count-of-a-project",
+      "name": "Get task count of a project",
+      "description": "Get an object that holds task count fields. **All fields are excluded by default**. You must [opt in](/docs/input-output-options) using `opt_fields` to get any information from this endpoint.\n\nThis endpoint has an additional [rate limit](/docs/standard-rate-limits) and each field counts especially high against our [cost limits](/docs/cost-limits).\n\nMilestones are just tasks, so they are included in the `num_tasks`, `num_incomplete_tasks`, and `num_completed_tasks` counts.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/task_counts",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-tasks-from-a-project",
+      "name": "Get tasks from a project",
+      "description": "Returns the compact task records for all tasks within the given project, ordered by their priority within the project. Tasks can exist in more than one project at a time.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/projects/{{PROJECT_GID}}/tasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROJECT_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{PROJECT_GID}} with a real project_gid."
+    },
+    {
+      "id": "get-a-section",
+      "name": "Get a section",
+      "description": "Returns the complete record for a single section.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/sections/{{SECTION_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SECTION_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{SECTION_GID}} with a real section_gid."
+    },
+    {
+      "id": "update-a-section",
+      "name": "Update a section",
+      "description": "A specific, existing section can be updated by making a PUT request on\nthe URL for that project. Only the fields provided in the `data` block\nwill be updated; any unspecified fields will remain unchanged. (note that\nat this time, the only field that can be updated is the `name` field.)\n\nWhen using this method, it is best to specify only those fields you wish\nto change, or else you may overwrite changes made by another user since\nyou last retrieved the task.\n\nReturns the complete updated section record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/sections/{{SECTION_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SECTION_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{SECTION_GID}} with a real section_gid."
+    },
+    {
+      "id": "delete-a-section",
+      "name": "Delete a section",
+      "description": "A specific, existing section can be deleted by making a DELETE request on\nthe URL for that section.\n\nNote that sections must be empty to be deleted.\n\nThe last remaining section cannot be deleted.\n\nReturns an empty data block.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/sections/{{SECTION_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SECTION_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{SECTION_GID}} with a real section_gid."
+    },
+    {
+      "id": "add-task-to-section",
+      "name": "Add task to section",
+      "description": "Add a task to a specific, existing section. This will remove the task from other sections of the project.\n\nThe task will be inserted at the top of a section unless an insert_before or insert_after parameter is declared.\n\nThis does not work for separators (tasks with the resource_subtype of section).",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/sections/{{SECTION_GID}}/addTask",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SECTION_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{SECTION_GID}} with a real section_gid."
+    },
+    {
+      "id": "get-tasks-from-a-section",
+      "name": "Get tasks from a section",
+      "description": "*Board view only*: Returns the compact section records for all tasks within the given section.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/sections/{{SECTION_GID}}/tasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SECTION_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{SECTION_GID}} with a real section_gid."
+    },
+    {
+      "id": "get-status-updates-from-an-object",
+      "name": "Get status updates from an object",
+      "description": "Returns the compact status update records for all updates on the object.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/status_updates",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "parent": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-status-update",
+      "name": "Create a status update",
+      "description": "Creates a new status update on an object.\nReturns the full record of the newly created status update.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/status_updates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-status-update",
+      "name": "Get a status update",
+      "description": "Returns the complete record for a single status update.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/status_updates/{{STATUS_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATUS_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{STATUS_GID}} with a real status_gid."
+    },
+    {
+      "id": "delete-a-status-update",
+      "name": "Delete a status update",
+      "description": "Deletes a specific, existing status update.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/status_updates/{{STATUS_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATUS_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{STATUS_GID}} with a real status_gid."
+    },
+    {
+      "id": "get-a-story",
+      "name": "Get a story",
+      "description": "Returns the full record for a single story.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/stories/{{STORY_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORY_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{STORY_GID}} with a real story_gid."
+    },
+    {
+      "id": "update-a-story",
+      "name": "Update a story",
+      "description": "Updates the story and returns the full record for the updated story. Only comment stories can have their text updated, and only comment stories and attachment stories can be pinned. Only one of `text` and `html_text` can be specified.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/stories/{{STORY_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORY_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{STORY_GID}} with a real story_gid."
+    },
+    {
+      "id": "delete-a-story",
+      "name": "Delete a story",
+      "description": "Deletes a story. A user can only delete stories they have created.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/stories/{{STORY_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORY_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{STORY_GID}} with a real story_gid."
+    },
+    {
+      "id": "get-multiple-tags",
+      "name": "Get multiple tags",
+      "description": "Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tags",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-tag",
+      "name": "Create a tag",
+      "description": "Creates a new tag in a workspace or organization.\n\nEvery tag is required to be created in a specific workspace or\norganization, and this cannot be changed once set. Note that you can use\nthe workspace parameter regardless of whether or not it is an\norganization.\n\nReturns the full record of the newly created tag.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-tag",
+      "name": "Get a tag",
+      "description": "Returns the complete tag record for a single tag.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tags/{{TAG_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAG_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TAG_GID}} with a real tag_gid."
+    },
+    {
+      "id": "update-a-tag",
+      "name": "Update a tag",
+      "description": "Updates the properties of a tag. Only the fields provided in the `data`\nblock will be updated; any unspecified fields will remain unchanged.\n\nWhen using this method, it is best to specify only those fields you wish\nto change, or else you may overwrite changes made by another user since\nyou last retrieved the tag.\n\nReturns the complete updated tag record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/tags/{{TAG_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAG_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TAG_GID}} with a real tag_gid."
+    },
+    {
+      "id": "delete-a-tag",
+      "name": "Delete a tag",
+      "description": "A specific, existing tag can be deleted by making a DELETE request on\nthe URL for that tag.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/tags/{{TAG_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAG_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TAG_GID}} with a real tag_gid."
+    },
+    {
+      "id": "get-tasks-from-a-tag",
+      "name": "Get tasks from a tag",
+      "description": "Returns the compact task records for all tasks with the given tag. Tasks can have more than one tag at a time.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tags/{{TAG_GID}}/tasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAG_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TAG_GID}} with a real tag_gid."
+    },
+    {
+      "id": "get-multiple-tasks",
+      "name": "Get multiple tasks",
+      "description": "Returns the compact task records for some filtered set of tasks. Use one or more of the parameters provided to filter the tasks returned. You must specify a `project` or `tag` if you do not specify `assignee` and `workspace`.\n\nFor more complex task retrieval, use [workspaces/{workspace_gid}/tasks/search](/docs/search-tasks-in-a-workspace).",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "create-a-task",
+      "name": "Create a task",
+      "description": "Creating a new task is as easy as POSTing to the `/tasks` endpoint with a\ndata block containing the fields you\u2019d like to set on the task. Any\nunspecified fields will take on default values.\n\nEvery task is required to be created in a specific workspace, and this\nworkspace cannot be changed once set. The workspace need not be set\nexplicitly if you specify `projects` or a `parent` task instead.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-task",
+      "name": "Get a task",
+      "description": "Returns the complete task record for a single task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "update-a-task",
+      "name": "Update a task",
+      "description": "A specific, existing task can be updated by making a PUT request on the\nURL for that task. Only the fields provided in the `data` block will be\nupdated; any unspecified fields will remain unchanged.\n\nWhen using this method, it is best to specify only those fields you wish\nto change, or else you may overwrite changes made by another user since\nyou last retrieved the task.\n\nReturns the complete updated task record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "delete-a-task",
+      "name": "Delete a task",
+      "description": "A specific, existing task can be deleted by making a DELETE request on\nthe URL for that task. Deleted tasks go into the \u201ctrash\u201d of the user\nmaking the delete request. Tasks can be recovered from the trash within a\nperiod of 30 days; afterward they are completely removed from the system.\n\nReturns an empty data record.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "set-dependencies-for-a-task",
+      "name": "Set dependencies for a task",
+      "description": "Marks a set of tasks as dependencies of this task, if they are not already dependencies. *A task can have at most 30 dependents and dependencies combined*.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/addDependencies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "dependencies": [
+            "133713",
+            "184253"
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "set-dependents-for-a-task",
+      "name": "Set dependents for a task",
+      "description": "Marks a set of tasks as dependents of this task, if they are not already dependents. *A task can have at most 30 dependents and dependencies combined*.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/addDependents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "dependents": [
+            "133713",
+            "184253"
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "add-followers-to-a-task",
+      "name": "Add followers to a task",
+      "description": "Adds followers to a task. Returns an empty data block.\nEach task can be associated with zero or more followers in the system.\nRequests to add/remove followers, if successful, will return the complete updated task record, described above.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/addFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "add-a-project-to-a-task",
+      "name": "Add a project to a task",
+      "description": "Adds the task to the specified project, in the optional location\nspecified. If no location arguments are given, the task will be added to\nthe end of the project.\n\n`addProject` can also be used to reorder a task within a project or\nsection that already contains it.\n\nAt most one of `insert_before`, `insert_after`, or `section` should be\nspecified. Inserting into a section in an non-order-dependent way can be\ndone by specifying section, otherwise, to insert within a section in a\nparticular place, specify `insert_before` or `insert_after` and a task\nwithin the section to anchor the position of this task.\n\nReturns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/addProject",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "add-a-tag-to-a-task",
+      "name": "Add a tag to a task",
+      "description": "Adds a tag to a task. Returns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/addTag",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-dependencies-from-a-task",
+      "name": "Get dependencies from a task",
+      "description": "Returns the compact representations of all of the dependencies of a task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/dependencies",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-dependents-from-a-task",
+      "name": "Get dependents from a task",
+      "description": "Returns the compact representations of all of the dependents of a task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/dependents",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "duplicate-a-task",
+      "name": "Duplicate a task",
+      "description": "Creates and returns a job that will asynchronously handle the duplication.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/duplicate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-projects-a-task-is-in",
+      "name": "Get projects a task is in",
+      "description": "Returns a compact representation of all of the projects the task is in.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/projects",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "unlink-dependencies-from-a-task",
+      "name": "Unlink dependencies from a task",
+      "description": "Unlinks a set of dependencies from this task.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/removeDependencies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "dependencies": [
+            "133713",
+            "184253"
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "unlink-dependents-from-a-task",
+      "name": "Unlink dependents from a task",
+      "description": "Unlinks a set of dependents from this task.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/removeDependents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "dependents": [
+            "133713",
+            "184253"
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "remove-followers-from-a-task",
+      "name": "Remove followers from a task",
+      "description": "Removes each of the specified followers from the task if they are following. Returns the complete, updated record for the affected task.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/removeFollowers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "remove-a-project-from-a-task",
+      "name": "Remove a project from a task",
+      "description": "Removes the task from the specified project. The task will still exist in\nthe system, but it will not be in the project anymore.\n\nReturns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/removeProject",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "remove-a-tag-from-a-task",
+      "name": "Remove a tag from a task",
+      "description": "Removes a tag from a task. Returns an empty data block.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/removeTag",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "set-the-parent-of-a-task",
+      "name": "Set the parent of a task",
+      "description": "parent, or no parent task at all. Returns an empty data block. When using `insert_before` and `insert_after`, at most one of those two options can be specified, and they must already be subtasks of the parent.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/setParent",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-stories-from-a-task",
+      "name": "Get stories from a task",
+      "description": "Returns the compact records for all stories on the task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/stories",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "create-a-story-on-a-task",
+      "name": "Create a story on a task",
+      "description": "Adds a story to a task. This endpoint currently only allows for comment\nstories to be created. The comment will be authored by the currently\nauthenticated user, and timestamped when the server receives the request.\n\nReturns the full record for the new story added to the task.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/stories",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-subtasks-from-a-task",
+      "name": "Get subtasks from a task",
+      "description": "Returns a compact representation of all of the subtasks of a task.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/subtasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "create-a-subtask",
+      "name": "Create a subtask",
+      "description": "Creates a new subtask and adds it to the parent task. Returns the full record for the newly created subtask.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/subtasks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-a-task-s-tags",
+      "name": "Get a task's tags",
+      "description": "Get a compact representation of all of the tags the task has.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/tasks/{{TASK_GID}}/tags",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TASK_GID}} with a real task_gid."
+    },
+    {
+      "id": "get-team-memberships",
+      "name": "Get team memberships",
+      "description": "Returns compact team membership records.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/team_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-team-membership",
+      "name": "Get a team membership",
+      "description": "Returns the complete team membership record for a single team membership.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/team_memberships/{{TEAM_MEMBERSHIP_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAM_MEMBERSHIP_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_MEMBERSHIP_GID}} with a real team_membership_gid."
+    },
+    {
+      "id": "create-a-team",
+      "name": "Create a team",
+      "description": "Creates a team within the current workspace.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/teams",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "update-a-team",
+      "name": "Update a team",
+      "description": "Updates a team within the current workspace.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/teams",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-team",
+      "name": "Get a team",
+      "description": "Returns the full record for a single team.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "add-a-user-to-a-team",
+      "name": "Add a user to a team",
+      "description": "The user making this call must be a member of the team in order to add others. The user being added must exist in the same organization as the team.\n\nReturns the complete team membership record for the newly added user.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/addUser",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "get-a-team-s-project-templates",
+      "name": "Get a team's project templates",
+      "description": "Returns the compact project template records for all project templates in the team.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/project_templates",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "get-a-team-s-projects",
+      "name": "Get a team's projects",
+      "description": "Returns the compact project records for all projects in the team.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/projects",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "create-a-project-in-a-team",
+      "name": "Create a project in a team",
+      "description": "Creates a project shared with the given team.\n\nReturns the full record of the newly created project.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/projects",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "remove-a-user-from-a-team",
+      "name": "Remove a user from a team",
+      "description": "The user making this call must be a member of the team in order to remove themselves or others.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/removeUser",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "get-memberships-from-a-team",
+      "name": "Get memberships from a team",
+      "description": "Returns the compact team memberships for the team.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/team_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "get-users-in-a-team",
+      "name": "Get users in a team",
+      "description": "Returns the compact records for all users that are members of the team.\nResults are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/teams/{{TEAM_GID}}/users",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{TEAM_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TEAM_GID}} with a real team_gid."
+    },
+    {
+      "id": "get-time-periods",
+      "name": "Get time periods",
+      "description": "Returns compact time period records.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/time_periods",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspace": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-time-period",
+      "name": "Get a time period",
+      "description": "Returns the full record for a single time period.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/time_periods/{{TIME_PERIOD_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TIME_PERIOD_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{TIME_PERIOD_GID}} with a real time_period_gid."
+    },
+    {
+      "id": "get-a-user-task-list",
+      "name": "Get a user task list",
+      "description": "Returns the full record for a user task list.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/user_task_lists/{{USER_TASK_LIST_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{USER_TASK_LIST_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_TASK_LIST_GID}} with a real user_task_list_gid."
+    },
+    {
+      "id": "get-tasks-from-a-user-task-list",
+      "name": "Get tasks from a user task list",
+      "description": "Returns the compact list of tasks in a user\u2019s My Tasks list.\n*Note: Access control is enforced for this endpoint as with all Asana API endpoints, meaning a user\u2019s private tasks will be filtered out if the API-authenticated user does not have access to them.*\n*Note: Both complete and incomplete tasks are returned by default unless they are filtered out (for example, setting `completed_since=now` will return only incomplete tasks, which is the default view for \u201cMy Tasks\u201d in Asana.)*",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/user_task_lists/{{USER_TASK_LIST_GID}}/tasks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{USER_TASK_LIST_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_TASK_LIST_GID}} with a real user_task_list_gid."
+    },
+    {
+      "id": "get-multiple-users",
+      "name": "Get multiple users",
+      "description": "Returns the user records for all users in all workspaces and organizations accessible to the authenticated user. Accepts an optional workspace ID parameter.\nResults are sorted by user ID.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-user",
+      "name": "Get a user",
+      "description": "Returns the full user record for the single user with the provided ID.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-a-user-s-favorites",
+      "name": "Get a user's favorites",
+      "description": "Returns all of a user's favorites in the given workspace, of the given type.\nResults are given in order (The same order as Asana's sidebar).",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}/favorites",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "resource_type": "",
+        "workspace": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-memberships-from-a-user",
+      "name": "Get memberships from a user",
+      "description": "Returns the compact team membership records for the user.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}/team_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspace": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-teams-for-a-user",
+      "name": "Get teams for a user",
+      "description": "Returns the compact records for all teams to which the given user is assigned.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}/teams",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "organization": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-a-user-s-task-list",
+      "name": "Get a user's task list",
+      "description": "Returns the full record for a user's task list.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}/user_task_list",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspace": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-workspace-memberships-for-a-user",
+      "name": "Get workspace memberships for a user",
+      "description": "Returns the compact workspace membership records for the user.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/users/{{USER_GID}}/workspace_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{USER_GID}} with a real user_gid."
+    },
+    {
+      "id": "get-multiple-webhooks",
+      "name": "Get multiple webhooks",
+      "description": "Get the compact representation of all webhooks your app has registered for the authenticated user in the given workspace.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/webhooks",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspace": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-webhook",
+      "name": "Get a webhook",
+      "description": "Returns the full record for the given webhook.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/webhooks/{{WEBHOOK_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{WEBHOOK_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WEBHOOK_GID}} with a real webhook_gid."
+    },
+    {
+      "id": "update-a-webhook",
+      "name": "Update a webhook",
+      "description": "An existing webhook's filters can be updated by making a PUT request on the URL for that webhook. Note that the webhook's previous `filters` array will be completely overwritten by the `filters` sent in the PUT request.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/webhooks/{{WEBHOOK_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{WEBHOOK_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WEBHOOK_GID}} with a real webhook_gid."
+    },
+    {
+      "id": "delete-a-webhook",
+      "name": "Delete a webhook",
+      "description": "This method *permanently* removes a webhook. Note that it may be possible to receive a request that was already in flight after deleting the webhook, but no further requests will be issued.",
+      "method": "DELETE",
+      "url": "https://app.asana.com/api/1.0/webhooks/{{WEBHOOK_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{WEBHOOK_GID}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WEBHOOK_GID}} with a real webhook_gid."
+    },
+    {
+      "id": "get-a-workspace-membership",
+      "name": "Get a workspace membership",
+      "description": "Returns the complete workspace record for a single workspace membership.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspace_memberships/{{WORKSPACE_MEMBERSHIP_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_MEMBERSHIP_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_MEMBERSHIP_GID}} with a real workspace_membership_gid."
+    },
+    {
+      "id": "get-multiple-workspaces",
+      "name": "Get multiple workspaces",
+      "description": "Returns the compact records for all workspaces visible to the authorized user.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY."
+    },
+    {
+      "id": "get-a-workspace",
+      "name": "Get a workspace",
+      "description": "Returns the full workspace record for a single workspace.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "update-a-workspace",
+      "name": "Update a workspace",
+      "description": "A specific, existing workspace can be updated by making a PUT request on the URL for that workspace. Only the fields provided in the data block will be updated; any unspecified fields will remain unchanged.\nCurrently the only field that can be modified for a workspace is its name.\nReturns the complete, updated workspace record.",
+      "method": "PUT",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "add-a-user-to-a-workspace-or-organization",
+      "name": "Add a user to a workspace or organization",
+      "description": "Add a user to a workspace or organization.\nThe user can be referenced by their globally unique user ID or their email address. Returns the full user record for the invited user.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/addUser",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-audit-log-events",
+      "name": "Get audit log events",
+      "description": "Retrieve the audit log events that have been captured in your domain.\n\nThis endpoint will return a list of [AuditLogEvent](/docs/audit-log-event) objects, sorted by creation time in ascending order. Note that the Audit Log API captures events from October 8th, 2021 and later. Queries for events before this date will not return results.\n\nThere are a number of query parameters (below) that can be used to filter the set of [AuditLogEvent](/docs/audit-log-event) objects that are returned in the response. Any combination of query parameters is valid. When no filters are provided, all of the events that have been captured in your domain will match.\n\nThe list of events will always be [paginated](/docs/pagination). The default limit is 1000 events. The next set of events can be retrieved using the `offset` from the previous response. If there are no events that match the provided filters in your domain, the endpoint will return `null` for the `next_page` field. Querying again with the same filters may return new events if they were captured after the last request. Once a response includes a `next_page` with an `offset`, subsequent requests can be made with the latest `offset` to poll for new events that match the provided filters.\n\nWhen no `offset` is provided, the response will begin with the oldest events that match the provided filters. It is important to note that [AuditLogEvent](/docs/audit-log-event) objects will be permanently deleted from our systems after 90 days. If you wish to keep a permanent record of these events, we recommend using a SIEM tool to ingest and store these logs.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/audit_log_events",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-a-workspace-s-custom-fields",
+      "name": "Get a workspace's custom fields",
+      "description": "Returns a list of the compact representation of all of the custom fields in a workspace.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/custom_fields",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-all-projects-in-a-workspace",
+      "name": "Get all projects in a workspace",
+      "description": "Returns the compact project records for all projects in the workspace.\n*Note: This endpoint may timeout for large domains. Prefer the `/teams/{team_gid}/projects` endpoint.*",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/projects",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "create-a-project-in-a-workspace",
+      "name": "Create a project in a workspace",
+      "description": "Returns the compact project records for all projects in the workspace.\n\nIf the workspace for your project is an organization, you must also\nsupply a team to share the project with.\n\nReturns the full record of the newly created project.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/projects",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "remove-a-user-from-a-workspace-or-organization",
+      "name": "Remove a user from a workspace or organization",
+      "description": "Remove a user from a workspace or organization.\nThe user making this call must be an admin in the workspace. The user can be referenced by their globally unique user ID or their email address.\nReturns an empty data record.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/removeUser",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-tags-in-a-workspace",
+      "name": "Get tags in a workspace",
+      "description": "Returns the compact tag records for some filtered set of tags. Use one or more of the parameters provided to filter the tags returned.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/tags",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "create-a-tag-in-a-workspace",
+      "name": "Create a tag in a workspace",
+      "description": "Creates a new tag in a workspace or organization.\n\nEvery tag is required to be created in a specific workspace or\norganization, and this cannot be changed once set. Note that you can use\nthe workspace parameter regardless of whether or not it is an\norganization.\n\nReturns the full record of the newly created tag.",
+      "method": "POST",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "search-tasks-in-a-workspace",
+      "name": "Search tasks in a workspace",
+      "description": "To mirror the functionality of the Asana web app's advanced search feature, the Asana API has a task search endpoint that allows you to build complex filters to find and retrieve the exact data you need.\n#### Premium access\nLike the Asana web product's advance search feature, this search endpoint will only be available to premium Asana users. A user is premium if any of the following is true:\n\n- The workspace in which the search is being performed is a premium workspace - The user is a member of a premium team inside the workspace\n\nEven if a user is only a member of a premium team inside a non-premium workspace, search will allow them to find data anywhere in the workspace, not just inside the premium team. Making a search request using credentials of a non-premium user will result in a `402 Payment Required` error.\n#### Pagination\nSearch results are not stable; repeating the same query multiple times may return the data in a different order, even if the data do not change. Because of this, the traditional [pagination](https://developers.asana.com/docs/#pagination) available elsewhere in the Asana API is not available here. However, you can paginate manually by sorting the search results by their creation time and then modifying each subsequent query to exclude data you have already seen. Page sizes are limited to a maximum of 100 items, and can be specified by the `limit` query parameter.\n#### Eventual consistency\nChanges in Asana (regardless of whether they\u2019re made though the web product or the API) are forwarded to our search infrastructure to be indexed. This process can take between 10 and 60 seconds to complete under normal operation, and longer during some production incidents. Making a change to a task that would alter its presence in a particular search query will not be reflected immediately. This is also true of the advanced search feature in the web product.\n#### Rate limits\nYou may receive a `429 Too Many Requests` response if you hit any of our [rate limits](https://developers.asana.com/docs/#rate-limits).\n#### Custom field parameters\n| Parameter name | Custom field type | Accepted type |\n|---|---|---|\n| custom_fields.{gid}.is_set | All | Boolean |\n| custom_fields.{gid}.value | Text | String |\n| custom_fields.{gid}.value | Number | Number |\n| custom_fields.{gid}.value | Enum | Enum option ID |\n| custom_fields.{gid}.starts_with | Text only | String |\n| custom_fields.{gid}.ends_with | Text only | String |\n| custom_fields.{gid}.contains | Text only | String |\n| custom_fields.{gid}.less_than | Number only | Number |\n| custom_fields.{gid}.greater_than | Number only | Number |\n\n\nFor example, if the gid of the custom field is 12345, these query parameter to find tasks where it is set would be `custom_fields.12345.is_set=true`. To match an exact value for an enum custom field, use the gid of the desired enum option and not the name of the enum option: `custom_fields.12345.value=67890`.\n\n**Not Supported**: searching for multiple exact matches of a custom field, searching for multi-enum custom field\n\n*Note: If you specify `projects.any` and `sections.any`, you will receive tasks for the project **and** tasks for the section. If you're looking for only tasks in a section, omit the `projects.any` from the request.*",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/tasks/search",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-teams-in-a-workspace",
+      "name": "Get teams in a workspace",
+      "description": "Returns the compact records for all teams in the workspace visible to the authorized user.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/teams",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-objects-via-typeahead",
+      "name": "Get objects via typeahead",
+      "description": "Retrieves objects in the workspace based via an auto-completion/typeahead\nsearch algorithm. This feature is meant to provide results quickly, so do\nnot rely on this API to provide extremely accurate search results. The\nresult set is limited to a single page of results with a maximum size, so\nyou won\u2019t be able to fetch large numbers of results.\n\nThe typeahead search API provides search for objects from a single\nworkspace. This endpoint should be used to query for objects when\ncreating an auto-completion/typeahead search feature. This API is meant\nto provide results quickly and should not be relied upon for accurate or\nexhaustive search results. The results sets are limited in size and\ncannot be paginated.\n\nQueries return a compact representation of each object which is typically\nthe gid and name fields. Interested in a specific set of fields or all of\nthe fields?! Of course you are. Use field selectors to manipulate what\ndata is included in a response.\n\nResources with type `user` are returned in order of most contacted to\nleast contacted. This is determined by task assignments, adding the user\nto projects, and adding the user as a follower to tasks, messages,\netc.\n\nResources with type `project` are returned in order of recency. This is\ndetermined when the user visits the project, is added to the project, and\ncompletes tasks in the project.\n\nResources with type `task` are returned with priority placed on tasks\nthe user is following, but no guarantee on the order of those tasks.\n\nResources with type `project_template` are returned with priority\nplaced on favorited project templates.\n\nLeaving the `query` string empty or omitted will give you results, still\nfollowing the resource ordering above. This could be used to list users or\nprojects that are relevant for the requesting user's api token.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/typeahead",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {
+        "resource_type": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-users-in-a-workspace-or-organization",
+      "name": "Get users in a workspace or organization",
+      "description": "Returns the compact records for all users in the specified workspace or organization.\nResults are sorted alphabetically and limited to 2000. For more results use the `/users` endpoint.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/users",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    },
+    {
+      "id": "get-the-workspace-memberships-for-a-workspace",
+      "name": "Get the workspace memberships for a workspace",
+      "description": "Returns the compact workspace membership records for the workspace.",
+      "method": "GET",
+      "url": "https://app.asana.com/api/1.0/workspaces/{{WORKSPACE_GID}}/workspace_memberships",
+      "headers": {
+        "Authorization": "Bearer{{ASANA_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_GID}}",
+        "{{ASANA_API_KEY}}",
+        "{{ASANA_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ASANA_API_KEY}} with your ASANA API KEY. Replace {{WORKSPACE_GID}} with a real workspace_gid."
+    }
+  ]
+}

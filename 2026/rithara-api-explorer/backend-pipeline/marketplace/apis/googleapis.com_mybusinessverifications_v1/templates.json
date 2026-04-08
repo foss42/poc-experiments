@@ -1,0 +1,117 @@
+{
+  "api_id": "googleapis.com:mybusinessverifications:v1",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "post-v1-verificationtokens-generate",
+      "name": "POST /v1/verificationTokens:generate",
+      "description": "Generates a token for the provided location data as a vetted [partner](https://support.google.com/business/answer/7674102). Throws PERMISSION_DENIED if the caller is not a vetted partner account. Throws FAILED_PRECONDITION if the caller's VettedStatus is INVALID.",
+      "method": "POST",
+      "url": "https://mybusinessverifications.googleapis.com/v1/verificationTokens:generate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "location": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v1-location-fetchverificationoptions",
+      "name": "POST /v1/{location}:fetchVerificationOptions",
+      "description": "Reports all eligible verification options for a location in a specific language.",
+      "method": "POST",
+      "url": "https://mybusinessverifications.googleapis.com/v1/{{LOCATION}}:fetchVerificationOptions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "context": {},
+        "languageCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOCATION}}"
+      ],
+      "notes": "No authentication required. Replace {{LOCATION}} with a real location."
+    },
+    {
+      "id": "get-v1-name-voiceofmerchantstate",
+      "name": "GET /v1/{name}/VoiceOfMerchantState",
+      "description": "Gets the VoiceOfMerchant state.",
+      "method": "GET",
+      "url": "https://mybusinessverifications.googleapis.com/v1/{{NAME}}/VoiceOfMerchantState",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-complete",
+      "name": "POST /v1/{name}:complete",
+      "description": "Completes a `PENDING` verification. It is only necessary for non `AUTO` verification methods. `AUTO` verification request is instantly `VERIFIED` upon creation.",
+      "method": "POST",
+      "url": "https://mybusinessverifications.googleapis.com/v1/{{NAME}}:complete",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "pin": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-verify",
+      "name": "POST /v1/{name}:verify",
+      "description": "Starts the verification process for a location.",
+      "method": "POST",
+      "url": "https://mybusinessverifications.googleapis.com/v1/{{NAME}}:verify",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "context": {},
+        "emailAddress": "",
+        "languageCode": "",
+        "mailerContact": "",
+        "method": "",
+        "phoneNumber": "",
+        "token": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-verifications",
+      "name": "GET /v1/{parent}/verifications",
+      "description": "List verifications of a location, ordered by create time.",
+      "method": "GET",
+      "url": "https://mybusinessverifications.googleapis.com/v1/{{PARENT}}/verifications",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

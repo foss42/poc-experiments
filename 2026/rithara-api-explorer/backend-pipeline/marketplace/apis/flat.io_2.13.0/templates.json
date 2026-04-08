@@ -1,0 +1,1777 @@
+{
+  "api_id": "flat.io:2.13.0",
+  "endpoint_count": 81,
+  "endpoints": [
+    {
+      "id": "list-the-classes-available-for-the-current-user",
+      "name": "List the classes available for the current user",
+      "description": "List the classes available for the current user",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-class",
+      "name": "Create a new class",
+      "description": "Classrooms on Flat allow you to create activities with assignments and post content to a specific group.\n\nWhen creating a class, Flat automatically creates two groups: one for the teachers of the course, one for the students. The creator of this class is automatically added to the teachers group.\n\nIf the classsroom is synchronized with another application like Google Classroom, some of the meta information will automatically be updated.\n\nYou can add users to this class using `PUT /classes/{class}/users/{user}`, they will automatically added to the group based on their role on Flat. Users can also enroll themselves to this class using `POST /classes/enroll/{enrollmentCode}` and the `enrollmentCode` returned in the `ClassDetails` response.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Music Theory Course",
+        "section": "Music Theory 101"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "join-a-class",
+      "name": "Join a class",
+      "description": "Use this method to join a class using an enrollment code given one of the teacher of this class. This code is also available in the `ClassDetails` returned to the teachers when creating the class or listing / fetching a specific class.\n\nFlat will automatically add the user to the corresponding class group based on this role in the organization.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/enroll/{{ENROLLMENTCODE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ENROLLMENTCODE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ENROLLMENTCODE}} with a real enrollmentcode."
+    },
+    {
+      "id": "get-the-details-of-a-single-class",
+      "name": "Get the details of a single class",
+      "description": "Get the details of a single class",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "update-the-class",
+      "name": "Update the class",
+      "description": "Update the meta information of the class\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Music Theory Course",
+        "section": "Music Theory 101"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "activate-the-class",
+      "name": "Activate the class",
+      "description": "Mark the class as `active`. This is mainly used for classes synchronized from Clever that are initially with an `inactive` state and hidden in the UI.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/activate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "archive-the-class",
+      "name": "Archive the class",
+      "description": "Mark the class as `archived`. When this course is synchronized with another app, like Google Classroom, this state will be automatically be updated.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/archive",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "unarchive-the-class",
+      "name": "Unarchive the class",
+      "description": "Mark the class as `active`. When this course is synchronized with another app, like Google Classroom, this state will be automatically be updated.\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/archive",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "assignments-listing",
+      "name": "Assignments listing",
+      "description": "Assignments listing",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "assignment-creation",
+      "name": "Assignment creation",
+      "description": "Use this method as a teacher to create and post a new assignment to a class.\n\nIf the class is synchronized with Google Classroom, the assignment will be automatically posted to your Classroom course.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "attachments": [
+          {
+            "score": "0000000000000000",
+            "type": "flat"
+          },
+          {
+            "type": "link",
+            "url": "https://flat.io/developers"
+          }
+        ],
+        "description": "Get started with Flat",
+        "dueDate": "2017-07-12T13:56:19.613000Z",
+        "maxPoints": 100,
+        "scheduledDate": "2017-06-20T13:56:19.613000Z",
+        "title": "First assignment"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "archive-the-assignment",
+      "name": "Archive the assignment",
+      "description": "Archive the assignment\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/archive",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "unarchive-the-assignment",
+      "name": "Unarchive the assignment.",
+      "description": "Mark the assignment as `active`.\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/archive",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "copy-an-assignment",
+      "name": "Copy an assignment",
+      "description": "Copy an assignment to a specified class.\n\nIf the original assignment has a due date in the past, this new assingment will be created without a due date.\n\nIf the new class is synchronized with an external app (e.g. Google Classroom), the copied assignment will also be posted on the external app.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/copy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "classroom": "0000000000000000"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "list-the-students-submissions",
+      "name": "List the students' submissions",
+      "description": "List the students' submissions",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "create-or-edit-a-submission",
+      "name": "Create or edit a submission",
+      "description": "Use this method as a student to create, update and submit a submission related to an assignment.\nStudents can only set `attachments` and `submit`.\nTeachers can use `PUT /classes/{class}/assignments/{assignment}/submissions/{submission}` to update a submission by id.\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "attachments": [
+          {
+            "score": "58c4955a226ffff257211a8d",
+            "title": "Hello - Student",
+            "type": "flat"
+          }
+        ],
+        "submit": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "csv-grades-exports",
+      "name": "CSV Grades exports",
+      "description": "Export list of submissions grades to a CSV file",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/csv",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "excel-grades-exports",
+      "name": "Excel Grades exports",
+      "description": "Export list of submissions grades to an Excel file",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/excel",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class."
+    },
+    {
+      "id": "get-a-student-submission",
+      "name": "Get a student submission",
+      "description": "Get a student submission",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "edit-a-submission",
+      "name": "Edit a submission",
+      "description": "Use this method as a teacher to update the different submission and give feedback.\nTeachers can only set `return`, `draftGrade` and `grade`\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "attachments": [
+          {
+            "score": "58c4955a226ffff257211a8d",
+            "title": "Hello - Student",
+            "type": "flat"
+          }
+        ],
+        "submit": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "delete-a-submission",
+      "name": "Delete a submission",
+      "description": "Use this method as a teacher to delete a submission and allow student to start over the assignment\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "list-the-feedback-comments-of-a-submission",
+      "name": "List the feedback comments of a submission",
+      "description": "List the feedback comments of a submission",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}/comments",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "add-a-feedback-comment-to-a-submission",
+      "name": "Add a feedback comment to a submission",
+      "description": "Add a feedback comment to a submission",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}/comments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "update-a-feedback-comment-to-a-submission",
+      "name": "Update a feedback comment to a submission",
+      "description": "Update a feedback comment to a submission",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}/comments/{{COMMENT}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNMENT}}",
+        "{{COMMENT}}",
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SUBMISSION}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission. Replace {{COMMENT}} with a real comment."
+    },
+    {
+      "id": "delete-a-feedback-comment-to-a-submission",
+      "name": "Delete a feedback comment to a submission",
+      "description": "Delete a feedback comment to a submission",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}/comments/{{COMMENT}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSIGNMENT}}",
+        "{{COMMENT}}",
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SUBMISSION}}",
+        "{{CLASS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission. Replace {{COMMENT}} with a real comment."
+    },
+    {
+      "id": "get-the-history-of-the-submission",
+      "name": "Get the history of the submission",
+      "description": "For teachers only. Returns a detailed history of the submission. This currently includes state and grade histories.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/assignments/{{ASSIGNMENT}}/submissions/{{SUBMISSION}}/history",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{ASSIGNMENT}}",
+        "{{CLASS}}",
+        "{{SUBMISSION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{ASSIGNMENT}} with a real assignment. Replace {{CLASS}} with a real class. Replace {{SUBMISSION}} with a real submission."
+    },
+    {
+      "id": "list-the-submissions-for-a-student",
+      "name": "List the submissions for a student",
+      "description": "Use this method as a teacher to list all the assignment submissions sent by a student of the class\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/students/{{USER}}/submissions",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "add-a-user-to-the-class",
+      "name": "Add a user to the class",
+      "description": "This method can be used by a teacher of the class to enroll another Flat user into the class.\n\nOnly users that are part of your Organization can be enrolled in a class of this same Organization.\n\nWhen enrolling a user in the class, Flat will automatically add this user to the corresponding Class group, based on this role in the Organization.\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/users/{{USER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "remove-a-user-from-the-class",
+      "name": "Remove a user from the class",
+      "description": "This method can be used by a teacher to remove a user from the class, or by a student to leave the classroom.\n\nWarning: Removing a user from the class will remove the associated resources, including the submissions and feedback related to these submissions.\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/classes/{{CLASS}}/users/{{USER}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CLASS}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CLASS}} with a real class. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "list-the-collections",
+      "name": "List the collections",
+      "description": "Use this method to list the user's collections contained in `parent` (by default in the `root` collection).\nIf no sort option is provided, the collections are sorted by `creationDate` `desc`.\n\nNote that this method will not include the `parent` collection in the listing.\nFor example, if you need the details of the `root` collection, you can use `GET /v2/collections/root`.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/collections",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-collection",
+      "name": "Create a new collection",
+      "description": "This method will create a new collection and add it to your `root` collection.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "privacy": "private",
+        "title": "Jazz scores"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "get-collection-details",
+      "name": "Get collection details",
+      "description": "Get collection details",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection."
+    },
+    {
+      "id": "update-a-collection-s-metadata",
+      "name": "Update a collection's metadata",
+      "description": "Update a collection's metadata",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "privacy": "",
+        "title": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection."
+    },
+    {
+      "id": "delete-the-collection",
+      "name": "Delete the collection",
+      "description": "This method will schedule the deletion of the collection. Until deleted, the collection will be available in the `trash`.\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection."
+    },
+    {
+      "id": "list-the-scores-contained-in-a-collection",
+      "name": "List the scores contained in a collection",
+      "description": "Use this method to list the scores contained in a collection.\nIf no sort option is provided, the scores are sorted by `modificationDate` `desc`.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}/scores",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection."
+    },
+    {
+      "id": "add-a-score-to-the-collection",
+      "name": "Add a score to the collection",
+      "description": "This operation will add a score to a collection. The default behavior will make the score available across multiple collections.\nYou must have the capability `canAddScores` on the provided `collection` to perform the action.\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}/scores/{{SCORE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "delete-a-score-from-the-collection",
+      "name": "Delete a score from the collection",
+      "description": "This method will delete a score from the collection. Unlike [`DELETE /scores/{score}`](#operation/deleteScore), this score will not remove the score from your account, but only from the collection.\nThis can be used to *move* a score from one collection to another, or simply remove a score from one collection when this one is contained in multiple collections.\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}/scores/{{SCORE}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "untrash-a-collection",
+      "name": "Untrash a collection",
+      "description": "This method will restore the collection by removing it from the `trash` and add it back to the `root` collection.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/collections/{{COLLECTION}}/untrash",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COLLECTION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COLLECTION}} with a real collection."
+    },
+    {
+      "id": "get-group-information",
+      "name": "Get group information",
+      "description": "Get group information",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/groups/{{GROUP}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{GROUP}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{GROUP}} with a real group."
+    },
+    {
+      "id": "list-group-s-scores",
+      "name": "List group's scores",
+      "description": "Get the list of scores shared with a group.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/groups/{{GROUP}}/scores",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{GROUP}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{GROUP}} with a real group."
+    },
+    {
+      "id": "list-group-s-users",
+      "name": "List group's users",
+      "description": "List group's users",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/groups/{{GROUP}}/users",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{GROUP}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{GROUP}} with a real group."
+    },
+    {
+      "id": "get-current-user-profile",
+      "name": "Get current user profile",
+      "description": "Get details about the current authenticated User.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/me",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "list-the-organization-invitations",
+      "name": "List the organization invitations",
+      "description": "List the organization invitations",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/organizations/invitations",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-invitation-to-join-the-organization",
+      "name": "Create a new invitation to join the organization",
+      "description": "This method creates and sends invitation for teachers and admins.\n\nInvitations can only be used by new Flat users or users who are not part of the organization yet.\n\nIf the email of the user is already associated to a user of your organization, the API will simply update the role of the existing user and won't send an invitation. In this case, the property `usedBy` will be directly filled with the uniquer identifier of the corresponding user.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/organizations/invitations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "edu@flat.io",
+        "organizationRole": "teacher"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "remove-an-organization-invitation",
+      "name": "Remove an organization invitation",
+      "description": "Remove an organization invitation",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/organizations/invitations/{{INVITATION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{INVITATION}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{INVITATION}} with a real invitation."
+    },
+    {
+      "id": "list-lti-1-x-credentials",
+      "name": "List LTI 1.x credentials",
+      "description": "List LTI 1.x credentials",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/organizations/lti/credentials",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-couple-of-lti-1-x-credentials",
+      "name": "Create a new couple of LTI 1.x credentials",
+      "description": "Flat for Education is a Certified LTI Provider. You can use these API methods to automate the creation of LTI credentials. You can read more about our LTI implementation, supported components and LTI Endpoints in our [Developer Documentation](https://flat.io/developers/docs/lti/).\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/organizations/lti/credentials",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "lms": "canvas",
+        "name": "My couple of credentials for Canvas"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "revoke-lti-1-x-credentials",
+      "name": "Revoke LTI 1.x credentials",
+      "description": "Revoke LTI 1.x credentials",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/organizations/lti/credentials/{{CREDENTIALS}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{CREDENTIALS}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{CREDENTIALS}} with a real credentials."
+    },
+    {
+      "id": "list-the-organization-users",
+      "name": "List the organization users",
+      "description": "List the organization users",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/organizations/users",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-user-account",
+      "name": "Create a new user account",
+      "description": "Create a new user account",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/organizations/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "password": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "count-the-organization-users-using-the-provided-filters",
+      "name": "Count the organization users using the provided filters",
+      "description": "Count the organization users using the provided filters",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/organizations/users/count",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "update-account-information",
+      "name": "Update account information",
+      "description": "Update account information",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/organizations/users/{{USER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "firstname": "",
+        "lastname": "",
+        "organizationRole": "",
+        "password": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "remove-an-account-from-flat",
+      "name": "Remove an account from Flat",
+      "description": "This operation removes an account from Flat and its data, including:\n* The music scores created by this user (documents, history, comments, collaboration information)\n* Education related data (assignments and classroom information)\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/organizations/users/{{USER}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "create-a-new-score",
+      "name": "Create a new score",
+      "description": "Use this API method to **create a new music score in the current User account**. You will need a MusicXML 3 (`vnd.recordare.musicxml` or `vnd.recordare.musicxml+xml`), a MIDI (`audio/midi`), Guitar Pro (GP3, GP4, GP5, GPX, GP), PowerTab, TuxGuitar, or MuseScore file to create the new Flat document.\n\nThis API call will automatically create the first revision of the document, the score can be modified by the using our web application or by uploading a new revision of this file (`POST /v2/scores/{score}/revisions/{revision}`).\n\nThe currently authenticated user will be granted owner of the file and will be able to add other collaborators (users and groups).\n\nIf no `collection` is specified, the API will create the score in the most appropriate collection. This can be the `root` collection or a different collection based on the user's settings or API authentication method.\nIf a `collection` is specified and this one has more public privacy settings than the score (e.g. `public` vs `private` for the score), the privacy settings of the created score will be adjusted to the collection ones.\nYou can check the adjusted privacy settings in the returned score `privacy`, and optionally adjust these settings if needed using `PUT /scores/{score}`.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": "<score-partwise version=\"3.0\"></score-partwise>",
+        "googleDriveFolder": "0B-0000000000000000",
+        "privacy": "private",
+        "title": "My new score"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-score-s-metadata",
+      "name": "Get a score's metadata",
+      "description": "Get the details of a score identified by the `score` parameter in the URL.\nThe currently authenticated user must have at least a read access to the document to use this API call.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "edit-a-score-s-metadata",
+      "name": "Edit a score's metadata",
+      "description": "This API method allows you to change the metadata of a score document (e.g. its `title` or `privacy`), all the properties are optional.\n\nTo edit the file itself, create a new revision using the appropriate method (`POST /v2/scores/{score}/revisions/{revision}`).\n\nWhen editing the `title`, `subtitle`, `composer`, `lyricist`, `arranger` or `licenseText`, the metadatas will be instantly be updated, and a real-time action will be pushed to update the document lazily.\nThis pending document modification will be automatically be saved as a new version by either a connected client or our internal versioning service.\n",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "privacy": "private"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "delete-a-score",
+      "name": "Delete a score",
+      "description": "This method can be used by the owner/admin (`aclAdmin` rights) of a score as well as regular collaborators.\n\nWhen called by an owner/admin, it will schedule the deletion of the score, its revisions, and complete history.\nThe score won't be accessible anymore after calling this method and the user's quota will directly be updated.\n\nWhen called by a regular collaborator (`aclRead` / `aclWrite`), the score will be unshared (i.e. removed from the account & own collections).\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "list-the-collaborators",
+      "name": "List the collaborators",
+      "description": "This API call will list the different collaborators of a score and their rights on the document. The returned list will at least contain the owner of the document.\n\nCollaborators can be a single user (the object `user` will be populated) or a group (the object `group` will be populated).\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/collaborators",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "add-a-new-collaborator",
+      "name": "Add a new collaborator",
+      "description": "Share a score with a single user or a group. This API call allows to add, invite and update the collaborators of a resource.\n- To add an existing Flat user to the resource, specify its unique identifier in the `user` property.\n- To invite an external user to the resource, specify its email in the `userEmail` property.\n- To add a Flat group to the resource, specify its unique identifier in the `group` property.\n- To update an existing collaborator, process the same request with different rights.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/collaborators",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "aclAdmin": false,
+        "aclRead": true,
+        "aclWrite": true,
+        "userEmail": "jdoe@flat.io"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "get-a-collaborator",
+      "name": "Get a collaborator",
+      "description": "Get the information about a collaborator (User or Group).\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/collaborators/{{COLLABORATOR}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{COLLABORATOR}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score. Replace {{COLLABORATOR}} with a real collaborator."
+    },
+    {
+      "id": "delete-a-collaborator",
+      "name": "Delete a collaborator",
+      "description": "Remove the specified collaborator from the score\n",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/collaborators/{{COLLABORATOR}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{COLLABORATOR}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score. Replace {{COLLABORATOR}} with a real collaborator."
+    },
+    {
+      "id": "list-comments",
+      "name": "List comments",
+      "description": "This method lists the different comments added on a music score (documents and inline) sorted by their post dates.",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "post-a-new-comment",
+      "name": "Post a new comment",
+      "description": "Post a document or a contextualized comment on a document.\n\nPlease note that this method includes an anti-spam system for public scores. We don't guarantee that your comments will be accepted and displayed to end-user. Comments are be blocked by returning a `403` HTTP error and hidden from other users when the `spam` property is `true`.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "@[000000000000000000000000:flat] Great work!",
+        "context": {
+          "measureUuids": [
+            "e6a6a60b-8710-f819-9a49-e907b19c6f1f",
+            "da83d93c-e3a6-3c73-1bbe-15e5131d6437",
+            "056ec5eb-9213-df56-6ae8-d9b99673dc48"
+          ],
+          "partUuid": "91982db7-2e6d-285e-7a19-76b4bd005b8b",
+          "staffUuid": "9395d8f3-f42b-47b6-8c5d-6ba704961ec0",
+          "startDpq": 1,
+          "startTimePos": 2,
+          "stopDpq": 1,
+          "stopTimePos": 3
+        },
+        "mentions": [
+          "000000000000000000000000"
+        ],
+        "rawComment": "@flat: Great work!",
+        "replyTo": "000000000000000000000000",
+        "revision": "000000000000000000000010"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "update-an-existing-comment",
+      "name": "Update an existing comment",
+      "description": "Update an existing comment",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments/{{COMMENT}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "@[000000000000000000000000:flat] Great work!",
+        "context": {
+          "measureUuids": [
+            "e6a6a60b-8710-f819-9a49-e907b19c6f1f",
+            "da83d93c-e3a6-3c73-1bbe-15e5131d6437",
+            "056ec5eb-9213-df56-6ae8-d9b99673dc48"
+          ],
+          "partUuid": "91982db7-2e6d-285e-7a19-76b4bd005b8b",
+          "staffUuid": "9395d8f3-f42b-47b6-8c5d-6ba704961ec0",
+          "startDpq": 1,
+          "startTimePos": 2,
+          "stopDpq": 1,
+          "stopTimePos": 3
+        },
+        "mentions": [
+          "000000000000000000000000"
+        ],
+        "rawComment": "@flat: Great work!",
+        "replyTo": "000000000000000000000000",
+        "revision": "000000000000000000000011"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COMMENT}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COMMENT}} with a real comment. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "delete-a-comment",
+      "name": "Delete a comment",
+      "description": "Delete a comment",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments/{{COMMENT}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COMMENT}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COMMENT}} with a real comment. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "mark-the-comment-as-resolved",
+      "name": "Mark the comment as resolved",
+      "description": "Mark the comment as resolved",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments/{{COMMENT}}/resolved",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COMMENT}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COMMENT}} with a real comment. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "mark-the-comment-as-unresolved",
+      "name": "Mark the comment as unresolved",
+      "description": "Mark the comment as unresolved",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/comments/{{COMMENT}}/resolved",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{COMMENT}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{COMMENT}} with a real comment. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "fork-a-score",
+      "name": "Fork a score",
+      "description": "This API call will make a copy of the last revision of the specified score and create a new score. The copy of the score will have a privacy set to `private`.\n\nWhen using a [Flat for Education](https://flat.io/edu) account, the inline and contextualized comments will be accessible in the child document.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/fork",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "collection": "root"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "list-the-revisions",
+      "name": "List the revisions",
+      "description": "When creating a score or saving a new version of a score, a revision is created in our storage. This method allows you to list all of them, sorted by last modification.\n\nDepending the plan of the account, this list can be trunked to the few last revisions.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/revisions",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "create-a-new-revision",
+      "name": "Create a new revision",
+      "description": "Update a score by uploading a new revision for this one.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/revisions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "autosave": true,
+        "data": "<score-partwise version=\"3.0\"></score-partwise>",
+        "description": "New revision",
+        "history": [
+          {
+            "args": {
+              "measureUuid": "0be9f739-3213-f312-bb0a-00ad0c787ef7",
+              "previousUuid": "888cb742-2110-a050-ba71-28300ba6d61f"
+            },
+            "fnc": "action.AddMeasure",
+            "id": "b278ad43-2e99-4e60-a782-ac119b294ab8",
+            "userId": "000000000000000000000010"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "get-a-score-revision",
+      "name": "Get a score revision",
+      "description": "When creating a score or saving a new version of a score, a revision is created in our storage. This method allows you to get a specific\nrevision metadata.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/revisions/{{REVISION}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{REVISION}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{REVISION}} with a real revision. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "get-a-score-revision-data",
+      "name": "Get a score revision data",
+      "description": "Retrieve the file corresponding to a score revision (the following formats are available): Flat JSON/Adagio JSON `json`, MusicXML\n`mxl`/`xml`, MP3 `mp3`, WAV `wav`, MIDI `midi`, a tumbnail of the first page `thumbnail.png` or auto sync points `synchronizationPoints`.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/revisions/{{REVISION}}/{{FORMAT}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{FORMAT}}",
+        "{{REVISION}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{REVISION}} with a real revision. Replace {{FORMAT}} with a real format. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "list-submissions-related-to-the-score",
+      "name": "List submissions related to the score",
+      "description": "This API call will list the different assignments submissions where the score is attached. This method can be used by anyone that are part of the organization and have at least read access to the document.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/submissions",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "list-the-audio-or-video-tracks-linked-to-a-score",
+      "name": "List the audio or video tracks linked to a score",
+      "description": "List the audio or video tracks linked to a score",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/tracks",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "add-a-new-video-or-audio-track-to-the-score",
+      "name": "Add a new video or audio track to the score",
+      "description": "Use this method to add new track to the score. This track can then be played on flat.io or in an embedded score.\nThis API method support medias hosted on SoundCloud, YouTube and Vimeo.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/tracks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": true,
+        "state": "draft",
+        "synchronizationPoints": [
+          {
+            "measureUuid": "5132a788-69e6-d0c6-84ec-4bd858658d7c",
+            "time": 0,
+            "type": "measure"
+          },
+          {
+            "time": 213,
+            "type": "end"
+          }
+        ],
+        "title": "Rick Astley - Never Gonna Give You Up",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "retrieve-the-details-of-an-audio-or-video-track-linked-to-a-score",
+      "name": "Retrieve the details of an audio or video track linked to a score",
+      "description": "Retrieve the details of an audio or video track linked to a score",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/tracks/{{TRACK}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{TRACK}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{TRACK}} with a real track. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "update-an-audio-or-video-track-linked-to-a-score",
+      "name": "Update an audio or video track linked to a score",
+      "description": "Update an audio or video track linked to a score",
+      "method": "PUT",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/tracks/{{TRACK}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": true,
+        "state": "draft",
+        "synchronizationPoints": [
+          {
+            "measureUuid": "5132a788-69e6-d0c6-84ec-4bd858658d7c",
+            "time": 0,
+            "type": "measure"
+          },
+          {
+            "time": 213,
+            "type": "end"
+          }
+        ],
+        "title": "Rick Astley - Never Gonna Give You Up",
+        "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{TRACK}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{TRACK}} with a real track. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "remove-an-audio-or-video-track-linked-to-the-score",
+      "name": "Remove an audio or video track linked to the score",
+      "description": "Remove an audio or video track linked to the score",
+      "method": "DELETE",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/tracks/{{TRACK}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{TRACK}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{TRACK}} with a real track. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "untrash-a-score",
+      "name": "Untrash a score",
+      "description": "This method will remove the score from the `trash` collection and from the deletion queue, and add it back to the original collections.\n",
+      "method": "POST",
+      "url": "https://api.flat.io/v2/scores/{{SCORE}}/untrash",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{SCORE}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{SCORE}} with a real score."
+    },
+    {
+      "id": "get-a-public-user-profile",
+      "name": "Get a public user profile",
+      "description": "Get a public profile of a Flat User.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/users/{{USER}}",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "list-liked-scores",
+      "name": "List liked scores",
+      "description": "List liked scores",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/users/{{USER}}/likes",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{USER}} with a real user."
+    },
+    {
+      "id": "list-user-s-scores",
+      "name": "List user's scores",
+      "description": "Get the list of public scores owned by a User.\n\n**DEPRECATED**: Please note that the current behavior will be deprecrated on **2019-01-01**.\nThis method will no longer list private and shared scores, but only public scores of a Flat account.\nIf you want to access to private scores, please use the [Collections API](#tag/Collection) instead.\n",
+      "method": "GET",
+      "url": "https://api.flat.io/v2/users/{{USER}}/scores",
+      "headers": {
+        "Authorization": "Bearer{{FLAT_IO_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAT_ACCESS_TOKEN}}",
+        "{{USER}}",
+        "{{FLAT_IO_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{FLAT_ACCESS_TOKEN}} with your FLAT ACCESS TOKEN. Replace {{USER}} with a real user."
+    }
+  ]
+}

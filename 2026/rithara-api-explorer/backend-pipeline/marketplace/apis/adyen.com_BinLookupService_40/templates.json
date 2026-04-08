@@ -1,0 +1,149 @@
+{
+  "api_id": "adyen.com:BinLookupService:40",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "check-if-3d-secure-is-available",
+      "name": "Check if 3D Secure is available",
+      "description": "Verifies whether 3D Secure is available for the specified BIN or card brand. For 3D Secure 2, this endpoint also returns device fingerprinting keys.\n\nFor more information, refer to [3D Secure 2](https://docs.adyen.com/online-payments/3d-secure/native-3ds2).",
+      "method": "POST",
+      "url": "https://pal-test.adyen.com/pal/servlet/BinLookup/v40/get3dsAvailability",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "get3dsAvailability": {
+          "description": "Example request to check 3D Secure availability",
+          "summary": "Get 3D Secure availability",
+          "value": {
+            "cardNumber": "4111111111111111",
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-fees-cost-estimate",
+      "name": "Get a fees cost estimate",
+      "description": ">This API is available only for merchants operating in Australia, the EU, and the UK.\n\nUse the Adyen Cost Estimation API to pre-calculate interchange and scheme fee costs. Knowing these costs prior actual payment authorisation gives you an opportunity to charge those costs to the cardholder, if necessary.\n\nTo retrieve this information, make the call to the `/getCostEstimate` endpoint. The response to this call contains the amount of the interchange and scheme fees charged by the network for this transaction, and also which surcharging policy is possible (based on current regulations).\n\n> Since not all information is known in advance (for example, if the cardholder will successfully authenticate via 3D Secure or if you also plan to provide additional Level 2/3 data), the returned amounts are based on a set of assumption criteria you define in the `assumptions` parameter.",
+      "method": "POST",
+      "url": "https://pal-test.adyen.com/pal/servlet/BinLookup/v40/getCostEstimate",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "getCostEstimate": {
+          "description": "Example request to get the estimated cost of a transaction",
+          "summary": "Estimate the transaction cost",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1234
+            },
+            "assumptions": {
+              "assume3DSecureAuthenticated": true,
+              "assumeLevel3Data": true
+            },
+            "cardNumber": "5101180000000007",
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+            "merchantDetails": {
+              "countryCode": "NL",
+              "enrolledIn3DSecure": true,
+              "mcc": "7411"
+            },
+            "shopperInteraction": "Ecommerce"
+          }
+        },
+        "getCostEstimateEncryptedCard": {
+          "description": "Example request to get the estimated cost of a transaction",
+          "summary": "Estimate the transaction cost using an encrypted card number",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1234
+            },
+            "assumptions": {
+              "assume3DSecureAuthenticated": true,
+              "assumeLevel3Data": true
+            },
+            "encryptedCardNumber": "test_5101180000000007",
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+            "merchantDetails": {
+              "countryCode": "NL",
+              "enrolledIn3DSecure": true,
+              "mcc": "7411"
+            },
+            "shopperInteraction": "Ecommerce"
+          }
+        },
+        "getCostEstimateMinimal": {
+          "description": "Example request to get the estimated cost of a transaction with minimum details",
+          "summary": "Estimate the transaction cost (minimal)",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1234
+            },
+            "cardNumber": "5101180000000007",
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT"
+          }
+        },
+        "getCostEstimateMinimal3DS": {
+          "description": "Example request to get the estimated cost of a 3D Secure transaction with minimum details",
+          "summary": "Estimate the transaction cost (minimal with 3DSecure)",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1234
+            },
+            "assumptions": {
+              "assume3DSecureAuthenticated": true,
+              "assumeLevel3Data": true
+            },
+            "cardNumber": "5101180000000007",
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT"
+          }
+        },
+        "getCostEstimateRecurringContract": {
+          "description": "Example request to get the estimated cost of a recurring transaction",
+          "summary": "Estimate the transaction cost (recurring contract)",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 1234
+            },
+            "assumptions": {
+              "assume3DSecureAuthenticated": true,
+              "assumeLevel3Data": true
+            },
+            "merchantAccount": "YOUR_MERCHANT_ACCOUNT",
+            "merchantDetails": {
+              "countryCode": "NL",
+              "enrolledIn3DSecure": true,
+              "mcc": "7411"
+            },
+            "selectedRecurringDetailReference": "1234567890123456",
+            "shopperInteraction": "Ecommerce",
+            "shopperReference": "123456"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

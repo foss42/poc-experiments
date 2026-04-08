@@ -1,0 +1,91 @@
+{
+  "api_id": "azure.com:consumption:2017-11-30",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-consumption-operations",
+      "name": "GET /providers/Microsoft.Consumption/operations",
+      "description": "Lists all of the available consumption REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Consumption/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-scope-providers-microsoft-consumption-reservationdetails",
+      "name": "GET /{scope}/providers/Microsoft.Consumption/reservationDetails",
+      "description": "Lists the reservations details for provided date range.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Consumption/reservationDetails",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "$filter": "",
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-consumption-reservationsummaries",
+      "name": "GET /{scope}/providers/Microsoft.Consumption/reservationSummaries",
+      "description": "Lists the reservations summaries for daily or monthly grain.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Consumption/reservationSummaries",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "grain": "",
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "get-scope-providers-microsoft-consumption-usagedetails",
+      "name": "GET /{scope}/providers/Microsoft.Consumption/usageDetails",
+      "description": "Lists the usage details for a scope by billing period. Usage details are available via this API only for May 1, 2014 or later.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Consumption/usageDetails",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    }
+  ]
+}

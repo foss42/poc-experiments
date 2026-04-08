@@ -1,0 +1,892 @@
+{
+  "api_id": "tvmaze.com:1.0",
+  "endpoint_count": 42,
+  "endpoints": [
+    {
+      "id": "poll-whether-an-authentication-request-was-confirmed",
+      "name": "Poll whether an authentication request was confirmed",
+      "description": "Using the token acquired in the `start` endpoint, you can start polling this endpoint once every 10 seconds.\n\nWhen the user has confirmed the authentication request on their end, this endpoint will return the user's API key that you can use in subsequent authenticated endpoints. Note that it'll do so only once, subsequent requests after the initial 200 response will return a 404.\n\nFor as long as the user did not yet confirm their authentication request, this endpoint will return a 403.\n",
+      "method": "POST",
+      "url": "https://api.tvmaze.com/v1/auth/poll",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "start-an-authentication-request",
+      "name": "Start an authentication request",
+      "description": "If you want to access the TVmaze API on behalf of a user without querying them for their password, use this endpoint.\n\nTo get started, send a POST request containing the user's email address. The response will contain a `token`, which you can use as input to the `poll` endpoint. The user will receive an email prompting them to confirm the authentication request.\n\nAlternatively, if you expect the user to be logged in to TVmaze on the device they are currently interacting with, you can set `email_confirmation` to false and redirect them to the `confirm_url` URL. If they are logged in to TVmaze, they will be able to confirm the authentication request instantly.\n",
+      "method": "POST",
+      "url": "https://api.tvmaze.com/v1/auth/start",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "email_confirmation": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "validate-your-authentication-credentials",
+      "name": "Validate your authentication credentials",
+      "description": "If the credentials supplied as HTTP basic are valid, the user's level of premium - if any - is returned.",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/auth/validate",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "mark-episodes-as-acquired-or-watched-based-on-their-ids",
+      "name": "Mark episodes as acquired or watched based on their IDs",
+      "description": "This endpoint can be used by all users, even without premium",
+      "method": "POST",
+      "url": "https://api.tvmaze.com/v1/scrobble/episodes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "episode_id": 0,
+          "marked_at": 0,
+          "type": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "mark-an-episode-as-acquired-or-watched-based-on-its-id",
+      "name": "Mark an episode as acquired or watched based on its ID",
+      "description": "This endpoint can be used by all users, even without premium",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/scrobble/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "_embedded": {},
+        "episode_id": 0,
+        "marked_at": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "mark-episodes-within-a-show-as-acquired-or-watched-based-on-their-attributes",
+      "name": "Mark episodes within a show as acquired or watched based on their attributes",
+      "description": "To specify a show, supply either `tvmaze_id`, `thetvdb_id` or `imdb_id`. To specify an episode, supply either both `season` and `episode`, or `airdate`.\n\nThis endpoint can be used by all users, even without premium.\n",
+      "method": "POST",
+      "url": "https://api.tvmaze.com/v1/scrobble/shows",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "airdate": "",
+          "episode": 0,
+          "marked_at": 0,
+          "season": 0,
+          "type": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "list-watched-and-acquired-episodes-for-a-show",
+      "name": "List watched and acquired episodes for a show",
+      "description": "This endpoint can be used by all users, even without premium",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/scrobble/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "list-the-marked-episodes",
+      "name": "List the marked episodes",
+      "description": "List the marked episodes",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/episodes",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-an-episode-is-marked",
+      "name": "Check if an episode is marked",
+      "description": "Check if an episode is marked",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "mark-an-episode",
+      "name": "Mark an episode",
+      "description": "Set `marked_at` to `NULL` or leave it out to use the current time.",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "_embedded": {},
+        "episode_id": 0,
+        "marked_at": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "unmark-an-episode",
+      "name": "Unmark an episode",
+      "description": "Unmark an episode",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "list-the-followed-networks",
+      "name": "List the followed networks",
+      "description": "List the followed networks",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/networks",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-a-network-is-followed",
+      "name": "Check if a network is followed",
+      "description": "Check if a network is followed",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/networks/{{NETWORK_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{NETWORK_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{NETWORK_ID}} with a real network_id."
+    },
+    {
+      "id": "follow-a-network",
+      "name": "Follow a network",
+      "description": "Follow a network",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/follows/networks/{{NETWORK_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{NETWORK_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{NETWORK_ID}} with a real network_id."
+    },
+    {
+      "id": "unfollow-a-network",
+      "name": "Unfollow a network",
+      "description": "Unfollow a network",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/follows/networks/{{NETWORK_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{NETWORK_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{NETWORK_ID}} with a real network_id."
+    },
+    {
+      "id": "list-the-followed-people",
+      "name": "List the followed people",
+      "description": "List the followed people",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/people",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-a-person-is-followed",
+      "name": "Check if a person is followed",
+      "description": "Check if a person is followed",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/people/{{PERSON_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{PERSON_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{PERSON_ID}} with a real person_id."
+    },
+    {
+      "id": "follow-a-person",
+      "name": "Follow a person",
+      "description": "Follow a person",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/follows/people/{{PERSON_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{PERSON_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{PERSON_ID}} with a real person_id."
+    },
+    {
+      "id": "unfollow-a-person",
+      "name": "Unfollow a person",
+      "description": "Unfollow a person",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/follows/people/{{PERSON_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{PERSON_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{PERSON_ID}} with a real person_id."
+    },
+    {
+      "id": "list-the-followed-shows",
+      "name": "List the followed shows",
+      "description": "List the followed shows",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/shows",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-a-show-is-followed",
+      "name": "Check if a show is followed",
+      "description": "Check if a show is followed",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "follow-a-show",
+      "name": "Follow a show",
+      "description": "Follow a show",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/follows/shows/{{SHOW_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "unfollow-a-show",
+      "name": "Unfollow a show",
+      "description": "Unfollow a show",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/follows/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "list-the-followed-webchannels",
+      "name": "List the followed webchannels",
+      "description": "List the followed webchannels",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/webchannels",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-a-webchannel-is-followed",
+      "name": "Check if a webchannel is followed",
+      "description": "Check if a webchannel is followed",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/follows/webchannels/{{WEBCHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{WEBCHANNEL_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{WEBCHANNEL_ID}} with a real webchannel_id."
+    },
+    {
+      "id": "follow-a-webchannel",
+      "name": "Follow a webchannel",
+      "description": "Follow a webchannel",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/follows/webchannels/{{WEBCHANNEL_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{WEBCHANNEL_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{WEBCHANNEL_ID}} with a real webchannel_id."
+    },
+    {
+      "id": "unfollow-a-webchannel",
+      "name": "Unfollow a webchannel",
+      "description": "Unfollow a webchannel",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/follows/webchannels/{{WEBCHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{WEBCHANNEL_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{WEBCHANNEL_ID}} with a real webchannel_id."
+    },
+    {
+      "id": "list-all-tags",
+      "name": "List all tags",
+      "description": "List all tags",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/tags",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "create-a-new-tag",
+      "name": "Create a new tag",
+      "description": "Create a new tag",
+      "method": "POST",
+      "url": "https://api.tvmaze.com/v1/user/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "delete-a-specific-tag",
+      "name": "Delete a specific tag",
+      "description": "Delete a specific tag",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/tags/{{TAG_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TAG_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{TAG_ID}} with a real tag_id."
+    },
+    {
+      "id": "update-a-specific-tag",
+      "name": "Update a specific tag",
+      "description": "Update a specific tag",
+      "method": "PATCH",
+      "url": "https://api.tvmaze.com/v1/user/tags/{{TAG_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": 0,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TAG_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{TAG_ID}} with a real tag_id."
+    },
+    {
+      "id": "list-all-shows-under-this-tag",
+      "name": "List all shows under this tag",
+      "description": "List all shows under this tag",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/tags/{{TAG_ID}}/shows",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TAG_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{TAG_ID}} with a real tag_id."
+    },
+    {
+      "id": "tag-a-show",
+      "name": "Tag a show",
+      "description": "Tag a show",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/tags/{{TAG_ID}}/shows/{{SHOW_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TAG_ID}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{TAG_ID}} with a real tag_id. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "untag-a-show",
+      "name": "Untag a show",
+      "description": "Untag a show",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/tags/{{TAG_ID}}/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TAG_ID}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{TAG_ID}} with a real tag_id. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "list-the-episodes-voted-for",
+      "name": "List the episodes voted for",
+      "description": "List the episodes voted for",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/votes/episodes",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-an-episode-is-voted-for",
+      "name": "Check if an episode is voted for",
+      "description": "Check if an episode is voted for",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/votes/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "vote-for-an-episode",
+      "name": "Vote for an episode",
+      "description": "Vote for an episode",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/votes/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "episode_id": 0,
+        "vote": 0,
+        "voted_at": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "remove-an-episode-vote",
+      "name": "Remove an episode vote",
+      "description": "Remove an episode vote",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/votes/episodes/{{EPISODE_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{EPISODE_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{EPISODE_ID}} with a real episode_id."
+    },
+    {
+      "id": "list-the-shows-voted-for",
+      "name": "List the shows voted for",
+      "description": "List the shows voted for",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/votes/shows",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD."
+    },
+    {
+      "id": "check-if-a-show-is-voted-for",
+      "name": "Check if a show is voted for",
+      "description": "Check if a show is voted for",
+      "method": "GET",
+      "url": "https://api.tvmaze.com/v1/user/votes/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "vote-for-a-show",
+      "name": "Vote for a show",
+      "description": "Set `voted_at` to `NULL` or leave it out to use the current time.",
+      "method": "PUT",
+      "url": "https://api.tvmaze.com/v1/user/votes/shows/{{SHOW_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "show_id": 0,
+        "vote": 0,
+        "voted_at": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    },
+    {
+      "id": "remove-a-show-vote",
+      "name": "Remove a show vote",
+      "description": "Remove a show vote",
+      "method": "DELETE",
+      "url": "https://api.tvmaze.com/v1/user/votes/shows/{{SHOW_ID}}",
+      "headers": {
+        "Authorization": "Basic{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TVMAZE_PASSWORD}}",
+        "{{TVMAZE_USERNAME}}",
+        "{{SHOW_ID}}",
+        "{{TVMAZE_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TVMAZE_USERNAME}} with your TVMAZE USERNAME. Replace {{TVMAZE_PASSWORD}} with your TVMAZE PASSWORD. Replace {{SHOW_ID}} with a real show_id."
+    }
+  ]
+}

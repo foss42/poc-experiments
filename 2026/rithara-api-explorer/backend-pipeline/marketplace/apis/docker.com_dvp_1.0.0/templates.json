@@ -1,0 +1,150 @@
+{
+  "api_id": "docker.com:dvp:1.0.0",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "get-namespaces-and-repos",
+      "name": "Get namespaces and repos",
+      "description": "Gets a list of your namespaces and repos which have data available",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOCKER_API_KEY}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY."
+    },
+    {
+      "id": "get-namespace",
+      "name": "Get namespace",
+      "description": "Gets metadata associated with specified namespace, including extra repos associated with the namespace",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/namespaces/{{NAMESPACE}}",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMESPACE}}",
+        "{{DOCKER_API_KEY}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY. Replace {{NAMESPACE}} with a real namespace."
+    },
+    {
+      "id": "get-years-with-data",
+      "name": "Get years with data",
+      "description": "Gets a list of years that have data for the given namespace",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/namespaces/{{NAMESPACE}}/pulls/exports/years",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMESPACE}}",
+        "{{DOCKER_API_KEY}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY. Replace {{NAMESPACE}} with a real namespace."
+    },
+    {
+      "id": "get-timespans-with-data",
+      "name": "Get timespans with data",
+      "description": "Gets a list of timespans of the given type that have data for the given namespace and year",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/namespaces/{{NAMESPACE}}/pulls/exports/years/{{YEAR}}/{{TIMESPANTYPE}}",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMESPACE}}",
+        "{{DOCKER_API_KEY}}",
+        "{{TIMESPANTYPE}}",
+        "{{YEAR}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY. Replace {{NAMESPACE}} with a real namespace. Replace {{TIMESPANTYPE}} with a real timespantype. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "get-namespace-metadata-for-timespan",
+      "name": "Get namespace metadata for timespan",
+      "description": "Gets info about data for the given namespace and timespan",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/namespaces/{{NAMESPACE}}/pulls/exports/years/{{YEAR}}/{{TIMESPANTYPE}}/{{TIMESPAN}}",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TIMESPANTYPE}}",
+        "{{NAMESPACE}}",
+        "{{DOCKER_API_KEY}}",
+        "{{TIMESPAN}}",
+        "{{YEAR}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY. Replace {{NAMESPACE}} with a real namespace. Replace {{TIMESPANTYPE}} with a real timespantype. Replace {{TIMESPAN}} with a real timespan. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "get-namespace-data-for-timespan",
+      "name": "Get namespace data for timespan",
+      "description": "Gets a list of URLs that can be used to download the pull data for the given namespace and timespan",
+      "method": "GET",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/namespaces/{{NAMESPACE}}/pulls/exports/years/{{YEAR}}/{{TIMESPANTYPE}}/{{TIMESPAN}}/{{DATAVIEW}}",
+      "headers": {
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TIMESPANTYPE}}",
+        "{{DATAVIEW}}",
+        "{{NAMESPACE}}",
+        "{{DOCKER_API_KEY}}",
+        "{{TIMESPAN}}",
+        "{{YEAR}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY. Replace {{TIMESPANTYPE}} with a real timespantype. Replace {{DATAVIEW}} with a real dataview. Replace {{NAMESPACE}} with a real namespace. Replace {{TIMESPAN}} with a real timespan. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "create-an-authentication-token",
+      "name": "Create an authentication token",
+      "description": "Creates and returns a bearer token in JWT format that you can use to\nauthenticate with Docker Hub APIs.\n\nThe returned token is used in the HTTP Authorization header like `Authorization: Bearer {TOKEN}`.\n\nMost Docker Hub APIs require this token either to consume or to get detailed information. For example, to list images in a private repository.\n",
+      "method": "POST",
+      "url": "https://hub.docker.com/api/publisher/analytics/v1/v2/users/login",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DOCKER_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "username": "myusername",
+        "password": "hunter2"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOCKER_API_KEY}}",
+        "{{DOCKER_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{DOCKER_API_KEY}} with your DOCKER API KEY."
+    }
+  ]
+}

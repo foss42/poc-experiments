@@ -1,0 +1,1046 @@
+{
+  "api_id": "dev.to:1.0.0",
+  "endpoint_count": 34,
+  "endpoints": [
+    {
+      "id": "invite-a-user",
+      "name": "Invite a User",
+      "description": "This endpoint allows the client to trigger an invitation to the provided email address.\n\n        It requires a token from a user with `super_admin` privileges.",
+      "method": "POST",
+      "url": "https://dev.to/api/api/admin/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "publish-article",
+      "name": "Publish article",
+      "description": "This endpoint allows the client to create a new article.\n\n\"Articles\" are all the posts that users create on DEV that typically show up in the feed. They can be a blog post, a discussion question, a help thread etc. but is referred to as article within the code.",
+      "method": "POST",
+      "url": "https://dev.to/api/api/articles",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "article": {}
+      },
+      "sample_response": {
+        "body_html": "<p><strong>New</strong> body for the article</p>\n\n",
+        "body_markdown": "**New** body for the article",
+        "canonical_url": "https://dev.to/fdocr/headless-chrome-dual-mode-tests-for-ruby-on-rails-4p6g",
+        "collection_id": 16,
+        "comments_count": 0,
+        "cover_image": "https://thepracticaldev.s3.amazonaws.com/i/5wfo25724gzgk5e5j50g.jpg",
+        "created_at": "2023-02-27T10:58:03Z",
+        "crossposted_at": null,
+        "description": "New post example",
+        "edited_at": null,
+        "id": 607,
+        "last_comment_at": "2023-02-27T10:58:03Z",
+        "path": "/username383/new-article-1j5a",
+        "positive_reactions_count": 0,
+        "public_reactions_count": 0,
+        "published_at": "2023-02-27T10:58:03Z",
+        "published_timestamp": "2023-02-27T10:58:03Z",
+        "readable_publish_date": "Feb 27",
+        "reading_time_minutes": 1,
+        "slug": "new-article-1j5a",
+        "social_image": "https://thepracticaldev.s3.amazonaws.com/i/5wfo25724gzgk5e5j50g.jpg",
+        "tag_list": "",
+        "tags": [],
+        "title": "New article",
+        "type_of": "article",
+        "url": "http://localhost:3000/username383/new-article-1j5a",
+        "user": {
+          "github_username": "github383",
+          "name": "King \"Kurtis\" \\:/ Hilpert",
+          "profile_image": "/uploads/user/profile_image/819/8d11e7ba-593a-4192-8977-14b323d77018.jpeg",
+          "profile_image_90": "/uploads/user/profile_image/819/8d11e7ba-593a-4192-8977-14b323d77018.jpeg",
+          "twitter_username": "twitter383",
+          "user_id": 819,
+          "username": "username383",
+          "website_url": null
+        }
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "user-s-articles",
+      "name": "User's articles",
+      "description": "This endpoint allows the client to retrieve a list of published articles on behalf of an authenticated user.\n\n\"Articles\" are all the posts that users create on DEV that typically show up in the feed. They can be a blog post, a discussion question, a help thread etc. but is referred to as article within the code.\n\nPublished articles will be in reverse chronological publication order.\n\nIt will return published articles with pagination. By default a page will contain 30 articles.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/articles/me",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "user-s-all-articles",
+      "name": "User's all articles",
+      "description": "This endpoint allows the client to retrieve a list of all articles on behalf of an authenticated user.\n\n\"Articles\" are all the posts that users create on DEV that typically show up in the feed. They can be a blog post, a discussion question, a help thread etc. but is referred to as article within the code.\n\nIt will return both published and unpublished articles with pagination.\n\nUnpublished articles will be at the top of the list in reverse chronological creation order. Published articles will follow in reverse chronological publication order.\n\nBy default a page will contain 30 articles.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/articles/me/all",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "user-s-published-articles",
+      "name": "User's published articles",
+      "description": "This endpoint allows the client to retrieve a list of published articles on behalf of an authenticated user.\n\n\"Articles\" are all the posts that users create on DEV that typically show up in the feed. They can be a blog post, a discussion question, a help thread etc. but is referred to as article within the code.\n\nPublished articles will be in reverse chronological publication order.\n\nIt will return published articles with pagination. By default a page will contain 30 articles.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/articles/me/published",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "user-s-unpublished-articles",
+      "name": "User's unpublished articles",
+      "description": "This endpoint allows the client to retrieve a list of unpublished articles on behalf of an authenticated user.\n\n\"Articles\" are all the posts that users create on DEV that typically show up in the feed. They can be a blog post, a discussion question, a help thread etc. but is referred to as article within the code.\n\nUnpublished articles will be in reverse chronological creation order.\n\nIt will return unpublished articles with pagination. By default a page will contain 30 articles.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/articles/me/unpublished",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "unpublish-an-article",
+      "name": "Unpublish an article",
+      "description": "This endpoint allows the client to unpublish an article.\n\nThe user associated with the API key must have any 'admin' or 'moderator' role.\n\nThe article will be unpublished and will no longer be visible to the public. It will remain\nin the database and will set back to draft status on the author's posts dashboard. Any\nnotifications associated with the article will be deleted. Any comments on the article\nwill remain.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/articles/{{ID}}/unpublish",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "comments",
+      "name": "Comments",
+      "description": "This endpoint allows the client to retrieve all comments belonging to an article or podcast episode as threaded conversations.\n\nIt will return the all top level comments with their nested comments as threads. See the format specification for further details.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/comments",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "body_html": "<p>Tumblr organic put a bird on it everyday mustache typewriter pug.</p>\n\n",
+          "children": [],
+          "created_at": "2023-02-27T10:58:05Z",
+          "id_code": "60",
+          "type_of": "comment",
+          "user": {
+            "github_username": "github410",
+            "name": "Dwight \"Pedro\" \\:/ Parker",
+            "profile_image": "/uploads/user/profile_image/846/8af90bef-f000-41c1-a90f-0e364c163a8a.jpeg",
+            "profile_image_90": "/uploads/user/profile_image/846/8af90bef-f000-41c1-a90f-0e364c163a8a.jpeg",
+            "twitter_username": "twitter410",
+            "user_id": 846,
+            "username": "username410",
+            "website_url": null
+          }
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "comment-by-id",
+      "name": "Comment by id",
+      "description": "This endpoint allows the client to retrieve a comment as well as his descendants comments.\n\n  It will return the required comment (the root) with its nested descendants as a thread.\n\n  See the format specification for further details.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/comments/{{ID}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "body_html": "<p>Farm-to-table park banjo. Cronut gentrify farm-to-table. Salvia distillery letterpress deep v keffiyeh kickstarter thundercats cray.</p>\n\n",
+        "children": [],
+        "created_at": "2023-02-27T10:58:05Z",
+        "id_code": "62",
+        "type_of": "comment",
+        "user": {
+          "github_username": "github414",
+          "name": "Gilbert \"Alverta\" \\:/ Schroeder",
+          "profile_image": "/uploads/user/profile_image/850/6976f67a-4df7-4ed1-967f-0a3ea0d52670.jpeg",
+          "profile_image_90": "/uploads/user/profile_image/850/6976f67a-4df7-4ed1-967f-0a3ea0d52670.jpeg",
+          "twitter_username": "twitter414",
+          "user_id": 850,
+          "username": "username414",
+          "website_url": null
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "display-ads",
+      "name": "display ads",
+      "description": "This endpoint allows the client to retrieve a list of all display ads.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/display_ads",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "display-ads-2",
+      "name": "display ads",
+      "description": "This endpoint allows the client to create a new display ad.",
+      "method": "POST",
+      "url": "https://dev.to/api/api/display_ads",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "body_markdown": "",
+        "placement_area": ""
+      },
+      "sample_response": {
+        "approved": true,
+        "body_markdown": "# Hi, this is ad\nYep, it's an ad",
+        "cached_tag_list": "",
+        "clicks_count": 0,
+        "created_at": "2023-02-27T21:58:05.881+11:00",
+        "creator_id": null,
+        "display_to": "all",
+        "id": 10,
+        "impressions_count": 0,
+        "name": "Example Ad",
+        "organization_id": null,
+        "placement_area": "post_comments",
+        "processed_html": "<h1>  <a href=\"#hi-this-is-ad\" class=\"anchor\">  </a>  Hi, this is ad</h1><p>Yep, it's an ad</p>",
+        "published": true,
+        "success_rate": 0,
+        "tag_list": "",
+        "type_of": "in_house",
+        "updated_at": "2023-02-27T21:58:05.881+11:00"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "display-ad",
+      "name": "display ad",
+      "description": "This endpoint allows the client to retrieve a single display ad, via its id.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/display_ads/{{ID}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "approved": false,
+        "body_markdown": "Hello _hey_ Hey hey 9",
+        "cached_tag_list": "",
+        "clicks_count": 0,
+        "created_at": "2023-02-27T21:58:06.000+11:00",
+        "creator_id": null,
+        "display_to": "all",
+        "id": 11,
+        "impressions_count": 0,
+        "name": "Display Ad 11",
+        "organization_id": 73,
+        "placement_area": "sidebar_left",
+        "processed_html": "<p>Hello <em>hey</em> Hey hey 9</p>",
+        "published": false,
+        "success_rate": 0,
+        "tag_list": "",
+        "type_of": "in_house",
+        "updated_at": "2023-02-27T21:58:06.003+11:00"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "display-ads-3",
+      "name": "display ads",
+      "description": "This endpoint allows the client to update the attributes of a single display ad, via its id.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/display_ads/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "body_markdown": "",
+        "placement_area": ""
+      },
+      "sample_response": {
+        "approved": false,
+        "body_markdown": "Hello _hey_ Hey hey 10",
+        "cached_tag_list": "",
+        "clicks_count": 0,
+        "created_at": "2023-02-27T21:58:06.134+11:00",
+        "creator_id": null,
+        "display_to": "all",
+        "id": 12,
+        "impressions_count": 0,
+        "name": "Display Ad 12",
+        "organization_id": 74,
+        "placement_area": "sidebar_left",
+        "processed_html": "<p>Hello <em>hey</em> Hey hey 10</p>",
+        "published": false,
+        "success_rate": 0,
+        "tag_list": "",
+        "type_of": "in_house",
+        "updated_at": "2023-02-27T21:58:06.137+11:00"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unpublish",
+      "name": "unpublish",
+      "description": "This endpoint allows the client to remove a display ad from rotation by un-publishing it.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/display_ads/{{ID}}/unpublish",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "followers",
+      "name": "Followers",
+      "description": "This endpoint allows the client to retrieve a list of the followers they have.\n        \"Followers\" are users that are following other users on the website.\n        It supports pagination, each page will contain 80 followers by default.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/followers/users",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "created_at": "2023-02-27T10:58:06Z",
+          "id": 7,
+          "name": "Benjamin \"Sol\" \\:/ Senger",
+          "path": "/username435",
+          "profile_image": "/uploads/user/profile_image/871/51d055b1-32e3-4ccd-878a-a63e0ab5f69b.jpeg",
+          "type_of": "user_follower",
+          "user_id": 871,
+          "username": "username435"
+        },
+        {
+          "created_at": "2023-02-27T10:58:06Z",
+          "id": 6,
+          "name": "Christin \"Anthony\" \\:/ Metz",
+          "path": "/username433",
+          "profile_image": "/uploads/user/profile_image/869/8ba1b0fb-ed63-4d36-a21d-11615b8e42d0.jpeg",
+          "type_of": "user_follower",
+          "user_id": 869,
+          "username": "username433"
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "followed-tags",
+      "name": "Followed Tags",
+      "description": "This endpoint allows the client to retrieve a list of the tags they follow.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/follows/tags",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "id": 1220,
+          "name": "tag3",
+          "points": 1
+        },
+        {
+          "id": 1221,
+          "name": "tag4",
+          "points": 1
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "an-organization",
+      "name": "An organization",
+      "description": "This endpoint allows the client to retrieve a single organization by their username",
+      "method": "GET",
+      "url": "https://dev.to/api/api/organizations/{{USERNAME}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "github_username": "org217",
+        "id": 79,
+        "joined_at": "2023-02-27T10:58:06Z",
+        "location": null,
+        "name": "Beatty Inc",
+        "profile_image": "/uploads/organization/profile_image/79/a1244f11-60ba-4f71-8c00-4e3f29ddf7f3.png",
+        "story": null,
+        "summary": "Stumptown schlitz umami try-hard blog mumblecore. Typewriter 8-bit five dollar toast neutra locavore put a bird on it farm-to-table tilde.",
+        "tag_line": null,
+        "tech_stack": null,
+        "twitter_username": "org8840",
+        "type_of": "organization",
+        "url": "http://spinka-armstrong.com/hollis",
+        "username": "org77"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{USERNAME}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "organization-s-users",
+      "name": "Organization's users",
+      "description": "This endpoint allows the client to retrieve a list of users belonging to the organization\n\nIt supports pagination, each page will contain `30` users by default.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/organizations/{{USERNAME}}/users",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "github_username": "github445",
+          "id": 881,
+          "joined_at": "Feb 27, 2023",
+          "location": null,
+          "name": "Jeromy \"Spencer\" \\:/ VonRueden",
+          "profile_image": "/uploads/user/profile_image/881/66c7cfc8-df38-4758-aad0-3d8b6b225a35.jpeg",
+          "summary": null,
+          "twitter_username": "twitter445",
+          "type_of": "user",
+          "username": "username445",
+          "website_url": null
+        },
+        {
+          "github_username": "github446",
+          "id": 882,
+          "joined_at": "Feb 27, 2023",
+          "location": null,
+          "name": "Annabel \"Tisa\" \\:/ Rogahn",
+          "profile_image": "/uploads/user/profile_image/882/9cc02e02-adbb-4735-85bf-5f336714bb18.jpeg",
+          "summary": null,
+          "twitter_username": "twitter446",
+          "type_of": "user",
+          "username": "username446",
+          "website_url": null
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{USERNAME}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "show-details-for-all-pages",
+      "name": "show details for all pages",
+      "description": "This endpoint allows the client to retrieve details for all Page objects.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/pages",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "body_html": null,
+          "body_json": null,
+          "body_markdown": "Velit autem nisi distinctio.",
+          "description": "Voluptas ut laboriosam neque.",
+          "id": 1,
+          "is_top_level_path": false,
+          "landing_page": false,
+          "processed_html": "<p>Velit autem nisi distinctio.</p>\n\n",
+          "slug": "push_premium",
+          "social_image": {
+            "url": null
+          },
+          "template": "contained",
+          "title": "This Side of Paradise"
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "pages",
+      "name": "pages",
+      "description": "This endpoint allows the client to create a new page.",
+      "method": "POST",
+      "url": "https://dev.to/api/api/pages",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "body_json": "",
+        "body_markdown": "",
+        "description": "",
+        "is_top_level_path": false,
+        "slug": "",
+        "template": "contained",
+        "title": ""
+      },
+      "sample_response": {
+        "body_html": null,
+        "body_json": null,
+        "body_markdown": "# Hi, this is a New Page\nYep, it's an a new page",
+        "description": "a new page",
+        "id": 3,
+        "is_top_level_path": false,
+        "landing_page": false,
+        "processed_html": "<h1>\n  <a name=\"hi-this-is-a-new-page\" href=\"#hi-this-is-a-new-page\">\n  </a>\n  Hi, this is a New Page\n</h1>\n\n<p>Yep, it's an a new page</p>\n\n",
+        "slug": "example1",
+        "social_image": {
+          "url": null
+        },
+        "template": "contained",
+        "title": "Example Page"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "show-details-for-a-page",
+      "name": "show details for a page",
+      "description": "This endpoint allows the client to retrieve details for a single Page object, specified by ID.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/pages/{{ID}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "body_html": null,
+        "body_json": null,
+        "body_markdown": "Amet rerum nostrum earum.",
+        "description": "Voluptatibus quod dolor dolores.",
+        "id": 6,
+        "is_top_level_path": false,
+        "landing_page": false,
+        "processed_html": "<p>Amet rerum nostrum earum.</p>\n\n",
+        "slug": "satisfaction-scale",
+        "social_image": {
+          "url": null
+        },
+        "template": "contained",
+        "title": "In a Glass Darkly"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-details-for-a-page",
+      "name": "update details for a page",
+      "description": "This endpoint allows the client to retrieve details for a single Page object, specified by ID.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/pages/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "title": "",
+        "slug": "",
+        "description": "",
+        "template": "contained"
+      },
+      "sample_response": {
+        "body_html": null,
+        "body_json": null,
+        "body_markdown": "Qui sed sit dolorem.",
+        "description": "Ut reiciendis qui iste.",
+        "id": 7,
+        "is_top_level_path": false,
+        "landing_page": false,
+        "processed_html": "<p>Qui sed sit dolorem.</p>\n\n",
+        "slug": "corn-premium",
+        "social_image": {
+          "url": null
+        },
+        "template": "contained",
+        "title": "New Title"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-page",
+      "name": "remove a page",
+      "description": "This endpoint allows the client to delete a single Page object, specified by ID.",
+      "method": "DELETE",
+      "url": "https://dev.to/api/api/pages/{{ID}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "body_html": null,
+        "body_json": null,
+        "body_markdown": "In soluta qui odio.",
+        "description": "Est molestias eius voluptas.",
+        "id": 10,
+        "is_top_level_path": false,
+        "landing_page": false,
+        "processed_html": "<p>In soluta qui odio.</p>\n\n",
+        "slug": "message-premium",
+        "social_image": {
+          "url": null
+        },
+        "template": "contained",
+        "title": "The Green Bay Tree"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "podcast-episodes",
+      "name": "Podcast Episodes",
+      "description": "This endpoint allows the client to retrieve a list of podcast episodes.\n        \"Podcast episodes\" are episodes belonging to podcasts.\n        It will only return active (reachable) podcast episodes that belong to published podcasts available on the platform, ordered by descending publication date.\n        It supports pagination, each page will contain 30 articles by default.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/podcast_episodes",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "class_name": "PodcastEpisode",
+          "id": 4,
+          "image_url": "/uploads/podcast/image/4/5e637d0a-0446-47a1-a77c-09dd5adaa4b6.jpeg",
+          "path": "/codenewbie/slug-4",
+          "podcast": {
+            "image_url": "/uploads/podcast/image/4/5e637d0a-0446-47a1-a77c-09dd5adaa4b6.jpeg",
+            "slug": "codenewbie",
+            "title": "Delirium Tremens"
+          },
+          "title": "20",
+          "type_of": "podcast_episodes"
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "a-users-or-organizations-profile-image",
+      "name": "A Users or organizations profile image",
+      "description": "This endpoint allows the client to retrieve a user or organization profile image information by its\n        corresponding username.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/profile_images/{{USERNAME}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "image_of": "user",
+        "profile_image": "/uploads/user/profile_image/904/b992f4eb-7fca-49a1-b292-d3f9b013d81c.jpeg",
+        "profile_image_90": "/uploads/user/profile_image/904/b992f4eb-7fca-49a1-b292-d3f9b013d81c.jpeg",
+        "type_of": "profile_image"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{USERNAME}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-reaction",
+      "name": "create reaction",
+      "description": "This endpoint allows the client to create a reaction to a specified reactable (eg, Article, Comment, or User). For examples:\n        * \"Like\"ing an Article will create a new \"like\" Reaction from the user for that Articles\n        * \"Like\"ing that Article a second time will return the previous \"like\"",
+      "method": "POST",
+      "url": "https://dev.to/api/api/reactions",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {
+        "category": "",
+        "reactable_id": "",
+        "reactable_type": ""
+      },
+      "body": null,
+      "sample_response": {
+        "category": "like",
+        "id": 11,
+        "reactable_id": 634,
+        "reactable_type": "Article",
+        "result": "none"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "toggle-reaction",
+      "name": "toggle reaction",
+      "description": "This endpoint allows the client to toggle the user's reaction to a specified reactable (eg, Article, Comment, or User). For examples:\n        * \"Like\"ing an Article will create a new \"like\" Reaction from the user for that Articles\n        * \"Like\"ing that Article a second time will remove the \"like\" from the user",
+      "method": "POST",
+      "url": "https://dev.to/api/api/reactions/toggle",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {
+        "category": "",
+        "reactable_id": "",
+        "reactable_type": ""
+      },
+      "body": null,
+      "sample_response": {
+        "category": "like",
+        "id": 9,
+        "reactable_id": 632,
+        "reactable_type": "Article",
+        "result": "create"
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "readinglist",
+      "name": "Readinglist",
+      "description": "This endpoint allows the client to retrieve a list of articles that were saved to a Users readinglist.\n        It supports pagination, each page will contain `30` articles by default",
+      "method": "GET",
+      "url": "https://dev.to/api/api/readinglist",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "tags",
+      "name": "Tags",
+      "description": "This endpoint allows the client to retrieve a list of tags that can be used to tag articles.\n\nIt will return tags ordered by popularity.\n\nIt supports pagination, each page will contain 10 tags by default.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/tags",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "bg_color_hex": null,
+          "id": 1254,
+          "name": "tag7",
+          "text_color_hex": null
+        },
+        {
+          "bg_color_hex": null,
+          "id": 1253,
+          "name": "tag6",
+          "text_color_hex": null
+        },
+        {
+          "bg_color_hex": null,
+          "id": 1252,
+          "name": "tag5",
+          "text_color_hex": null
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "the-authenticated-user",
+      "name": "The authenticated user",
+      "description": "This endpoint allows the client to retrieve information about the authenticated user",
+      "method": "GET",
+      "url": "https://dev.to/api/api/users/me",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "github_username": "github480",
+        "id": 916,
+        "joined_at": "Feb 27, 2023",
+        "location": null,
+        "name": "Dennis \"Rodger\" \\:/ Gorczany",
+        "profile_image": "/uploads/user/profile_image/916/fc0d6dd7-6dee-4df6-9720-ac6618f19fd5.jpeg",
+        "summary": null,
+        "twitter_username": "twitter480",
+        "type_of": "user",
+        "username": "username480",
+        "website_url": null
+      },
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    },
+    {
+      "id": "a-user",
+      "name": "A User",
+      "description": "This endpoint allows the client to retrieve a single user, either by id\nor by the user's username.\n\nFor complete documentation, see the v0 API docs: https://developers.forem.com/api/v0#tag/users/operation/getUser",
+      "method": "GET",
+      "url": "https://dev.to/api/api/users/{{ID}}",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "suspend-a-user",
+      "name": "Suspend a User",
+      "description": "This endpoint allows the client to suspend a user.\n\nThe user associated with the API key must have any 'admin' or 'moderator' role.\n\nThis specified user will be assigned the 'suspended' role. Suspending a user will stop the\nuser from posting new posts and comments. It doesn't delete any of the user's content, just\nprevents them from creating new content while suspended. Users are not notified of their suspension\nin the UI, so if you want them to know about this, you must notify them.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/users/{{ID}}/suspend",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unpublish-a-user-s-articles-and-comments",
+      "name": "Unpublish a User's Articles and Comments",
+      "description": "This endpoint allows the client to unpublish all of the articles and\ncomments created by a user.\n\nThe user associated with the API key must have any 'admin' or 'moderator' role.\n\nThis specified user's articles and comments will be unpublished and will no longer be\nvisible to the public. They will remain in the database and will set back to draft status\non the specified user's  dashboard. Any notifications associated with the specified user's\narticles and comments will be deleted.\n\nNote this endpoint unpublishes articles and comments asychronously: it will return a 204 NO CONTENT\nstatus code immediately, but the articles and comments will not be unpublished until the\nrequest is completed on the server.",
+      "method": "PUT",
+      "url": "https://dev.to/api/api/users/{{ID}}/unpublish",
+      "headers": {
+        "Content-Type": "application/json",
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "articles-with-a-video",
+      "name": "Articles with a video",
+      "description": "This endpoint allows the client to retrieve a list of articles that are uploaded with a video.\n\nIt will only return published video articles ordered by descending popularity.\n\nIt supports pagination, each page will contain 24 articles by default.",
+      "method": "GET",
+      "url": "https://dev.to/api/api/videos",
+      "headers": {
+        "api-key": "{{DEV_TO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": [
+        {
+          "cloudinary_video_url": "https://dw71fyauz7yz9.cloudfront.net/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f/thumbs-video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f-00001.png",
+          "id": 636,
+          "path": "/username499/i-know-why-the-caged-bird-sings201-4ncl",
+          "title": "I Know Why the Caged Bird Sings201",
+          "type_of": "video_article",
+          "user": {
+            "name": "Kenneth \"Ardelia\" \\:/ Luettgen"
+          },
+          "user_id": 936,
+          "video_duration_in_minutes": "00:00",
+          "video_source_url": "https://dw71fyauz7yz9.cloudfront.net/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f.m3u8"
+        },
+        {
+          "cloudinary_video_url": "https://dw71fyauz7yz9.cloudfront.net/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f/thumbs-video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f-00001.png",
+          "id": 637,
+          "path": "/username500/as-i-lay-dying202-1ba2",
+          "title": "As I Lay Dying202",
+          "type_of": "video_article",
+          "user": {
+            "name": "Fleta \"Alleen\" \\:/ Jerde"
+          },
+          "user_id": 937,
+          "video_duration_in_minutes": "00:00",
+          "video_source_url": "https://dw71fyauz7yz9.cloudfront.net/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f/video-upload__1e42eb0bab4abb3c63baeb5e8bdfe69f.m3u8"
+        }
+      ],
+      "auth_placeholders": [
+        "{{DEV_API_KEY}}",
+        "{{DEV_TO_API_KEY}}"
+      ],
+      "notes": "Replace {{DEV_API_KEY}} with your DEV API KEY."
+    }
+  ]
+}

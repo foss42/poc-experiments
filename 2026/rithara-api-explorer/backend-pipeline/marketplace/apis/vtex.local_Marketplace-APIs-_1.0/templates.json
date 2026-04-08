@@ -1,0 +1,377 @@
+{
+  "api_id": "vtex.local:Marketplace-APIs-:1.0",
+  "endpoint_count": 13,
+  "endpoints": [
+    {
+      "id": "get-all-sku-suggestions",
+      "name": "Get all SKU suggestions",
+      "description": "This endpoint retrieves a list of all SKUs sent by the seller for the Marketplace's approval. Marketplace operators should use this endpoint whenever they want to check the full list of received SKUs and their  information. \n\nNote that all the information sent by the seller will be in the [content] object. All remaining information in this endpoint's response is given by the Matcher. \n\nMatcher rates received SKUs by correlating the data sent by sellers, to existing fields in the marketplace. The calculation of these scores determines whether the product has been: \n\n`Approved`: score equal to or greater than 80 points. \n\n`Pending`: from 31 to 79 points.\n\n`Denied`: from 0 to 30 points. \n\nNote that  if the autoApprove setting is enabled, the SKUs will be approved, regardless of the Score.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "get-account-s-approval-settings",
+      "name": "Get Account's Approval Settings",
+      "description": "This endpoint retrieves the current approval settings of a marketplace's Received SKUs module. Its response includes: \n\n- `Score`: Matcher scores for approving and rejecting SKUs received from sellers. \n\n- `Matchers`: All Matchers configured on the marketplace, and their respective details. \n\n- `SpecificationsMapping`: Mapping of product and SKU specifications, per seller. \n\n- `MatchFlux`: This field determines the type of approval configuration applied to SKUs received from a seller. \n\nThe possible values include: \n\n-`default`, where the Matcher reviews the SKU, and approves it based on its score. \n\n-`manual`, for manual approvals through the Received SKU UI, or Match API. \n\n-`autoApprove`, for every SKU received from a given seller to be approved automatically, regardless of their Matcher Score.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/configuration",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {
+        "MatchFlux": "Default",
+        "Matchers": [
+          {
+            "Description": null,
+            "IsActive": true,
+            "MatcherId": "vtex-matcher",
+            "UpdatesNotificationEndpoint": null,
+            "hook-base-address": "http://portal.vtexinternal.com/api/ssm/hooks"
+          }
+        ],
+        "Rules": {
+          "Item": [],
+          "Product": []
+        },
+        "Score": {
+          "Approve": 80,
+          "Reject": 30
+        },
+        "SpecificationsMapping": []
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "save-account-s-approval-settings",
+      "name": "Save Account's Approval Settings",
+      "description": "Marketplaces use this endpoint to create or update approval settings on their Received SKUs module. \n\nThe request includes all the details necessary to implement the chosen approval settings.",
+      "method": "PUT",
+      "url": "https://vtex.local/suggestions/configuration",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "MatchFlux": "AutoApprove",
+        "Matchers": [
+          {
+            "Description": null,
+            "IsActive": true,
+            "MatcherId": "vtex-matcher",
+            "UpdatesNotificationEndpoint": null,
+            "hook-base-address": "http://simple-suggestion-matcher.vtex.com.br"
+          }
+        ],
+        "Score": {
+          "Approve": 80,
+          "Reject": 30
+        },
+        "SpecificationsMapping": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "get-autoapprove-status-in-account-settings",
+      "name": "Get autoApprove Status in Account Settings",
+      "description": "This endpoint can be used to check whether the autoapprove setting is active or not, for a specific seller. \n\nIf the response is `true`, the autoapprove setting is active. If the response is `false`, it is inactive.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/configuration/autoapproval/toggle",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "sellerId": "",
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {
+        "Enabled": false
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "activate-autoapprove-in-marketplace-s-account",
+      "name": "Activate autoApprove in Marketplace's Account",
+      "description": "This endpoint enables the autoapprove rule to a marketplace's whole Received SKUs module. Once enabling the rule, received SKUs will be automatically approved on your store, regardless of the seller. \n\n For the autoapprove rule to work as expected, the approval [Matcher score](https://help.vtex.com/en/tutorial/entendendo-a-pontuacao-do-vtex-matcher--tutorials_424) should be set up as 80 (default value), but you can configure a different number through the field `Score` in [Save Account's Approval Settings](https://developers.vtex.com/vtex-rest-api/reference/saveaccountconfig).",
+      "method": "PUT",
+      "url": "https://vtex.local/suggestions/configuration/autoapproval/toggle",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "Enabled": true
+      },
+      "sample_response": {
+        "Enabled": false
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "activate-autoapprove-setting-for-a-seller",
+      "name": "Activate autoApprove Setting for a Seller",
+      "description": "This endpoint enables the auto approve setting to received SKUs from a specific seller. Be aware that once enabling the rule through this request, all received SKUs from that seller will be automatically approved on your store, regardless of the Matcher Score.",
+      "method": "PUT",
+      "url": "https://vtex.local/suggestions/configuration/autoapproval/toggle/seller/{{SELLERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "Enabled": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid."
+    },
+    {
+      "id": "get-seller-s-approval-settings",
+      "name": "Get Seller's Approval Settings",
+      "description": "This endpoint retrieves the current Received SKUs approval settings applied to a specific seller. Its response includes: \n\n- `sellerId`: A string that identifies the seller in the marketplace. \n\n- `accountId`: Marketplace\u2019s account ID. \n\n- `accountName`: Marketplace\u2019s account name. \n\n- `mapping`: Mapping of SKU and product Specifications. \n\n- `matchFlux`: This field determines the type of approval configuration applied to SKUs received  from a seller. \n\nThe possible values include:  \n\n-`default`, where the Matcher reviews the SKU, and approves it based on its score. \n\n-`manual`, for manual approvals through the Received SKU UI and Match API. \n\n-`autoApprove`, for every SKU received from a given seller to be approved automatically, regardless of the Matcher Score.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/configuration/seller/{{SELLERID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid."
+    },
+    {
+      "id": "save-seller-s-approval-settings",
+      "name": "Save Seller's Approval Settings",
+      "description": "Marketplaces use this endpoint to create or update approval settings to a specific seller, on the Received SKUs module. \n\nThe request includes all the details necessary to implement the chosen approval settings.",
+      "method": "PUT",
+      "url": "https://vtex.local/suggestions/configuration/seller/{{SELLERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "mapping": null,
+        "matchFlux": "Default",
+        "sellerId": "1a"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid."
+    },
+    {
+      "id": "get-sku-suggestion-by-id",
+      "name": "Get SKU Suggestion by ID",
+      "description": "This endpoint retrieves the data of a specific SKU sent by the seller, to the marketplace. Marketplaces or external matchers can call this endpoint when they want to check the information about a single SKU. \n\nNote that all the information sent by the seller will be in the [content] object. All remaining information in this endpoint's response is given by the Matcher. \n\nMatcher rates received SKUs by correlating the data sent by sellers, to existing fields in the marketplace. The calculation of these scores determines whether the product has been: \n\n`Approved`: score equal to or greater than 80 points. \n\n`Pending`: from 31 to 79 points.\n\n`Denied`: from 0 to 30 points. \n\nNote that  if the autoApprove setting is enabled, the SKUs will be approved, regardless of the Score.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/{{SELLERID}}/{{SELLERSKUID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{SELLERSKUID}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid. Replace {{SELLERSKUID}} with a real sellerskuid."
+    },
+    {
+      "id": "delete-sku-suggestion",
+      "name": "Delete SKU Suggestion",
+      "description": "This endpoint deletes a chosen SKU suggestion. Only one SKU should be deleted per request. This request cannot be undone. A workaround to revert its action, is to send the suggestion again, through the Send Suggestion API.",
+      "method": "DELETE",
+      "url": "https://vtex.local/suggestions/{{SELLERID}}/{{SELLERSKUID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{SELLERSKUID}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid. Replace {{SELLERSKUID}} with a real sellerskuid."
+    },
+    {
+      "id": "get-all-versions",
+      "name": "Get all Versions",
+      "description": "Whenever an SKU Suggestion is updated or changed, a new version of the original one is created. All versions are logged, so you can search for previous our current states of SKU suggestions. \n\nThis endpoint retrieves the data of *all* previous and latest versions of a specific SKU suggestion, sent by the seller. Whenever an SKU is updated, it is important to map previous versions, to compare and identify changes. \n\nThe response's object [latestversion] provides the information of the most recent version of that SKU suggestion.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/{{SELLERID}}/{{SELLERSKUID}}/versions",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{SELLERSKUID}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid. Replace {{SELLERSKUID}} with a real sellerskuid."
+    },
+    {
+      "id": "get-version-by-id",
+      "name": "Get Version by ID",
+      "description": "Whenever an SKU Suggestion is updated or changed, a new version of the original one is created. All versions are logged, so you can search for previous our current states of SKU suggestions. \n\nThis endpoint retrieves a specific *version* of a chosen SKU sent by the seller. Add the Seller's ID, Seller's SKU ID, and version ID in the path to detail your search.",
+      "method": "GET",
+      "url": "https://vtex.local/suggestions/{{SELLERID}}/{{SELLERSKUID}}/versions/{{VERSION}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{SELLERSKUID}}",
+        "{{VERSION}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid. Replace {{SELLERSKUID}} with a real sellerskuid. Replace {{VERSION}} with a real version."
+    },
+    {
+      "id": "match-received-skus-individually",
+      "name": "Match Received SKUs individually",
+      "description": "All SKUs sent from a seller to a marketplace must be reviewed and matched. Actions in the matching process are added in the request body through the [matchType] object. Match type actions include: \n\n1. `newproduct`: match the SKU as a new product. \n\n2. `itemMatch`: associate the received SKU to an existing SKU. \n\n3. `productMatch`: associate the received SKU to an existing product. \n\n4. `deny`: deny the received SKU. \n\n5. `pending`: the received SKU requires attention. \n\n6. `incomplete`: the received SKU is lacking information to be matched. \n\n7. `insufficientScore`: the score given by the Matcher to this received SKU doesn't qualify it to be matched. \n\nNote that  if the autoApprove setting is enabled, the SKUs will be approved, regardless of the Score.",
+      "method": "PUT",
+      "url": "https://vtex.local/suggestions/{{SELLERID}}/{{SELLERSKUID}}/versions/{{VERSION}}/matches/{{MATCHID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "accountName": ""
+      },
+      "body": {
+        "matchType": "itemMatch",
+        "matcherId": "{{matcherid}}",
+        "product": {
+          "brandId": 1234567,
+          "categoryId": 12,
+          "description": "Book description",
+          "matchType": "itemMatch",
+          "name": "Book A",
+          "specifications": null
+        },
+        "productRef": "{{productRef}}(should be specified when match is a product match)",
+        "score": "{{score}} (must be decimal)",
+        "sku": {
+          "eans": [
+            "12345678901213"
+          ],
+          "height": 1,
+          "images": [
+            {
+              "imagem1.jpg": {
+                "imagem1.jpg": "https://imageurl.example"
+              }
+            }
+          ],
+          "length": 1,
+          "measurementUnit": "un",
+          "name": "Sku exemplo",
+          "refId": null,
+          "specifications": {
+            "Embalagem": "3 k   g"
+          },
+          "unitMultiplier": 1,
+          "weight": 1,
+          "width": 1
+        },
+        "skuRef": "{{skuid}}(should be specifed when match is a sku match)"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VERSION}}",
+        "{{SELLERID}}",
+        "{{VTEX_API_KEY}}",
+        "{{SELLERSKUID}}",
+        "{{MATCHID}}",
+        "{{productRef}}",
+        "{{skuid}}",
+        "{{matcherid}}",
+        "{{VTEX_LOCAL_API_KEY}}",
+        "{{score}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{SELLERID}} with a real sellerid. Replace {{MATCHID}} with a real matchid. Replace {{SELLERSKUID}} with a real sellerskuid. Replace {{VERSION}} with a real version."
+    }
+  ]
+}

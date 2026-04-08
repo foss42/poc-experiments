@@ -1,0 +1,352 @@
+{
+  "api_id": "vtex.local:Headless-CMS-API:0.31.2",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-all-content-types",
+      "name": "Get all Content Types",
+      "description": "Gets data from all Content Types.",
+      "method": "GET",
+      "url": "https://vtex.local/_v/cms/api/{{BUILDERID}}/",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "contentTypes": [
+          {
+            "configurationSchemaSets": [],
+            "id": "home",
+            "name": "Home Page"
+          },
+          {
+            "configurationSchemaSets": [
+              {
+                "configurations": [
+                  {
+                    "name": "Collection",
+                    "schema": {
+                      "description": "Definition of a Collection for the CMS",
+                      "oneOf": [
+                        {
+                          "description": "Configure a Category",
+                          "properties": {
+                            "categoryId": {
+                              "title": "Category ID",
+                              "type": "string"
+                            },
+                            "sort": {
+                              "default": "\"\"",
+                              "enum": [
+                                "\"\"",
+                                "discount:desc",
+                                "release:desc",
+                                "name:asc",
+                                "name:desc",
+                                "orders:desc",
+                                "price:asc",
+                                "price:desc"
+                              ],
+                              "enumNames": [
+                                "Relevance",
+                                "Discount",
+                                "Release date",
+                                "Name, ascending",
+                                "Name, descending",
+                                "Sales",
+                                "Price: Low to High",
+                                "Price: High to Low"
+                              ],
+                              "title": "Default ordering",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "categoryId",
+                            "sort"
+                          ],
+                          "title": "Category",
+                          "type": "object"
+                        },
+                        {
+                          "description": "Configure a Brand",
+                          "properties": {
+                            "brandId": {
+                              "title": "Brand ID",
+                              "type": "string"
+                            },
+                            "sort": {
+                              "default": "\"\"",
+                              "enum": [
+                                "\"\"",
+                                "discount:desc",
+                                "release:desc",
+                                "name:asc",
+                                "name:desc",
+                                "orders:desc",
+                                "price:asc",
+                                "price:desc"
+                              ],
+                              "enumNames": [
+                                "Relevance",
+                                "Discount",
+                                "Release date",
+                                "Name, ascending",
+                                "Name, descending",
+                                "Sales",
+                                "Price: Low to High",
+                                "Price: High to Low"
+                              ],
+                              "title": "Default ordering",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "brandId",
+                            "sort"
+                          ],
+                          "title": "Brand",
+                          "type": "object"
+                        },
+                        {
+                          "description": "Configure a Collection",
+                          "properties": {
+                            "clusterId": {
+                              "title": "Collection ID",
+                              "type": "string"
+                            },
+                            "seo": {
+                              "properties": {
+                                "description": {
+                                  "default": "Page description",
+                                  "description": "Suggested for search engines",
+                                  "title": "Description (Meta description)",
+                                  "type": "string"
+                                },
+                                "slug": {
+                                  "default": "/path/to/page",
+                                  "description": "Final part of the page's address. No spaces allowed.",
+                                  "pattern": "^/([a-zA-Z0-9]|-|/|_)*",
+                                  "title": "URL slug",
+                                  "type": "string"
+                                },
+                                "title": {
+                                  "default": "Page title",
+                                  "description": "Appears in the browser tab and is suggested for search engines",
+                                  "title": "Title",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "title",
+                                "description",
+                                "slug"
+                              ],
+                              "title": "Seo",
+                              "type": "object",
+                              "widget": {
+                                "ui:ObjectFieldTemplate": "GoogleSeoPreview"
+                              }
+                            },
+                            "sort": {
+                              "default": "\"\"",
+                              "enum": [
+                                "\"\"",
+                                "discount:desc",
+                                "release:desc",
+                                "name:asc",
+                                "name:desc",
+                                "orders:desc",
+                                "price:asc",
+                                "price:desc"
+                              ],
+                              "enumNames": [
+                                "Relevance",
+                                "Discount",
+                                "Release date",
+                                "Name, ascending",
+                                "Name, descending",
+                                "Sales",
+                                "Price: Low to High",
+                                "Price: High to Low"
+                              ],
+                              "title": "Default ordering",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "clusterId",
+                            "sort",
+                            "seo"
+                          ],
+                          "title": "Collection",
+                          "type": "object"
+                        }
+                      ],
+                      "title": "Collection"
+                    }
+                  }
+                ],
+                "name": "Parameters"
+              }
+            ],
+            "id": "plp",
+            "name": "PLP"
+          },
+          {
+            "configurationSchemaSets": [
+              {
+                "configurations": [
+                  {
+                    "name": "siteMetadataWithSlug",
+                    "schema": {
+                      "description": "Configure global site metadata",
+                      "properties": {
+                        "description": {
+                          "default": "A beautifuly designed site for general VTEX stores",
+                          "title": "Meta tag description",
+                          "type": "string"
+                        },
+                        "slug": {
+                          "default": "/landing-page-url",
+                          "title": "URL Slug",
+                          "type": "string"
+                        },
+                        "title": {
+                          "default": "Store Theme | VTEX FastStore",
+                          "description": "Display this title when no other tile is available",
+                          "title": "Default page title",
+                          "type": "string"
+                        },
+                        "titleTemplate": {
+                          "default": "%s | Store Theme",
+                          "title": "Title template to be used in category/product pages",
+                          "type": "string"
+                        }
+                      },
+                      "title": "Site Metadata",
+                      "type": "object",
+                      "widget": {
+                        "ui:ObjectFieldTemplate": "GoogleSeoPreview"
+                      }
+                    }
+                  }
+                ],
+                "name": "SEO"
+              }
+            ],
+            "id": "institutionalPage",
+            "name": "Institutional page"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{BUILDERID}}"
+      ],
+      "notes": "No authentication required. Replace {{BUILDERID}} with a real builderid."
+    },
+    {
+      "id": "get-all-cms-pages-by-content-type",
+      "name": "Get all CMS pages by Content Type",
+      "description": "Gets data from all pages of a given Content Type.",
+      "method": "GET",
+      "url": "https://vtex.local/_v/cms/api/{{BUILDERID}}/{{CONTENT-TYPE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "id": "d05d3db8-62b2-4f0b-9b70-d6d25ff29b6e",
+            "name": "Electronics",
+            "parameters": {
+              "collection": {
+                "brandId": "123",
+                "sort": "\"\""
+              }
+            },
+            "sections": [
+              {
+                "data": {
+                  "content": "{\"blocks\":[{\"key\":\"dtg7g\",\"text\":\"-\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}"
+                },
+                "id": "1632244409269",
+                "name": "RichText"
+              },
+              {
+                "data": {
+                  "content": "{\"blocks\":[{\"key\":\"2qtft\",\"text\":\",\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}"
+                },
+                "id": "1632244445091",
+                "name": "RichText"
+              }
+            ],
+            "status": "published",
+            "type": "plp",
+            "versionId": "ed51d1cd-e020-4f16-b48b-ca83e720472d",
+            "versionStatus": "published"
+          },
+          {
+            "id": "4ab6388d-79e6-492f-adda-3e251b85eeb6",
+            "name": "Beauty",
+            "parameters": {
+              "collection": {
+                "clusterId": "1182",
+                "seo": {
+                  "description": "beauty products",
+                  "slug": "/beauty",
+                  "title": "Page title"
+                },
+                "sort": "\"\""
+              }
+            },
+            "sections": [
+              {
+                "data": {
+                  "alt": "beauty",
+                  "description": "beauty products",
+                  "desktop": {
+                    "srcSet": "https://storecomponents.vtexassets.com/assets/vtex.file-manager-graphql/images/dda7c17e-5182-4439-b5af-94f651e2d835___1ef09be73ec9e80c719da13432666441.jpeg"
+                  },
+                  "mobile": {
+                    "srcSet": "https://storecomponents.vtexassets.com/assets/vtex.file-manager-graphql/images/ed8ef334-c1e5-4269-8728-34dbffeda424___1ef09be73ec9e80c719da13432666441.jpeg"
+                  },
+                  "title": "beauty"
+                },
+                "id": "1643319987751",
+                "name": "SearchBanner"
+              }
+            ],
+            "status": "published",
+            "type": "plp",
+            "versionId": "95f940d4-584e-4b3d-9872-8c713ba42583",
+            "versionStatus": "published"
+          }
+        ],
+        "hasNextPage": false,
+        "totalItems": 2
+      },
+      "auth_placeholders": [
+        "{{BUILDERID}}",
+        "{{CONTENT-TYPE}}"
+      ],
+      "notes": "No authentication required. Replace {{BUILDERID}} with a real builderid. Replace {{CONTENT-TYPE}} with a real content-type."
+    },
+    {
+      "id": "get-cms-page",
+      "name": "Get CMS page",
+      "description": "Gets all data from a given page.",
+      "method": "GET",
+      "url": "https://vtex.local/_v/cms/api/{{BUILDERID}}/{{CONTENT-TYPE}}/{{DOCUMENT-ID}}/",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOCUMENT-ID}}",
+        "{{BUILDERID}}",
+        "{{CONTENT-TYPE}}"
+      ],
+      "notes": "No authentication required. Replace {{DOCUMENT-ID}} with a real document-id. Replace {{BUILDERID}} with a real builderid. Replace {{CONTENT-TYPE}} with a real content-type."
+    }
+  ]
+}

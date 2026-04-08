@@ -1,0 +1,47 @@
+{
+  "api_id": "azure.com:consumption:2017-04-24-preview",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-consumption-operations",
+      "name": "GET /providers/Microsoft.Consumption/operations",
+      "description": "Lists all of the available consumption REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Consumption/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-scope-providers-microsoft-consumption-usagedetails",
+      "name": "GET /{scope}/providers/Microsoft.Consumption/usageDetails",
+      "description": "Lists the usage details for a scope in reverse chronological order by billing period. Usage details are available via this API only for January 1, 2017 or later.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Consumption/usageDetails",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope."
+    }
+  ]
+}

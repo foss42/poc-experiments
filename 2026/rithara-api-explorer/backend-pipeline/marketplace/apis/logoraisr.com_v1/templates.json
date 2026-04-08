@@ -1,0 +1,201 @@
+{
+  "api_id": "logoraisr.com:v1",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "get-preview-image-of-uploaded-file",
+      "name": "Get preview image of uploaded file",
+      "description": "This GET-Method returns the URL where the preview image of uploaded file can downloaded from.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/previews/{{FILE_ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{FILE_ID}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY. Replace {{FILE_ID}} with a real file_id."
+    },
+    {
+      "id": "get-process-list",
+      "name": "Get process list.",
+      "description": "This GET-Method lists all on logoraisr available processes.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/processes/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    },
+    {
+      "id": "get-user-project-list",
+      "name": "Get user project list.",
+      "description": "This GET-Method lists the user's projects.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/projects/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    },
+    {
+      "id": "create-a-new-project",
+      "name": "Create a new project.",
+      "description": "This POST-Method creates a new project.",
+      "method": "POST",
+      "url": "https://api.logoraisr.com/rest-v1/projects/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "file_id": "",
+        "project_title": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    },
+    {
+      "id": "get-project-details",
+      "name": "Get project details.",
+      "description": "This GET-Method returns a specific project.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/projects/{{PROJECT_NUMBER}}/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{PROJECT_NUMBER}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY. Replace {{PROJECT_NUMBER}} with a real project_number."
+    },
+    {
+      "id": "get-user-report-list",
+      "name": "Get user report list.",
+      "description": "This GET method lists the user's reports.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/reports/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    },
+    {
+      "id": "create-a-new-report",
+      "name": "Create a new report.",
+      "description": "This POST-Method creates a new report.",
+      "method": "POST",
+      "url": "https://api.logoraisr.com/rest-v1/reports/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "process": "",
+        "file_id": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    },
+    {
+      "id": "get-report-details",
+      "name": "Get report details.",
+      "description": "This GET-Method returns the details of a specific report.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/reports/{{REPORT_NUMBER}}/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{REPORT_NUMBER}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY. Replace {{REPORT_NUMBER}} with a real report_number."
+    },
+    {
+      "id": "get-the-result-from-image-processing",
+      "name": "Get the result from image processing",
+      "description": "This GET-Method returns the URL where the result can downloaded from.",
+      "method": "GET",
+      "url": "https://api.logoraisr.com/rest-v1/results/{{RESULT_FILE_ID}}/",
+      "headers": {
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{RESULT_FILE_ID}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY. Replace {{RESULT_FILE_ID}} with a real result_file_id."
+    },
+    {
+      "id": "upload-a-new-image",
+      "name": "Upload a new image",
+      "description": "This POST-Method uploads a new file on the server.",
+      "method": "POST",
+      "url": "https://api.logoraisr.com/rest-v1/uploads/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LOGORAISR_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "file": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOGORAISR_API_KEY}}",
+        "{{LOGORAISR_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LOGORAISR_API_KEY}} with your LOGORAISR API KEY."
+    }
+  ]
+}

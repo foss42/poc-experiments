@@ -1,0 +1,643 @@
+{
+  "api_id": "contentgroove.com:1.0.0",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "list-clips",
+      "name": "list clips",
+      "description": "list clips",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/clips",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "created_at": "2022-08-15T18:34:08.398Z",
+              "end_char": 0,
+              "end_time": 2,
+              "external_id": "150",
+              "is_processing": true,
+              "media_file_content_type": null,
+              "media_file_duration": null,
+              "media_file_height": null,
+              "media_file_preview_image_url": null,
+              "media_file_url": null,
+              "media_file_width": null,
+              "name": "Example Clip",
+              "processing_started_at": "2022-08-15T18:34:08.391Z",
+              "rank": null,
+              "start_char": 0,
+              "start_time": 1,
+              "text": null
+            },
+            "id": "32caa472-6a12-4a77-974a-52d1175502ab",
+            "relationships": {
+              "media": {
+                "data": {
+                  "id": "dde75ca2-77ad-4dfa-b4f0-61ccff99a296",
+                  "type": "medias"
+                }
+              }
+            },
+            "type": "clips"
+          }
+        ],
+        "links": {
+          "current": "http://api.contentgroove.com/api/v1/clips?page[number]=1",
+          "self": "http://api.contentgroove.com/api/v1/clips"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "create-clip",
+      "name": "create clip",
+      "description": "create clip",
+      "method": "POST",
+      "url": "https://api.contentgroove.com/api/v1/clips",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-15T18:34:09.431Z",
+            "end_char": 0,
+            "end_time": 2,
+            "external_id": null,
+            "is_processing": null,
+            "media_file_content_type": null,
+            "media_file_duration": null,
+            "media_file_height": null,
+            "media_file_preview_image_url": null,
+            "media_file_url": null,
+            "media_file_width": null,
+            "name": "Example New Clip",
+            "processing_started_at": "2022-08-17T21:08:29.615Z",
+            "rank": null,
+            "start_char": 0,
+            "start_time": 1,
+            "text": null
+          },
+          "id": "a5d24ac9-86bc-46a9-b188-6dfff81c838c",
+          "relationships": {
+            "media": {
+              "data": {
+                "id": "dde75ca2-77ad-4dfa-b4f0-61ccff99a296",
+                "type": "medias"
+              }
+            }
+          },
+          "type": "clips"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/clips"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "show-clip",
+      "name": "show clip",
+      "description": "show clip",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/clips/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-15T18:34:08.398Z",
+            "end_char": 0,
+            "end_time": 2,
+            "external_id": "155",
+            "is_processing": true,
+            "media_file_content_type": null,
+            "media_file_duration": null,
+            "media_file_height": null,
+            "media_file_preview_image_url": null,
+            "media_file_url": null,
+            "media_file_width": null,
+            "name": "Example Clip",
+            "processing_started_at": "2022-08-15T18:34:08.391Z",
+            "rank": null,
+            "start_char": 0,
+            "start_time": 1,
+            "text": null
+          },
+          "id": "32caa472-6a12-4a77-974a-52d1175502ab",
+          "relationships": {
+            "media": {
+              "data": {
+                "id": "dde75ca2-77ad-4dfa-b4f0-61ccff99a296",
+                "type": "medias"
+              }
+            }
+          },
+          "type": "clips"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/clips/32caa472-6a12-4a77-974a-52d1175502ab"
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-clip",
+      "name": "update clip",
+      "description": "update clip",
+      "method": "PUT",
+      "url": "https://api.contentgroove.com/api/v1/clips/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-15T18:34:08.398Z",
+            "end_char": 0,
+            "end_time": 2,
+            "external_id": "158",
+            "is_processing": true,
+            "media_file_content_type": null,
+            "media_file_duration": null,
+            "media_file_height": null,
+            "media_file_preview_image_url": null,
+            "media_file_url": null,
+            "media_file_width": null,
+            "name": "Example Clip",
+            "processing_started_at": "2022-08-15T18:34:08.391Z",
+            "rank": null,
+            "start_char": 0,
+            "start_time": 1,
+            "text": null
+          },
+          "id": "32caa472-6a12-4a77-974a-52d1175502ab",
+          "relationships": {
+            "media": {
+              "data": {
+                "id": "dde75ca2-77ad-4dfa-b4f0-61ccff99a296",
+                "type": "medias"
+              }
+            }
+          },
+          "type": "clips"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/clips/32caa472-6a12-4a77-974a-52d1175502ab"
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-clip",
+      "name": "delete clip",
+      "description": "delete clip",
+      "method": "DELETE",
+      "url": "https://api.contentgroove.com/api/v1/clips/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-medias",
+      "name": "list medias",
+      "description": "list medias",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/medias",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "created_at": "2022-08-17T02:13:58.431Z",
+              "description": "Enos was the second chimpanzee launched into space by NASA. He was the first and only chimpanzee, and third hominid after cosmonauts Yuri Gagarin and Gherman Titov, to achieve Earth orbit. Enos's flight occurred on November 29, 1961. https://en.wikipedia.org/wiki/Enos_(chimpanzee)",
+              "external_id": "468",
+              "has_fetch_error": false,
+              "is_processing": true,
+              "name": "Chimp Into Space",
+              "original_created_at": "2022-08-17T02:13:58.431Z",
+              "processing_started_at": "2022-08-17T02:13:58.425Z",
+              "source_created_at": null,
+              "source_file_content_type": null,
+              "source_file_duration": null,
+              "source_file_height": null,
+              "source_file_preview_image_url": null,
+              "source_file_width": null,
+              "source_url": "https://archive.org/download/SF143/SF143_512kb.mp4"
+            },
+            "id": "f98fae60-8086-41d5-8966-36698bf13de0",
+            "relationships": {
+              "clips": {
+                "data": []
+              }
+            },
+            "type": "medias"
+          }
+        ],
+        "links": {
+          "current": "http://api.contentgroove.com/api/v1/medias?page[number]=1",
+          "self": "http://api.contentgroove.com/api/v1/medias"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "create-media",
+      "name": "create media",
+      "description": "create media",
+      "method": "POST",
+      "url": "https://api.contentgroove.com/api/v1/medias",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-15T18:34:13.256Z",
+            "description": null,
+            "external_id": null,
+            "has_fetch_error": false,
+            "is_processing": null,
+            "name": "",
+            "original_created_at": null,
+            "processing_started_at": "2022-08-17T21:08:34.662Z",
+            "source_created_at": null,
+            "source_file_content_type": null,
+            "source_file_duration": null,
+            "source_file_height": null,
+            "source_file_preview_image_url": null,
+            "source_file_width": null,
+            "source_url": "https://archive.org/download/SF143/SF143_512kb.mp4"
+          },
+          "id": "654599f2-d989-492b-ba66-19dc722e983c",
+          "relationships": {
+            "clips": {
+              "data": []
+            },
+            "transcription": {
+              "data": null
+            }
+          },
+          "type": "medias"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/medias"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "show-media",
+      "name": "show media",
+      "description": "show media",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/medias/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-17T02:13:58.431Z",
+            "description": "Enos was the second chimpanzee launched into space by NASA. He was the first and only chimpanzee, and third hominid after cosmonauts Yuri Gagarin and Gherman Titov, to achieve Earth orbit. Enos's flight occurred on November 29, 1961. https://en.wikipedia.org/wiki/Enos_(chimpanzee)",
+            "external_id": "474",
+            "has_fetch_error": false,
+            "is_processing": true,
+            "name": "Chimp Into Space",
+            "original_created_at": "2022-08-17T02:13:58.431Z",
+            "processing_started_at": "2022-08-17T02:13:58.425Z",
+            "source_created_at": null,
+            "source_file_content_type": null,
+            "source_file_duration": null,
+            "source_file_height": null,
+            "source_file_preview_image_url": null,
+            "source_file_width": null,
+            "source_url": "https://archive.org/download/SF143/SF143_512kb.mp4"
+          },
+          "id": "f98fae60-8086-41d5-8966-36698bf13de0",
+          "relationships": {
+            "clips": {
+              "data": []
+            },
+            "transcription": {
+              "data": null
+            }
+          },
+          "type": "medias"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/medias/f98fae60-8086-41d5-8966-36698bf13de0"
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-media",
+      "name": "update media",
+      "description": "update media",
+      "method": "PUT",
+      "url": "https://api.contentgroove.com/api/v1/medias/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2022-08-17T02:13:58.431Z",
+            "description": "testdescription",
+            "external_id": "477",
+            "has_fetch_error": false,
+            "is_processing": true,
+            "name": "Chimp Into Space",
+            "original_created_at": "2022-08-17T02:13:58.431Z",
+            "processing_started_at": "2022-08-17T02:13:58.425Z",
+            "source_created_at": null,
+            "source_file_content_type": null,
+            "source_file_duration": null,
+            "source_file_height": null,
+            "source_file_preview_image_url": null,
+            "source_file_width": null,
+            "source_url": "https://archive.org/download/SF143/SF143_512kb.mp4"
+          },
+          "id": "f98fae60-8086-41d5-8966-36698bf13de0",
+          "relationships": {
+            "clips": {
+              "data": []
+            },
+            "transcription": {
+              "data": null
+            }
+          },
+          "type": "medias"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/medias/f98fae60-8086-41d5-8966-36698bf13de0"
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-media",
+      "name": "delete media",
+      "description": "delete media",
+      "method": "DELETE",
+      "url": "https://api.contentgroove.com/api/v1/medias/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-webhook-subscriptions",
+      "name": "list webhook subscriptions",
+      "description": "list webhook subscriptions",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/webhook_subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "active": true,
+              "created_at": "2022-10-13T19:04:05.111Z",
+              "subscribed_events": [
+                "*"
+              ],
+              "updated_at": "2022-10-13T19:04:05.111Z",
+              "url": "https://webhook.site/cd4ca31b-6d7d-414a-a3e5-a3a3ca42b25e"
+            },
+            "id": "d07aedb6-53fc-4141-b10c-083896e54ce2",
+            "relationships": {
+              "user": {
+                "data": {
+                  "id": "aea66137-8ee1-4bab-bf5a-5d8a5bb4a7f9",
+                  "type": "users"
+                }
+              },
+              "webhook_events": {
+                "data": []
+              }
+            },
+            "type": "webhook_subscriptions"
+          }
+        ],
+        "links": {
+          "current": "http://api.contentgroove.com/api/v1/webhook_subscriptions?page[number]=1",
+          "self": "http://api.contentgroove.com/api/v1/webhook_subscriptions"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "create-webhook-subscription",
+      "name": "create webhook subscription",
+      "description": "create webhook subscription",
+      "method": "POST",
+      "url": "https://api.contentgroove.com/api/v1/webhook_subscriptions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "active": true,
+            "created_at": "2022-10-13T19:04:07.154Z",
+            "subscribed_events": [
+              "*"
+            ],
+            "updated_at": "2022-10-13T19:04:07.154Z",
+            "url": "https://example.com/contentgroove_webhooks/12345"
+          },
+          "id": "d812aaec-55e8-47b8-a9b6-3905082a53fb",
+          "relationships": {
+            "user": {
+              "data": {
+                "id": "e9adb7a5-6169-4041-8d23-d1fdb6294198",
+                "type": "users"
+              }
+            },
+            "webhook_events": {
+              "data": []
+            }
+          },
+          "type": "webhook_subscriptions"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/webhook_subscriptions"
+        }
+      },
+      "auth_placeholders": [
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY."
+    },
+    {
+      "id": "show-webhook-subscription",
+      "name": "show webhook subscription",
+      "description": "show webhook subscription",
+      "method": "GET",
+      "url": "https://api.contentgroove.com/api/v1/webhook_subscriptions/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "active": true,
+            "created_at": "2022-10-13T19:04:07.663Z",
+            "subscribed_events": [
+              "*"
+            ],
+            "updated_at": "2022-10-13T19:04:07.663Z",
+            "url": "https://webhook.site/cd4ca31b-6d7d-414a-a3e5-a3a3ca42b25e"
+          },
+          "id": "481f57a0-ecdf-42ec-9837-bc551eb6909b",
+          "relationships": {
+            "user": {
+              "data": {
+                "id": "639597af-9230-4205-a539-b5c7177b514c",
+                "type": "users"
+              }
+            },
+            "webhook_events": {
+              "data": []
+            }
+          },
+          "type": "webhook_subscriptions"
+        },
+        "links": {
+          "self": "http://api.contentgroove.com/api/v1/webhook_subscriptions/481f57a0-ecdf-42ec-9837-bc551eb6909b"
+        }
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-webhook-subscription",
+      "name": "delete webhook subscription",
+      "description": "delete webhook subscription",
+      "method": "DELETE",
+      "url": "https://api.contentgroove.com/api/v1/webhook_subscriptions/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTENTGROOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTENTGROOVE_API_KEY}}",
+        "{{CONTENTGROOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{CONTENTGROOVE_API_KEY}} with your CONTENTGROOVE API KEY. Replace {{ID}} with a real id."
+    }
+  ]
+}

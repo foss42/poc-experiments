@@ -1,0 +1,81 @@
+{
+  "api_id": "azure.com:subscription-subscriptions:2018-11-01-preview",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "post-providers-microsoft-billing-billingaccounts-billingaccountname-billingprofiles-billingprofilename-invoicesections-invoicesectionname-providers-microsoft-subscription-createsubscription",
+      "name": "POST /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Subscription/createSubscription",
+      "description": "The operation to create a new WebDirect or EA Azure subscription.",
+      "method": "POST",
+      "url": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{{BILLINGACCOUNTNAME}}/billingProfiles/{{BILLINGPROFILENAME}}/invoiceSections/{{INVOICESECTIONNAME}}/providers/Microsoft.Subscription/createSubscription",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "displayName": "",
+        "billingProfileId": "",
+        "skuId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INVOICESECTIONNAME}}",
+        "{{BILLINGACCOUNTNAME}}",
+        "{{BILLINGPROFILENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{INVOICESECTIONNAME}} with a real invoicesectionname. Replace {{BILLINGPROFILENAME}} with a real billingprofilename. Replace {{BILLINGACCOUNTNAME}} with a real billingaccountname."
+    },
+    {
+      "id": "post-providers-microsoft-billing-billingaccounts-billingaccountname-customers-customername-providers-microsoft-subscription-createsubscription",
+      "name": "POST /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/providers/Microsoft.Subscription/createSubscription",
+      "description": "The operation to create a new CSP subscription.",
+      "method": "POST",
+      "url": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{{BILLINGACCOUNTNAME}}/customers/{{CUSTOMERNAME}}/providers/Microsoft.Subscription/createSubscription",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "displayName": "",
+        "skuId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{BILLINGACCOUNTNAME}}",
+        "{{CUSTOMERNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{BILLINGACCOUNTNAME}} with a real billingaccountname. Replace {{CUSTOMERNAME}} with a real customername."
+    },
+    {
+      "id": "get-providers-microsoft-subscription-subscriptionoperations-operationid",
+      "name": "GET /providers/Microsoft.Subscription/subscriptionOperations/{operationId}",
+      "description": "Get the status of the pending Microsoft.Subscription API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Subscription/subscriptionOperations/{{OPERATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{OPERATIONID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{OPERATIONID}} with a real operationid."
+    }
+  ]
+}

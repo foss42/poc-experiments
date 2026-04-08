@@ -1,0 +1,478 @@
+{
+  "api_id": "amadeus.com:amadeus-flight-create-orders:1.9.0",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "create-order-associated-to-the-flight-offers",
+      "name": "Create Order associated to the Flight offers.",
+      "description": "Create Order associated to the Flight offers.",
+      "method": "POST",
+      "url": "https://test.api.amadeus.com/v1/booking/flight-orders",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "contacts": [
+            {
+              "address": {
+                "cityName": "Madrid",
+                "countryCode": "ES",
+                "lines": [
+                  "Calle Prado, 16"
+                ],
+                "postalCode": "28014"
+              },
+              "addresseeName": {
+                "firstName": "PABLO",
+                "lastName": "RODRIGUEZ"
+              },
+              "companyName": "INCREIBLE VIAJES",
+              "emailAddress": "support@increibleviajes.es",
+              "phones": [
+                {
+                  "countryCallingCode": "34",
+                  "deviceType": "LANDLINE",
+                  "number": "480080071"
+                },
+                {
+                  "countryCallingCode": "33",
+                  "deviceType": "MOBILE",
+                  "number": "480080072"
+                }
+              ],
+              "purpose": "STANDARD"
+            }
+          ],
+          "flightOffers": [
+            {
+              "id": "1",
+              "instantTicketingRequired": false,
+              "itineraries": [
+                {
+                  "segments": [
+                    {
+                      "aircraft": {
+                        "code": "772"
+                      },
+                      "arrival": {
+                        "at": "2020-03-02T12:20:00",
+                        "iataCode": "CDG",
+                        "terminal": "2E"
+                      },
+                      "carrierCode": "KL",
+                      "departure": {
+                        "at": "2020-03-01T21:05:00",
+                        "iataCode": "GIG",
+                        "terminal": "2"
+                      },
+                      "duration": "PT11H15M",
+                      "id": "40",
+                      "number": "2410",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "AF"
+                      }
+                    },
+                    {
+                      "aircraft": {
+                        "code": "73H"
+                      },
+                      "arrival": {
+                        "at": "2020-03-02T15:45:00",
+                        "iataCode": "AMS"
+                      },
+                      "carrierCode": "KL",
+                      "departure": {
+                        "at": "2020-03-02T14:30:00",
+                        "iataCode": "CDG",
+                        "terminal": "2F"
+                      },
+                      "duration": "PT1H15M",
+                      "id": "41",
+                      "number": "1234",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "KL"
+                      }
+                    },
+                    {
+                      "aircraft": {
+                        "code": "73J"
+                      },
+                      "arrival": {
+                        "at": "2020-03-02T19:35:00",
+                        "iataCode": "MAD",
+                        "terminal": "2"
+                      },
+                      "carrierCode": "KL",
+                      "departure": {
+                        "at": "2020-03-02T17:05:00",
+                        "iataCode": "AMS"
+                      },
+                      "duration": "PT2H30M",
+                      "id": "42",
+                      "number": "1705",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "KL"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "segments": [
+                    {
+                      "aircraft": {
+                        "code": "73J"
+                      },
+                      "arrival": {
+                        "at": "2020-03-05T23:00:00",
+                        "iataCode": "AMS"
+                      },
+                      "carrierCode": "KL",
+                      "departure": {
+                        "at": "2020-03-05T20:25:00",
+                        "iataCode": "MAD",
+                        "terminal": "2"
+                      },
+                      "duration": "PT2H35M",
+                      "id": "81",
+                      "number": "1706",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "KL"
+                      }
+                    },
+                    {
+                      "aircraft": {
+                        "code": "772"
+                      },
+                      "arrival": {
+                        "at": "2020-03-06T18:35:00",
+                        "iataCode": "GIG",
+                        "terminal": "2"
+                      },
+                      "carrierCode": "KL",
+                      "departure": {
+                        "at": "2020-03-06T10:40:00",
+                        "iataCode": "AMS"
+                      },
+                      "duration": "PT11H55M",
+                      "id": "82",
+                      "number": "705",
+                      "numberOfStops": 0,
+                      "operating": {
+                        "carrierCode": "KL"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "lastTicketingDate": "2020-03-01",
+              "nonHomogeneous": false,
+              "paymentCardRequired": false,
+              "price": {
+                "base": "8314.00",
+                "billingCurrency": "USD",
+                "currency": "USD",
+                "fees": [
+                  {
+                    "amount": "0.00",
+                    "type": "SUPPLIER"
+                  },
+                  {
+                    "amount": "0.00",
+                    "type": "TICKETING"
+                  },
+                  {
+                    "amount": "0.00",
+                    "type": "FORM_OF_PAYMENT"
+                  }
+                ],
+                "grandTotal": "8514.96",
+                "total": "8514.96"
+              },
+              "pricingOptions": {
+                "fareType": [
+                  "PUBLISHED"
+                ],
+                "includedCheckedBagsOnly": true
+              },
+              "source": "GDS",
+              "travelerPricings": [
+                {
+                  "fareDetailsBySegment": [
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "C",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "40"
+                    },
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "J",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "41"
+                    },
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "J",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "42"
+                    },
+                    {
+                      "brandedFare": "FULLFLEX",
+                      "cabin": "ECONOMY",
+                      "class": "Y",
+                      "fareBasis": "YFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 1
+                      },
+                      "segmentId": "81"
+                    },
+                    {
+                      "brandedFare": "FULLFLEX",
+                      "cabin": "ECONOMY",
+                      "class": "Y",
+                      "fareBasis": "YFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 1
+                      },
+                      "segmentId": "82"
+                    }
+                  ],
+                  "fareOption": "STANDARD",
+                  "price": {
+                    "base": "4749.00",
+                    "currency": "USD",
+                    "taxes": [
+                      {
+                        "amount": "31.94",
+                        "code": "BR"
+                      },
+                      {
+                        "amount": "14.68",
+                        "code": "CJ"
+                      },
+                      {
+                        "amount": "5.28",
+                        "code": "FR"
+                      },
+                      {
+                        "amount": "17.38",
+                        "code": "JD"
+                      },
+                      {
+                        "amount": "0.69",
+                        "code": "OG"
+                      },
+                      {
+                        "amount": "3.95",
+                        "code": "QV"
+                      },
+                      {
+                        "amount": "12.12",
+                        "code": "QX"
+                      },
+                      {
+                        "amount": "14.44",
+                        "code": "RN"
+                      }
+                    ],
+                    "total": "4849.48"
+                  },
+                  "travelerId": "1",
+                  "travelerType": "ADULT"
+                },
+                {
+                  "fareDetailsBySegment": [
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "C",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "40"
+                    },
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "J",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "41"
+                    },
+                    {
+                      "brandedFare": "BUSINESS",
+                      "cabin": "BUSINESS",
+                      "class": "J",
+                      "fareBasis": "CFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 2
+                      },
+                      "segmentId": "42"
+                    },
+                    {
+                      "brandedFare": "FULLFLEX",
+                      "cabin": "ECONOMY",
+                      "class": "Y",
+                      "fareBasis": "YFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 1
+                      },
+                      "segmentId": "81"
+                    },
+                    {
+                      "brandedFare": "FULLFLEX",
+                      "cabin": "ECONOMY",
+                      "class": "Y",
+                      "fareBasis": "YFFBR",
+                      "includedCheckedBags": {
+                        "quantity": 1
+                      },
+                      "segmentId": "82"
+                    }
+                  ],
+                  "fareOption": "STANDARD",
+                  "price": {
+                    "base": "3565.00",
+                    "currency": "USD",
+                    "taxes": [
+                      {
+                        "amount": "31.94",
+                        "code": "BR"
+                      },
+                      {
+                        "amount": "14.68",
+                        "code": "CJ"
+                      },
+                      {
+                        "amount": "5.28",
+                        "code": "FR"
+                      },
+                      {
+                        "amount": "17.38",
+                        "code": "JD"
+                      },
+                      {
+                        "amount": "0.69",
+                        "code": "OG"
+                      },
+                      {
+                        "amount": "3.95",
+                        "code": "QV"
+                      },
+                      {
+                        "amount": "12.12",
+                        "code": "QX"
+                      },
+                      {
+                        "amount": "14.44",
+                        "code": "RN"
+                      }
+                    ],
+                    "total": "3665.48"
+                  },
+                  "travelerId": "2",
+                  "travelerType": "CHILD"
+                }
+              ],
+              "type": "flight-offer",
+              "validatingAirlineCodes": [
+                "AF"
+              ]
+            }
+          ],
+          "remarks": {
+            "general": [
+              {
+                "subType": "GENERAL_MISCELLANEOUS",
+                "text": "ONLINE BOOKING FROM INCREIBLE VIAJES"
+              }
+            ]
+          },
+          "ticketingAgreement": {
+            "delay": "6D",
+            "option": "DELAY_TO_CANCEL"
+          },
+          "travelers": [
+            {
+              "contact": {
+                "emailAddress": "jorge.gonzales833@telefonica.es",
+                "phones": [
+                  {
+                    "countryCallingCode": "34",
+                    "deviceType": "MOBILE",
+                    "number": "480080076"
+                  }
+                ]
+              },
+              "dateOfBirth": "1982-01-16",
+              "documents": [
+                {
+                  "birthPlace": "Madrid",
+                  "documentType": "PASSPORT",
+                  "expiryDate": "2025-04-14",
+                  "holder": true,
+                  "issuanceCountry": "ES",
+                  "issuanceDate": "2015-04-14",
+                  "issuanceLocation": "Madrid",
+                  "nationality": "ES",
+                  "number": "00000000",
+                  "validityCountry": "ES"
+                }
+              ],
+              "gender": "MALE",
+              "id": "1",
+              "name": {
+                "firstName": "JORGE",
+                "lastName": "GONZALES"
+              }
+            },
+            {
+              "contact": {
+                "emailAddress": "jorge.gonzales833@telefonica.es",
+                "phones": [
+                  {
+                    "countryCallingCode": "34",
+                    "deviceType": "MOBILE",
+                    "number": "480080076"
+                  }
+                ]
+              },
+              "dateOfBirth": "2012-10-11",
+              "gender": "FEMALE",
+              "id": "2",
+              "name": {
+                "firstName": "ADRIANA",
+                "lastName": "GONZALES"
+              }
+            }
+          ],
+          "type": "flight-order"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

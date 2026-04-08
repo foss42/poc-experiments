@@ -1,0 +1,52 @@
+{
+  "api_id": "twilio.com:twilio_frontline_v1:1.42.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-v1-users-sid",
+      "name": "GET /v1/Users/{Sid}",
+      "description": "Fetch a frontline user",
+      "method": "GET",
+      "url": "https://frontline-api.twilio.com/v1/Users/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-users-sid",
+      "name": "POST /v1/Users/{Sid}",
+      "description": "Update an existing frontline user",
+      "method": "POST",
+      "url": "https://frontline-api.twilio.com/v1/Users/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Avatar": "",
+        "FriendlyName": "",
+        "IsAvailable": false,
+        "State": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "api_id": "googleapis.com:recaptchaenterprise:v1",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "get-v1-key-retrievelegacysecretkey",
+      "name": "GET /v1/{key}:retrieveLegacySecretKey",
+      "description": "Returns the secret key related to the specified public key. You must use the legacy secret key only in a 3rd party integration with legacy reCAPTCHA.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{KEY}}:retrieveLegacySecretKey",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{KEY}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Get some aggregated metrics for a Key. This data can be used to build dashboards.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes the specified key.",
+      "method": "DELETE",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates the specified key.",
+      "method": "PATCH",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "androidSettings": {},
+        "createTime": "",
+        "displayName": "",
+        "iosSettings": {},
+        "labels": {},
+        "name": "",
+        "testingOptions": {},
+        "wafSettings": {},
+        "webSettings": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-annotate",
+      "name": "POST /v1/{name}:annotate",
+      "description": "Annotates a previously created Assessment to provide additional information on whether the event turned out to be authentic or fraudulent.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{NAME}}:annotate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "annotation": "",
+        "hashedAccountId": "",
+        "reasons": [],
+        "transactionEvent": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-migrate",
+      "name": "POST /v1/{name}:migrate",
+      "description": "Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key is migrated, it can be used from either product. SiteVerify requests are billed as CreateAssessment calls. You must be authenticated as one of the current owners of the reCAPTCHA Site Key, and your user must have the reCAPTCHA Enterprise Admin IAM role in the destination project.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{NAME}}:migrate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "skipBillingCheck": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-parent-assessments",
+      "name": "POST /v1/{parent}/assessments",
+      "description": "Creates an Assessment of the likelihood an event is legitimate.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/assessments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountDefenderAssessment": {},
+        "accountVerification": {},
+        "event": {},
+        "firewallPolicyAssessment": {},
+        "fraudPreventionAssessment": {},
+        "name": "",
+        "privatePasswordLeakVerification": {},
+        "riskAnalysis": {},
+        "tokenProperties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-firewallpolicies",
+      "name": "GET /v1/{parent}/firewallpolicies",
+      "description": "Returns the list of all firewall policies that belong to a project.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/firewallpolicies",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-firewallpolicies",
+      "name": "POST /v1/{parent}/firewallpolicies",
+      "description": "Creates a new FirewallPolicy, specifying conditions at which reCAPTCHA Enterprise actions can be executed. A project may have a maximum of 1000 policies.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/firewallpolicies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "actions": [],
+        "condition": "",
+        "description": "",
+        "name": "",
+        "path": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-keys",
+      "name": "GET /v1/{parent}/keys",
+      "description": "Returns the list of all keys that belong to a project.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/keys",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-keys",
+      "name": "POST /v1/{parent}/keys",
+      "description": "Creates a new reCAPTCHA Enterprise key.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "androidSettings": {},
+        "createTime": "",
+        "displayName": "",
+        "iosSettings": {},
+        "labels": {},
+        "name": "",
+        "testingOptions": {},
+        "wafSettings": {},
+        "webSettings": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-memberships",
+      "name": "GET /v1/{parent}/memberships",
+      "description": "Get memberships in a group of related accounts.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/memberships",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-relatedaccountgroups",
+      "name": "GET /v1/{parent}/relatedaccountgroups",
+      "description": "List groups of related accounts.",
+      "method": "GET",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PARENT}}/relatedaccountgroups",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-project-relatedaccountgroupmemberships-search",
+      "name": "POST /v1/{project}/relatedaccountgroupmemberships:search",
+      "description": "Search group memberships related to a given account.",
+      "method": "POST",
+      "url": "https://recaptchaenterprise.googleapis.com/v1/{{PROJECT}}/relatedaccountgroupmemberships:search",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "hashedAccountId": "",
+        "pageSize": 0,
+        "pageToken": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PROJECT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECT}} with a real project."
+    }
+  ]
+}

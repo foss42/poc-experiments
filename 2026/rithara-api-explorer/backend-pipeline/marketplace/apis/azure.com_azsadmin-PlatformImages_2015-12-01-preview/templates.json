@@ -1,0 +1,109 @@
+{
+  "api_id": "azure.com:azsadmin-PlatformImages:2015-12-01-preview",
+  "endpoint_count": 4,
+  "endpoints": [
+    {
+      "id": "returns-all-platform-images",
+      "name": "Returns all platform images.",
+      "description": "Returns a list of all platform images.",
+      "method": "GET",
+      "url": "https://adminmanagement.local.azurestack.external/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Compute.Admin/locations/{{LOCATION}}/artifactTypes/platformImage",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{LOCATION}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCATION}} with a real location."
+    },
+    {
+      "id": "returns-the-requested-platform-image",
+      "name": "Returns the requested platform image.",
+      "description": "Returns the specific platform image matching publisher, offer, skus and version.",
+      "method": "GET",
+      "url": "https://adminmanagement.local.azurestack.external/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Compute.Admin/locations/{{LOCATION}}/artifactTypes/platformImage/publishers/{{PUBLISHER}}/offers/{{OFFER}}/skus/{{SKU}}/versions/{{VERSION}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OFFER}}",
+        "{{LOCATION}}",
+        "{{PUBLISHER}}",
+        "{{VERSION}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SKU}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{OFFER}} with a real offer. Replace {{LOCATION}} with a real location. Replace {{PUBLISHER}} with a real publisher. Replace {{VERSION}} with a real version. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{SKU}} with a real sku."
+    },
+    {
+      "id": "creates-a-platform-image",
+      "name": "Creates a platform image.",
+      "description": "Creates a new platform image with given publisher, offer, skus and version.",
+      "method": "PUT",
+      "url": "https://adminmanagement.local.azurestack.external/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Compute.Admin/locations/{{LOCATION}}/artifactTypes/platformImage/publishers/{{PUBLISHER}}/offers/{{OFFER}}/skus/{{SKU}}/versions/{{VERSION}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OFFER}}",
+        "{{LOCATION}}",
+        "{{PUBLISHER}}",
+        "{{VERSION}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SKU}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{OFFER}} with a real offer. Replace {{LOCATION}} with a real location. Replace {{PUBLISHER}} with a real publisher. Replace {{VERSION}} with a real version. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{SKU}} with a real sku."
+    },
+    {
+      "id": "deletes-a-platform-image-matching-publisher-offer-skus-and-version",
+      "name": "Deletes a platform image matching publisher, offer, skus and version",
+      "description": "Delete a platform image",
+      "method": "DELETE",
+      "url": "https://adminmanagement.local.azurestack.external/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Compute.Admin/locations/{{LOCATION}}/artifactTypes/platformImage/publishers/{{PUBLISHER}}/offers/{{OFFER}}/skus/{{SKU}}/versions/{{VERSION}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OFFER}}",
+        "{{LOCATION}}",
+        "{{PUBLISHER}}",
+        "{{VERSION}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SKU}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{OFFER}} with a real offer. Replace {{LOCATION}} with a real location. Replace {{PUBLISHER}} with a real publisher. Replace {{VERSION}} with a real version. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{SKU}} with a real sku."
+    }
+  ]
+}

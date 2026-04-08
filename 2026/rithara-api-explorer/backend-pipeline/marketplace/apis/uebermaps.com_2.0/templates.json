@@ -1,0 +1,860 @@
+{
+  "api_id": "uebermaps.com:2.0",
+  "endpoint_count": 52,
+  "endpoints": [
+    {
+      "id": "update-account",
+      "name": "Update account",
+      "description": "Update account. Wrap map parameters in [user].",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/account",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "about": "The comedian",
+        "header": "<BASE_64_ENCODED_STRING>",
+        "language": "en",
+        "location": "Little Rock, Arkansas",
+        "name": "Bill Hicks",
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "screen_name": "billhicks",
+        "time_zone": "Pacific Time (US & Canada)",
+        "url": "http://www.billhicks.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-attachment",
+      "name": "Delete attachment",
+      "description": "Delete attachment.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/attachments/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "sign-in-user",
+      "name": "Sign in user",
+      "description": "Sign in user. Wrap authentication parameters in [user].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/authentication",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "email": "a@b.com",
+        "password": "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-your-collaborator-invitations",
+      "name": "List your collaborator invitations",
+      "description": "List your collaborator invitations.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/collaborator_invitations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "invite-user-to-collaborate-on-map",
+      "name": "Invite user to collaborate on map",
+      "description": "Invite user to collaborate on map.",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/collaborator_invitations",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "emails": "a@b.com, c@d.com, e@f.com",
+        "is_admin": true,
+        "map_id": 34925783,
+        "user_ids": "5839459, 389423, 89494, 686950"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "show-collaborator-invitation",
+      "name": "Show collaborator invitation",
+      "description": "Show collaborator invitation",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/collaborator_invitations/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-collaborator-invitation",
+      "name": "Delete collaborator invitation",
+      "description": "Delete collaborator invitation.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/collaborator_invitations/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "accept-collaborator-invitation",
+      "name": "Accept collaborator invitation.",
+      "description": "Accept collaborator invitation.",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/collaborator_invitations/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-comment",
+      "name": "Delete comment",
+      "description": "Delete comment.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/comments/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-comment",
+      "name": "Update comment",
+      "description": "Update comment. Wrap comment parameters in [comment].",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/comments/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "body": "Nice photo"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-your-own-events",
+      "name": "List your own events",
+      "description": "List your own events.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/events",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-event",
+      "name": "Get event",
+      "description": "Get basic information about an event",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/events/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-event",
+      "name": "Delete event",
+      "description": "Delete event.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/events/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-event",
+      "name": "Update event",
+      "description": "Update event. Wrap event parameters in [event].",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/events/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Very special event",
+        "ends_at": "",
+        "lat": 53.293493,
+        "lon": 12.394328,
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "starts_at": "",
+        "time_zone": "Berlin",
+        "title": "20th anniversary event",
+        "user_id": 703943
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-your-own-maps",
+      "name": "List your own maps",
+      "description": "List your own maps.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-map",
+      "name": "Create map",
+      "description": "Create map. Wrap map parameters in [map]. To add a map header picture pass a base64 encoded string to [map][picture].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/maps",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "A collection of restaurants, cafes, clubs and random spots that I recommend in Berlin",
+        "map_settings": "",
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "title": "My favourite places in Berlin",
+        "visibility": "public"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "search-maps",
+      "name": "Search maps",
+      "description": "Search maps",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/search",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-map",
+      "name": "Get map",
+      "description": "Get basic information about a map",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-map",
+      "name": "Delete map",
+      "description": "Delete map.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-map",
+      "name": "Update map",
+      "description": "Update map. Wrap map parameters in [map]. To update the map header picture pass a base64 encoded string to [map][picture].",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "A collection of restaurants, cafes, clubs and random spots that I recommend in Berlin",
+        "map_settings": "",
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "title": "My favourite places in Berlin",
+        "visibility": "public"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-attachments-for-a-given-map",
+      "name": "List attachments for a given map",
+      "description": "List attachments for a given map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/attachments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-collaborators-of-a-map",
+      "name": "List collaborators of a map",
+      "description": "List collaborators of a map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/collaborators/",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-collaboration",
+      "name": "Delete collaboration",
+      "description": "Delete collaboration.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/collaborators/{{USER_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USER_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "update-collaborator",
+      "name": "Update collaborator",
+      "description": "Update collaborator. Wrap collaborator parameters in [collaborator]",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/collaborators/{{USER_ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "group": "editor"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USER_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "list-comments-for-a-given-map",
+      "name": "List comments for a given map",
+      "description": "List comments for a given map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/comments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-map-comment",
+      "name": "Create map comment",
+      "description": "Create map comment. Wrap comment parameters in [comment].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/comments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "body": "Nice photo"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-respots-of-a-map",
+      "name": "List respots of a map",
+      "description": "List respots of a map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/respots",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-spots-for-a-given-map",
+      "name": "List spots for a given map",
+      "description": "List spots for a given map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/spots",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-spot",
+      "name": "Create spot",
+      "description": "Create spot. Wrap parameters in [spot]. To add a spot picture pass a base64 encoded string to [spot][picture].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/spots",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Landed here by accident but look how wonderful this place is in the photos attached",
+        "lat": 53.112385,
+        "lon": 10.58349,
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "time_zone": "Berlin",
+        "title": "Beautiful place out in the country"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-subscriptions-for-a-given-map",
+      "name": "List subscriptions for a given map",
+      "description": "List subscriptions for a given map.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/subscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unsubscribe-from-map",
+      "name": "Unsubscribe from map",
+      "description": "Unsubscribe from map.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/maps/{{ID}}/subscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-spot",
+      "name": "Get spot",
+      "description": "Get basic information about a spot",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/maps/{{MAP_ID}}/spots/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{MAP_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{MAP_ID}} with a real map_id."
+    },
+    {
+      "id": "delete-respot-from-map-by-spot-id",
+      "name": "Delete respot from map by spot id",
+      "description": "Delete respot from map by spot id.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/maps/{{MAP_ID}}/spots/{{SPOT_ID}}/respot",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAP_ID}}",
+        "{{SPOT_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{MAP_ID}} with a real map_id. Replace {{SPOT_ID}} with a real spot_id."
+    },
+    {
+      "id": "list-maps-that-user-can-respot-to",
+      "name": "List maps that user can respot to",
+      "description": "List maps that user can respot to.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/respot_maps",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-respot",
+      "name": "Get respot",
+      "description": "Get basic information about a respot",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/respots/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-respot",
+      "name": "Delete respot",
+      "description": "Delete respot.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/respots/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-secret-access-token-to-share-map",
+      "name": "Get secret access token to share map",
+      "description": "Get secret access token of an uebermap with access set to 'Secret link'. Pass the 'token' on every request you make to access this uebermap and its resources. F.e. token=1-x_gqu7eLBe3uKoAGAGXy",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/share/map/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-your-own-spots",
+      "name": "List your own spots",
+      "description": "List your own spots.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/spots",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "search-spots",
+      "name": "Search spots",
+      "description": "Search spots",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/spots/search",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-spot",
+      "name": "Delete spot",
+      "description": "Delete spot.",
+      "method": "DELETE",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-spot",
+      "name": "Update spot",
+      "description": "Update spot. Wrap parameters in [spot]. To update the spot picture pass a base64 encoded string to [spot][picture].",
+      "method": "PATCH",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Landed here by accident but look how wonderful this place is in the photos attached",
+        "lat": 53.112385,
+        "lon": 10.58349,
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "time_zone": "Berlin",
+        "title": "Beautiful place out in the country"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-attachments-for-a-given-spot",
+      "name": "List attachments for a given spot",
+      "description": "List attachments for a given spot.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}/attachments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-comments-for-a-given-spot",
+      "name": "List comments for a given spot",
+      "description": "List comments for a given spot.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}/comments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-spot-comment",
+      "name": "Create spot comment",
+      "description": "Create spot comment. Wrap comment parameters in [comment].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}/comments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "body": "Nice photo"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-events-for-a-given-spot",
+      "name": "List events for a given spot",
+      "description": "List maps for a given spot.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}/events",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-event",
+      "name": "Create event",
+      "description": "Create event. Wrap map parameters in [event].",
+      "method": "POST",
+      "url": "https://uebermaps.com/api/v2/spots/{{ID}}/events",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Very special event",
+        "ends_at": "",
+        "lat": 53.293493,
+        "lon": 12.394328,
+        "picture": "<BASE_64_ENCODED_STRING>",
+        "starts_at": "",
+        "time_zone": "Berlin",
+        "title": "20th anniversary event",
+        "user_id": 703943
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-subscriptions-pass-no-parameters-to-get-own-subscriptions",
+      "name": "List subscriptions. Pass no parameters to get own subscriptions",
+      "description": "List subscriptions.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/subscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-latest-maps",
+      "name": "List latest maps",
+      "description": "List latest maps.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/trends/latest",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-recommended-maps",
+      "name": "List recommended maps",
+      "description": "List recommended maps.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/trends/recommended",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "search-users",
+      "name": "Search users",
+      "description": "Search users",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/users/search",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-user-profile",
+      "name": "Get user profile",
+      "description": "Get profile a user",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/users/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-maps-for-a-given-user",
+      "name": "List maps for a given user",
+      "description": "List maps for a given user.",
+      "method": "GET",
+      "url": "https://uebermaps.com/api/v2/users/{{USER_ID}}/maps",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USER_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{USER_ID}} with a real user_id."
+    }
+  ]
+}

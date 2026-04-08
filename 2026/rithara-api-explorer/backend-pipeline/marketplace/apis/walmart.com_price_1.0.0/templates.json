@@ -1,0 +1,56 @@
+{
+  "api_id": "walmart.com:price:1.0.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "set-up-cap-sku-all",
+      "name": "Set up CAP SKU All",
+      "description": "This API helps Sellers to completely opt-in or opt-out from CAP program.\n\nIf the subsidyEnrolled value = \"true\", the Seller enrolls in the CAP program. All eligible SKUs (current and future) are by default opt-in. Seller should use the SKU opt-in/opt-out API to opt-out individual items.\n\nIf the subsidyEnrolled value = \"false\", the Seller stops participating in the CAP program and all eligible SKUs (current and future) are opt-out of the CAP program.",
+      "method": "POST",
+      "url": "https://marketplace.walmartapis.com/v3/cppreference",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "subsidyEnrolled": false,
+        "subsidyPreference": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-price",
+      "name": "Update a price",
+      "description": "Updates the regular price for a given item.",
+      "method": "PUT",
+      "url": "https://marketplace.walmartapis.com/v3/price",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "pricing": [
+          {
+            "currentPrice": {
+              "amount": 10,
+              "currency": "USD"
+            },
+            "currentPriceType": "BASE"
+          }
+        ],
+        "sku": "97964_KFTest"
+      },
+      "sample_response": {
+        "ItemPriceResponse": {
+          "mart": "WALMART_US",
+          "message": "Thank you. Your price has been updated. Please allow up to five minutes for this change to be reflected on the site.",
+          "sku": "97964_KFTest"
+        }
+      },
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

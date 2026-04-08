@@ -1,0 +1,91 @@
+{
+  "api_id": "mtaa-api.herokuapp.com:1.0",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "returns-all-regions-present-in-tanzania",
+      "name": "Returns all regions present in Tanzania",
+      "description": "Fetches all regions present in Tanzania and then return a response as json",
+      "method": "GET",
+      "url": "https://mtaa-api.herokuapp.com/api/{{COUNTRY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-all-districts-in-region",
+      "name": "Returns all districts in region",
+      "description": "Returns a post code and all districts in a specified region",
+      "method": "GET",
+      "url": "https://mtaa-api.herokuapp.com/api/{{COUNTRY}}/{{REGION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COUNTRY}}",
+        "{{REGION}}"
+      ],
+      "notes": "No authentication required. Replace {{COUNTRY}} with a real country. Replace {{REGION}} with a real region."
+    },
+    {
+      "id": "returns-all-wards-in-a-district",
+      "name": "Returns all wards in a district",
+      "description": "Returns all wards in a  specified district and district postcode",
+      "method": "GET",
+      "url": "https://mtaa-api.herokuapp.com/api/{{COUNTRY}}/{{REGION}}/{{DISTRICT}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{COUNTRY}}",
+        "{{DISTRICT}}",
+        "{{REGION}}"
+      ],
+      "notes": "No authentication required. Replace {{COUNTRY}} with a real country. Replace {{DISTRICT}} with a real district. Replace {{REGION}} with a real region."
+    },
+    {
+      "id": "returns-all-streets-in-a-ward",
+      "name": "Returns all streets in a ward",
+      "description": "Returns all streets in a specified ward and ward postcode",
+      "method": "GET",
+      "url": "https://mtaa-api.herokuapp.com/api/{{COUNTRY}}/{{REGION}}/{{DISTRICT}}/{{WARD}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WARD}}",
+        "{{COUNTRY}}",
+        "{{DISTRICT}}",
+        "{{REGION}}"
+      ],
+      "notes": "No authentication required. Replace {{WARD}} with a real ward. Replace {{COUNTRY}} with a real country. Replace {{DISTRICT}} with a real district. Replace {{REGION}} with a real region."
+    },
+    {
+      "id": "returns-all-neighborhood-in-a-street",
+      "name": "Returns all neighborhood in a street",
+      "description": "Returns all neighborhood in a specified street",
+      "method": "GET",
+      "url": "https://mtaa-api.herokuapp.com/api/{{COUNTRY}}/{{REGION}}/{{DISTRICT}}/{{WARD}}/{{STREET}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WARD}}",
+        "{{REGION}}",
+        "{{DISTRICT}}",
+        "{{STREET}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{WARD}} with a real ward. Replace {{REGION}} with a real region. Replace {{DISTRICT}} with a real district. Replace {{STREET}} with a real street. Replace {{COUNTRY}} with a real country."
+    }
+  ]
+}

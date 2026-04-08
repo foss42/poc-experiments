@@ -1,0 +1,1323 @@
+{
+  "api_id": "windows.net:batch-BatchService:2015-12-01.2.2",
+  "endpoint_count": 69,
+  "endpoints": [
+    {
+      "id": "get-applications",
+      "name": "GET /applications",
+      "description": "Lists all of the applications available in the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/applications",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-applications-applicationid",
+      "name": "GET /applications/{applicationId}",
+      "description": "Gets information about the specified application.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/applications/{{APPLICATIONID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APPLICATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{APPLICATIONID}} with a real applicationid."
+    },
+    {
+      "id": "get-certificates",
+      "name": "GET /certificates",
+      "description": "Lists all of the certificates that have been added to the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/certificates",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-certificates",
+      "name": "POST /certificates",
+      "description": "Adds a certificate to the specified account.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/certificates",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "thumbprint": "",
+        "thumbprintAlgorithm": "",
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-certificates-thumbprintalgorithm-thumbprintalgorithm-thumbprint-thumbprint",
+      "name": "GET /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint})",
+      "description": "Gets information about the specified certificate.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/certificates(thumbprintAlgorithm={{THUMBPRINTALGORITHM}},thumbprint={{THUMBPRINT}})",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{THUMBPRINT}}",
+        "{{THUMBPRINTALGORITHM}}"
+      ],
+      "notes": "No authentication required. Replace {{THUMBPRINT}} with a real thumbprint. Replace {{THUMBPRINTALGORITHM}} with a real thumbprintalgorithm."
+    },
+    {
+      "id": "delete-certificates-thumbprintalgorithm-thumbprintalgorithm-thumbprint-thumbprint",
+      "name": "DELETE /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint})",
+      "description": "Deletes a certificate from the specified account.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/certificates(thumbprintAlgorithm={{THUMBPRINTALGORITHM}},thumbprint={{THUMBPRINT}})",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{THUMBPRINT}}",
+        "{{THUMBPRINTALGORITHM}}"
+      ],
+      "notes": "No authentication required. Replace {{THUMBPRINT}} with a real thumbprint. Replace {{THUMBPRINTALGORITHM}} with a real thumbprintalgorithm."
+    },
+    {
+      "id": "post-certificates-thumbprintalgorithm-thumbprintalgorithm-thumbprint-thumbprint-canceldelete",
+      "name": "POST /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint})/canceldelete",
+      "description": "Cancels a failed deletion of a certificate from the specified account.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/certificates(thumbprintAlgorithm={{THUMBPRINTALGORITHM}},thumbprint={{THUMBPRINT}})/canceldelete",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{THUMBPRINT}}",
+        "{{THUMBPRINTALGORITHM}}"
+      ],
+      "notes": "No authentication required. Replace {{THUMBPRINT}} with a real thumbprint. Replace {{THUMBPRINTALGORITHM}} with a real thumbprintalgorithm."
+    },
+    {
+      "id": "get-jobs",
+      "name": "GET /jobs",
+      "description": "Lists all of the jobs in the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-jobs",
+      "name": "POST /jobs",
+      "description": "Adds a job to the specified account.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "poolInfo": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-jobs-jobid",
+      "name": "GET /jobs/{jobId}",
+      "description": "Gets information about the specified job.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "put-jobs-jobid",
+      "name": "PUT /jobs/{jobId}",
+      "description": "Updates the properties of a job.",
+      "method": "PUT",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "poolInfo": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "delete-jobs-jobid",
+      "name": "DELETE /jobs/{jobId}",
+      "description": "Deletes a job.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "patch-jobs-jobid",
+      "name": "PATCH /jobs/{jobId}",
+      "description": "Updates the properties of a job.",
+      "method": "PATCH",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "constraints": "",
+        "metadata": [],
+        "poolInfo": "",
+        "priority": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "post-jobs-jobid-disable",
+      "name": "POST /jobs/{jobId}/disable",
+      "description": "Disables the specified job, preventing new tasks from running.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/disable",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "disableTasks": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "post-jobs-jobid-enable",
+      "name": "POST /jobs/{jobId}/enable",
+      "description": "Enables the specified job, allowing new tasks to run.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/enable",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-jobs-jobid-tasks",
+      "name": "GET /jobs/{jobId}/tasks",
+      "description": "Lists all of the tasks that are associated with the specified job.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "post-jobs-jobid-tasks",
+      "name": "POST /jobs/{jobId}/tasks",
+      "description": "Adds a task to the specified job.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "commandLine": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-jobs-jobid-tasks-taskid",
+      "name": "GET /jobs/{jobId}/tasks/{taskId}",
+      "description": "Gets information about the specified task.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "put-jobs-jobid-tasks-taskid",
+      "name": "PUT /jobs/{jobId}/tasks/{taskId}",
+      "description": "Updates the properties of the specified task.",
+      "method": "PUT",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "constraints": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "delete-jobs-jobid-tasks-taskid",
+      "name": "DELETE /jobs/{jobId}/tasks/{taskId}",
+      "description": "Deletes a task from the specified job.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-jobs-jobid-tasks-taskid-files",
+      "name": "GET /jobs/{jobId}/tasks/{taskId}/files",
+      "description": "Lists the files in a task's directory on its compute node.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/files",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-jobs-jobid-tasks-taskid-files-filename",
+      "name": "GET /jobs/{jobId}/tasks/{taskId}/files/{fileName}",
+      "description": "Gets the content of the specified task file.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "delete-jobs-jobid-tasks-taskid-files-filename",
+      "name": "DELETE /jobs/{jobId}/tasks/{taskId}/files/{fileName}",
+      "description": "Deletes the specified task file from the compute node where the task ran.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "head-jobs-jobid-tasks-taskid-files-filename",
+      "name": "HEAD /jobs/{jobId}/tasks/{taskId}/files/{fileName}",
+      "description": "Gets the properties of the specified task file.",
+      "method": "HEAD",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "get-jobs-jobid-tasks-taskid-subtasksinfo",
+      "name": "GET /jobs/{jobId}/tasks/{taskId}/subtasksinfo",
+      "description": "Lists all of the subtasks that are associated with the specified multi-instance task.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/subtasksinfo",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "post-jobs-jobid-tasks-taskid-terminate",
+      "name": "POST /jobs/{jobId}/tasks/{taskId}/terminate",
+      "description": "Terminates the specified task.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/tasks/{{TASKID}}/terminate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASKID}}",
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{TASKID}} with a real taskid. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "post-jobs-jobid-terminate",
+      "name": "POST /jobs/{jobId}/terminate",
+      "description": "Terminates the specified job, marking it as completed.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobs/{{JOBID}}/terminate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "terminateReason": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-jobschedules",
+      "name": "GET /jobschedules",
+      "description": "Lists all of the job schedules in the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobschedules",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-jobschedules",
+      "name": "POST /jobschedules",
+      "description": "Adds a job schedule to the specified account.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobschedules",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "schedule": "",
+        "jobSpecification": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-jobschedules-jobscheduleid",
+      "name": "GET /jobschedules/{jobScheduleId}",
+      "description": "Gets information about the specified job schedule.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "put-jobschedules-jobscheduleid",
+      "name": "PUT /jobschedules/{jobScheduleId}",
+      "description": "Updates the properties of the specified job schedule.",
+      "method": "PUT",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "schedule": "",
+        "jobSpecification": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "delete-jobschedules-jobscheduleid",
+      "name": "DELETE /jobschedules/{jobScheduleId}",
+      "description": "Deletes a job schedule from the specified account.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "patch-jobschedules-jobscheduleid",
+      "name": "PATCH /jobschedules/{jobScheduleId}",
+      "description": "Updates the properties of the specified job schedule.",
+      "method": "PATCH",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "jobSpecification": "",
+        "metadata": [],
+        "schedule": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "head-jobschedules-jobscheduleid",
+      "name": "HEAD /jobschedules/{jobScheduleId}",
+      "description": "Checks the specified job schedule exists.",
+      "method": "HEAD",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "post-jobschedules-jobscheduleid-disable",
+      "name": "POST /jobschedules/{jobScheduleId}/disable",
+      "description": "Disables a job schedule.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}/disable",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "post-jobschedules-jobscheduleid-enable",
+      "name": "POST /jobschedules/{jobScheduleId}/enable",
+      "description": "Enables a job schedule.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}/enable",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "get-jobschedules-jobscheduleid-jobs",
+      "name": "GET /jobschedules/{jobScheduleId}/jobs",
+      "description": "Lists the jobs that have been created under the specified job schedule.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}/jobs",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "post-jobschedules-jobscheduleid-terminate",
+      "name": "POST /jobschedules/{jobScheduleId}/terminate",
+      "description": "Terminates a job schedule.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/jobschedules/{{JOBSCHEDULEID}}/terminate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBSCHEDULEID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBSCHEDULEID}} with a real jobscheduleid."
+    },
+    {
+      "id": "get-lifetimejobstats",
+      "name": "GET /lifetimejobstats",
+      "description": "Gets lifetime summary statistics for all of the jobs in the specified account. Statistics are aggregated across all jobs that have ever existed in the account, from account creation to the last update time of the statistics.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/lifetimejobstats",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-lifetimepoolstats",
+      "name": "GET /lifetimepoolstats",
+      "description": "Gets lifetime summary statistics for all of the pools in the specified account. Statistics are aggregated across all pools that have ever existed in the account, from account creation to the last update time of the statistics.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/lifetimepoolstats",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-pools",
+      "name": "GET /pools",
+      "description": "Lists all of the pools in the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-pools",
+      "name": "POST /pools",
+      "description": "Adds a pool to the specified account.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "vmSize": "",
+        "osFamily": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-pools-poolid",
+      "name": "GET /pools/{poolId}",
+      "description": "Gets information about the specified pool.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "delete-pools-poolid",
+      "name": "DELETE /pools/{poolId}",
+      "description": "Deletes a pool from the specified account.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "patch-pools-poolid",
+      "name": "PATCH /pools/{poolId}",
+      "description": "Updates the properties of a pool.",
+      "method": "PATCH",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "applicationPackageReferences": [],
+        "certificateReferences": [],
+        "metadata": [],
+        "startTask": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "head-pools-poolid",
+      "name": "HEAD /pools/{poolId}",
+      "description": "Gets basic properties of a pool.",
+      "method": "HEAD",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-disableautoscale",
+      "name": "POST /pools/{poolId}/disableautoscale",
+      "description": "Disables automatic scaling for a pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/disableautoscale",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-enableautoscale",
+      "name": "POST /pools/{poolId}/enableautoscale",
+      "description": "Enables automatic scaling for a pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/enableautoscale",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "autoScaleEvaluationInterval": "",
+        "autoScaleFormula": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-evaluateautoscale",
+      "name": "POST /pools/{poolId}/evaluateautoscale",
+      "description": "Gets the result of evaluating an automatic scaling formula on the pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/evaluateautoscale",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "autoScaleFormula": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "get-pools-poolid-nodes",
+      "name": "GET /pools/{poolId}/nodes",
+      "description": "Lists the compute nodes in the specified pool.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "get-pools-poolid-nodes-nodeid",
+      "name": "GET /pools/{poolId}/nodes/{nodeId}",
+      "description": "Gets information about the specified compute node.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-nodes-nodeid-disablescheduling",
+      "name": "POST /pools/{poolId}/nodes/{nodeId}/disablescheduling",
+      "description": "Disable task scheduling of the specified compute node.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/disablescheduling",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "nodeDisableSchedulingOption": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-nodes-nodeid-enablescheduling",
+      "name": "POST /pools/{poolId}/nodes/{nodeId}/enablescheduling",
+      "description": "Enable task scheduling of the specified compute node.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/enablescheduling",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "get-pools-poolid-nodes-nodeid-files",
+      "name": "GET /pools/{poolId}/nodes/{nodeId}/files",
+      "description": "Lists all of the files in task directories on the specified compute node.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/files",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "get-pools-poolid-nodes-nodeid-files-filename",
+      "name": "GET /pools/{poolId}/nodes/{nodeId}/files/{fileName}",
+      "description": "Gets the content of the specified task file.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "delete-pools-poolid-nodes-nodeid-files-filename",
+      "name": "DELETE /pools/{poolId}/nodes/{nodeId}/files/{fileName}",
+      "description": "Deletes the specified task file from the compute node.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "head-pools-poolid-nodes-nodeid-files-filename",
+      "name": "HEAD /pools/{poolId}/nodes/{nodeId}/files/{fileName}",
+      "description": "Gets the properties of the specified compute node file.",
+      "method": "HEAD",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/files/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}",
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "get-pools-poolid-nodes-nodeid-rdp",
+      "name": "GET /pools/{poolId}/nodes/{nodeId}/rdp",
+      "description": "Gets the Remote Desktop Protocol file for the specified compute node.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/rdp",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-nodes-nodeid-reboot",
+      "name": "POST /pools/{poolId}/nodes/{nodeId}/reboot",
+      "description": "Restarts the specified compute node.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/reboot",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "nodeRebootOption": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-nodes-nodeid-reimage",
+      "name": "POST /pools/{poolId}/nodes/{nodeId}/reimage",
+      "description": "Reinstalls the operating system on the specified compute node.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/reimage",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "nodeReimageOption": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-nodes-nodeid-users",
+      "name": "POST /pools/{poolId}/nodes/{nodeId}/users",
+      "description": "Adds a user account to the specified compute node.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "name": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "put-pools-poolid-nodes-nodeid-users-username",
+      "name": "PUT /pools/{poolId}/nodes/{nodeId}/users/{userName}",
+      "description": "Updates the password or expiration time of a user account on the specified compute node.",
+      "method": "PUT",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/users/{{USERNAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}",
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-pools-poolid-nodes-nodeid-users-username",
+      "name": "DELETE /pools/{poolId}/nodes/{nodeId}/users/{userName}",
+      "description": "Deletes a user account from the specified compute node.",
+      "method": "DELETE",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/nodes/{{NODEID}}/users/{{USERNAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NODEID}}",
+        "{{POOLID}}",
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NODEID}} with a real nodeid. Replace {{POOLID}} with a real poolid. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "post-pools-poolid-removenodes",
+      "name": "POST /pools/{poolId}/removenodes",
+      "description": "Removes compute nodes from the specified pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/removenodes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "nodeList": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-resize",
+      "name": "POST /pools/{poolId}/resize",
+      "description": "Changes the number of compute nodes that are assigned to a pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/resize",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "targetDedicated": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-stopresize",
+      "name": "POST /pools/{poolId}/stopresize",
+      "description": "Stops an ongoing resize operation on the pool. This does not restore the pool to its previous state before the resize operation: it only stops any further changes being made, and the pool maintains its current state.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/stopresize",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-updateproperties",
+      "name": "POST /pools/{poolId}/updateproperties",
+      "description": "Updates the properties of a pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/updateproperties",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "certificateReferences": [],
+        "metadata": [],
+        "applicationPackageReferences": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "post-pools-poolid-upgradeos",
+      "name": "POST /pools/{poolId}/upgradeos",
+      "description": "Upgrades the operating system of the specified pool.",
+      "method": "POST",
+      "url": "https://batch.core.windows.net/pools/{{POOLID}}/upgradeos",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "targetOSVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POOLID}}"
+      ],
+      "notes": "No authentication required. Replace {{POOLID}} with a real poolid."
+    },
+    {
+      "id": "get-poolusagemetrics",
+      "name": "GET /poolusagemetrics",
+      "description": "Lists the usage metrics, aggregated by pool across individual time intervals, for the specified account.",
+      "method": "GET",
+      "url": "https://batch.core.windows.net/poolusagemetrics",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

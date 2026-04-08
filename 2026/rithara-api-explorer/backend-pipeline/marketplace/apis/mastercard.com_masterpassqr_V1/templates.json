@@ -1,0 +1,283 @@
+{
+  "api_id": "mastercard.com:masterpassqr:V1",
+  "endpoint_count": 15,
+  "endpoints": [
+    {
+      "id": "initiates-a-mastercard-merchant-presented-qr-purchase-transaction-by-securing-funds-from-a-consumers-account-with-a-funding-transaction-and-pushing-funds-to-a-merchant-account-with-a-payment-transaction",
+      "name": "Initiates a Mastercard Merchant Presented QR purchase transaction by securing funds from a consumer\u2019s account with a Funding Transaction and pushing funds to a merchant account with a Payment Transaction.",
+      "description": "Initiates a Mastercard Merchant Presented QR purchase transaction by securing funds from a consumer\u2019s account with a Funding Transaction and pushing funds to a merchant account with a Payment Transaction.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/#env/v1/partners/{{PARTNERID}}/merchant/transfer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "merchant_transfer": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "purpose-of-this-service-is-to-retrieve-the-transfer-resource-associated-with-a-specified-transfer-reference-value",
+      "name": "Purpose of this service is to retrieve the Transfer resource associated with a specified transfer_reference value.",
+      "description": "Purpose of this service is to retrieve the Transfer resource associated with a specified transfer_reference value.",
+      "method": "GET",
+      "url": "https://api.mastercard.com/send/#env/v1/partners/{{PARTNERID}}/merchant/transfers",
+      "headers": {},
+      "query_params": {
+        "ref": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "initiates-a-mastercard-merchant-presented-qr-purchase-transaction-by-pushing-funds-to-a-merchant-account",
+      "name": "Initiates a Mastercard Merchant Presented QR purchase transaction by pushing funds to a merchant account.",
+      "description": "Initiates a Mastercard Merchant Presented QR purchase transaction by pushing funds to a merchant account.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/#env/v1/partners/{{PARTNERID}}/merchant/transfers/payment",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "merchant_payment_transfer": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "initiates-a-mastercard-merchant-presented-qr-refund-transaction-by-pushing-funds-from-a-merchant-account-back-to-the-customer-s-account",
+      "name": "Initiates a Mastercard Merchant Presented QR Refund transaction by pushing funds from a merchant account back to the customer's account.",
+      "description": "Initiates a Mastercard Merchant Presented QR Refund transaction by pushing funds from a merchant account back to the customer's account.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/#env/v1/partners/{{PARTNERID}}/merchant/transfers/refund",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "merchant_refund_transfer": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "purpose-of-this-service-is-to-retrieve-the-transfer-resource-associated-with-the-specified-transfer-id",
+      "name": "Purpose of this service is to retrieve the Transfer resource associated with the specified transfer-id.",
+      "description": "Purpose of this service is to retrieve the Transfer resource associated with the specified transfer-id.",
+      "method": "GET",
+      "url": "https://api.mastercard.com/send/#env/v1/partners/{{PARTNERID}}/merchant/transfers/{{TRANSFERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}",
+        "{{TRANSFERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid. Replace {{TRANSFERID}} with a real transferid."
+    },
+    {
+      "id": "funding-reversals-must-be-submitted-within-30-minutes-of-the-funding-transfer-request-and-should-only-be-submitted-for-the-following-conditions-funding-transaction-must-be-reversed-if-payment-transaction-cannot-complete-successfully-i-e-the-payment-transaction-is-rejected-or-declined-upon-a-successful-reversal-of-a-funding-transaction-the-refund-must-be-credited-to-the-sending-consumers-funding-account",
+      "name": "Funding Reversals must be submitted within 30 minutes of the funding transfer request, and should only be submitted for the following conditions:  Funding Transaction must be reversed if payment transaction cannot complete successfully, i.e. the payment transaction is rejected or declined.  Upon a successful reversal of a funding transaction, the refund must be credited to the sending consumer\u2019s Funding Account.",
+      "description": "Funding Reversals must be submitted within 30 minutes of the funding transfer request, and should only be submitted for the following conditions:  Funding Transaction must be reversed if payment transaction cannot complete successfully, i.e. the payment transaction is rejected or declined.  Upon a successful reversal of a funding transaction, the refund must be credited to the sending consumer\u2019s Funding Account.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNER-ID}}/transfers/{{TRANSFER-ID}}/transactions/{{TRANSACTION-ID}}/reversals",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "funding_reversal": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRANSACTION-ID}}",
+        "{{PARTNER-ID}}",
+        "{{TRANSFER-ID}}"
+      ],
+      "notes": "No authentication required. Replace {{TRANSACTION-ID}} with a real transaction-id. Replace {{PARTNER-ID}} with a real partner-id. Replace {{TRANSFER-ID}} with a real transfer-id."
+    },
+    {
+      "id": "client-can-simulate-a-mastercard-merchant-presented-qr-payment-notification-to-the-registered-url-endpoint",
+      "name": "Client can simulate a Mastercard Merchant Presented QR Payment notification to the registered URL endpoint. ",
+      "description": "Client can simulate a Mastercard Merchant Presented QR Payment notification to the registered URL endpoint. ",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/events/generate/payment",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "notification_request": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "client-can-simulate-a-mastercard-merchant-presented-qr-refund-notification-to-the-registered-url-endpoint",
+      "name": "Client can simulate a Mastercard Merchant Presented QR Refund notification to the registered URL endpoint. ",
+      "description": "Client can simulate a Mastercard Merchant Presented QR Refund notification to the registered URL endpoint. ",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/events/generate/refund",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "notification_request": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "this-service-allows-mastercard-merchant-qr-originating-and-receiving-partners-to-register-a-pan-and-service-provider-to-receive-notifications-on-an-inbound-merchant-refund-or-merchant-payment-transaction",
+      "name": "This service allows Mastercard Merchant QR originating and receiving partners to register a PAN and service provider to receive notifications on an inbound Merchant Refund or Merchant Payment Transaction.",
+      "description": "This service allows Mastercard Merchant QR originating and receiving partners to register a PAN and service provider to receive notifications on an inbound Merchant Refund or Merchant Payment Transaction.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/notification-registries",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accountregistration": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "this-service-allows-mastercard-merchant-qr-originating-and-receiving-partners-to-retrieve-the-service-provider-s-information-for-a-registered-pan-for-notifications",
+      "name": "This service allows Mastercard Merchant QR originating and receiving partners to retrieve the service provider's information for a registered PAN for notifications. ",
+      "description": "This service allows Mastercard Merchant QR originating and receiving partners to retrieve the service provider's information for a registered PAN for notifications. ",
+      "method": "GET",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/notification-registries/{{ACCOUNT-REG-REF}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNT-REG-REF}}",
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNT-REG-REF}} with a real account-reg-ref. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "this-service-allows-mastercard-merchant-qr-originating-and-receiving-partners-to-update-the-notitification-service-provider-for-a-registered-pan",
+      "name": "This service allows Mastercard Merchant QR originating and receiving partners to update the notitification service provider for a registered PAN.",
+      "description": "This service allows Mastercard Merchant QR originating and receiving partners to update the notitification service provider for a registered PAN.",
+      "method": "PUT",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/notification-registries/{{ACCOUNT-REG-REF}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accountregistration": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNT-REG-REF}}",
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNT-REG-REF}} with a real account-reg-ref. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "this-service-allows-mastercard-merchant-qr-originating-and-receiving-partners-to-delete-a-registered-pan-for-notifications",
+      "name": "This service allows Mastercard Merchant QR originating and receiving partners to delete a registered PAN for notifications. ",
+      "description": "This service allows Mastercard Merchant QR originating and receiving partners to delete a registered PAN for notifications. ",
+      "method": "DELETE",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/notification-registries/{{ACCOUNT-REG-REF}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCOUNT-REG-REF}}",
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCOUNT-REG-REF}} with a real account-reg-ref. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "the-funding-transaction-enables-the-pull-of-money-from-the-sender-s-card-to-the-transaction-originator-who-is-providing-the-person-to-merchant-service-the-amount-that-is-debited-from-the-funding-account-sending-consumer-s-account-will-be-the-amount-pushed-to-the-recipient-via-a-payment-transfer-request-funds-can-be-transferred-from-mastercard-r-or-maestro-r-debit-card-accounts-to-initiate-the-funding-transaction-users-can-provide-the-sending-consumer-s-primary-account-number-pan-or-a-unique-identifier-previously-mapped-to-the-sending-consumer-s-account",
+      "name": "The Funding Transaction enables the 'pull' of money from the sender's card to the Transaction Originator who is providing the Person to Merchant service. The amount that is debited from the Funding Account (sending consumer's account) will be the amount 'pushed' to the recipient via a payment transfer request.  Funds can be transferred from Mastercard\u00ae or Maestro\u00ae debit card accounts. To initiate the funding transaction, users can provide the sending consumer's Primary Account Number (PAN) or a unique identifier previously mapped to the sending consumer's account.",
+      "description": "The Funding Transaction enables the 'pull' of money from the sender's card to the Transaction Originator who is providing the Person to Merchant service. The amount that is debited from the Funding Account (sending consumer's account) will be the amount 'pushed' to the recipient via a payment transfer request.  Funds can be transferred from Mastercard\u00ae or Maestro\u00ae debit card accounts. To initiate the funding transaction, users can provide the sending consumer's Primary Account Number (PAN) or a unique identifier previously mapped to the sending consumer's account.",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/partners/{{PARTNERID}}/transfers/funding",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "funding_transfer": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "used-to-create-a-digital-account-reference-number-from-incontrol",
+      "name": "Used to create a digital account reference number from Incontrol ",
+      "description": "Used to create a digital account reference number from Incontrol ",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/{{PARTNERID}}/digital-account",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "digital_account": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    },
+    {
+      "id": "used-to-retreive-a-digital-account-reference-list-from-incontrol",
+      "name": "Used to retreive a digital account reference list from Incontrol ",
+      "description": "Used to retreive a digital account reference list from Incontrol ",
+      "method": "POST",
+      "url": "https://api.mastercard.com/send/v1/{{PARTNERID}}/digital-account/search",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "digital_account": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARTNERID}}"
+      ],
+      "notes": "No authentication required. Replace {{PARTNERID}} with a real partnerid."
+    }
+  ]
+}

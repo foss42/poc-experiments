@@ -1,0 +1,137 @@
+{
+  "api_id": "googleapis.com:mybusinessqanda:v1",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a specific question written by the current user.",
+      "method": "DELETE",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates a specific question written by the current user.",
+      "method": "PATCH",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "author": {},
+        "createTime": "",
+        "name": "",
+        "text": "",
+        "topAnswers": [],
+        "totalAnswerCount": 0,
+        "updateTime": "",
+        "upvoteCount": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name-answers-delete",
+      "name": "DELETE /v1/{name}/answers:delete",
+      "description": "Deletes the answer written by the current user to a question.",
+      "method": "DELETE",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{NAME}}/answers:delete",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent",
+      "name": "GET /v1/{parent}",
+      "description": "Returns the paginated list of questions and some of its answers for a specified location. This operation is only valid if the specified location is verified.",
+      "method": "GET",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{PARENT}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent",
+      "name": "POST /v1/{parent}",
+      "description": "Adds a question for the specified location.",
+      "method": "POST",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{PARENT}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "author": {},
+        "createTime": "",
+        "name": "",
+        "text": "",
+        "topAnswers": [],
+        "totalAnswerCount": 0,
+        "updateTime": "",
+        "upvoteCount": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-answers",
+      "name": "GET /v1/{parent}/answers",
+      "description": "Returns the paginated list of answers for a specified question.",
+      "method": "GET",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{PARENT}}/answers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-answers-upsert",
+      "name": "POST /v1/{parent}/answers:upsert",
+      "description": "Creates an answer or updates the existing answer written by the user for the specified question. A user can only create one answer per question.",
+      "method": "POST",
+      "url": "https://mybusinessqanda.googleapis.com/v1/{{PARENT}}/answers:upsert",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "answer": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

@@ -1,0 +1,655 @@
+{
+  "api_id": "googleapis.com:realtimebidding:v1",
+  "endpoint_count": 28,
+  "endpoints": [
+    {
+      "id": "get-v1-bidders",
+      "name": "GET /v1/bidders",
+      "description": "Lists all the bidder accounts that belong to the caller.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/bidders",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-buyers",
+      "name": "GET /v1/buyers",
+      "description": "Lists all buyer account information the calling buyer user or service account is permissioned to manage.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/buyers",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets a user list by its name.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "put-v1-name",
+      "name": "PUT /v1/{name}",
+      "description": "Update the given user list. Only user lists with URLRestrictions can be updated.",
+      "method": "PUT",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "displayName": "",
+        "membershipDurationDays": "",
+        "name": "",
+        "status": "",
+        "urlRestriction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Deletes a pretargeting configuration.",
+      "method": "DELETE",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates a creative.",
+      "method": "PATCH",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountId": "",
+        "adChoicesDestinationUrl": "",
+        "advertiserName": "",
+        "agencyId": "",
+        "apiUpdateTime": "",
+        "creativeFormat": "",
+        "creativeId": "",
+        "creativeServingDecision": {},
+        "dealIds": [],
+        "declaredAttributes": [],
+        "declaredClickThroughUrls": [],
+        "declaredRestrictedCategories": [],
+        "declaredVendorIds": [],
+        "html": {},
+        "impressionTrackingUrls": [],
+        "name": "",
+        "native": {},
+        "renderUrl": "",
+        "restrictedCategories": [],
+        "version": 0,
+        "video": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-activate",
+      "name": "POST /v1/{name}:activate",
+      "description": "Activates a pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}:activate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-close",
+      "name": "POST /v1/{name}:close",
+      "description": "Change the status of a user list to CLOSED. This prevents new users from being added to the user list.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}:close",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-name-getremarketingtag",
+      "name": "GET /v1/{name}:getRemarketingTag",
+      "description": "Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript code that can be placed on a web page. When a user visits a page containing a remarketing tag, Google adds the user to a user list.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}:getRemarketingTag",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-open",
+      "name": "POST /v1/{name}:open",
+      "description": "Change the status of a user list to OPEN. This allows new users to be added to the user list.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}:open",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-suspend",
+      "name": "POST /v1/{name}:suspend",
+      "description": "Suspends a pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{NAME}}:suspend",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-creatives",
+      "name": "GET /v1/{parent}/creatives",
+      "description": "Lists creatives as they are at the time of the initial request. This call may take multiple hours to complete. For large, paginated requests, this method returns a snapshot of creatives at the time of request for the first page. `lastStatusUpdate` and `creativeServingDecision` may be outdated for creatives on sequential pages. We recommend [Google Cloud Pub/Sub](//cloud.google.com/pubsub/docs/overview) to view the latest status.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/creatives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-creatives",
+      "name": "POST /v1/{parent}/creatives",
+      "description": "Creates a creative.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/creatives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountId": "",
+        "adChoicesDestinationUrl": "",
+        "advertiserName": "",
+        "agencyId": "",
+        "apiUpdateTime": "",
+        "creativeFormat": "",
+        "creativeId": "",
+        "creativeServingDecision": {},
+        "dealIds": [],
+        "declaredAttributes": [],
+        "declaredClickThroughUrls": [],
+        "declaredRestrictedCategories": [],
+        "declaredVendorIds": [],
+        "html": {},
+        "impressionTrackingUrls": [],
+        "name": "",
+        "native": {},
+        "renderUrl": "",
+        "restrictedCategories": [],
+        "version": 0,
+        "video": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-creatives-watch",
+      "name": "POST /v1/{parent}/creatives:watch",
+      "description": "Watches all creatives pertaining to a bidder. It is sufficient to invoke this endpoint once per bidder. A Pub/Sub topic will be created and notifications will be pushed to the topic when any of the bidder's creatives change status. All of the bidder's service accounts will have access to read from the topic. Subsequent invocations of this method will return the existing Pub/Sub configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/creatives:watch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-endpoints",
+      "name": "GET /v1/{parent}/endpoints",
+      "description": "Lists all the bidder's endpoints.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/endpoints",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-pretargetingconfigs",
+      "name": "GET /v1/{parent}/pretargetingConfigs",
+      "description": "Lists all pretargeting configurations for a single bidder.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/pretargetingConfigs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-pretargetingconfigs",
+      "name": "POST /v1/{parent}/pretargetingConfigs",
+      "description": "Creates a pretargeting configuration. A pretargeting configuration's state (PretargetingConfig.state) is active upon creation, and it will start to affect traffic shortly after. A bidder may create a maximum of 10 pretargeting configurations. Attempts to exceed this maximum results in a 400 bad request error.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/pretargetingConfigs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowedUserTargetingModes": [],
+        "appTargeting": {},
+        "billingId": "",
+        "displayName": "",
+        "excludedContentLabelIds": [],
+        "geoTargeting": {},
+        "includedCreativeDimensions": [],
+        "includedEnvironments": [],
+        "includedFormats": [],
+        "includedLanguages": [],
+        "includedMobileOperatingSystemIds": [],
+        "includedPlatforms": [],
+        "includedUserIdTypes": [],
+        "interstitialTargeting": "",
+        "invalidGeoIds": [],
+        "maximumQps": "",
+        "minimumViewabilityDecile": 0,
+        "name": "",
+        "publisherTargeting": {},
+        "state": "",
+        "userListTargeting": {},
+        "verticalTargeting": {},
+        "webTargeting": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-publisherconnections",
+      "name": "GET /v1/{parent}/publisherConnections",
+      "description": "Lists publisher connections for a given bidder.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/publisherConnections",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-publisherconnections-batchapprove",
+      "name": "POST /v1/{parent}/publisherConnections:batchApprove",
+      "description": "Batch approves multiple publisher connections.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/publisherConnections:batchApprove",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "names": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-publisherconnections-batchreject",
+      "name": "POST /v1/{parent}/publisherConnections:batchReject",
+      "description": "Batch rejects multiple publisher connections.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/publisherConnections:batchReject",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "names": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-userlists",
+      "name": "GET /v1/{parent}/userLists",
+      "description": "Lists the user lists visible to the current user.",
+      "method": "GET",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/userLists",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-userlists",
+      "name": "POST /v1/{parent}/userLists",
+      "description": "Create a new user list.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PARENT}}/userLists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "displayName": "",
+        "membershipDurationDays": "",
+        "name": "",
+        "status": "",
+        "urlRestriction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-addtargetedapps",
+      "name": "POST /v1/{pretargetingConfig}:addTargetedApps",
+      "description": "Adds targeted apps to the pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:addTargetedApps",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appIds": [],
+        "targetingMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-addtargetedpublishers",
+      "name": "POST /v1/{pretargetingConfig}:addTargetedPublishers",
+      "description": "Adds targeted publishers to the pretargeting config.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:addTargetedPublishers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "publisherIds": [],
+        "targetingMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-addtargetedsites",
+      "name": "POST /v1/{pretargetingConfig}:addTargetedSites",
+      "description": "Adds targeted sites to the pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:addTargetedSites",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "sites": [],
+        "targetingMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-removetargetedapps",
+      "name": "POST /v1/{pretargetingConfig}:removeTargetedApps",
+      "description": "Removes targeted apps from the pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:removeTargetedApps",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-removetargetedpublishers",
+      "name": "POST /v1/{pretargetingConfig}:removeTargetedPublishers",
+      "description": "Removes targeted publishers from the pretargeting config.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:removeTargetedPublishers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "publisherIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    },
+    {
+      "id": "post-v1-pretargetingconfig-removetargetedsites",
+      "name": "POST /v1/{pretargetingConfig}:removeTargetedSites",
+      "description": "Removes targeted sites from the pretargeting configuration.",
+      "method": "POST",
+      "url": "https://realtimebidding.googleapis.com/v1/{{PRETARGETINGCONFIG}}:removeTargetedSites",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "sites": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PRETARGETINGCONFIG}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PRETARGETINGCONFIG}} with a real pretargetingconfig."
+    }
+  ]
+}

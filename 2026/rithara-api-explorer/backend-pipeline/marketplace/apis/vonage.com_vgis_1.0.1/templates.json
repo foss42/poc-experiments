@@ -1,0 +1,314 @@
+{
+  "api_id": "vonage.com:vgis:1.0.1",
+  "endpoint_count": 20,
+  "endpoints": [
+    {
+      "id": "user-info",
+      "name": "User info",
+      "description": "User info",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "account-info",
+      "name": "Account info",
+      "description": "Account info",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/account",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-active-calls",
+      "name": "List active calls",
+      "description": "Lists currently active calls",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "place-a-call",
+      "name": "Place a call",
+      "description": "Place a call",
+      "method": "POST",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "phoneNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-calls-count",
+      "name": "Get calls count",
+      "description": "Get calls count",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/count",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-call",
+      "name": "Get a call",
+      "description": "Get a call",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "end-a-call",
+      "name": "End a call",
+      "description": "End a call",
+      "method": "DELETE",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "answer-call-on-supported-devices",
+      "name": "Answer call (On supported devices)",
+      "description": "Answer call (On supported devices)",
+      "method": "PUT",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}/answer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-call-on-hold",
+      "name": "Put call on hold",
+      "description": "Put call on hold",
+      "method": "PUT",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}/hold",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "unhold",
+      "name": "Unhold",
+      "description": "Unhold",
+      "method": "DELETE",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}/hold",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "transfer-call",
+      "name": "Transfer call",
+      "description": "Transfer call",
+      "method": "POST",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}/transfer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "phoneNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "send-call-to-voicemail",
+      "name": "Send call to voicemail",
+      "description": "Send call to voicemail",
+      "method": "PUT",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/calls/{{ID}}/vmtransfer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-events",
+      "name": "List events",
+      "description": "List events",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/events",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-events-count",
+      "name": "Get events count",
+      "description": "Get events count",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/events/count",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-event",
+      "name": "Get event",
+      "description": "Get event",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/events/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-web-hooks",
+      "name": "List web hooks",
+      "description": "List web hooks",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/webhooks",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-new-webhook-subscription",
+      "name": "Create a new webhook subscription",
+      "description": "Create a new webhook subscription",
+      "method": "POST",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/webhooks",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "events": [
+          "CALL"
+        ],
+        "metadataPolicy": "NONE",
+        "signingAlgo": "HMAC_SHA256",
+        "signingKey": "",
+        "url": "https://www.example.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-web-hook-details",
+      "name": "Get web hook details",
+      "description": "Get web hook details",
+      "method": "GET",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/webhooks/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-web-hook",
+      "name": "Remove a web hook",
+      "description": "Remove a web hook",
+      "method": "DELETE",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/webhooks/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "renews-a-web-hook",
+      "name": "Renews a web hook",
+      "description": "Renews a web hook",
+      "method": "PUT",
+      "url": "https://api.vonage.com/t/vbc.prod/vis/v1/self/webhooks/{{ID}}/renew",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    }
+  ]
+}

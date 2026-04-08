@@ -1,0 +1,175 @@
+{
+  "api_id": "inboxroute.com:0.9",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-contacts",
+      "name": "GET /contacts",
+      "description": "Get a paged result of contacts from a list",
+      "method": "GET",
+      "url": "https://api.inboxroute.com/api/contacts",
+      "headers": {
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY."
+    },
+    {
+      "id": "get-contacts-lists",
+      "name": "GET /contacts/lists",
+      "description": "Get a paged result of contact lists.",
+      "method": "GET",
+      "url": "https://api.inboxroute.com/api/contacts/lists",
+      "headers": {
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY."
+    },
+    {
+      "id": "post-contacts-lists",
+      "name": "POST /contacts/lists",
+      "description": "Add a new contact list",
+      "method": "POST",
+      "url": "https://api.inboxroute.com/api/contacts/lists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "customfields": [],
+        "eventcustomizations": [],
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY."
+    },
+    {
+      "id": "put-contacts-lists-listid",
+      "name": "PUT /contacts/lists/{listid}",
+      "description": "Update an existing contact list",
+      "method": "PUT",
+      "url": "https://api.inboxroute.com/api/contacts/lists/{{LISTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "customfields": [],
+        "eventcustomizations": [],
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{LISTID}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY. Replace {{LISTID}} with a real listid."
+    },
+    {
+      "id": "delete-contacts-lists-listid",
+      "name": "DELETE /contacts/lists/{listid}",
+      "description": "Delete an existing contact list",
+      "method": "DELETE",
+      "url": "https://api.inboxroute.com/api/contacts/lists/{{LISTID}}",
+      "headers": {
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{LISTID}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY. Replace {{LISTID}} with a real listid."
+    },
+    {
+      "id": "put-contacts-contactid",
+      "name": "PUT /contacts/{contactid}",
+      "description": "Update an existing contact",
+      "method": "PUT",
+      "url": "https://api.inboxroute.com/api/contacts/{{CONTACTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "confirmed": "",
+        "customfields": "",
+        "email": "",
+        "ip": "",
+        "status": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{CONTACTID}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY. Replace {{CONTACTID}} with a real contactid."
+    },
+    {
+      "id": "delete-contacts-contactid",
+      "name": "DELETE /contacts/{contactid}",
+      "description": "Delete an existing contact",
+      "method": "DELETE",
+      "url": "https://api.inboxroute.com/api/contacts/{{CONTACTID}}",
+      "headers": {
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{CONTACTID}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY. Replace {{CONTACTID}} with a real contactid."
+    },
+    {
+      "id": "post-subscription-listid",
+      "name": "POST /subscription/{listid}",
+      "description": "Subscribe an email address to a list. This api call has the same behavior as\na regular subscribe form. However, single opt-in is allowed for system integration\npurposes.\n\n- If email address does not exist, a new contact will be added to the list.\n- If email address exists custom fields will be updated and status will be put\n  to unconfirmed or active depending of singleoptin value.\n- If current status if Active, this operation will only update the custom fields.\n- If singleoptin is true, no email confirmation will be sent. In that case,\n  you must provide the subscribe's origin ip and confirmation date-time.\n",
+      "method": "POST",
+      "url": "https://api.inboxroute.com/api/subscription/{{LISTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{INBOXROUTE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INBOXROUTE_API_KEY}}",
+        "{{LISTID}}",
+        "{{INBOXROUTE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{INBOXROUTE_API_KEY}} with your INBOXROUTE API KEY. Replace {{LISTID}} with a real listid."
+    }
+  ]
+}

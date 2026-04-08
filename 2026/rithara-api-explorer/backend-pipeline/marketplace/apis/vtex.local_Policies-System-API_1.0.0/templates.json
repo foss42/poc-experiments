@@ -1,0 +1,150 @@
+{
+  "api_id": "vtex.local:Policies-System-API:1.0.0",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "evaluate-policies",
+      "name": "Evaluate Policies",
+      "description": "This endpoint consults all policies and checks the ones that satisfy the request body\u2019s conditions.",
+      "method": "POST",
+      "url": "https://vtex.local/api/policy-engine/evaluate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "context": {
+          "brandId": "2000001",
+          "discountPercentage": "91.00"
+        },
+        "resource": "vrn:vtex.promotions-alert:aws-us-east-1:kamila:master:/_v/promotions_alert"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-policy-list",
+      "name": "Get Policy List",
+      "description": "Retrieves a list of all policies in the account and general information of each policy.",
+      "method": "GET",
+      "url": "https://vtex.local/api/policy-engine/policies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-policy-by-id",
+      "name": "Get Policy by ID",
+      "description": "Retrieves general information of a policy by its ID.",
+      "method": "GET",
+      "url": "https://vtex.local/api/policy-engine/policies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-policy",
+      "name": "Create Policy",
+      "description": "Creates a new policy from scratch.",
+      "method": "POST",
+      "url": "https://vtex.local/api/policy-engine/policies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "TesteMarcosPromotionsAlert",
+        "name": "TestAlarmBerenice",
+        "statements": [
+          {
+            "actions": [
+              {
+                "id": "SendSlackMessage",
+                "metadata": {
+                  "alertDescription": "Avoid selling products from Berenice with a discount greater than 40%.",
+                  "channel": "C01NJFF35R6",
+                  "relatedUsers": [
+                    "URUNDC2NB"
+                  ]
+                }
+              }
+            ],
+            "condition": {
+              "conditions": [
+                {
+                  "conditions": [],
+                  "key": "brandId",
+                  "operation": "stringEquals",
+                  "values": [
+                    "2000001"
+                  ]
+                },
+                {
+                  "conditions": [],
+                  "key": "discountPercentage",
+                  "operation": "numericGreaterThan",
+                  "values": [
+                    "40.00"
+                  ]
+                }
+              ],
+              "operation": "and"
+            },
+            "effect": "Allow",
+            "resource": "vrn:vtex.promotions-alert:aws-us-east-1:kamila:master:/_v/promotions_alert"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-policy",
+      "name": "Update Policy",
+      "description": "Updates an existing policy at your account.",
+      "method": "PUT",
+      "url": "https://vtex.local/api/policy-engine/policies/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "description": "",
+        "statements": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-policy-by-id",
+      "name": "Delete Policy by ID",
+      "description": "Deletes a specific policy of the account by its ID.",
+      "method": "DELETE",
+      "url": "https://vtex.local/api/policy-engine/policies/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    }
+  ]
+}

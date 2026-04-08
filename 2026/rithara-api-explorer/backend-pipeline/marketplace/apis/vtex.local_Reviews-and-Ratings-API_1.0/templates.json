@@ -1,0 +1,201 @@
+{
+  "api_id": "vtex.local:Reviews-and-Ratings-API:1.0",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-product-rating",
+      "name": "Get Product Rating",
+      "description": "Retrieves the rating of a specific product.",
+      "method": "GET",
+      "url": "https://vtex.local/rating/{{PRODUCTID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{PRODUCTID}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "create-a-review",
+      "name": "Create a Review",
+      "description": "Creates a single review",
+      "method": "POST",
+      "url": "https://vtex.local/review",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "productId": "65444",
+        "rating": 5,
+        "reviewerName": "Arturo",
+        "text": "It is the best product that I have seen",
+        "title": "Good Product"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "get-review-by-review-id",
+      "name": "Get Review by Review ID",
+      "description": "Retrieves information of a product review by its ID.",
+      "method": "GET",
+      "url": "https://vtex.local/review/{{REVIEWID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REVIEWID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{REVIEWID}} with a real reviewid."
+    },
+    {
+      "id": "delete-review",
+      "name": "Delete Review",
+      "description": "Deletes an existing review.",
+      "method": "DELETE",
+      "url": "https://vtex.local/review/{{REVIEWID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REVIEWID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{REVIEWID}} with a real reviewid."
+    },
+    {
+      "id": "update-a-review",
+      "name": "Update a Review",
+      "description": "Updates the information of a review.",
+      "method": "PATCH",
+      "url": "https://vtex.local/review/{{REVIEWID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "locale": "en-US",
+        "productId": "1",
+        "rating": 5,
+        "reviewerName": "Arturo",
+        "shopperId": "user@email.com",
+        "text": "Great product.",
+        "title": "Great product",
+        "verifiedPurchaser": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REVIEWID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{REVIEWID}} with a real reviewid."
+    },
+    {
+      "id": "get-a-list-of-reviews",
+      "name": "Get a list of Reviews",
+      "description": "Retrieves a list of reviews.",
+      "method": "GET",
+      "url": "https://vtex.local/reviews",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "search_term": "",
+        "from": "",
+        "to": "",
+        "order_by": "",
+        "status": "",
+        "product_id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "create-multiple-reviews",
+      "name": "Create Multiple Reviews",
+      "description": "Creates multiple reviews.",
+      "method": "POST",
+      "url": "https://vtex.local/reviews",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "approved": false,
+          "productId": "1",
+          "rating": 4,
+          "reviewerName": "Arturo",
+          "text": "test multiple reviews",
+          "title": "test multiple reviews",
+          "verifiedPurchaser": false
+        },
+        {
+          "approved": false,
+          "productId": "2",
+          "rating": 4,
+          "reviewerName": "Arturo",
+          "text": "test review 2 multiple reviews",
+          "title": "test review 2 multiple reviews",
+          "verifiedPurchaser": false
+        }
+      ],
+      "sample_response": [
+        "8e1a5e11-c0c9-11ec-835d-0a591b8a3ec1",
+        "9257c203-c0c9-11ec-835d-0e02dd207951"
+      ],
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "delete-multiple-reviews",
+      "name": "Delete Multiple Reviews",
+      "description": "Deletes multiple reviews at once.",
+      "method": "DELETE",
+      "url": "https://vtex.local/reviews",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "api_id": "amadeus.com:2.2.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "return-list-of-flight-offers-based-on-searching-criteria",
+      "name": "Return list of Flight Offers based on searching criteria.",
+      "description": "Return list of Flight Offers based on searching criteria.",
+      "method": "GET",
+      "url": "https://test.api.amadeus.com/v2/shopping/flight-offers",
+      "headers": {},
+      "query_params": {
+        "originLocationCode": "",
+        "destinationLocationCode": "",
+        "departureDate": "",
+        "adults": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "return-list-of-flight-offers-based-on-posted-searching-criteria",
+      "name": "Return list of Flight Offers based on posted searching criteria.",
+      "description": "Return list of Flight Offers based on posted searching criteria.",
+      "method": "POST",
+      "url": "https://test.api.amadeus.com/v2/shopping/flight-offers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "currencyCode": "USD",
+        "originDestinations": [
+          {
+            "departureDateTimeRange": {
+              "date": "2020-08-01",
+              "time": "10:00:00"
+            },
+            "destinationLocationCode": "MAD",
+            "id": "1",
+            "originLocationCode": "RIO"
+          },
+          {
+            "departureDateTimeRange": {
+              "date": "2020-08-05",
+              "time": "17:00:00"
+            },
+            "destinationLocationCode": "RIO",
+            "id": "2",
+            "originLocationCode": "MAD"
+          }
+        ],
+        "searchCriteria": {
+          "flightFilters": {
+            "cabinRestrictions": [
+              {
+                "cabin": "BUSINESS",
+                "coverage": "MOST_SEGMENTS",
+                "originDestinationIds": [
+                  "1"
+                ]
+              }
+            ],
+            "carrierRestrictions": {
+              "excludedCarrierCodes": [
+                "AA",
+                "TP",
+                "AZ"
+              ]
+            }
+          },
+          "maxFlightOffers": 2
+        },
+        "sources": [
+          "GDS"
+        ],
+        "travelers": [
+          {
+            "id": "1",
+            "travelerType": "ADULT"
+          },
+          {
+            "id": "2",
+            "travelerType": "CHILD"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

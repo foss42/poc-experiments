@@ -1,0 +1,1250 @@
+{
+  "api_id": "crucible.local:1.0.0",
+  "endpoint_count": 79,
+  "endpoints": [
+    {
+      "id": "get-rest-service-auth-v1-login",
+      "name": "GET /rest-service/auth-v1/login",
+      "description": "Get the user authentication token.\n \n This is a legacy version of the login request. Using GET is deprecated as your password is likely to appear in logs which record request URLs.\n Use the POST version instead.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/auth-v1/login",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-rest-service-auth-v1-login",
+      "name": "POST /rest-service/auth-v1/login",
+      "description": "Get the user authentication token.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/auth-v1/login",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-projects-v1",
+      "name": "GET /rest-service/projects-v1",
+      "description": "Get the list of projects that the authenticated user is entitled to access.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/projects-v1",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-projects-v1-key",
+      "name": "GET /rest-service/projects-v1/{key}",
+      "description": "Returns a project description.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/projects-v1/{{KEY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{KEY}}"
+      ],
+      "notes": "No authentication required. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "get-rest-service-repositories-v1",
+      "name": "GET /rest-service/repositories-v1",
+      "description": "Returns a list of all repositories. This includes plugin provided repositories",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-browse-repository-path",
+      "name": "GET /rest-service/repositories-v1/browse/{repository}/{path}",
+      "description": "Lists the contents of the specified directory.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/browse/{{REPOSITORY}}/{{PATH}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-change-repository-revision",
+      "name": "GET /rest-service/repositories-v1/change/{repository}/{revision}",
+      "description": "Represents a particular changeset.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/change/{{REPOSITORY}}/{{REVISION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REVISION}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REVISION}} with a real revision. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-changes-repository-path",
+      "name": "GET /rest-service/repositories-v1/changes/{repository}/{path}",
+      "description": "Represents a sorted list of changesets, newest first.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/changes/{{REPOSITORY}}/{{PATH}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-content-repository-revision-path",
+      "name": "GET /rest-service/repositories-v1/content/{repository}/{revision}/{path}",
+      "description": "Returns the raw content of the specified file revision as a binary\n stream. No attempt is made to identify the content type and no mime\n type is provided.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/content/{{REPOSITORY}}/{{REVISION}}/{{PATH}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}",
+        "{{REVISION}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path. Replace {{REVISION}} with a real revision. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-history-repository-revision-path",
+      "name": "GET /rest-service/repositories-v1/history/{repository}/{revision}/{path}",
+      "description": "Represents the history of a versioned entity.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/history/{{REPOSITORY}}/{{REVISION}}/{{PATH}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}",
+        "{{REVISION}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path. Replace {{REVISION}} with a real revision. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-repository",
+      "name": "GET /rest-service/repositories-v1/{repository}",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-repository-svn",
+      "name": "GET /rest-service/repositories-v1/{repository}/svn",
+      "description": "For backward compatibility we provide this method, but repositories should be referred to just by their key.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/{{REPOSITORY}}/svn",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-repositories-v1-repository-revision-path",
+      "name": "GET /rest-service/repositories-v1/{repository}/{revision}/{path}",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/repositories-v1/{{REPOSITORY}}/{{REVISION}}/{{PATH}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PATH}}",
+        "{{REVISION}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{PATH}} with a real path. Replace {{REVISION}} with a real revision. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-reviews-v1",
+      "name": "GET /rest-service/reviews-v1",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-rest-service-reviews-v1",
+      "name": "POST /rest-service/reviews-v1",
+      "description": null,
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-details",
+      "name": "GET /rest-service/reviews-v1/details",
+      "description": "Retrieves all reviews that are in one of the the specified states. For each review all details are included (review items + comments). The\n wiki rendered comments will be available via the <messageAsHtml> element",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/details",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-filter",
+      "name": "GET /rest-service/reviews-v1/filter",
+      "description": "To ignore a property, omit it from the query string.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-filter",
+      "name": "POST /rest-service/reviews-v1/filter",
+      "description": "This method should no longer be used, as it uses a POST for a read-only\n retrieval operation and is provided for backward compatibility only.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-filter-details",
+      "name": "GET /rest-service/reviews-v1/filter/details",
+      "description": "To ignore a property, omit it from the query string.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter/details",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-filter-details",
+      "name": "POST /rest-service/reviews-v1/filter/details",
+      "description": "This method should no longer be used, as it uses a POST for a read-only\n retrieval operation and is provided for backward compatibility only.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter/details",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-filter-filter",
+      "name": "GET /rest-service/reviews-v1/filter/{filter}",
+      "description": "Get all the reviews which match the given filter, for the current user.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter/{{FILTER}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILTER}}"
+      ],
+      "notes": "No authentication required. Replace {{FILTER}} with a real filter."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-filter-filter-details",
+      "name": "GET /rest-service/reviews-v1/filter/{filter}/details",
+      "description": "Gets a list of all the reviews that match the specified filter criteria.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/filter/{{FILTER}}/details",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILTER}}"
+      ],
+      "notes": "No authentication required. Replace {{FILTER}} with a real filter."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-metrics-version",
+      "name": "GET /rest-service/reviews-v1/metrics/{version}",
+      "description": "Get comment metrics metadata for the specified metrics version.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/metrics/{{VERSION}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VERSION}}"
+      ],
+      "notes": "No authentication required. Replace {{VERSION}} with a real version."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-search-repository",
+      "name": "GET /rest-service/reviews-v1/search/{repository}",
+      "description": "Return a list of Reviews which include a particular file.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/search/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-search-repository-details",
+      "name": "GET /rest-service/reviews-v1/search/{repository}/details",
+      "description": "Return a list of Reviews which include a particular file.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/search/{{REPOSITORY}}/details",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-versioninfo",
+      "name": "GET /rest-service/reviews-v1/versionInfo",
+      "description": "Returns Crucible version information.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/versionInfo",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id",
+      "name": "GET /rest-service/reviews-v1/{id}",
+      "description": "Get a single review by its permId (e.g. \"CR-45\").\n If the review does not exist, a 404 is returned.\n \n The moderator element may not exist if the review does not have a Moderator.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id",
+      "name": "DELETE /rest-service/reviews-v1/{id}",
+      "description": "Permanently deletes the specified review.\n The review must have been abandoned.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-actions",
+      "name": "GET /rest-service/reviews-v1/{id}/actions",
+      "description": "Get a list of the actions which the current user is allowed to perform\n on the review.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/actions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-addchangeset",
+      "name": "POST /rest-service/reviews-v1/{id}/addChangeset",
+      "description": null,
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/addChangeset",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-addfile",
+      "name": "POST /rest-service/reviews-v1/{id}/addFile",
+      "description": null,
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/addFile",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-addpatch",
+      "name": "POST /rest-service/reviews-v1/{id}/addPatch",
+      "description": "Old, non-restful name. Kept for backwards compatibility. Exactly the same as POSTing to /{id}/patch",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/addPatch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-close",
+      "name": "POST /rest-service/reviews-v1/{id}/close",
+      "description": "Closes the given review with the summary given.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/close",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-comments",
+      "name": "GET /rest-service/reviews-v1/{id}/comments",
+      "description": "Return all the comments visible to the requesting user for the review.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments",
+      "name": "POST /rest-service/reviews-v1/{id}/comments",
+      "description": "Add a general comment to the review.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-comments-general",
+      "name": "GET /rest-service/reviews-v1/{id}/comments/general",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/general",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-markallasread",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/markAllAsRead",
+      "description": "For the effective user, mark all comments in a review as read (except\n those marked as leave unread).",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/markAllAsRead",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-comments-versioned",
+      "name": "GET /rest-service/reviews-v1/{id}/comments/versioned",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/versioned",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-comments-cid",
+      "name": "GET /rest-service/reviews-v1/{id}/comments/{cId}",
+      "description": "Gets the given comment.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-cid",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/{cId}",
+      "description": "Updates the comment given by the perma id to the new comment posted.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-comments-cid",
+      "name": "DELETE /rest-service/reviews-v1/{id}/comments/{cId}",
+      "description": "Deletes the given comment.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-cid-markasleaveunread",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/{cId}/markAsLeaveUnread",
+      "description": "Marks the comment as leave unread to the current user - it will not automatically be marked as read by crucible.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/markAsLeaveUnread",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-cid-markasread",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/{cId}/markAsRead",
+      "description": "Mark the given comment as read for the user used to make this POST.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/markAsRead",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-comments-cid-replies",
+      "name": "GET /rest-service/reviews-v1/{id}/comments/{cId}/replies",
+      "description": "Gets the replies to the given comment.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/replies",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-cid-replies",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/{cId}/replies",
+      "description": "Adds a reply to the given comment. This call includes the  repsonse header that\n contains the URL of the newly created entity.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/replies",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-comments-cid-replies-rid",
+      "name": "POST /rest-service/reviews-v1/{id}/comments/{cId}/replies/{rId}",
+      "description": "Updates a reply with the given newComment.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/replies/{{RID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RID}} with a real rid. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-comments-cid-replies-rid",
+      "name": "DELETE /rest-service/reviews-v1/{id}/comments/{cId}/replies/{rId}",
+      "description": "Deletes the reply.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/comments/{{CID}}/replies/{{RID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RID}} with a real rid. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-complete",
+      "name": "POST /rest-service/reviews-v1/{id}/complete",
+      "description": "Completes the review for the current user",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/complete",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-details",
+      "name": "GET /rest-service/reviews-v1/{id}/details",
+      "description": "Returns the specified review.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/details",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-patch",
+      "name": "GET /rest-service/reviews-v1/{id}/patch",
+      "description": "Get a list of patches and their details for the given review",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/patch",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-patch",
+      "name": "POST /rest-service/reviews-v1/{id}/patch",
+      "description": "Add the revisions in a patch to an existing review.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/patch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-patch-patchid",
+      "name": "DELETE /rest-service/reviews-v1/{id}/patch/{patchId}",
+      "description": "Removes the patch with the given id from the review. All of the revisions provided by the patch will be removed as well.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/patch/{{PATCHID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PATCHID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{PATCHID}} with a real patchid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-publish",
+      "name": "POST /rest-service/reviews-v1/{id}/publish",
+      "description": "Publishes all the draft comments of the current user.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/publish",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-publish-cid",
+      "name": "POST /rest-service/reviews-v1/{id}/publish/{cId}",
+      "description": "publishes the given draft comment.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/publish/{{CID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CID}} with a real cid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-remind",
+      "name": "POST /rest-service/reviews-v1/{id}/remind",
+      "description": "Immediately send a reminder to incomplete reviewers about the given review.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/remind",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewers",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewers",
+      "description": "Get a list of reviewers in the review given by the permaid id.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewers",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewers",
+      "description": "Adds the given list of reviewers to the review.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewers-completed",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewers/completed",
+      "description": "Gets a list of completed reviewers.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewers/completed",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewers-uncompleted",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewers/uncompleted",
+      "description": "Gets a list of reviewers that have not completed the review.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewers/uncompleted",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-reviewers-username",
+      "name": "DELETE /rest-service/reviews-v1/{id}/reviewers/{username}",
+      "description": "Removes the reviewer from the review.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewers/{{USERNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewitems",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewitems",
+      "description": "Returns a list of all the items in a review.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewitems",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewitems",
+      "description": "Add the changes between two files in a fisheye repository to the review.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewitems-details",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewitems/details",
+      "description": "Adds the given review item to the review. This will always create a new review item, even if there is an existing\n one with the same data in the review (in which case the existing item will be replaced).",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/details",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewitems-revisions",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewitems/revisions",
+      "description": "Adds a review item for each of the supplied crucibleRevisionData elements.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/revisions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewitems-riid",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewitems/{riId}",
+      "description": "Returns detailed information for a specific review item.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-reviewitems-riid",
+      "name": "DELETE /rest-service/reviews-v1/{id}/reviewitems/{riId}",
+      "description": "Removes an item from a review.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-reviewitems-riid-comments",
+      "name": "GET /rest-service/reviews-v1/{id}/reviewitems/{riId}/comments",
+      "description": null,
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}/comments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewitems-riid-comments",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewitems/{riId}/comments",
+      "description": "This call includes the  repsonse header that contains the URL of the newly created entity.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}/comments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "put-rest-service-reviews-v1-id-reviewitems-riid-details",
+      "name": "PUT /rest-service/reviews-v1/{id}/reviewitems/{riId}/details",
+      "description": "Sets the review item specified by itemId with the given reviewItem. The old review item is discarded. Can only\n perform this operation if the old review item specified by itemId can be deleted. The old review item's permId is\n not changed.",
+      "method": "PUT",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}/details",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-reviewitems-riid-revisions",
+      "name": "POST /rest-service/reviews-v1/{id}/reviewitems/{riId}/revisions",
+      "description": "Adds the given list of revisions to the supplied review item, merging if required. For example, if the review\n item for  contains revisions 3 to 6, and if:",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}/revisions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "delete-rest-service-reviews-v1-id-reviewitems-riid-revisions",
+      "name": "DELETE /rest-service/reviews-v1/{id}/reviewitems/{riId}/revisions",
+      "description": "Removes the revisions given from the review item in the review specified by the id. If the review item has no\n more revisions left, it is automatically deleted.",
+      "method": "DELETE",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/reviewitems/{{RIID}}/revisions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{RIID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{RIID}} with a real riid."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-transition",
+      "name": "POST /rest-service/reviews-v1/{id}/transition",
+      "description": "Change the state of a review by performing an action on it.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/transition",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-reviews-v1-id-transitions",
+      "name": "GET /rest-service/reviews-v1/{id}/transitions",
+      "description": "Get a list of the actions which the current user can perform on this\n review, given its current state and the user's permissions.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/transitions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "post-rest-service-reviews-v1-id-uncomplete",
+      "name": "POST /rest-service/reviews-v1/{id}/uncomplete",
+      "description": "Uncompletes the review for the current user.",
+      "method": "POST",
+      "url": "http://crucible.local/context/rest-service/reviews-v1/{{ID}}/uncomplete",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-rest-service-search-v1-reviews",
+      "name": "GET /rest-service/search-v1/reviews",
+      "description": "Search for reviews where the name, description, state or permaId contain the specified term.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/search-v1/reviews",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-search-v1-reviewsforissue",
+      "name": "GET /rest-service/search-v1/reviewsForIssue",
+      "description": "Get a list of all reviews that have been linked to the specified JIRA issue key.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/search-v1/reviewsForIssue",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-users-v1",
+      "name": "GET /rest-service/users-v1",
+      "description": "Get a list of all the users. You can also ask for a set of users.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/users-v1",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-users-v1-repository-username",
+      "name": "GET /rest-service/users-v1/{repository}/{username}",
+      "description": "Returns the user details of the user mapped to a committer in a repository.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/users-v1/{{REPOSITORY}}/{{USERNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-users-v1-username",
+      "name": "GET /rest-service/users-v1/{username}",
+      "description": "Returns the user's profile details.",
+      "method": "GET",
+      "url": "http://crucible.local/context/rest-service/users-v1/{{USERNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    }
+  ]
+}

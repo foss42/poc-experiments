@@ -1,0 +1,101 @@
+{
+  "api_id": "klarna.com:payments:1.0.0",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "cancel-an-existing-authorization",
+      "name": "Cancel an existing authorization",
+      "description": "Use this API call to cancel/release an authorization. If the `authorization_token` received during a Klarna Payments won\u2019t be used to place an order immediately you could release the authorization.\nRead more on **[Cancel an existing authorization](https://docs.klarna.com/klarna-payments/other-actions/cancel-an-authorization/)**.",
+      "method": "DELETE",
+      "url": "https://api.klarna.com/payments/v1/authorizations/{{AUTHORIZATIONTOKEN}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHORIZATIONTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{AUTHORIZATIONTOKEN}} with a real authorizationtoken."
+    },
+    {
+      "id": "generate-a-consumer-token",
+      "name": "Generate a consumer token",
+      "description": "Use this API call to create a Klarna Customer Token.<br/>After having obtained an `authorization_token` for a successful authorization, this can be used to create a purchase token instead of placing the order. Creating a Klarna Customer Token results in Klarna storing customer and payment method details.\nRead more on **[Generate a consumer token](https://docs.klarna.com/klarna-payments/in-depth-knowledge/customer-token/)**.",
+      "method": "POST",
+      "url": "https://api.klarna.com/payments/v1/authorizations/{{AUTHORIZATIONTOKEN}}/customer-token",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "intended_use": "",
+        "locale": "en-GB",
+        "purchase_country": "GB",
+        "purchase_currency": "GBP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHORIZATIONTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{AUTHORIZATIONTOKEN}} with a real authorizationtoken."
+    },
+    {
+      "id": "create-a-new-order",
+      "name": "Create a new order",
+      "description": "Use this API call to create a new order. Placing an order towards Klarna means that the Klarna Payments session will be closed and that an order will be created in Klarna's system.<br/>When you have received the `authorization_token` for a successful authorization you can place the order. Among the other order details in this request, you include a URL to the confirmation page for the customer.<br/>When the Order has been successfully placed at Klarna, you need to handle it either through the Merchant Portal or using [Klarna\u2019s Order Management API](#order-management-api).\nRead more on **[Create a new order](https://docs.klarna.com/klarna-payments/integrate-with-klarna-payments/step-3-create-an-order/)**.",
+      "method": "POST",
+      "url": "https://api.klarna.com/payments/v1/authorizations/{{AUTHORIZATIONTOKEN}}/order",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "order_amount": 2500,
+        "order_lines": [],
+        "purchase_country": "GB",
+        "purchase_currency": "GBP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHORIZATIONTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{AUTHORIZATIONTOKEN}} with a real authorizationtoken."
+    },
+    {
+      "id": "create-a-new-payment-session",
+      "name": "Create a new payment session",
+      "description": "Use this API call to create a Klarna Payments session.<br/>When a session is created you will receive the available `payment_method_categories` for the session, a `session_id` and a `client_token`. The `session_id` can be used to read or update the session using the REST API. The `client_token` should be passed to the browser.\nRead more on **[Create a new payment session](https://docs.klarna.com/klarna-payments/integrate-with-klarna-payments/step-1-initiate-a-payment/)**.",
+      "method": "POST",
+      "url": "https://api.klarna.com/payments/v1/sessions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "order_amount": 2500,
+        "order_lines": [],
+        "purchase_country": "GB",
+        "purchase_currency": "GBP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "read-an-existing-payment-session",
+      "name": "Read an existing payment session",
+      "description": "Use this API call to read a Klarna Payments session. You can read the Klarna Payments session at any time after it has been created, to get information about it. This will return all data that has been collected during the session.\nRead more on **[Read an existing payment session](https://docs.klarna.com/klarna-payments/other-actions/check-the-details-of-a-payment-session/)**.",
+      "method": "GET",
+      "url": "https://api.klarna.com/payments/v1/sessions/{{SESSION_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SESSION_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{SESSION_ID}} with a real session_id."
+    }
+  ]
+}

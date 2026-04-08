@@ -1,0 +1,318 @@
+{
+  "api_id": "infermedica.com:v2",
+  "endpoint_count": 20,
+  "endpoints": [
+    {
+      "id": "get-concepts",
+      "name": "GET /concepts",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/concepts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-concepts-id",
+      "name": "GET /concepts/{id}",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/concepts/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-all-conditions",
+      "name": "List all conditions",
+      "description": "Returns a list of all available conditions.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/conditions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-condition-by-id",
+      "name": "Get condition by id",
+      "description": "Returns details of a single condition specified by id parameter.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/conditions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "query-diagnostic-engine",
+      "name": "Query diagnostic engine",
+      "description": "Suggests possible diagnoses and relevant observations based on provided patient information.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/diagnosis",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "sex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "query-diagnostic-engine-for-explanation",
+      "name": "Query diagnostic engine for explanation",
+      "description": "Explains which evidence impact probability of selected condition.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/explain",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "sex": "",
+        "target": "c_1"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-database-information",
+      "name": "Get database information",
+      "description": "Returns information about data used by diagnostic engine.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/info",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-all-lab-tests",
+      "name": "List all lab tests",
+      "description": "Returns a list of all available lab tests.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/lab_tests",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-lab-test-by-id",
+      "name": "Get lab test by id",
+      "description": "Returns details of a single lab test specified by id parameter.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/lab_tests/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "find-observation-matching-given-phrase",
+      "name": "Find observation matching given phrase",
+      "description": "Returns a single observation matching given phrase.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/lookup",
+      "headers": {},
+      "query_params": {
+        "phrase": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "find-mentions-of-observations-in-given-text",
+      "name": "Find mentions of observations in given text",
+      "description": "Returns list of mentions of observation found in given text.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/parse",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "text": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "query-diagnostic-engine-for-question-rationale",
+      "name": "Query diagnostic engine for question rationale",
+      "description": "Returns rationale behind the question asked by the system.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/rationale",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "sex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "query-the-diagnostic-engine-for-possible-red-flag-symptoms",
+      "name": "Query the diagnostic engine for possible red flag symptoms",
+      "description": "Suggests possible red flag symptoms based on provided patient information.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/red_flags",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "sex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-all-risk-factors",
+      "name": "List all risk factors",
+      "description": "Returns a list of all available risk factors.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/risk_factors",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-risk-factor-by-id",
+      "name": "Get risk factor by id",
+      "description": "Returns details of a single risk factor specified by id parameter.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/risk_factors/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "find-observations-matching-given-phrase",
+      "name": "Find observations matching given phrase",
+      "description": "Returns list of observations matching the given phrase.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/search",
+      "headers": {},
+      "query_params": {
+        "phrase": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "query-diagnostic-engine-for-related-symptoms",
+      "name": "Query diagnostic engine for related symptoms",
+      "description": "Suggests possible symptoms based on provided patient information.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/suggest",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "evaluated_at": "2020-06-02",
+        "evidence": [],
+        "extras": {},
+        "sex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-all-symptoms",
+      "name": "List all symptoms",
+      "description": "Returns a list of all available symptoms.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/symptoms",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-symptoms-by-id",
+      "name": "Get symptoms by id",
+      "description": "Returns details of a single symptom specified by id parameter.",
+      "method": "GET",
+      "url": "https://api.infermedica.com/v2/symptoms/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "query-diagnostic-engine-for-triage-level",
+      "name": "Query diagnostic engine for triage level",
+      "description": "Estimates triage level based on provided patient information.",
+      "method": "POST",
+      "url": "https://api.infermedica.com/v2/triage",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "age": "18",
+        "sex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

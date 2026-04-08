@@ -1,0 +1,22 @@
+{
+  "api_id": "getthedata.com:bng2latlong:1.0",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "returns-latitude-and-longitude-for-the-given-easting-and-northing",
+      "name": "Returns latitude and longitude for the given easting and northing.",
+      "description": "Takes an OSGB36 easting and northing (British National Grid) and returns the geographically equivalent WGS84 latitude and longitude.\n#### A successful request returns the following fields:\n* status - this will be `ok`\n* easting - the easting provided in the request\n* northing - the northing provided in the request\n* latitude - the latitude of the converted coordinates\n* longitude - the longitude of the converted coordinates\n#### An unsuccessful request returns the following fields:\n* status - this will be `error`\n* error - an error message\n",
+      "method": "GET",
+      "url": "https://api.getthedata.com/bng2latlong/{{EASTING}}/{{NORTHING}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EASTING}}",
+        "{{NORTHING}}"
+      ],
+      "notes": "No authentication required. Replace {{EASTING}} with a real easting. Replace {{NORTHING}} with a real northing."
+    }
+  ]
+}

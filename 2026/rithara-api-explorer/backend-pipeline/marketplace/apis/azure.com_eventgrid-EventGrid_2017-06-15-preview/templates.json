@@ -1,0 +1,602 @@
+{
+  "api_id": "azure.com:eventgrid-EventGrid:2017-06-15-preview",
+  "endpoint_count": 26,
+  "endpoints": [
+    {
+      "id": "list-available-operations",
+      "name": "List available operations",
+      "description": "List the available operations supported by the Microsoft.EventGrid resource provider",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.EventGrid/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "list-topic-types",
+      "name": "List topic types",
+      "description": "List all registered topic types",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.EventGrid/topicTypes",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-topic-type",
+      "name": "Get a topic type",
+      "description": "Get information about a topic type",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.EventGrid/topicTypes/{{TOPICTYPENAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOPICTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TOPICTYPENAME}} with a real topictypename."
+    },
+    {
+      "id": "list-event-types",
+      "name": "List event types",
+      "description": "List event types for a topic type",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.EventGrid/topicTypes/{{TOPICTYPENAME}}/eventTypes",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOPICTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{TOPICTYPENAME}} with a real topictypename."
+    },
+    {
+      "id": "get-an-aggregated-list-of-all-global-event-subscriptions-under-an-azure-subscription",
+      "name": "Get an aggregated list of all global event subscriptions under an Azure subscription",
+      "description": "List all aggregated global event subscriptions under a specific Azure subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.EventGrid/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "list-all-regional-event-subscriptions-under-an-azure-subscription",
+      "name": "List all regional event subscriptions under an Azure subscription",
+      "description": "List all event subscriptions from the given location under a specific Azure subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.EventGrid/locations/{{LOCATION}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{LOCATION}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCATION}} with a real location."
+    },
+    {
+      "id": "list-all-regional-event-subscriptions-under-an-azure-subscription-for-a-topic-type",
+      "name": "List all regional event subscriptions under an Azure subscription for a topic type",
+      "description": "List all event subscriptions from the given location under a specific Azure subscription and topic type.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.EventGrid/locations/{{LOCATION}}/topicTypes/{{TOPICTYPENAME}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{TOPICTYPENAME}}",
+        "{{LOCATION}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{TOPICTYPENAME}} with a real topictypename. Replace {{LOCATION}} with a real location."
+    },
+    {
+      "id": "list-all-global-event-subscriptions-for-a-topic-type",
+      "name": "List all global event subscriptions for a topic type",
+      "description": "List all global event subscriptions under an Azure subscription for a topic type.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.EventGrid/topicTypes/{{TOPICTYPENAME}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{TOPICTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{TOPICTYPENAME}} with a real topictypename."
+    },
+    {
+      "id": "list-topics-under-an-azure-subscription",
+      "name": "List topics under an Azure subscription",
+      "description": "List all the topics under an Azure subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.EventGrid/topics",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "list-all-global-event-subscriptions-under-an-azure-subscription-and-resource-group",
+      "name": "List all global event subscriptions under an Azure subscription and resource group",
+      "description": "List all global event subscriptions under a specific Azure subscription and resource group",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "list-all-regional-event-subscriptions-under-an-azure-subscription-and-resource-group",
+      "name": "List all regional event subscriptions under an Azure subscription and resource group",
+      "description": "List all event subscriptions from the given location under a specific Azure subscription and resource group",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/locations/{{LOCATION}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{LOCATION}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{LOCATION}} with a real location. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "list-all-regional-event-subscriptions-under-an-azure-subscription-and-resource-group-for-a-topic-type",
+      "name": "List all regional event subscriptions under an Azure subscription and resource group for a topic type",
+      "description": "List all event subscriptions from the given location under a specific Azure subscription and resource group and topic type",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/locations/{{LOCATION}}/topicTypes/{{TOPICTYPENAME}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOCATION}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{TOPICTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{TOPICTYPENAME}} with a real topictypename. Replace {{LOCATION}} with a real location. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "list-all-global-event-subscriptions-under-a-resource-group-for-a-topic-type",
+      "name": "List all global event subscriptions under a resource group for a topic type",
+      "description": "List all global event subscriptions under a resource group for a specific topic type.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topicTypes/{{TOPICTYPENAME}}/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{TOPICTYPENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{TOPICTYPENAME}} with a real topictypename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "list-topics-under-a-resource-group",
+      "name": "List topics under a resource group",
+      "description": "List all the topics under a resource group",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-a-topic",
+      "name": "Get a topic",
+      "description": "Get properties of a topic",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics/{{TOPICNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{TOPICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{TOPICNAME}} with a real topicname."
+    },
+    {
+      "id": "create-a-topic",
+      "name": "Create a topic",
+      "description": "Asynchronously creates a new topic with the specified parameters.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics/{{TOPICNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{TOPICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{TOPICNAME}} with a real topicname."
+    },
+    {
+      "id": "delete-a-topic",
+      "name": "Delete a topic",
+      "description": "Delete existing topic",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics/{{TOPICNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{TOPICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{TOPICNAME}} with a real topicname."
+    },
+    {
+      "id": "list-keys-for-a-topic",
+      "name": "List keys for a topic",
+      "description": "List the two keys used to publish to a topic",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics/{{TOPICNAME}}/listKeys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{TOPICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{TOPICNAME}} with a real topicname."
+    },
+    {
+      "id": "regenerate-key-for-a-topic",
+      "name": "Regenerate key for a topic",
+      "description": "Regenerate a shared access key for a topic",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.EventGrid/topics/{{TOPICNAME}}/regenerateKey",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "keyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{TOPICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{TOPICNAME}} with a real topicname."
+    },
+    {
+      "id": "list-all-event-subscriptions-for-a-specific-topic",
+      "name": "List all event subscriptions for a specific topic",
+      "description": "List all event subscriptions that have been created for a specific topic",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/{{PROVIDERNAMESPACE}}/{{RESOURCETYPENAME}}/{{RESOURCENAME}}/providers/Microsoft.EventGrid/eventSubscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{PROVIDERNAMESPACE}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{RESOURCETYPENAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PROVIDERNAMESPACE}} with a real providernamespace. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{RESOURCETYPENAME}} with a real resourcetypename."
+    },
+    {
+      "id": "list-topic-event-types",
+      "name": "List topic event types",
+      "description": "List event types for a topic",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/{{PROVIDERNAMESPACE}}/{{RESOURCETYPENAME}}/{{RESOURCENAME}}/providers/Microsoft.EventGrid/eventTypes",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{PROVIDERNAMESPACE}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{RESOURCETYPENAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PROVIDERNAMESPACE}} with a real providernamespace. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{RESOURCETYPENAME}} with a real resourcetypename."
+    },
+    {
+      "id": "get-an-event-subscription",
+      "name": "Get an event subscription",
+      "description": "Get properties of an event subscription",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.EventGrid/eventSubscriptions/{{EVENTSUBSCRIPTIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{EVENTSUBSCRIPTIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{EVENTSUBSCRIPTIONNAME}} with a real eventsubscriptionname."
+    },
+    {
+      "id": "create-an-event-subscription",
+      "name": "Create an event subscription",
+      "description": "Asynchronously creates a new event subscription to the specified scope. Existing event subscriptions cannot be updated with this API and should instead use the Update event subscription API.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.EventGrid/eventSubscriptions/{{EVENTSUBSCRIPTIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{EVENTSUBSCRIPTIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{EVENTSUBSCRIPTIONNAME}} with a real eventsubscriptionname."
+    },
+    {
+      "id": "delete-an-event-subscription",
+      "name": "Delete an event subscription",
+      "description": "Delete an existing event subscription",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.EventGrid/eventSubscriptions/{{EVENTSUBSCRIPTIONNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{EVENTSUBSCRIPTIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{EVENTSUBSCRIPTIONNAME}} with a real eventsubscriptionname."
+    },
+    {
+      "id": "update-an-event-subscription",
+      "name": "Update an event subscription",
+      "description": "Asynchronously updates an existing event subscription.",
+      "method": "PATCH",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.EventGrid/eventSubscriptions/{{EVENTSUBSCRIPTIONNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "destination": {},
+        "filter": {},
+        "labels": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{EVENTSUBSCRIPTIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{EVENTSUBSCRIPTIONNAME}} with a real eventsubscriptionname."
+    },
+    {
+      "id": "get-full-url-of-an-event-subscription",
+      "name": "Get full URL of an event subscription",
+      "description": "Get the full endpoint URL for an event subscription",
+      "method": "POST",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.EventGrid/eventSubscriptions/{{EVENTSUBSCRIPTIONNAME}}/getFullUrl",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{EVENTSUBSCRIPTIONNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SCOPE}} with a real scope. Replace {{EVENTSUBSCRIPTIONNAME}} with a real eventsubscriptionname."
+    }
+  ]
+}

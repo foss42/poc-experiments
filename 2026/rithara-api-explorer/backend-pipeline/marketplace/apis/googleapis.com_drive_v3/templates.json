@@ -1,0 +1,1320 @@
+{
+  "api_id": "googleapis.com:drive:v3",
+  "endpoint_count": 48,
+  "endpoints": [
+    {
+      "id": "get-about",
+      "name": "GET /about",
+      "description": "Gets information about the user, the user's Drive, and system capabilities.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/about",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-changes",
+      "name": "GET /changes",
+      "description": "Lists the changes for a user or shared drive.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/changes",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "pageToken": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-changes-startpagetoken",
+      "name": "GET /changes/startPageToken",
+      "description": "Gets the starting pageToken for listing future changes.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/changes/startPageToken",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-changes-watch",
+      "name": "POST /changes/watch",
+      "description": "Subscribes to changes for a user. To use this method, you must include the pageToken query parameter.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/changes/watch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "pageToken": ""
+      },
+      "body": {
+        "address": "",
+        "expiration": "",
+        "id": "",
+        "kind": "api#channel",
+        "params": {},
+        "payload": false,
+        "resourceId": "",
+        "resourceUri": "",
+        "token": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-channels-stop",
+      "name": "POST /channels/stop",
+      "description": "Stop watching resources through this channel",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/channels/stop",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "address": "",
+        "expiration": "",
+        "id": "",
+        "kind": "api#channel",
+        "params": {},
+        "payload": false,
+        "resourceId": "",
+        "resourceUri": "",
+        "token": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-drives",
+      "name": "GET /drives",
+      "description": "Lists the user's shared drives.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/drives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-drives",
+      "name": "POST /drives",
+      "description": "Creates a shared drive.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/drives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "requestId": ""
+      },
+      "body": {
+        "backgroundImageFile": {},
+        "backgroundImageLink": "",
+        "capabilities": {},
+        "colorRgb": "",
+        "createdTime": "",
+        "hidden": false,
+        "id": "",
+        "kind": "drive#drive",
+        "name": "",
+        "orgUnitId": "",
+        "restrictions": {},
+        "themeId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-drives-driveid",
+      "name": "GET /drives/{driveId}",
+      "description": "Gets a shared drive's metadata by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/drives/{{DRIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DRIVEID}} with a real driveid."
+    },
+    {
+      "id": "delete-drives-driveid",
+      "name": "DELETE /drives/{driveId}",
+      "description": "Permanently deletes a shared drive for which the user is an organizer. The shared drive cannot contain any untrashed items.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/drives/{{DRIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DRIVEID}} with a real driveid."
+    },
+    {
+      "id": "patch-drives-driveid",
+      "name": "PATCH /drives/{driveId}",
+      "description": "Updates the metadata for a shared drive.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/drives/{{DRIVEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "backgroundImageFile": {},
+        "backgroundImageLink": "",
+        "capabilities": {},
+        "colorRgb": "",
+        "createdTime": "",
+        "hidden": false,
+        "id": "",
+        "kind": "drive#drive",
+        "name": "",
+        "orgUnitId": "",
+        "restrictions": {},
+        "themeId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DRIVEID}} with a real driveid."
+    },
+    {
+      "id": "post-drives-driveid-hide",
+      "name": "POST /drives/{driveId}/hide",
+      "description": "Hides a shared drive from the default view.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/drives/{{DRIVEID}}/hide",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DRIVEID}} with a real driveid."
+    },
+    {
+      "id": "post-drives-driveid-unhide",
+      "name": "POST /drives/{driveId}/unhide",
+      "description": "Restores a shared drive to the default view.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/drives/{{DRIVEID}}/unhide",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DRIVEID}} with a real driveid."
+    },
+    {
+      "id": "get-files",
+      "name": "GET /files",
+      "description": "Lists or searches files.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-files",
+      "name": "POST /files",
+      "description": "Creates a file.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appProperties": {},
+        "capabilities": {},
+        "contentHints": {},
+        "contentRestrictions": [],
+        "copyRequiresWriterPermission": false,
+        "createdTime": "",
+        "description": "",
+        "driveId": "",
+        "explicitlyTrashed": false,
+        "exportLinks": {},
+        "fileExtension": "",
+        "folderColorRgb": "",
+        "fullFileExtension": "",
+        "hasAugmentedPermissions": false,
+        "hasThumbnail": false,
+        "headRevisionId": "",
+        "iconLink": "",
+        "id": "",
+        "imageMediaMetadata": {},
+        "isAppAuthorized": false,
+        "kind": "drive#file",
+        "labelInfo": {},
+        "lastModifyingUser": {},
+        "linkShareMetadata": {},
+        "md5Checksum": "",
+        "mimeType": "",
+        "modifiedByMe": false,
+        "modifiedByMeTime": "",
+        "modifiedTime": "",
+        "name": "",
+        "originalFilename": "",
+        "ownedByMe": false,
+        "owners": [],
+        "parents": [],
+        "permissionIds": [],
+        "permissions": [],
+        "properties": {},
+        "quotaBytesUsed": "",
+        "resourceKey": "",
+        "sha1Checksum": "",
+        "sha256Checksum": "",
+        "shared": false,
+        "sharedWithMeTime": "",
+        "sharingUser": {},
+        "shortcutDetails": {},
+        "size": "",
+        "spaces": [],
+        "starred": false,
+        "teamDriveId": "",
+        "thumbnailLink": "",
+        "thumbnailVersion": "",
+        "trashed": false,
+        "trashedTime": "",
+        "trashingUser": {},
+        "version": "",
+        "videoMediaMetadata": {},
+        "viewedByMe": false,
+        "viewedByMeTime": "",
+        "viewersCanCopyContent": false,
+        "webContentLink": "",
+        "webViewLink": "",
+        "writersCanShare": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-files-generateids",
+      "name": "GET /files/generateIds",
+      "description": "Generates a set of file IDs which can be provided in create or copy requests.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/generateIds",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "delete-files-trash",
+      "name": "DELETE /files/trash",
+      "description": "Permanently deletes all of the user's trashed files.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/trash",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-files-fileid",
+      "name": "GET /files/{fileId}",
+      "description": "Gets a file's metadata or content by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "delete-files-fileid",
+      "name": "DELETE /files/{fileId}",
+      "description": "Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a shared drive the user must be an organizer on the parent. If the target is a folder, all descendants owned by the user are also deleted.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "patch-files-fileid",
+      "name": "PATCH /files/{fileId}",
+      "description": "Updates a file's metadata and/or content. When calling this method, only populate fields in the request that you want to modify. When updating fields, some fields might change automatically, such as modifiedDate. This method supports patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appProperties": {},
+        "capabilities": {},
+        "contentHints": {},
+        "contentRestrictions": [],
+        "copyRequiresWriterPermission": false,
+        "createdTime": "",
+        "description": "",
+        "driveId": "",
+        "explicitlyTrashed": false,
+        "exportLinks": {},
+        "fileExtension": "",
+        "folderColorRgb": "",
+        "fullFileExtension": "",
+        "hasAugmentedPermissions": false,
+        "hasThumbnail": false,
+        "headRevisionId": "",
+        "iconLink": "",
+        "id": "",
+        "imageMediaMetadata": {},
+        "isAppAuthorized": false,
+        "kind": "drive#file",
+        "labelInfo": {},
+        "lastModifyingUser": {},
+        "linkShareMetadata": {},
+        "md5Checksum": "",
+        "mimeType": "",
+        "modifiedByMe": false,
+        "modifiedByMeTime": "",
+        "modifiedTime": "",
+        "name": "",
+        "originalFilename": "",
+        "ownedByMe": false,
+        "owners": [],
+        "parents": [],
+        "permissionIds": [],
+        "permissions": [],
+        "properties": {},
+        "quotaBytesUsed": "",
+        "resourceKey": "",
+        "sha1Checksum": "",
+        "sha256Checksum": "",
+        "shared": false,
+        "sharedWithMeTime": "",
+        "sharingUser": {},
+        "shortcutDetails": {},
+        "size": "",
+        "spaces": [],
+        "starred": false,
+        "teamDriveId": "",
+        "thumbnailLink": "",
+        "thumbnailVersion": "",
+        "trashed": false,
+        "trashedTime": "",
+        "trashingUser": {},
+        "version": "",
+        "videoMediaMetadata": {},
+        "viewedByMe": false,
+        "viewedByMeTime": "",
+        "viewersCanCopyContent": false,
+        "webContentLink": "",
+        "webViewLink": "",
+        "writersCanShare": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-comments",
+      "name": "GET /files/{fileId}/comments",
+      "description": "Lists a file's comments.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "post-files-fileid-comments",
+      "name": "POST /files/{fileId}/comments",
+      "description": "Creates a comment on a file.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "anchor": "",
+        "author": {},
+        "content": "",
+        "createdTime": "",
+        "deleted": false,
+        "htmlContent": "",
+        "id": "",
+        "kind": "drive#comment",
+        "modifiedTime": "",
+        "quotedFileContent": {},
+        "replies": [],
+        "resolved": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-comments-commentid",
+      "name": "GET /files/{fileId}/comments/{commentId}",
+      "description": "Gets a comment by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid."
+    },
+    {
+      "id": "delete-files-fileid-comments-commentid",
+      "name": "DELETE /files/{fileId}/comments/{commentId}",
+      "description": "Deletes a comment.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid."
+    },
+    {
+      "id": "patch-files-fileid-comments-commentid",
+      "name": "PATCH /files/{fileId}/comments/{commentId}",
+      "description": "Updates a comment with patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "anchor": "",
+        "author": {},
+        "content": "",
+        "createdTime": "",
+        "deleted": false,
+        "htmlContent": "",
+        "id": "",
+        "kind": "drive#comment",
+        "modifiedTime": "",
+        "quotedFileContent": {},
+        "replies": [],
+        "resolved": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid."
+    },
+    {
+      "id": "get-files-fileid-comments-commentid-replies",
+      "name": "GET /files/{fileId}/comments/{commentId}/replies",
+      "description": "Lists a comment's replies.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}/replies",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid."
+    },
+    {
+      "id": "post-files-fileid-comments-commentid-replies",
+      "name": "POST /files/{fileId}/comments/{commentId}/replies",
+      "description": "Creates a reply to a comment.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}/replies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "author": {},
+        "content": "",
+        "createdTime": "",
+        "deleted": false,
+        "htmlContent": "",
+        "id": "",
+        "kind": "drive#reply",
+        "modifiedTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid."
+    },
+    {
+      "id": "get-files-fileid-comments-commentid-replies-replyid",
+      "name": "GET /files/{fileId}/comments/{commentId}/replies/{replyId}",
+      "description": "Gets a reply by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}/replies/{{REPLYID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{REPLYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid. Replace {{REPLYID}} with a real replyid."
+    },
+    {
+      "id": "delete-files-fileid-comments-commentid-replies-replyid",
+      "name": "DELETE /files/{fileId}/comments/{commentId}/replies/{replyId}",
+      "description": "Deletes a reply.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}/replies/{{REPLYID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{REPLYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid. Replace {{REPLYID}} with a real replyid."
+    },
+    {
+      "id": "patch-files-fileid-comments-commentid-replies-replyid",
+      "name": "PATCH /files/{fileId}/comments/{commentId}/replies/{replyId}",
+      "description": "Updates a reply with patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/comments/{{COMMENTID}}/replies/{{REPLYID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "author": {},
+        "content": "",
+        "createdTime": "",
+        "deleted": false,
+        "htmlContent": "",
+        "id": "",
+        "kind": "drive#reply",
+        "modifiedTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{COMMENTID}}",
+        "{{REPLYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{COMMENTID}} with a real commentid. Replace {{REPLYID}} with a real replyid."
+    },
+    {
+      "id": "post-files-fileid-copy",
+      "name": "POST /files/{fileId}/copy",
+      "description": "Creates a copy of a file and applies any requested updates with patch semantics. Folders cannot be copied.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/copy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appProperties": {},
+        "capabilities": {},
+        "contentHints": {},
+        "contentRestrictions": [],
+        "copyRequiresWriterPermission": false,
+        "createdTime": "",
+        "description": "",
+        "driveId": "",
+        "explicitlyTrashed": false,
+        "exportLinks": {},
+        "fileExtension": "",
+        "folderColorRgb": "",
+        "fullFileExtension": "",
+        "hasAugmentedPermissions": false,
+        "hasThumbnail": false,
+        "headRevisionId": "",
+        "iconLink": "",
+        "id": "",
+        "imageMediaMetadata": {},
+        "isAppAuthorized": false,
+        "kind": "drive#file",
+        "labelInfo": {},
+        "lastModifyingUser": {},
+        "linkShareMetadata": {},
+        "md5Checksum": "",
+        "mimeType": "",
+        "modifiedByMe": false,
+        "modifiedByMeTime": "",
+        "modifiedTime": "",
+        "name": "",
+        "originalFilename": "",
+        "ownedByMe": false,
+        "owners": [],
+        "parents": [],
+        "permissionIds": [],
+        "permissions": [],
+        "properties": {},
+        "quotaBytesUsed": "",
+        "resourceKey": "",
+        "sha1Checksum": "",
+        "sha256Checksum": "",
+        "shared": false,
+        "sharedWithMeTime": "",
+        "sharingUser": {},
+        "shortcutDetails": {},
+        "size": "",
+        "spaces": [],
+        "starred": false,
+        "teamDriveId": "",
+        "thumbnailLink": "",
+        "thumbnailVersion": "",
+        "trashed": false,
+        "trashedTime": "",
+        "trashingUser": {},
+        "version": "",
+        "videoMediaMetadata": {},
+        "viewedByMe": false,
+        "viewedByMeTime": "",
+        "viewersCanCopyContent": false,
+        "webContentLink": "",
+        "webViewLink": "",
+        "writersCanShare": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-export",
+      "name": "GET /files/{fileId}/export",
+      "description": "Exports a Google Workspace document to the requested MIME type and returns exported byte content. Note that the exported content is limited to 10MB.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/export",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "mimeType": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-listlabels",
+      "name": "GET /files/{fileId}/listLabels",
+      "description": "Lists the labels on a file.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/listLabels",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "post-files-fileid-modifylabels",
+      "name": "POST /files/{fileId}/modifyLabels",
+      "description": "Modifies the set of labels on a file.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/modifyLabels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "kind": "drive#modifyLabelsRequest",
+        "labelModifications": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-permissions",
+      "name": "GET /files/{fileId}/permissions",
+      "description": "Lists a file's or shared drive's permissions.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/permissions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "post-files-fileid-permissions",
+      "name": "POST /files/{fileId}/permissions",
+      "description": "Creates a permission for a file or shared drive. For more information on creating permissions, see Share files, folders & drives.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/permissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowFileDiscovery": false,
+        "deleted": false,
+        "displayName": "",
+        "domain": "",
+        "emailAddress": "",
+        "expirationTime": "",
+        "id": "",
+        "kind": "drive#permission",
+        "pendingOwner": false,
+        "permissionDetails": [],
+        "photoLink": "",
+        "role": "",
+        "teamDrivePermissionDetails": [],
+        "type": "",
+        "view": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-permissions-permissionid",
+      "name": "GET /files/{fileId}/permissions/{permissionId}",
+      "description": "Gets a permission by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/permissions/{{PERMISSIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PERMISSIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{PERMISSIONID}} with a real permissionid."
+    },
+    {
+      "id": "delete-files-fileid-permissions-permissionid",
+      "name": "DELETE /files/{fileId}/permissions/{permissionId}",
+      "description": "Deletes a permission.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/permissions/{{PERMISSIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PERMISSIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{PERMISSIONID}} with a real permissionid."
+    },
+    {
+      "id": "patch-files-fileid-permissions-permissionid",
+      "name": "PATCH /files/{fileId}/permissions/{permissionId}",
+      "description": "Updates a permission with patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/permissions/{{PERMISSIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowFileDiscovery": false,
+        "deleted": false,
+        "displayName": "",
+        "domain": "",
+        "emailAddress": "",
+        "expirationTime": "",
+        "id": "",
+        "kind": "drive#permission",
+        "pendingOwner": false,
+        "permissionDetails": [],
+        "photoLink": "",
+        "role": "",
+        "teamDrivePermissionDetails": [],
+        "type": "",
+        "view": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PERMISSIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{PERMISSIONID}} with a real permissionid."
+    },
+    {
+      "id": "get-files-fileid-revisions",
+      "name": "GET /files/{fileId}/revisions",
+      "description": "Lists a file's revisions.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/revisions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-files-fileid-revisions-revisionid",
+      "name": "GET /files/{fileId}/revisions/{revisionId}",
+      "description": "Gets a revision's metadata or content by ID.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/revisions/{{REVISIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{REVISIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{REVISIONID}} with a real revisionid."
+    },
+    {
+      "id": "delete-files-fileid-revisions-revisionid",
+      "name": "DELETE /files/{fileId}/revisions/{revisionId}",
+      "description": "Permanently deletes a file version. You can only delete revisions for files with binary content in Google Drive, like images or videos. Revisions for other files, like Google Docs or Sheets, and the last remaining file version can't be deleted.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/revisions/{{REVISIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{REVISIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{REVISIONID}} with a real revisionid."
+    },
+    {
+      "id": "patch-files-fileid-revisions-revisionid",
+      "name": "PATCH /files/{fileId}/revisions/{revisionId}",
+      "description": "Updates a revision with patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/revisions/{{REVISIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "exportLinks": {},
+        "id": "",
+        "keepForever": false,
+        "kind": "drive#revision",
+        "lastModifyingUser": {},
+        "md5Checksum": "",
+        "mimeType": "",
+        "modifiedTime": "",
+        "originalFilename": "",
+        "publishAuto": false,
+        "published": false,
+        "publishedLink": "",
+        "publishedOutsideDomain": false,
+        "size": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{REVISIONID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid. Replace {{REVISIONID}} with a real revisionid."
+    },
+    {
+      "id": "post-files-fileid-watch",
+      "name": "POST /files/{fileId}/watch",
+      "description": "Subscribes to changes to a file.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/files/{{FILEID}}/watch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "address": "",
+        "expiration": "",
+        "id": "",
+        "kind": "api#channel",
+        "params": {},
+        "payload": false,
+        "resourceId": "",
+        "resourceUri": "",
+        "token": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{FILEID}} with a real fileid."
+    },
+    {
+      "id": "get-teamdrives",
+      "name": "GET /teamdrives",
+      "description": "Deprecated use drives.list instead.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/teamdrives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-teamdrives",
+      "name": "POST /teamdrives",
+      "description": "Deprecated use drives.create instead.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/drive/v3/teamdrives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "requestId": ""
+      },
+      "body": {
+        "backgroundImageFile": {},
+        "backgroundImageLink": "",
+        "capabilities": {},
+        "colorRgb": "",
+        "createdTime": "",
+        "id": "",
+        "kind": "drive#teamDrive",
+        "name": "",
+        "orgUnitId": "",
+        "restrictions": {},
+        "themeId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-teamdrives-teamdriveid",
+      "name": "GET /teamdrives/{teamDriveId}",
+      "description": "Deprecated use drives.get instead.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/drive/v3/teamdrives/{{TEAMDRIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAMDRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TEAMDRIVEID}} with a real teamdriveid."
+    },
+    {
+      "id": "delete-teamdrives-teamdriveid",
+      "name": "DELETE /teamdrives/{teamDriveId}",
+      "description": "Deprecated use drives.delete instead.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/drive/v3/teamdrives/{{TEAMDRIVEID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAMDRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TEAMDRIVEID}} with a real teamdriveid."
+    },
+    {
+      "id": "patch-teamdrives-teamdriveid",
+      "name": "PATCH /teamdrives/{teamDriveId}",
+      "description": "Deprecated use drives.update instead",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/drive/v3/teamdrives/{{TEAMDRIVEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "backgroundImageFile": {},
+        "backgroundImageLink": "",
+        "capabilities": {},
+        "colorRgb": "",
+        "createdTime": "",
+        "id": "",
+        "kind": "drive#teamDrive",
+        "name": "",
+        "orgUnitId": "",
+        "restrictions": {},
+        "themeId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TEAMDRIVEID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{TEAMDRIVEID}} with a real teamdriveid."
+    }
+  ]
+}

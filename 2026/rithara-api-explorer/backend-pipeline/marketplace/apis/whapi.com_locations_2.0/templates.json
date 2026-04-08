@@ -1,0 +1,101 @@
+{
+  "api_id": "whapi.com:locations:2.0",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "get-address-lookup",
+      "name": "GET /address/lookup/",
+      "description": "Retrieves a list of addresses when supplied with a house number or name and a postcode. It is generally used during customer registration to provide a list of possible addresses from where the customer can select their own address details.\n",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/locations/address/lookup/",
+      "headers": {
+        "apiKey": "{{WHAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "houseNum": "",
+        "postCode": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WHAPI_API_KEY}}",
+        "{{WHAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{WHAPI_API_KEY}} with your WHAPI API KEY."
+    },
+    {
+      "id": "get-countries",
+      "name": "GET /countries/",
+      "description": "Retrieves a list of countries and its currencies.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/locations/countries/",
+      "headers": {
+        "apiKey": "{{WHAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WHAPI_API_KEY}}",
+        "{{WHAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{WHAPI_API_KEY}} with your WHAPI API KEY."
+    },
+    {
+      "id": "get-countries-countrycode",
+      "name": "GET /countries/{countryCode}",
+      "description": "Retrieves the specified country and its currency.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/locations/countries/{{COUNTRYCODE}}",
+      "headers": {
+        "apiKey": "{{WHAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WHAPI_API_KEY}}",
+        "{{COUNTRYCODE}}",
+        "{{WHAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{WHAPI_API_KEY}} with your WHAPI API KEY. Replace {{COUNTRYCODE}} with a real countrycode."
+    },
+    {
+      "id": "get-currencies",
+      "name": "GET /currencies/",
+      "description": "Retreives the list of currencies.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/locations/currencies/",
+      "headers": {
+        "apiKey": "{{WHAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WHAPI_API_KEY}}",
+        "{{WHAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{WHAPI_API_KEY}} with your WHAPI API KEY."
+    },
+    {
+      "id": "get-currencies-currencycode",
+      "name": "GET /currencies/{currencyCode}",
+      "description": "Retreives the specified currency.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/locations/currencies/{{CURRENCYCODE}}",
+      "headers": {
+        "apiKey": "{{WHAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WHAPI_API_KEY}}",
+        "{{CURRENCYCODE}}",
+        "{{WHAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{WHAPI_API_KEY}} with your WHAPI API KEY. Replace {{CURRENCYCODE}} with a real currencycode."
+    }
+  ]
+}

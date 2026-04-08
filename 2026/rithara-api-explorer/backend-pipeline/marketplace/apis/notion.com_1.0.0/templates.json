@@ -1,0 +1,283 @@
+{
+  "api_id": "notion.com:1.0.0",
+  "endpoint_count": 13,
+  "endpoints": [
+    {
+      "id": "retrieve-a-block",
+      "name": "Retrieve a block",
+      "description": "Retrieve a block",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/blocks/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-block",
+      "name": "Delete a block",
+      "description": "Delete a block",
+      "method": "DELETE",
+      "url": "https://api.notion.com/v1/blocks/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-block",
+      "name": "Update a block",
+      "description": "This endpoint allows you to update block content. [See Full Documentation](https://developers.notion.com/reference/update-a-block)",
+      "method": "PATCH",
+      "url": "https://api.notion.com/v1/blocks/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "paragraph": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "hello to you"
+              },
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-block-children",
+      "name": "Retrieve block children",
+      "description": "Retrieve block children",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/blocks/{{ID}}/children",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "append-block-children",
+      "name": "Append block children",
+      "description": "Append block children",
+      "method": "PATCH",
+      "url": "https://api.notion.com/v1/blocks/{{ID}}/children",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "children": [
+          {
+            "heading_2": {
+              "text": [
+                {
+                  "text": {
+                    "content": "Lacinato kale"
+                  },
+                  "type": "text"
+                }
+              ]
+            },
+            "object": "block",
+            "type": "heading_2"
+          },
+          {
+            "object": "block",
+            "paragraph": {
+              "rich_text": [
+                {
+                  "text": {
+                    "content": "Lacinato kale is a variety of kale with a long tradition in Italian cuisine, especially that of Tuscany. It is also known as Tuscan kale, Italian kale, dinosaur kale, kale, flat back kale, palm tree kale, or black Tuscan palm.",
+                    "link": {
+                      "url": "https://en.wikipedia.org/wiki/Lacinato_kale"
+                    }
+                  },
+                  "type": "text"
+                }
+              ]
+            },
+            "type": "paragraph"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-comments",
+      "name": "Retrieve comments",
+      "description": "Retrieve a user object using the ID specified in the request path.",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/comments",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-a-database",
+      "name": "Retrieve a database",
+      "description": "Retrieves a database object using the ID specified in the request path. ",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/databases/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-database",
+      "name": "Update a database",
+      "description": "Update a database",
+      "method": "PATCH",
+      "url": "https://api.notion.com/v1/databases/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "properties": {
+          "Wine Pairing": {
+            "rich_text": {}
+          }
+        },
+        "title": [
+          {
+            "text": {
+              "content": "Ever Better Reading List Title"
+            }
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "query-a-database",
+      "name": "Query a database",
+      "description": "Query a database",
+      "method": "POST",
+      "url": "https://api.notion.com/v1/databases/{{ID}}/query",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "filter": {
+          "property": "Status",
+          "select": {
+            "equals": "Reading"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-a-page",
+      "name": "Retrieve a Page",
+      "description": "Retrieves a Page object using the ID in the request path. This endpoint exposes page properties, not page content. ",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/pages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-page-properties",
+      "name": "Update Page properties ",
+      "description": "Updates a page by setting the values of any properties specified in the JSON body of the request. Properties not updated via parameters will remain unchanged. ",
+      "method": "PATCH",
+      "url": "https://api.notion.com/v1/pages/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "properties": {
+          "Status": {
+            "select": {
+              "name": "Reading"
+            }
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-a-page-property-item",
+      "name": "Retrieve a Page Property Item",
+      "description": "Retrieve a Page Property Item",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/pages/{{PAGE_ID}}/properties/{{PROPERTY_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROPERTY_ID}}",
+        "{{PAGE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROPERTY_ID}} with a real property_id. Replace {{PAGE_ID}} with a real page_id."
+    },
+    {
+      "id": "retrieve-a-user",
+      "name": "Retrieve a user",
+      "description": "Retrieve a user object using the ID specified in the request path.",
+      "method": "GET",
+      "url": "https://api.notion.com/v1/users/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    }
+  ]
+}

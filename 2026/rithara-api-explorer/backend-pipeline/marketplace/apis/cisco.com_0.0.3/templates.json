@@ -1,0 +1,381 @@
+{
+  "api_id": "cisco.com:0.0.3",
+  "endpoint_count": 19,
+  "endpoints": [
+    {
+      "id": "get-security-advisories-cvrf-advisory-advisory-id",
+      "name": "GET /security/advisories/cvrf/advisory/{advisory_id}",
+      "description": "Used to obtain an advisory in CVRF format for a given advisory ID `advisory_id` (i.e., cisco-sa-20150819-pcp)\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/advisory/{{ADVISORY_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{ADVISORY_ID}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{ADVISORY_ID}} with a real advisory_id."
+    },
+    {
+      "id": "get-security-advisories-cvrf-all",
+      "name": "GET /security/advisories/cvrf/all",
+      "description": "Used to obtain all advisories in Common Vulnerability Reporting Format (CVRF). For more information about CVRF go to https://communities.cisco.com/docs/DOC-63156 . By default the output is in JSON. To obtain the output in XML use the .xml extension. For example, /advisories/cvrf/all.xml\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/all",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-cvrf-cve-cve-id",
+      "name": "GET /security/advisories/cvrf/cve/{cve_id}",
+      "description": "Used to obtain an advisory in CVRF format for a given Common Vulnerability Enumerator (CVE). The `cve_id` format is CVE-YYYY-NNNN. For more information about CVE visit http://cve.mitre.org/\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/cve/{{CVE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CVE_ID}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{CVE_ID}} with a real cve_id."
+    },
+    {
+      "id": "get-security-advisories-cvrf-latest-number",
+      "name": "GET /security/advisories/cvrf/latest/{number}",
+      "description": "Used to obtain all the latest security advisories in CVRF format given an absolute number. For instance, the latest 10 or latest 5.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/latest/{{NUMBER}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NUMBER}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{NUMBER}} with a real number."
+    },
+    {
+      "id": "get-security-advisories-cvrf-product",
+      "name": "GET /security/advisories/cvrf/product",
+      "description": "Used to obtain all the advisories that affects the given product name.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/product",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "product": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-cvrf-severity-severity",
+      "name": "GET /security/advisories/cvrf/severity/{severity}",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/severity/{{SEVERITY}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    },
+    {
+      "id": "get-security-advisories-cvrf-severity-severity-firstpublished",
+      "name": "GET /security/advisories/cvrf/severity/{severity}/firstpublished",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format and additionally filter based of firstpublished start date and enddate\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/severity/{{SEVERITY}}/firstpublished",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    },
+    {
+      "id": "get-security-advisories-cvrf-severity-severity-lastpublished",
+      "name": "GET /security/advisories/cvrf/severity/{severity}/lastpublished",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in CVRF format.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/severity/{{SEVERITY}}/lastpublished",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    },
+    {
+      "id": "get-security-advisories-cvrf-year-year",
+      "name": "GET /security/advisories/cvrf/year/{year}",
+      "description": "Used to obtain all security advisories that have were orginally published in a specific year `YYYY`.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/cvrf/year/{{YEAR}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{YEAR}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "get-security-advisories-ios",
+      "name": "GET /security/advisories/ios",
+      "description": "Used to obtain all advisories that affects the given ios version\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/ios",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-iosxe",
+      "name": "GET /security/advisories/iosxe",
+      "description": "Used to obtain all advisories that affects the given ios version\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/iosxe",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-oval-advisory-advisory-id",
+      "name": "GET /security/advisories/oval/advisory/{advisory_id}",
+      "description": "Used to obtain OVAL definitions for a given advisory ID `advisory_id` (i.e., cisco-sa-20150819-pcp)\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/advisory/{{ADVISORY_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{ADVISORY_ID}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{ADVISORY_ID}} with a real advisory_id."
+    },
+    {
+      "id": "get-security-advisories-oval-all",
+      "name": "GET /security/advisories/oval/all",
+      "description": "Used to obtain all Open Vulnerability and Assessment Language (OVAL) definitions available for Cisco security vulnerabilities. For more information about OVAL go to https://communities.cisco.com/docs/DOC-63158 . By default the output is in JSON. To obtain the output in XML use the .xml extension. For example, /advisories/oval/all.xml\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/all",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-oval-cve-cve-id",
+      "name": "GET /security/advisories/oval/cve/{cve_id}",
+      "description": "Used to obtain OVAL definitions for a given CVE Identifier. The `cve_id` format is CVE-YYYY-NNNN.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/cve/{{CVE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CVE_ID}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{CVE_ID}} with a real cve_id."
+    },
+    {
+      "id": "get-security-advisories-oval-latest-number",
+      "name": "GET /security/advisories/oval/latest/{number}",
+      "description": "Used to obtain all the latest OVAL definitions given an absolute number. For instance, the latest 10 or latest 5.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/latest/{{NUMBER}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NUMBER}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{NUMBER}} with a real number."
+    },
+    {
+      "id": "get-security-advisories-oval-product",
+      "name": "GET /security/advisories/oval/product",
+      "description": "Used to obtain all the oval advisories that affects the given product name.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/product",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "product": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN."
+    },
+    {
+      "id": "get-security-advisories-oval-severity-severity",
+      "name": "GET /security/advisories/oval/severity/{severity}",
+      "description": "Used to obtain all OVAL definitions for a given security impact rating (critical, high, medium, or low).\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/severity/{{SEVERITY}}",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    },
+    {
+      "id": "get-security-advisories-oval-severity-severity-firstpublished",
+      "name": "GET /security/advisories/oval/severity/{severity}/firstpublished",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in OVAL format.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/severity/{{SEVERITY}}/firstpublished",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    },
+    {
+      "id": "get-security-advisories-oval-severity-severity-lastpublished",
+      "name": "GET /security/advisories/oval/severity/{severity}/lastpublished",
+      "description": "Used to obtain all security advisories for a given security impact rating (critical, high, medium, or low) in OVAL format.\n",
+      "method": "GET",
+      "url": "https://api.cisco.com/security/advisories/oval/severity/{{SEVERITY}}/lastpublished",
+      "headers": {
+        "Authorization": "Bearer{{CISCO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "startDate": "",
+        "endDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SEVERITY}}",
+        "{{CISCO_ACCESS_TOKEN}}",
+        "{{CISCO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CISCO_ACCESS_TOKEN}} with your CISCO ACCESS TOKEN. Replace {{SEVERITY}} with a real severity."
+    }
+  ]
+}

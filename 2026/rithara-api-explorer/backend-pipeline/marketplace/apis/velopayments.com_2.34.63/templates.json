@@ -1,0 +1,2159 @@
+{
+  "api_id": "velopayments.com:2.34.63",
+  "endpoint_count": 97,
+  "endpoints": [
+    {
+      "id": "get-funding-audit-delta",
+      "name": "Get Funding Audit Delta",
+      "description": "Get funding audit deltas for a payor",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/deltas/fundings",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": "",
+        "updatedSince": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "v1-list-payment-changes",
+      "name": "V1 List Payment Changes",
+      "description": "Deprecated (use /v4/payments/deltas instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/deltas/payments",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": "",
+        "updatedSince": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-funding",
+      "name": "Get Funding",
+      "description": "Get Funding by Id",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/fundings/{{FUNDINGID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{FUNDINGID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{FUNDINGID}} with a real fundingid."
+    },
+    {
+      "id": "logout",
+      "name": "Logout",
+      "description": "<p>Given a valid access token in the header then log out the authenticated user or client </p>\n<p>Will revoke the token</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/logout",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "reset-password",
+      "name": "Reset password",
+      "description": "<p>Reset password </p>\n<p>An email with an embedded link will be sent to the receipient of the email address </p>\n<p>The link will contain a token to be used for resetting the password </p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/password/reset",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "foo@example.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "list-payment-channel-country-rules",
+      "name": "List Payment Channel Country Rules",
+      "description": "List the country specific payment channel rules.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/paymentChannelRules",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "v1-get-fundings-for-payor",
+      "name": "V1 Get Fundings for Payor",
+      "description": "Deprecated (use /v4/paymentaudit/fundings)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/paymentaudit/fundings",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "v1-get-payout-statistics",
+      "name": "V1 Get Payout Statistics",
+      "description": "Deprecated (Use /v4/paymentaudit/payoutStatistics)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/paymentaudit/payoutStatistics",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "withdraw-a-payment",
+      "name": "Withdraw a Payment",
+      "description": "<p>withdraw a payment </p>\n<p>There are a variety of reasons why this can fail</p>\n<ul>\n    <li>the payment must be in a state of 'accepted' or 'unfunded'</li>\n    <li>the payout must not be in a state of 'instructed'</li>\n</ul>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payments/{{PAYMENTID}}/withdraw",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "reason": "Payment submitted in error"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYMENTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYMENTID}} with a real paymentid."
+    },
+    {
+      "id": "list-payor-links",
+      "name": "List Payor Links",
+      "description": "<p>If the payor is set up as part of a hierarchy you can use this API to traverse the hierarchy</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/payorLinks",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-payor-link",
+      "name": "Create a Payor Link",
+      "description": "This endpoint allows you to create a payor link.",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payorLinks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "fromPayorId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+        "linkType": "PARENT_OF",
+        "toPayorId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payor",
+      "name": "Get Payor",
+      "description": "<p>Get a Single Payor by Id.</p>\n<p>deprecated since v2.10 - Use /v2/payors\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "create-application",
+      "name": "Create Application",
+      "description": "<p>Create an application for the given Payor ID.</p>\n<p>Applications provide a means to group your API Keys</p>\n<p>For example you might have an SAP application that you wish to integrate with Velo</p>\n<p>You can create an application and then create one or more API keys for the application</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}/applications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "SAP Application integration",
+        "name": "SAP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "create-api-key",
+      "name": "Create API Key",
+      "description": "<p>Create an an API key for the given payor Id and application Id</p>\n<p>You can create multiple API Keys for a given application</p>\n<p>API Keys are programmatic users for integrating your application with the Velo platform</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}/applications/{{APPLICATIONID}}/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Key for iOS mobile application",
+        "name": "iOS Key",
+        "roles": [
+          "velo.payor.admin"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{APPLICATIONID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid. Replace {{APPLICATIONID}} with a real applicationid."
+    },
+    {
+      "id": "get-branding",
+      "name": "Get Branding",
+      "description": "Get the payor branding details.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}/branding",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "add-logo",
+      "name": "Add Logo",
+      "description": "<p>Add Payor Logo</p>\n<p>Logo file is used in your branding and emails sent to payees</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}/branding/logos",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "logo": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "reminder-email-opt-out",
+      "name": "Reminder Email Opt-Out",
+      "description": "Update the emailRemindersOptOut field for a Payor. This API can be used to opt out\nor opt into Payor Reminder emails. These emails are typically around payee events\nsuch as payees registering and onboarding.\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/payors/{{PAYORID}}/reminderEmailsUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "reminderEmailsOptOut": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "set-notifications",
+      "name": "Set notifications",
+      "description": "<p>Set notifications for a given source account</p>\n<p>deprecated since 2.34 (use v3 version)</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/sourceAccounts/{{SOURCEACCOUNTID}}/notifications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "minimumBalance": 800828190
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "list-supported-countries",
+      "name": "List Supported Countries",
+      "description": "<p>List the supported countries.</p>\n<p>This version will be retired in March 2020. Use /v2/supportedCountries</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/supportedCountries",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "validate",
+      "name": "validate",
+      "description": "<p>The second part of login involves validating using an MFA device</p>\n<p>An access token with PRE_AUTH authorities is required</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/validate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "otp": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "list-the-details-about-the-webhooks-for-the-given-payor",
+      "name": "List the details about the webhooks for the given payor.",
+      "description": "List the details about the webhooks for the given payor.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/webhooks",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "create-webhook",
+      "name": "Create Webhook",
+      "description": "Create Webhook",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "authorizationHeader": "authorizationHeader",
+        "categories": [
+          null,
+          null
+        ],
+        "enabled": true,
+        "payorId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+        "webhookUrl": "webhookUrl"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-the-given-webhook",
+      "name": "Get details about the given webhook.",
+      "description": "Get details about the given webhook.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v1/webhooks/{{WEBHOOKID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{WEBHOOKID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{WEBHOOKID}} with a real webhookid."
+    },
+    {
+      "id": "update-webhook",
+      "name": "Update Webhook",
+      "description": "Update Webhook",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/webhooks/{{WEBHOOKID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "authorizationHeader": "authorizationHeader",
+        "categories": [
+          null,
+          null
+        ],
+        "enabled": true,
+        "webhookUrl": "webhookUrl"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{WEBHOOKID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{WEBHOOKID}} with a real webhookid."
+    },
+    {
+      "id": "post-v1-webhooks-webhookid-ping",
+      "name": "POST /v1/webhooks/{webhookId}/ping",
+      "description": "Trigger an immediate ping notification to the webhook",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v1/webhooks/{{WEBHOOKID}}/ping",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{WEBHOOKID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{WEBHOOKID}} with a real webhookid."
+    },
+    {
+      "id": "list-supported-currencies",
+      "name": "List Supported Currencies",
+      "description": "List the supported currencies.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/currencies",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-funding-accounts",
+      "name": "Get Funding Accounts",
+      "description": "Get the funding accounts.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/fundingAccounts",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "create-funding-account",
+      "name": "Create Funding Account",
+      "description": "Create Funding Account",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/fundingAccounts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "fbo": {
+          "summary": "FBO Example",
+          "value": {
+            "accountName": "My Account Name",
+            "accountNumber": 1231231234556,
+            "name": "My FBO Account",
+            "payorId": "ee53e01d-c078-43fd-abd4-47e92f4a06cf",
+            "routingNumber": 123456789,
+            "type": "FBO"
+          }
+        },
+        "private": {
+          "summary": "PRIVATE Example",
+          "value": {
+            "accountName": "My Account Name",
+            "accountNumber": 1231231234556,
+            "currency": "AUD",
+            "name": "My PRIVATE Account",
+            "payorId": "ee53e01d-c078-43fd-abd4-47e92f4a06cf",
+            "routingNumber": 123456789,
+            "type": "PRIVATE"
+          }
+        },
+        "wubs": {
+          "summary": "WUBS",
+          "value": {
+            "currency": "USD",
+            "name": "My WUBS Account",
+            "payorId": "ee53e01d-c078-43fd-abd4-47e92f4a06cf",
+            "type": "WUBS_DECOUPLED"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-funding-account",
+      "name": "Get Funding Account",
+      "description": "Get Funding Account by ID",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/fundingAccounts/{{FUNDINGACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{FUNDINGACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{FUNDINGACCOUNTID}} with a real fundingaccountid."
+    },
+    {
+      "id": "get-payor-2",
+      "name": "Get Payor",
+      "description": "Get a Single Payor by Id.\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/payors/{{PAYORID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "get-list-of-source-accounts",
+      "name": "Get list of source accounts",
+      "description": "List source accounts.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/sourceAccounts",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-source-account",
+      "name": "Get Source Account",
+      "description": "Get details about given source account.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/sourceAccounts/{{SOURCEACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "create-funding-request",
+      "name": "Create Funding Request",
+      "description": "Instruct a funding request to transfer funds from the payor\u2019s funding bank to the payor\u2019s balance held within Velo  (202 - accepted, 400 - invalid request body, 404 - source account not found).",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/sourceAccounts/{{SOURCEACCOUNTID}}/fundingRequest",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 800828191
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "transfer-funds-between-source-accounts",
+      "name": "Transfer Funds between source accounts",
+      "description": "Transfer funds between source accounts for a Payor. The 'from' source account is identified in the URL, and is the account which will be debited. The 'to' (destination) source account is in the body, and is the account which will be credited. Both source accounts must belong to the same Payor. There must be sufficient balance in the 'from' source account, otherwise the transfer attempt will fail.",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/sourceAccounts/{{SOURCEACCOUNTID}}/transfers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 800828191,
+        "currency": "USD",
+        "toSourceAccountId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "list-supported-countries-2",
+      "name": "List Supported Countries",
+      "description": "List the supported countries.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/supportedCountries",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "list-users",
+      "name": "List Users",
+      "description": "Get a paginated response listing the Users",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/users",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "invite-a-user",
+      "name": "Invite a User",
+      "description": "Create a User and invite them to the system\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/invite",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "foo@example.com",
+        "entityId": "7fffa261-ac68-49e6-b605-d24a444d9206",
+        "firstName": "John",
+        "lastName": "Doe",
+        "mfaType": "TOTP",
+        "primaryContactNumber": "11235555555",
+        "roles": [
+          "velo.payor.admin"
+        ],
+        "secondaryContactNumber": "11235555550",
+        "smsNumber": "11235555555",
+        "userType": "PAYEE",
+        "verificationCode": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "register-sms-number",
+      "name": "Register SMS Number",
+      "description": "<p>Register an Sms number and send an OTP to it </p>\n<p>Used for manual verification of a user </p>\n<p>The backoffice user initiates the request to send the OTP to the user's sms </p>\n<p>The user then reads back the OTP which the backoffice user enters in the verifactionCode property for requests that require it</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/registration/sms",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "smsNumber": "11235555555"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-self",
+      "name": "Get Self",
+      "description": "Get the user's details\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/users/self",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "unregister-mfa-for-self",
+      "name": "Unregister MFA for Self",
+      "description": "<p>Unregister the MFA device for the user </p>\n<p>If the user does not require further verification then a register new MFA device token will be sent to them via their email address</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/self/mfa/unregister",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "mfaType": "TOTP"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "update-password-for-self",
+      "name": "Update Password for self",
+      "description": "Update password for self\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/self/password",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "newPassword": "My_new_password",
+        "oldPassword": "My_current_password"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "validate-the-proposed-password",
+      "name": "Validate the proposed password",
+      "description": "validate the password and return a score\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/self/password/validate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "password": "My_strong_password"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "update-user-details-for-self",
+      "name": "Update User Details for self",
+      "description": "<p>Update the profile details for the given user</p>\n<p>Only Payee user types are supported</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/self/userDetailsUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "foo@example.com",
+        "firstName": "John",
+        "lastName": "Doe",
+        "primaryContactNumber": "11235555555",
+        "secondaryContactNumber": "11235555550",
+        "smsNumber": "11235555555"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-user",
+      "name": "Get User",
+      "description": "Get a Single User by Id.\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a User",
+      "description": "Delete User by Id.\n",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "disable-a-user",
+      "name": "Disable a User",
+      "description": "<p>If a user is enabled this endpoint will disable them </p>\n<p>The invoker must have the appropriate permission </p>\n<p>A user cannot disable themself </p>\n<p>When a user is disabled any active access tokens will be revoked and the user will not be able to log in</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/disable",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "enable-a-user",
+      "name": "Enable a User",
+      "description": "<p>If a user has been disabled this endpoints will enable them </p>\n<p>The invoker must have the appropriate permission </p>\n<p>A user cannot enable themself </p>\n<p>If the user is a payor user and the payor is disabled this operation is not allowed</p>\n<p>If enabling a payor user would breach the limit for master admin payor users the request will be rejected </p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/enable",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "unregister-mfa-for-the-user",
+      "name": "Unregister MFA for the user",
+      "description": "<p>Unregister the MFA device for the user </p>\n<p>If the user does not require further verification then a register new MFA device token will be sent to them via their email address</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/mfa/unregister",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "mfaType": "TOTP",
+        "verificationCode": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "update-user-role",
+      "name": "Update User Role",
+      "description": "<p>Update the user's Role</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/roleUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "roles": [
+          "payor.admin"
+        ],
+        "verificationCode": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "resend-a-token",
+      "name": "Resend a token",
+      "description": "<p>Resend the specified token </p>\n<p>The token to resend must already exist for the user </p>\n<p>It will be revoked and a new one issued</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/tokens",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "tokenType": "INVITE_MFA_USER",
+        "verificationCode": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "unlock-a-user",
+      "name": "Unlock a User",
+      "description": "If a user is locked this endpoint will unlock them\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/unlock",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "update-user-details",
+      "name": "Update User Details",
+      "description": "<p>Update the profile details for the given user</p>\n<p>When updating Payor users with the role of payor.master_admin a verificationCode is required</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v2/users/{{USERID}}/userDetailsUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "foo@example.com",
+        "firstName": "John",
+        "lastName": "Doe",
+        "mfaType": "TOTP",
+        "primaryContactNumber": "11235555555",
+        "secondaryContactNumber": "11235555550",
+        "smsNumber": "11235555555",
+        "verificationCode": "123456"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{USERID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "list-payees",
+      "name": "List Payees",
+      "description": "<p>Use v4 instead</p>\nGet a paginated response listing the payees for a payor.\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payees",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "query-batch-status",
+      "name": "Query Batch Status",
+      "description": "<p>Use v4 instead</p>\nFetch the status of a specific batch of payees. The batch is fully processed when status is ACCEPTED and pendingCount is 0 ( 200 - OK, 404 - batch not found ).\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/batch/{{BATCHID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BATCHID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{BATCHID}} with a real batchid."
+    },
+    {
+      "id": "list-payee-changes",
+      "name": "List Payee Changes",
+      "description": "<p>Use v4 instead</p>\n<p>Get a paginated response listing payee changes.</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/deltas",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": "",
+        "updatedSince": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payee-invitation-status",
+      "name": "Get Payee Invitation Status",
+      "description": "<p>Use v4 instead</p>\n<p>Returns a filtered, paginated list of payees associated with a payor, along with invitation status and grace period end date.</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/payors/{{PAYORID}}/invitationStatus",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "get-payee-by-id",
+      "name": "Get Payee by Id",
+      "description": "<p>Use v4 instead</p>\n<p>Get Payee by Id</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/{{PAYEEID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "delete-payee-by-id",
+      "name": "Delete Payee by Id",
+      "description": "<p>Use v4 instead</p>\n<p>This API will delete Payee by Id (UUID). Deletion by ID is not allowed if:</p>\n<p>* Payee ID is not found</p>\n<p>* If Payee has not been on-boarded</p>\n<p>* If Payee is in grace period</p>\n<p>* If Payee has existing payments</p>\n",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/{{PAYEEID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "resend-payee-invite",
+      "name": "Resend Payee Invite",
+      "description": "<p>Use v4 instead</p>\n<p>Resend an invite to the Payee The payee must have already been invited by the payor and not yet accepted or declined</p>\n<p>Any previous invites to the payee by this Payor will be invalidated</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/{{PAYEEID}}/invite",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payorId": "9ac75325-5dcd-42d5-b992-175d7e0a035e"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "update-payee-details",
+      "name": "Update Payee Details",
+      "description": "<p>Use v4 instead</p>\n<p>Update payee details for the given Payee Id.<p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/{{PAYEEID}}/payeeDetailsUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "address": {
+          "city": "Key West",
+          "country": "US",
+          "countyOrProvince": "FL",
+          "line1": "500 Duval St",
+          "line2": "line2",
+          "line3": "line3",
+          "line4": "line4",
+          "zipOrPostcode": "33945"
+        },
+        "challenge": {
+          "description": "challenge description",
+          "value": "challenge test"
+        },
+        "company": {
+          "name": "ABC Group Plc",
+          "operatingName": "ABC Co",
+          "taxId": "123123123"
+        },
+        "email": "bob@example.com",
+        "individual": {
+          "dateOfBirth": "1985-01-01",
+          "name": {
+            "firstName": "Bob",
+            "lastName": "Smith",
+            "otherNames": "A",
+            "title": "Mr"
+          },
+          "nationalIdentification": "AB123456C"
+        },
+        "language": "en-US"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "update-payee-remote-id",
+      "name": "Update Payee Remote Id",
+      "description": "<p>Use v4 instead</p>\n<p>Update the remote Id for the given Payee Id.</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payees/{{PAYEEID}}/remoteIdUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payorId": "9ac75325-5dcd-42d5-b992-175d7e0a035e",
+        "remoteId": "remoteId123"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "v3-get-list-of-payments",
+      "name": "V3 Get List of Payments",
+      "description": "Deprecated (use /v4/paymentaudit/payments instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/paymentaudit/payments",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "v3-get-payment",
+      "name": "V3 Get Payment",
+      "description": "Deprecated (use /v4/paymentaudit/payments/<paymentId> instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/paymentaudit/payments/{{PAYMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYMENTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYMENTID}} with a real paymentid."
+    },
+    {
+      "id": "v3-get-payouts-for-payor",
+      "name": "V3 Get Payouts for Payor",
+      "description": "Deprecated (use /v4/paymentaudit/payouts instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/paymentaudit/payouts",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "v3-get-payments-for-payout",
+      "name": "V3 Get Payments for Payout",
+      "description": "Deprecated (use /v4/paymentaudit/payouts/<payoutId> instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/paymentaudit/payouts/{{PAYOUTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "v3-export-transactions",
+      "name": "V3 Export Transactions",
+      "description": "Deprecated (use /v4/paymentaudit/transactions instead)",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/paymentaudit/transactions",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "submit-payout",
+      "name": "Submit Payout",
+      "description": "<p>Create a new payout and return a location header with a link to the payout</p>\n<p>Basic validation of the payout is performed before returning but more comprehensive validation is done asynchronously</p>\n<p>The results can be obtained by issuing a HTTP GET to the URL returned in the location header</p>\n<p>**NOTE:** amount values in payments must be in 'minor units' format. E.g. cents for USD, pence for GBP etc with no decimal places</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payments": [
+          {
+            "amount": 1299,
+            "currency": "USD",
+            "paymentMemo": "my memo",
+            "paymentMetadata": "invoiceeId_123|abc001:12345|xyz002:4567",
+            "payorPaymentId": "123211321ABSD",
+            "remoteId": "remoteId1234",
+            "remoteSystemId": "remoteSystemId",
+            "sourceAccountName": "MyAccountName",
+            "transmissionType": "ACH"
+          },
+          {
+            "amount": 1299,
+            "currency": "USD",
+            "paymentMemo": "my memo",
+            "paymentMetadata": "invoiceeId_123|abc001:12345|xyz002:4567",
+            "payorPaymentId": "123211321ABSD",
+            "remoteId": "remoteId1234",
+            "remoteSystemId": "remoteSystemId",
+            "sourceAccountName": "MyAccountName",
+            "transmissionType": "ACH"
+          },
+          {
+            "amount": 1299,
+            "currency": "USD",
+            "paymentMemo": "my memo",
+            "paymentMetadata": "invoiceeId_123|abc001:12345|xyz002:4567",
+            "payorPaymentId": "123211321ABSD",
+            "remoteId": "remoteId1234",
+            "remoteSystemId": "remoteSystemId",
+            "sourceAccountName": "MyAccountName",
+            "transmissionType": "ACH"
+          },
+          {
+            "amount": 1299,
+            "currency": "USD",
+            "paymentMemo": "my memo",
+            "paymentMetadata": "invoiceeId_123|abc001:12345|xyz002:4567",
+            "payorPaymentId": "123211321ABSD",
+            "remoteId": "remoteId1234",
+            "remoteSystemId": "remoteSystemId",
+            "sourceAccountName": "MyAccountName",
+            "transmissionType": "ACH"
+          },
+          {
+            "amount": 1299,
+            "currency": "USD",
+            "paymentMemo": "my memo",
+            "paymentMetadata": "invoiceeId_123|abc001:12345|xyz002:4567",
+            "payorPaymentId": "123211321ABSD",
+            "remoteId": "remoteId1234",
+            "remoteSystemId": "remoteSystemId",
+            "sourceAccountName": "MyAccountName",
+            "transmissionType": "ACH"
+          }
+        ],
+        "payoutFromPayorId": "c4261044-13df-4a6c-b1d4-fa8be2b46f5a",
+        "payoutMemo": "Monthly Payment",
+        "payoutToPayorId": "9afc6b39-de12-466a-a9ca-07c7a23b312d"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payout-summary",
+      "name": "Get Payout Summary",
+      "description": "Get payout summary - returns the current state of the payout.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "instruct-payout",
+      "name": "Instruct Payout",
+      "description": "Instruct a payout to be made for the specified payoutId.",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "fxRateDegredationThresholdPercentage": 0.8008282
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "withdraw-payout",
+      "name": "Withdraw Payout",
+      "description": "Withdraw Payout will remove the payout details from the rails but the payout will still be accessible in payout service in WITHDRAWN status.",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "retrieve-payments-for-a-payout",
+      "name": "Retrieve payments for a payout",
+      "description": "Retrieve payments for a payout",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}/payments",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "create-a-quote-for-the-payout",
+      "name": "Create a quote for the payout",
+      "description": "Create quote for a payout",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}/quote",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "schedule-a-payout",
+      "name": "Schedule a payout",
+      "description": "<p>Schedule a payout for auto-instruction in the future\nor update existing payout schedule if the payout has been scheduled before.</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}/schedule",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "notificationsEnabled": true,
+        "scheduledFor": "2025-01-01T10:00:00Z"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "deschedule-a-payout",
+      "name": "Deschedule a payout",
+      "description": "Remove the schedule for a scheduled payout",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v3/payouts/{{PAYOUTID}}/schedule",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "get-list-of-source-accounts-2",
+      "name": "Get list of source accounts",
+      "description": "List source accounts.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-given-source-account",
+      "name": "Get details about given source account.",
+      "description": "Get details about given source account.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts/{{SOURCEACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "delete-a-source-account-by-id",
+      "name": "Delete a source account by ID",
+      "description": "Mark a source account as deleted by ID",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts/{{SOURCEACCOUNTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "create-funding-request-2",
+      "name": "Create Funding Request",
+      "description": "<p>Instruct a funding request to transfer funds from the payor\u2019s funding bank to the payor\u2019s balance held within Velo</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts/{{SOURCEACCOUNTID}}/fundingRequest",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 800828191,
+        "fundingAccountId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "set-notifications-2",
+      "name": "Set notifications",
+      "description": "<p>Set notifications for a given source account</p>\n<p>If the balance falls below the amount set in the request an email notification will be sent to the email address registered in the payor profile</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts/{{SOURCEACCOUNTID}}/notifications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "minimumBalance": 10000000
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "transfer-funds-between-source-accounts-2",
+      "name": "Transfer Funds between source accounts",
+      "description": "Transfer funds between source accounts for a Payor. The 'from' source account is identified in the URL, and is the account which will be debited. The 'to' (destination) source account is in the body, and is the account which will be credited. Both source accounts must belong to the same Payor. There must be sufficient balance in the 'from' source account, otherwise the transfer attempt will fail.",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v3/sourceAccounts/{{SOURCEACCOUNTID}}/transfers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 800828191,
+        "currency": "USD",
+        "toSourceAccountId": "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{SOURCEACCOUNTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{SOURCEACCOUNTID}} with a real sourceaccountid."
+    },
+    {
+      "id": "list-payees-2",
+      "name": "List Payees",
+      "description": "Get a paginated response listing the payees for a payor.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payees",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "query-batch-status-2",
+      "name": "Query Batch Status",
+      "description": "Fetch the status of a specific batch of payees. The batch is fully processed when status is ACCEPTED and pendingCount is 0 ( 200 - OK, 404 - batch not found ).\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/batch/{{BATCHID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BATCHID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{BATCHID}} with a real batchid."
+    },
+    {
+      "id": "list-payee-changes-2",
+      "name": "List Payee Changes",
+      "description": "Get a paginated response listing payee changes (updated since a particular time) to a limited set of fields:\n- dbaName\n- displayName\n- email\n- onboardedStatus\n- payeeCountry\n- payeeId\n- remoteId\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/deltas",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": "",
+        "updatedSince": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payee-invitation-status-2",
+      "name": "Get Payee Invitation Status",
+      "description": "Returns a filtered, paginated list of payees associated with a payor, along with invitation status and grace period end date.\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/payors/{{PAYORID}}/invitationStatus",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PAYORID}}",
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYORID}} with a real payorid."
+    },
+    {
+      "id": "get-payee-by-id-2",
+      "name": "Get Payee by Id",
+      "description": "Get Payee by Id",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/{{PAYEEID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "delete-payee-by-id-2",
+      "name": "Delete Payee by Id",
+      "description": "<p>This API will delete Payee by Id (UUID). Deletion by ID is not allowed if:</p>\n<p>* Payee ID is not found</p>\n<p>* If Payee has not been on-boarded</p>\n<p>* If Payee is in grace period</p>\n<p>* If Payee has existing payments</p>\n",
+      "method": "DELETE",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/{{PAYEEID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "resend-payee-invite-2",
+      "name": "Resend Payee Invite",
+      "description": "<p>Resend an invite to the Payee The payee must have already been invited by the payor and not yet accepted or declined</p>\n<p>Any previous invites to the payee by this Payor will be invalidated</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/{{PAYEEID}}/invite",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payorId": "9ac75325-5dcd-42d5-b992-175d7e0a035e"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "update-payee-details-2",
+      "name": "Update Payee Details",
+      "description": "<p>Update payee details for the given Payee Id.</p>\n<p>Payors may only update the payee details if the payee has not yet onboarded</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/{{PAYEEID}}/payeeDetailsUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "address": {
+          "city": "Key West",
+          "country": "US",
+          "countyOrProvince": "FL",
+          "line1": "500 Duval St",
+          "line2": "line2",
+          "line3": "line3",
+          "line4": "line4",
+          "zipOrPostcode": "33945"
+        },
+        "challenge": {
+          "description": "challenge description",
+          "value": "11984567"
+        },
+        "company": {
+          "name": "ABC Group Plc",
+          "operatingName": "ABC Co",
+          "taxId": "123123123"
+        },
+        "contactSmsNumber": "11235555555",
+        "email": "bob@example.com",
+        "individual": {
+          "dateOfBirth": "1985-01-01",
+          "name": {
+            "firstName": "Bob",
+            "lastName": "Smith",
+            "otherNames": "A",
+            "title": "Mr"
+          },
+          "nationalIdentification": "AB123456C"
+        },
+        "language": "en-US"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "update-payee-remote-id-2",
+      "name": "Update Payee Remote Id",
+      "description": "<p>Update the remote Id for the given Payee Id.</p>\n",
+      "method": "POST",
+      "url": "https://api.sandbox.velopayments.com/v4/payees/{{PAYEEID}}/remoteIdUpdate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "payorId": "9ac75325-5dcd-42d5-b992-175d7e0a035e",
+        "remoteId": "remoteId123"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYEEID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYEEID}} with a real payeeid."
+    },
+    {
+      "id": "get-fundings-for-payor",
+      "name": "Get Fundings for Payor",
+      "description": "<p>Get a list of Fundings for a payor.</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/fundings",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-list-of-payments",
+      "name": "Get List of Payments",
+      "description": "Get payments for the given payor Id",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/payments",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payment",
+      "name": "Get Payment",
+      "description": "Get the payment with the given id. This contains the payment history.\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/payments/{{PAYMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYMENTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYMENTID}} with a real paymentid."
+    },
+    {
+      "id": "get-payout-statistics",
+      "name": "Get Payout Statistics",
+      "description": "<p>Get payout statistics for a payor.</p>\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/payoutStatistics",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payouts-for-payor",
+      "name": "Get Payouts for Payor",
+      "description": "Get List of payouts for payor\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/payouts",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "get-payments-for-payout",
+      "name": "Get Payments for Payout",
+      "description": "Get List of payments for Payout, allowing for RETURNED status\n",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/payouts/{{PAYOUTID}}",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{PAYOUTID}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN. Replace {{PAYOUTID}} with a real payoutid."
+    },
+    {
+      "id": "export-transactions",
+      "name": "Export Transactions",
+      "description": "Download a CSV file containing payments in a date range. Uses Transfer-Encoding - chunked to stream to the client. Date range is inclusive of both the start and end dates.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/paymentaudit/transactions",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    },
+    {
+      "id": "list-payment-changes",
+      "name": "List Payment Changes",
+      "description": "Get a paginated response listing payment changes.",
+      "method": "GET",
+      "url": "https://api.sandbox.velopayments.com/v4/payments/deltas",
+      "headers": {
+        "Authorization": "Bearer{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "payorId": "",
+        "updatedSince": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VELOPAYMENTS_ACCESS_TOKEN}}",
+        "{{VELOPAYMENTS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{VELOPAYMENTS_ACCESS_TOKEN}} with your VELOPAYMENTS ACCESS TOKEN."
+    }
+  ]
+}

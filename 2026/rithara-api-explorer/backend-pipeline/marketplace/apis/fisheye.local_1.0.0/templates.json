@@ -1,0 +1,247 @@
+{
+  "api_id": "fisheye.local:1.0.0",
+  "endpoint_count": 16,
+  "endpoints": [
+    {
+      "id": "get-rest-service-fe-changeset-v1-listchangesets",
+      "name": "GET /rest-service-fe/changeset-v1/listChangesets",
+      "description": "List of changesets from a repository.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/changeset-v1/listChangesets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-rest-service-fe-commit-graph-v1-details-repository",
+      "name": "POST /rest-service-fe/commit-graph-v1/details/{repository}",
+      "description": "Retrieves detailed information about a set of changesets in a repository, designed to be used with the FishEye commit graph",
+      "method": "POST",
+      "url": "http://fisheye.local/context/rest-service-fe/commit-graph-v1/details/{{REPOSITORY}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-commit-graph-v1-slice-repository",
+      "name": "GET /rest-service-fe/commit-graph-v1/slice/{repository}",
+      "description": "finds slice data the query",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/commit-graph-v1/slice/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-repositories-v1",
+      "name": "GET /rest-service-fe/repositories-v1",
+      "description": "List all the repositories.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/repositories-v1",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-fe-repositories-v1-repository",
+      "name": "GET /rest-service-fe/repositories-v1/{repository}",
+      "description": "Get the information about a repository.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/repositories-v1/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-changeset-repository-csid",
+      "name": "GET /rest-service-fe/revisionData-v1/changeset/{repository}/{csid}",
+      "description": null,
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/changeset/{{REPOSITORY}}/{{CSID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CSID}}",
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{CSID}} with a real csid. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-changesetlist-repository",
+      "name": "GET /rest-service-fe/revisionData-v1/changesetList/{repository}",
+      "description": "Get a list of changesets on a repository.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/changesetList/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-pathhistory-repository",
+      "name": "GET /rest-service-fe/revisionData-v1/pathHistory/{repository}",
+      "description": "Get a list of the file revisions for a specific path.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/pathHistory/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-pathlist-repository",
+      "name": "GET /rest-service-fe/revisionData-v1/pathList/{repository}",
+      "description": "Get a list of information about files and directories in a path.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/pathList/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-revisioninfo-repository",
+      "name": "GET /rest-service-fe/revisionData-v1/revisionInfo/{repository}",
+      "description": null,
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/revisionInfo/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-revisiondata-v1-revisiontags-repository",
+      "name": "GET /rest-service-fe/revisionData-v1/revisionTags/{repository}",
+      "description": null,
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/revisionData-v1/revisionTags/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-search-v1-crossrepositoryquery",
+      "name": "GET /rest-service-fe/search-v1/crossRepositoryQuery",
+      "description": "Execute a query across repositories. By default, this will search all repositories.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/search-v1/crossRepositoryQuery",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-rest-service-fe-search-v1-query-repository",
+      "name": "GET /rest-service-fe/search-v1/query/{repository}",
+      "description": "Execute a FishEye query against a specific repository.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/search-v1/query/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "get-rest-service-fe-search-v1-queryasrows-repository",
+      "name": "GET /rest-service-fe/search-v1/queryAsRows/{repository}",
+      "description": "Execute a FishEye query (that contains a \"return\" statement) against a specific repository.",
+      "method": "GET",
+      "url": "http://fisheye.local/context/rest-service-fe/search-v1/queryAsRows/{{REPOSITORY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "post-rest-service-fe-search-v1-reviewsforchangeset-repository",
+      "name": "POST /rest-service-fe/search-v1/reviewsForChangeset/{repository}",
+      "description": "Retrieve a list of reviews for a changeset in a given repository.",
+      "method": "POST",
+      "url": "http://fisheye.local/context/rest-service-fe/search-v1/reviewsForChangeset/{{REPOSITORY}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    },
+    {
+      "id": "post-rest-service-fe-search-v1-reviewsforchangesets-repository",
+      "name": "POST /rest-service-fe/search-v1/reviewsForChangesets/{repository}",
+      "description": "Retrieve a list of reviews for each given changeset in a given repository.",
+      "method": "POST",
+      "url": "http://fisheye.local/context/rest-service-fe/search-v1/reviewsForChangesets/{{REPOSITORY}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{REPOSITORY}}"
+      ],
+      "notes": "No authentication required. Replace {{REPOSITORY}} with a real repository."
+    }
+  ]
+}

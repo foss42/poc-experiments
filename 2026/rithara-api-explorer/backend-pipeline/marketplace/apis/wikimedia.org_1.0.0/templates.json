@@ -1,0 +1,791 @@
+{
+  "api_id": "wikimedia.org:1.0.0",
+  "endpoint_count": 35,
+  "endpoints": [
+    {
+      "id": "gets-availability-of-featured-feed-content-for-the-apps-by-wiki-domain",
+      "name": "Gets availability of featured feed content for the apps by wiki domain.",
+      "description": "Gets availability of featured feed content for the apps by wiki domain.\n\nStability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/feed/availability",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY."
+    },
+    {
+      "id": "check-and-normalize-a-tex-formula",
+      "name": "Check and normalize a TeX formula.",
+      "description": "Checks the supplied TeX formula for correctness and returns the\nnormalised formula representation as well as information about\nidentifiers. Available types are tex and inline-tex. The response\ncontains the `x-resource-location` header which can be used to retrieve\nthe render of the checked formula in one of the supported rendering\nformats. Just append the value of the header to `/media/math/{format}/`\nand perform a GET request against that URL.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "method": "POST",
+      "url": "https://wikimedia.org/api/rest_v1/media/math/check/{{TYPE}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{TYPE}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{TYPE}} with a real type."
+    },
+    {
+      "id": "get-a-previously-stored-formula",
+      "name": "Get a previously-stored formula",
+      "description": "Returns the previously-stored formula via `/media/math/check/{type}` for\nthe given hash.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/media/math/formula/{{HASH}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{HASH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{HASH}} with a real hash."
+    },
+    {
+      "id": "get-rendered-formula-in-the-given-format",
+      "name": "Get rendered formula in the given format.",
+      "description": "Given a request hash, renders a TeX formula into its mathematic\nrepresentation in the given format. When a request is issued to the\n`/media/math/check/{format}` POST endpoint, the response contains the\n`x-resource-location` header denoting the hash ID of the POST data. Once\nobtained, this endpoint has to be used to obtain the actual render.\n\nStability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/media/math/render/{{FORMAT}}/{{HASH}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{HASH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{FORMAT}} with a real format. Replace {{HASH}} with a real hash."
+    },
+    {
+      "id": "get-the-sum-of-absolute-value-of-text-bytes-difference-between-current-edit-and-previous-one",
+      "name": "Get the sum of absolute value of text bytes difference between current edit and\nprevious one.\n",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of absolute bytes\ndifference sums. You can filter by editors-type (all-editor-types, anonymous, group-bot,\nname-bot, user) and page-type (all-page-types, content, non-content). You can choose\nbetween daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/bytes-difference/absolute/aggregate/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-the-sum-of-absolute-text-bytes-difference-per-page",
+      "name": "Get the sum of absolute text bytes difference per page.",
+      "description": "Given a Mediawiki project, a page-title prefixed with canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes\ndifference absolute sums. You can filter by editors-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user). You can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/bytes-difference/absolute/per-page/{{PROJECT}}/{{PAGE-TITLE}}/{{EDITOR-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{PAGE-TITLE}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{PAGE-TITLE}} with a real page-title. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-the-sum-of-net-text-bytes-difference-between-current-edit-and-previous-one",
+      "name": "Get the sum of net text bytes difference between current edit and previous one.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of bytes difference net\nsums. You can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot,\nuser) and page-type (all-page-types, content or non-content). You can choose between\ndaily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/bytes-difference/net/aggregate/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-the-sum-of-net-text-bytes-difference-per-page",
+      "name": "Get the sum of net text bytes difference per page.",
+      "description": "Given a Mediawiki project, a page-title prefixed with canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of bytes\ndifference net sums. You can filter by editors-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user). You can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/bytes-difference/net/per-page/{{PROJECT}}/{{PAGE-TITLE}}/{{EDITOR-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{PAGE-TITLE}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{PAGE-TITLE}} with a real page-title. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-edited-pages-counts-for-a-project",
+      "name": "Get edited-pages counts for a project.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of its edited-pages counts.\nYou can filter by editor-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits, 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edited-pages/aggregate/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{ACTIVITY-LEVEL}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{END}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{ACTIVITY-LEVEL}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{END}} with a real end. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{ACTIVITY-LEVEL}} with a real activity-level."
+    },
+    {
+      "id": "get-new-pages-counts-for-a-project",
+      "name": "Get new pages counts for a project.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of its new pages counts.\nYou can filter by editor type (all-editor-types, anonymous, group-bot, name-bot, user)\nor page-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edited-pages/new/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-top-100-edited-pages-by-absolute-bytes-difference",
+      "name": "Get top 100 edited-pages by absolute bytes-difference.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\nedited-pages by absolute bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-absolute-bytes-difference/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-top-100-edited-pages-by-edits-count",
+      "name": "Get top 100 edited-pages by edits count.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top\n100 edited-pages by edits count. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or\nnon-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-edits/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-top-100-edited-pages-by-net-bytes-difference",
+      "name": "Get top 100 edited-pages by net bytes-difference.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\nedited-pages by net bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edited-pages/top-by-net-bytes-difference/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-editors-counts-for-a-project",
+      "name": "Get editors counts for a project.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of its editors counts.\nYou can filter by editory-type (all-editor-types, anonymous, group-bot, name-bot, user),\npage-type (all-page-types, content or non-content) or activity-level (1..4-edits,\n5..24-edits, 25..99-edits or 100..-edits). You can choose between daily and monthly\ngranularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/editors/aggregate/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{ACTIVITY-LEVEL}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{END}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{ACTIVITY-LEVEL}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{END}} with a real end. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{ACTIVITY-LEVEL}} with a real activity-level."
+    },
+    {
+      "id": "get-top-100-editors-by-absolute-bytes-difference",
+      "name": "Get top 100 editors by absolute bytes-difference.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\neditors by absolute bytes-difference. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or non-content).\nThe user_text returned is either the mediawiki user_text if the user is registered, or\nnull if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/editors/top-by-absolute-bytes-difference/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-top-100-editors-by-edits-count",
+      "name": "Get top 100 editors by edits count.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top\n100 editors by edits count. You can filter by editor-type (all-editor-types,\nanonymous, group-bot, name-bot, user) or page-type (all-page-types, content or\nnon-content). The user_text returned is either the mediawiki user_text if the user is\nregistered, or null if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/editors/top-by-edits/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-top-100-editors-by-net-bytes-difference",
+      "name": "Get top 100 editors by net bytes-difference.",
+      "description": "Given a Mediawiki project and a date (day or month), returns a timeseries of the top 100\neditors by net bytes-difference. You can filter by editor-type (all-editor-types, anonymous,\ngroup-bot, name-bot, user) or page-type (all-page-types, content or non-content). The\nuser_text returned is either the mediawiki user_text if the user is registered, or\n\"Anonymous Editor\" if user is anonymous.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/editors/top-by-net-bytes-difference/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{YEAR}}",
+        "{{PAGE-TYPE}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{YEAR}} with a real year. Replace {{PAGE-TYPE}} with a real page-type. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-edits-counts-for-a-project",
+      "name": "Get edits counts for a project.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of edits counts.\nYou can filter by editors-type (all-editor-types, anonymous, bot, registered) and\npage-type (all-page-types, content or non-content). You can choose between daily and\nmonthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edits/aggregate/{{PROJECT}}/{{EDITOR-TYPE}}/{{PAGE-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PAGE-TYPE}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PAGE-TYPE}} with a real page-type. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-edit-counts-for-a-page-in-a-project",
+      "name": "Get edit counts for a page in a project.",
+      "description": "Given a Mediawiki project, a page-title prefixed with its canonical namespace (for\ninstance 'User:Jimbo_Wales') and a date range, returns a timeseries of edit counts.\nYou can filter by editors-type (all-editor-types, anonymous, group-bot, name-bot, user).\nYou can choose between daily and monthly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/edits/per-page/{{PROJECT}}/{{PAGE-TITLE}}/{{EDITOR-TYPE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EDITOR-TYPE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{PAGE-TITLE}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{EDITOR-TYPE}} with a real editor-type. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{PAGE-TITLE}} with a real page-title. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-metrics-legacy-pagecounts-aggregate-project-access-site-granularity-start-end",
+      "name": "GET /metrics/legacy/pagecounts/aggregate/{project}/{access-site}/{granularity}/{start}/{end}",
+      "description": "Given a project and a date range, returns a timeseries of pagecounts.\nYou can filter by access site (mobile or desktop) and you can choose between monthly,\ndaily and hourly granularity as well.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/legacy/pagecounts/aggregate/{{PROJECT}}/{{ACCESS-SITE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESS-SITE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{ACCESS-SITE}} with a real access-site. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-pageview-counts-for-a-project",
+      "name": "Get pageview counts for a project.",
+      "description": "Given a date range, returns a timeseries of pageview counts. You can filter by project,\naccess method and/or agent type. You can choose between daily and hourly granularity\nas well.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/aggregate/{{PROJECT}}/{{ACCESS}}/{{AGENT}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{ACCESS}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{AGENT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{START}} with a real start. Replace {{ACCESS}} with a real access. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{AGENT}} with a real agent. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-pageview-counts-for-a-page",
+      "name": "Get pageview counts for a page.",
+      "description": "Given a Mediawiki article and a date range, returns a daily timeseries of its pageview\ncounts. You can also filter by access method and/or agent type.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/{{PROJECT}}/{{ACCESS}}/{{AGENT}}/{{ARTICLE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ARTICLE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{ACCESS}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{AGENT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{ARTICLE}} with a real article. Replace {{START}} with a real start. Replace {{ACCESS}} with a real access. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{AGENT}} with a real agent. Replace {{END}} with a real end."
+    },
+    {
+      "id": "get-pageviews-by-country-and-access-method",
+      "name": "Get pageviews by country and access method.",
+      "description": "Lists the pageviews to this project, split by country of origin for a given month.\nBecause of privacy reasons, pageviews are given in a bucketed format, and countries\nwith less than 100 views do not get reported.\nStability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/top-by-country/{{PROJECT}}/{{ACCESS}}/{{YEAR}}/{{MONTH}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MONTH}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{ACCESS}}",
+        "{{PROJECT}}",
+        "{{YEAR}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month. Replace {{ACCESS}} with a real access. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "get-the-most-viewed-articles-for-a-project",
+      "name": "Get the most viewed articles for a project.",
+      "description": "Lists the 1000 most viewed articles for a given project and timespan (month or day).\nYou can filter by access method.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/top/{{PROJECT}}/{{ACCESS}}/{{YEAR}}/{{MONTH}}/{{DAY}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{ACCESS}}",
+        "{{YEAR}}",
+        "{{DAY}}",
+        "{{PROJECT}}",
+        "{{MONTH}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{ACCESS}} with a real access. Replace {{YEAR}} with a real year. Replace {{DAY}} with a real day. Replace {{PROJECT}} with a real project. Replace {{MONTH}} with a real month."
+    },
+    {
+      "id": "get-newly-registered-users-counts-for-a-project",
+      "name": "Get newly registered users counts for a project.",
+      "description": "Given a Mediawiki project and a date range, returns a timeseries of its newly registered\nusers counts. You can choose between daily and monthly granularity. The newly registered\nusers value is computed with self-created users only, not auto-login created ones.\n\n- Stability: [experimental](https://www.mediawiki.org/wiki/API_versioning#Experimental)\n- Rate limit: 25 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/registered-users/new/{{PROJECT}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{PROJECT}} with a real project. Replace {{START}} with a real start. Replace {{END}} with a real end. Replace {{GRANULARITY}} with a real granularity."
+    },
+    {
+      "id": "get-unique-devices-count-per-project",
+      "name": "Get unique devices count per project",
+      "description": "Given a project and a date range, returns a timeseries of unique devices counts.\nYou need to specify a project, and can filter by accessed site (mobile or desktop).\nYou can choose between daily and hourly granularity as well.\n\n- Stability: [stable](https://www.mediawiki.org/wiki/API_versioning#Stable)\n- Rate limit: 100 req/s\n- License: Data accessible via this endpoint is available under the\n  [CC0 1.0 license](https://creativecommons.org/publicdomain/zero/1.0/).\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/metrics/unique-devices/{{PROJECT}}/{{ACCESS-SITE}}/{{GRANULARITY}}/{{START}}/{{END}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESS-SITE}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{START}}",
+        "{{GRANULARITY}}",
+        "{{PROJECT}}",
+        "{{END}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{ACCESS-SITE}} with a real access-site. Replace {{START}} with a real start. Replace {{GRANULARITY}} with a real granularity. Replace {{PROJECT}} with a real project. Replace {{END}} with a real end."
+    },
+    {
+      "id": "machine-translate-content",
+      "name": "Machine-translate content",
+      "description": "Fetches the machine translation for the posted content from the source\nto the destination language.\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "POST",
+      "url": "https://wikimedia.org/api/rest_v1/transform/html/from/{{FROM_LANG}}/to/{{TO_LANG}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{FROM_LANG}}",
+        "{{TO_LANG}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{FROM_LANG}} with a real from_lang. Replace {{TO_LANG}} with a real to_lang."
+    },
+    {
+      "id": "machine-translate-content-2",
+      "name": "Machine-translate content",
+      "description": "Fetches the machine translation for the posted content from the source\nto the destination language.\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "POST",
+      "url": "https://wikimedia.org/api/rest_v1/transform/html/from/{{FROM_LANG}}/to/{{TO_LANG}}/{{PROVIDER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{PROVIDER}}",
+        "{{FROM_LANG}}",
+        "{{TO_LANG}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{PROVIDER}} with a real provider. Replace {{FROM_LANG}} with a real from_lang. Replace {{TO_LANG}} with a real to_lang."
+    },
+    {
+      "id": "lists-the-language-pairs-supported-by-the-back-end",
+      "name": "Lists the language pairs supported by the back-end",
+      "description": "Fetches the list of language pairs the back-end service can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/list/languagepairs/",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY."
+    },
+    {
+      "id": "lists-the-tools-available-for-a-language-pair",
+      "name": "Lists the tools available for a language pair",
+      "description": "Fetches the list of tools that are available for the given pair of languages.\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/list/pair/{{FROM}}/{{TO}}/",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{TO}}",
+        "{{FROM}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{TO}} with a real to. Replace {{FROM}} with a real from."
+    },
+    {
+      "id": "lists-the-tools-and-language-pairs-available-for-the-given-tool-category",
+      "name": "Lists the tools and language pairs available for the given tool category",
+      "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/list/tool/{{TOOL}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{TOOL}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{TOOL}} with a real tool."
+    },
+    {
+      "id": "lists-the-tools-and-language-pairs-available-for-the-given-tool-category-2",
+      "name": "Lists the tools and language pairs available for the given tool category",
+      "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/list/tool/{{TOOL}}/{{FROM}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{FROM}}",
+        "{{TOOL}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{FROM}} with a real from. Replace {{TOOL}} with a real tool."
+    },
+    {
+      "id": "lists-the-tools-and-language-pairs-available-for-the-given-tool-category-3",
+      "name": "Lists the tools and language pairs available for the given tool category",
+      "description": "Fetches the list of tools and all of the language pairs it can translate\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/list/tool/{{TOOL}}/{{FROM}}/{{TO}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{TO}}",
+        "{{FROM}}",
+        "{{TOOL}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{TO}} with a real to. Replace {{FROM}} with a real from. Replace {{TOOL}} with a real tool."
+    },
+    {
+      "id": "fetch-the-dictionary-meaning-of-a-word",
+      "name": "Fetch the dictionary meaning of a word",
+      "description": "Fetches the dictionary meaning of a word from a language and displays\nit in the target language.\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/word/from/{{FROM_LANG}}/to/{{TO_LANG}}/{{WORD}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORD}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{FROM_LANG}}",
+        "{{TO_LANG}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{WORD}} with a real word. Replace {{FROM_LANG}} with a real from_lang. Replace {{TO_LANG}} with a real to_lang."
+    },
+    {
+      "id": "fetch-the-dictionary-meaning-of-a-word-2",
+      "name": "Fetch the dictionary meaning of a word",
+      "description": "Fetches the dictionary meaning of a word from a language and displays\nit in the target language.\n\nStability: [unstable](https://www.mediawiki.org/wiki/API_versioning#Unstable)\n",
+      "method": "GET",
+      "url": "https://wikimedia.org/api/rest_v1/transform/word/from/{{FROM_LANG}}/to/{{TO_LANG}}/{{WORD}}/{{PROVIDER}}",
+      "headers": {
+        "cookie": "{{WIKIMEDIA_ORG_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORD}}",
+        "{{WIKIMEDIA_API_KEY}}",
+        "{{TO_LANG}}",
+        "{{PROVIDER}}",
+        "{{FROM_LANG}}",
+        "{{WIKIMEDIA_ORG_API_KEY}}"
+      ],
+      "notes": "Replace {{WIKIMEDIA_API_KEY}} with your WIKIMEDIA API KEY. Replace {{WORD}} with a real word. Replace {{PROVIDER}} with a real provider. Replace {{FROM_LANG}} with a real from_lang. Replace {{TO_LANG}} with a real to_lang."
+    }
+  ]
+}

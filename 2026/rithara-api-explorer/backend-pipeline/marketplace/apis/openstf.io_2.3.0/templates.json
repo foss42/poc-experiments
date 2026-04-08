@@ -1,0 +1,195 @@
+{
+  "api_id": "openstf.io:2.3.0",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "device-list",
+      "name": "Device List",
+      "description": "The devices endpoint return list of all the STF devices including Disconnected and Offline",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/devices",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY."
+    },
+    {
+      "id": "device-information",
+      "name": "Device Information",
+      "description": "The device enpoint return information about a single device",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/devices/{{SERIAL}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{SERIAL}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY. Replace {{SERIAL}} with a real serial."
+    },
+    {
+      "id": "user-profile",
+      "name": "User Profile",
+      "description": "The User Profile endpoint returns information about current authorized user",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/user",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY."
+    },
+    {
+      "id": "access-tokens",
+      "name": "Access Tokens",
+      "description": "The Access Tokens endpoints returns titles of all the valid access tokens",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/user/accessTokens",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY."
+    },
+    {
+      "id": "user-devices",
+      "name": "User Devices",
+      "description": "The User Devices endpoint returns device list owner by current authorized user",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/user/devices",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY."
+    },
+    {
+      "id": "add-a-device-to-a-user",
+      "name": "Add a device to a user",
+      "description": "The User Devices endpoint will request stf server for a new device.",
+      "method": "POST",
+      "url": "http://openstf.local/api/v1/user/devices",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "serial": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY."
+    },
+    {
+      "id": "user-device",
+      "name": "User Device",
+      "description": "The devices enpoint return information about device owned by user",
+      "method": "GET",
+      "url": "http://openstf.local/api/v1/user/devices/{{SERIAL}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{SERIAL}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY. Replace {{SERIAL}} with a real serial."
+    },
+    {
+      "id": "delete-user-device",
+      "name": "Delete User Device",
+      "description": "The User Devices endpoint will request for device release from stf server. It will return request accepted if device is being used by current user",
+      "method": "DELETE",
+      "url": "http://openstf.local/api/v1/user/devices/{{SERIAL}}",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{SERIAL}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY. Replace {{SERIAL}} with a real serial."
+    },
+    {
+      "id": "remote-connect",
+      "name": "Remote Connect",
+      "description": "The device connect endpoint will request stf server to connect remotely",
+      "method": "POST",
+      "url": "http://openstf.local/api/v1/user/devices/{{SERIAL}}/remoteConnect",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{SERIAL}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY. Replace {{SERIAL}} with a real serial."
+    },
+    {
+      "id": "remote-disconnect",
+      "name": "Remote Disconnect",
+      "description": "The device connect endpoint will request stf server to disconnect remotely",
+      "method": "DELETE",
+      "url": "http://openstf.local/api/v1/user/devices/{{SERIAL}}/remoteConnect",
+      "headers": {
+        "Authorization": "Bearer{{OPENSTF_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{OPENSTF_API_KEY}}",
+        "{{SERIAL}}",
+        "{{OPENSTF_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{OPENSTF_API_KEY}} with your OPENSTF API KEY. Replace {{SERIAL}} with a real serial."
+    }
+  ]
+}

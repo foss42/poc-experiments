@@ -1,0 +1,2733 @@
+{
+  "api_id": "orbit.love:v1",
+  "endpoint_count": 32,
+  "endpoints": [
+    {
+      "id": "get-info-about-the-current-user",
+      "name": "Get info about the current user",
+      "description": "Get info about the current user",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/user",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "created_at": "2023-02-28T19:20:37.508Z",
+            "email": "pia.hettinger@zulauf.name",
+            "name": "MrsHellenCorkery",
+            "updated_at": "2023-02-28T19:20:37.508Z"
+          },
+          "id": "Ze1FV4",
+          "type": "user"
+        }
+      },
+      "auth_placeholders": [
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY."
+    },
+    {
+      "id": "get-all-workspaces-for-the-current-user",
+      "name": "Get all workspaces for the current user",
+      "description": "Get all workspaces for the current user",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/workspaces",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:21:15.556Z",
+              "name": "Fake Workspace",
+              "slug": "fake-workspace",
+              "updated_at": "2023-02-28T19:21:15.565Z"
+            },
+            "id": "15Vt67",
+            "relationships": {
+              "repositories": {
+                "data": []
+              }
+            },
+            "type": "workspace"
+          }
+        ],
+        "included": []
+      },
+      "auth_placeholders": [
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY."
+    },
+    {
+      "id": "get-a-workspace",
+      "name": "Get a workspace",
+      "description": "Get a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/workspaces/{{WORKSPACE_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activities_count": 1,
+            "created_at": "2023-02-28T19:21:15.825Z",
+            "members_count": 1,
+            "name": "Fake Workspace",
+            "orbit_level_counts": {
+              "1": 0,
+              "2": 0,
+              "3": 1,
+              "4": 2
+            },
+            "slug": "fake-workspace",
+            "tags": {},
+            "updated_at": "2023-02-28T19:21:15.916Z"
+          },
+          "id": "PvetbL",
+          "relationships": {
+            "last_activity": {
+              "data": {
+                "id": "ZPosrL",
+                "type": "pull_request_activity"
+              }
+            },
+            "last_member": {
+              "data": {
+                "id": "rmMS98",
+                "type": "member"
+              }
+            },
+            "repositories": {
+              "data": []
+            }
+          },
+          "type": "workspace"
+        },
+        "included": [
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:21:15.894Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "rmMS98",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "RobertoRunolfsdottir",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/fake-workspace/members/robertorunolfsdottir",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "robertorunolfsdottir",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:21:15.894Z",
+              "url": null
+            },
+            "id": "rmMS98",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "action": "opened",
+              "activity_link": "https://github.com/",
+              "created_at": "2023-02-28T19:21:15.896Z",
+              "g_created_at": "2023-02-28T20:21:15.886+01:00",
+              "g_html_url": "https://github.com/",
+              "g_merged": false,
+              "g_merged_at": null,
+              "g_merged_by": null,
+              "g_number": 53,
+              "g_title": "Here is some new code",
+              "is_pull_request": null,
+              "key": "carol/donnette#53",
+              "occurred_at": "2023-02-28T19:21:15.886Z",
+              "orbit_url": "http://localhost:3000/fake-workspace/activities/ZPosrL",
+              "properties": {
+                "github_organization": "carol",
+                "github_pull_request": "carol/donnette/#53",
+                "github_repository": "carol/donnette"
+              },
+              "tags": [
+                "channel:github",
+                "github_organization:carol",
+                "github_repository:carol/donnette",
+                "github_pull_request:carol/donnette/#53"
+              ],
+              "type": "PullRequestActivity",
+              "updated_at": "2023-02-28T19:21:15.896Z",
+              "weight": "1.0"
+            },
+            "id": "ZPosrL",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "oWVsm9",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "rmMS98",
+                  "type": "member"
+                }
+              },
+              "repository": {
+                "data": {
+                  "id": "6eeTk6",
+                  "type": "repository"
+                }
+              }
+            },
+            "type": "pull_request_activity"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "list-activities-for-a-workspace",
+      "name": "List activities for a workspace",
+      "description": "List activities for a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/activities",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "action": "opened",
+              "activity_link": "https://github.com/",
+              "created_at": "2023-02-28T19:20:38.155Z",
+              "g_created_at": "2023-02-28T20:20:38.152+01:00",
+              "g_html_url": "https://github.com/",
+              "g_number": 9,
+              "g_title": "Cool issue title!",
+              "is_pull_request": null,
+              "key": "makeda/eugenio#9",
+              "occurred_at": "2023-02-28T19:20:38.152Z",
+              "orbit_url": "http://localhost:3000/stacierau/activities/63rsLp",
+              "properties": {
+                "github_issue": "makeda/eugenio/#9",
+                "github_organization": "makeda",
+                "github_repository": "makeda/eugenio"
+              },
+              "tags": [
+                "channel:github",
+                "github_organization:makeda",
+                "github_repository:makeda/eugenio",
+                "github_issue:makeda/eugenio/#9"
+              ],
+              "type": "IssueActivity",
+              "updated_at": "2023-02-28T19:20:38.155Z",
+              "weight": "1.0"
+            },
+            "id": "63rsLp",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "la4sVD",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "By3S5j",
+                  "type": "member"
+                }
+              },
+              "repository": {
+                "data": {
+                  "id": "jP8TMj",
+                  "type": "repository"
+                }
+              }
+            },
+            "type": "issue_activity"
+          },
+          {
+            "attributes": {
+              "action": "opened",
+              "activity_link": "https://github.com/",
+              "created_at": "2023-02-28T19:20:38.097Z",
+              "g_created_at": "2023-02-28T20:20:38.088+01:00",
+              "g_html_url": "https://github.com/",
+              "g_merged": true,
+              "g_merged_at": null,
+              "g_merged_by": null,
+              "g_number": 92,
+              "g_title": "Cool PR title!",
+              "is_pull_request": null,
+              "key": "carlos/julianfisher#92",
+              "occurred_at": "2023-02-28T19:20:38.088Z",
+              "orbit_url": "http://localhost:3000/stacierau/activities/V5YsvV",
+              "properties": {
+                "github_organization": "carlos",
+                "github_pull_request": "carlos/julianfisher/#92",
+                "github_repository": "carlos/julianfisher"
+              },
+              "tags": [
+                "channel:github",
+                "github_organization:carlos",
+                "github_repository:carlos/julianfisher",
+                "github_pull_request:carlos/julianfisher/#92"
+              ],
+              "type": "PullRequestActivity",
+              "updated_at": "2023-02-28T19:20:38.097Z",
+              "weight": "1.0"
+            },
+            "id": "V5YsvV",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "lnrs0l",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "By3S5j",
+                  "type": "member"
+                }
+              },
+              "repository": {
+                "data": {
+                  "id": "6l3Tz9",
+                  "type": "repository"
+                }
+              }
+            },
+            "type": "pull_request_activity"
+          },
+          {
+            "attributes": {
+              "action": "spec_action",
+              "created_at": "2023-02-28T19:20:38.013Z",
+              "key": "cl\u00e9",
+              "occurred_at": "2023-02-28T19:20:38.011Z",
+              "orbit_url": "http://localhost:3000/stacierau/activities/6a4sBp",
+              "properties": {
+                "prop_1": "value_1",
+                "prop_2": "value_2"
+              },
+              "tags": [
+                "spec-tag-1",
+                "spec-tag-2"
+              ],
+              "type": "SpecActivity",
+              "updated_at": "2023-02-28T19:20:38.013Z",
+              "weight": "1.0"
+            },
+            "id": "6a4sBp",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "D2Esq5",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "By3S5j",
+                  "type": "member"
+                }
+              },
+              "repository": {
+                "data": {
+                  "id": "jBlTg9",
+                  "type": "repository"
+                }
+              }
+            },
+            "type": "spec_activity"
+          }
+        ],
+        "included": [
+          {
+            "attributes": {
+              "channel": "github",
+              "key": "issues:opened",
+              "name": "Opened an issue",
+              "short_name": "Issue opened",
+              "source": "github",
+              "weight": "6.0"
+            },
+            "id": "la4sVD",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:37.968Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "By3S5j",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "WaylonOsinski",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/stacierau/members/waylonosinski",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "waylonosinski",
+              "source": "installation",
+              "tag_list": [
+                "ruby"
+              ],
+              "tags": [
+                "ruby"
+              ],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:37.968Z",
+              "url": null
+            },
+            "id": "By3S5j",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:38.151Z",
+              "full_name": "karitremblay/alia",
+              "name": "alia",
+              "owner": "karitremblay",
+              "updated_at": "2023-02-28T19:20:38.151Z"
+            },
+            "id": "jP8TMj",
+            "type": "repository"
+          },
+          {
+            "attributes": {
+              "channel": "mysource",
+              "key": "spec:happened:1",
+              "name": "praise Mysource 3",
+              "short_name": "Spec Channel",
+              "source": "mysource",
+              "weight": "1.0"
+            },
+            "id": "lnrs0l",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:38.078Z",
+              "full_name": "cedric/heike",
+              "name": "heike",
+              "owner": "cedric",
+              "updated_at": "2023-02-28T19:20:38.078Z"
+            },
+            "id": "6l3Tz9",
+            "type": "repository"
+          },
+          {
+            "attributes": {
+              "channel": "mysource",
+              "key": "spec_activity_type_key",
+              "name": "win Mysource 2",
+              "short_name": "Spec Channel",
+              "source": "mysource",
+              "weight": "1.0"
+            },
+            "id": "D2Esq5",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:37.992Z",
+              "full_name": "orbit-love/orbit-model",
+              "name": "natalya",
+              "owner": "jacintoraynor",
+              "updated_at": "2023-02-28T19:20:37.992Z"
+            },
+            "id": "jBlTg9",
+            "type": "repository"
+          }
+        ],
+        "links": {
+          "first": "http://localhost:3000/api/v1/stacierau/activities?activity_type=&affiliation=&cities%5B%5D=&company%5B%5D=&countries%5B%5D=&direction=DESC&end_date=&filters=true&identity=&items=10&member_tags=&orbit=&page=1&regions%5B%5D=&relative=&sort=occurred_at&start_date=&title%5B%5D=&workspace=stacierau",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "create-a-custom-or-a-content-activity-for-a-new-or-existing-member",
+      "name": "Create a Custom or a Content activity for a new or existing member",
+      "description": "Use this method when you know an identity of the member (github, email, twitter, etc.) but not their Orbit ID. Pass fields in the member object to update the member in addition to creating the activity.",
+      "method": "POST",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/activities",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "activity": "",
+        "identity": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "action": "happened",
+            "created_at": "2023-02-28T19:20:41.694Z",
+            "custom_context": null,
+            "custom_description": "More info about the thing",
+            "custom_link": "http://link.com/",
+            "custom_link_text": "See the thing",
+            "custom_title": "Did a thing",
+            "custom_type": "custom-type",
+            "key": "thing-123",
+            "occurred_at": "2023-02-28T19:20:41.689Z",
+            "orbit_url": "http://localhost:3000/chassidymertz/activities/6zoslV",
+            "properties": {},
+            "tags": [
+              "product",
+              "enterprise",
+              "channel:custom",
+              "custom_type:custom-type",
+              "custom_title:did-a-thing"
+            ],
+            "type": "CustomActivity",
+            "updated_at": "2023-02-28T19:20:41.694Z",
+            "weight": "0.2"
+          },
+          "id": "6zoslV",
+          "relationships": {
+            "activity_type": {
+              "data": {
+                "id": "574seD",
+                "type": "activity_type"
+              }
+            },
+            "member": {
+              "data": {
+                "id": "r9nS0B",
+                "type": "member"
+              }
+            },
+            "user": {
+              "data": {
+                "id": "DXKFEz",
+                "type": "user"
+              }
+            }
+          },
+          "type": "custom_activity"
+        },
+        "included": [
+          {
+            "attributes": {
+              "channel": "custom",
+              "key": "custom:happened",
+              "name": "Something happened",
+              "short_name": "Custom",
+              "source": "custom",
+              "weight": "1.0"
+            },
+            "id": "574seD",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "email": null,
+              "name": "Josh Dzielak",
+              "source": "twitter",
+              "source_host": "twitter.com",
+              "uid": "45297280",
+              "username": "dzello"
+            },
+            "id": "3YETv3",
+            "type": "twitter_identity"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "https://pbs.twimg.com/profile_images/1110162582143406080/vu7_kN8f.png",
+              "bio": "<a href='https://dzello.com/blog/2020/05/30/black-lives-matter/' target='_blank'>dzello.com/blog/2020/05/3\u2026</a> Co-founder & CTO @OrbitModel \u00b7 advocate for dev advocates \ud83e\udd51 \u00b7 formerly @algolia and @keen_io \u00b7 Ruby \u00b7 Rails \u00b7 JAMstack \u00b7 he/him",
+              "birthday": null,
+              "company": null,
+              "created": true,
+              "created_at": "2023-02-28T19:20:41.604Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "r9nS0B",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": "Paris, France",
+              "love": null,
+              "merged_at": null,
+              "name": "Josh Dzielak",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/chassidymertz/members/dzello",
+              "pronouns": null,
+              "reach": 8,
+              "shipping_address": null,
+              "slug": "dzello",
+              "source": "api",
+              "tag_list": [
+                "one",
+                "two"
+              ],
+              "tags": [
+                "one",
+                "two"
+              ],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": "dzello",
+              "twitter_followers": 4598,
+              "updated_at": "2023-02-28T19:20:41.627Z",
+              "url": "https://dzello.com/blog/2020/05/30/black-lives-matter/"
+            },
+            "id": "r9nS0B",
+            "relationships": {
+              "identities": {
+                "data": [
+                  {
+                    "id": "3YETv3",
+                    "type": "twitter_identity"
+                  }
+                ]
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:41.523Z",
+              "name": "LoreleiSchmelerIV",
+              "updated_at": "2023-02-28T19:20:41.528Z"
+            },
+            "id": "DXKFEz",
+            "type": "user"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "get-an-activity-in-the-workspace",
+      "name": "Get an activity in the workspace",
+      "description": "Get an activity in the workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/activities/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "action": "spec_action",
+            "created_at": "2023-02-28T19:20:40.750Z",
+            "key": "cl\u00e9",
+            "occurred_at": "2023-02-28T19:20:40.744Z",
+            "orbit_url": "http://localhost:3000/jamatremblaymd/activities/ZPosjV",
+            "properties": {
+              "prop_1": "value_1",
+              "prop_2": "value_2"
+            },
+            "tags": [
+              "spec-tag-1",
+              "spec-tag-2"
+            ],
+            "type": "SpecActivity",
+            "updated_at": "2023-02-28T19:20:40.750Z",
+            "weight": "1.0"
+          },
+          "id": "ZPosjV",
+          "relationships": {
+            "activity_type": {
+              "data": {
+                "id": "D3jsky",
+                "type": "activity_type"
+              }
+            },
+            "member": {
+              "data": {
+                "id": "rmMSRr",
+                "type": "member"
+              }
+            },
+            "repository": {
+              "data": {
+                "id": "9ABTo6",
+                "type": "repository"
+              }
+            },
+            "user": {
+              "data": {
+                "id": "OA3F51",
+                "type": "user"
+              }
+            }
+          },
+          "type": "spec_activity"
+        },
+        "included": [
+          {
+            "attributes": {
+              "channel": "mysource",
+              "key": "spec:happened:9",
+              "name": "savvy Mysource 29",
+              "short_name": "Spec Channel",
+              "source": "mysource",
+              "weight": "1.0"
+            },
+            "id": "D3jsky",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:40.748Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "rmMSRr",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "KelleeMcLaughlin",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/jamatremblaymd/members/kelleemclaughlin",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "kelleemclaughlin",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:40.748Z",
+              "url": null
+            },
+            "id": "rmMSRr",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:40.713Z",
+              "full_name": "corneliusokon/morristremblay",
+              "name": "morristremblay",
+              "owner": "corneliusokon",
+              "updated_at": "2023-02-28T19:20:40.713Z"
+            },
+            "id": "9ABTo6",
+            "type": "repository"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:40.691Z",
+              "name": "ErvinReilly",
+              "updated_at": "2023-02-28T19:20:40.695Z"
+            },
+            "id": "OA3F51",
+            "type": "user"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-all-activity-types-for-a-workspace",
+      "name": "List all activity types for a workspace",
+      "description": "List all activity types for a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/activity_types",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "channel": "content",
+              "key": "post:created",
+              "name": "Created content",
+              "short_name": "Content created",
+              "source": "content",
+              "weight": "1.0"
+            },
+            "id": "5Gds1O",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "channel": "product",
+              "key": "activated_account",
+              "name": "Activated their account on product",
+              "short_name": "Activated account",
+              "source": "product",
+              "weight": "6.0"
+            },
+            "id": "DOnsmL",
+            "type": "activity_type"
+          }
+        ],
+        "links": {
+          "first": "/mrsdaronpowlowski/activity_types?page=1",
+          "last": "/mrsdaronpowlowski/activity_types?page=1",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "list-members-in-a-workspace",
+      "name": "List members in a workspace",
+      "description": "List members in a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "activities_count": 2,
+              "activities_score": 2,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:49.655Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": "2023-02-26T19:20:49.764Z",
+              "github": null,
+              "github_followers": null,
+              "id": "jaPSJy",
+              "languages": null,
+              "last_activity_occurred_at": "2023-02-28T18:20:49.806Z",
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "Sally",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/vanstroman/members/sally",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "sally",
+              "source": "installation",
+              "tag_list": [
+                "ruby"
+              ],
+              "tags": [
+                "ruby"
+              ],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:49.663Z",
+              "url": null
+            },
+            "id": "jaPSJy",
+            "relationships": {
+              "identities": {
+                "data": [
+                  {
+                    "id": "5geTxn",
+                    "type": "spec_identity"
+                  }
+                ]
+              },
+              "organizations": {
+                "data": [
+                  {
+                    "id": "aWQFAB",
+                    "type": "organization"
+                  }
+                ]
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "activities_count": 3,
+              "activities_score": 3,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:49.635Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": "2023-02-20T19:20:49.737Z",
+              "github": null,
+              "github_followers": null,
+              "id": "4EzSdZ",
+              "languages": null,
+              "last_activity_occurred_at": "2023-02-24T19:20:49.668Z",
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "Josh",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/vanstroman/members/josh",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "josh",
+              "source": "installation",
+              "tag_list": [
+                "ruby"
+              ],
+              "tags": [
+                "ruby"
+              ],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:49.643Z",
+              "url": null
+            },
+            "id": "4EzSdZ",
+            "relationships": {
+              "identities": {
+                "data": [
+                  {
+                    "id": "nbWTe1",
+                    "type": "spec_identity"
+                  }
+                ]
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          }
+        ],
+        "included": [
+          {
+            "id": "43",
+            "type": "spec_identity"
+          },
+          {
+            "attributes": {
+              "active_since": null,
+              "created_at": "2023-02-28T19:20:49.844Z",
+              "crm_uid": null,
+              "crm_url": null,
+              "crunchbase": null,
+              "deal_closed_date": null,
+              "email_addresses": null,
+              "employees_count": null,
+              "estimated_annual_revenue": null,
+              "facebook": null,
+              "facebook_followers": null,
+              "founded_in": null,
+              "id": "aWQFAB",
+              "industry": null,
+              "last_active": null,
+              "lifecycle_stage": null,
+              "linkedin": null,
+              "location": null,
+              "members_count": 1,
+              "name": "MitchelHeaney",
+              "organization_type": null,
+              "owner_email": null,
+              "owner_name": null,
+              "price_plan": null,
+              "source": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:49.844Z",
+              "website": "example-1.com"
+            },
+            "id": "aWQFAB",
+            "type": "organization"
+          },
+          {
+            "id": "42",
+            "type": "spec_identity"
+          }
+        ],
+        "links": {
+          "first": "http://localhost:3000/api/v1/vanstroman/members?activities_count_max=99&activities_count_min=1&activity_type=type%3Anew%2Cspec%3Aactivity&affiliation=&cities%5B%5D=&company%5B%5D=&countries%5B%5D=&direction=DESC&end_date=&identity=&items=10&member_tags=ruby%7Crails%2C-go&orbit=&page=1&query=&regions%5B%5D=&relative=&sort=last_activity&start_date=&title%5B%5D=&workspace=vanstroman",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "create-or-update-a-member",
+      "name": "Create or update a member",
+      "description": "This method is useful when you know a member's identity in another system and want to create or update the corresponding Orbit member. Identities can be specified in the identity object or member attributes like member.github. If no member exists, a new member will be created and linked to any provided identities.",
+      "method": "POST",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "identity": {},
+        "member": {}
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activities_count": 0,
+            "activities_score": 0,
+            "avatar_url": "http://github.com/avatar.png",
+            "bio": null,
+            "birthday": null,
+            "company": null,
+            "created": false,
+            "created_at": "2023-02-28T19:20:58.483Z",
+            "deleted_at": null,
+            "devto": null,
+            "discord": null,
+            "discourse": null,
+            "email": "dzello@orbit.love",
+            "first_activity_occurred_at": null,
+            "github": "dzello",
+            "github_followers": null,
+            "id": "4ndS8E",
+            "languages": null,
+            "last_activity_occurred_at": null,
+            "linkedin": null,
+            "location": null,
+            "love": null,
+            "merged_at": null,
+            "name": "KaterineRuecker",
+            "orbit_level": null,
+            "orbit_url": "http://localhost:3000/missmarvisblanda/members/katerineruecker",
+            "pronouns": null,
+            "reach": 0,
+            "shipping_address": null,
+            "slug": "katerineruecker",
+            "source": "installation",
+            "tag_list": [
+              "one",
+              "two"
+            ],
+            "tags": [
+              "one",
+              "two"
+            ],
+            "teammate": false,
+            "title": null,
+            "topics": null,
+            "tshirt": null,
+            "twitter": "dzello",
+            "twitter_followers": null,
+            "updated_at": "2023-02-28T19:20:58.561Z",
+            "url": null
+          },
+          "id": "4ndS8E",
+          "relationships": {
+            "identities": {
+              "data": [
+                {
+                  "id": "5ENTeK",
+                  "type": "github_identity"
+                },
+                {
+                  "id": "nZRTEp",
+                  "type": "twitter_identity"
+                },
+                {
+                  "id": "nqaT7d",
+                  "type": "email_identity"
+                }
+              ]
+            },
+            "organizations": {
+              "data": []
+            }
+          },
+          "type": "member"
+        },
+        "included": [
+          {
+            "attributes": {
+              "email": null,
+              "name": null,
+              "source": "github",
+              "source_host": "github.com",
+              "uid": "uid-72",
+              "username": "dzello"
+            },
+            "id": "5ENTeK",
+            "type": "github_identity"
+          },
+          {
+            "attributes": {
+              "email": null,
+              "name": null,
+              "source": "twitter",
+              "source_host": "twitter.com",
+              "uid": null,
+              "username": "dzello"
+            },
+            "id": "nZRTEp",
+            "type": "twitter_identity"
+          },
+          {
+            "attributes": {
+              "email": "dzello@orbit.love",
+              "name": "dzello",
+              "source": "email",
+              "source_host": "email.host",
+              "uid": "dzello@orbit.love",
+              "username": null
+            },
+            "id": "nqaT7d",
+            "type": "email_identity"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "find-a-member-by-an-identity",
+      "name": "Find a member by an identity",
+      "description": "Provide a source and one of username/uid/email params to return a member with that identity, if one exists. Common values for source include github, twitter, and email.",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/find",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activities_count": 0,
+            "activities_score": 0,
+            "avatar_url": "http://github.com/avatar.png",
+            "bio": null,
+            "birthday": null,
+            "company": null,
+            "created": false,
+            "created_at": "2023-02-28T19:21:07.970Z",
+            "deleted_at": null,
+            "devto": null,
+            "discord": null,
+            "discourse": null,
+            "email": null,
+            "first_activity_occurred_at": null,
+            "github": "dzello",
+            "github_followers": null,
+            "id": "rRxS6X",
+            "languages": null,
+            "last_activity_occurred_at": null,
+            "linkedin": null,
+            "location": null,
+            "love": null,
+            "merged_at": null,
+            "name": "MrsChiCummerata",
+            "orbit_level": null,
+            "orbit_url": "http://localhost:3000/glendaschmidt/members/mrschicummerata",
+            "pronouns": null,
+            "reach": 0,
+            "shipping_address": null,
+            "slug": "mrschicummerata",
+            "source": "installation",
+            "tag_list": [],
+            "tags": [],
+            "teammate": false,
+            "title": null,
+            "topics": null,
+            "tshirt": null,
+            "twitter": null,
+            "twitter_followers": null,
+            "updated_at": "2023-02-28T19:21:07.970Z",
+            "url": null
+          },
+          "id": "rRxS6X",
+          "relationships": {
+            "identities": {
+              "data": [
+                {
+                  "id": "1JrTad",
+                  "type": "github_identity"
+                }
+              ]
+            },
+            "organizations": {
+              "data": []
+            }
+          },
+          "type": "member"
+        },
+        "included": [
+          {
+            "attributes": {
+              "email": null,
+              "name": null,
+              "source": "github",
+              "source_host": "github.com",
+              "uid": "uid-82",
+              "username": "dzello"
+            },
+            "id": "1JrTad",
+            "type": "github_identity"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "get-a-member",
+      "name": "Get a member",
+      "description": "Get a member",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activities_count": 0,
+            "activities_score": 0,
+            "avatar_url": "http://github.com/avatar.png",
+            "bio": null,
+            "birthday": null,
+            "company": null,
+            "created": false,
+            "created_at": "2023-02-28T19:20:56.012Z",
+            "deleted_at": null,
+            "devto": null,
+            "discord": null,
+            "discourse": null,
+            "email": null,
+            "first_activity_occurred_at": null,
+            "github": null,
+            "github_followers": null,
+            "id": "jWXSAW",
+            "languages": null,
+            "last_activity_occurred_at": null,
+            "linkedin": null,
+            "location": null,
+            "love": null,
+            "merged_at": null,
+            "name": "Josh",
+            "orbit_level": null,
+            "orbit_url": "http://localhost:3000/mrsroytoy/members/josh",
+            "pronouns": null,
+            "reach": 0,
+            "shipping_address": null,
+            "slug": "josh",
+            "source": "installation",
+            "tag_list": [],
+            "tags": [],
+            "teammate": false,
+            "title": null,
+            "topics": null,
+            "tshirt": null,
+            "twitter": null,
+            "twitter_followers": null,
+            "updated_at": "2023-02-28T19:20:56.012Z",
+            "url": null
+          },
+          "id": "jWXSAW",
+          "relationships": {
+            "identities": {
+              "data": [
+                {
+                  "id": "nZRTEE",
+                  "type": "spec_identity"
+                }
+              ]
+            },
+            "organizations": {
+              "data": [
+                {
+                  "id": "BqkFva",
+                  "type": "organization"
+                }
+              ]
+            }
+          },
+          "type": "member"
+        },
+        "included": [
+          {
+            "id": "90",
+            "type": "spec_identity"
+          },
+          {
+            "attributes": {
+              "active_since": null,
+              "created_at": "2023-02-28T19:20:56.022Z",
+              "crm_uid": null,
+              "crm_url": null,
+              "crunchbase": null,
+              "deal_closed_date": null,
+              "email_addresses": null,
+              "employees_count": null,
+              "estimated_annual_revenue": null,
+              "facebook": null,
+              "facebook_followers": null,
+              "founded_in": null,
+              "id": "BqkFva",
+              "industry": null,
+              "last_active": null,
+              "lifecycle_stage": null,
+              "linkedin": null,
+              "location": null,
+              "members_count": 1,
+              "name": "ReubenMcGlynn",
+              "organization_type": null,
+              "owner_email": null,
+              "owner_name": null,
+              "price_plan": null,
+              "source": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:56.022Z",
+              "website": "example-25.com"
+            },
+            "id": "BqkFva",
+            "type": "organization"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "update-a-member",
+      "name": "Update a member",
+      "description": "Update a member",
+      "method": "PUT",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "bio": "",
+        "birthday": "",
+        "company": "",
+        "devto": "",
+        "email": "",
+        "github": "",
+        "linkedin": "",
+        "location": "",
+        "name": "",
+        "pronouns": "",
+        "shipping_address": "",
+        "slug": "",
+        "tag_list": "",
+        "tags": "",
+        "tags_to_add": "",
+        "teammate": false,
+        "title": "",
+        "tshirt": "",
+        "twitter": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "delete-a-member",
+      "name": "Delete a member",
+      "description": "Delete a member",
+      "method": "DELETE",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "list-activities-for-a-member",
+      "name": "List activities for a member",
+      "description": "List activities for a member",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/activities",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "action": "spec_action",
+              "created_at": "2023-02-28T19:20:45.066Z",
+              "key": "cl\u00e9",
+              "occurred_at": "2023-02-28T19:20:45.064Z",
+              "orbit_url": "http://localhost:3000/deangelokovacek/activities/VlEsOe",
+              "properties": {
+                "prop_1": "value_1",
+                "prop_2": "value_2"
+              },
+              "tags": [
+                "spec-tag-1",
+                "spec-tag-2"
+              ],
+              "type": "SpecActivity",
+              "updated_at": "2023-02-28T19:20:45.066Z",
+              "weight": "1.0"
+            },
+            "id": "VlEsOe",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "oQQsBb",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "BloSvr",
+                  "type": "member"
+                }
+              }
+            },
+            "type": "spec_activity"
+          }
+        ],
+        "included": [
+          {
+            "attributes": {
+              "channel": "mysource",
+              "key": "spec:activity",
+              "name": "calculate Mysource 34",
+              "short_name": "Spec Channel",
+              "source": "mysource",
+              "weight": "1.0"
+            },
+            "id": "oQQsBb",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:45.004Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "BloSvr",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "LoiseRoberts",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/deangelokovacek/members/loiseroberts",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "loiseroberts",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:45.004Z",
+              "url": null
+            },
+            "id": "BloSvr",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          }
+        ],
+        "links": {
+          "first": "/deangelokovacek/members/loiseroberts/activities?page=1&direction=DESC&items=10&sort=occurred_at&activity_type=spec%3Aactivity&type=",
+          "last": "/deangelokovacek/members/loiseroberts/activities?page=1&direction=DESC&items=10&sort=occurred_at&activity_type=spec%3Aactivity&type=",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "update-a-custom-activity-for-a-member",
+      "name": "Update a custom activity for a member",
+      "description": "Update a custom activity for a member",
+      "method": "PUT",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/activities/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "title": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "delete-a-post-activity",
+      "name": "Delete a post activity",
+      "description": "Delete a post activity",
+      "method": "DELETE",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/activities/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "add-identity-to-a-member",
+      "name": "Add identity to a member",
+      "description": "Add identity to a member",
+      "method": "POST",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/identities",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "source": ""
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "email": "josh@orbit.love",
+            "name": "Josh",
+            "source": "twitch",
+            "source_host": "twitch.tv",
+            "uid": "12345",
+            "username": "dzello1"
+          },
+          "id": "1adTJn",
+          "type": "other_identity"
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "remove-identity-from-a-member",
+      "name": "Remove identity from a member",
+      "description": "Remove identity from a member",
+      "method": "DELETE",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/identities",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "get-the-member-s-notes",
+      "name": "Get the member's notes",
+      "description": "Get the member's notes",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/notes",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "body": "heyo",
+              "created_at": "2023-02-28T19:20:49.147Z",
+              "id": "o5Nf2J",
+              "updated_at": "2023-02-28T19:20:49.147Z"
+            },
+            "id": "o5Nf2J",
+            "relationships": {
+              "member": {
+                "data": {
+                  "id": "jPESm8",
+                  "type": "member"
+                }
+              },
+              "user": {
+                "data": {
+                  "id": "lqAFn8",
+                  "type": "user"
+                }
+              }
+            },
+            "type": "note"
+          }
+        ],
+        "included": [
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:20:49.130Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "jPESm8",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "ClydeHirtheII",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/misstyreecorkery/members/clydehirtheii",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "clydehirtheii",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:20:49.130Z",
+              "url": null
+            },
+            "id": "jPESm8",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": []
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "created_at": "2023-02-28T19:20:49.139Z",
+              "name": "MrsDominicaLabadie",
+              "updated_at": "2023-02-28T19:20:49.145Z"
+            },
+            "id": "lqAFn8",
+            "type": "user"
+          }
+        ],
+        "links": {
+          "first": "/misstyreecorkery/members/clydehirtheii/notes?page=1",
+          "last": "/misstyreecorkery/members/clydehirtheii/notes?page=1",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "create-a-note",
+      "name": "Create a note",
+      "description": "Create a note",
+      "method": "POST",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/notes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "body": ""
+      },
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "body": "heyo",
+            "created_at": "2023-02-28T19:20:48.856Z",
+            "id": "qR4fVo",
+            "updated_at": "2023-02-28T19:20:48.856Z"
+          },
+          "id": "qR4fVo",
+          "relationships": {
+            "member": {
+              "data": {
+                "id": "jDdSYG",
+                "type": "member"
+              }
+            },
+            "user": {
+              "data": {
+                "id": "ZgeFNz",
+                "type": "user"
+              }
+            }
+          },
+          "type": "note"
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "update-a-note",
+      "name": "Update a note",
+      "description": "Update a note",
+      "method": "PUT",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/members/{{MEMBER_SLUG}}/notes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "body": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{MEMBER_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id. Replace {{MEMBER_SLUG}} with a real member_slug."
+    },
+    {
+      "id": "list-organizations-in-a-workspace",
+      "name": "List organizations in a workspace",
+      "description": "List organizations in a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/organizations",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "active_since": null,
+              "created_at": "2023-02-28T19:21:11.655Z",
+              "crm_uid": null,
+              "crm_url": null,
+              "crunchbase": null,
+              "deal_closed_date": null,
+              "email_addresses": null,
+              "employees_count": null,
+              "estimated_annual_revenue": null,
+              "facebook": null,
+              "facebook_followers": null,
+              "founded_in": null,
+              "id": "nAeF3p",
+              "industry": null,
+              "last_active": null,
+              "lifecycle_stage": null,
+              "linkedin": null,
+              "location": null,
+              "members_count": 1,
+              "name": "Organization2",
+              "organization_type": null,
+              "owner_email": null,
+              "owner_name": null,
+              "price_plan": null,
+              "source": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:21:11.655Z",
+              "website": "org2.example.com"
+            },
+            "id": "nAeF3p",
+            "type": "organization"
+          },
+          {
+            "attributes": {
+              "active_since": null,
+              "created_at": "2023-02-28T19:21:11.652Z",
+              "crm_uid": "abcde123451",
+              "crm_url": "https://example.com/1",
+              "crunchbase": null,
+              "deal_closed_date": "2023-02-28T19:21:11.668Z",
+              "email_addresses": null,
+              "employees_count": null,
+              "estimated_annual_revenue": null,
+              "facebook": null,
+              "facebook_followers": null,
+              "founded_in": null,
+              "id": "n27FjR",
+              "industry": null,
+              "last_active": null,
+              "lifecycle_stage": "customer",
+              "linkedin": null,
+              "location": null,
+              "members_count": 1,
+              "name": "Organization1",
+              "organization_type": null,
+              "owner_email": "john.toto@example.com",
+              "owner_name": "John Toto",
+              "price_plan": "Enterprise",
+              "source": "Fake CRM",
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:21:11.652Z",
+              "website": "org1.example.com"
+            },
+            "id": "n27FjR",
+            "type": "organization"
+          }
+        ],
+        "links": {
+          "first": "http://localhost:3000/api/v1/bartonbrakus/organizations?direction=DESC&items=10&page=1&query=&sort=name&workspace=bartonbrakus",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "get-an-organization",
+      "name": "Get an organization",
+      "description": "Get an organization",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/organizations/{{ORGANIZATION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "active_since": null,
+            "created_at": "2023-02-28T19:21:12.080Z",
+            "crm_uid": null,
+            "crm_url": null,
+            "crunchbase": null,
+            "deal_closed_date": null,
+            "email_addresses": null,
+            "employees_count": null,
+            "estimated_annual_revenue": null,
+            "facebook": null,
+            "facebook_followers": null,
+            "founded_in": null,
+            "id": "VlOFP7",
+            "industry": null,
+            "last_active": null,
+            "lifecycle_stage": null,
+            "linkedin": null,
+            "location": null,
+            "members_count": 1,
+            "name": "Organization1",
+            "organization_type": null,
+            "owner_email": null,
+            "owner_name": null,
+            "price_plan": null,
+            "source": null,
+            "twitter": null,
+            "twitter_followers": null,
+            "updated_at": "2023-02-28T19:21:12.080Z",
+            "website": "example-47.com"
+          },
+          "id": "VlOFP7",
+          "type": "organization"
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORGANIZATION_ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ORGANIZATION_ID}} with a real organization_id."
+    },
+    {
+      "id": "update-an-organization",
+      "name": "Update an organization",
+      "description": "Update an organization",
+      "method": "PUT",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/organizations/{{ORGANIZATION_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "lifecycle_stage": "",
+        "crm_url": "",
+        "source": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORGANIZATION_ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ORGANIZATION_ID}} with a real organization_id."
+    },
+    {
+      "id": "list-member-activities-in-an-organization",
+      "name": "List member activities in an organization",
+      "description": "List member activities in an organization",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/organizations/{{ORGANIZATION_ID}}/activities",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "action": "sent",
+              "activity_link": "https://discord.com/channels/823735870825037844/823735870825037847/9224118976",
+              "created_at": "2023-02-28T19:21:08.732Z",
+              "key": "9224118976",
+              "occurred_at": "2023-02-27T19:21:08.701Z",
+              "orbit_url": "http://localhost:3000/trinaspencerii/activities/pjLsLQ",
+              "properties": {
+                "discord_channel": "general",
+                "discord_server": "Orbit-Sandbox"
+              },
+              "tags": [
+                "channel:discord",
+                "discord_server:Orbit Sandbox",
+                "discord_channel:general"
+              ],
+              "type": "DiscordMessageSentActivity",
+              "updated_at": "2023-02-28T19:21:08.732Z",
+              "weight": "0.5"
+            },
+            "id": "pjLsLQ",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "DzaseX",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "BwNSO9",
+                  "type": "member"
+                }
+              }
+            },
+            "type": "discord_message_sent_activity"
+          },
+          {
+            "attributes": {
+              "action": "sent",
+              "activity_link": "https://discord.com/channels/823735870825037844/823735870825037847/9839402447",
+              "created_at": "2023-02-28T19:21:08.838Z",
+              "key": "9839402447",
+              "occurred_at": "2023-02-26T19:21:08.817Z",
+              "orbit_url": "http://localhost:3000/trinaspencerii/activities/6ARs9g",
+              "properties": {
+                "discord_channel": "general",
+                "discord_server": "Orbit-Sandbox"
+              },
+              "tags": [
+                "channel:discord",
+                "discord_server:Orbit Sandbox",
+                "discord_channel:general"
+              ],
+              "type": "DiscordMessageSentActivity",
+              "updated_at": "2023-02-28T19:21:08.838Z",
+              "weight": "0.5"
+            },
+            "id": "6ARs9g",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "DzaseX",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "r9nSZ9",
+                  "type": "member"
+                }
+              }
+            },
+            "type": "discord_message_sent_activity"
+          },
+          {
+            "attributes": {
+              "action": "created",
+              "activity_link": "https://github.com/buckhudson/nadinequigley",
+              "created_at": "2023-02-28T19:21:08.797Z",
+              "key": "github_activity_key:9",
+              "occurred_at": "2023-02-25T19:21:08.747Z",
+              "orbit_url": "http://localhost:3000/trinaspencerii/activities/VWesGO",
+              "properties": {
+                "github_organization": "buckhudson",
+                "github_repository": "buckhudson/nadinequigley"
+              },
+              "tags": [
+                "channel:github",
+                "github_organization:buckhudson",
+                "github_repository:buckhudson/nadinequigley"
+              ],
+              "type": "GithubActivity",
+              "updated_at": "2023-02-28T19:21:08.797Z",
+              "weight": "1.0"
+            },
+            "id": "VWesGO",
+            "relationships": {
+              "activity_type": {
+                "data": {
+                  "id": "owxs43",
+                  "type": "activity_type"
+                }
+              },
+              "member": {
+                "data": {
+                  "id": "BwNSO9",
+                  "type": "member"
+                }
+              },
+              "repository": {
+                "data": {
+                  "id": "9mPTrn",
+                  "type": "repository"
+                }
+              }
+            },
+            "type": "github_activity"
+          }
+        ],
+        "included": [
+          {
+            "attributes": {
+              "channel": "discord",
+              "key": "discord:message:sent",
+              "name": "Sent a message in Discord",
+              "short_name": "Discord message",
+              "source": "discord",
+              "weight": "1.0"
+            },
+            "id": "DzaseX",
+            "type": "activity_type"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:21:08.692Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "BwNSO9",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "John Doe",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/trinaspencerii/members/john-doe",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "john-doe",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:21:08.692Z",
+              "url": null
+            },
+            "id": "BwNSO9",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": [
+                  {
+                    "id": "nb0FmD",
+                    "type": "organization"
+                  }
+                ]
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "activities_count": 0,
+              "activities_score": 0,
+              "avatar_url": "http://github.com/avatar.png",
+              "bio": null,
+              "birthday": null,
+              "company": null,
+              "created": false,
+              "created_at": "2023-02-28T19:21:08.809Z",
+              "deleted_at": null,
+              "devto": null,
+              "discord": null,
+              "discourse": null,
+              "email": null,
+              "first_activity_occurred_at": null,
+              "github": null,
+              "github_followers": null,
+              "id": "r9nSZ9",
+              "languages": null,
+              "last_activity_occurred_at": null,
+              "linkedin": null,
+              "location": null,
+              "love": null,
+              "merged_at": null,
+              "name": "Jane Smith",
+              "orbit_level": null,
+              "orbit_url": "http://localhost:3000/trinaspencerii/members/jane-smith",
+              "pronouns": null,
+              "reach": 0,
+              "shipping_address": null,
+              "slug": "jane-smith",
+              "source": "installation",
+              "tag_list": [],
+              "tags": [],
+              "teammate": false,
+              "title": null,
+              "topics": null,
+              "tshirt": null,
+              "twitter": null,
+              "twitter_followers": null,
+              "updated_at": "2023-02-28T19:21:08.809Z",
+              "url": null
+            },
+            "id": "r9nSZ9",
+            "relationships": {
+              "identities": {
+                "data": []
+              },
+              "organizations": {
+                "data": [
+                  {
+                    "id": "nb0FmD",
+                    "type": "organization"
+                  }
+                ]
+              }
+            },
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "channel": "mysource",
+              "key": "spec:happened:13",
+              "name": "send Mysource 101",
+              "short_name": "Spec Channel",
+              "source": "mysource",
+              "weight": "1.0"
+            },
+            "id": "owxs43",
+            "type": "activity_type"
+          }
+        ],
+        "links": {
+          "first": "/trinaspencerii/organizations/nb0FmD/activities?page=1&direction=DESC&items=10&sort=occurred_at&activity_type=",
+          "last": "/trinaspencerii/organizations/nb0FmD/activities?page=1&direction=DESC&items=10&sort=occurred_at&activity_type=",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORGANIZATION_ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ORGANIZATION_ID}} with a real organization_id."
+    },
+    {
+      "id": "list-members-in-an-organization",
+      "name": "List members in an organization",
+      "description": "List members in an organization",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/organizations/{{ORGANIZATION_ID}}/members",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "activities_score": 0,
+              "id": "jPESdn",
+              "last_activity_occurred_at": null,
+              "name": "Jane Smith",
+              "slug": "jane-smith"
+            },
+            "id": "jPESdn",
+            "relationships": {},
+            "type": "member"
+          },
+          {
+            "attributes": {
+              "activities_score": 0,
+              "id": "jYbS8E",
+              "last_activity_occurred_at": null,
+              "name": "John Doe",
+              "slug": "john-doe"
+            },
+            "id": "jYbS8E",
+            "relationships": {},
+            "type": "member"
+          }
+        ],
+        "links": {
+          "first": "/staceybayer/organizations/ao4F7b/members?page=1&items=10",
+          "last": "/staceybayer/organizations/ao4F7b/members?page=1&items=10",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORGANIZATION_ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ORGANIZATION_ID}} with a real organization_id."
+    },
+    {
+      "id": "get-a-workspace-stats",
+      "name": "Get a workspace stats",
+      "description": "Get a workspace stats",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/reports",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activities": {
+              "foo:activity": {
+                "count": 0,
+                "delta": 0,
+                "members": {
+                  "active_count": 0,
+                  "active_delta": 0,
+                  "new_count": 0,
+                  "new_delta": 0,
+                  "returning_count": 0,
+                  "returning_delta": 0
+                },
+                "source": "mysource"
+              },
+              "spec:activity": {
+                "count": 1,
+                "delta": 0,
+                "members": {
+                  "active_count": 1,
+                  "active_delta": 0,
+                  "new_count": 1,
+                  "new_delta": 0,
+                  "returning_count": 0,
+                  "returning_delta": 0
+                },
+                "source": "mysource"
+              },
+              "total_count": 1,
+              "total_delta": 0
+            },
+            "members": {
+              "active_count": 1,
+              "active_delta": 0,
+              "new_count": 1,
+              "new_delta": 0,
+              "returning_count": 0,
+              "returning_delta": 0
+            },
+            "overview": {
+              "members_on_orbit_level_1_count": 0,
+              "members_on_orbit_level_2_count": 0,
+              "members_on_orbit_level_3_count": 0,
+              "members_on_orbit_level_4_count": 0,
+              "members_on_orbit_level_none_count": 1,
+              "total_members_count": 1
+            },
+            "timeframe": {
+              "end_date": "2023-02-28",
+              "end_date_last": "2023-01-28",
+              "start_date": "2023-01-29",
+              "start_date_last": "2022-12-29"
+            },
+            "workspace_id": "1XOtmn"
+          },
+          "id": "1XOtmn",
+          "type": "statistics"
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "list-webhooks-in-a-workspace",
+      "name": "List webhooks in a workspace",
+      "description": "List webhooks in a workspace",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/webhooks",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": [
+          {
+            "attributes": {
+              "activity_keywords": [],
+              "activity_tags": [],
+              "activity_types": [],
+              "created_at": "2023-02-28T19:21:14.379Z",
+              "enabled": true,
+              "event_type": "activity:created",
+              "include_teammates": false,
+              "member_tags": [],
+              "name": "My Test Webhook",
+              "updated_at": "2023-02-28T19:21:14.379Z",
+              "url": "https://example.com/hook"
+            },
+            "id": "6qyFL6",
+            "type": "webhook"
+          }
+        ],
+        "links": {
+          "first": "/fake-workspace/webhooks?page=1",
+          "last": "/fake-workspace/webhooks?page=1",
+          "next": null,
+          "prev": null
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "create-a-webhook",
+      "name": "Create a webhook",
+      "description": "Create a webhook",
+      "method": "POST",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "event_type": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug."
+    },
+    {
+      "id": "get-a-webhook",
+      "name": "Get a webhook",
+      "description": "Get a webhook",
+      "method": "GET",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/webhooks/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "data": {
+          "attributes": {
+            "activity_keywords": [],
+            "activity_tags": [],
+            "activity_types": [],
+            "created_at": "2023-02-28T19:21:14.909Z",
+            "enabled": true,
+            "event_type": "activity:created",
+            "include_teammates": false,
+            "member_tags": [],
+            "name": "My Test Webhook",
+            "updated_at": "2023-02-28T19:21:14.909Z",
+            "url": "https://example.com/hook"
+          },
+          "id": "6ZbFM6",
+          "type": "webhook"
+        }
+      },
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-webhook",
+      "name": "Update a webhook",
+      "description": "Update a webhook",
+      "method": "PUT",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/webhooks/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "event_type": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-webhook",
+      "name": "Delete a webhook",
+      "description": "Delete a webhook",
+      "method": "DELETE",
+      "url": "https://app.orbit.love/api/v1/{{WORKSPACE_SLUG}}/webhooks/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ORBIT_LOVE_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKSPACE_SLUG}}",
+        "{{ID}}",
+        "{{ORBIT_API_KEY}}",
+        "{{ORBIT_LOVE_API_KEY}}"
+      ],
+      "notes": "Replace {{ORBIT_API_KEY}} with your ORBIT API KEY. Replace {{WORKSPACE_SLUG}} with a real workspace_slug. Replace {{ID}} with a real id."
+    }
+  ]
+}

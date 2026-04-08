@@ -1,0 +1,955 @@
+{
+  "api_id": "hillbillysoftware.com:shinobi:v1",
+  "endpoint_count": 58,
+  "endpoints": [
+    {
+      "id": "returns-data-on-queried-actor-actress-result-set-limited-to-5-records",
+      "name": "Returns data on queried actor/actress. Result set limited to 5 records",
+      "description": "Returns data on queried actor/actress. Result set limited to 5 records",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Actors/Search/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "add-new-actor-or-actress-to-database",
+      "name": "Add new actor or actress to database",
+      "description": "Add new actor or actress to database",
+      "method": "POST",
+      "url": "https://api.hillbillysoftware.com/AddActor",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "AccessToken": "",
+        "Bio": "",
+        "BirthYear": "",
+        "DeathYear": "",
+        "Gender": "",
+        "Name": "",
+        "PopularityIndex": "",
+        "ProfileImage": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-new-show-to-database",
+      "name": "Add new show to database",
+      "description": "Add new show to database",
+      "method": "POST",
+      "url": "https://api.hillbillysoftware.com/AddTVShow",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "AccessToken": "",
+        "EpisodeCount": "",
+        "EpisodeRuntime": "",
+        "Genres": "",
+        "ImdbID": "",
+        "PremierYear": "",
+        "Seasons": "",
+        "ShowImage": "",
+        "ShowStatus": "",
+        "Synopsis": "",
+        "Title": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-known-aliases-for-movies-or-television-shows-from-passed-imdbid",
+      "name": "Get known aliases for Movies or Television shows from passed imdbID",
+      "description": "Get known aliases for Movies or Television shows from passed imdbID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Aliases/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "get-known-aliases-for-movies-or-television-shows",
+      "name": "Get known aliases for Movies or Television shows",
+      "description": "Get known aliases for Movies or Television shows",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Aliases/ByName/{{ACCESSTOKEN}}/{{TITLE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TITLE}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{TITLE}} with a real title. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-all-awards-by-nominiee",
+      "name": "Gets all awards by nominiee",
+      "description": "Gets all awards by nominiee",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Awards/ByWinner/{{ACCESSTOKEN}}/{{NOMINEE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{NOMINEE}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{NOMINEE}} with a real nominee."
+    },
+    {
+      "id": "gets-all-awards-for-requested-year",
+      "name": "Gets all awards for requested year",
+      "description": "Gets all awards for requested year",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Awards/ByYear/{{YEAR}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{YEAR}}"
+      ],
+      "notes": "No authentication required. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "gets-tv-schedule-for-selected-data",
+      "name": "Gets TV Schedule for selected data",
+      "description": "Gets TV Schedule for selected data",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/ByDate/{{ACCESSTOKEN}}/{{DATE}}/{{COUNTRY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATE}}",
+        "{{COUNTRY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{DATE}} with a real date. Replace {{COUNTRY}} with a real country. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-list-of-available-countries-in-calendar-database",
+      "name": "Returns list of available countries in calendar database",
+      "description": "Returns list of available countries in calendar database",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Countries/{{ACCESSTOKEN}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-a-list-of-available-networks",
+      "name": "Gets a list of available networks",
+      "description": "Gets a list of available networks",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Networks/{{ACCESSTOKEN}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-list-of-seasons-available-in-the-calendar-for-show",
+      "name": "Returns list of seasons available in the calendar for show",
+      "description": "Returns list of seasons available in the calendar for show",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Seasons/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-calendar-by-showname-and-season",
+      "name": "Get Calendar by showname and season",
+      "description": "Get Calendar by showname and season",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Show/Season/{{ACCESSTOKEN}}/{{NAME}}/{{SEASON}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}",
+        "{{SEASON}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "will-return-show-schedule-for-queried-showname-and-year",
+      "name": "Will return show schedule for queried showname and year",
+      "description": "Will return show schedule for queried showname and year",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Show/{{ACCESSTOKEN}}/{{NAME}}/{{YEAR}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}",
+        "{{YEAR}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{YEAR}} with a real year."
+    },
+    {
+      "id": "will-return-show-schedule-for-today-for-all-countries-in-database",
+      "name": "Will return show schedule for today for all countries in database",
+      "description": "Will return show schedule for today for all countries in database",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Calendar/Today/{{ACCESSTOKEN}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-all-shows-queried-actor-actress-is-or-has-been-in",
+      "name": "Returns all shows queried actor/actress is or has been in",
+      "description": "Returns all shows queried actor/actress is or has been in",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Cast/ActorBySearch/{{ACCESSTOKEN}}/{{ACTOR}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{ACTOR}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{ACTOR}} with a real actor."
+    },
+    {
+      "id": "returns-list-of-show-actor-is-appearing-in",
+      "name": "Returns list of show actor is appearing in",
+      "description": "Returns list of show actor is appearing in",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Cast/ByActor/{{ACCESSTOKEN}}/{{ACTOR}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{ACTOR}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{ACTOR}} with a real actor."
+    },
+    {
+      "id": "returns-all-actors-in-queried-tvshow",
+      "name": "Returns all actors in queried tvshow",
+      "description": "Returns all actors in queried tvshow",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Cast/ByTVShow/{{ACCESSTOKEN}}/{{SHOWNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHOWNAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{SHOWNAME}} with a real showname. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-crew-list-by-id",
+      "name": "Get crew list by ID",
+      "description": "Get crew list by ID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Crew/ByID/{{ACCESSTOKEN}}/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-list-of-productions-searched-person-is-was-involved-in",
+      "name": "Gets list of productions searched person is/was involved in.",
+      "description": "Gets list of productions searched person is/was involved in.",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Crew/ByPerson/{{ACCESSTOKEN}}/{{PERSONNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PERSONNAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{PERSONNAME}} with a real personname. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-crew-list-by-showname",
+      "name": "Get crew list by showname",
+      "description": "Get crew list by showname",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Crew/ByShowName/{{ACCESSTOKEN}}/{{SHOWNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHOWNAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{SHOWNAME}} with a real showname. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-crew-for-queried-show",
+      "name": "Returns crew for queried show.",
+      "description": "Returns crew for queried show.",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Crew/Search/{{ACCESSTOKEN}}/{{PHRASE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PHRASE}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{PHRASE}} with a real phrase. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-all-episodes-for-selected-id",
+      "name": "Gets all episodes for selected ID",
+      "description": "Gets all episodes for selected ID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/ByID/{{ACCESSTOKEN}}/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-list-of-episodes-for-specified-imdbid-and-season-number",
+      "name": "Gets list of episodes for specified imdbID and Season number",
+      "description": "Gets list of episodes for specified imdbID and Season number",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/BySeason/{{ACCESSTOKEN}}/{{ID}}/{{SEASON}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCESSTOKEN}}",
+        "{{SEASON}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{SEASON}} with a real season."
+    },
+    {
+      "id": "gets-all-episodes-for-selected-show",
+      "name": "Gets all episodes for selected show",
+      "description": "Gets all episodes for selected show",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/ByShowName/{{ACCESSTOKEN}}/{{SHOWNAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHOWNAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{SHOWNAME}} with a real showname. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-latest-season-number-based-on-show-name",
+      "name": "Gets latest season number based on show name",
+      "description": "Gets latest season number based on show name",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/LatestSeason/Show/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-last-available-season-number-in-database-based-on-passed-imdbid",
+      "name": "Returns last available season number in database, based on passed imdbID",
+      "description": "Returns last available season number in database, based on passed imdbID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/LatestSeason/{{ACCESSTOKEN}}/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-number-of-available-seasons-and-episodes",
+      "name": "Returns number of available seasons and episodes",
+      "description": "Returns number of available seasons and episodes",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Episodes/SeasonCount/{{ACCESSTOKEN}}/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-list-of-avaiable-imdb-ids-from-movies-and-tv-show-databases-you-can-use-those-to-query-other-end-points-that-need-id-s",
+      "name": "Gets list of avaiable IMDB ids from Movies and TV Show databases, you can use those to query other end points that need ID's",
+      "description": "Gets list of avaiable IMDB ids from Movies and TV Show databases, you can use those to query other end points that need ID's",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/GetIMDBid/ByID/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-images-available-for-movie-tv-show-with-passed-imdbid",
+      "name": "Get images available for movie/tv show with passed imdbID",
+      "description": "Get images available for movie/tv show with passed imdbID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Images/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "get-images-available-for-movie-tv-show-with-passed-query",
+      "name": "Get images available for movie/tv show with passed query",
+      "description": "Get images available for movie/tv show with passed query",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Images/Search/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-available-magnet-hashes-on-passed-date-yyyy-mm-dd-feature-not-available-on-free-plan-please-donate-to-be-able-to-use-this-feature",
+      "name": "Gets available magnet hashes on passed date (yyyy-mm-dd).  Feature not available on free plan, please donate to be able to use this feature.",
+      "description": "Gets available magnet hashes on passed date (yyyy-mm-dd).  Feature not available on free plan, please donate to be able to use this feature.",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Magnets/ByDate/{{ACCESSTOKEN}}/{{DATE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATE}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{DATE}} with a real date. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-list-of-magnet-hashes-for-passed-imdbid-feature-not-available-on-free-plan-please-donate-to-be-able-to-use-this-feature",
+      "name": "Returns list of magnet hashes for passed IMDBID.  Feature not available on free plan, please donate to be able to use this feature.",
+      "description": "Returns list of magnet hashes for passed IMDBID.  Feature not available on free plan, please donate to be able to use this feature.",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Magnets/ByIMDB/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "try-and-find-magnet-links-for-queried-movie-feature-not-available-on-free-plan-please-donate-to-be-able-to-use-this-feature",
+      "name": "Try and find magnet links for queried movie.  Feature not available on free plan, please donate to be able to use this feature",
+      "description": "Try and find magnet links for queried movie.  Feature not available on free plan, please donate to be able to use this feature",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Magnets/Search/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-results-based-on-query-feature-not-available-on-free-plan-please-donate-to-be-able-to-use-this-feature",
+      "name": "Returns results based on query, Feature not available on free plan, please donate to be able to use this feature.",
+      "description": "Returns results based on query, Feature not available on free plan, please donate to be able to use this feature.",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Magnets/TVShow/{{ACCESSTOKEN}}/{{TVSHOW}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{TVSHOW}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{TVSHOW}} with a real tvshow."
+    },
+    {
+      "id": "get-movie-byid-accesstoken-imdbid",
+      "name": "GET /Movie/ByID/{accesstoken}/{imdbID}",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Movie/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "searches-for-movies-result-set-limited-to-5-records",
+      "name": "Searches for movies, result set limited to 5 records",
+      "description": "Searches for movies, result set limited to 5 records",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Movie/Search/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-albumart-for-passed-albumid",
+      "name": "Returns Albumart for passed AlbumID",
+      "description": "Returns Albumart for passed AlbumID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Albums/Art/{{ACCESSTOKEN}}/{{ALBUMID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ALBUMID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ALBUMID}} with a real albumid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-cd-art-for-passed-musicbrainzid",
+      "name": "Gets CD art for passed MusicBrainzID",
+      "description": "Gets CD art for passed MusicBrainzID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Albums/CoverArt/{{ACCESSTOKEN}}/{{MBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MBID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{MBID}} with a real mbid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-artist-band-information-on-musicbrainzid",
+      "name": "Get Artist / Band information on MusicBrainzID",
+      "description": "Get Artist / Band information on MusicBrainzID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Albums/MusicBrainzID/{{ACCESSTOKEN}}/{{MBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MBID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{MBID}} with a real mbid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-albums-from-passed-artistid",
+      "name": "Get albums from passed ArtistID",
+      "description": "Get albums from passed ArtistID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Albums/{{ACCESSTOKEN}}/{{ARTISTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ARTISTID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ARTISTID}} with a real artistid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "retrieves-artist-band-banner-and-logo-based-on-artistid",
+      "name": "Retrieves artist / band Banner and logo based on ArtistID",
+      "description": "Retrieves artist / band Banner and logo based on ArtistID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Artist/Art/ID/{{ACCESSTOKEN}}/{{ARTISTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ARTISTID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ARTISTID}} with a real artistid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "retrieves-artist-band-banner-and-logo-based-on-artist-or-bandname",
+      "name": "Retrieves artist / band Banner and logo based on artist or bandname",
+      "description": "Retrieves artist / band Banner and logo based on artist or bandname",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Artist/Art/Name/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "provides-extended-information-which-includes-all-known-albums-and-music-videos-of-artist-band",
+      "name": "Provides extended information, which includes all known albums and music videos of artist / band",
+      "description": "Provides extended information, which includes all known albums and music videos of artist / band",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Artist/Extended/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-information-about-passed-band-name-or-artist",
+      "name": "Get information about passed band name or artist",
+      "description": "Get information about passed band name or artist",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Artist/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-all-lyrics-for-requested-albumid",
+      "name": "Returns all lyrics for requested AlbumID",
+      "description": "Returns all lyrics for requested AlbumID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Lyrics/AlbumID/{{ACCESSTOKEN}}/{{ALBUMID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ALBUMID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ALBUMID}} with a real albumid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-lyrics-for-band-or-artist-record-set-limited-to-25",
+      "name": "Get lyrics for band or artist (record set limited to 25)",
+      "description": "Get lyrics for band or artist (record set limited to 25)",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Lyrics/ByName/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-lyrics-on-song-title",
+      "name": "Get lyrics on song title",
+      "description": "Get lyrics on song title",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Lyrics/BySong/{{ACCESSTOKEN}}/{{SONG}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{SONG}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{SONG}} with a real song."
+    },
+    {
+      "id": "get-all-tracks-from-requested-album",
+      "name": "Get all tracks from requested album",
+      "description": "Get all tracks from requested album",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Tracks/{{ACCESSTOKEN}}/{{ALBUMID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ALBUMID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ALBUMID}} with a real albumid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "lists-all-videos-available-for-this-artist-band",
+      "name": "Lists all videos available for this Artist / Band",
+      "description": "Lists all videos available for this Artist / Band",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Music/Videos/{{ACCESSTOKEN}}/{{ARTISTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ARTISTID}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{ARTISTID}} with a real artistid. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-ratings-from-various-resources-imdb-rotten-tomatoes-metacritics-tvmaze-etc-of-passed-imdbid",
+      "name": "Returns ratings from various resources(IMDB,Rotten Tomatoes, metaCritics, TVMaze etc) of passed IMDBid",
+      "description": "Returns ratings from various resources(IMDB,Rotten Tomatoes, metaCritics, TVMaze etc) of passed IMDBid",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Rating/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "get-rating-byname-accesstoken-name",
+      "name": "GET /Rating/ByName/{AccessToken}/{Name}",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Rating/ByName/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-status-of-queried-show-query-can-be-imdb-tvdb-or-showname",
+      "name": "Returns status of queried show (query can be IMDB, TVDB, or showname)",
+      "description": "Returns status of queried show (query can be IMDB, TVDB, or showname)",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Status/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "returns-tvshow-information-based-on-imdbid",
+      "name": "Returns TVShow information based on IMDBid",
+      "description": "Returns TVShow information based on IMDBid",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/TV/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "returns-results-based-on-query-result-set-limited-to-5-records",
+      "name": "Returns results based on query, result set limited to 5 records",
+      "description": "Returns results based on query, result set limited to 5 records",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/TV/ByName/{{ACCESSTOKEN}}/{{QUERY}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUERY}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{QUERY}} with a real query. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "get-trailers-for-passed-imdbid",
+      "name": "Get Trailers for passed imdbID",
+      "description": "Get Trailers for passed imdbID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Trailers/ByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "get-trailer-count-for-passed-id",
+      "name": "Get trailer count for passed ID",
+      "description": "Get trailer count for passed ID",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Trailers/CountByID/{{ACCESSTOKEN}}/{{IMDBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSTOKEN}}",
+        "{{IMDBID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACCESSTOKEN}} with a real accesstoken. Replace {{IMDBID}} with a real imdbid."
+    },
+    {
+      "id": "get-trailer-count-for-passed-name-movie-title-or-tvshow-name",
+      "name": "Get trailer count for passed name (Movie title or TVShow name)",
+      "description": "Get trailer count for passed name (Movie title or TVShow name)",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Trailers/CountByName/{{ACCESSTOKEN}}/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    },
+    {
+      "id": "gets-trailers-by-search-phrase-limited-to-10-records",
+      "name": "Gets trailers by search phrase (limited to 10 records)",
+      "description": "Gets trailers by search phrase (limited to 10 records)",
+      "method": "GET",
+      "url": "https://api.hillbillysoftware.com/Trailers/Search/{{ACCESSTOKEN}}/{{PHRASE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PHRASE}}",
+        "{{ACCESSTOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{PHRASE}} with a real phrase. Replace {{ACCESSTOKEN}} with a real accesstoken."
+    }
+  ]
+}

@@ -1,0 +1,2553 @@
+{
+  "api_id": "shutterstock.com:1.1.32",
+  "endpoint_count": 116,
+  "endpoints": [
+    {
+      "id": "list-computer-audio-descriptors",
+      "name": "List computer audio descriptors",
+      "description": "This endpoint lists the descriptors that you can use in the audio regions in an audio render.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/ai/audio/descriptors",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-computer-audio-instruments",
+      "name": "List computer audio instruments",
+      "description": "This endpoint lists the instruments that you can include in computer audio. If you specify more than one search parameter, the API uses an AND condition.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/ai/audio/instruments",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-audio-renders",
+      "name": "Get details about audio renders",
+      "description": "This endpoint shows the status of one or more audio renders, including download links for completed audio.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/ai/audio/renders",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "create-rendered-audio",
+      "name": "Create rendered audio",
+      "description": "This endpoint creates rendered audio from timeline data. It returns a render ID that you can use to download the finished audio when it is ready. The render ID is valid for up to 48 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/ai/audio/renders",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "audio_renders": [
+          {
+            "filename": "My Project.mp3",
+            "preset": "MASTER_MP3",
+            "timeline": {
+              "spans": [
+                {
+                  "id": 111,
+                  "instrument_groups": [
+                    {
+                      "instrument_group": "roomy_kit",
+                      "statuses": [
+                        {
+                          "beat": 12,
+                          "status": "active"
+                        }
+                      ]
+                    }
+                  ],
+                  "regions": [
+                    {
+                      "beat": 12,
+                      "descriptor": "cinematic_minimal_tense",
+                      "end_type": {
+                        "beat": 24,
+                        "event": "ending",
+                        "type": "ringout"
+                      },
+                      "id": 222,
+                      "key": {
+                        "tonic_note": "c",
+                        "tonic_quality": "major"
+                      },
+                      "region": "music"
+                    }
+                  ],
+                  "span_type": "metered",
+                  "tempo": 76,
+                  "tempo_changes": [
+                    {
+                      "tempo": 86,
+                      "time": 5
+                    }
+                  ],
+                  "time": 5
+                },
+                {
+                  "span_type": "unmetered",
+                  "time": 20
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-audio-tracks",
+      "name": "List audio tracks",
+      "description": "This endpoint lists information about one or more audio tracks, including the description and publication date.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-audio-collections",
+      "name": "List audio collections",
+      "description": "This endpoint lists your collections of audio tracks and their basic attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/collections",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "create-audio-collections",
+      "name": "Create audio collections",
+      "description": "This endpoint creates one or more collections (soundboxes). To add tracks, use `POST /v2/audio/collections/{id}/items`.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/audio/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Create a soundbox",
+          "value": {
+            "name": "Best rock music"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-details-of-audio-collections",
+      "name": "Get the details of audio collections",
+      "description": "This endpoint gets more detailed information about a collection, including the number of items in it and when it was last updated. To get the tracks in collections, use `GET /v2/audio/collections/{id}/items`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "rename-audio-collections",
+      "name": "Rename audio collections",
+      "description": "This endpoint sets a new name for a collection.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Renaming a soundbox",
+          "value": {
+            "name": "Best rock music"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-audio-collections",
+      "name": "Delete audio collections",
+      "description": "This endpoint deletes a collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-contents-of-audio-collections",
+      "name": "Get the contents of audio collections",
+      "description": "This endpoint lists the IDs of tracks in a collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-audio-tracks-to-collections",
+      "name": "Add audio tracks to collections",
+      "description": "This endpoint adds one or more tracks to a collection by track IDs.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}/items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Adds tracks to a soundbox",
+          "value": {
+            "items": [
+              {
+                "id": "442583"
+              },
+              {
+                "id": "7491192"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-audio-tracks-from-collections",
+      "name": "Remove audio tracks from collections",
+      "description": "This endpoint removes one or more tracks from a collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/audio/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-audio-genres",
+      "name": "List audio genres",
+      "description": "This endpoint returns a list of all audio genres.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/genres",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-audio-instruments",
+      "name": "List audio instruments",
+      "description": "This endpoint returns a list of all audio instruments.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/instruments",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-audio-licenses",
+      "name": "List audio licenses",
+      "description": "This endpoint lists existing licenses. You can filter the results according to the track ID to see if you have an existing license for a specific track.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-audio-tracks",
+      "name": "License audio tracks",
+      "description": "This endpoint gets licenses for one or more tracks. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/audio/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Overwrite content of soundbox with new items",
+          "value": {
+            "audio": [
+              {
+                "audio_id": "591623",
+                "license": "audio_platform",
+                "metadata": {
+                  "customer_id": "12345"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "download-audio-tracks",
+      "name": "Download audio tracks",
+      "description": "This endpoint redownloads tracks that you have already received a license for. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/audio/licenses/{{ID}}/downloads",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-audio-moods",
+      "name": "List audio moods",
+      "description": "This endpoint returns a list of all audio moods.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/moods",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "search-for-tracks",
+      "name": "Search for tracks",
+      "description": "This endpoint searches for tracks. If you specify more than one search parameter, the API uses an AND condition. Array parameters can be specified multiple times; in this case, the API uses an AND or an OR condition with those values, depending on the parameter.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-audio-tracks",
+      "name": "Get details about audio tracks",
+      "description": "This endpoint shows information about a track, including its genres, instruments, and other attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/audio/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "run-multiple-image-searches",
+      "name": "Run multiple image searches",
+      "description": "This endpoint runs up to 5 image searches in a single request and returns up to 20 results per search. You can provide global search parameters in the query parameters and override them for each search in the body parameter. The query and body parameters are the same as in the `GET /v2/images/search` endpoint.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/bulk_search/images",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": [
+            {
+              "license": [
+                "editorial"
+              ],
+              "query": "cat",
+              "sort": "popular"
+            },
+            {
+              "orientation": "horizontal",
+              "query": "dog"
+            }
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-catalog-collections",
+      "name": "List catalog collections",
+      "description": "This endpoint returns a list of catalog collections.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/catalog/collections",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "create-catalog-collections",
+      "name": "Create catalog collections",
+      "description": "This endpoint creates a catalog collection and optionally adds assets. To add assets to the collection later, use `PATCH /v2/catalog/collections/{collection_id}/items`.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/catalog/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Create Collection Request",
+          "value": {
+            "items": [
+              {
+                "asset": {
+                  "id": "1690105108",
+                  "type": "image"
+                }
+              }
+            ],
+            "name": "New Collection",
+            "visibility": "public"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "delete-catalog-collections",
+      "name": "Delete catalog collections",
+      "description": "This endpoint deletes a catalog collection. It does not remove the assets from the user's account's catalog.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/catalog/collections/{{COLLECTION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{COLLECTION_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{COLLECTION_ID}} with a real collection_id."
+    },
+    {
+      "id": "update-collection-metadata",
+      "name": "Update collection metadata",
+      "description": "This endpoint updates the metadata of a catalog collection.",
+      "method": "PATCH",
+      "url": "https://api.shutterstock.com/v2/catalog/collections/{{COLLECTION_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Collection Metadata",
+          "value": {
+            "cover_asset": {
+              "id": "123"
+            },
+            "name": "My Collection",
+            "visibility": "public"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{COLLECTION_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{COLLECTION_ID}} with a real collection_id."
+    },
+    {
+      "id": "add-items-to-catalog-collections",
+      "name": "Add items to catalog collections",
+      "description": "This endpoint adds assets to a catalog collection. It also automatically adds the assets to the user's account's catalog.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/catalog/collections/{{COLLECTION_ID}}/items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "description": "Add collection items",
+          "value": {
+            "items": [
+              {
+                "asset": {
+                  "id": "1690105108",
+                  "type": "image"
+                }
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{COLLECTION_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{COLLECTION_ID}} with a real collection_id."
+    },
+    {
+      "id": "remove-items-from-catalog-collection",
+      "name": "Remove items from catalog collection",
+      "description": "This endpoint removes assets from a catalog collection. It does not remove the assets from the user's account's catalog.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/catalog/collections/{{COLLECTION_ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{COLLECTION_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{COLLECTION_ID}} with a real collection_id."
+    },
+    {
+      "id": "search-catalogs-for-assets",
+      "name": "Search catalogs for assets",
+      "description": "This endpoint searches for assets in the account's catalog. If you specify more than one search parameter, the API uses an AND condition. Array parameters can be specified multiple times; in this case, the API uses an AND or an OR condition with those values, depending on the parameter. You can also filter search terms out in the `query` parameter by prefixing the term with NOT.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/catalog/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-multiple-contributors",
+      "name": "Get details about multiple contributors",
+      "description": "This endpoint lists information about one or more contributors, including contributor type, equipment they use and other attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/contributors",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-a-single-contributor",
+      "name": "Get details about a single contributor",
+      "description": "This endpoint shows information about a single contributor, including contributor type, equipment they use, and other attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/contributors/{{CONTRIBUTOR_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{CONTRIBUTOR_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{CONTRIBUTOR_ID}} with a real contributor_id."
+    },
+    {
+      "id": "list-contributors-collections",
+      "name": "List contributors' collections",
+      "description": "This endpoint lists collections based on contributor ID.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/contributors/{{CONTRIBUTOR_ID}}/collections",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{CONTRIBUTOR_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{CONTRIBUTOR_ID}} with a real contributor_id."
+    },
+    {
+      "id": "get-details-about-contributors-collections",
+      "name": "Get details about contributors' collections",
+      "description": "This endpoint gets more detailed information about a contributor's collection, including its cover image, timestamps for its creation, and most recent update. To get the items in collections, use GET /v2/contributors/{contributor_id}/collections/{id}/items.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/contributors/{{CONTRIBUTOR_ID}}/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{CONTRIBUTOR_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id. Replace {{CONTRIBUTOR_ID}} with a real contributor_id."
+    },
+    {
+      "id": "get-the-items-in-contributors-collections",
+      "name": "Get the items in contributors' collections",
+      "description": "This endpoint lists the IDs of items in a contributor's collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/contributors/{{CONTRIBUTOR_ID}}/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{CONTRIBUTOR_ID}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id. Replace {{CONTRIBUTOR_ID}} with a real contributor_id."
+    },
+    {
+      "id": "list-suggested-keywords",
+      "name": "List suggested keywords",
+      "description": "This endpoint returns a list of suggested keywords for a media item that you specify or upload.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/cv/keywords",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "asset_id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-similar-images",
+      "name": "List similar images",
+      "description": "This endpoint returns images that are visually similar to an image that you specify or upload.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/cv/similar/images",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "asset_id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-similar-videos",
+      "name": "List similar videos",
+      "description": "This endpoint returns videos that are visually similar to an image that you specify or upload.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/cv/similar/videos",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "asset_id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "deprecated-list-editorial-categories",
+      "name": "(Deprecated) List editorial categories",
+      "description": "Deprecated; use `GET /v2/editorial/images/categories` instead. This endpoint lists the categories that editorial images can belong to, which are separate from the categories that other types of assets can belong to.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/categories",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-editorial-categories",
+      "name": "List editorial categories",
+      "description": "This endpoint lists the categories that editorial images can belong to, which are separate from the categories that other types of assets can belong to.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/categories",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-editorial-image-licenses",
+      "name": "List editorial image licenses",
+      "description": "This endpoint lists existing editorial image licenses.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-editorial-content",
+      "name": "License editorial content",
+      "description": "This endpoint gets licenses for one or more editorial images. You must specify the country and one or more editorial images to license. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/editorial/images/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "country": "USA",
+        "editorial": [
+          {
+            "editorial_id": "10687730b",
+            "license": "premier_editorial_comp",
+            "metadata": {
+              "customer_id": "12345",
+              "geo_location": "US",
+              "number_viewed": "15",
+              "search_term": "dog"
+            },
+            "size": "original"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-editorial-livefeed-list",
+      "name": "Get editorial livefeed list",
+      "description": "Get editorial livefeed list",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/livefeeds",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-editorial-livefeed",
+      "name": "Get editorial livefeed",
+      "description": "Get editorial livefeed",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/livefeeds/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-editorial-livefeed-items",
+      "name": "Get editorial livefeed items",
+      "description": "Get editorial livefeed items",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/livefeeds/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "search-editorial-images",
+      "name": "Search editorial images",
+      "description": "This endpoint searches for editorial images. If you specify more than one search parameter, the API uses an AND condition. For example, if you set the `category` parameter to \"Alone,Performing\" and also specify a `query` parameter, the results include only images that match the query and are in both the Alone and Performing categories. You can also filter search terms out in the `query` parameter by prefixing the term with NOT.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-updated-content",
+      "name": "List updated content",
+      "description": "This endpoint lists editorial images that have been updated in the specified time period to update content management systems (CMS) or digital asset management (DAM) systems. In most cases, use the date_updated_start and date_updated_end parameters to specify a range updates based on when the updates happened. You can also use the date_taken_start and date_taken_end parameters to specify a range of updates based on when the image was taken.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/updated",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "type": "",
+        "date_updated_start": "",
+        "date_updated_end": "",
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-editorial-content-details",
+      "name": "Get editorial content details",
+      "description": "This endpoint shows information about an editorial image, including a URL to a preview image and the sizes that it is available in.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/images/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deprecated-license-editorial-content",
+      "name": "(Deprecated) License editorial content",
+      "description": "Deprecated; use `POST /v2/editorial/images/licenses` instead to get licenses for one or more editorial images. You must specify the country and one or more editorial images to license. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/editorial/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "country": "USA",
+            "editorial": [
+              {
+                "editorial_id": "10687730b",
+                "license": "premier_editorial_comp",
+                "metadata": {
+                  "customer_id": "12345",
+                  "geo_location": "US",
+                  "number_viewed": "15",
+                  "search_term": "dog"
+                },
+                "size": "original"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "deprecated-get-editorial-livefeed-list",
+      "name": "(Deprecated) Get editorial livefeed list",
+      "description": "Deprecated; use `GET /v2/editorial/images/livefeeds` instead to get a list of editorial livefeeds.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/livefeeds",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "deprecated-get-editorial-livefeed",
+      "name": "(Deprecated) Get editorial livefeed",
+      "description": "Deprecated: use `GET /v2/editorial/images/livefeeds/{id}` instead to get an editorial livefeed.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/livefeeds/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deprecated-get-editorial-livefeed-items",
+      "name": "(Deprecated) Get editorial livefeed items",
+      "description": "Deprecated; use `GET /v2/editorial/images/livefeeds/{id}/items` instead to get editorial livefeed items.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/livefeeds/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deprecated-search-editorial-content",
+      "name": "(Deprecated) Search editorial content",
+      "description": "Deprecated; use `GET /v2/editorial/images/search` instead to search for editorial images.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "deprecated-list-updated-content",
+      "name": "(Deprecated) List updated content",
+      "description": "Deprecated; use `GET /v2/editorial/images/updated` instead to get recently updated items.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/updated",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "type": "",
+        "date_updated_start": "",
+        "date_updated_end": "",
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-editorial-video-categories",
+      "name": "List editorial video categories",
+      "description": "This endpoint lists the categories that editorial videos can belong to, which are separate from the categories that other types of assets can belong to.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/videos/categories",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-editorial-video-licenses",
+      "name": "List editorial video licenses",
+      "description": "This endpoint lists existing editorial video licenses.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/videos/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-editorial-video-content",
+      "name": "License editorial video content",
+      "description": "This endpoint gets licenses for one or more editorial videos. You must specify the country and one or more editorial videos to license. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/editorial/videos/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "country": "USA",
+            "editorial": [
+              {
+                "editorial_id": "10679854a",
+                "license": "premier_editorial_video_digital_only",
+                "metadata": {
+                  "purchase_order": "12345"
+                },
+                "size": "original"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "search-editorial-video-content",
+      "name": "Search editorial video content",
+      "description": "This endpoint searches for editorial videos. If you specify more than one search parameter, the API uses an AND condition. For example, if you set the `category` parameter to \"Alone,Performing\" and also specify a `query` parameter, the results include only videos that match the query and are in both the Alone and Performing categories.  You can also filter search terms out in the `query` parameter by prefixing the term with NOT.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/videos/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-editorial-video-content-details",
+      "name": "Get editorial video content details",
+      "description": "This endpoint shows information about an editorial image, including a URL to a preview image and the sizes that it is available in.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/videos/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deprecated-get-editorial-content-details",
+      "name": "(Deprecated) Get editorial content details",
+      "description": "Deprecated; use `GET /v2/editorial/images/{id}` instead to show information about an editorial image, including a URL to a preview image and the sizes that it is available in.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/editorial/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "country": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-images",
+      "name": "List images",
+      "description": "This endpoint lists information about one or more images, including the available sizes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-image-categories",
+      "name": "List image categories",
+      "description": "This endpoint lists the categories (Shutterstock-assigned genres) that images can belong to.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/categories",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-image-collections",
+      "name": "List image collections",
+      "description": "This endpoint lists your collections of images and their basic attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "create-image-collections",
+      "name": "Create image collections",
+      "description": "This endpoint creates one or more image collections (lightboxes). To add images to the collections, use `POST /v2/images/collections/{id}/items`.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "name": "Test Collection 19cf"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-featured-image-collections",
+      "name": "List featured image collections",
+      "description": "This endpoint lists featured collections of specific types and a name and cover image for each collection.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections/featured",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-details-of-featured-image-collections",
+      "name": "Get the details of featured image collections",
+      "description": "This endpoint gets more detailed information about a featured collection, including its cover image and timestamps for its creation and most recent update. To get the images, use `GET /v2/images/collections/featured/{id}/items`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections/featured/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-contents-of-featured-image-collections",
+      "name": "Get the contents of featured image collections",
+      "description": "This endpoint lists the IDs of images in a featured collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections/featured/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-details-of-image-collections",
+      "name": "Get the details of image collections",
+      "description": "This endpoint gets more detailed information about a collection, including its cover image and timestamps for its creation and most recent update. To get the images in collections, use `GET /v2/images/collections/{id}/items`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "rename-image-collections",
+      "name": "Rename image collections",
+      "description": "This endpoint sets a new name for an image collection.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "name": "My collection with a new name"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-image-collections",
+      "name": "Delete image collections",
+      "description": "This endpoint deletes an image collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-contents-of-image-collections",
+      "name": "Get the contents of image collections",
+      "description": "This endpoint lists the IDs of images in a collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-images-to-collections",
+      "name": "Add images to collections",
+      "description": "This endpoint adds one or more images to a collection by image IDs.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}/items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "items": [
+              {
+                "id": "49572945"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-images-from-collections",
+      "name": "Remove images from collections",
+      "description": "This endpoint removes one or more images from a collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/images/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-image-licenses",
+      "name": "List image licenses",
+      "description": "This endpoint lists existing licenses.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-images",
+      "name": "License images",
+      "description": "This endpoint gets licenses for one or more images. You must specify the image IDs in the body parameter and other details like the format, size, and subscription ID either in the query parameter or with each image ID in the body parameter. Values in the body parameter override values in the query parameters. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "images": [
+              {
+                "editorial_acknowledgement": true,
+                "format": "jpg",
+                "image_id": "123456789",
+                "metadata": {
+                  "customer_id": "12345",
+                  "geo_location": "US",
+                  "number_viewed": "15",
+                  "search_term": "dog"
+                },
+                "price": 12.34,
+                "show_modal": true,
+                "size": "small",
+                "subscription_id": "s12345678"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "download-images",
+      "name": "Download images",
+      "description": "This endpoint redownloads images that you have already received a license for. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/licenses/{{ID}}/downloads",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "size": "small"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-recommended-images",
+      "name": "List recommended images",
+      "description": "This endpoint returns images that customers put in the same collection as the specified image IDs.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "search-for-images",
+      "name": "Search for images",
+      "description": "This endpoint searches for images. If you specify more than one search parameter, the API uses an AND condition. Array parameters can be specified multiple times; in this case, the API uses an AND or an OR condition with those values, depending on the parameter. You can also filter search terms out in the `query` parameter by prefixing the term with NOT. Free API accounts show results only from a limited library of media, not the full Shutterstock media library. Also, the number of search fields they can use in a request is limited.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-suggestions-for-a-search-term",
+      "name": "Get suggestions for a search term",
+      "description": "This endpoint provides autocomplete suggestions for partial search terms.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/search/suggestions",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-keywords-from-text",
+      "name": "Get keywords from text",
+      "description": "This endpoint returns up to 10 important keywords from a block of plain text.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/images/search/suggestions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "text": "Planting flowers is a great way to make springtime more beautiful."
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-updated-images",
+      "name": "List updated images",
+      "description": "This endpoint lists images that have been updated in the specified time period to update content management systems (CMS) or digital asset management (DAM) systems. In most cases, use the `interval` parameter to show images that were updated recently, but you can also use the `start_date` and `end_date` parameters to specify a range of no more than three days. Do not use the `interval` parameter with either `start_date` or `end_date`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/updated",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-images",
+      "name": "Get details about images",
+      "description": "This endpoint shows information about an image, including a URL to a preview image and the sizes that it is available in.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-similar-images-2",
+      "name": "List similar images",
+      "description": "This endpoint returns images that are visually similar to an image that you specify.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/images/{{ID}}/similar",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-access-tokens",
+      "name": "Get access tokens",
+      "description": "This endpoint returns an access token for the specified user and with the specified scopes. The token does not expire until the user changes their password. The body parameters must be encoded as form data.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/oauth/access_token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "client_id": "141024g14g28104gff1h"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "authorize-applications",
+      "name": "Authorize applications",
+      "description": "This endpoint returns a redirect URI (in the 'Location' header) that the customer uses to authorize your application and, together with POST /v2/oauth/access_token, generate an access token that represents that authorization.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/oauth/authorize",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "client_id": "",
+        "redirect_uri": "",
+        "response_type": "",
+        "state": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-details-about-sound-effects",
+      "name": "List details about sound effects",
+      "description": "This endpoint shows information about sound effects.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/sfx",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-sound-effects-licenses",
+      "name": "List sound effects licenses",
+      "description": "This endpoint lists existing licenses.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/sfx/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-sound-effects",
+      "name": "License sound effects",
+      "description": "This endpoint licenses sounds effect assets.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/sfx/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "sound_effects": [
+              {
+                "format": "wav",
+                "metadata": {
+                  "customer_id": "12345",
+                  "geo_location": "US",
+                  "number_viewed": "15",
+                  "search_term": "dog"
+                },
+                "sfx_id": "123456789",
+                "show_modal": true,
+                "size": "ambisonic",
+                "subscription_id": "s12345678"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "download-sound-effects",
+      "name": "Download sound effects",
+      "description": "This endpoint redownloads sound effects that you have already received a license for. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/sfx/licenses/{{ID}}/downloads",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "search-for-sound-effects",
+      "name": "Search for sound effects",
+      "description": "This endpoint searches for sound effects. If you specify more than one search parameter, the API uses an AND condition.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/sfx/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-sound-effects",
+      "name": "Get details about sound effects",
+      "description": "This endpoint shows information about a sound effect.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/sfx/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "echo-text",
+      "name": "Echo text",
+      "description": "Echo text",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/test",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "validate-input",
+      "name": "Validate input",
+      "description": "Validate input",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/test/validate",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-user-details",
+      "name": "Get user details",
+      "description": "Get user details",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/user",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-access-token-details",
+      "name": "Get access token details",
+      "description": "Get access token details",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/user/access_token",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-user-subscriptions",
+      "name": "List user subscriptions",
+      "description": "List user subscriptions",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/user/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-videos",
+      "name": "List videos",
+      "description": "This endpoint lists information about one or more videos, including the aspect ratio and URLs to previews.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-video-categories",
+      "name": "List video categories",
+      "description": "This endpoint lists the categories (Shutterstock-assigned genres) that videos can belong to.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/categories",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-video-collections",
+      "name": "List video collections",
+      "description": "This endpoint lists your collections of videos and their basic attributes.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "create-video-collections",
+      "name": "Create video collections",
+      "description": "This endpoint creates one or more collections (clipboxes). To add videos to collections, use `POST /v2/videos/collections/{id}/items`.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/videos/collections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "name": "Test Collection 19cf"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-featured-video-collections",
+      "name": "List featured video collections",
+      "description": "This endpoint lists featured video collections and a name and cover video for each collection.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections/featured",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-details-of-featured-video-collections",
+      "name": "Get the details of featured video collections",
+      "description": "This endpoint gets more detailed information about a featured video collection, including its cover video and timestamps for its creation and most recent update. To get the videos, use `GET /v2/videos/collections/featured/{id}/items`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections/featured/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-contents-of-featured-video-collections",
+      "name": "Get the contents of featured video collections",
+      "description": "This endpoint lists the IDs of videos in a featured collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections/featured/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-details-of-video-collections",
+      "name": "Get the details of video collections",
+      "description": "This endpoint gets more detailed information about a collection, including the timestamp for its creation and the number of videos in it. To get the videos in collections, use GET /v2/videos/collections/{id}/items.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "rename-video-collections",
+      "name": "Rename video collections",
+      "description": "This endpoint sets a new name for a collection.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "name": "My collection with a new name"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-video-collections",
+      "name": "Delete video collections",
+      "description": "This endpoint deletes a collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-contents-of-video-collections",
+      "name": "Get the contents of video collections",
+      "description": "This endpoint lists the IDs of videos in a collection and the date that each was added.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-videos-to-collections",
+      "name": "Add videos to collections",
+      "description": "This endpoint adds one or more videos to a collection by video IDs.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}/items",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "items": [
+              {
+                "id": "10120264"
+              },
+              {
+                "id": "24419024"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-videos-from-collections",
+      "name": "Remove videos from collections",
+      "description": "This endpoint removes one or more videos from a collection.",
+      "method": "DELETE",
+      "url": "https://api.shutterstock.com/v2/videos/collections/{{ID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-video-licenses",
+      "name": "List video licenses",
+      "description": "This endpoint lists existing licenses.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/licenses",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "license-videos",
+      "name": "License videos",
+      "description": "This endpoint gets licenses for one or more videos. You must specify the video IDs in the body parameter and the size and subscription ID either in the query parameter or with each video ID in the body parameter. Values in the body parameter override values in the query parameters. The download links in the response are valid for 8 hours.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/videos/licenses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": {
+          "value": {
+            "videos": [
+              {
+                "size": "hd",
+                "subscription_id": "s12345678",
+                "video_id": "2140697"
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "download-videos",
+      "name": "Download videos",
+      "description": "This endpoint redownloads videos that you have already received a license for.",
+      "method": "POST",
+      "url": "https://api.shutterstock.com/v2/videos/licenses/{{ID}}/downloads",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "size": "web"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "search-for-videos",
+      "name": "Search for videos",
+      "description": "This endpoint searches for videos. If you specify more than one search parameter, the API uses an AND condition. Array parameters can be specified multiple times; in this case, the API uses an AND or an OR condition with those values, depending on the parameter. You can also filter search terms out in the `query` parameter by prefixing the term with NOT.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/search",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-suggestions-for-a-search-term-2",
+      "name": "Get suggestions for a search term",
+      "description": "This endpoint provides autocomplete suggestions for partial search terms.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/search/suggestions",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "list-updated-videos",
+      "name": "List updated videos",
+      "description": "This endpoint lists videos that have been updated in the specified time period to update content management systems (CMS) or digital asset management (DAM) systems. In most cases, use the `interval` parameter to show videos that were updated recently, but you can also use the `start_date` and `end_date` parameters to specify a range of no more than three days. Do not use the `interval` parameter with either `start_date` or `end_date`.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/updated",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN."
+    },
+    {
+      "id": "get-details-about-videos",
+      "name": "Get details about videos",
+      "description": "This endpoint shows information about a video, including URLs to previews and the sizes that it is available in.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-similar-videos-2",
+      "name": "List similar videos",
+      "description": "This endpoint searches for videos that are similar to a video that you specify.",
+      "method": "GET",
+      "url": "https://api.shutterstock.com/v2/videos/{{ID}}/similar",
+      "headers": {
+        "Authorization": "Bearer{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SHUTTERSTOCK_ACCESS_TOKEN}}",
+        "{{SHUTTERSTOCK_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{SHUTTERSTOCK_ACCESS_TOKEN}} with your SHUTTERSTOCK ACCESS TOKEN. Replace {{ID}} with a real id."
+    }
+  ]
+}

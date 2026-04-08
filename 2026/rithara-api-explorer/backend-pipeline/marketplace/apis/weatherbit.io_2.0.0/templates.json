@@ -1,0 +1,858 @@
+{
+  "api_id": "weatherbit.io:2.0.0",
+  "endpoint_count": 47,
+  "endpoints": [
+    {
+      "id": "returns-severe-weather-alerts-issued-by-meteorological-agencies-given-a-lat-lon",
+      "name": "Returns severe weather alerts issued by meteorological agencies - Given a lat/lon.",
+      "description": "Returns severe weather alerts issued by meteorological agencies - given a lat, and a lon.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/alerts?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "download-pre-generated-bulk-datasets",
+      "name": "Download pre-generated bulk datasets",
+      "description": "Downloads bulk data files - OPTIONS: ( current.csv.gz, forecast_hourly.csv.gz, forecast_daily.csv.gz). Units are Metric (Celcius, m/s, etc).",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/bulk/files/{{FILE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILE}}"
+      ],
+      "notes": "No authentication required. Replace {{FILE}} with a real file."
+    },
+    {
+      "id": "returns-current-air-quality-conditions-given-city-and-or-state-country",
+      "name": "Returns current air quality conditions - Given City and/or State, Country.",
+      "description": "Returns current air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current/airquality?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-current-air-quality-conditions-given-a-city-id",
+      "name": "Returns current air quality conditions - Given a City ID.",
+      "description": "Returns current air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current/airquality?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-current-air-quality-conditions-given-a-lat-lon",
+      "name": "Returns current air quality conditions - Given a lat/lon.",
+      "description": "Returns current air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current/airquality?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-current-air-quality-conditions-given-a-postal-code",
+      "name": "Returns current air quality conditions - Given a Postal Code.",
+      "description": "Returns current air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current/airquality?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-a-group-of-observations-given-a-list-of-cities",
+      "name": "Returns a group of observations given a list of cities",
+      "description": "Returns a group of Current Observations - Given a list of City IDs. ",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?cities={{CITIES}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITIES}}"
+      ],
+      "notes": "No authentication required. Replace {{CITIES}} with a real cities."
+    },
+    {
+      "id": "returns-a-current-observation-given-city-and-or-state-country",
+      "name": "Returns a Current Observation - Given City and/or State, Country.",
+      "description": "Returns a Current Observation - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-a-current-observation-by-city-id",
+      "name": "Returns a current observation by city id.",
+      "description": "Returns current weather observation - Given a City ID. ",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-a-current-observation-given-a-lat-lon",
+      "name": "Returns a Current Observation - Given a lat/lon.",
+      "description": "Returns a Current Observation - given a lat, and a lon.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-a-group-of-observations-given-a-list-of-points-in-the-format-lat1-lon1-lat2-lon2-latn-lonn",
+      "name": "Returns a group of observations given a list of points in the format (lat1, lon1), (lat2, lon2), (latN, lonN), ...",
+      "description": "Returns a group of Current Observations - Given a list of points (lat1, lon1), (lat2, lon2), (latN, lonN), ...",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?points={{POINTS}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POINTS}}"
+      ],
+      "notes": "No authentication required. Replace {{POINTS}} with a real points."
+    },
+    {
+      "id": "returns-a-current-observation-by-postal-code",
+      "name": "Returns a current observation by postal code.",
+      "description": "Returns current weather observation - Given a Postal Code. ",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-a-current-observation-given-a-station-id",
+      "name": "Returns a Current Observation. - Given a station ID.",
+      "description": "Returns a Current Observation - Given a station ID.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?station={{STATION}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATION}}"
+      ],
+      "notes": "No authentication required. Replace {{STATION}} with a real station."
+    },
+    {
+      "id": "returns-a-group-of-observations-given-a-list-of-stations",
+      "name": "Returns a group of observations given a list of stations",
+      "description": "Returns a group of Current Observations - Given a list of Station Call IDs. ",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/current?stations={{STATIONS}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATIONS}}"
+      ],
+      "notes": "No authentication required. Replace {{STATIONS}} with a real stations."
+    },
+    {
+      "id": "returns-72-hour-hourly-air-quality-forecast-given-city-and-or-state-country",
+      "name": "Returns 72 hour (hourly) Air Quality forecast - Given City and/or State, Country.",
+      "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/airquality?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-72-hour-hourly-air-quality-forecast-given-a-city-id",
+      "name": "Returns 72 hour (hourly) Air Quality forecast - Given a City ID.",
+      "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/airquality?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-72-hour-hourly-air-quality-forecast-given-a-lat-lon",
+      "name": "Returns 72 hour (hourly) Air Quality forecast - Given a lat/lon.",
+      "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/airquality?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-72-hour-hourly-air-quality-forecast-given-a-postal-code",
+      "name": "Returns 72 hour (hourly) Air Quality forecast - Given a Postal Code.",
+      "description": "Returns 72 hour (hourly) Air Quality forecast, where each point represents a one hour period.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/airquality?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-a-daily-forecast-given-city-and-or-state-country",
+      "name": "Returns a daily forecast - Given City and/or State, Country.",
+      "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/daily?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-a-daily-forecast-given-a-city-id",
+      "name": "Returns a daily forecast - Given a City ID.",
+      "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/daily?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-a-daily-forecast-given-lat-lon",
+      "name": "Returns a daily forecast - Given Lat/Lon.",
+      "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC. \n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/daily?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-a-daily-forecast-given-a-postal-code",
+      "name": "Returns a daily forecast - Given a Postal Code.",
+      "description": "Returns a daily forecast, where each point represents one day (24hr) period. Every point has a datetime string in the format \"YYYY-MM-DD\". One day begins at 00:00 UTC, and ends at 23:59 UTC.\n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/daily?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-energy-forecast-api-response-given-a-single-lat-lon",
+      "name": "Returns Energy Forecast API response  - Given a single lat/lon. ",
+      "description": "Retrieve an 8 day forecast relevant to te Energy Sector (degree days, solar radiation, precipitation, wind).",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/energy?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-an-hourly-forecast-given-city-and-or-state-country",
+      "name": "Returns an hourly forecast - Given City and/or State, Country.",
+      "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. Accepts a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.\n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/hourly?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-an-hourly-forecast-given-a-city-id",
+      "name": "Returns an hourly forecast - Given a City ID.",
+      "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/hourly?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-an-hourly-forecast-given-a-lat-lon",
+      "name": "Returns an hourly forecast - Given a lat/lon.",
+      "description": "Returns an hourly forecast, where each point represents a one hour period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/hourly?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-an-hourly-forecast-given-a-postal-code",
+      "name": "Returns an hourly forecast - Given a Postal Code.",
+      "description": " Returns an hourly forecast, where each point represents a one hour   period. Every point has a datetime string in the format \"YYYY-MM-DD:HH\". Time is UTC. \n",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/forecast/hourly?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-72-hours-of-historical-quality-conditions-given-city-and-or-state-country",
+      "name": "Returns 72 hours of historical quality conditions - Given City and/or State, Country.",
+      "description": "Returns historical air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/airquality?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-72-hours-of-historical-air-quality-conditions-given-a-city-id",
+      "name": "Returns 72 hours of historical air quality conditions - Given a City ID.",
+      "description": "Returns historical air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/airquality?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-72-hours-of-historical-air-quality-conditions-given-a-lat-lon",
+      "name": "Returns 72 hours of historical air quality conditions - Given a lat/lon.",
+      "description": "Returns historical air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/airquality?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-72-hours-of-historical-air-quality-conditions-given-a-postal-code",
+      "name": "Returns 72 hours of historical air quality conditions - Given a Postal Code.",
+      "description": "Returns historical air quality conditions.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/airquality?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-historical-observations-given-city-and-or-state-country",
+      "name": "Returns Historical Observations - Given City and/or State, Country.",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 1 year per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/daily?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-historical-observations-given-a-city-id",
+      "name": "Returns Historical Observations - Given a City ID",
+      "description": "Returns Historical Observations - Given a City ID. **(LIMIT 1 year per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/daily?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-historical-observations-given-a-lat-lon",
+      "name": "Returns Historical Observations - Given a lat/lon.",
+      "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 1 year per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/daily?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-historical-observations-given-a-postal-code",
+      "name": "Returns Historical Observations - Given a Postal Code",
+      "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 1 year per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/daily?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-historical-observations-given-a-station-id",
+      "name": "Returns Historical Observations - Given a station ID.",
+      "description": "Returns Historical Observations - Given a station ID. **(LIMIT 1 year per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/daily?station={{STATION}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATION}}"
+      ],
+      "notes": "No authentication required. Replace {{STATION}} with a real station."
+    },
+    {
+      "id": "returns-energy-api-response-given-a-single-lat-lon",
+      "name": "Returns Energy API response  - Given a single lat/lon. ",
+      "description": "Returns aggregate energy specific historical weather fields, over a specified time period.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/energy?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-historical-observations-given-city-and-or-state-country-2",
+      "name": "Returns Historical Observations - Given City and/or State, Country.",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate. **(LIMIT 31 days per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/hourly?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-historical-observations-given-a-city-id-2",
+      "name": "Returns Historical Observations - Given a City ID",
+      "description": "Returns Historical Observations - Given a City ID. **(LIMIT 31 days per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/hourly?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-historical-observations-given-a-lat-lon-2",
+      "name": "Returns Historical Observations - Given a lat/lon.",
+      "description": "Returns Historical Observations - Given a lat, and lon. **(LIMIT 31 days per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/hourly?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-historical-observations-given-a-postal-code-2",
+      "name": "Returns Historical Observations - Given a Postal Code",
+      "description": "Returns Historical Observations - Given a Postal Code. **(LIMIT 31 days per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/hourly?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-historical-observations-given-a-station-id-2",
+      "name": "Returns Historical Observations - Given a station ID.",
+      "description": "Returns Historical Observations - Given a station ID. **(LIMIT 31 days per request)**",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/hourly?station={{STATION}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATION}}"
+      ],
+      "notes": "No authentication required. Replace {{STATION}} with a real station."
+    },
+    {
+      "id": "returns-historical-observations-given-city-and-or-state-country-3",
+      "name": "Returns Historical Observations - Given City and/or State, Country.",
+      "description": "Returns Historical Observations - Given a city in the format of City,ST or City. The state, and country parameters can be provided to make the search more accurate.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/subhourly?city={{CITY}}&country={{COUNTRY}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY}}",
+        "{{COUNTRY}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY}} with a real city. Replace {{COUNTRY}} with a real country."
+    },
+    {
+      "id": "returns-historical-observations-given-a-city-id-3",
+      "name": "Returns Historical Observations - Given a City ID",
+      "description": "Returns Historical Observations - Given a City ID.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/subhourly?city_id={{CITY_ID}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CITY_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{CITY_ID}} with a real city_id."
+    },
+    {
+      "id": "returns-historical-observations-given-a-lat-lon-3",
+      "name": "Returns Historical Observations - Given a lat/lon.",
+      "description": "Returns Historical Observations - Given a lat, and lon.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/subhourly?lat={{LAT}}&lon={{LON}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LON}}",
+        "{{LAT}}"
+      ],
+      "notes": "No authentication required. Replace {{LON}} with a real lon. Replace {{LAT}} with a real lat."
+    },
+    {
+      "id": "returns-historical-observations-given-a-postal-code-3",
+      "name": "Returns Historical Observations - Given a Postal Code",
+      "description": "Returns Historical Observations - Given a Postal Code.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/subhourly?postal_code={{POSTAL_CODE}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POSTAL_CODE}}"
+      ],
+      "notes": "No authentication required. Replace {{POSTAL_CODE}} with a real postal_code."
+    },
+    {
+      "id": "returns-historical-observations-given-a-station-id-3",
+      "name": "Returns Historical Observations - Given a station ID.",
+      "description": "Returns Historical Observations - Given a station ID.",
+      "method": "GET",
+      "url": "https://api.weatherbit.io/v2.0/history/subhourly?station={{STATION}}",
+      "headers": {},
+      "query_params": {
+        "start_date": "",
+        "end_date": "",
+        "key": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATION}}"
+      ],
+      "notes": "No authentication required. Replace {{STATION}} with a real station."
+    }
+  ]
+}

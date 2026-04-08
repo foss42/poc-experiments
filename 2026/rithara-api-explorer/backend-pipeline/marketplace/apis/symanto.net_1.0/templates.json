@@ -1,0 +1,173 @@
+{
+  "api_id": "symanto.net:1.0",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "communication-tonality",
+      "name": "Communication & Tonality",
+      "description": "Identify the purpose and writing style of a written text.\n\nSupported Languages: [`ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh`]\n\nReturned labels:\n* action-seeking\n* fact-oriented\n* information-seeking\n* self-revealing",
+      "method": "POST",
+      "url": "https://api.symanto.net/communication",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "emotion-analysis",
+      "name": "Emotion Analysis",
+      "description": "Detect the emotions of the text based on Ekman.\n\nSupported Langauges: [`en`, `de`, `es`]\n\nReturned labels:\n* anger\n* disgust\n* fear\n* joy\n* sadness\n* surprise\n* no-emotion",
+      "method": "POST",
+      "url": "https://api.symanto.net/ekman-emotion",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "emotion-analysis-2",
+      "name": "Emotion Analysis",
+      "description": "Detect the emotions of the text.\n\nSupported Langauges: [`en`, `de`, `es`]\n\nReturned labels:\n* anger\n* joy\n* love\n* sadness\n* surprise\n* uncategorized",
+      "method": "POST",
+      "url": "https://api.symanto.net/emotion",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "language-detection",
+      "name": "Language Detection",
+      "description": "Identifies what language a text is written in. Only languages that our API supports can be analyzed.\n\nReturned labels:\n* language_code of the detected language",
+      "method": "POST",
+      "url": "https://api.symanto.net/language-detection",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "text": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "personality-traits",
+      "name": "Personality Traits",
+      "description": "Predict the personality trait of author of any written text.\n\nSupported Languages: [`ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh`]\n\nReturned labels:\n\n* emotional\n* rational",
+      "method": "POST",
+      "url": "https://api.symanto.net/personality",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "sentiment-analysis",
+      "name": "Sentiment Analysis",
+      "description": "Evaluate the overall tonality of the text.\n\nSupported Languages: [`en`, `de`, `es`]\n\nReturned labels:\n* positive\n* negative",
+      "method": "POST",
+      "url": "https://api.symanto.net/sentiment",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    },
+    {
+      "id": "extracts-topics-and-sentiments-and-relates-them",
+      "name": "Extracts topics and sentiments and relates them.",
+      "description": "Extracts topics and sentiments and relates them.",
+      "method": "POST",
+      "url": "https://api.symanto.net/topic-sentiment",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{SYMANTO_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "language": "en",
+          "text": "I love the service"
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SYMANTO_API_KEY}}",
+        "{{SYMANTO_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{SYMANTO_API_KEY}} with your SYMANTO API KEY."
+    }
+  ]
+}

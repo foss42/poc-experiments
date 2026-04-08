@@ -1,0 +1,338 @@
+{
+  "api_id": "hetras-certification.net:booking:v0",
+  "endpoint_count": 19,
+  "endpoints": [
+    {
+      "id": "get-a-list-of-offers-for-addon-services-for-the-specified-guest-stay-details",
+      "name": "Get a list of offers for addon services for the specified guest stay details.",
+      "description": "With the addons request you can get a list of offers for addon services available for a specific rate, room type\r\n            and guest stay details.The channel code will define which rates will be returned based on the access control \r\n            configuration for related rates.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/addons",
+      "headers": {},
+      "query_params": {
+        "hotelId": "",
+        "arrivalDate": "",
+        "departureDate": "",
+        "channelCode": "",
+        "adults": "",
+        "rooms": "",
+        "roomType": "",
+        "ratePlanCode": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-the-availability-and-occupancy-for-a-specific-hotel-and-timespan",
+      "name": "Gets the availability and occupancy for a specific hotel and timespan.",
+      "description": "Read past occupancy and future availability for a specific hotel. You can also request the breakdown per room type.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/availability",
+      "headers": {},
+      "query_params": {
+        "hotelId": "",
+        "from": "",
+        "to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-list-of-blocks",
+      "name": "Gets a list of blocks.",
+      "description": "With this endpoint you can request a list of blocks for the hotel chain. Currently we only support to optionally\r\n            filter by the group code linked to the block. Additional filters will be available soon.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/blocks",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-total-blocks-count-that-match-the-given-filter-criteria",
+      "name": "Get total blocks count that match the given filter criteria.",
+      "description": "Get total blocks count that match the given filter criteria.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/blocks/$count",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-the-details-for-a-specific-block",
+      "name": "Gets the details for a specific block.",
+      "description": "Read all informationen about a block including the numbers of blocked rooms per room type and business day.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/blocks/{{BLOCKCODE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BLOCKCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{BLOCKCODE}} with a real blockcode."
+    },
+    {
+      "id": "find-bookings-matching-the-given-filter-criteria",
+      "name": "Find bookings matching the given filter criteria.",
+      "description": "Here you can easily find bookings matching various criteria. The booking you are looking for has to fullfill all the specified criteria\r\n            at the same time. So if you specify a customer name and a channel code you will get all bookings where the firstname or lastname of a guest or a \r\n            contact contains the specified value and that have been done through the defined channel.\r\n            A booking can consist of multiple reservations, so even if you are looking for a specific reservation which is part of a multi-room booking you will get\r\n            all reservations for this booking returned.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-new-booking",
+      "name": "Create a new booking.",
+      "description": "Create a new booking as defined in the requests payload. You can get more information about the payload if you check out the\r\n            documentation for the reservation request model.<br />\r\n            Please also have a look at the <a href=\"https://developer.hetras.com/docs/tutorials\" onfocus=\"this.blur()\">Tutorials</a>.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "hotel_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-total-count-of-bookings-matchung-the-given-filter-criteria",
+      "name": "Get total count of bookings matchung the given filter criteria.",
+      "description": "Get the count of all bookings matching your criteria. The bookings have to fullfill all the specified criteria\r\n            at the same time. So if you specify a customer name and a channel code you will get the count for all bookings where the firstname or lastname \r\n            of a guest or a contact contains the specified value and that have been done through the defined channel.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/$count",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "load-all-reservations-for-one-booking-by-confirmation-id",
+      "name": "Load all reservations for one booking by confirmation id.",
+      "description": "A booking groups all reservations done in one single request and can be identified by the confirmation id.\r\n            Guests usually use the confirmation id to check in at the kiosk, on the website or mobile device. In hetras\r\n            all reservations of one booking share the room type, rate plan and number of guests per room.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid."
+    },
+    {
+      "id": "load-a-specific-reservation-from-a-booking",
+      "name": "Load a specific reservation from a booking.",
+      "description": "With this request you can load one specific reservation done with one booking request.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "partially-updates-a-reservation",
+      "name": "Partially updates a reservation.",
+      "description": "The hetras API is using this <a href=\"https://developer.hetras.com/docs/patch\" onfocus=\"this.blur()\" target=\"_blank\">Patch Specification</a>\r\n            to partially update an existing resource. Currently this call allows to update the following fields:\r\n            external_id, market_code, channel_code, subchannel_code, guarantee_type, comment, addon_services, labels, guests, contact and company.\r\n            <br /><br />\r\n            A request example:<br /><pre>\r\n            [\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/addon_services\", \"value\": [\"BREAKFAST\", \"PARKING\"]\r\n              },\r\n              {\r\n                \"op\": \"add\", \"path\": \"/labels/-\", \"value\": \"MOBILE\"\r\n              },\r\n              {\r\n                \"op\": \"replace\", \"path\": \"/guests/SHOW-1234\", \"value\": { \"customer_id\": \"SHOW-1234\", \"primary\": false }\r\n              },\r\n              {\r\n                \"op\": \"add\", \"path\": \"/guests/-\", \"value\": { \"customer_id\": \"SHOW-5678\", \"primary\": true }\r\n              }\r\n            ]\r\n            </pre><br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "PATCH",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "assign-a-room-to-a-reservation",
+      "name": "Assign a room to a reservation.",
+      "description": "By default this API call assigns a random room, which has the proper room type, is not already assigned\r\n            to another reservation or has any maintenance status set for the stay period of the underlying reservation. If the\r\n            arrival date for the underlying reservation is the current business day dirty rooms are excluded by default. For reservation\r\n            arriving on any latter day the room condition is not taken into account.<br />\r\n            By specifiying the room selection criteria in the request body you can influence which room will be assigned. See the request model\r\n            for further details.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/assign_room",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amenities": [],
+        "condition": "",
+        "include_out_of_service": false,
+        "locations": [],
+        "respect_guest_preferences": false,
+        "room_number": "",
+        "views": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "cancel-one-reservation",
+      "name": "Cancel one reservation.",
+      "description": "This request will cancel one specific reservation. It will show up in the hetras UI in the Cancellation and NoShow\r\n            processing screen and it will be up to the hotel staff to either charge or waive the cancellation fee.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/cancel",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "performs-a-check-in-operation-for-a-reservation",
+      "name": "Performs a check in operation for a reservation.",
+      "description": "With this call you can set a reservation to the status inhouse. It allows only single room reservations to be checked in.\r\n            The reservation must have assigned a vacant and clean room.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/check_in",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "client_identity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "performs-a-check-out-operation-for-a-reservation",
+      "name": "Performs a check out operation for a reservation.",
+      "description": "With this call you can set a reservation to the checkout status. It allows only single room reservations to be checked out.\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/check_out",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "post-a-payment-token-for-a-reservation",
+      "name": "Post a payment token for a reservation.",
+      "description": "TBD.<br />\r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "PUT",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/payment_token",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "payment_token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "performs-a-chip-and-pin-credit-card-authorization-for-a-reservation",
+      "name": "Performs a chip and pin credit card authorization for a reservation.",
+      "description": "With this call you can trigger a terminal authorization prompt for a reservation guest. \r\n            For more details on how the API responds to errors please check our documentation on \r\n            <a href=\"https://developer.hetras.com/docs/errors/\" onfocus=\"this.blur()\">Error Handling</a>.",
+      "method": "POST",
+      "url": "https://api.hetras-certification.net/api/booking/v0/bookings/{{CONFIRMATIONID}}/reservations/{{RESERVATIONNUMBER}}/pre_authorize",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amount_to_authorize": 0.0,
+        "client_identity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONFIRMATIONID}}",
+        "{{RESERVATIONNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{CONFIRMATIONID}} with a real confirmationid. Replace {{RESERVATIONNUMBER}} with a real reservationnumber."
+    },
+    {
+      "id": "get-a-list-of-daily-rates-given-a-hotel-id-a-channel-code-and-a-date-range",
+      "name": "Get a list of daily rates given a hotel Id, a channel code and a date range.",
+      "description": "With the rates request you can get a list of different daily rates. You will have to at least \r\n            specify the hotel, the channel code, and a calendar range. The channel code will define which rates will be \r\n            returned based on the access control configuration for the rates. Additionally rate plan codes may be specified in\r\n            the request in order to limit only those rates of the given plans, if they are not specified, it will return all the public rate plans.\r\n            If requested the caller may specify whether he wants policies or not.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/daily_rates",
+      "headers": {},
+      "query_params": {
+        "hotelId": "",
+        "from": "",
+        "to": "",
+        "channelCode": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-room-offers-for-the-specified-guest-stay-details",
+      "name": "Get a list of room offers for the specified guest stay details.",
+      "description": "With the rates request you can get a list of different rate offers per room type. You will have to at least \r\n            specify the hotel, the arrival and departure date, number of adults per room and the channel code. The channel code\r\n            will define which rates will be returned based on the access control configuration for the rates.",
+      "method": "GET",
+      "url": "https://api.hetras-certification.net/api/booking/v0/rates",
+      "headers": {},
+      "query_params": {
+        "hotelId": "",
+        "arrivalDate": "",
+        "departureDate": "",
+        "channelCode": "",
+        "adults": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

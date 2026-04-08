@@ -1,0 +1,193 @@
+{
+  "api_id": "authentiq.io:1.0",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "authenticate-a-user",
+      "name": "Authenticate a user",
+      "description": "Start a session with Authentiq Connect to authenticate a user.\n\n```\nGET https://connect.authentiq.io/authorize?client_id=<your-client-id>&response_type=code+id_token&scope=openid+email&redirect_uri=<your-redirect-uri>&state=0123456789\n```\n\nThis endpoint also supports the POST method.\n",
+      "method": "GET",
+      "url": "https://connect.authentiq.io/authorize",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {
+        "client_id": "",
+        "response_type": "",
+        "scope": "",
+        "redirect_uri": "",
+        "state": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY."
+    },
+    {
+      "id": "list-clients",
+      "name": "List clients",
+      "description": "Retrieve a list of clients.\n",
+      "method": "GET",
+      "url": "https://connect.authentiq.io/client",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY."
+    },
+    {
+      "id": "register-a-client",
+      "name": "Register a client",
+      "description": "Register a new client with this Authentiq Connect provider.\n\nThis endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.\n",
+      "method": "POST",
+      "url": "https://connect.authentiq.io/client",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_name": "",
+        "client_uri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY."
+    },
+    {
+      "id": "view-a-client",
+      "name": "View a client",
+      "description": "Retrieve the configuration of a previously registered client.\n",
+      "method": "GET",
+      "url": "https://connect.authentiq.io/client/{{CLIENT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENT_ID}}",
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY. Replace {{CLIENT_ID}} with a real client_id."
+    },
+    {
+      "id": "update-a-client",
+      "name": "Update a client",
+      "description": "Update the configuration of a previously registered client.\n",
+      "method": "PUT",
+      "url": "https://connect.authentiq.io/client/{{CLIENT_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_name": "",
+        "client_uri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENT_ID}}",
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY. Replace {{CLIENT_ID}} with a real client_id."
+    },
+    {
+      "id": "delete-a-client",
+      "name": "Delete a client",
+      "description": "Delete a previously registered client.\n",
+      "method": "DELETE",
+      "url": "https://connect.authentiq.io/client/{{CLIENT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENT_ID}}",
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY. Replace {{CLIENT_ID}} with a real client_id."
+    },
+    {
+      "id": "obtain-an-id-token",
+      "name": "Obtain an ID Token",
+      "description": "Exchange en authorization code for an ID Token or Access Token.\n\nThis endpoint supports both `client_secret_basic` (default) and `client_secret_basic` authentication methods, as specified by the client's `token_endpoint_auth_method`.\n",
+      "method": "POST",
+      "url": "https://connect.authentiq.io/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_id": "",
+        "client_secret": "",
+        "grant_type": "",
+        "code": "",
+        "redirect_uri": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY."
+    },
+    {
+      "id": "retrieve-a-user-profile",
+      "name": "Retrieve a user profile",
+      "description": "Use this endpoint to retrieve a user's profile in case you are unable to parse an ID Token or you've not already obtained enough details from the ID Token via the Token Endpoint.\n",
+      "method": "GET",
+      "url": "https://connect.authentiq.io/userinfo",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY."
+    },
+    {
+      "id": "include-a-session-iframe",
+      "name": "Include a session iframe",
+      "description": "An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.\n\nThe iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.\n",
+      "method": "GET",
+      "url": "https://connect.authentiq.io/{{CLIENT_ID}}/iframe",
+      "headers": {
+        "Authorization": "Bearer{{AUTHENTIQ_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENT_ID}}",
+        "{{AUTHENTIQ_API_KEY}}",
+        "{{AUTHENTIQ_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{AUTHENTIQ_API_KEY}} with your AUTHENTIQ API KEY. Replace {{CLIENT_ID}} with a real client_id."
+    }
+  ]
+}

@@ -1,0 +1,641 @@
+{
+  "api_id": "apideck.com:vault:9.3.0",
+  "endpoint_count": 19,
+  "endpoints": [
+    {
+      "id": "authorize",
+      "name": "Authorize",
+      "description": "__In most cases the authorize link is provided in the ``/connections`` endpoint. Normally you don't need to manually generate these links.__\n\nUse this endpoint to authenticate a user with a connector. It will return a 301 redirect to the downstream connector endpoints.\n\nAuth links will have a state parameter included to verify the validity of the request. This is the url your users will use to activate OAuth supported integration providers.\n\nVault handles the complete Authorization Code Grant Type Flow for you and will redirect you to the dynamic redirect uri you have appended to the url in case this is missing the default redirect uri you have configured for your Unify application.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/authorize/{{SERVICE_ID}}/{{APPLICATION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {
+        "state": "",
+        "redirect_uri": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APPLICATION_ID}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{APPLICATION_ID}} with a real application_id. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "callback",
+      "name": "Callback",
+      "description": "This endpoint gets called after the triggering the authorize flow.\n\nCallback links need a state and code parameter to verify the validity of the request.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/callback",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {
+        "state": "",
+        "code": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    },
+    {
+      "id": "get-all-connections",
+      "name": "Get all connections",
+      "description": "This endpoint includes all the configured integrations and contains the required assets\nto build an integrations page where your users can install integrations.\nOAuth2 supported integrations will contain authorize and revoke links to handle the authentication flows.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/connections",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    },
+    {
+      "id": "get-connection",
+      "name": "Get connection",
+      "description": "Get a connection",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "create-connection",
+      "name": "Create connection",
+      "description": "Create an authorized connection\n",
+      "method": "POST",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "auth_type": "oauth2",
+        "authorize_url": "https://unify.apideck.com/vault/authorize/salesforce/<application-id>?state=<state>",
+        "configurable_resources": [
+          "opportunities",
+          "companies",
+          "contacts",
+          "leads"
+        ],
+        "configuration": [],
+        "created_at": 1615563533390,
+        "enabled": true,
+        "form_fields": [
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "instance_url",
+            "label": "Instance url",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": false,
+            "type": "text",
+            "value": "https://eu28.salesforce.com"
+          },
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "api_key",
+            "label": "API Key",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": true,
+            "type": "text",
+            "value": "123455677"
+          }
+        ],
+        "has_guide": true,
+        "icon": "https://res.cloudinary.com/apideck/image/upload/v1529456047/catalog/salesforce/icon128x128.png",
+        "id": "crm+salesforce",
+        "integration_state": "configured",
+        "logo": "https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/home/logo-salesforce-m.svg",
+        "metadata": {
+          "account": {
+            "id": "c01458a5-7276-41ce-bc19-639906b0450a",
+            "name": "My Company"
+          },
+          "plan": "enterprise"
+        },
+        "name": "Salesforce",
+        "oauth_grant_type": "authorization_code",
+        "resource_schema_support": [
+          "leads"
+        ],
+        "resource_settings_support": [
+          "leads"
+        ],
+        "revoke_url": "https://unify.apideck.com/vault/revoke/salesforce/<application-id>?state=<state>",
+        "service_id": "salesforce",
+        "settings": {
+          "api_key": "12345xxxxxx",
+          "instance_url": "https://eu28.salesforce.com"
+        },
+        "settings_required_for_authorization": [
+          "client_id",
+          "client_secret"
+        ],
+        "state": "authorized",
+        "status": "",
+        "subscriptions": [],
+        "tag_line": "CRM software solutions and enterprise cloud computing from Salesforce, the leader in customer relationship management (CRM) and PaaS. Free 30 day trial.",
+        "unified_api": "crm",
+        "updated_at": 1616662325753,
+        "validation_support": false,
+        "website": "https://www.salesforce.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "deletes-a-connection",
+      "name": "Deletes a connection",
+      "description": "Deletes a connection",
+      "method": "DELETE",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "update-connection",
+      "name": "Update connection",
+      "description": "Update a connection",
+      "method": "PATCH",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "auth_type": "oauth2",
+        "authorize_url": "https://unify.apideck.com/vault/authorize/salesforce/<application-id>?state=<state>",
+        "configurable_resources": [
+          "opportunities",
+          "companies",
+          "contacts",
+          "leads"
+        ],
+        "configuration": [],
+        "created_at": 1615563533390,
+        "enabled": true,
+        "form_fields": [
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "instance_url",
+            "label": "Instance url",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": false,
+            "type": "text",
+            "value": "https://eu28.salesforce.com"
+          },
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "api_key",
+            "label": "API Key",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": true,
+            "type": "text",
+            "value": "123455677"
+          }
+        ],
+        "has_guide": true,
+        "icon": "https://res.cloudinary.com/apideck/image/upload/v1529456047/catalog/salesforce/icon128x128.png",
+        "id": "crm+salesforce",
+        "integration_state": "configured",
+        "logo": "https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/home/logo-salesforce-m.svg",
+        "metadata": {
+          "account": {
+            "id": "c01458a5-7276-41ce-bc19-639906b0450a",
+            "name": "My Company"
+          },
+          "plan": "enterprise"
+        },
+        "name": "Salesforce",
+        "oauth_grant_type": "authorization_code",
+        "resource_schema_support": [
+          "leads"
+        ],
+        "resource_settings_support": [
+          "leads"
+        ],
+        "revoke_url": "https://unify.apideck.com/vault/revoke/salesforce/<application-id>?state=<state>",
+        "service_id": "salesforce",
+        "settings": {
+          "api_key": "12345xxxxxx",
+          "instance_url": "https://eu28.salesforce.com"
+        },
+        "settings_required_for_authorization": [
+          "client_id",
+          "client_secret"
+        ],
+        "state": "authorized",
+        "status": "",
+        "subscriptions": [],
+        "tag_line": "CRM software solutions and enterprise cloud computing from Salesforce, the leader in customer relationship management (CRM) and PaaS. Free 30 day trial.",
+        "unified_api": "crm",
+        "updated_at": 1616662325753,
+        "validation_support": false,
+        "website": "https://www.salesforce.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "get-access-token",
+      "name": "Get Access Token",
+      "description": "Get an access token for a connection and store it in Vault. Currently only supported for connections with the client_credentials OAuth grant type.\n\nNote that the access token will not be returned in the response. A 200 response code indicates a valid access token was stored on the connection.\n",
+      "method": "POST",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "get-resource-settings",
+      "name": "Get resource settings",
+      "description": "This endpoint returns custom settings and their defaults required by connection for a given resource.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}/{{RESOURCE}}/config",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{RESOURCE}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{RESOURCE}} with a real resource. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "update-settings",
+      "name": "Update settings",
+      "description": "Update default values for a connection's resource settings",
+      "method": "PATCH",
+      "url": "https://unify.apideck.com/vault/connections/{{UNIFIED_API}}/{{SERVICE_ID}}/{{RESOURCE}}/config",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "auth_type": "oauth2",
+        "authorize_url": "https://unify.apideck.com/vault/authorize/salesforce/<application-id>?state=<state>",
+        "configurable_resources": [
+          "opportunities",
+          "companies",
+          "contacts",
+          "leads"
+        ],
+        "configuration": [],
+        "created_at": 1615563533390,
+        "enabled": true,
+        "form_fields": [
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "instance_url",
+            "label": "Instance url",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": false,
+            "type": "text",
+            "value": "https://eu28.salesforce.com"
+          },
+          {
+            "custom_field": false,
+            "disabled": false,
+            "id": "api_key",
+            "label": "API Key",
+            "mask": false,
+            "placeholder": "",
+            "required": true,
+            "sensitive": true,
+            "type": "text",
+            "value": "123455677"
+          }
+        ],
+        "has_guide": true,
+        "icon": "https://res.cloudinary.com/apideck/image/upload/v1529456047/catalog/salesforce/icon128x128.png",
+        "id": "crm+salesforce",
+        "integration_state": "configured",
+        "logo": "https://c1.sfdcstatic.com/content/dam/web/en_us/www/images/home/logo-salesforce-m.svg",
+        "metadata": {
+          "account": {
+            "id": "c01458a5-7276-41ce-bc19-639906b0450a",
+            "name": "My Company"
+          },
+          "plan": "enterprise"
+        },
+        "name": "Salesforce",
+        "oauth_grant_type": "authorization_code",
+        "resource_schema_support": [
+          "leads"
+        ],
+        "resource_settings_support": [
+          "leads"
+        ],
+        "revoke_url": "https://unify.apideck.com/vault/revoke/salesforce/<application-id>?state=<state>",
+        "service_id": "salesforce",
+        "settings": {
+          "api_key": "12345xxxxxx",
+          "instance_url": "https://eu28.salesforce.com"
+        },
+        "settings_required_for_authorization": [
+          "client_id",
+          "client_secret"
+        ],
+        "state": "authorized",
+        "status": "",
+        "subscriptions": [],
+        "tag_line": "CRM software solutions and enterprise cloud computing from Salesforce, the leader in customer relationship management (CRM) and PaaS. Free 30 day trial.",
+        "unified_api": "crm",
+        "updated_at": 1616662325753,
+        "validation_support": false,
+        "website": "https://www.salesforce.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{RESOURCE}}",
+        "{{UNIFIED_API}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{RESOURCE}} with a real resource. Replace {{UNIFIED_API}} with a real unified_api. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "get-all-consumers",
+      "name": "Get all consumers",
+      "description": "This endpoint includes all application consumers, along with an aggregated count of requests made.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/consumers",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    },
+    {
+      "id": "create-consumer",
+      "name": "Create consumer",
+      "description": "Create a consumer",
+      "method": "POST",
+      "url": "https://unify.apideck.com/vault/consumers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "consumer_id": "test_consumer_id"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    },
+    {
+      "id": "get-consumer",
+      "name": "Get consumer",
+      "description": "Consumer detail including their aggregated counts with the connections they have authorized.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/consumers/{{CONSUMER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{CONSUMER_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{CONSUMER_ID}} with a real consumer_id."
+    },
+    {
+      "id": "delete-consumer",
+      "name": "Delete consumer",
+      "description": "Delete consumer and all their connections, including credentials.",
+      "method": "DELETE",
+      "url": "https://unify.apideck.com/vault/consumers/{{CONSUMER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{CONSUMER_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{CONSUMER_ID}} with a real consumer_id."
+    },
+    {
+      "id": "update-consumer",
+      "name": "Update consumer",
+      "description": "Update consumer metadata such as name and email.",
+      "method": "PATCH",
+      "url": "https://unify.apideck.com/vault/consumers/{{CONSUMER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "metadata": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{CONSUMER_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{CONSUMER_ID}} with a real consumer_id."
+    },
+    {
+      "id": "consumer-request-counts",
+      "name": "Consumer request counts",
+      "description": "Get consumer request counts within a given datetime range.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/consumers/{{CONSUMER_ID}}/stats",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {
+        "start_datetime": "",
+        "end_datetime": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{CONSUMER_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{CONSUMER_ID}} with a real consumer_id."
+    },
+    {
+      "id": "get-all-consumer-request-logs",
+      "name": "Get all consumer request logs",
+      "description": "This endpoint includes all consumer request logs.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/logs",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    },
+    {
+      "id": "revoke-connection",
+      "name": "Revoke connection",
+      "description": "__In most cases the authorize link is provided in the ``/connections`` endpoint. Normally you don't need to manually generate these links.__\n\nUse this endpoint to revoke an existing OAuth connector.\n\nAuth links will have a state parameter included to verify the validity of the request. This is the url your users will use to activate OAuth supported integration providers.\n\nVault handles the complete revoke flow for you and will redirect you to the dynamic redirect uri you have appended to the url in case this is missing the default redirect uri you have configured for your Unify application.\n",
+      "method": "GET",
+      "url": "https://unify.apideck.com/vault/revoke/{{SERVICE_ID}}/{{APPLICATION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {
+        "state": "",
+        "redirect_uri": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APPLICATION_ID}}",
+        "{{SERVICE_ID}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY. Replace {{APPLICATION_ID}} with a real application_id. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "create-session",
+      "name": "Create Session",
+      "description": "Making a POST request to this endpoint will initiate a Hosted Vault session. Redirect the consumer to the returned\nURL to allow temporary access to manage their integrations and settings.\n\nNote: This is a short lived token that will expire after 1 hour (TTL: 3600).\n",
+      "method": "POST",
+      "url": "https://unify.apideck.com/vault/sessions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{APIDECK_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "consumer_metadata": {},
+        "custom_consumer_settings": {
+          "feature_flag_1": true,
+          "tax_rates": [
+            {
+              "id": "6",
+              "label": "6%"
+            },
+            {
+              "id": "21",
+              "label": "21%"
+            }
+          ]
+        },
+        "redirect_uri": "https://mysaas.com/dashboard",
+        "settings": {},
+        "theme": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APIDECK_API_KEY}}",
+        "{{APIDECK_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{APIDECK_API_KEY}} with your APIDECK API KEY."
+    }
+  ]
+}

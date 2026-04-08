@@ -1,0 +1,552 @@
+{
+  "api_id": "azure.com:machinelearningservices-modelManagement:2019-09-30",
+  "endpoint_count": 23,
+  "endpoints": [
+    {
+      "id": "query-the-list-of-assets-in-a-workspace",
+      "name": "Query the list of Assets in a workspace.",
+      "description": "If no filter is passed, the query lists all the Assets in the given workspace. The returned list is paginated and the count of items in each page is an optional parameter.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/assets",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "create-an-asset",
+      "name": "Create an Asset.",
+      "description": "Create an Asset from the provided payload.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/assets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "get-an-asset",
+      "name": "Get an Asset.",
+      "description": "Get an Asset by Id.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/assets/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-an-asset",
+      "name": "Delete an Asset.",
+      "description": "Delete the specified Asset.",
+      "method": "DELETE",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/assets/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-an-asset",
+      "name": "Update an Asset.",
+      "description": "Patch a specific Asset.",
+      "method": "PATCH",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/assets/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "from": "",
+          "op": "",
+          "path": "",
+          "value": {}
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-image-profiles",
+      "name": "Get a list of Image Profiles.",
+      "description": "If no filter is passed, the query lists all Profiles for the Image. The returned list is paginated and the count of items in each page is an optional parameter.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/images/{{IMAGEID}}/profiles",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IMAGEID}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{IMAGEID}} with a real imageid."
+    },
+    {
+      "id": "create-a-profile",
+      "name": "Create a Profile.",
+      "description": "Create a Profile for an Image.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/images/{{IMAGEID}}/profiles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IMAGEID}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{IMAGEID}} with a real imageid."
+    },
+    {
+      "id": "get-a-profile",
+      "name": "Get a Profile.",
+      "description": "Get the Profile for an Image.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/images/{{IMAGEID}}/profiles/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IMAGEID}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{IMAGEID}} with a real imageid. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "query-the-list-of-models-in-a-workspace",
+      "name": "Query the list of Models in a workspace.",
+      "description": "The result list can be filtered using tag and name. If no filter is passed, the query lists all the Models in the given workspace. The returned list is paginated and the count of items in each page is an optional parameter.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "register-a-model",
+      "name": "Register a model.",
+      "description": "Register the model provided.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "sklearn_mnist",
+        "url": "",
+        "mimeType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "gets-a-model",
+      "name": "Gets a model.",
+      "description": "Gets a model by model id.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-the-specified-model",
+      "name": "Delete the specified Model.",
+      "description": "Deletes a model if it exists.",
+      "method": "DELETE",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "patch-a-specific-model",
+      "name": "Patch a specific model.",
+      "description": "Updates an existing model with the specified patch.",
+      "method": "PATCH",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "from": "",
+          "op": "",
+          "path": "",
+          "value": {}
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-the-metrics-for-a-model",
+      "name": "Retrieve the metrics for a Model.",
+      "description": "The operational events collected for the Model are returned.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/models/{{ID}}/metrics",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-status-of-an-async-operation",
+      "name": "Get the status of an async operation.",
+      "description": "Get the status of an async operation by operation id.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/operations/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "query-the-list-of-services-in-a-workspace",
+      "name": "Query the list of Services in a Workspace.",
+      "description": "If no filter is passed, the query lists all Services in the Workspace. The returned list is paginated and the count of item in each page is an optional parameter.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "create-a-service",
+      "name": "Create a Service.",
+      "description": "Create a Service with the specified payload.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "computeType": "AKS"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup."
+    },
+    {
+      "id": "get-a-service",
+      "name": "Get a Service.",
+      "description": "Get a Service by Id.",
+      "method": "GET",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-service",
+      "name": "Delete a Service.",
+      "description": "Delete a specific Service.",
+      "method": "DELETE",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "patch-a-service",
+      "name": "Patch a Service.",
+      "description": "Patch a specific Service.",
+      "method": "PATCH",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "from": "",
+          "op": "",
+          "path": "",
+          "value": {}
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "lists-service-keys",
+      "name": "Lists Service keys.",
+      "description": "Gets a list of Service keys.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}/listkeys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "regenerate-service-keys",
+      "name": "Regenerate Service Keys.",
+      "description": "Regenerate and return the Service keys.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}/regenerateKeys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "keyType": "Primary",
+        "keyValue": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "generate-service-access-token",
+      "name": "Generate Service Access Token.",
+      "description": "Gets access token that can be used for calling service.",
+      "method": "POST",
+      "url": "https://azure.local/modelmanagement/v1.0/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUP}}/providers/Microsoft.MachineLearningServices/workspaces/{{WORKSPACE}}/services/{{ID}}/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{WORKSPACE}}",
+        "{{RESOURCEGROUP}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{ID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{WORKSPACE}} with a real workspace. Replace {{RESOURCEGROUP}} with a real resourcegroup. Replace {{ID}} with a real id."
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "api_id": "nasa.gov:asteroids neows:3.4.0",
+  "endpoint_count": 3,
+  "endpoints": [
+    {
+      "id": "get-api",
+      "name": "GET /api",
+      "description": "Returns the swagger specification for the API.",
+      "method": "GET",
+      "url": "http://techport.nasa.gov/api/api",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-api-projects-id-format",
+      "name": "GET /api/projects/{id}{.format}",
+      "description": "Returns information about a specific technology project.",
+      "method": "GET",
+      "url": "http://techport.nasa.gov/api/api/projects/{{ID}}{{.FORMAT}}",
+      "headers": {},
+      "query_params": {
+        "format": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{.FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{.FORMAT}} with a real .format."
+    },
+    {
+      "id": "get-api-projects-format",
+      "name": "GET /api/projects{.format}",
+      "description": "Returns a list of available technology project IDs.",
+      "method": "GET",
+      "url": "http://techport.nasa.gov/api/api/projects{{.FORMAT}}",
+      "headers": {},
+      "query_params": {
+        "updatedSince": "",
+        "format": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{.FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{.FORMAT}} with a real .format."
+    }
+  ]
+}

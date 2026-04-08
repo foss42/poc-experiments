@@ -1,0 +1,185 @@
+{
+  "api_id": "azure.com:apimanagement-apimgroups:2017-03-01",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-groups",
+      "name": "GET /groups",
+      "description": "Lists a collection of groups defined within a service instance.",
+      "method": "GET",
+      "url": "https://azure.local/groups",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-groups-groupid",
+      "name": "GET /groups/{groupId}",
+      "description": "Gets the details of the group specified by its identifier.",
+      "method": "GET",
+      "url": "https://azure.local/groups/{{GROUPID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "put-groups-groupid",
+      "name": "PUT /groups/{groupId}",
+      "description": "Creates or Updates a group.",
+      "method": "PUT",
+      "url": "https://azure.local/groups/{{GROUPID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "delete-groups-groupid",
+      "name": "DELETE /groups/{groupId}",
+      "description": "Deletes specific group of the API Management service instance.",
+      "method": "DELETE",
+      "url": "https://azure.local/groups/{{GROUPID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "patch-groups-groupid",
+      "name": "PATCH /groups/{groupId}",
+      "description": "Updates the details of the group specified by its identifier.",
+      "method": "PATCH",
+      "url": "https://azure.local/groups/{{GROUPID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "description": "",
+        "externalId": "",
+        "name": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "get-groups-groupid-users",
+      "name": "GET /groups/{groupId}/users",
+      "description": "Lists a collection of the members of the group, specified by its identifier.",
+      "method": "GET",
+      "url": "https://azure.local/groups/{{GROUPID}}/users",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid."
+    },
+    {
+      "id": "put-groups-groupid-users-uid",
+      "name": "PUT /groups/{groupId}/users/{uid}",
+      "description": "Adds a user to the specified group.",
+      "method": "PUT",
+      "url": "https://azure.local/groups/{{GROUPID}}/users/{{UID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{UID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid. Replace {{UID}} with a real uid."
+    },
+    {
+      "id": "delete-groups-groupid-users-uid",
+      "name": "DELETE /groups/{groupId}/users/{uid}",
+      "description": "Remove existing user from existing group.",
+      "method": "DELETE",
+      "url": "https://azure.local/groups/{{GROUPID}}/users/{{UID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUPID}}",
+        "{{UID}}",
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{GROUPID}} with a real groupid. Replace {{UID}} with a real uid."
+    }
+  ]
+}

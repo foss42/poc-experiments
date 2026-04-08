@@ -1,0 +1,678 @@
+{
+  "api_id": "twilio.com:twilio_proxy_v1:1.42.0",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "id": "get-v1-services",
+      "name": "GET /v1/Services",
+      "description": "Retrieve a list of all Services for Twilio Proxy. A maximum of 100 records will be returned per page.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-services",
+      "name": "POST /v1/Services",
+      "description": "Create a new Service for Twilio Proxy",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-services-servicesid-phonenumbers",
+      "name": "GET /v1/Services/{ServiceSid}/PhoneNumbers",
+      "description": "Retrieve a list of all Phone Numbers in the Proxy Number Pool for a Service. A maximum of 100 records will be returned per page.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/PhoneNumbers",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-phonenumbers",
+      "name": "POST /v1/Services/{ServiceSid}/PhoneNumbers",
+      "description": "Add a Phone Number to a Service's Proxy Number Pool.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/PhoneNumbers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "IsReserved": false,
+        "PhoneNumber": "",
+        "Sid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-phonenumbers-sid",
+      "name": "GET /v1/Services/{ServiceSid}/PhoneNumbers/{Sid}",
+      "description": "Fetch a specific Phone Number.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/PhoneNumbers/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-phonenumbers-sid",
+      "name": "POST /v1/Services/{ServiceSid}/PhoneNumbers/{Sid}",
+      "description": "Update a specific Proxy Number.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/PhoneNumbers/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "IsReserved": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-phonenumbers-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/PhoneNumbers/{Sid}",
+      "description": "Delete a specific Phone Number from a Service.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/PhoneNumbers/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions",
+      "description": "Retrieve a list of all Sessions for the Service. A maximum of 100 records will be returned per page.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-sessions",
+      "name": "POST /v1/Services/{ServiceSid}/Sessions",
+      "description": "Create a new Session",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DateExpiry": "",
+        "Mode": "",
+        "Participants": [],
+        "Status": "",
+        "Ttl": 0,
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-interactions",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Interactions",
+      "description": "Retrieve a list of all Interactions for a Session. A maximum of 100 records will be returned per page.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Interactions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-interactions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Interactions/{Sid}",
+      "description": "Retrieve a list of Interactions for a given [Session](https://www.twilio.com/docs/proxy/api/session).",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Interactions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-sessions-sessionsid-interactions-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Interactions/{Sid}",
+      "description": "Delete a specific Interaction.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Interactions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-participants",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants",
+      "description": "Retrieve a list of all Participants in a Session.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-sessions-sessionsid-participants",
+      "name": "POST /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants",
+      "description": "Add a new Participant to the Session",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-participants-participantsid-messageinteractions",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants/{ParticipantSid}/MessageInteractions",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants/{{PARTICIPANTSID}}/MessageInteractions",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{PARTICIPANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{PARTICIPANTSID}} with a real participantsid."
+    },
+    {
+      "id": "post-v1-services-servicesid-sessions-sessionsid-participants-participantsid-messageinteractions",
+      "name": "POST /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants/{ParticipantSid}/MessageInteractions",
+      "description": "Create a new message Interaction to send directly from your system to one [Participant](https://www.twilio.com/docs/proxy/api/participant).  The `inbound` properties for the Interaction will always be empty.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants/{{PARTICIPANTSID}}/MessageInteractions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Body": "",
+        "MediaUrl": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{PARTICIPANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{PARTICIPANTSID}} with a real participantsid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-participants-participantsid-messageinteractions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants/{ParticipantSid}/MessageInteractions/{Sid}",
+      "description": "TODO: Resource-level docs",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants/{{PARTICIPANTSID}}/MessageInteractions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{PARTICIPANTSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{PARTICIPANTSID}} with a real participantsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sessionsid-participants-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants/{Sid}",
+      "description": "Fetch a specific Participant.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-sessions-sessionsid-participants-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Sessions/{SessionSid}/Participants/{Sid}",
+      "description": "Delete a specific Participant. This is a soft-delete. The participant remains associated with the session and cannot be re-added. Participants are only permanently deleted when the [Session](https://www.twilio.com/docs/proxy/api/session) is deleted.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SESSIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{SESSIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SESSIONSID}} with a real sessionsid. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-sessions-sid",
+      "name": "GET /v1/Services/{ServiceSid}/Sessions/{Sid}",
+      "description": "Fetch a specific Session.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-sessions-sid",
+      "name": "POST /v1/Services/{ServiceSid}/Sessions/{Sid}",
+      "description": "Update a specific Session.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DateExpiry": "",
+        "Status": "",
+        "Ttl": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-sessions-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/Sessions/{Sid}",
+      "description": "Delete a specific Session.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/Sessions/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-servicesid-shortcodes",
+      "name": "GET /v1/Services/{ServiceSid}/ShortCodes",
+      "description": "Retrieve a list of all Short Codes in the Proxy Number Pool for the Service. A maximum of 100 records will be returned per page.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/ShortCodes",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "post-v1-services-servicesid-shortcodes",
+      "name": "POST /v1/Services/{ServiceSid}/ShortCodes",
+      "description": "Add a Short Code to the Proxy Number Pool for the Service.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/ShortCodes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Sid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid."
+    },
+    {
+      "id": "get-v1-services-servicesid-shortcodes-sid",
+      "name": "GET /v1/Services/{ServiceSid}/ShortCodes/{Sid}",
+      "description": "Fetch a specific Short Code.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/ShortCodes/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-servicesid-shortcodes-sid",
+      "name": "POST /v1/Services/{ServiceSid}/ShortCodes/{Sid}",
+      "description": "Update a specific Short Code.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/ShortCodes/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "IsReserved": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-servicesid-shortcodes-sid",
+      "name": "DELETE /v1/Services/{ServiceSid}/ShortCodes/{Sid}",
+      "description": "Delete a specific Short Code from a Service.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SERVICESID}}/ShortCodes/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SERVICESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SERVICESID}} with a real servicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-sid",
+      "name": "GET /v1/Services/{Sid}",
+      "description": "Fetch a specific Service.",
+      "method": "GET",
+      "url": "https://proxy.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-sid",
+      "name": "POST /v1/Services/{Sid}",
+      "description": "Update a specific Service.",
+      "method": "POST",
+      "url": "https://proxy.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallbackUrl": "",
+        "ChatInstanceSid": "",
+        "DefaultTtl": 0,
+        "GeoMatchLevel": "",
+        "InterceptCallbackUrl": "",
+        "NumberSelectionBehavior": "",
+        "OutOfSessionCallbackUrl": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-sid",
+      "name": "DELETE /v1/Services/{Sid}",
+      "description": "Delete a specific Service.",
+      "method": "DELETE",
+      "url": "https://proxy.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    }
+  ]
+}

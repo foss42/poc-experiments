@@ -1,0 +1,40 @@
+{
+  "api_id": "adyen.com:BalanceControlService:1",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "start-a-balance-transfer",
+      "name": "Start a balance transfer",
+      "description": "Starts a balance transfer request between merchant accounts. The following conditions must be met before you can successfully transfer balances:\n\n* The source and destination merchant accounts must be under the same company account and legal entity.\n\n* The source merchant account must have sufficient funds.\n\n* The source and destination merchant accounts must have at least one common processing currency.\n\nWhen sending multiple API requests with the same source and destination merchant accounts, send the requests sequentially and *not* in parallel. Some requests may not be processed if the requests are sent in parallel.\n",
+      "method": "POST",
+      "url": "https://pal-test.adyen.com/pal/servlet/BalanceControl/v1/balanceTransfer",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "post-balance-transfer": {
+          "description": "Example request for transferring balance between merchant accounts",
+          "summary": "Transfer balances between merchant accounts",
+          "value": {
+            "amount": {
+              "currency": "EUR",
+              "value": 50000
+            },
+            "description": "Your description for the transfer",
+            "fromMerchant": "MerchantAccount_NL",
+            "toMerchant": "MerchantAccount_DE",
+            "type": "debit"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

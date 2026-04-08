@@ -1,0 +1,262 @@
+{
+  "api_id": "azure.com:storage:2016-12-01",
+  "endpoint_count": 12,
+  "endpoints": [
+    {
+      "id": "post-subscriptions-subscriptionid-providers-microsoft-storage-checknameavailability",
+      "name": "POST /subscriptions/{subscriptionId}/providers/Microsoft.Storage/checkNameAvailability",
+      "description": "Checks that the storage account name is valid and is not already in use.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Storage/checkNameAvailability",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "name": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-storage-storageaccounts",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts",
+      "description": "Lists all the storage accounts available under the subscription. Note that storage keys are not returned; use the ListKeys operation for this.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Storage/storageAccounts",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-storage-usages",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Storage/usages",
+      "description": "Gets the current usage count and the limit for the resources under the subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Storage/usages",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts",
+      "description": "Lists all the storage accounts available under the given resource group. Note that storage keys are not returned; use the ListKeys operation for this.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+      "description": "Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "put-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname",
+      "name": "PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+      "description": "Asynchronously creates a new storage account with the specified parameters. If an account is already created and a subsequent create request is issued with different properties, the account properties will be updated. If an account is already created and a subsequent create or update request is issued with the exact same set of properties, the request will succeed.",
+      "method": "PUT",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "sku": "",
+        "kind": "",
+        "location": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "delete-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname",
+      "name": "DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+      "description": "Deletes a storage account in Microsoft Azure.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}",
+      "headers": {},
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "patch-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname",
+      "name": "PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
+      "description": "The update operation can be used to update the SKU, encryption, access tier, or tags for a storage account. It can also be used to map the account to a custom domain. Only one custom domain is supported per storage account; the replacement/change of custom domain is not supported. In order to replace an old custom domain, the old value must be cleared/unregistered before a new value can be set. The update of multiple properties is supported. This call does not change the storage keys for the account. If you want to change the storage account keys, use the regenerate keys operation. The location and name of the storage account cannot be changed after creation.",
+      "method": "PATCH",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": "",
+        "sku": "",
+        "tags": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname-listaccountsas",
+      "name": "POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/ListAccountSas",
+      "description": "List SAS credentials of a storage account.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}/ListAccountSas",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "signedServices": "",
+        "signedResourceTypes": "",
+        "signedPermission": "",
+        "signedExpiry": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname-listservicesas",
+      "name": "POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/ListServiceSas",
+      "description": "List service SAS credentials of a specific resource.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}/ListServiceSas",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "canonicalizedResource": "",
+        "signedResource": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname-listkeys",
+      "name": "POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/listKeys",
+      "description": "Lists the access keys for the specified storage account.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}/listKeys",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "post-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-storage-storageaccounts-accountname-regeneratekey",
+      "name": "POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/regenerateKey",
+      "description": "Regenerates one of the access keys for the specified storage account.",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Storage/storageAccounts/{{ACCOUNTNAME}}/regenerateKey",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "keyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{ACCOUNTNAME}}",
+        "{{RESOURCEGROUPNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{ACCOUNTNAME}} with a real accountname. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    }
+  ]
+}

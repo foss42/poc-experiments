@@ -1,0 +1,429 @@
+{
+  "api_id": "vtex.local:Checkout-API:1.0",
+  "endpoint_count": 12,
+  "endpoints": [
+    {
+      "id": "process-order",
+      "name": "Process order",
+      "description": "Order processing callback request, which is made after an order's payment is approved.\n\r\n\r> This request has to be made until five minutes after the [Place order](https://developers.vtex.com/docs/api-reference/checkout-api#put-/api/checkout/pub/orders) or [Place order from existing cart](https://developers.vtex.com/docs/api-reference/checkout-api#post-/api/checkout/pub/orderForm/-orderFormId-/transaction) request has been made, or else, the order will not be processed.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pub/gatewayCallback/{{ORDERGROUP}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{ORDERGROUP}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERGROUP}} with a real ordergroup."
+    },
+    {
+      "id": "add-merchant-context-data",
+      "name": "Add merchant context data",
+      "description": "This endpoint is used for the merchant to add to the cart any relevant information that is related to the context of a specific order.\r\n\r\nThe [orderForm](https://developers.vtex.com/docs/guides/orderform-fields) is the data structure which represents a shopping cart and contains all information pertaining to it. Hence, the `orderFormId` is the identification code of a given cart.\n\r\n\r> This request has a time out of 12 seconds.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pub/orderForm/{{ORDERFORMID}}/attachments/merchantContextData",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "salesAssociateData": {}
+      },
+      "sample_response": {
+        "salesAssociateData": {
+          "salesAssociateId": "seller123"
+        }
+      },
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    },
+    {
+      "id": "add-coupons-to-the-cart",
+      "name": "Add coupons to the cart",
+      "description": "Use this request to add coupons to a given shopping cart.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pub/orderForm/{{ORDERFORMID}}/coupons",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "text": "freeshipping"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    },
+    {
+      "id": "cart-installments",
+      "name": "Cart installments",
+      "description": "Retrieves possible amount of installments and respective values for a given cart with a given payment method.\r\n\r\nThe [orderForm](https://developers.vtex.com/docs/guides/orderform-fields) is the data structure which represents a shopping cart and contains all information pertaining to it. Hence, the `orderFormId` is the identification code of a given cart.\n\r\n\rThis endpoint can be used to get the installment options for only one payment method at a time.\n\r\n\rThis endpoint should be called only after the selected `orderForm` already has a `paymentData`.",
+      "method": "GET",
+      "url": "https://vtex.local/api/checkout/pub/orderForm/{{ORDERFORMID}}/installments",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {
+        "paymentSystem": ""
+      },
+      "body": null,
+      "sample_response": {
+        "bin": null,
+        "installments": [
+          {
+            "count": 1,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "sellerMerchantInstallments": [
+              {
+                "count": 1,
+                "hasInterestRate": false,
+                "id": "MyStore",
+                "interestRate": 0,
+                "total": 32000,
+                "value": 32000
+              }
+            ],
+            "total": 32000,
+            "value": 32000
+          },
+          {
+            "count": 2,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "sellerMerchantInstallments": [
+              {
+                "count": 2,
+                "hasInterestRate": false,
+                "id": "MyStore",
+                "interestRate": 0,
+                "total": 32000,
+                "value": 1600
+              }
+            ],
+            "total": 32000,
+            "value": 1600
+          },
+          {
+            "count": 3,
+            "hasInterestRate": false,
+            "interestRate": 0,
+            "sellerMerchantInstallments": [
+              {
+                "count": 3,
+                "hasInterestRate": false,
+                "id": "MyStore",
+                "interestRate": 0,
+                "total": 32000,
+                "value": 10666
+              }
+            ],
+            "total": 32000,
+            "value": 10666
+          }
+        ],
+        "paymentGroupName": null,
+        "paymentName": null,
+        "paymentSystem": "2",
+        "value": 32000
+      },
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    },
+    {
+      "id": "remove-all-items",
+      "name": "Remove all items",
+      "description": "This request removes all items from a given cart, leaving it empty.\r\n\r\nYou must send an empty JSON in the body of the request.\r\n\r\nThe [orderForm](https://developers.vtex.com/docs/guides/orderform-fields) is the data structure which represents a shopping cart and contains all information pertaining to it. Hence, the `orderFormId` is the identification code of a given cart.\r\n\r\n**Important**: **Request Body** must always be sent with empty value \"{ }\" in this endpoint.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pub/orderForm/{{ORDERFORMID}}/items/removeAll",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    },
+    {
+      "id": "clear-orderform-messages",
+      "name": "Clear orderForm messages",
+      "description": "This request removes all messages from the `messages` field of the orderForm , leaving it empty.\r\n\r\nYou must send an empty JSON in the body of the request.\r\n\r\nThe [orderForm](https://developers.vtex.com/docs/guides/orderform-fields) is the data structure which represents a shopping cart and contains all information pertaining to it. Hence, the `orderFormId` is the identification code of a given cart.\r\n\r\n**Important**: **Request Body** must always be sent with empty value \"{ }\" in this endpoint.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pub/orderForm/{{ORDERFORMID}}/messages/clear",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    },
+    {
+      "id": "list-pickup-points-by-location",
+      "name": "List pickup points by location",
+      "description": "Retrieves information on pickup points close to a given location determined by geocoordinates or postal code.\n\r\n\rThe pickup points returned are not necessarily all active ones. Make sure to validate the information consumed by integrations.",
+      "method": "GET",
+      "url": "https://vtex.local/api/checkout/pub/pickup-points",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "items": [
+          {
+            "distance": 0.8469786518616546,
+            "pickupPoint": {
+              "additionalInfo": null,
+              "address": {
+                "addressId": "physical-store-02",
+                "addressType": "pickup",
+                "city": "Rio de Janeiro",
+                "complement": "",
+                "country": "BRA",
+                "geoCoordinates": [
+                  -47.924747467041016,
+                  -15.832582473754883
+                ],
+                "isDisposable": true,
+                "neighborhood": "Botafogo",
+                "number": "132",
+                "postalCode": "23450-070",
+                "receiverName": null,
+                "reference": null,
+                "state": "RJ",
+                "street": "Praia de Botafogo"
+              },
+              "businessHours": [
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 0,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 1,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 2,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 3,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:50:00",
+                  "DayOfWeek": 4,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 5,
+                  "OpeningTime": "00:00:00"
+                },
+                {
+                  "ClosingTime": "23:59:00",
+                  "DayOfWeek": 6,
+                  "OpeningTime": "00:00:00"
+                }
+              ],
+              "friendlyName": "physical-store-02",
+              "id": "02_Physical"
+            }
+          }
+        ],
+        "paging": {
+          "page": 1,
+          "pageSize": 30,
+          "pages": 1,
+          "total": 1
+        }
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "get-address-by-postal-code",
+      "name": "Get address by postal code",
+      "description": "Retrieves address information for a given postal code and country.\r\n\r\nThis request can be used to implement auto complete functionality when a customer needs to fill in an address.",
+      "method": "GET",
+      "url": "https://vtex.local/api/checkout/pub/postal-code/{{COUNTRYCODE}}/{{POSTALCODE}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "city": "Rio de Janeiro",
+        "complement": "",
+        "country": "BRA",
+        "geoCoordinates": [],
+        "neighborhood": "My neighborhood",
+        "number": "",
+        "postalCode": "12345000",
+        "reference": "",
+        "state": "RJ",
+        "street": "My street"
+      },
+      "auth_placeholders": [
+        "{{POSTALCODE}}",
+        "{{VTEX_API_KEY}}",
+        "{{COUNTRYCODE}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{POSTALCODE}} with a real postalcode. Replace {{COUNTRYCODE}} with a real countrycode."
+    },
+    {
+      "id": "get-orderform-configuration",
+      "name": "Get orderForm configuration",
+      "description": "Retrieves the settings that are currently applied to every orderForm in the account.\n\r\n\rThese settings are defined by the request [Update orderForm configuration](https://developers.vtex.com/reference/configuration#updateorderformconfiguration).\n\r\n\rAlways use this request to retrieve the current configuration before performing an update. By doing so you ensure that you are modifying only the properties you want.",
+      "method": "GET",
+      "url": "https://vtex.local/api/checkout/pvt/configuration/orderForm",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "allowManualPrice": true,
+        "allowMultipleDeliveries": false,
+        "apps": [
+          {
+            "fields": [
+              "name",
+              "age"
+            ],
+            "id": "abcd",
+            "major": 1
+          }
+        ],
+        "decimalDigitsPrecision": 2,
+        "maskFirstPurchaseData": null,
+        "maxNumberOfWhiteLabelSellers": null,
+        "minimumQuantityAccumulatedForItems": 1,
+        "minimumValueAccumulated": null,
+        "paymentConfiguration": {
+          "allowInstallmentsMerge": null,
+          "blockPaymentSession": null,
+          "requiresAuthenticationForPreAuthorizedPaymentOption": false
+        },
+        "recaptchaValidation": "vtexCriteria",
+        "taxConfiguration": null
+      },
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "update-orderform-configuration",
+      "name": "Update orderForm configuration",
+      "description": "Determines settings that will apply to every orderForm in the account.\n\r\n\rFor example, if you create an app using this request, every orderForm of this account will have the custom fields created though it.\n\r\n\r**Important**: always retrieve the current configuration before performing an update to ensure that you are modifying only the properties you want. Otherwise, old values can be overwritten. To retrieve the current configuration, use the request [Get orderForm configuration](https://developers.vtex.com/reference#getorderformconfiguration).",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pvt/configuration/orderForm",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowManualPrice": null,
+        "allowMultipleDeliveries": null,
+        "apps": null,
+        "decimalDigitsPrecision": 2,
+        "minimumQuantityAccumulatedForItems": 1,
+        "minimumValueAccumulated": null,
+        "paymentConfiguration": {
+          "requiresAuthenticationForPreAuthorizedPaymentOption": false
+        },
+        "taxConfiguration": null
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "update-window-to-change-seller",
+      "name": "Update window to change seller",
+      "description": "Updates a marketplace\u2019s window to change seller, that is, the period when it is possible to choose another seller to fulfill a given order after the original seller has canceled it.\n\r\n\rIt is possible to check the current window using the request Get window to change seller.",
+      "method": "POST",
+      "url": "https://vtex.local/api/checkout/pvt/configuration/window-to-change-seller",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "waitingTime": 4
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY."
+    },
+    {
+      "id": "remove-all-personal-data",
+      "name": "Remove all personal data",
+      "description": "This call removes all user information, making a cart anonymous while leaving the items.\r\n\r\nThe [orderForm](https://developers.vtex.com/docs/guides/orderform-fields) is the data structure that represents a shopping cart and contains all information about it. Hence, the `orderFormId` is the identification code of a given cart.\r\n\r\nThis call works by creating a new orderForm, setting a new cookie, and returning a redirect 302 to the cart URL (`/checkout/#/orderform`).",
+      "method": "GET",
+      "url": "https://vtex.local/checkout/changeToAnonymousUser/{{ORDERFORMID}}",
+      "headers": {
+        "X-VTEX-API-AppKey": "{{VTEX_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORDERFORMID}}",
+        "{{VTEX_API_KEY}}",
+        "{{VTEX_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{VTEX_API_KEY}} with your VTEX API KEY. Replace {{ORDERFORMID}} with a real orderformid."
+    }
+  ]
+}

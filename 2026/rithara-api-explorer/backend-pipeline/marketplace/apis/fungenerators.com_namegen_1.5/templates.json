@@ -1,0 +1,44 @@
+{
+  "api_id": "fungenerators.com:namegen:1.5",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-name-categories",
+      "name": "GET /name/categories",
+      "description": "Get available name generation categories.",
+      "method": "GET",
+      "url": "https://api.fungenerators.com/name/categories",
+      "headers": {
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    },
+    {
+      "id": "get-name-generate",
+      "name": "GET /name/generate",
+      "description": "Generated names in the given category",
+      "method": "GET",
+      "url": "https://api.fungenerators.com/name/generate",
+      "headers": {
+        "X-Fungenerators-Api-Secret": "{{FUNGENERATORS_COM_API_KEY}}"
+      },
+      "query_params": {
+        "category": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FUNGENERATORS_API_KEY}}",
+        "{{FUNGENERATORS_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FUNGENERATORS_API_KEY}} with your FUNGENERATORS API KEY."
+    }
+  ]
+}

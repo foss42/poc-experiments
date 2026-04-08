@@ -1,0 +1,49 @@
+{
+  "api_id": "googleapis.com:androidpublisher:v1",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-packagename-subscriptions-subscriptionid-purchases-token",
+      "name": "GET /{packageName}/subscriptions/{subscriptionId}/purchases/{token}",
+      "description": "Checks whether a user's subscription purchase is valid and returns its expiry time.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/androidpublisher/v1/applications/{{PACKAGENAME}}/subscriptions/{{SUBSCRIPTIONID}}/purchases/{{TOKEN}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PACKAGENAME}}",
+        "{{TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PACKAGENAME}} with a real packagename. Replace {{TOKEN}} with a real token."
+    },
+    {
+      "id": "post-packagename-subscriptions-subscriptionid-purchases-token-cancel",
+      "name": "POST /{packageName}/subscriptions/{subscriptionId}/purchases/{token}/cancel",
+      "description": "Cancels a user's subscription purchase. The subscription remains valid until its expiration time.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/androidpublisher/v1/applications/{{PACKAGENAME}}/subscriptions/{{SUBSCRIPTIONID}}/purchases/{{TOKEN}}/cancel",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PACKAGENAME}}",
+        "{{TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{PACKAGENAME}} with a real packagename. Replace {{TOKEN}} with a real token."
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "api_id": "googleapis.com:siteVerification:v1",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "post-token",
+      "name": "POST /token",
+      "description": "Get a verification token for placing on a website or domain.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/siteVerification/v1/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "site": {},
+        "verificationMethod": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-webresource",
+      "name": "GET /webResource",
+      "description": "Get the list of your verified websites and domains.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-webresource",
+      "name": "POST /webResource",
+      "description": "Attempt verification of a website or domain.",
+      "method": "POST",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "verificationMethod": ""
+      },
+      "body": {
+        "id": "",
+        "owners": [],
+        "site": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-webresource-id",
+      "name": "GET /webResource/{id}",
+      "description": "Get the most current data for a website or domain.",
+      "method": "GET",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "put-webresource-id",
+      "name": "PUT /webResource/{id}",
+      "description": "Modify the list of owners for your website or domain.",
+      "method": "PUT",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "",
+        "owners": [],
+        "site": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-webresource-id",
+      "name": "DELETE /webResource/{id}",
+      "description": "Relinquish ownership of a website or domain.",
+      "method": "DELETE",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "patch-webresource-id",
+      "name": "PATCH /webResource/{id}",
+      "description": "Modify the list of owners for your website or domain. This method supports patch semantics.",
+      "method": "PATCH",
+      "url": "https://www.googleapis.com/siteVerification/v1/webResource/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "",
+        "owners": [],
+        "site": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{ID}} with a real id."
+    }
+  ]
+}

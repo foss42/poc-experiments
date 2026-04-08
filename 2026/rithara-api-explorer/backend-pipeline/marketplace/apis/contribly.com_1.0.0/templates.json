@@ -1,0 +1,855 @@
+{
+  "api_id": "contribly.com:1.0.0",
+  "endpoint_count": 43,
+  "endpoints": [
+    {
+      "id": "artifact-formats",
+      "name": "Artifact formats",
+      "description": "List the available artifact formats",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/artifact-formats",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "list-assignments",
+      "name": "List assignments",
+      "description": "List assignments",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/assignments",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-assignment",
+      "name": "Create a new assignment",
+      "description": "Create a new assignment",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/assignments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-assigment-by-id",
+      "name": "Get a single assigment by id",
+      "description": "Get a single assigment by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/assignments/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-this-assignment-and-all-of-it-s-contributions",
+      "name": "Delete this assignment and all of it's contributions",
+      "description": "Delete this assignment and all of it's contributions",
+      "method": "DELETE",
+      "url": "https://api.contribly.com/1/assignments/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "recent-changes",
+      "name": "Recent changes",
+      "description": "The Contribly change log.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/change-log",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "list-valid-contribution-refinement-types",
+      "name": "List valid contribution refinement types",
+      "description": "List valid contribution refinement types",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/contribution-refinement-types",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "list-contribution-refinement-options",
+      "name": "List contribution refinement options",
+      "description": "Given a contribution list query determine the available filter options. Can be used to generate the UI to refinement a filter.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/contribution-refinements",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "list-contributions",
+      "name": "List contributions",
+      "description": "Retrieve contributions.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/contributions",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-contribution",
+      "name": "Create a new contribution",
+      "description": "Create a new contribution",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/contributions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignment": {},
+        "attribution": "",
+        "body": "",
+        "created": "",
+        "headline": "",
+        "id": "",
+        "mediaUsages": [],
+        "moderationHistory": [],
+        "place": {},
+        "urlWords": "",
+        "via": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-contribution-by-id",
+      "name": "Get a single contribution by id",
+      "description": "Get a single contribution by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-this-contribution",
+      "name": "Delete this contribution",
+      "description": "Delete this contribution",
+      "method": "DELETE",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "raise-a-flag-against-this-contribution",
+      "name": "Raise a flag against this contribution",
+      "description": "Allows end users to bring potential issues with publicly visible content to the attention of moderators.",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}/flag",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "date": "",
+        "email": "",
+        "id": "",
+        "notes": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "allows-a-user-to-mark-a-contribution-as-liked",
+      "name": "Allows a user to mark a contribution as liked",
+      "description": "Allows a user to mark a contribution as liked",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}/like",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-users-who-have-liked-this-contributions",
+      "name": "List users who have liked this contributions",
+      "description": "Returns a list of user ids of users who have liked this conribution",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}/likes",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "perform-a-moderation-action-on-this-contribution",
+      "name": "Perform a moderation action on this contribution",
+      "description": "Allows the contribution to approved of rejected.",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/contributions/{{ID}}/moderate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "action": {},
+        "notes": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-the-credentials-associated-with-the-authenticated-user",
+      "name": "List the credentials associated with the authenticated user.",
+      "description": "List the credentials associated with the authenticated user.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/credentials",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "event-types",
+      "name": "Event types",
+      "description": "List available notification event types",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/event-types",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "export-contributions",
+      "name": "Export contributions.",
+      "description": "Begin an export job. Returns a export job which can be polled to follow the progress of an export.",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/export",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "export-contributions-preflight-summary",
+      "name": "Export contributions preflight summary.",
+      "description": "Provide a preflight summary of an export request.",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/export-summary",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-export-job-poll-to-follow-export-progress",
+      "name": "Get a single export job; poll to follow export progress.",
+      "description": "Get a single export job; poll to follow export progress.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/exports/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-form-responses",
+      "name": "List form responses",
+      "description": "List form responses",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/form-responses",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "submit-a-response-to-a-form",
+      "name": "Submit a response to a form",
+      "description": "Submit a response to a form",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/form-responses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "contribution": "",
+        "form": "",
+        "responses": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-form-response-by-id",
+      "name": "Get a single form response by id",
+      "description": "Get a single form response by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/form-responses/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-forms",
+      "name": "List forms",
+      "description": "List forms",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/forms",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "ownedBy": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-form",
+      "name": "Create a form",
+      "description": "Create a form",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/forms",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "callToAction": "",
+        "cssUrl": "",
+        "fields": [],
+        "heading": "",
+        "name": "",
+        "noCss": false,
+        "tags": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-form-by-id",
+      "name": "Get a single form by id",
+      "description": "Get a single form by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/forms/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-this-form-and-all-of-it-s-responses",
+      "name": "Delete this form and all of it's responses.",
+      "description": "Delete this form and all of it's responses.",
+      "method": "DELETE",
+      "url": "https://api.contribly.com/1/forms/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-notifications-contributions-id-preview",
+      "name": "GET /notifications/contributions/{id}/preview",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.contribly.com/1/notifications/contributions/{{ID}}/preview",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "message": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "scopes",
+      "name": "Scopes",
+      "description": "List available token scopes",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/scopes",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "subscription-types",
+      "name": "Subscription types",
+      "description": "List available subscription types",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/subscription-types",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "list-subscriptions-for-the-authorised-user",
+      "name": "List subscriptions for the authorised user.",
+      "description": "List subscriptions for the authorised user.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "delete-a-subscription",
+      "name": "Delete a subscription.",
+      "description": "Delete a subscription.",
+      "method": "DELETE",
+      "url": "https://api.contribly.com/1/subscriptions/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-tags",
+      "name": "List tags",
+      "description": "Retrieve tags.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/tags",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-tag",
+      "name": "Create a new tag",
+      "description": "Create a new tag",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-a-single-tag-by-id",
+      "name": "Retrieve a single tag by id",
+      "description": "Retrieve a single tag by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/tags/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-tag-sets",
+      "name": "List tag sets",
+      "description": "Retrieve tag sets.",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/tagsets",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "create-a-new-tag-set",
+      "name": "Create a new tag set",
+      "description": "Create a new tag set",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/tagsets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "urlWords": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-a-single-tag-set-by-id",
+      "name": "Retrieve a single tag set by id",
+      "description": "Retrieve a single tag set by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/tagsets/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-users",
+      "name": "List users",
+      "description": "List users",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/users",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-a-single-user-by-id",
+      "name": "Retrieve a single user by id",
+      "description": "Retrieve a single user by id",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/users/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-a-users-linked-profile-by-type",
+      "name": "Retrieve a users linked profile by type",
+      "description": "Retrieve a users linked profile by type",
+      "method": "GET",
+      "url": "https://api.contribly.com/1/users/{{ID}}/linked/{{TYPE}}",
+      "headers": {
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{TYPE}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN. Replace {{ID}} with a real id. Replace {{TYPE}} with a real type."
+    },
+    {
+      "id": "verify-token-and-return-details-of-the-owning-user",
+      "name": "Verify token and return details of the owning user",
+      "description": "Verify token and return details of the owning user",
+      "method": "POST",
+      "url": "https://api.contribly.com/1/verify",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTRIBLY_ACCESS_TOKEN}}",
+        "{{CONTRIBLY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{CONTRIBLY_ACCESS_TOKEN}} with your CONTRIBLY ACCESS TOKEN."
+    }
+  ]
+}

@@ -1,0 +1,657 @@
+{
+  "api_id": "izettle.com:products:1.0.0",
+  "endpoint_count": 32,
+  "endpoints": [
+    {
+      "id": "retrieve-all-categories",
+      "name": "Retrieve all categories",
+      "description": "Retrieve all categories",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/categories/v2",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "create-a-new-category",
+      "name": "Create a new category",
+      "description": "Create a new category",
+      "method": "POST",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/categories/v2",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "categories": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "delete-a-category",
+      "name": "Delete a category",
+      "description": "Delete a category",
+      "method": "DELETE",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/categories/v2/{{CATEGORYUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CATEGORYUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{CATEGORYUUID}} with a real categoryuuid. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "rename-a-category",
+      "name": "Rename a category",
+      "description": "Rename a category",
+      "method": "PATCH",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/categories/v2/{{CATEGORYUUID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CATEGORYUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{CATEGORYUUID}} with a real categoryuuid. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-all-discounts",
+      "name": "Retrieve all discounts",
+      "description": "Retrieve all discounts",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/discounts",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "create-a-discount",
+      "name": "Create a discount",
+      "description": "Creates a single discount entity. The location of the newly created discount will be available in the successful response as a HttpHeaders.LOCATION header",
+      "method": "POST",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/discounts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "uuid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-a-single-discount",
+      "name": "Retrieve a single discount",
+      "description": "Get the full discount with the provided UUID. The method supports conditional GET through providing a HttpHeaders.IF_NONE_MATCH header. If the conditional prerequisite is fullfilled, the full discount is returned: otherwise a 304 not modified will be returned with an empty body.",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/discounts/{{DISCOUNTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{DISCOUNTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{DISCOUNTUUID}} with a real discountuuid."
+    },
+    {
+      "id": "update-a-single-discount",
+      "name": "Update a single discount",
+      "description": "Updates a discount entity using JSON merge patch (https://tools.ietf.org/html/rfc7386). This means that only included fields will be changed: null values removes the field on the target entity, and other values updates the field. Conditional updates are supported through the HttpHeaders.IF_MATCH header. If the conditional prerequisite is fullfilled, the discount is updated: otherwise a 412 precondition failed will be returned with an empty body.",
+      "method": "PUT",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/discounts/{{DISCOUNTUUID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "uuid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{DISCOUNTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{DISCOUNTUUID}} with a real discountuuid."
+    },
+    {
+      "id": "delete-a-single-discount",
+      "name": "Delete a single discount ",
+      "description": "Delete a single discount ",
+      "method": "DELETE",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/discounts/{{DISCOUNTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{DISCOUNTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{DISCOUNTUUID}} with a real discountuuid."
+    },
+    {
+      "id": "retrieve-all-library-item-images",
+      "name": "Retrieve all library item images",
+      "description": "Retrieves all library items images used by the organization, sorted by updated date",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/images",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "get-status-for-latest-import",
+      "name": "Get status for latest import",
+      "description": "Get status for latest import",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/import/status",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "get-status-for-an-import",
+      "name": "Get status for an import",
+      "description": "Get status for an import",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/import/status/{{IMPORTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IMPORTUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{IMPORTUUID}} with a real importuuid. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "import-library-items",
+      "name": "Import library items",
+      "description": "Import library items",
+      "method": "POST",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/import/v2",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "products": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-the-entire-library",
+      "name": "Retrieve the entire library",
+      "description": "Will return the entire library for the authenticated user. If size of the library exceeds server preferences (normally 500) or the value of the optional limit parameter, the result will be paginated. Paginated responses return a Link header, indicating the next URI to fetch. The resulting header value will look something like:\n\n<https://products.izettle.com/organizations/self/library?limit=X&offset=Y>; rel=\"next\"\n\nwhere limit is number of items in response, and offset is the current position in pagination. The rel-part in the header is the links relation to the data previously recieved. The idea is that as long as this header is present there are still items remaining to be fetched. When either the header is not present or it's value doesn't contain any \"next\" value, all items have been sent to the client.\n\nNote: The client should NOT try to extract query parameters from the URI, but rather use it as-is for the next request. Also, clients should be perpared that one Link header might contain multiple other IRIs that are not \"next\" (there will never be more than one \"next\" though). See more at:\n\n    IETF: https://tools.ietf.org/html/rfc5988\n    GitHub: https://developer.github.com/guides/traversing-with-pagination/\n\nIf eventLogUuid is provided, the response will only include events affecting the library since that event. Such responses are normally quite small and would be a preferred method for most fat clients after retrieving the initial full library.\n",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/library",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-all-products-visible-in-pos",
+      "name": "Retrieve all products visible in POS",
+      "description": "Retrieve all products visible in POS",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "create-a-new-product",
+      "name": "Create a new product",
+      "description": "Create a new product",
+      "method": "POST",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "uuid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "delete-a-list-of-products",
+      "name": "Delete a list of products",
+      "description": "Delete a list of products",
+      "method": "DELETE",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "uuid": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "create-a-product-identifier",
+      "name": "Create a product identifier",
+      "description": "Creates a unique slug (identifier) for a product. The slug is used to create a product URL",
+      "method": "POST",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/online/slug",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "productName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-an-aggregate-of-active-options-in-the-library",
+      "name": "Retrieve an aggregate of active Options in the library",
+      "description": "Retrieve an aggregate of active Options in the library",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/options",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-all-products-visible-in-pos-v2",
+      "name": "Retrieve all products visible in POS \u2013 v2",
+      "description": "Retrieve all products visible in POS \u2013 v2",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/v2",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "retrieve-the-count-of-existing-products",
+      "name": "Retrieve the count of existing products",
+      "description": "Retrieve the count of existing products",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/v2/count",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid."
+    },
+    {
+      "id": "update-a-single-product",
+      "name": "Update a single product",
+      "description": "Updates a product entity using JSON merge patch (https://tools.ietf.org/html/rfc7386). This means that only included fields will be changed: null values removes the field on the target entity, and other values updates the field. Conditional updates are supported through the HttpHeaders.IF_MATCH header. If the conditional prerequisite is fullfilled, the product is updated: otherwise a 412 (precondition failed) will be returned with an empty body.",
+      "method": "PUT",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/v2/{{PRODUCTUUID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "uuid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{PRODUCTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{PRODUCTUUID}} with a real productuuid."
+    },
+    {
+      "id": "retrieve-a-single-product",
+      "name": "Retrieve a single product",
+      "description": "Get the full product with the provided UUID. The method supports conditional GET through providing a HttpHeaders.IF_NONE_MATCH header. If the conditional prerequisite is fullfilled, the full product is returned, otherwise a 304 not modified will be returned with an empty body.",
+      "method": "GET",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/{{PRODUCTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{PRODUCTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{PRODUCTUUID}} with a real productuuid."
+    },
+    {
+      "id": "delete-a-single-product",
+      "name": "Delete a single product",
+      "description": "Delete a single product",
+      "method": "DELETE",
+      "url": "https://products.izettle.com/organizations/{{ORGANIZATIONUUID}}/products/{{PRODUCTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGANIZATIONUUID}}",
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{PRODUCTUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{ORGANIZATIONUUID}} with a real organizationuuid. Replace {{PRODUCTUUID}} with a real productuuid."
+    },
+    {
+      "id": "get-all-available-tax-rates",
+      "name": "Get all available tax rates",
+      "description": "Get all available tax rates",
+      "method": "GET",
+      "url": "https://products.izettle.com/v1/taxes",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN."
+    },
+    {
+      "id": "create-new-tax-rates",
+      "name": "Create new tax rates",
+      "description": "Create new tax rates",
+      "method": "POST",
+      "url": "https://products.izettle.com/v1/taxes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "taxRates": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN."
+    },
+    {
+      "id": "get-all-tax-rates-and-a-count-of-products-associated-with-each",
+      "name": "Get all tax rates and a count of products associated with each",
+      "description": "Get all tax rates and a count of products associated with each",
+      "method": "GET",
+      "url": "https://products.izettle.com/v1/taxes/count",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-organization-tax-settings",
+      "name": "Get the organization tax settings ",
+      "description": "Get the organization tax settings ",
+      "method": "GET",
+      "url": "https://products.izettle.com/v1/taxes/settings",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN."
+    },
+    {
+      "id": "update-the-organization-tax-settings",
+      "name": "Update the organization tax settings",
+      "description": "Update the organization tax settings",
+      "method": "PUT",
+      "url": "https://products.izettle.com/v1/taxes/settings",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "taxationMode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-single-tax-rate",
+      "name": "Get a single tax rate",
+      "description": "Get a single tax rate",
+      "method": "GET",
+      "url": "https://products.izettle.com/v1/taxes/{{TAXRATEUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{TAXRATEUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{TAXRATEUUID}} with a real taxrateuuid."
+    },
+    {
+      "id": "update-a-single-tax-rate",
+      "name": "Update a single tax rate",
+      "description": "Update a single tax rate",
+      "method": "PUT",
+      "url": "https://products.izettle.com/v1/taxes/{{TAXRATEUUID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "default": false,
+        "label": "",
+        "percentage": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{TAXRATEUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{TAXRATEUUID}} with a real taxrateuuid."
+    },
+    {
+      "id": "delete-a-single-tax-rate",
+      "name": "Delete a single tax rate",
+      "description": "Delete a single tax rate",
+      "method": "DELETE",
+      "url": "https://products.izettle.com/v1/taxes/{{TAXRATEUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{IZETTLE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IZETTLE_ACCESS_TOKEN}}",
+        "{{TAXRATEUUID}}",
+        "{{IZETTLE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{IZETTLE_ACCESS_TOKEN}} with your IZETTLE ACCESS TOKEN. Replace {{TAXRATEUUID}} with a real taxrateuuid."
+    }
+  ]
+}

@@ -1,0 +1,625 @@
+{
+  "api_id": "googleapis.com:identitytoolkit:v2",
+  "endpoint_count": 27,
+  "endpoints": [
+    {
+      "id": "post-v2-accounts-mfaenrollment-finalize",
+      "name": "POST /v2/accounts/mfaEnrollment:finalize",
+      "description": "Finishes enrolling a second factor for the user.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/mfaEnrollment:finalize",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "idToken": "",
+        "phoneVerificationInfo": {},
+        "tenantId": "",
+        "totpVerificationInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-mfaenrollment-start",
+      "name": "POST /v2/accounts/mfaEnrollment:start",
+      "description": "Step one of the MFA enrollment process. In SMS case, this sends an SMS verification code to the user.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/mfaEnrollment:start",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "idToken": "",
+        "phoneEnrollmentInfo": {},
+        "tenantId": "",
+        "totpEnrollmentInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-mfaenrollment-withdraw",
+      "name": "POST /v2/accounts/mfaEnrollment:withdraw",
+      "description": "Revokes one second factor from the enrolled second factors for an account.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/mfaEnrollment:withdraw",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "idToken": "",
+        "mfaEnrollmentId": "",
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-mfasignin-finalize",
+      "name": "POST /v2/accounts/mfaSignIn:finalize",
+      "description": "Verifies the MFA challenge and performs sign-in",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/mfaSignIn:finalize",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "mfaEnrollmentId": "",
+        "mfaPendingCredential": "",
+        "phoneVerificationInfo": {},
+        "tenantId": "",
+        "totpVerificationInfo": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-mfasignin-start",
+      "name": "POST /v2/accounts/mfaSignIn:start",
+      "description": "Sends the MFA challenge",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/mfaSignIn:start",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "mfaEnrollmentId": "",
+        "mfaPendingCredential": "",
+        "phoneSignInInfo": {},
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-passkeyenrollment-finalize",
+      "name": "POST /v2/accounts/passkeyEnrollment:finalize",
+      "description": "Finishes enrolling a passkey credential for the user.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/passkeyEnrollment:finalize",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "authenticatorRegistrationResponse": {},
+        "idToken": "",
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-passkeyenrollment-start",
+      "name": "POST /v2/accounts/passkeyEnrollment:start",
+      "description": "Step one of the passkey enrollment process. Returns a challenge and parameters for creation of the passkey credential.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/passkeyEnrollment:start",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "idToken": "",
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-passkeysignin-finalize",
+      "name": "POST /v2/accounts/passkeySignIn:finalize",
+      "description": "Verifies the passkey assertion and signs the user in.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/passkeySignIn:finalize",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "authenticatorAuthenticationResponse": {},
+        "sessionId": "",
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-passkeysignin-start",
+      "name": "POST /v2/accounts/passkeySignIn:start",
+      "description": "Creates and returns the passkey challenge",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts/passkeySignIn:start",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "sessionId": "",
+        "tenantId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v2-accounts-revoketoken",
+      "name": "POST /v2/accounts:revokeToken",
+      "description": "Revokes a user's token from an Identity Provider (IdP). This is done by manually providing an IdP credential, and the token types for revocation. An [API key](https://cloud.google.com/docs/authentication/api-keys) is required in the request in order to identify the Google Cloud project.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/accounts:revokeToken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "idToken": "",
+        "providerId": "",
+        "redirectUri": "",
+        "tenantId": "",
+        "token": "",
+        "tokenType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v2-defaultsupportedidps",
+      "name": "GET /v2/defaultSupportedIdps",
+      "description": "List all default supported Idps.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/defaultSupportedIdps",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v2-recaptchaconfig",
+      "name": "GET /v2/recaptchaConfig",
+      "description": "Gets parameters needed for reCAPTCHA analysis.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/recaptchaConfig",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v2-name",
+      "name": "GET /v2/{name}",
+      "description": "Retrieve an Oidc Idp configuration for an Identity Toolkit project.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v2-name",
+      "name": "DELETE /v2/{name}",
+      "description": "Delete an Oidc Idp configuration for an Identity Toolkit project.",
+      "method": "DELETE",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v2-name",
+      "name": "PATCH /v2/{name}",
+      "description": "Update an Oidc Idp configuration for an Identity Toolkit project.",
+      "method": "PATCH",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientId": "",
+        "clientSecret": "",
+        "displayName": "",
+        "enabled": false,
+        "issuer": "",
+        "name": "",
+        "responseType": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v2-parent-defaultsupportedidpconfigs",
+      "name": "GET /v2/{parent}/defaultSupportedIdpConfigs",
+      "description": "List all default supported Idp configurations for an Identity Toolkit project.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/defaultSupportedIdpConfigs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v2-parent-defaultsupportedidpconfigs",
+      "name": "POST /v2/{parent}/defaultSupportedIdpConfigs",
+      "description": "Create a default supported Idp configuration for an Identity Toolkit project.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/defaultSupportedIdpConfigs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appleSignInConfig": {},
+        "clientId": "",
+        "clientSecret": "",
+        "enabled": false,
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v2-parent-inboundsamlconfigs",
+      "name": "GET /v2/{parent}/inboundSamlConfigs",
+      "description": "List all inbound SAML configurations for an Identity Toolkit project.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/inboundSamlConfigs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v2-parent-inboundsamlconfigs",
+      "name": "POST /v2/{parent}/inboundSamlConfigs",
+      "description": "Create an inbound SAML configuration for an Identity Toolkit project.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/inboundSamlConfigs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "enabled": false,
+        "idpConfig": {},
+        "name": "",
+        "spConfig": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v2-parent-oauthidpconfigs",
+      "name": "GET /v2/{parent}/oauthIdpConfigs",
+      "description": "List all Oidc Idp configurations for an Identity Toolkit project.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/oauthIdpConfigs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v2-parent-oauthidpconfigs",
+      "name": "POST /v2/{parent}/oauthIdpConfigs",
+      "description": "Create an Oidc Idp configuration for an Identity Toolkit project.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/oauthIdpConfigs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientId": "",
+        "clientSecret": "",
+        "displayName": "",
+        "enabled": false,
+        "issuer": "",
+        "name": "",
+        "responseType": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v2-parent-tenants",
+      "name": "GET /v2/{parent}/tenants",
+      "description": "List tenants under the given agent project. Requires read permission on the Agent project.",
+      "method": "GET",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/tenants",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v2-parent-tenants",
+      "name": "POST /v2/{parent}/tenants",
+      "description": "Create a tenant. Requires write permission on the Agent project.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PARENT}}/tenants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowPasswordSignup": false,
+        "autodeleteAnonymousUsers": false,
+        "client": {},
+        "disableAuth": false,
+        "displayName": "",
+        "emailPrivacyConfig": {},
+        "enableAnonymousUser": false,
+        "enableEmailLinkSignin": false,
+        "hashConfig": {},
+        "inheritance": {},
+        "mfaConfig": {},
+        "monitoring": {},
+        "name": "",
+        "recaptchaConfig": {},
+        "smsRegionConfig": {},
+        "testPhoneNumbers": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v2-project-identityplatform-initializeauth",
+      "name": "POST /v2/{project}/identityPlatform:initializeAuth",
+      "description": "Initialize Identity Platform for a Cloud project. Identity Platform is an end-to-end authentication system for third-party users to access your apps and services. These could include mobile/web apps, games, APIs and beyond. This is the publicly available variant of EnableIdentityPlatform that is only available to billing-enabled projects.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{PROJECT}}/identityPlatform:initializeAuth",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{PROJECT}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PROJECT}} with a real project."
+    },
+    {
+      "id": "post-v2-resource-getiampolicy",
+      "name": "POST /v2/{resource}:getIamPolicy",
+      "description": "Gets the access control policy for a resource. An error is returned if the resource does not exist. An empty policy is returned if the resource exists but does not have a policy set on it. Caller must have the right Google IAM permission on the resource.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{RESOURCE}}:getIamPolicy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "options": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v2-resource-setiampolicy",
+      "name": "POST /v2/{resource}:setIamPolicy",
+      "description": "Sets the access control policy for a resource. If the policy exists, it is replaced. Caller must have the right Google IAM permission on the resource.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{RESOURCE}}:setIamPolicy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "policy": {},
+        "updateMask": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    },
+    {
+      "id": "post-v2-resource-testiampermissions",
+      "name": "POST /v2/{resource}:testIamPermissions",
+      "description": "Returns the caller's permissions on a resource. An error is returned if the resource does not exist. A caller is not required to have Google IAM permission to make this request.",
+      "method": "POST",
+      "url": "https://identitytoolkit.googleapis.com/v2/{{RESOURCE}}:testIamPermissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "permissions": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{RESOURCE}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{RESOURCE}} with a real resource."
+    }
+  ]
+}

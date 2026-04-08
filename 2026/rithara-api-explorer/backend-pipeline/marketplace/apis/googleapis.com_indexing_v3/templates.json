@@ -1,0 +1,47 @@
+{
+  "api_id": "googleapis.com:indexing:v3",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-v3-urlnotifications-metadata",
+      "name": "GET /v3/urlNotifications/metadata",
+      "description": "Gets metadata about a Web Document. This method can _only_ be used to query URLs that were previously seen in successful Indexing API notifications. Includes the latest `UrlNotification` received via this API.",
+      "method": "GET",
+      "url": "https://indexing.googleapis.com/v3/urlNotifications/metadata",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v3-urlnotifications-publish",
+      "name": "POST /v3/urlNotifications:publish",
+      "description": "Notifies that a URL has been updated or deleted.",
+      "method": "POST",
+      "url": "https://indexing.googleapis.com/v3/urlNotifications:publish",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "notifyTime": "",
+        "type": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    }
+  ]
+}

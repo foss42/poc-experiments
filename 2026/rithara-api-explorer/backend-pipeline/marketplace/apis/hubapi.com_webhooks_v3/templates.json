@@ -1,0 +1,202 @@
+{
+  "api_id": "hubapi.com:webhooks:v3",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "get-webhooks-v3-appid-settings",
+      "name": "GET /webhooks/v3/{appId}/settings",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/settings",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "put-webhooks-v3-appid-settings",
+      "name": "PUT /webhooks/v3/{appId}/settings",
+      "description": null,
+      "method": "PUT",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/settings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "targetUrl": "https://www.example.com/hubspot/target",
+        "throttling": {
+          "maxConcurrentRequests": 10,
+          "period": "SECONDLY"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "delete-webhooks-v3-appid-settings",
+      "name": "DELETE /webhooks/v3/{appId}/settings",
+      "description": null,
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/settings",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "get-webhooks-v3-appid-subscriptions",
+      "name": "GET /webhooks/v3/{appId}/subscriptions",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "post-webhooks-v3-appid-subscriptions",
+      "name": "POST /webhooks/v3/{appId}/subscriptions",
+      "description": null,
+      "method": "POST",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "active": true,
+        "eventType": "contact.propertyChange",
+        "propertyName": "email"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "post-webhooks-v3-appid-subscriptions-batch-update",
+      "name": "POST /webhooks/v3/{appId}/subscriptions/batch/update",
+      "description": null,
+      "method": "POST",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions/batch/update",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "inputs": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "get-webhooks-v3-appid-subscriptions-subscriptionid",
+      "name": "GET /webhooks/v3/{appId}/subscriptions/{subscriptionId}",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions/{{SUBSCRIPTIONID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "delete-webhooks-v3-appid-subscriptions-subscriptionid",
+      "name": "DELETE /webhooks/v3/{appId}/subscriptions/{subscriptionId}",
+      "description": null,
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions/{{SUBSCRIPTIONID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "patch-webhooks-v3-appid-subscriptions-subscriptionid",
+      "name": "PATCH /webhooks/v3/{appId}/subscriptions/{subscriptionId}",
+      "description": null,
+      "method": "PATCH",
+      "url": "https://api.hubapi.com/webhooks/v3/{{APPID}}/subscriptions/{{SUBSCRIPTIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "active": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{APPID}} with a real appid."
+    }
+  ]
+}

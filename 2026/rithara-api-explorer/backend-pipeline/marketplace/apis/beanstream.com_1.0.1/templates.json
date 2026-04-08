@@ -1,0 +1,289 @@
+{
+  "api_id": "beanstream.com:1.0.1",
+  "endpoint_count": 15,
+  "endpoints": [
+    {
+      "id": "make-payment",
+      "name": "Make Payment",
+      "description": "Make a payment using credit card, cash, cheque, profile, or token. Each payment type has its own json definition passed in the body. For all payments you have the standard Billing, Shipping, Comments, etc. fields that are optional. Only the amount is required along with the payment data for card, cash, cheque, profile, and token. You must change the payment_method for each payment type. Credit Card - \"card\", Payment Profile - \"payment_profile\", Legato Token - \"token\", Cash - \"cash\", Cheque - \"cheque\", Interac - \"interac\"",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/payments",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0,
+        "payment_method": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-payment",
+      "name": "Get payment",
+      "description": "Get a previous payment (transaction).",
+      "method": "GET",
+      "url": "https://www.beanstream.com/api/v1/payments/{{TRANSID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRANSID}}"
+      ],
+      "notes": "No authentication required. Replace {{TRANSID}} with a real transid."
+    },
+    {
+      "id": "complete-pre-auth",
+      "name": "Complete pre-auth",
+      "description": "Complete a pre-authorized payment. The amount of the transaction to complete must be less than or equal to the original pre-auth amount. Complete must be set to true.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/payments/{{TRANSID}}/completions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0,
+        "payment_method": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRANSID}}"
+      ],
+      "notes": "No authentication required. Replace {{TRANSID}} with a real transid."
+    },
+    {
+      "id": "return-payment",
+      "name": "Return payment",
+      "description": "Return payment.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/payments/{{TRANSID}}/returns",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRANSID}}"
+      ],
+      "notes": "No authentication required. Replace {{TRANSID}} with a real transid."
+    },
+    {
+      "id": "void-transaction",
+      "name": "Void Transaction",
+      "description": "Void a transaction. You can void payments, returns, pre-auths, and completions. It will cancel that transaction.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/payments/{{TRANSID}}/void",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TRANSID}}"
+      ],
+      "notes": "No authentication required. Replace {{TRANSID}} with a real transid."
+    },
+    {
+      "id": "create-profile",
+      "name": "Create Profile",
+      "description": "Create a new Payment Profile using either a card or a Legato token. You must supply one of them.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/profiles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "billing": "",
+        "card": "",
+        "comment": "",
+        "custom": "",
+        "language": "",
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-profile",
+      "name": "Get profile",
+      "description": "Get a Payment Profile using the profile ID, also known as the Customer Code.",
+      "method": "GET",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid."
+    },
+    {
+      "id": "update-profile",
+      "name": "Update Profile",
+      "description": "Create a new Payment Profile using either a card or a Legato token. You must supply one of them.",
+      "method": "PUT",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "billing": "",
+        "card": "",
+        "comment": "",
+        "custom": "",
+        "language": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid."
+    },
+    {
+      "id": "delete-profile",
+      "name": "Delete profile",
+      "description": "Delete a Payment Profile using the profile ID, also known as the Customer Code.",
+      "method": "DELETE",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid."
+    },
+    {
+      "id": "get-cards",
+      "name": "Get cards",
+      "description": "Get all of the cards on the profile.",
+      "method": "GET",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}/cards",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid."
+    },
+    {
+      "id": "add-card",
+      "name": "Add card",
+      "description": "Add a card to the profile. Note that there is a default limit of 1 card per profile. You can change this in your Profiles settings in the back office.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}/cards",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "expiry_month": "",
+        "expiry_year": "",
+        "name": "",
+        "number": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid."
+    },
+    {
+      "id": "update-card",
+      "name": "Update card",
+      "description": "Update the details of a card on the profile.",
+      "method": "PUT",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}/cards/{{CARDID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "expiry_month": "",
+        "expiry_year": "",
+        "name": "",
+        "number": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}",
+        "{{CARDID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid. Replace {{CARDID}} with a real cardid."
+    },
+    {
+      "id": "delete-card",
+      "name": "Delete card",
+      "description": "Delete a card on the profile.",
+      "method": "DELETE",
+      "url": "https://www.beanstream.com/api/v1/profiles/{{PROFILEID}}/cards/{{CARDID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROFILEID}}",
+        "{{CARDID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROFILEID}} with a real profileid. Replace {{CARDID}} with a real cardid."
+    },
+    {
+      "id": "search-query",
+      "name": "Search Query",
+      "description": "Query for transactions using a date range and optional search criteria. This method allows you to page your search results if you are expecting a lot of results to be returned. The page start value begins at 1. If no records are found the API will return a 404 error message. For details on the parameters and allowed values for Criteria please visit the documentation http://developer.beanstream.com/documentation/analyze-payments/search-specific-criteria/",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/reports",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "start_date": "",
+        "end_date": "",
+        "start_row": 1,
+        "end_row": 2
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "tokenize-credit-card",
+      "name": "Tokenize credit card",
+      "description": "NOTE that the full URL for this API call is https://www.beanstream.com/scripts/tokenization/tokens. Turn a credit card into a token using this service. This helps lessen your PCI scope by not passing the credit card information to your server. Instead you turn the card number into a token in the client app, then send the token to the server. When you send the token to Beanstream to make a payment, Beanstream then looks up the card number from that token and makes the payment. Tokens can also be used to create payment profiles.",
+      "method": "POST",
+      "url": "https://www.beanstream.com/api/v1/scripts/tokenization/tokens",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "number": "",
+        "expiry_month": "",
+        "expiry_year": "",
+        "cvd": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

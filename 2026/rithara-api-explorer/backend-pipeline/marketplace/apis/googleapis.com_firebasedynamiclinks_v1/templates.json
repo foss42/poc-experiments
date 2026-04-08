@@ -1,0 +1,125 @@
+{
+  "api_id": "googleapis.com:firebasedynamiclinks:v1",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "post-v1-installattribution",
+      "name": "POST /v1/installAttribution",
+      "description": "Get iOS strong/weak-match info for post-install attribution.",
+      "method": "POST",
+      "url": "https://firebasedynamiclinks.googleapis.com/v1/installAttribution",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appInstallationTime": "",
+        "bundleId": "",
+        "device": {},
+        "iosVersion": "",
+        "retrievalMethod": "",
+        "sdkVersion": "",
+        "uniqueMatchLinkToCheck": "",
+        "visualStyle": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-managedshortlinks-create",
+      "name": "POST /v1/managedShortLinks:create",
+      "description": "Creates a managed short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. This differs from CreateShortDynamicLink in the following ways: - The request will also contain a name for the link (non unique name for the front end). - The response must be authenticated with an auth token (generated with the admin service account). - The link will appear in the FDL list of links in the console front end. The Dynamic Link domain in the request must be owned by requester's Firebase project.",
+      "method": "POST",
+      "url": "https://firebasedynamiclinks.googleapis.com/v1/managedShortLinks:create",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "dynamicLinkInfo": {},
+        "longDynamicLink": "",
+        "name": "",
+        "sdkVersion": "",
+        "suffix": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-reopenattribution",
+      "name": "POST /v1/reopenAttribution",
+      "description": "Get iOS reopen attribution for app universal link open deeplinking.",
+      "method": "POST",
+      "url": "https://firebasedynamiclinks.googleapis.com/v1/reopenAttribution",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "bundleId": "",
+        "requestedLink": "",
+        "sdkVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1-shortlinks",
+      "name": "POST /v1/shortLinks",
+      "description": "Creates a short Dynamic Link given either a valid long Dynamic Link or details such as Dynamic Link domain, Android and iOS app information. The created short Dynamic Link will not expire. Repeated calls with the same long Dynamic Link or Dynamic Link information will produce the same short Dynamic Link. The Dynamic Link domain in the request must be owned by requester's Firebase project.",
+      "method": "POST",
+      "url": "https://firebasedynamiclinks.googleapis.com/v1/shortLinks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "dynamicLinkInfo": {},
+        "longDynamicLink": "",
+        "sdkVersion": "",
+        "suffix": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v1-dynamiclink-linkstats",
+      "name": "GET /v1/{dynamicLink}/linkStats",
+      "description": "Fetches analytics stats of a short Dynamic Link for a given duration. Metrics include number of clicks, redirects, installs, app first opens, and app reopens.",
+      "method": "GET",
+      "url": "https://firebasedynamiclinks.googleapis.com/v1/{{DYNAMICLINK}}/linkStats",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{DYNAMICLINK}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{DYNAMICLINK}} with a real dynamiclink."
+    }
+  ]
+}

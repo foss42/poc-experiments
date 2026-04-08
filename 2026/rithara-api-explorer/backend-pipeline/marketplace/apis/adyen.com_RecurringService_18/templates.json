@@ -1,0 +1,42 @@
+{
+  "api_id": "adyen.com:RecurringService:18",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "disables-stored-payment-details",
+      "name": "Disables stored payment details.",
+      "description": "Disables stored payment details to stop charging a shopper with this particular recurring detail ID.\n\nFor more information, refer to [Disable stored details](https://docs.adyen.com/developers/features/recurring-payments/disable-stored-details).",
+      "method": "POST",
+      "url": "https://pal-test.adyen.com/pal/servlet/Recurring/v18/disable",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "merchantAccount": "",
+        "shopperReference": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieves-stored-payment-details-for-a-shopper",
+      "name": "Retrieves stored payment details for a shopper.",
+      "description": "Lists the stored payment details for a shopper, if there are any available. The recurring detail ID can be used with a regular authorisation request to charge the shopper. A summary of the payment detail is returned for presentation to the shopper.\n\nFor more information, refer to [Retrieve stored details](https://docs.adyen.com/developers/features/recurring-payments/retrieve-stored-details).",
+      "method": "POST",
+      "url": "https://pal-test.adyen.com/pal/servlet/Recurring/v18/listRecurringDetails",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "merchantAccount": "",
+        "shopperReference": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

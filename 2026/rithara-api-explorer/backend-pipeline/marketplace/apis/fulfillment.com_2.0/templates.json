@@ -1,0 +1,254 @@
+{
+  "api_id": "fulfillment.com:2.0",
+  "endpoint_count": 12,
+  "endpoints": [
+    {
+      "id": "list-order-accounting",
+      "name": "List Order Accounting",
+      "description": "Retrieves accounting activity during the queried timespan.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/accounting",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {
+        "fromDate": "",
+        "toDate": "",
+        "hydrate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "list-of-item-inventories",
+      "name": "List of Item Inventories",
+      "description": "Retrieve inventory for one or more items. This API requires elevated permissions, please speak to your success manager.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/inventory",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "list-of-orders",
+      "name": "List of Orders",
+      "description": "Retrieve many orders at once",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/orders",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {
+        "fromDate": "",
+        "toDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "new-order",
+      "name": "New Order",
+      "description": "Error Notes&#58;\n* When `409 Conflict` is a 'Duplicate Order' the `context` will include the FDC `id`, see samples.\n",
+      "method": "POST",
+      "url": "https://api.fulfillment.com/v2/orders",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "merchantOrderId": "",
+        "shippingMethod": "Ground",
+        "recipient": {},
+        "items": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "order-details",
+      "name": "Order Details",
+      "description": "For the fastest results use the FDC provided `id` however you can use your `merchantOrderId` as the `id`.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/orders/{{ID}}",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "cancel-an-order",
+      "name": "Cancel an Order",
+      "description": "Request an order is canceled to prevent shipment.",
+      "method": "DELETE",
+      "url": "https://api.fulfillment.com/v2/orders/{{ID}}",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "ship-an-order",
+      "name": "Ship an Order",
+      "description": "Note, this API is used to update orders and is reserved for our shipping partners.",
+      "method": "PUT",
+      "url": "https://api.fulfillment.com/v2/orders/{{ID}}/ship",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "trackingNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-order-status",
+      "name": "Update Order Status",
+      "description": "Note, this API is used to update orders and is reserved for our shipping partners.",
+      "method": "PUT",
+      "url": "https://api.fulfillment.com/v2/orders/{{ID}}/status",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "reason": "",
+        "status": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-returns",
+      "name": "List Returns",
+      "description": "Retrieves summary return activity during the queried timespan. Although return knowledge can be learned from `GET /orders/{id}` it can take an unknown amount of time for an order that is refused or undeliverable to return to an FDC facility. Instead we recommend regularly querying this API.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/returns",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {
+        "fromDate": "",
+        "toDate": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "inform-us-of-an-rma",
+      "name": "Inform us of an RMA",
+      "description": "Inform FDC of an expected return.",
+      "method": "PUT",
+      "url": "https://api.fulfillment.com/v2/returns",
+      "headers": {
+        "Content-Type": "application/json",
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "items": [],
+        "recipient": {},
+        "rmaNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "tracking",
+      "name": "Tracking",
+      "description": "Get uniformed tracking events for any package, this response is carrier independent. Please note, an API Key is required for throttling purposes, please contact your success manager for details.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/track",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    },
+    {
+      "id": "about-me",
+      "name": "About Me",
+      "description": "Returns the user profile of the access token's owner. This could be useful if managing multiple accounts or confirming validity of a token.",
+      "method": "GET",
+      "url": "https://api.fulfillment.com/v2/users/me",
+      "headers": {
+        "x-api-key": "{{FULFILLMENT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FULFILLMENT_API_KEY}}",
+        "{{FULFILLMENT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{FULFILLMENT_API_KEY}} with your FULFILLMENT API KEY."
+    }
+  ]
+}

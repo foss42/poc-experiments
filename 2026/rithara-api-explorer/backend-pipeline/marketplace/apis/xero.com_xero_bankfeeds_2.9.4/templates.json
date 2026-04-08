@@ -1,0 +1,347 @@
+{
+  "api_id": "xero.com:xero_bankfeeds:2.9.4",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "searches-for-feed-connections",
+      "name": "Searches for feed connections",
+      "description": "By passing in the appropriate options, you can search for available feed connections in the system.",
+      "method": "GET",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/FeedConnections",
+      "headers": {
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "items": [
+          {
+            "accountId": "aefbf6be-4285-4ca5-bf39-0f486c8515c7",
+            "accountName": "SDK Bank 95921",
+            "accountNumber": "123496842",
+            "accountToken": "foobar31306",
+            "accountType": "BANK",
+            "country": "GB",
+            "currency": "GBP",
+            "id": "c0eb97b5-4f97-465a-8268-276513c14396"
+          },
+          {
+            "accountId": "fc2f3cc2-126e-40d7-9fc1-12e52d0a71f1",
+            "accountName": "SDK Bank 11272",
+            "accountNumber": "123481122",
+            "accountToken": "foobar74770",
+            "accountType": "BANK",
+            "country": "GB",
+            "currency": "GBP",
+            "id": "3b44b539-4e39-4d53-9334-d8ba01674752"
+          }
+        ],
+        "pagination": {
+          "itemCount": 39,
+          "page": 1,
+          "pageCount": 1,
+          "pageSize": 87654321
+        }
+      },
+      "auth_placeholders": [
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN."
+    },
+    {
+      "id": "create-one-or-more-new-feed-connection",
+      "name": "Create one or more new feed connection",
+      "description": "By passing in the FeedConnections array object in the body, you can create one or more new feed connections",
+      "method": "POST",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/FeedConnections",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "items": [
+          {
+            "accountName": "SDK Bank 90861",
+            "accountNumber": "123458637",
+            "accountToken": "foobar71760",
+            "accountType": "BANK",
+            "currency": "GBP"
+          }
+        ]
+      },
+      "sample_response": {
+        "items": [
+          {
+            "accountToken": "foobar71760",
+            "id": "2a19d46c-2a92-4e50-9401-dcf2cb895be7",
+            "status": "PENDING"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN."
+    },
+    {
+      "id": "delete-an-existing-feed-connection",
+      "name": "Delete an existing feed connection",
+      "description": "By passing in FeedConnections array object in the body, you can delete a feed connection.",
+      "method": "POST",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/FeedConnections/DeleteRequests",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "items": [
+          {
+            "id": "b4cc693b-24d9-42ec-a6d4-2943d253ff63"
+          }
+        ]
+      },
+      "sample_response": {
+        "items": [
+          {
+            "id": "b4cc693b-24d9-42ec-a6d4-2943d253ff63",
+            "status": "PENDING"
+          },
+          {
+            "accountToken": "10000125",
+            "error": {
+              "detail": "The AccountToken is connected to another Xero Bank Account associated with this bank. This Xero Bank Account belongs to a different Xero Organisation.",
+              "title": "Feed connected in different organisation",
+              "type": "feed-connected-in-different-organisation"
+            },
+            "status": "REJECTED"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-single-feed-connection-based-on-a-unique-id-provided",
+      "name": "Retrieve single feed connection based on a unique id provided",
+      "description": "By passing in a FeedConnection Id options, you can search for matching feed connections",
+      "method": "GET",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/FeedConnections/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "accountId": "f4c4d595-da94-493b-999a-19d1ae1f508a",
+        "accountName": "SDK Bank 5517",
+        "accountNumber": "123434859",
+        "accountToken": "foobar84778",
+        "accountType": "BANK",
+        "country": "GB",
+        "currency": "GBP",
+        "id": "b58b685a-1bee-4904-91f1-fee30bb6ea52"
+      },
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "retrieve-all-statements",
+      "name": "Retrieve all statements",
+      "description": "By passing in parameters, you can search for matching statements",
+      "method": "GET",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/Statements",
+      "headers": {
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {
+        "items": [
+          {
+            "endBalance": {
+              "amount": "150.0000",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "endDate": "2019-08-15",
+            "errors": [
+              {
+                "detail": "The received statement was marked as a duplicate.",
+                "status": 409,
+                "title": "Duplicate Statement Received",
+                "type": "duplicate-statement"
+              }
+            ],
+            "feedConnectionId": "6a4b9ff5-3a5f-4321-936b-4796163550f6",
+            "id": "9817e4b8-82b3-4526-91f7-040bd278053f",
+            "startBalance": {
+              "amount": "100.0000",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "startDate": "2019-08-01",
+            "statementLineCount": "1",
+            "status": "REJECTED"
+          },
+          {
+            "endBalance": {
+              "amount": "150.0000",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "endDate": "2019-08-15",
+            "feedConnectionId": "6a4b9ff5-3a5f-4321-936b-4796163550f6",
+            "id": "2fc57bac-7aa7-4981-a5cd-8aee83fe698c",
+            "startBalance": {
+              "amount": "100.0000",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "startDate": "2019-08-01",
+            "statementLineCount": "1",
+            "status": "DELIVERED"
+          }
+        ],
+        "pagination": {
+          "itemCount": 3,
+          "page": 1,
+          "pageCount": 210,
+          "pageSize": 3
+        }
+      },
+      "auth_placeholders": [
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN."
+    },
+    {
+      "id": "creates-one-or-more-new-statements",
+      "name": "Creates one or more new statements",
+      "description": "Creates one or more new statements",
+      "method": "POST",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/Statements",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "items": [
+          {
+            "endBalance": {
+              "amount": "150",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "endDate": "2019-08-11",
+            "feedConnectionId": "6a4b9ff5-3a5f-4321-936b-4796163550f6",
+            "startBalance": {
+              "amount": "100",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "startDate": "2019-08-11",
+            "statementLines": [
+              {
+                "amount": "50",
+                "chequeNumber": "12379009",
+                "creditDebitIndicator": "CREDIT",
+                "description": "My new line",
+                "payeeName": "StarLord90315",
+                "postedDate": "2019-08-11",
+                "reference": "Foobar95578",
+                "transactionId": "123446422"
+              }
+            ]
+          },
+          {
+            "endBalance": {
+              "amount": "150",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "endDate": "2019-08-11",
+            "feedConnectionId": "2ebe6393-f3bb-48ab-9a0e-b04fa8585a70",
+            "startBalance": {
+              "amount": "100",
+              "creditDebitIndicator": "CREDIT"
+            },
+            "startDate": "2019-08-11",
+            "statementLines": [
+              {
+                "amount": "50",
+                "chequeNumber": "12379350",
+                "creditDebitIndicator": "CREDIT",
+                "description": "My new line",
+                "payeeName": "StarLord56705",
+                "postedDate": "2019-08-11",
+                "reference": "Foobar67355",
+                "transactionId": "123449402"
+              }
+            ]
+          }
+        ]
+      },
+      "sample_response": {
+        "items": [
+          {
+            "feedConnectionId": "6a4b9ff5-3a5f-4321-936b-4796163550f6",
+            "id": "d69b02b7-a30c-464a-99cf-ba9770373c61",
+            "status": "PENDING"
+          },
+          {
+            "feedConnectionId": "2ebe6393-f3bb-48ab-9a0e-b04fa8585a70",
+            "id": "598f255c-015b-4138-93df-2e06c64565b3",
+            "status": "PENDING"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-single-statement-based-on-unique-id-provided",
+      "name": "Retrieve single statement based on unique id provided",
+      "description": "By passing in a statement id, you can search for matching statements",
+      "method": "GET",
+      "url": "https://api.xero.com/bankfeeds.xro/1.0/Statements/{{STATEMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{XERO_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "statementId": ""
+      },
+      "body": null,
+      "sample_response": {
+        "endBalance": {
+          "amount": "150.0000",
+          "creditDebitIndicator": "CREDIT"
+        },
+        "endDate": "2019-10-11",
+        "feedConnectionId": "6a4b9ff5-3a5f-4321-936b-4796163550f6",
+        "id": "97aca24a-dd10-4cda-98c7-1084a048257b",
+        "startBalance": {
+          "amount": "100.0000",
+          "creditDebitIndicator": "CREDIT"
+        },
+        "startDate": "2019-08-11",
+        "statementLineCount": "1",
+        "status": "DELIVERED"
+      },
+      "auth_placeholders": [
+        "{{STATEMENTID}}",
+        "{{XERO_ACCESS_TOKEN}}",
+        "{{XERO_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{XERO_ACCESS_TOKEN}} with your XERO ACCESS TOKEN. Replace {{STATEMENTID}} with a real statementid."
+    }
+  ]
+}

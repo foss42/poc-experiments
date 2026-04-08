@@ -1,0 +1,216 @@
+{
+  "api_id": "googleapis.com:cloudscheduler:v1beta1",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "get-v1beta1-name",
+      "name": "GET /v1beta1/{name}",
+      "description": "Gets a job.",
+      "method": "GET",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1beta1-name",
+      "name": "DELETE /v1beta1/{name}",
+      "description": "Deletes a job.",
+      "method": "DELETE",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1beta1-name",
+      "name": "PATCH /v1beta1/{name}",
+      "description": "Updates a job. If successful, the updated Job is returned. If the job does not exist, `NOT_FOUND` is returned. If UpdateJob does not successfully return, it is possible for the job to be in an Job.State.UPDATE_FAILED state. A job in this state may not be executed. If this happens, retry the UpdateJob request until a successful response is received.",
+      "method": "PATCH",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appEngineHttpTarget": {},
+        "attemptDeadline": "",
+        "description": "",
+        "httpTarget": {},
+        "lastAttemptTime": "",
+        "legacyAppEngineCron": false,
+        "name": "",
+        "pubsubTarget": {},
+        "retryConfig": {},
+        "schedule": "",
+        "scheduleTime": "",
+        "state": "",
+        "status": {},
+        "timeZone": "",
+        "userUpdateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta1-name-locations",
+      "name": "GET /v1beta1/{name}/locations",
+      "description": "Lists information about the supported locations for this service.",
+      "method": "GET",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}/locations",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta1-name-pause",
+      "name": "POST /v1beta1/{name}:pause",
+      "description": "Pauses a job. If a job is paused then the system will stop executing the job until it is re-enabled via ResumeJob. The state of the job is stored in state; if paused it will be set to Job.State.PAUSED. A job must be in Job.State.ENABLED to be paused.",
+      "method": "POST",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}:pause",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta1-name-resume",
+      "name": "POST /v1beta1/{name}:resume",
+      "description": "Resume a job. This method reenables a job after it has been Job.State.PAUSED. The state of a job is stored in Job.state; after calling this method it will be set to Job.State.ENABLED. A job must be in Job.State.PAUSED to be resumed.",
+      "method": "POST",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}:resume",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta1-name-run",
+      "name": "POST /v1beta1/{name}:run",
+      "description": "Forces a job to run now. When this method is called, Cloud Scheduler will dispatch the job, even if the job is already running.",
+      "method": "POST",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{NAME}}:run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "legacyAppEngineCron": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta1-parent-jobs",
+      "name": "GET /v1beta1/{parent}/jobs",
+      "description": "Lists jobs.",
+      "method": "GET",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{PARENT}}/jobs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-jobs",
+      "name": "POST /v1beta1/{parent}/jobs",
+      "description": "Creates a job.",
+      "method": "POST",
+      "url": "https://cloudscheduler.googleapis.com/v1beta1/{{PARENT}}/jobs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appEngineHttpTarget": {},
+        "attemptDeadline": "",
+        "description": "",
+        "httpTarget": {},
+        "lastAttemptTime": "",
+        "legacyAppEngineCron": false,
+        "name": "",
+        "pubsubTarget": {},
+        "retryConfig": {},
+        "schedule": "",
+        "scheduleTime": "",
+        "state": "",
+        "status": {},
+        "timeZone": "",
+        "userUpdateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

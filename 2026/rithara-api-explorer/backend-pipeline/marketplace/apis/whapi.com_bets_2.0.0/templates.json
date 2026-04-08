@@ -1,0 +1,109 @@
+{
+  "api_id": "whapi.com:bets:2.0.0",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "places-a-multiple-or-a-complex-bet",
+      "name": "Places a multiple or a complex bet.",
+      "description": "Places a multiple or a complex bet.",
+      "method": "POST",
+      "url": "https://sandbox.whapi.com/v2/bets/bet/complex",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "bets": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "places-a-single-bet",
+      "name": "Places a single bet",
+      "description": "Places a single bet. When placing a single bet using live inplay bets, the system might generate a bet delay to allow a time margin to negate the effects of major changes (for example, goals) to the market. Note that the amount of bet delay will vary by category and event type. A delayedBetId will be recieved that can be used to resubmit the bet.",
+      "method": "POST",
+      "url": "https://sandbox.whapi.com/v2/bets/bet/single",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "type": "",
+        "stake": 0.0,
+        "selectionId": "",
+        "priceType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-betslips",
+      "name": "POST /betslips",
+      "description": "Organises the betslip when one or more selections are made. It returns a bet slip structure organised by betting opportunities.",
+      "method": "POST",
+      "url": "https://sandbox.whapi.com/v2/bets/betslips",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "legs": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-available-free-bets",
+      "name": "Returns available free bets",
+      "description": "Retrieves the current free bets available for a customer.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/bets/freebets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieves-the-customers-bet-history",
+      "name": "Retrieves the customer\u2019s bet history.",
+      "description": "Retrieves the customer\u2019s bet history. Options are available to organise the history in terms of date, bet type and settled and unsettled bets. The maximum number of bets and bet history pages retrieved can also be set.",
+      "method": "GET",
+      "url": "https://sandbox.whapi.com/v2/bets/history",
+      "headers": {},
+      "query_params": {
+        "dateFrom": "",
+        "dateTo": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "allows-a-trusted-application-to-cash-in-a-bet-take-a-return-on-a-bet-on-behalf-of-the-customer",
+      "name": "Allows a trusted application to cash in a bet (take a return on a bet) on behalf of the customer",
+      "description": "Allows a trusted application to cash in a bet (take a return on a bet) on behalf of the customer. If the customers monitor bets they can cash in a bet at any point before the event ends.",
+      "method": "PUT",
+      "url": "https://sandbox.whapi.com/v2/bets/{{BETID}}/cashin",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "cashInValue": "",
+        "cashinBetDelayId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BETID}}"
+      ],
+      "notes": "No authentication required. Replace {{BETID}} with a real betid."
+    }
+  ]
+}

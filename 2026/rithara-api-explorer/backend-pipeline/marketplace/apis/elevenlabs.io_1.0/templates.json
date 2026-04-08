@@ -1,0 +1,287 @@
+{
+  "api_id": "elevenlabs.io:1.0",
+  "endpoint_count": 18,
+  "endpoints": [
+    {
+      "id": "get-generated-items",
+      "name": "Get Generated Items",
+      "description": "Returns metadata about all your generated audio.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/history",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-history-items",
+      "name": "Delete History Items",
+      "description": "Delete a number of history items by their IDs.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/history/delete",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "history_item_ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "download-history-items",
+      "name": "Download History Items",
+      "description": "Download one or more history items. If one history item ID is provided, we will return a single audio file. If more than one history item IDs are provided, we will provide the history items packed into a .zip file.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/history/download",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "history_item_ids": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-history-item",
+      "name": "Delete History Item",
+      "description": "Delete a history item by its ID",
+      "method": "DELETE",
+      "url": "https://api.elevenlabs.io/v1/history/{{HISTORY_ITEM_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HISTORY_ITEM_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{HISTORY_ITEM_ID}} with a real history_item_id."
+    },
+    {
+      "id": "get-audio-from-history-item",
+      "name": "Get Audio From History Item",
+      "description": "Returns the audio of an history item.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/history/{{HISTORY_ITEM_ID}}/audio",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HISTORY_ITEM_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{HISTORY_ITEM_ID}} with a real history_item_id."
+    },
+    {
+      "id": "text-to-speech",
+      "name": "Text To Speech",
+      "description": "Converts text into speech using a voice of your choice and returns audio.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/text-to-speech/{{VOICE_ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "text": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "text-to-speech-2",
+      "name": "Text To Speech",
+      "description": "Converts text into speech using a voice of your choice and returns audio as an audio stream.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/text-to-speech/{{VOICE_ID}}/stream",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "text": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "get-user-info",
+      "name": "Get User Info",
+      "description": "Gets information about the user",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/user",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-user-subscription-info",
+      "name": "Get User Subscription Info",
+      "description": "Gets extended information about the users subscription",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/user/subscription",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-voices",
+      "name": "Get Voices",
+      "description": "Gets a list of all available voices for a user.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/voices",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-voice",
+      "name": "Add Voice",
+      "description": "Add a new voice to your collection of voices in VoiceLab.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/voices/add",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "files": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-default-voice-settings",
+      "name": "Get Default Voice Settings.",
+      "description": "Gets the default settings for voices. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/voices/settings/default",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-voice",
+      "name": "Get Voice",
+      "description": "Returns metadata about a specific voice.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "delete-voice",
+      "name": "Delete Voice",
+      "description": "Deletes a voice by its ID.",
+      "method": "DELETE",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "edit-voice",
+      "name": "Edit Voice",
+      "description": "Edit a voice created by you.",
+      "method": "POST",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}/edit",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "delete-sample",
+      "name": "Delete Sample",
+      "description": "Removes a sample by its ID.",
+      "method": "DELETE",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}/samples/{{SAMPLE_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SAMPLE_ID}}",
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{SAMPLE_ID}} with a real sample_id. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "get-audio-from-sample",
+      "name": "Get Audio From Sample",
+      "description": "Returns the audio corresponding to a sample attached to a voice.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}/samples/{{SAMPLE_ID}}/audio",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SAMPLE_ID}}",
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{SAMPLE_ID}} with a real sample_id. Replace {{VOICE_ID}} with a real voice_id."
+    },
+    {
+      "id": "get-voice-settings",
+      "name": "Get Voice Settings",
+      "description": "Returns the settings for a specific voice. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+      "method": "GET",
+      "url": "https://api.elevenlabs.io/v1/voices/{{VOICE_ID}}/settings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOICE_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{VOICE_ID}} with a real voice_id."
+    }
+  ]
+}

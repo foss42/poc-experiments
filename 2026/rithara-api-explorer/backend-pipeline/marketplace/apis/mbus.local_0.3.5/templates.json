@@ -1,0 +1,101 @@
+{
+  "api_id": "mbus.local:0.3.5",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "get-mbus-api",
+      "name": "GET /mbus/api",
+      "description": "Returns this API specification",
+      "method": "GET",
+      "url": "http://mbus.local/mbus/api",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-mbus-get-device-baudrate-address",
+      "name": "POST /mbus/get/{device}/{baudrate}/{address}",
+      "description": "Gets data from the slave identified by {address}",
+      "method": "POST",
+      "url": "http://mbus.local/mbus/get/{{DEVICE}}/{{BAUDRATE}}/{{ADDRESS}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICE}}",
+        "{{BAUDRATE}}",
+        "{{ADDRESS}}"
+      ],
+      "notes": "No authentication required. Replace {{DEVICE}} with a real device. Replace {{BAUDRATE}} with a real baudrate. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "post-mbus-getmulti-device-baudrate-address-maxframes",
+      "name": "POST /mbus/getMulti/{device}/{baudrate}/{address}/{maxframes}",
+      "description": "Gets data from the slave identified by {address}, and supports multiple responses from the slave",
+      "method": "POST",
+      "url": "http://mbus.local/mbus/getMulti/{{DEVICE}}/{{BAUDRATE}}/{{ADDRESS}}/{{MAXFRAMES}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEVICE}}",
+        "{{BAUDRATE}}",
+        "{{MAXFRAMES}}",
+        "{{ADDRESS}}"
+      ],
+      "notes": "No authentication required. Replace {{DEVICE}} with a real device. Replace {{BAUDRATE}} with a real baudrate. Replace {{MAXFRAMES}} with a real maxframes. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "get-mbus-hat",
+      "name": "GET /mbus/hat",
+      "description": "Gets Raspberry Pi Hat information",
+      "method": "GET",
+      "url": "http://mbus.local/mbus/hat",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-mbus-hat-off",
+      "name": "POST /mbus/hat/off",
+      "description": "Turns off power to the M-Bus",
+      "method": "POST",
+      "url": "http://mbus.local/mbus/hat/off",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-mbus-hat-on",
+      "name": "POST /mbus/hat/on",
+      "description": "Turns on power to the M-Bus",
+      "method": "POST",
+      "url": "http://mbus.local/mbus/hat/on",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

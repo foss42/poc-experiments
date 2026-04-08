@@ -1,0 +1,408 @@
+{
+  "api_id": "googleapis.com:firebasehosting:v1beta1",
+  "endpoint_count": 17,
+  "endpoints": [
+    {
+      "id": "get-v1beta1-name",
+      "name": "GET /v1beta1/{name}",
+      "description": "Get the specified version that has been created for the specified site. This can include versions that were created for the default `live` channel or for any active preview channels for the specified site.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "put-v1beta1-name",
+      "name": "PUT /v1beta1/{name}",
+      "description": "Updates the specified domain mapping, creating the mapping as if it does not exist.",
+      "method": "PUT",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "domainName": "",
+        "domainRedirect": {},
+        "provisioning": {},
+        "site": "",
+        "status": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1beta1-name",
+      "name": "DELETE /v1beta1/{name}",
+      "description": "Deletes the specified version.",
+      "method": "DELETE",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1beta1-name",
+      "name": "PATCH /v1beta1/{name}",
+      "description": " Updates the specified metadata for the specified version. This method will fail with `FAILED_PRECONDITION` in the event of an invalid state transition. The supported [state](../sites.versions#versionstatus) transitions for a version are from `CREATED` to `FINALIZED`. Use [`DeleteVersion`](delete) to set the status of a version to `DELETED`.",
+      "method": "PATCH",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "config": {},
+        "createTime": "",
+        "createUser": {},
+        "deleteTime": "",
+        "deleteUser": {},
+        "fileCount": "",
+        "finalizeTime": "",
+        "finalizeUser": {},
+        "labels": {},
+        "name": "",
+        "status": "",
+        "versionBytes": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta1-parent-channels",
+      "name": "GET /v1beta1/{parent}/channels",
+      "description": "Lists the channels for the specified site. All sites have a default `live` channel.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/channels",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-channels",
+      "name": "POST /v1beta1/{parent}/channels",
+      "description": "Creates a new channel in the specified site.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/channels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "createTime": "",
+        "expireTime": "",
+        "labels": {},
+        "name": "",
+        "release": {},
+        "retainedReleaseCount": 0,
+        "ttl": "",
+        "updateTime": "",
+        "url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta1-parent-domains",
+      "name": "GET /v1beta1/{parent}/domains",
+      "description": "Lists the domains for the specified site.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/domains",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-domains",
+      "name": "POST /v1beta1/{parent}/domains",
+      "description": "Creates a domain mapping on the specified site.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/domains",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "domainName": "",
+        "domainRedirect": {},
+        "provisioning": {},
+        "site": "",
+        "status": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta1-parent-files",
+      "name": "GET /v1beta1/{parent}/files",
+      "description": "Lists the remaining files to be uploaded for the specified version.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/files",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta1-parent-releases",
+      "name": "GET /v1beta1/{parent}/releases",
+      "description": "Lists the releases that have been created for the specified site or channel. When used to list releases for a site, this list includes releases for both the default `live` channel and any active preview channels for the specified site.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/releases",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-releases",
+      "name": "POST /v1beta1/{parent}/releases",
+      "description": "Creates a new release, which makes the content of the specified version actively display on the appropriate URL(s).",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/releases",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "message": "",
+        "name": "",
+        "releaseTime": "",
+        "releaseUser": {},
+        "type": "",
+        "version": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta1-parent-sites",
+      "name": "GET /v1beta1/{parent}/sites",
+      "description": "Lists each Hosting Site associated with the specified parent Firebase project.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/sites",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-sites",
+      "name": "POST /v1beta1/{parent}/sites",
+      "description": "Creates a new Hosting Site in the specified parent Firebase project. Note that Hosting sites can take several minutes to propagate through Firebase systems.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/sites",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appId": "",
+        "defaultUrl": "",
+        "labels": {},
+        "name": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta1-parent-versions",
+      "name": "GET /v1beta1/{parent}/versions",
+      "description": "Lists the versions that have been created for the specified site. This list includes versions for both the default `live` channel and any active preview channels for the specified site.",
+      "method": "GET",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/versions",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-versions",
+      "name": "POST /v1beta1/{parent}/versions",
+      "description": "Creates a new version for the specified site.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/versions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "config": {},
+        "createTime": "",
+        "createUser": {},
+        "deleteTime": "",
+        "deleteUser": {},
+        "fileCount": "",
+        "finalizeTime": "",
+        "finalizeUser": {},
+        "labels": {},
+        "name": "",
+        "status": "",
+        "versionBytes": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-versions-clone",
+      "name": "POST /v1beta1/{parent}/versions:clone",
+      "description": "Creates a new version on the specified target site using the content of the specified version.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}/versions:clone",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "exclude": {},
+        "finalize": false,
+        "include": {},
+        "sourceVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta1-parent-populatefiles",
+      "name": "POST /v1beta1/{parent}:populateFiles",
+      "description": " Adds content files to the specified version. Each file must be under 2 GB.",
+      "method": "POST",
+      "url": "https://firebasehosting.googleapis.com/v1beta1/{{PARENT}}:populateFiles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "files": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "api_id": "okta.local:1.0.0",
+  "endpoint_count": 19,
+  "endpoints": [
+    {
+      "id": "find-user",
+      "name": "Find User",
+      "description": "Find User",
+      "method": "GET",
+      "url": "http://okta.local/api/v1/users",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-user-in-group",
+      "name": "Create User in Group",
+      "description": "Create User in Group",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "groupIds": [
+          "{{groupId}}"
+        ],
+        "profile": {
+          "email": "isaac@{{email-suffix}}",
+          "firstName": "Isaac",
+          "lastName": "Brock",
+          "login": "isaac@{{email-suffix}}"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{email-suffix}}",
+        "{{groupId}}"
+      ],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-current-user",
+      "name": "Get Current User",
+      "description": "Get Current User",
+      "method": "GET",
+      "url": "http://okta.local/api/v1/users/me",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-user",
+      "name": "Get User",
+      "description": "Get User",
+      "method": "GET",
+      "url": "http://okta.local/api/v1/users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "set-recovery-credential",
+      "name": "Set Recovery Credential",
+      "description": "Set Recovery Credential",
+      "method": "PUT",
+      "url": "http://okta.local/api/v1/users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "credentials": {
+          "recovery_question": {
+            "answer": "Annie Oakley",
+            "question": "Who's a major player in the cowboy scene?"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-assigned-app-links",
+      "name": "Get Assigned App Links",
+      "description": "Get Assigned App Links",
+      "method": "GET",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/appLinks",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "change-password",
+      "name": "Change Password",
+      "description": "Change Password",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/credentials/change_password",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "newPassword": {
+          "value": "uTVM,TPw55"
+        },
+        "oldPassword": {
+          "value": "{{password}}"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}",
+        "{{password}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "change-recovery-question",
+      "name": "Change Recovery Question",
+      "description": "Change Recovery Question",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/credentials/change_recovery_question",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "password": {
+          "value": "{{password}}"
+        },
+        "recovery_question": {
+          "answer": "My recovery credentials are updated",
+          "question": "What happens when I update my question"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}",
+        "{{password}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "forgot-password-one-time-code",
+      "name": "Forgot Password (One Time Code)",
+      "description": "Forgot Password (One Time Code)",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/credentials/forgot_password",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-groups-for-user",
+      "name": "Get Groups for User",
+      "description": "Get Groups for User",
+      "method": "GET",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/groups",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "activate-user",
+      "name": "Activate User",
+      "description": "Activate User",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/activate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "deactivate-user",
+      "name": "Deactivate User",
+      "description": "Deactivate User",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/deactivate",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "set-temp-password",
+      "name": "Set Temp Password",
+      "description": "Set Temp Password",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/expire_password",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "reset-factors",
+      "name": "Reset Factors",
+      "description": "Reset Factors",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/reset_factors",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "reset-password",
+      "name": "Reset Password",
+      "description": "Reset Password",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/reset_password",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "suspend-user",
+      "name": "Suspend User",
+      "description": "Suspend User",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/suspend",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "unlock-user",
+      "name": "Unlock User",
+      "description": "Unlock User",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/unlock",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "unsuspend-user",
+      "name": "Unsuspend User",
+      "description": "Unsuspend User",
+      "method": "POST",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/lifecycle/unsuspend",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "clear-user-sessions",
+      "name": "Clear User Sessions",
+      "description": "Clear User Sessions",
+      "method": "DELETE",
+      "url": "http://okta.local/api/v1/users/{{USERID}}/sessions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    }
+  ]
+}

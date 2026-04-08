@@ -1,0 +1,143 @@
+{
+  "api_id": "mastercard.com:PersonalizedLoyaltyOffers:1.3",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "make-statement-credit-offer-available-redeemable",
+      "name": "Make Statement Credit Offer Available Redeemable",
+      "description": "This resource is used to make a statement credit offer available for redemption.\n",
+      "method": "POST",
+      "url": "https://api.mastercard.com/plo/v1/activatestatementcreditoffer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "FId": "",
+        "UserToken": "",
+        "OfferId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-matched-offers",
+      "name": "Returns Matched Offers",
+      "description": "This resource returns offers that are available to the user and conform to the search criteria (if specified).\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/matchedoffers",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "UserToken": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-information-on-an-offer",
+      "name": "Returns Information on an Offer",
+      "description": "This resource returns extended information for the requested offer, typically used to display a detail view.\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/offerdetails",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "UserToken": "",
+        "OfferId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-redeemed-offers",
+      "name": "Returns Redeemed Offers",
+      "description": "This resource returns offers that have been fulfilled by the user.\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/redeemedoffers",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "UserToken": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-information-about-redeemable-postpaid-credit-offer",
+      "name": "Returns Information About Redeemable Postpaid Credit Offer",
+      "description": "This resource returns extended information about the specified activated postpaid credit offer.\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/statementcreditactivationdetail",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "UserToken": "",
+        "ActivationId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "provide-user-feedback-on-offer",
+      "name": "Provide User Feedback on Offer",
+      "description": "This resource allows a user to provide a thumbs-up or a thumbs-down rating of the specified offer. Offer matches that are disliked will be supressed from the results of future calls to Matched Offers.\n",
+      "method": "POST",
+      "url": "https://api.mastercard.com/plo/v1/userfeedback",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "FId": "",
+        "UserToken": "",
+        "OfferId": "",
+        "Feedback": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-savings-for-the-user",
+      "name": "Returns Savings for the User",
+      "description": "This resource returns the accumulated and potential savings for a Personalized Offers user.\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/usersavings",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "UserToken": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-user-session-token",
+      "name": "Returns User Session Token",
+      "description": "This resource creates the user session. It must be called prior to any other API calls for the specified user. The Token value does not expire.\n",
+      "method": "GET",
+      "url": "https://api.mastercard.com/plo/v1/usertoken",
+      "headers": {},
+      "query_params": {
+        "FId": "",
+        "AuthInfo": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

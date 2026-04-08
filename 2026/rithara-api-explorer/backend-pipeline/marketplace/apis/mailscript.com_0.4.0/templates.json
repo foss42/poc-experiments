@@ -1,0 +1,687 @@
+{
+  "api_id": "mailscript.com:0.4.0",
+  "endpoint_count": 34,
+  "endpoints": [
+    {
+      "id": "get-all-actions-for-the-user",
+      "name": "Get all actions for the user",
+      "description": "Get all actions for the user",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/actions",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "delete-an-action",
+      "name": "Delete an action",
+      "description": "Delete an action",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/actions/{{ACTION}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTION}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ACTION}} with a real action."
+    },
+    {
+      "id": "get-all-addresses-you-have-access-to",
+      "name": "Get all addresses you have access to",
+      "description": "Get all addresses you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/addresses",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "claim-a-new-mailscript-address",
+      "name": "Claim a new Mailscript address",
+      "description": "Claim a new Mailscript address",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/addresses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "address": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "delete-a-mailscript-address",
+      "name": "Delete a mailscript address",
+      "description": "Delete a mailscript address",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "list-address-keys",
+      "name": "List address keys",
+      "description": "List address keys",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}/keys",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "add-address-key",
+      "name": "Add address key",
+      "description": "Add address key",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "read": false,
+        "write": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "get-address-key",
+      "name": "Get address key",
+      "description": "Get address key",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}/keys/{{KEY}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "update-an-address-key",
+      "name": "Update an address key",
+      "description": "Update an address key",
+      "method": "PUT",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}/keys/{{KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "read": false,
+        "write": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "delete-address-key",
+      "name": "Delete address key",
+      "description": "Delete address key",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/addresses/{{ADDRESS}}/keys/{{KEY}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADDRESS}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{ADDRESS}} with a real address. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "get-a-token-for-opening-a-daemon-connection",
+      "name": "Get a token for opening a daemon connection",
+      "description": "Get a token for opening a daemon connection",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/daemons/{{DAEMON}}/token",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{DAEMON}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{DAEMON}} with a real daemon."
+    },
+    {
+      "id": "get-all-domains-you-have-access-to",
+      "name": "Get all domains you have access to",
+      "description": "Get all domains you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/domains",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "claim-a-new-domain",
+      "name": "Claim a new Domain",
+      "description": "Claim a new Domain",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/domains",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "domain": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "get-domain-verification",
+      "name": "Get domain verification",
+      "description": "Get domain verification",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/domains/verify/{{DOMAIN}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{DOMAIN}} with a real domain."
+    },
+    {
+      "id": "check-a-new-domain",
+      "name": "Check a new Domain",
+      "description": "Check a new Domain",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/domains/verify/{{DOMAIN}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{DOMAIN}} with a real domain."
+    },
+    {
+      "id": "remove-a-domain",
+      "name": "Remove a domain",
+      "description": "Remove a domain",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/domains/{{DOMAIN}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{DOMAIN}} with a real domain."
+    },
+    {
+      "id": "get-all-inputs-you-have-access-to",
+      "name": "Get all inputs you have access to",
+      "description": "Get all inputs you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/inputs",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "get-all-integrations-for-the-user",
+      "name": "Get all integrations for the user",
+      "description": "Get all integrations for the user",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/integrations",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "delete-an-integration",
+      "name": "Delete an integration",
+      "description": "Delete an integration",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/integrations/{{INTEGRATION}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INTEGRATION}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{INTEGRATION}} with a real integration."
+    },
+    {
+      "id": "send-an-email",
+      "name": "Send an email",
+      "description": "Send an email",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/send",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "to": "",
+        "from": "",
+        "subject": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "get-all-triggers-you-have-access-to",
+      "name": "Get all triggers you have access to",
+      "description": "Get all triggers you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/triggers",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "setup-a-trigger",
+      "name": "Setup a trigger",
+      "description": "Setup a trigger",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/triggers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "criteria": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "update-a-trigger",
+      "name": "Update a trigger",
+      "description": "Update a trigger",
+      "method": "PUT",
+      "url": "https://api.mailscript.com/v2/triggers/{{TRIGGER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "criteria": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{TRIGGER}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{TRIGGER}} with a real trigger."
+    },
+    {
+      "id": "delete-a-trigger",
+      "name": "Delete a trigger",
+      "description": "Delete a trigger",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/triggers/{{TRIGGER}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{TRIGGER}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{TRIGGER}} with a real trigger."
+    },
+    {
+      "id": "get-the-authenticated-user",
+      "name": "Get the authenticated user",
+      "description": "Get the authenticated user",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/user",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a user",
+      "description": "Update a user",
+      "method": "PUT",
+      "url": "https://api.mailscript.com/v2/user",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "get-all-verificats-for-the-user",
+      "name": "Get all verificats for the user",
+      "description": "Get all verificats for the user",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/verifications",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "get-all-workflows-you-have-access-to",
+      "name": "Get all workflows you have access to",
+      "description": "Get all workflows you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/workflows",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "setup-workflow",
+      "name": "Setup workflow",
+      "description": "Setup workflow",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/workflows",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "input": "",
+        "action": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "set-a-property-on-a-workflow",
+      "name": "Set a property on a workflow",
+      "description": "Set a property on a workflow",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/workflows/set",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "",
+        "pairs": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "update-an-workflow",
+      "name": "Update an workflow",
+      "description": "Update an workflow",
+      "method": "PUT",
+      "url": "https://api.mailscript.com/v2/workflows/{{WORKFLOW}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "input": "",
+        "action": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKFLOW}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{WORKFLOW}} with a real workflow."
+    },
+    {
+      "id": "delete-a-workflow",
+      "name": "Delete a workflow",
+      "description": "Delete a workflow",
+      "method": "DELETE",
+      "url": "https://api.mailscript.com/v2/workflows/{{WORKFLOW}}",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{WORKFLOW}}",
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY. Replace {{WORKFLOW}} with a real workflow."
+    },
+    {
+      "id": "get-all-workspaces-you-have-access-to",
+      "name": "Get all workspaces you have access to",
+      "description": "Get all workspaces you have access to",
+      "method": "GET",
+      "url": "https://api.mailscript.com/v2/workspaces",
+      "headers": {
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    },
+    {
+      "id": "claim-a-mailscript-workspace",
+      "name": "Claim a Mailscript workspace",
+      "description": "An attendant address will be created as well",
+      "method": "POST",
+      "url": "https://api.mailscript.com/v2/workspaces",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{MAILSCRIPT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "workspace": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MAILSCRIPT_API_KEY}}",
+        "{{MAILSCRIPT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{MAILSCRIPT_API_KEY}} with your MAILSCRIPT API KEY."
+    }
+  ]
+}

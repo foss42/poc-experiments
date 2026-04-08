@@ -1,0 +1,681 @@
+{
+  "api_id": "storecove.com:2.0.1",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "id": "discover-network-participant-existence",
+      "name": "Discover Network Participant Existence",
+      "description": "Discover if a network participant exists.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/discovery/exists",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "scheme": "",
+        "identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "discover-country-identifiers-experimental",
+      "name": "Discover Country Identifiers ** EXPERIMENTAL",
+      "description": "Discover the identifiers used in each country, for routing, for legal identification as well as for tax identification purposes. We are currently testing this endpoint with selected Customers. If you would like to participate, please contact us.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/discovery/identifiers",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "disover-network-participant",
+      "name": "Disover Network Participant",
+      "description": "Discover a network participant and capabilities.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/discovery/receives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "scheme": "",
+        "identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "submit-a-new-document",
+      "name": "Submit a new document.",
+      "description": "Submit a document for delivery. This endpoint will replaces the /invoice_submissions endpoint which will soon be deprecated.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/document_submissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "attachments": [],
+        "createPrimaryImage": false,
+        "document": {},
+        "idempotencyGuid": "",
+        "legalEntityId": 0,
+        "receiveGuid": "",
+        "routing": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "get-documentsubmission-evidence",
+      "name": "Get DocumentSubmission Evidence",
+      "description": "Get evidence for a DocumentSubmission by GUID with corresponding status",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/document_submissions/{{GUID}}/evidence/{{EVIDENCE_TYPE}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{EVIDENCE_TYPE}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid. Replace {{EVIDENCE_TYPE}} with a real evidence_type."
+    },
+    {
+      "id": "submit-a-new-invoice",
+      "name": "Submit a new invoice",
+      "description": "DEPRECATED. Use the new /document_submissions endpoint. Submit an invoice for delivery.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/invoice_submissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "attachments": [],
+        "createPrimaryImage": false,
+        "document": "",
+        "documentUrl": "",
+        "idempotencyGuid": "",
+        "invoice": {},
+        "invoiceData": {},
+        "invoiceRecipient": {},
+        "legalEntityId": 0,
+        "legalSupplierId": 0,
+        "mode": "",
+        "routing": {},
+        "supplierId": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "deprecated-preflight-an-invoice-recipient",
+      "name": "DEPRECATED. Preflight an invoice recipient",
+      "description": "Deprecated. Use the new /discovery endpoint. Check whether Storecove can deliver an invoice for a list of ids.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/invoice_submissions/preflight",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "publicIdentifiers": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "deprecated-get-invoicesubmission-evidence",
+      "name": "DEPRECATED. Get InvoiceSubmission Evidence",
+      "description": "Deprecated. Use the new /document_submissions/{guid}/evidence endpoint. Get evidence for an InvoiceSubmission by GUID with corresponding status",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/invoice_submissions/{{GUID}}/evidence",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid."
+    },
+    {
+      "id": "create-a-new-legalentity",
+      "name": "Create a new LegalEntity",
+      "description": "Create a new LegalEntity.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/legal_entities",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "party_name": "",
+        "line1": "",
+        "city": "",
+        "zip": "",
+        "country": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "get-legalentity",
+      "name": "Get LegalEntity",
+      "description": "Get a specific LegalEntity.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-legalentity",
+      "name": "Delete LegalEntity",
+      "description": "Delete a specific LegalEntity.",
+      "method": "DELETE",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-legalentity",
+      "name": "Update LegalEntity",
+      "description": "Update a specific LegalEntity.",
+      "method": "PATCH",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "advertisements": [
+          "invoice"
+        ],
+        "city": "",
+        "country": "",
+        "county": "",
+        "id": 0,
+        "line1": "",
+        "line2": "",
+        "party_name": "",
+        "public": true,
+        "rea": "",
+        "smart_inbox": "",
+        "tenant_id": "",
+        "third_party_password": "",
+        "third_party_username": "",
+        "zip": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-new-additionaltaxidentifier",
+      "name": "Create a new AdditionalTaxIdentifier",
+      "description": "Create a new AdditionalTaxIdentifier. An AdditionalTaxIdentifier is a seconday tax identifier that is used inside the EU when sending invoices to consumers. In that case, the VAT of the receiving country is used and if the sender has a local VAT identifier, that is used to identifiy the sender, instead of the sender's origin country VAT number. To use these identifiers, use the invoice.consumerTaxMode = true property.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/additional_tax_identifiers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "country": "",
+        "identifier": "",
+        "scheme": "",
+        "superscheme": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id."
+    },
+    {
+      "id": "get-additionaltaxidentifier",
+      "name": "Get AdditionalTaxIdentifier",
+      "description": "Get an AdditionalTaxIdentifier",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/additional_tax_identifiers/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-additionaltaxidentifier",
+      "name": "Delete AdditionalTaxIdentifier",
+      "description": "Delete an AdditionalTaxIdentifier",
+      "method": "DELETE",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/additional_tax_identifiers/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-additionaltaxidentifier",
+      "name": "Update AdditionalTaxIdentifier",
+      "description": "Update an AdditionalTaxIdentifier",
+      "method": "PATCH",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/additional_tax_identifiers/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-new-administration",
+      "name": "Create a new Administration",
+      "description": "Deprecated. Create a new Administration. An Administration is an email destination for purchase invoices.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/administrations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "legal_entity_id": 0,
+        "package_version": "peppol_bis_v3",
+        "packaging": "ubl",
+        "sender_email_identity_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id."
+    },
+    {
+      "id": "get-administration",
+      "name": "Get Administration",
+      "description": "Deprecated. Get an Administration",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/administrations/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-administration",
+      "name": "Delete Administration",
+      "description": "Deprecated. Delete an Administration",
+      "method": "DELETE",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/administrations/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-administration",
+      "name": "Update Administration",
+      "description": "Deprecated. Update an Administration",
+      "method": "PATCH",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/administrations/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "package_version": "",
+        "packaging": "",
+        "sender_email_identity_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-new-peppolidentifier",
+      "name": "Create a new PeppolIdentifier",
+      "description": "Create a brand new new PeppolIdentifier. For <<_sg_singapore>>, special rules apply.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/peppol_identifiers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "identifier": "",
+        "scheme": "",
+        "superscheme": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id."
+    },
+    {
+      "id": "delete-peppolidentifier",
+      "name": "Delete PeppolIdentifier",
+      "description": "Delete a PeppolIdentifier.",
+      "method": "DELETE",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/peppol_identifiers/{{SUPERSCHEME}}/{{SCHEME}}/{{IDENTIFIER}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUPERSCHEME}}",
+        "{{STORECOVE_API_KEY}}",
+        "{{SCHEME}}",
+        "{{IDENTIFIER}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id. Replace {{SCHEME}} with a real scheme. Replace {{SUPERSCHEME}} with a real superscheme. Replace {{IDENTIFIER}} with a real identifier."
+    },
+    {
+      "id": "receive-a-new-document",
+      "name": "Receive a new Document",
+      "description": "DEPRECATED - use new path /received_documents. Receive a new Document.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/legal_entities/{{LEGAL_ENTITY_ID}}/received_documents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "document": "",
+        "legal_entity_id": 0,
+        "parseStrategy": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{LEGAL_ENTITY_ID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{LEGAL_ENTITY_ID}} with a real legal_entity_id."
+    },
+    {
+      "id": "get-purchase-invoice-data-as-json",
+      "name": "Get Purchase invoice data as JSON",
+      "description": "Get a specific PurchaseInvoice, in JSON format.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/purchase_invoices/{{GUID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid."
+    },
+    {
+      "id": "get-purchase-invoice-data-in-a-selectable-format",
+      "name": "Get Purchase invoice data in a selectable format",
+      "description": "Get a specific PurchaseInvoice.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/purchase_invoices/{{GUID}}/{{PACKAGING}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{PACKAGING}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid. Replace {{PACKAGING}} with a real packaging."
+    },
+    {
+      "id": "get-purchase-invoice-data-as-json-with-a-base64-encoded-ubl-string-in-the-specified-version",
+      "name": "Get Purchase invoice data as JSON with a Base64-encoded UBL string in the specified version",
+      "description": "Get a specific PurchaseInvoice in UBL format",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/purchase_invoices/{{GUID}}/{{PACKAGING}}/{{PACKAGE_VERSION}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{PACKAGE_VERSION}}",
+        "{{PACKAGING}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid. Replace {{PACKAGE_VERSION}} with a real package_version. Replace {{PACKAGING}} with a real packaging."
+    },
+    {
+      "id": "create-a-new-received-document",
+      "name": "Create a new received document",
+      "description": "Create a new received document.",
+      "method": "POST",
+      "url": "https://api.storecove.com/api/v2/received_documents",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "document": "",
+        "legal_entity_id": 0,
+        "parseStrategy": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "get-a-new-receiveddocument",
+      "name": "Get a new ReceivedDocument",
+      "description": "EXPERIMENTAL: use only for orders. Get a new ReceivedDocument.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/received_documents/{{GUID}}/{{FORMAT}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "syntax": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{FORMAT}}",
+        "{{GUID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{FORMAT}} with a real format. Replace {{GUID}} with a real guid."
+    },
+    {
+      "id": "get-a-webhookinstance",
+      "name": "GET a WebhookInstance",
+      "description": "GET a WebhookInstance from the queue. After processing it successfully, DELETE it and GET the next one. When a 204 is received, the queue is empty and the polling process can sleep for a while.",
+      "method": "GET",
+      "url": "https://api.storecove.com/api/v2/webhook_instances/",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY."
+    },
+    {
+      "id": "delete-a-webhookinstance",
+      "name": "DELETE a WebhookInstance",
+      "description": "DELETE a specific WebhookInstance",
+      "method": "DELETE",
+      "url": "https://api.storecove.com/api/v2/webhook_instances/{{GUID}}",
+      "headers": {
+        "Authorization": "Bearer{{STORECOVE_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STORECOVE_API_KEY}}",
+        "{{GUID}}",
+        "{{STORECOVE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{STORECOVE_API_KEY}} with your STORECOVE API KEY. Replace {{GUID}} with a real guid."
+    }
+  ]
+}

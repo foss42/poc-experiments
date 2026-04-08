@@ -1,0 +1,48 @@
+{
+  "api_id": "ebay.com:sell-negotiation:v1.1.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-find-eligible-items",
+      "name": "GET /find_eligible_items",
+      "description": "This method evaluates a seller's current listings and returns the set of IDs that are eligible for a seller-initiated discount offer to a buyer. A listing ID is returned only when one or more buyers have shown an &quot;interest&quot; in the listing. If any buyers have shown interest in a listing, the seller can initiate a &quot;negotiation&quot; with them by calling sendOfferToInterestedBuyers, which sends all interested buyers a message that offers the listing at a discount. For details about how to create seller offers to buyers, see Sending offers to buyers.",
+      "method": "GET",
+      "url": "https://api.ebay.com{basePath}/find_eligible_items",
+      "headers": {
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    },
+    {
+      "id": "post-send-offer-to-interested-buyers",
+      "name": "POST /send_offer_to_interested_buyers",
+      "description": "This method sends eligible buyers offers to purchase items in a listing at a discount. When a buyer has shown interest in a listing, they become &quot;eligible&quot; to receive a seller-initiated offer to purchase the item(s). Sellers use findEligibleItems to get the set of listings that have interested buyers. If a listing has interested buyers, sellers can use this method (sendOfferToInterestedBuyers) to send an offer to the buyers who are interested in the listing. The offer gives buyers the ability to purchase the associated listings at a discounted price. For details about how to create seller offers to buyers, see Sending offers to buyers.",
+      "method": "POST",
+      "url": "https://api.ebay.com{basePath}/send_offer_to_interested_buyers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{EBAY_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "allowCounterOffer": false,
+        "message": "",
+        "offerDuration": {},
+        "offeredItems": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EBAY_ACCESS_TOKEN}}",
+        "{{EBAY_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{EBAY_ACCESS_TOKEN}} with your EBAY ACCESS TOKEN."
+    }
+  ]
+}

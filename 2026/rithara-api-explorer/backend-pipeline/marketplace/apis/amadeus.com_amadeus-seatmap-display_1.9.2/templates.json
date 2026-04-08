@@ -1,0 +1,204 @@
+{
+  "api_id": "amadeus.com:amadeus-seatmap-display:1.9.2",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "returns-all-the-seat-maps-of-a-given-order",
+      "name": "Returns all the seat maps of a given order.",
+      "description": "Returns all the seat maps of a given order.",
+      "method": "GET",
+      "url": "https://test.api.amadeus.com/v1/shopping/seatmaps",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-all-the-seat-maps-of-a-given-flightoffer",
+      "name": "Returns all the seat maps of a given flightOffer.",
+      "description": "Returns all the seat maps of a given flightOffer.",
+      "method": "POST",
+      "url": "https://test.api.amadeus.com/v1/shopping/seatmaps",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "data": [
+          {
+            "id": "1",
+            "instantTicketingRequired": false,
+            "itineraries": [
+              {
+                "duration": "PT1H30M",
+                "segments": [
+                  {
+                    "aircraft": {
+                      "code": "320"
+                    },
+                    "arrival": {
+                      "at": "2023-08-01T08:15:00",
+                      "iataCode": "ORY",
+                      "terminal": "2"
+                    },
+                    "blacklistedInEU": false,
+                    "carrierCode": "AF",
+                    "departure": {
+                      "at": "2023-08-01T06:45:00",
+                      "iataCode": "NCE",
+                      "terminal": "2"
+                    },
+                    "duration": "PT1H30M",
+                    "id": "1",
+                    "number": "6201",
+                    "numberOfStops": 0,
+                    "operating": {
+                      "carrierCode": "AF"
+                    }
+                  }
+                ]
+              },
+              {
+                "duration": "PT1H25M",
+                "segments": [
+                  {
+                    "aircraft": {
+                      "code": "320"
+                    },
+                    "arrival": {
+                      "at": "2023-08-18T08:00:00",
+                      "iataCode": "NCE",
+                      "terminal": "2"
+                    },
+                    "blacklistedInEU": false,
+                    "carrierCode": "AF",
+                    "departure": {
+                      "at": "2023-08-18T06:35:00",
+                      "iataCode": "ORY",
+                      "terminal": "3"
+                    },
+                    "duration": "PT1H25M",
+                    "id": "4",
+                    "number": "6200",
+                    "numberOfStops": 0,
+                    "operating": {
+                      "carrierCode": "AF"
+                    }
+                  }
+                ]
+              }
+            ],
+            "lastTicketingDate": "2023-08-01",
+            "nonHomogeneous": false,
+            "numberOfBookableSeats": 9,
+            "oneWay": false,
+            "price": {
+              "additionalServices": [
+                {
+                  "amount": "60.00",
+                  "type": "CHECKED_BAGS"
+                }
+              ],
+              "base": "80.00",
+              "currency": "EUR",
+              "fees": [
+                {
+                  "amount": "0.00",
+                  "type": "SUPPLIER"
+                },
+                {
+                  "amount": "0.00",
+                  "type": "TICKETING"
+                }
+              ],
+              "grandTotal": "274.60",
+              "total": "274.60"
+            },
+            "pricingOptions": {
+              "fareType": [
+                "PUBLISHED"
+              ],
+              "includedCheckedBagsOnly": false
+            },
+            "source": "GDS",
+            "travelerPricings": [
+              {
+                "fareDetailsBySegment": [
+                  {
+                    "brandedFare": "LIGHT",
+                    "cabin": "ECONOMY",
+                    "class": "X",
+                    "fareBasis": "XS50MALG",
+                    "includedCheckedBags": {
+                      "quantity": 0
+                    },
+                    "segmentId": "1"
+                  },
+                  {
+                    "brandedFare": "LIGHT",
+                    "cabin": "ECONOMY",
+                    "class": "X",
+                    "fareBasis": "XS50MALG",
+                    "includedCheckedBags": {
+                      "quantity": 0
+                    },
+                    "segmentId": "4"
+                  }
+                ],
+                "fareOption": "STANDARD",
+                "price": {
+                  "base": "40.00",
+                  "currency": "EUR",
+                  "total": "137.30"
+                },
+                "travelerId": "1",
+                "travelerType": "ADULT"
+              },
+              {
+                "fareDetailsBySegment": [
+                  {
+                    "brandedFare": "LIGHT",
+                    "cabin": "ECONOMY",
+                    "class": "X",
+                    "fareBasis": "XS50MALG",
+                    "includedCheckedBags": {
+                      "quantity": 0
+                    },
+                    "segmentId": "1"
+                  },
+                  {
+                    "brandedFare": "LIGHT",
+                    "cabin": "ECONOMY",
+                    "class": "X",
+                    "fareBasis": "XS50MALG",
+                    "includedCheckedBags": {
+                      "quantity": 0
+                    },
+                    "segmentId": "4"
+                  }
+                ],
+                "fareOption": "STANDARD",
+                "price": {
+                  "base": "40.00",
+                  "currency": "EUR",
+                  "total": "137.30"
+                },
+                "travelerId": "2",
+                "travelerType": "ADULT"
+              }
+            ],
+            "type": "flight-offer",
+            "validatingAirlineCodes": [
+              "AF"
+            ]
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

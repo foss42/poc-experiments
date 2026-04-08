@@ -1,0 +1,4707 @@
+{
+  "api_id": "agco-ats.com:v1",
+  "endpoint_count": 276,
+  "endpoints": [
+    {
+      "id": "no-documentation-found",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/Certificates",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "activate-or-deactivate-an-ecu-or-report-an-ecu-as-damaged",
+      "name": "Activate or Deactivate an ECU, or Report an ECU as Damaged.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/ECUs/{{SERIALNUMBER}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "EDTInstanceId": ""
+      },
+      "body": {
+        "SerialNumber": "",
+        "EngineSerialNumber": "",
+        "State": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIALNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{SERIALNUMBER}} with a real serialnumber."
+    },
+    {
+      "id": "get-injector-codes-given-engine",
+      "name": "Get injector codes given engine.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/Engines/{{SERIALNUMBER}}/IQACodes",
+      "headers": {},
+      "query_params": {
+        "EDTInstanceId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIALNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{SERIALNUMBER}} with a real serialnumber."
+    },
+    {
+      "id": "report-the-iqa-codes-used-by-an-engine",
+      "name": "Report the IQA codes used by an engine",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/Engines/{{SERIALNUMBER}}/IQACodes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "EDTInstanceId": ""
+      },
+      "body": [
+        ""
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIALNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{SERIALNUMBER}} with a real serialnumber."
+    },
+    {
+      "id": "get-production-calibration-data-for-given-engine",
+      "name": "Get production calibration data for given engine.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/Engines/{{SERIALNUMBER}}/ProductionData",
+      "headers": {},
+      "query_params": {
+        "EDTInstanceId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SERIALNUMBER}}"
+      ],
+      "notes": "No authentication required. Replace {{SERIALNUMBER}} with a real serialnumber."
+    },
+    {
+      "id": "check-whether-there-is-connectivity-to-agco-power-web-services",
+      "name": "Check whether there is connectivity to AGCO Power Web Services",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/Hello",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-the-status-of-an-edt-kit-registration-with-agco-power-web-services",
+      "name": "Retrieve the status of an EDT Kit Registration with AGCO Power Web Services",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/UserStatuses",
+      "headers": {},
+      "query_params": {
+        "voucherCode": "",
+        "dealerCode": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-the-status-of-an-edt-kit-registration-with-agco-power-web-services",
+      "name": "Update the status of an EDT Kit Registration with AGCO Power Web Services",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AftermarketServices/UserStatuses",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "VoucherCode": "",
+        "DealerCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "manage-api-tokens",
+      "name": "Manage API tokens.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AuthenticatedUsers/{{USERID}}/Tokens",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BearerAction": "",
+        "MACAction": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "authenticate-a-user",
+      "name": "Authenticate a user.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Authentication",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "username": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "acknowledges-the-connection-to-the-api",
+      "name": "Acknowledges the connection to the API",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Authentication/IsAlive",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "request-a-password-reset",
+      "name": "Request a password reset.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Authentication/RequestPasswordReset",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Username": "",
+        "Url": "",
+        "ParameterName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "reset-a-password",
+      "name": "Reset a password",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Authentication/ResetPasword",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Token": "",
+        "NewPassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-authorization-categories",
+      "name": "Get authorization categories.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-an-authorization-category",
+      "name": "Add an authorization category.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "ID": "",
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "returns-a-report-of-access-that-users-have-to-authorization-categories",
+      "name": "Returns a report of access that users have to Authorization Categories.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories/Users",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-an-authorization-category",
+      "name": "Update an authorization category.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "ID": "",
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-an-authorization-category",
+      "name": "Remove an authorization category.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-a-category-that-a-user-can-see",
+      "name": "Add a category that a user can see.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories/{{ID}}/Users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "deletes-a-category-a-user-could-see",
+      "name": "Deletes a category a user could see.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCategories/{{ID}}/Users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-authorization-code-definitions",
+      "name": "Get authorization code definitions.",
+      "description": "Additional searches: validationFields[Name]=true and dataFields[Name]=true. These can be used to search for authorization code definitions that have the specified data or validation fields.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-an-authorization-code-definition",
+      "name": "Add an authorization code definition.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-category-to-an-authorizationcodedefintion",
+      "name": "Add a category to an authorizationCodeDefintion.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions/{{ID}}/Categories/{{CATEGORYID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CATEGORYID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CATEGORYID}} with a real categoryid."
+    },
+    {
+      "id": "deletes-the-category-from-the-authorization-code-definition",
+      "name": "Deletes the category from the authorization code definition.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions/{{ID}}/Categories/{{CATEGORYID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{CATEGORYID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{CATEGORYID}} with a real categoryid."
+    },
+    {
+      "id": "get-an-authorization-code-definition-by-its-id",
+      "name": "Get an authorization code definition by its ID",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-an-authorization-code-definition",
+      "name": "Update an authorization code definition",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "disable-an-authorization-code-definition",
+      "name": "Disable an authorization code definition",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodeDefinitions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-authorization-codes",
+      "name": "Get authorization codes.",
+      "description": "Additional searches: validationParameters[Name]=Value and dataParameters[Name]=Value. These can be used to search for authorization codes that have been generated using specified values for data or validation parameters.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "generates-an-authorization-code-using-the-provided-definition-and-parameters",
+      "name": "Generates an authorization code using the provided definition and parameters.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Code": "",
+        "CreatedByUserID": 0,
+        "CreatedDate": "",
+        "DataParameters": [],
+        "DefinitionID": "",
+        "DeletedByUserID": 0,
+        "DeletedDate": "",
+        "EffectiveDate": "",
+        "ID": 0,
+        "IsDeleted": false,
+        "ValidationParameters": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-an-authorization-code-by-its-id",
+      "name": "Get an authorization code by its ID.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-an-authorization-code",
+      "name": "Update an authorization code.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Code": "",
+        "CreatedByUserID": 0,
+        "CreatedDate": "",
+        "DataParameters": [],
+        "DefinitionID": "",
+        "DeletedByUserID": 0,
+        "DeletedDate": "",
+        "EffectiveDate": "",
+        "ID": 0,
+        "IsDeleted": false,
+        "ValidationParameters": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "hide-an-authorization-code",
+      "name": "Hide an authorization code.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-contact-information-for-an-authorization-code",
+      "name": "Get contact information for an authorization code.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes/{{ID}}/ContactInformation",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-2",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationCodes/{{ID}}/Validate",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-contact-information-for-authorization-codes",
+      "name": "Get contact information for authorization codes.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationContactInformation",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-contact-information-for-authorization-code",
+      "name": "Add contact information for authorization code.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/AuthorizationContactInformation",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "AuthorizationCodeID": 0,
+        "Contact": "",
+        "Dealership": "",
+        "DealerCode": "",
+        "Phone": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-list-of-brands",
+      "name": "Gets a list of Brands.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Brands",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-list-of-bundles",
+      "name": "Get the list of bundles.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Bundles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-bundle-to-the-update-system",
+      "name": "Add a Bundle to the Update System.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Bundles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "UpdateGroupID": "",
+        "BundleNumber": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-specific-bundle-by-id",
+      "name": "Get a specific Bundle by ID.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Bundles/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "modify-a-bundle-in-the-update-system",
+      "name": "Modify a Bundle in the Update System.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Bundles/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "UpdateGroupID": "",
+        "BundleNumber": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-bundle",
+      "name": "Delete a Bundle.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Bundles/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-clients-in-the-update-system",
+      "name": "Get a List of Clients in the Update System.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Clients",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-cached-files-installed-on-the-client-machine",
+      "name": "Get a list of Cached Files installed on the client Machine.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{CLIENTID}}/CachedFiles",
+      "headers": {},
+      "query_params": {
+        "Expired": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "get-the-package-reports-for-a-client",
+      "name": "Get the package reports for a client.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{CLIENTID}}/PackageReports",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "submit-a-package-report",
+      "name": "Submit a package report",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{CLIENTID}}/PackageReports",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Categories": [],
+        "PackageDescription": "",
+        "PackageID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "submit-a-batch-of-package-reports",
+      "name": "Submit a batch of package reports",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{CLIENTID}}/PackageReports/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Categories": [],
+          "PackageDescription": "",
+          "PackageID": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLIENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "get-a-client-in-the-update-system",
+      "name": "Get a Client in the Update System.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-client",
+      "name": "Update a Client.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ClientID": "",
+        "LastCheckin": "",
+        "Tag": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-client-s-current-update-group-subscriptions",
+      "name": "Get a Client's Current Update Group Subscriptions",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Clients/{{ID}}/UpdateGroupSubscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-3",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitionAttributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-an-attribute-for-a-contentdefinition",
+      "name": "Update an Attribute for a ContentDefinition",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitionAttributes/{{CONTENTDEFINITIONATTRIBUTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONATTRIBUTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONATTRIBUTEID}} with a real contentdefinitionattributeid."
+    },
+    {
+      "id": "remove-an-attribute-from-a-contentdefinition",
+      "name": "Remove an Attribute from a ContentDefinition",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitionAttributes/{{CONTENTDEFINITIONATTRIBUTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONATTRIBUTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONATTRIBUTEID}} with a real contentdefinitionattributeid."
+    },
+    {
+      "id": "get-contentdefinitions",
+      "name": "Get ContentDefinitions",
+      "description": "Gets a collection of ContentDefinitions. When successful, the response is a PagedResponse of ContentDefinitions.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-contentdefinition",
+      "name": "Create a ContentDefinition",
+      "description": "Creates a ContentDefinition.  The body of the POST is the ContentDefinition to create.\r\n            The ContentDefinitionID will be assigned on creation of the Job.  When successful, the response\r\n            is the JobID.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-contentdefinition-by-id",
+      "name": "Get a ContentDefinition by ID",
+      "description": "Gets a ContentDefinition by ID. When successful, the response is the requested ContentDefinition.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "update-a-contentdefinition",
+      "name": "Update a ContentDefinition",
+      "description": "Updates a ContentDefinition.  The body of the PUT is the updated ContentDefinition.  \r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "delete-a-contentdefinition",
+      "name": "Delete a ContentDefinition",
+      "description": "Deletes an ContentDefinition. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "get-attributes-for-a-contentdefinition",
+      "name": "Get Attributes for a ContentDefinition",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}/Attributes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "add-an-attribute-to-a-contentdefinition",
+      "name": "Add an Attribute to a ContentDefinition",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}/Attributes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "no-documentation-found-4",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentDefinitions/{{CONTENTDEFINITIONID}}/Attributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTDEFINITIONID}} with a real contentdefinitionid."
+    },
+    {
+      "id": "get-contentreleaseversion",
+      "name": "Get ContentReleaseVersion",
+      "description": "Gets a collection of ContentReleaseVersion. When successful, the response is a PagedResponse of ContentReleaseVersion.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentReleases",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-contentreleaseversion",
+      "name": "Create a ContentReleaseVersion",
+      "description": "Creates a ContentReleaseVersion.  The body of the POST is the ContentReleaseVersion to create.\r\n            The ContentReleaseId will be assigned on creation of the Job.  When successful, the response\r\n            is the contentReleaseId.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentReleases",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ContentDefinitionID": 0,
+        "ContentReleaseID": 0,
+        "Deleted": false,
+        "PublisherUserID": 0,
+        "ReleaseID": 0,
+        "TestReportUrl": "",
+        "UpdatedDate": "",
+        "Version": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-content-release-version-by-id",
+      "name": "Get a Content Release Version by ID",
+      "description": "Gets a ContentReleaseVersion by ID. When successful, the response is the requested ContentReleaseVersion.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentReleases/{{CONTENTRELEASEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTRELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTRELEASEID}} with a real contentreleaseid."
+    },
+    {
+      "id": "update-a-contentreleaseversion",
+      "name": "Update a ContentReleaseVersion",
+      "description": "Updates a ContentReleaseVersion.  The body of the PUT is the updated ContentReleaseVersion.  \r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentReleases/{{CONTENTRELEASEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ContentDefinitionID": 0,
+        "ContentReleaseID": 0,
+        "Deleted": false,
+        "PublisherUserID": 0,
+        "ReleaseID": 0,
+        "TestReportUrl": "",
+        "UpdatedDate": "",
+        "Version": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTRELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTRELEASEID}} with a real contentreleaseid."
+    },
+    {
+      "id": "delete-a-contentreleaseversion",
+      "name": "Delete a ContentReleaseVersion",
+      "description": "Deletes an ContentReleaseVersion. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentReleases/{{CONTENTRELEASEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTRELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTRELEASEID}} with a real contentreleaseid."
+    },
+    {
+      "id": "no-documentation-found-5",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionAttributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-an-attribute-for-a-contentsubmission",
+      "name": "Update an Attribute for a ContentSubmission",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionAttributes/{{CONTENTSUBMISSIONATTRIBUTEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONATTRIBUTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONATTRIBUTEID}} with a real contentsubmissionattributeid."
+    },
+    {
+      "id": "remove-an-attribute-from-a-contentsubmission",
+      "name": "Remove an Attribute from a ContentSubmission",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionAttributes/{{CONTENTSUBMISSIONATTRIBUTEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONATTRIBUTEID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONATTRIBUTEID}} with a real contentsubmissionattributeid."
+    },
+    {
+      "id": "returns-available-content-submission-types",
+      "name": "Returns available Content Submission Types.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionTypes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-content-submission-type",
+      "name": "Add a Content Submission Type",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionTypes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieves-a-content-submission-type-by-its-id",
+      "name": "Retrieves a Content Submission Type by its ID.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-content-submission-type",
+      "name": "Update a Content Submission Type",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionTypes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-content-submission-type",
+      "name": "Remove a Content Submission Type",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissionTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-contentsubmissions",
+      "name": "Get ContentSubmissions",
+      "description": "Gets a collection of ContentSubmissions. When successful, the response is a PagedResponse of ContentSubmissions. Additional searches: attributes[Name]=Value. This can be used to search for submissions that have the specified values for attributes. Beginning and ending wildcard (*) supported for value.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-contentsubmission",
+      "name": "Create a ContentSubmission",
+      "description": "Creates a ContentSubmission.  The body of the POST is the ContentSubmission to create.\r\n            The ContentSubmissionID will be assigned on creation of the Job.  When successful, the response\r\n            is the ContentSubmissionID.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": [],
+        "BuildID": 0,
+        "ContentDefinitionID": 0,
+        "ContentSubmissionID": 0,
+        "Definition": {},
+        "JobRunID": 0,
+        "PackageID": "",
+        "ReleaseNotes": "",
+        "Repository": "",
+        "Revision": 0,
+        "SubmissionDate": "",
+        "UserID": 0,
+        "Version": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-contentsubmission-by-id",
+      "name": "Get a ContentSubmission by ID",
+      "description": "Gets a ContentSubmission by ID. When successful, the response is the requested ContentSubmission.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "update-a-contentsubmission",
+      "name": "Update a ContentSubmission",
+      "description": "Updates a ContentSubmission.  The body of the PUT is the updated ContentSubmission.  \r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": [],
+        "BuildID": 0,
+        "ContentDefinitionID": 0,
+        "ContentSubmissionID": 0,
+        "Definition": {},
+        "JobRunID": 0,
+        "PackageID": "",
+        "ReleaseNotes": "",
+        "Repository": "",
+        "Revision": 0,
+        "SubmissionDate": "",
+        "UserID": 0,
+        "Version": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "delete-a-contentsubmission",
+      "name": "Delete a ContentSubmission",
+      "description": "Deletes an ContentSubmission. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "get-attributes-for-a-contentsubmission",
+      "name": "Get Attributes for a ContentSubmission",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}/Attributes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "add-an-attribute-to-a-contentsubmission",
+      "name": "Add an Attribute to a ContentSubmission",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}/Attributes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "no-documentation-found-6",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}/Attributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "get-the-status-of-a-contentsubmission",
+      "name": "Get the status of a ContentSubmission",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/ContentSubmissions/{{CONTENTSUBMISSIONID}}/Status",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTENTSUBMISSIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{CONTENTSUBMISSIONID}} with a real contentsubmissionid."
+    },
+    {
+      "id": "get-a-total-count-of-dealers-per-country",
+      "name": "Get a total count of dealers per country",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/DealerByCountry",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-dealers",
+      "name": "Get a list of dealers.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Dealers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "lookup-a-dealer-using-a-dealer-code",
+      "name": "Lookup a dealer using a dealer code.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Dealers/{{DEALERCODE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DEALERCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{DEALERCODE}} with a real dealercode."
+    },
+    {
+      "id": "get-a-paged-response-of-file-metadata",
+      "name": "Get a paged response of file metadata.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Files",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-the-metadata-for-a-file-before-uploading-the-state-of-the-file-should-be-created",
+      "name": "Create the metadata for a file before uploading. The State of the File should be 'Created'.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Files",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": "",
+        "ContentType": "",
+        "State": "",
+        "IsPublic": false,
+        "CRC": "",
+        "Path": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-file-s-metadata",
+      "name": "Gets a file's metadata.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Files/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-the-metadata-for-a-file-size-may-not-be-modified-by-the-client",
+      "name": "Update the metadata for a file. Size may not be modified by the client.",
+      "description": "Update the metadata for a file. Size may not be modified by the client. \r\n                Set status to 'Available' to publish a file. The file must be uploaded.\r\n                Set status to 'Created' to reset a file's contents and re-upload. \r\n                A file may only be 'Removed' by the DELETE method.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Files/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": "",
+        "ContentType": "",
+        "State": "",
+        "IsPublic": false,
+        "CRC": "",
+        "Path": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "mark-a-file-as-removed-disables-download-of-the-file-and-hides-metadata-from-get-all-method",
+      "name": "Mark a file as 'Removed'. Disables download of the file and hides metadata from GET all method",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Files/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "download-the-contents-of-a-file-the-current-state-of-the-file-should-be-available",
+      "name": "Download the contents of a file. The current State of the File should be 'Available'.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Files/{{ID}}/FileContents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "upload-the-contents-of-a-file-the-current-state-of-the-file-should-be-created",
+      "name": "Upload the contents of a file. The current State of the File should be 'Created'.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Files/{{ID}}/FileContents",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-paged-response-of-file-metadata-2",
+      "name": "Get a paged response of file metadata.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImageCategories",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-the-metadata-for-a-file-before-uploading-the-state-should-be-created",
+      "name": "Create the metadata for a file before uploading. The State should be 'Created'.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImageCategories",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-file-s-metadata-2",
+      "name": "Gets a file's metadata.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImageCategories/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-paged-response-of-globalimage",
+      "name": "Get a paged response of GlobalImage.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-the-metadata-for-a-globalimage-before-uploading-the-state-should-be-created",
+      "name": "Create the metadata for a GlobalImage before uploading. The State should be 'Created'.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "CRC": "",
+        "ThumbnailCRC": "",
+        "State": "",
+        "Name": "",
+        "Description": "",
+        "Width": 0,
+        "Height": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-globalimage-s-metadata",
+      "name": "Gets a GlobalImage's metadata.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-the-metadata-for-an-image",
+      "name": "Update the metadata for an image.",
+      "description": "Update the metadata for an image. Size may not be modified by the client. \r\n                Set status to 'Available' to publish an image. Both the image and thumbnail must be uploaded.\r\n                Set status to 'Created' to reset an image's contents and re-upload. \r\n                A file may only be 'Removed' by the DELETE method.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "CRC": "",
+        "ThumbnailCRC": "",
+        "State": "",
+        "Name": "",
+        "Description": "",
+        "Width": 0,
+        "Height": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "mark-a-file-as-removed-disables-download-of-the-image-and-hides-metadata-from-get-all-method",
+      "name": "Mark a file as 'Removed'. Disables download of the image and hides metadata from GET all method",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "download-the-contents-of-a-globalimage-the-current-state-of-the-globalimage-should-be-available",
+      "name": "Download the contents of a GlobalImage. The current State of the GlobalImage should be 'Available'.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages/{{ID}}/ImageContents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "upload-the-contents-of-a-globalimage-the-current-state-of-the-file-for-the-globalimage-should-be-created",
+      "name": "Upload the contents of a GlobalImage. The current State of the File for the GlobalImage should be 'Created'.",
+      "description": "Both the image and thumbnail must be uploaded.\r\n                Set isFullImage = 'True' for Full Image, isFullImage = 'False' for Thumbnail",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/GlobalImages/{{ID}}/ImageContents",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-the-languages-for-which-translations-are-supported-returns-a-pagedresponse-of-language-objects",
+      "name": "Get a list of the languages for which translations are supported. Returns a PagedResponse of Language objects.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Languages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-language-to-support-for-translations-accepts-a-language-object-returns-the-id-of-the-created-object",
+      "name": "Add a Language to support for translations. Accepts a Language object. Returns the Id of the created object.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Languages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "LocaleId": 0,
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-language-by-its-id-returns-a-language-object",
+      "name": "Get a language by its id. Returns a Language object",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Languages/{{LOCALEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOCALEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LOCALEID}} with a real localeid."
+    },
+    {
+      "id": "update-a-languages-description-accepts-a-language-object",
+      "name": "Update a language\u2019s description. Accepts a Language object.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Languages/{{LOCALEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "LocaleId": 0,
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOCALEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LOCALEID}} with a real localeid."
+    },
+    {
+      "id": "remove-a-language-from-those-supported-for-translations-marks-language-as-deleted",
+      "name": "Remove a Language from those supported for translations. Marks language as deleted.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Languages/{{LOCALEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LOCALEID}}"
+      ],
+      "notes": "No authentication required. Replace {{LOCALEID}} with a real localeid."
+    },
+    {
+      "id": "create-a-license-activation",
+      "name": "Create a license activation.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/LicenseActivations",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "VoucherCode": "",
+        "DealerCode": "",
+        "PostalCode": "",
+        "SystemInfo": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "register-an-edt-lite-with-the-server",
+      "name": "Register an EDT Lite with the Server",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/LicenseActivations/RegisterEDTLite",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "InstanceID": "",
+        "VoucherCode": "",
+        "ExpirationDate": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-license-activiation",
+      "name": "Update a license activiation.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/LicenseActivations/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "LicenseVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "confirm-that-the-client-has-applied-the-updated-license",
+      "name": "Confirm that the client has applied the updated license.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/LicenseActivations/{{ID}}/Confirm",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "LicenseVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "gets-a-list-of-licenses-with-the-specified-criteria",
+      "name": "Gets a list of licenses with the specified criteria.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Licenses",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-license",
+      "name": "Get a license.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Licenses/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-api-system-logs-most-recent-first",
+      "name": "Get the API System logs, most recent first.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Logs",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-log-entry",
+      "name": "Add a Log entry",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Logs",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "Message": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-log-by-id",
+      "name": "Get a log by ID",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Logs/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "sends-an-email-message",
+      "name": "Sends an email message.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Notifications",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "To_Addresses": [],
+        "Subject": "",
+        "MessageBody": "",
+        "IsBodyHtml": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-all-of-the-package-types",
+      "name": "Get all of the Package Types.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-package-type",
+      "name": "Add a Package Type.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-specific-package-type",
+      "name": "Get a specific Package Type.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "modify-a-package-type",
+      "name": "Modify a Package Type.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-package-type",
+      "name": "Delete a Package Type.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-a-package-type-that-a-user-can-see",
+      "name": "Add a package type that a user can see.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes/{{ID}}/Users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "deletes-a-package-type-a-user-could-see",
+      "name": "Deletes a package type a user could see.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypes/{{ID}}/Users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "get-all-of-the-package-type-to-bundle-relationships",
+      "name": "Get all of the Package Type to Bundle Relationships.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypetoBundles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-new-package-type-id-to-bundle-relationship",
+      "name": "Add a new Package Type ID to Bundle Relationship.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypetoBundles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BundleID": "",
+        "PackageTypeID": "",
+        "PackageVersion": 0,
+        "Priority": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-package-type-id-to-bundle-relationship",
+      "name": "Update a Package Type ID to Bundle Relationship.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypetoBundles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BundleID": "",
+        "PackageTypeID": "",
+        "PackageVersion": 0,
+        "Priority": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-a-package-type-to-bundle-relationship",
+      "name": "Delete a Package Type to Bundle Relationship.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/PackageTypetoBundles",
+      "headers": {},
+      "query_params": {
+        "BundleID": "",
+        "PackageTypeID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-packages",
+      "name": "List Packages.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Packages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-package-to-the-update-system",
+      "name": "Add a Package to the Update System.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Packages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "PackageTypeID": "",
+        "Url": "",
+        "CRC": "",
+        "Version": 0,
+        "Description": "",
+        "ReleaseDate": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "find-a-package",
+      "name": "Find a Package.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Packages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "modify-a-packge-to-the-update-system",
+      "name": "Modify a Packge to the Update System.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Packages/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "PackageTypeID": "",
+        "Url": "",
+        "CRC": "",
+        "Version": 0,
+        "Description": "",
+        "ReleaseDate": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-package",
+      "name": "Delete a Package.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Packages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-permissions",
+      "name": "List Permissions",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Permissions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "adds-a-permission",
+      "name": "Adds a Permission",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Permissions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "DataRequired": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-permission",
+      "name": "Gets a Permission",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Permissions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "updates-a-permission",
+      "name": "Updates a Permission",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Permissions/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "DataRequired": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deletes-a-permission",
+      "name": "Deletes a Permission",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Permissions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-priority-packages-by-client",
+      "name": "Get a list of Priority Packages by Client.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/PriorityPackages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-priority-package-for-a-client",
+      "name": "Add a Priority Package for a Client.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/PriorityPackages",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ClientID": "",
+        "PackageID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-priority-packages-for-a-client",
+      "name": "Get a Priority Packages for a Client.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/PriorityPackages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-priority-package-for-a-client",
+      "name": "Delete a Priority Package for a Client.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/PriorityPackages/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-release",
+      "name": "Get Release",
+      "description": "Gets a collection of Release. When successful, the response is a PagedResponse of Release.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Releases",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-release",
+      "name": "Create a Release",
+      "description": "Creates a Release.  The body of the POST is the Release to create.\r\n            The ReleaseId will be assigned on creation of the Job.  When successful, the response\r\n            is the Release Id.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Releases",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BuildDate": "",
+        "BundleIDs": [],
+        "ReleaseDate": "",
+        "ReleaseID": 0,
+        "ReleaseNumber": "",
+        "Visible": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-release-by-id",
+      "name": "Get a  Release by ID",
+      "description": "Gets a Release by ID. When successful, the response is the requested Release.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Releases/{{RELEASEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{RELEASEID}} with a real releaseid."
+    },
+    {
+      "id": "associates-the-release-with-a-bundle",
+      "name": "Associates the release with a bundle.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Releases/{{RELEASEID}}/Bundle/{{BUNDLEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BUNDLEID}}",
+        "{{RELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{BUNDLEID}} with a real bundleid. Replace {{RELEASEID}} with a real releaseid."
+    },
+    {
+      "id": "deletes-the-association-between-a-release-and-a-bundle",
+      "name": "Deletes the association between a release and a bundle.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Releases/{{RELEASEID}}/Bundle/{{BUNDLEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BUNDLEID}}",
+        "{{RELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{BUNDLEID}} with a real bundleid. Replace {{RELEASEID}} with a real releaseid."
+    },
+    {
+      "id": "update-a-release",
+      "name": "Update a Release",
+      "description": "Updates a Release.  The body of the PUT is the updated Release.  \r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Releases/{{RELEASEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "BuildDate": "",
+        "BundleIDs": [],
+        "ReleaseDate": "",
+        "ReleaseID": 0,
+        "ReleaseNumber": "",
+        "Visible": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RELEASEID}}"
+      ],
+      "notes": "No authentication required. Replace {{RELEASEID}} with a real releaseid."
+    },
+    {
+      "id": "get-a-summary-of-all-packages-in-a-bundle",
+      "name": "Get a summary of all Packages in a Bundle",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/BundleStatusSummary",
+      "headers": {},
+      "query_params": {
+        "BundleID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-bundles-for-updategroup",
+      "name": "Get a list of bundles for UpdateGroup.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/BundlesInUpdateGroup",
+      "headers": {},
+      "query_params": {
+        "ID": "",
+        "IncludeInactive": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-client-information",
+      "name": "Get Client Information",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/ClientInfo",
+      "headers": {},
+      "query_params": {
+        "ClientID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-current-packages-for-an-update-group",
+      "name": "Get the current packages for an update group.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/CurrentPackagesInUpdateGroup",
+      "headers": {},
+      "query_params": {
+        "ID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-client-in-the-update-system-2",
+      "name": "Get a Client in the Update System.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/GetClient",
+      "headers": {},
+      "query_params": {
+        "ID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-current-client-subscriptions",
+      "name": "Get a list of current Client Subscriptions.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/GetSubscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-summary-report-for-a-specific-package",
+      "name": "Get a summary report for a Specific Package",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/PackageStatusSummary",
+      "headers": {},
+      "query_params": {
+        "PackageID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-subscribed-clients",
+      "name": "Get a list of subscribed clients",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/RegisteredClients",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-update-groups-update-groups-are-used-by-the-client-to-register-for-a-specific-type-of-update",
+      "name": "Get a list of Update Groups.  Update Groups are used by the client to register for a specific type of update.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/UpdateGroups",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-data-for-pie-charts-in-updatemetrics",
+      "name": "Get data for pie charts in UpdateMetrics.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Reporting/UpdateMetrics",
+      "headers": {},
+      "query_params": {
+        "UpdateGroupID": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-roles",
+      "name": "List Roles",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Roles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "adds-a-user-role",
+      "name": "Adds a User Role",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Roles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-user-role",
+      "name": "Gets a User Role",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "updates-a-user-role",
+      "name": "Updates a User Role",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "deletes-a-user-role",
+      "name": "Deletes a User Role",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-permissions-for-a-role",
+      "name": "Get the Permissions for a Role",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}/Permissions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "manage-the-permissions-for-a-role",
+      "name": "Manage the Permissions for a Role",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}/Permissions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Permission": "",
+          "Action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-user-s-in-a-role",
+      "name": "Get all user's in a role",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}/Users",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-role-s-users",
+      "name": "Update a Role's users",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Roles/{{ID}}/Users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Id": 0,
+          "Action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-paged-response-of-global-string-definitions",
+      "name": "Get a paged response of Global String Definitions.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/StringDefinitions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-stringdefinition-object-the-originating-translation-must-be-provided-accepts-an-array-of-stringdefinition-objects-returns-nothing",
+      "name": "Create StringDefinition object. The originating translation must be provided. Accepts an array of StringDefinition objects. Returns nothing.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/StringDefinitions/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "DescriptionForTranslator": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-stringdefinition-objects-accepts-an-array-of-stringdefinition-objects-this-endpoint-will-add-stringdefinitionchange-objects-to-the-database-the-descriptionfortranslator-may-not-be-modified-after-a-string-is-submitted-for-translation",
+      "name": "Update StringDefinition objects. Accepts an array of StringDefinition objects. This endpoint will add StringDefinitionChange objects to the database. The DescriptionForTranslator may not be modified after a String is submitted for translation.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/StringDefinitions/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "DescriptionForTranslator": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-paged-response-of-global-string-definitions-2",
+      "name": "Get a paged response of Global String Definitions.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/StringDefinitions/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-paged-response-of-global-string-translations",
+      "name": "Get a paged response of Global String Translations.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/StringTranslations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-corrections-to-string-translations",
+      "name": "Update corrections to string translations",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/StringTranslations/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "StringValue": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-single-translation-based-upon-stringid-and-languageid",
+      "name": "Get a single translation based upon stringId and languageId",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/StringTranslations/{{STRINGID}}/{{LANGUAGEID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STRINGID}}",
+        "{{LANGUAGEID}}"
+      ],
+      "notes": "No authentication required. Replace {{STRINGID}} with a real stringid. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "update-a-string-value-or-a-state-for-a-string-translation",
+      "name": "Update a string value or a state for a string translation.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/StringTranslations/{{STRINGID}}/{{LANGUAGEID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "StringValue": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STRINGID}}",
+        "{{LANGUAGEID}}"
+      ],
+      "notes": "No authentication required. Replace {{STRINGID}} with a real stringid. Replace {{LANGUAGEID}} with a real languageid."
+    },
+    {
+      "id": "get-a-paged-response-of-translationkeys",
+      "name": "Get a paged response of TranslationKeys.",
+      "description": "Get a paged response of TranslationKeys.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationKeys",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-translationkey-object",
+      "name": "Create a translationKey object.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationKeys",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "KeyName": "",
+        "StringID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-translationkey-by-id",
+      "name": "Get TranslationKey by ID",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationKeys/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-the-stringid-of-the-translationkey-object",
+      "name": "Update the StringID of the translationKey object.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationKeys/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "KeyName": "",
+        "StringID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-translationrequest-objects-returns-a-pagedresponse-of-translationrequest-objects-with-their-language-ids-and-string-ids",
+      "name": "Get all TranslationRequest objects. Returns a PagedResponse of TranslationRequest objects with their language ids and string ids.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationRequests",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-translation-request-accepts-a-translationrequest-object-returns-the-id-of-the-created-object-the-state-of-the-translationrequest-must-be-notsubmitted",
+      "name": "Create a translation request. Accepts a TranslationRequest object. Returns the Id of the created object. The state of the TranslationRequest must be \u2018NotSubmitted\u2019.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationRequests",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ChargeToAccount": "",
+        "Deadline": "",
+        "Notes": "",
+        "State": "",
+        "CCEmailAddresses": [],
+        "LocaleIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-translationrequest-object-by-id-returns-translationrequest-object-with-its-language-ids-and-string-ids",
+      "name": "Get a TranslationRequest object by id. Returns TranslationRequest object with its language ids and string ids.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationRequests/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-translationrequest-object-by-id-accepts-a-translationrequest-object",
+      "name": "Update a TranslationRequest object by id. Accepts a TranslationRequest object.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationRequests/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ChargeToAccount": "",
+        "Deadline": "",
+        "Notes": "",
+        "State": "",
+        "CCEmailAddresses": [],
+        "LocaleIds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-7",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationRequests/{{ID}}/Strings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        ""
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-8",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSetAttributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-translationsetattribute-object",
+      "name": "Update a TranslationSetAttribute object",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSetAttributes/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-set-of-translationsetattribute-object",
+      "name": "Delete a set of TranslationSetAttribute object",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSetAttributes/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-pagedresponse-of-translationset-objects-related-translationsetstrings-are-not-returned",
+      "name": "Get a PagedResponse of TranslationSet objects. Related TranslationSetStrings are NOT returned",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-translationset-object-by-its-id-related-translationsetstrings-are-not-returned",
+      "name": "Get a TranslationSet object by its id. Related TranslationSetStrings are NOT returned.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-translation-set-accepts-a-translationset-object-only-the-state-property-may-be-updated",
+      "name": "Update a Translation Set. Accepts a TranslationSet object. Only the state property may be updated.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "State": "",
+        "FileIDs": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-pagedresponse-of-translationsetattribute-objects",
+      "name": "Get a PagedResponse of TranslationSetAttribute objects",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Attributes",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-translationsetattribute-object",
+      "name": "Create a TranslationSetAttribute object",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Attributes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-9",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Attributes/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "gets-the-information-needed-to-translate-a-string-in-a-translation-set",
+      "name": "Gets the information needed to translate a string in a translation set",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/SourceStrings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "gets-the-statistics-for-translation-sets-such-as-the-language-ids-and-count-of-string-definitions",
+      "name": "Gets the statistics for translation sets such as the language ids and count of string definitions.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Statistics",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-pagedresponse-of-translationsetstring-objects",
+      "name": "Get a PagedResponse of TranslationSetString objects",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Strings",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "no-documentation-found-10",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/TranslationSets/{{ID}}/Strings",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "TranslationSetId": 0,
+          "StringID": "",
+          "LanguageID": 0
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-current-client-subscriptions-2",
+      "name": "Get a list of current Client Subscriptions.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupClientRelationships",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-subscription",
+      "name": "Add a subscription",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupClientRelationships",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UpdateGroupID": "",
+        "ClientID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "deprecated-set-client-subscription-status-for-an-update-group",
+      "name": "DEPRECATED. Set client subscription status for an update group.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupClientRelationships",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "ClientID": "",
+        "UpdateGroupID": "",
+        "Active": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-subscription-by-relationshipid",
+      "name": "Get a subscription by RelationshipID",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupClientRelationships/{{RELATIONSHIPID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RELATIONSHIPID}}"
+      ],
+      "notes": "No authentication required. Replace {{RELATIONSHIPID}} with a real relationshipid."
+    },
+    {
+      "id": "updates-a-subscription",
+      "name": "Updates a Subscription",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupClientRelationships/{{RELATIONSHIPID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UpdateGroupID": "",
+        "ClientID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RELATIONSHIPID}}"
+      ],
+      "notes": "No authentication required. Replace {{RELATIONSHIPID}} with a real relationshipid."
+    },
+    {
+      "id": "get-update-group-subscriptions",
+      "name": "Get Update Group Subscriptions",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-an-update-group-subscription",
+      "name": "Add an Update Group Subscription",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UpdateGroupID": "",
+        "PackageTypeID": "",
+        "ClientID": "",
+        "Include": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "no-documentation-found-11",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "UpdateGroupID": "",
+          "PackageTypeID": "",
+          "ClientID": "",
+          "Include": false
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "no-documentation-found-12",
+      "name": "No Documentation Found.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions/Batch",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "UpdateGroupID": "",
+          "PackageTypeID": "",
+          "ClientID": "",
+          "Include": false
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-an-update-group-subscription",
+      "name": "Get an Update Group Subscription",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions/{{UPDATEGROUPSUBSCRIPTIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UPDATEGROUPSUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{UPDATEGROUPSUBSCRIPTIONID}} with a real updategroupsubscriptionid."
+    },
+    {
+      "id": "update-an-update-group-subscription",
+      "name": "Update an Update Group Subscription",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions/{{UPDATEGROUPSUBSCRIPTIONID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UpdateGroupID": "",
+        "PackageTypeID": "",
+        "ClientID": "",
+        "Include": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UPDATEGROUPSUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{UPDATEGROUPSUBSCRIPTIONID}} with a real updategroupsubscriptionid."
+    },
+    {
+      "id": "delete-an-update-group-subscription",
+      "name": "Delete an Update Group Subscription",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroupSubscriptions/{{UPDATEGROUPSUBSCRIPTIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UPDATEGROUPSUBSCRIPTIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{UPDATEGROUPSUBSCRIPTIONID}} with a real updategroupsubscriptionid."
+    },
+    {
+      "id": "get-a-list-of-update-groups-update-groups-are-used-by-the-client-to-register-for-a-specific-type-of-update-2",
+      "name": "Get a list of Update Groups.  Update Groups are used by the client to register for a specific type of update.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-new-update-group-the-report-field-is-a-string-that-has-a-dot-based-request-for-a-specific-piece-of-submitted-data",
+      "name": "Add a new Update Group.  The report field is a string that has a dot based request for a specific piece of submitted data.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "UpdateType": "",
+        "Priority": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-specific-update-group-by-id",
+      "name": "Get a specific Update Group by ID.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "modify-an-update-group",
+      "name": "Modify an Update Group.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Description": "",
+        "UpdateType": "",
+        "Priority": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-an-update-group",
+      "name": "Delete an Update Group.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-bundles-for-updategroup-2",
+      "name": "Get a list of bundles for UpdateGroup.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}/Bundles",
+      "headers": {},
+      "query_params": {
+        "IncludeInactive": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-an-updategroup-that-a-user-can-see",
+      "name": "Add an updateGroup that a user can see.",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}/Users/{{USERID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "deletes-an-update-group-a-user-could-see",
+      "name": "Deletes an update group a user could see.",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateGroups/{{ID}}/Users/{{USERID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{USERID}} with a real userid."
+    },
+    {
+      "id": "checks-the-client-id-into-the-update-system",
+      "name": "Checks the Client ID into the Update System.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UpdateSystem",
+      "headers": {},
+      "query_params": {
+        "ClientID": "",
+        "Preview": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-usercontentdefinitions",
+      "name": "Get UserContentDefinitions",
+      "description": "Gets a collection of UserContentDefinitions. When successful, the response is a PagedResponse of UserContentDefinitions.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UserContentDefinitions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-usercontentdefinition",
+      "name": "Create a UserContentDefinition",
+      "description": "Creates a UserContentDefinition.  The body of the POST is the UserContentDefinition to create.\r\n            The UserContentDefinitionID will be assigned on creation of the Job.  When successful, the response\r\n            is the UserContentDefinitionID.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/UserContentDefinitions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ContentDefinitionID": 0,
+        "UserContentDefinitionID": 0,
+        "UserID": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-usercontentdefinition-by-id",
+      "name": "Get a UserContentDefinition by ID",
+      "description": "Gets a UserContentDefinition by ID. When successful, the response is the requested UserContentDefinition.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/UserContentDefinitions/{{USERCONTENTDEFINITIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERCONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERCONTENTDEFINITIONID}} with a real usercontentdefinitionid."
+    },
+    {
+      "id": "delete-a-usercontentdefinition",
+      "name": "Delete a UserContentDefinition",
+      "description": "Deletes an UserContentDefinition. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/UserContentDefinitions/{{USERCONTENTDEFINITIONID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERCONTENTDEFINITIONID}}"
+      ],
+      "notes": "No authentication required. Replace {{USERCONTENTDEFINITIONID}} with a real usercontentdefinitionid."
+    },
+    {
+      "id": "get-users",
+      "name": "Get users",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-user",
+      "name": "Create a user",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ChangePassword": "",
+        "Email": "",
+        "Name": "",
+        "Password": "",
+        "UserID": 0,
+        "Username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-the-current-user",
+      "name": "Gets the current user",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/Current",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a user",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Users/Current",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ChangePassword": "",
+        "Email": "",
+        "Name": "",
+        "Password": "",
+        "UserID": 0,
+        "Username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-user-s-permissions",
+      "name": "Get a user's permissions",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/Current/Permissions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-the-current-user-s-roles",
+      "name": "Gets the current user's roles",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/Current/Roles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-specific-user",
+      "name": "Get a specific user",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-user-2",
+      "name": "Update a user",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ChangePassword": "",
+        "Email": "",
+        "Name": "",
+        "Password": "",
+        "UserID": 0,
+        "Username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a user",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-user-s-permissions-2",
+      "name": "Get a user's permissions",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}/Permissions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-user-s-roles",
+      "name": "Get a user's roles",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}/Roles",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-user-s-roles",
+      "name": "Update a user's roles",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Users/{{ID}}/Roles",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "Name": "",
+          "Action": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "gets-voucher-history-data",
+      "name": "Gets voucher history data",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/VoucherHistory",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gets-a-list-of-vouchers",
+      "name": "Gets a list of vouchers",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-voucher",
+      "name": "Create a voucher",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "CreatedDate": "",
+        "DealerCode": "",
+        "Deleted": false,
+        "Email": "",
+        "ExpirationDate": "",
+        "LicenseTo": "",
+        "ModifiedBy": "",
+        "OrderNumber": "",
+        "Punched": false,
+        "PunchedDate": "",
+        "Purpose": "",
+        "Type": "",
+        "VoucherCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-voucher",
+      "name": "Get a voucher",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers/{{VOUCHERCODE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOUCHERCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{VOUCHERCODE}} with a real vouchercode."
+    },
+    {
+      "id": "update-a-voucher",
+      "name": "Update a voucher",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers/{{VOUCHERCODE}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "CreatedDate": "",
+        "DealerCode": "",
+        "Deleted": false,
+        "Email": "",
+        "ExpirationDate": "",
+        "LicenseTo": "",
+        "ModifiedBy": "",
+        "OrderNumber": "",
+        "Punched": false,
+        "PunchedDate": "",
+        "Purpose": "",
+        "Type": "",
+        "VoucherCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOUCHERCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{VOUCHERCODE}} with a real vouchercode."
+    },
+    {
+      "id": "delete-a-voucher",
+      "name": "Delete a voucher",
+      "description": "No Documentation Found.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers/{{VOUCHERCODE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOUCHERCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{VOUCHERCODE}} with a real vouchercode."
+    },
+    {
+      "id": "get-a-voucher-s-history",
+      "name": "Get a voucher's history.",
+      "description": "No Documentation Found.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/Vouchers/{{VOUCHERCODE}}/VoucherHistory",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VOUCHERCODE}}"
+      ],
+      "notes": "No authentication required. Replace {{VOUCHERCODE}} with a real vouchercode."
+    },
+    {
+      "id": "get-activities",
+      "name": "Get Activities",
+      "description": "Gets a collection of Activities. When successful, the response is a PagedResponse of Activities.  \r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/activities",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-an-activity",
+      "name": "Create an Activity",
+      "description": "Creates an Activity.  The body of the POST is the Activity to create.  The ActivityID will be assigned\r\n            on creation of the Activity.  When successful, the response is the ActivityID.  If unsuccessful, an \r\n            appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/activities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ActivityID": 0,
+        "Deleted": false,
+        "Name": "",
+        "Parameters": [],
+        "Steps": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-an-activity-by-id",
+      "name": "Get an Activity by ID",
+      "description": "Gets an Activity by ID. When successful, the response is the requested Activity.  If unsuccessful,\r\n            an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/activities/{{ACTIVITYID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYID}} with a real activityid."
+    },
+    {
+      "id": "update-an-activity",
+      "name": "Update an Activity",
+      "description": "Updates an Activity.  The body of the PUT is the updated Activity.  When successful, the response is empty.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/activities/{{ACTIVITYID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ActivityID": 0,
+        "Deleted": false,
+        "Name": "",
+        "Parameters": [],
+        "Steps": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYID}} with a real activityid."
+    },
+    {
+      "id": "mark-the-delete-flag-for-the-activity",
+      "name": "Mark the delete flag for the Activity",
+      "description": "Deletes an Activity. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/activities/{{ACTIVITYID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYID}} with a real activityid."
+    },
+    {
+      "id": "get-activityruns",
+      "name": "Get ActivityRuns",
+      "description": "Gets a collection of ActivityRuns. When successful, the response is a PagedResponse of ActivityRuns.  \r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/activityRuns",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-an-activityrun-by-id",
+      "name": "Get an ActivityRun by ID",
+      "description": "Gets an ActivityRun by ID. When successful, the response is the requested ActivityRun.  If unsuccessful,\r\n            an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/activityRuns/{{ACTIVITYRUNID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYRUNID}} with a real activityrunid."
+    },
+    {
+      "id": "update-an-activityrun",
+      "name": "Update an ActivityRun",
+      "description": "Updates the ActivityRunStatus of an ActivityRun.  The body of the PUT is the updated ActivityRunStatus.\r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/activityRuns/{{ACTIVITYRUNID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Status": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYRUNID}} with a real activityrunid."
+    },
+    {
+      "id": "get-the-activityrunstatus-of-an-activityrun",
+      "name": "Get the ActivityRunStatus of an ActivityRun",
+      "description": "Gets the ActivityRunStatus of an ActivityRun.  When successful, the response is the requested ActivityRunStatus.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/activityRuns/{{ACTIVITYRUNID}}/status",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYRUNID}} with a real activityrunid."
+    },
+    {
+      "id": "update-the-activityrunstatus-of-an-activityrun",
+      "name": "Update the ActivityRunStatus of an ActivityRun",
+      "description": "Updates the ActivityRunStatus of an ActivityRun.  The body of the PUT is the updated ActivityRunStatus.\r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/activityRuns/{{ACTIVITYRUNID}}/status",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "CurrentStep": 0,
+        "Status": "",
+        "StepProgress": 0,
+        "StepStatus": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACTIVITYRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{ACTIVITYRUNID}} with a real activityrunid."
+    },
+    {
+      "id": "get-agents",
+      "name": "Get Agents",
+      "description": "Gets a collection of Agents. When successful, the response is a PagedResponse of Agents.  \r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/agents",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-an-agent",
+      "name": "Create an Agent",
+      "description": "Creates an Agent.  The body of the POST is the Agent to create.  The AgentID will be assigned\r\n            on creation of the Agent.  When successful, the response is the AgentID.  If unsuccessful, an\r\n            appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/agents",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UserID": 0,
+        "MachineName": "",
+        "Status": {},
+        "KeepAliveInterval": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-agent-associated-with-the-current-user",
+      "name": "Get Agent associated with the current user",
+      "description": "Gets the Agent associated with the current user. When successful, the response is the requested Agent.  If unsuccessful,\r\n            an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/agents/Current",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-activityrun-of-agent-associated-with-the-current-user",
+      "name": "Get the ActivityRun of Agent associated with the current user",
+      "description": "Gets the activity run assigned to an agent.  When successful, the response is the ActivityRun\r\n            assigned to the Agent.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/agents/Current/ActivityRun",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-agent",
+      "name": "Get Agent",
+      "description": "Gets an Agent by ID. When successful, the response is the requested Agent.  If unsuccessful,\r\n            an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "update-an-agent",
+      "name": "Update an Agent",
+      "description": "Updates an Agent.  The body of the PUT is the updated Agent.  When successful, the response is empty.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "UserID": 0,
+        "MachineName": "",
+        "Status": {},
+        "KeepAliveInterval": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "delete-an-agent",
+      "name": "Delete an Agent",
+      "description": "Deletes an Agent. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "get-an-agent-s-activityrun",
+      "name": "Get an Agent's ActivityRun",
+      "description": "Gets the activity run assigned to an agent.  When successful, the response is the ActivityRun\r\n            assigned to the Agent.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}/ActivityRun",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "update-the-activityrun-assigned-to-the-agent",
+      "name": "Update the ActivityRun assigned to the Agent.",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}/ActivityRun",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Status": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "update-an-agent-2",
+      "name": "Update an Agent",
+      "description": "Updates the status of an Agent.The body of the PUT is the updated Agent status.  When successful,\r\n            the response is empty.If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/agents/{{AGENTID}}/Status",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Online": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENTID}}"
+      ],
+      "notes": "No authentication required. Replace {{AGENTID}} with a real agentid."
+    },
+    {
+      "id": "get-jobruns",
+      "name": "Get JobRuns",
+      "description": "Gets a collection of JobRuns. When successful, the response is a PagedResponse of JobRuns.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/jobRuns",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-jobrun",
+      "name": "Create a JobRun",
+      "description": "Creates a JobRun.  The body of the POST is the JobRun to create.  The JobRunID will be assigned on\r\n            creation of the JobRun.  When successful, the response is the JobRunID.  If unsuccessful, an \r\n            appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/jobRuns",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ActivityRuns": [],
+        "EndDate": "",
+        "JobID": 0,
+        "JobRunID": 0,
+        "Parameters": [],
+        "StartDate": "",
+        "Status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-jobrun-by-id",
+      "name": "Get a JobRun by ID",
+      "description": "Gets a JobRun by ID. When successful, the response is the requested JobRun.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/jobRuns/{{JOBRUNID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBRUNID}} with a real jobrunid."
+    },
+    {
+      "id": "update-a-jobrun",
+      "name": "Update a JobRun",
+      "description": "/// \r\n            Updates a JobRun.  The body of the PUT is the updated JobRun.\r\n            When successful, the response is empty.  If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/jobRuns/{{JOBRUNID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "ActivityRuns": [],
+        "EndDate": "",
+        "JobID": 0,
+        "JobRunID": 0,
+        "Parameters": [],
+        "StartDate": "",
+        "Status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBRUNID}} with a real jobrunid."
+    },
+    {
+      "id": "delete-a-jobrun",
+      "name": "Delete a JobRun",
+      "description": "Deletes a JobRun. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/jobRuns/{{JOBRUNID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBRUNID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBRUNID}} with a real jobrunid."
+    },
+    {
+      "id": "get-jobs",
+      "name": "Get Jobs",
+      "description": "Gets a collection of Jobs. When successful, the response is a PagedResponse of Jobs.\r\n            If unsuccessful, an appropriate ApiError is returned. \r\n            ///",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/jobs",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-job",
+      "name": "Create a Job",
+      "description": "Creates a Job.  The body of the POST is the Job to create.  The JobID will be assigned on\r\n            creation of the Job.  When successful, the response is the JobID.  If unsuccessful, an \r\n            appropriate ApiError is returned.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/jobs",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Activities": [],
+        "Deleted": false,
+        "JobID": 0,
+        "Name": "",
+        "Parameters": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-job-by-id",
+      "name": "Get a Job by ID",
+      "description": "Gets a Job by ID. When successful, the response is the requested Job.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/jobs/{{JOBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "update-a-job",
+      "name": "Update a Job",
+      "description": "Updates a Job.  The body of the PUT is the updated Job.  When successful, the response is empty.\r\n            If unsuccessful, an appropriate ApiError is returned.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/jobs/{{JOBID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Activities": [],
+        "Deleted": false,
+        "JobID": 0,
+        "Name": "",
+        "Parameters": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "mark-the-delete-flag-for-the-job",
+      "name": "Mark the delete flag for the Job",
+      "description": "Deletes a Job. When successful, the response is empty.  If unsuccessful, an appropriate\r\n            ApiError is returned.",
+      "method": "DELETE",
+      "url": "https://secure.agco-ats.com/api/v2/jobs/{{JOBID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{JOBID}}"
+      ],
+      "notes": "No authentication required. Replace {{JOBID}} with a real jobid."
+    },
+    {
+      "id": "get-steps",
+      "name": "Get Steps",
+      "description": "Gets a collection of Steps. When successful, the response is a PagedResponse of Steps.\r\n            If unsuccessful, an appropriate ApiError is returned.  Steps.Read permission is required.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/steps",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-step",
+      "name": "Create a Step",
+      "description": "No Documentation Found.",
+      "method": "POST",
+      "url": "https://secure.agco-ats.com/api/v2/steps",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "ConfigRequired": false,
+        "ImplementationID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-step-by-id",
+      "name": "Get a Step by ID",
+      "description": "Gets a Step by ID. When successful, the response is the requested Step.\r\n            If unsuccessful, an appropriate ApiError is returned.  Steps.Read permission is required.",
+      "method": "GET",
+      "url": "https://secure.agco-ats.com/api/v2/steps/{{STEPID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STEPID}}"
+      ],
+      "notes": "No authentication required. Replace {{STEPID}} with a real stepid."
+    },
+    {
+      "id": "update-a-step",
+      "name": "Update a Step",
+      "description": "No Documentation Found.",
+      "method": "PUT",
+      "url": "https://secure.agco-ats.com/api/v2/steps/{{STEPID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "ConfigRequired": false,
+        "ImplementationID": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STEPID}}"
+      ],
+      "notes": "No authentication required. Replace {{STEPID}} with a real stepid."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "api_id": "webscraping.ai:2.0.7",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "information-about-your-account-calls-quota",
+      "name": "Information about your account calls quota",
+      "description": "Always returns JSON",
+      "method": "GET",
+      "url": "https://api.webscraping.ai/account",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{WEBSCRAPING_AI_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {
+        "remaining_api_calls": 200000,
+        "remaining_concurrency": 100,
+        "resets_at": 1617073667
+      },
+      "auth_placeholders": [
+        "{{WEBSCRAPING_API_KEY}}",
+        "{{WEBSCRAPING_AI_API_KEY}}"
+      ],
+      "notes": "Replace {{WEBSCRAPING_API_KEY}} with your WEBSCRAPING API KEY."
+    },
+    {
+      "id": "html-of-multiple-page-areas-by-url-and-css-selectors",
+      "name": "HTML of multiple page areas by URL and CSS selectors",
+      "description": "Always returns JSON",
+      "method": "GET",
+      "url": "https://api.webscraping.ai/selected-multiple",
+      "headers": {},
+      "query_params": {
+        "api_key": "{{WEBSCRAPING_AI_API_KEY}}",
+        "url": ""
+      },
+      "body": null,
+      "sample_response": [
+        "<a href='/test'>some link</a>",
+        "Hello"
+      ],
+      "auth_placeholders": [
+        "{{WEBSCRAPING_API_KEY}}",
+        "{{WEBSCRAPING_AI_API_KEY}}"
+      ],
+      "notes": "Replace {{WEBSCRAPING_API_KEY}} with your WEBSCRAPING API KEY."
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "api_id": "linqr.app:2.0",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "qr-code-batch",
+      "name": "QR Code Batch",
+      "description": "This endpoint allows you to generate an archive containing multiple QR Codes with a single request. The endpoint response is the archive containing the generated image files and `items.json` file which is a record of the specifications of each of the files in the archive.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/batch/qrcode",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "items": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "list-all-images",
+      "name": "List all images",
+      "description": "This endpoint allows you to list images hosted in the LinQR storage. If there are no images hosted, an empty array is returned.",
+      "method": "GET",
+      "url": "https://run.byvalue.org/images",
+      "headers": {
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "upload-image",
+      "name": "Upload image",
+      "description": "This endpoint allows you to upload images to LinQR storage. In the response, metadata of the submitted image is sent, including the identifier used by other endpoints from the `Image management` group for image identification.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/images",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "image": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "list-image",
+      "name": "List image",
+      "description": "This endpoint allows you to list single image hosted in the LinQR storage.",
+      "method": "GET",
+      "url": "https://run.byvalue.org/images/{{ID}}",
+      "headers": {
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-image",
+      "name": "Delete image",
+      "description": "This endpoint allows you to delete images hosted in the LinQR storage.",
+      "method": "DELETE",
+      "url": "https://run.byvalue.org/images/{{ID}}",
+      "headers": {
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "arbitrary-data-type-qr-code",
+      "name": "Arbitrary data type QR Code",
+      "description": "This endpoint aggregates the functionality of all other endpoints in the group. The data type in the `data` field is recognized automatically and the data is encoded in an appropriate way.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "contact-qr-code",
+      "name": "Contact QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows user to quickly add contact information to the phone book. The code contains an appropriately encoded electronic business card. After scanning, the device prompts to save the contact in the phone book.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/contact",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "cryptocurrency-payment-qr-code",
+      "name": "Cryptocurrency payment QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows user to make a quick cryptocurrency transfer. The code contains appropriately encoded data for the payment. After scanning the code, the cryptocurrency wallet application asks user to perform the transfer without rewriting all necessary data.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/crypto",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "email-qr-code",
+      "name": "Email QR Code",
+      "description": "This endpoint allows the creation of a QR Code allowing the user to quickly send an email. The code contains an appropriately encoded message template. After scanning, the device starts the e-mail client with pre-filled specified fields.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/email",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "geolocation-qr-code",
+      "name": "Geolocation QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows to share location with the user. The code contains appropriately encoded geographic coordinates. After scanning the code, device maps application is invoked, pointing to the selected location (address).",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/geo",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "telephone-qr-code",
+      "name": "Telephone QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows user to make quick telephone call. The code contains appropriately encoded telephone number. After scanning the code, device dialer is invoked with prefilled phone number. To make a call, the user only needs to press the green phone key.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/phone",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "sms-qr-code",
+      "name": "SMS QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows user to quickly send SMS. The code contains appropriately encoded recipient number and message template. After scanning the code, device message application is invoked with prefilled phone number and text, ready to be sent. To send a SMS, the user only needs to press *Send* button.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/sms",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "text-qr-code",
+      "name": "Text QR Code",
+      "description": "This endpoint allows you to create a QR Code containing any text, in particular, an URL that may redirect the user to the website. After QR code is scanned, website will be displayed to the user.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/text",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    },
+    {
+      "id": "wifi-qr-code",
+      "name": "WiFi QR Code",
+      "description": "This endpoint allows you to create a QR Code that allows user to quickly connect to a WiFi network. The code contains properly encoded network credentials. After scanning, the device can automatically connect to the network without having to enter the password manually.",
+      "method": "POST",
+      "url": "https://run.byvalue.org/qrcode/wifi",
+      "headers": {
+        "Content-Type": "application/json",
+        "Byvalue-Token": "{{LINQR_APP_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LINQR_API_KEY}}",
+        "{{LINQR_APP_API_KEY}}"
+      ],
+      "notes": "Replace {{LINQR_API_KEY}} with your LINQR API KEY."
+    }
+  ]
+}

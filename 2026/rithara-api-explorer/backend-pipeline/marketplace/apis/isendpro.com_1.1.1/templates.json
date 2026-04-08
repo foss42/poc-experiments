@@ -1,0 +1,280 @@
+{
+  "api_id": "isendpro.com:1.1.1",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "retourne-les-sms-envoyes-sur-une-periode-donnee",
+      "name": "Retourne les SMS envoy\u00e9s sur une p\u00e9riode donn\u00e9e",
+      "description": "Retourne les SMS envoy\u00e9s sur une p\u00e9riode donn\u00e9e en fonction d'une date de d\u00e9but et d'une date de fin. \n\nLes dates sont au format YYYY-MM-DD hh:mm. \n\nLe fichier rapport de campagne est sous la forme d'un fichier zip + contenant un fichier csv contenant le d\u00e9tail des envois.\n",
+      "method": "GET",
+      "url": "https://apirest.isendpro.com/cgi-bin/campagne",
+      "headers": {},
+      "query_params": {
+        "keyid": "",
+        "rapportCampagne": "",
+        "date_deb": "",
+        "date_fin": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "compter-le-nombre-de-caractere",
+      "name": "Compter le nombre de caract\u00e8re ",
+      "description": "Compte le nombre de SMS necessaire \u00e0 un envoi",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/comptage",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "comptage": "1",
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": "0600123456",
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "interrogation-credit",
+      "name": "Interrogation credit",
+      "description": "Retourne le credit existant associe au compte.\n",
+      "method": "GET",
+      "url": "https://apirest.isendpro.com/cgi-bin/credit",
+      "headers": {},
+      "query_params": {
+        "keyid": "",
+        "credit": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "ajoute-un-numero-en-liste-noire",
+      "name": "Ajoute un numero en liste noire",
+      "description": "Supprime un numero en liste noire",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/dellistenoire",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "keyid": "",
+        "delListeNoire": "",
+        "num": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retourne-le-liste-noire",
+      "name": "Retourne le liste noire",
+      "description": "Retourne un fichier csv zipp\u00e9 contenant la liste noire",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/getlistenoire",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "keyid": "",
+        "getListeNoire": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "verifier-la-validite-d-un-numero",
+      "name": "V\u00e9rifier la validit\u00e9 d'un num\u00e9ro",
+      "description": "R\u00e9alise un lookup HLR sur les num\u00e9ros \n",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/hlr",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "getHLR": "1",
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "06123456789",
+          "06345687899"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gestion-repertoire-creation",
+      "name": "Gestion repertoire (creation)",
+      "description": "Cree un nouveau r\u00e9pertoire et retourne son identifiant. Cet identifiant pourra \u00eatre utilis\u00e9 pour ajouter ou supprimer des num\u00e9ros via l'API.",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/repertoire",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "keyid": "VOTRE_KEYID",
+        "repertoireEdit": "create",
+        "repertoireNom": "Repertoire de test"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "gestion-repertoire-modification",
+      "name": "Gestion repertoire (modification)",
+      "description": "Ajoute ou supprime une liste de num\u00e9ros \u00e0 un r\u00e9pertoire existant.",
+      "method": "PUT",
+      "url": "https://apirest.isendpro.com/cgi-bin/repertoire",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "06123456789",
+          "07123456789"
+        ],
+        "repertoireEdit": "add",
+        "repertoireId": "VOTRE_REPERTOIRE_ID"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "ajoute-un-numero-en-liste-noire-2",
+      "name": "Ajoute un numero en liste noire",
+      "description": "Ajoute un numero en liste noire. Une fois ajout\u00e9, les requ\u00eates d'envoi de SMS marketing vers ce num\u00e9ro seront refus\u00e9es.",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/setlistenoire",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "keyid": "",
+        "setlisteNoire": "",
+        "num": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "add-a-shortlink",
+      "name": "add a shortlink",
+      "description": "add a shortlink",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/shortlink",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "keyid": "",
+        "shortlink": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "envoyer-un-sms",
+      "name": "Envoyer un sms",
+      "description": "Envoi un sms vers un unique destinataire",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/sms",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": "0600123456",
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "envoyer-des-sms",
+      "name": "Envoyer des SMS",
+      "description": "Envoi de SMS vers 1 ou plusieurs destinataires\n",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/smsmulti",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "emetteur": "iSendPro",
+        "keyid": "VOTRE_KEYID",
+        "num": [
+          "0600123456",
+          "0612345678"
+        ],
+        "sms": "Bonjour! Bienvenue sur iSendPro!"
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "ajoute-un-sous-compte",
+      "name": "Ajoute un sous compte",
+      "description": "Ajoute un sous compte",
+      "method": "POST",
+      "url": "https://apirest.isendpro.com/cgi-bin/subaccount",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "keyid": "",
+        "subAccountEdit": "",
+        "subAccountLogin": "",
+        "subAccountPassword": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "edit-a-subaccount",
+      "name": "Edit a subaccount",
+      "description": "Edit a subaccount",
+      "method": "PUT",
+      "url": "https://apirest.isendpro.com/cgi-bin/subaccount",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "keyid": "",
+        "subAccountEdit": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    }
+  ]
+}

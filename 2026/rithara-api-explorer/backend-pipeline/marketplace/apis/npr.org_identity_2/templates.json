@@ -1,0 +1,107 @@
+{
+  "api_id": "npr.org:identity:2",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "update-the-following-status-of-the-logged-in-user-for-a-particular-aggregation",
+      "name": "Update the following status of the logged-in user for a particular aggregation",
+      "description": "After a successful call, this returns a User document with an updated list of affiliations.",
+      "method": "POST",
+      "url": "https://identity.api.npr.org/v2/following",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "",
+        "href": "",
+        "following": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "update-the-logged-in-user-s-favorite-station-s",
+      "name": "Update the logged-in user's favorite station(s)",
+      "description": "Right now, only the primary station can be changed. Previously selected stations will not be deleted, but the new station will be moved to first in the array.",
+      "method": "PUT",
+      "url": "https://identity.api.npr.org/v2/stations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": [
+        0
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "get-the-latest-state-information-about-the-logged-in-user",
+      "name": "Get the latest state information about the logged-in user",
+      "description": "After a successful login, the client should send a `GET` call approximately once an hour to refresh the user data.",
+      "method": "GET",
+      "url": "https://identity.api.npr.org/v2/user",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "delete-the-user-s-account",
+      "name": "Delete the user's account",
+      "description": "Use with caution as some steps are irreverisble. Initiates the user account deletion process, including removal of all user PII and account access.",
+      "method": "DELETE",
+      "url": "https://identity.api.npr.org/v2/user",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "copy-listening-data-from-a-temporary-user-account-to-the-logged-in-user-s-account",
+      "name": "Copy listening data from a temporary user account to the logged-in user's account",
+      "description": "This can and should only be used by clients who have access to the `temporary_user` grant type.\n    Third-party developers do not have access to this grant type by default, and will not need this endpoint.",
+      "method": "POST",
+      "url": "https://identity.api.npr.org/v2/user/inherit",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "temp_user": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "api_id": "azure.com:apimanagement-apimsubscriptions:2017-03-01",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "get-subscriptions",
+      "name": "GET /subscriptions",
+      "description": "Lists all subscriptions of the API Management service instance.",
+      "method": "GET",
+      "url": "https://azure.local/subscriptions",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY."
+    },
+    {
+      "id": "get-subscriptions-sid",
+      "name": "GET /subscriptions/{sid}",
+      "description": "Gets the specified Subscription entity.",
+      "method": "GET",
+      "url": "https://azure.local/subscriptions/{{SID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "put-subscriptions-sid",
+      "name": "PUT /subscriptions/{sid}",
+      "description": "Creates or updates the subscription of specified user to the specified product.",
+      "method": "PUT",
+      "url": "https://azure.local/subscriptions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "userId": "",
+        "productId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-subscriptions-sid",
+      "name": "DELETE /subscriptions/{sid}",
+      "description": "Deletes the specified subscription.",
+      "method": "DELETE",
+      "url": "https://azure.local/subscriptions/{{SID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "patch-subscriptions-sid",
+      "name": "PATCH /subscriptions/{sid}",
+      "description": "Updates the details of a subscription specified by its identifier.",
+      "method": "PATCH",
+      "url": "https://azure.local/subscriptions/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "expirationDate": "",
+        "name": "",
+        "primaryKey": "",
+        "productId": "",
+        "secondaryKey": "",
+        "state": "",
+        "stateComment": "",
+        "userId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-subscriptions-sid-regenerateprimarykey",
+      "name": "POST /subscriptions/{sid}/regeneratePrimaryKey",
+      "description": "Regenerates primary key of existing subscription of the API Management service instance.",
+      "method": "POST",
+      "url": "https://azure.local/subscriptions/{{SID}}/regeneratePrimaryKey",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-subscriptions-sid-regeneratesecondarykey",
+      "name": "POST /subscriptions/{sid}/regenerateSecondaryKey",
+      "description": "Regenerates secondary key of existing subscription of the API Management service instance.",
+      "method": "POST",
+      "url": "https://azure.local/subscriptions/{{SID}}/regenerateSecondaryKey",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_API_KEY}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_API_KEY}}",
+        "{{SID}}",
+        "{{AZURE_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{AZURE_API_KEY}} with your AZURE API KEY. Replace {{SID}} with a real sid."
+    }
+  ]
+}

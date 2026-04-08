@@ -1,0 +1,210 @@
+{
+  "api_id": "azure.com:marketplace-Marketplace:2020-01-01",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-marketplace-operations",
+      "name": "GET /providers/Microsoft.Marketplace/operations",
+      "description": "Lists all of the available Microsoft.Marketplace REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-providers-microsoft-marketplace-privatestores",
+      "name": "GET /providers/Microsoft.Marketplace/privateStores",
+      "description": "Gets the list of available private stores",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "get-providers-microsoft-marketplace-privatestores-privatestoreid",
+      "name": "GET /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}",
+      "description": "Get information about the private store",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid."
+    },
+    {
+      "id": "put-providers-microsoft-marketplace-privatestores-privatestoreid",
+      "name": "PUT /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}",
+      "description": "Changes private store properties",
+      "method": "PUT",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "availability": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid."
+    },
+    {
+      "id": "delete-providers-microsoft-marketplace-privatestores-privatestoreid",
+      "name": "DELETE /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}",
+      "description": "Deletes the private store. All that is not saved will be lost.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid."
+    },
+    {
+      "id": "get-providers-microsoft-marketplace-privatestores-privatestoreid-offers",
+      "name": "GET /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}/offers",
+      "description": "Get a list of all private offers in the given private store",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}/offers",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid."
+    },
+    {
+      "id": "get-providers-microsoft-marketplace-privatestores-privatestoreid-offers-offerid",
+      "name": "GET /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}/offers/{OfferId}",
+      "description": "Gets information about a specific offer.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}/offers/{{OFFERID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{OFFERID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid. Replace {{OFFERID}} with a real offerid."
+    },
+    {
+      "id": "put-providers-microsoft-marketplace-privatestores-privatestoreid-offers-offerid",
+      "name": "PUT /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}/offers/{OfferId}",
+      "description": "Update or add an offer to the default collection of the private store.",
+      "method": "PUT",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}/offers/{{OFFERID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "description": "",
+        "displayName": "",
+        "eTag": "",
+        "id": "",
+        "longSummary": "",
+        "plans": [],
+        "publisherDisplayName": "",
+        "summary": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{OFFERID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid. Replace {{OFFERID}} with a real offerid."
+    },
+    {
+      "id": "delete-providers-microsoft-marketplace-privatestores-privatestoreid-offers-offerid",
+      "name": "DELETE /providers/Microsoft.Marketplace/privateStores/{PrivateStoreId}/offers/{OfferId}",
+      "description": "Deletes an offer from the given private store.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/providers/Microsoft.Marketplace/privateStores/{{PRIVATESTOREID}}/offers/{{OFFERID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{PRIVATESTOREID}}",
+        "{{OFFERID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PRIVATESTOREID}} with a real privatestoreid. Replace {{OFFERID}} with a real offerid."
+    }
+  ]
+}

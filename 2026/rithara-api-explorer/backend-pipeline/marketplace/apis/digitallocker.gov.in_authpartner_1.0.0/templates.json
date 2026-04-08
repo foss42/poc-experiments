@@ -1,0 +1,495 @@
+{
+  "api_id": "digitallocker.gov.in:authpartner:1.0.0",
+  "endpoint_count": 22,
+  "endpoints": [
+    {
+      "id": "push-uri-to-account",
+      "name": "Push URI to Account",
+      "description": "The API can use to push or delete a single URI into Digital Locker using DigiLocker Id acquired using Get User Details API. This API can be used to push the certificate details to Digital Locker as and when a certificate is generated in the issuer system. The issuing departments must register on DigiLocker as a registered Issuer and implement the requisite Issuer APIs as mentioned in Digital Locker Issuer API Specification document prior to pushing certificates using this API.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/account/1/pushuri",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "clientid": "",
+        "digilockerid": 0,
+        "docid": "",
+        "hmac": "",
+        "issuedate": "",
+        "ts": "",
+        "uri": "",
+        "validfrom": 0,
+        "validto": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "verify-account",
+      "name": "Verify Account",
+      "description": "This API can be used to verify whether a mobile number or Aadhaar number is already registered with DigiLocker.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/account/2/verify",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "hmac": "",
+        "mobile": 0,
+        "ts": "",
+        "uid": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-authorization-code",
+      "name": "Get Authorization Code",
+      "description": "Call to this API starts authorization flow using OAuth 2.0 protocol. This isn't an API call\u2014it's a DigiLocker web page that lets the user sign in to DigiLocker and authorize your application to access user\u2019s data. After the user decides whether or not to authorize your app, they will be redirected to the redirect link provided by your application.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/authorize",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {
+        "response_type": "",
+        "redirect_uri": "",
+        "state": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-device-code",
+      "name": "Get Device Code",
+      "description": "The client device calls the DigiLocker API to get the device code by providing the client_id issued to the device OEM and either the username or the mobile number of the user. DigiLocker responds with a device code and then sends an OTP on the mobile number and email address associated with the user\u2019s account. The masked mobile number and email address is also sent in response. The device should use these values to notify the users about the mobile and email address on which the OTP has been sent.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/code",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_id": "",
+        "dl_mobile": 0,
+        "dl_username": "",
+        "response_type": "device_code"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "upload-file-to-locker",
+      "name": "Upload file to locker",
+      "description": "This API can be used to save/upload a file to uploaded documents in DigiLocker. The allowed file types are JPG, JPEG, PNG and PDF. The file size must not exceed 10MB.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/file/upload",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "Content-Type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-file-from-uri",
+      "name": "Get File from URI",
+      "description": "Returns a file from URI. This API can be used to fetch both issued document and uploaded document.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/file/{{URI}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{URI}}",
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY. Replace {{URI}} with a real uri."
+    },
+    {
+      "id": "get-list-of-self-uploaded-documents",
+      "name": "Get List of Self Uploaded Documents",
+      "description": "Returns the list of meta-data about documents or folders in user\u2019s DigiLocker in a specific location.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/files/",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "issued-documents",
+      "name": "Issued Documents",
+      "description": "Returns the list of meta-data about issued documents in user\u2019s DigiLocker.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/files/issued",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-list-of-self-uploaded-documents-2",
+      "name": "Get List of Self Uploaded Documents",
+      "description": "Returns the list of meta-data about documents or folders in user\u2019s DigiLocker in a specific location.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/files/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-list-of-documents-provided-by-an-issuer",
+      "name": "Get List of Documents Provided by an Issuer",
+      "description": "Returns a list of documents/certificates issued by an issuer organization registered with DigiLocker.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/pull/doctype",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "hmac": "",
+        "orgid": "",
+        "ts": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-list-of-issuers",
+      "name": "Get List of Issuers",
+      "description": "Returns the list of issuers registered with DigiLocker.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/pull/issuers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "hmac": "",
+        "ts": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-search-parameters-for-a-document",
+      "name": "Get Search Parameters for a Document",
+      "description": "Returns a list of parameters required to search a document/certificate of an issuer organization registered with DigiLocker. These parameters are used to pull a document from issuer\u2019s repository using Pull Document API mentioned in subsequent section.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/pull/parameters",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "doctype": "",
+        "hmac": "",
+        "orgid": "",
+        "ts": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "pull-document",
+      "name": "Pull Document",
+      "description": "This API allows a client application to search a document/certificate from issuer\u2019s repository using the parameters provided by a user. The searched document is saved in user\u2019s issued document section of DigiLocker if the search is successful.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/pull/pulldocument",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "chasis_no": "",
+        "consent": "",
+        "doctype": "",
+        "orgid": "",
+        "reg_no": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "revoke-token",
+      "name": "Revoke Token.",
+      "description": "Client applications can revoke a previously obtained refresh or access token when it is no longer needed. This is done by making a request to the token revocation endpoint. DigiLocker will invalidate the specified token and, if applicable, other tokens based on the same authorisation grant. This API may be used to sign out a user from DigiLocker. This API will work for server based web applications, mobile application and limited input devices.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/revoke",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-access-token",
+      "name": "Get Access Token",
+      "description": "This endpoint only applies to apps using the authorization code flow. An app calls this endpoint to acquire a bearer token once the user has authorized the app. Calls to /oauth2/1/token need to be authenticated using the app's key and secret. These can either be passed as application/x-www-form-urlencoded POST parameters (see parameters below) or via HTTP basic authentication. If basic authentication is used, the app key should be provided as the username, and the app secret should be provided as the password.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "Get access token using authorization code": {},
+        "Get access token using device code and OTP": "",
+        "Get access token using refresh token": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-user-details",
+      "name": "Get User Details",
+      "description": "Client applications can call this API to get the DigiLocker Id, name, date of birth and gender of the account holder. An access token is required to call this API. The API will return the user details of the account with which the access token is linked. It is strongly recommended that the API can be called by client application only once after acquiring the access token. Since the user details do not change, the client application may store the values and use them when necessary than calling this API repeatedly.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/user",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-certificate-data-in-xml-format-from-uri",
+      "name": "Get Certificate Data in XML Format from URI",
+      "description": "Returns the certificate data in machine readable XML format for a URI. This API can be used to only for issued documents. The XML data may not be available for all documents. If the XML data is available for a particular document, the mime parameter in Get List of Issued Documents API will contain application/xml. Please refer to Digital Locker XML Certificate Formats for more details of XML formats of various documents.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/1/xml/{{URI}}",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{URI}}",
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY. Replace {{URI}} with a real uri."
+    },
+    {
+      "id": "issued-documents-2",
+      "name": "Issued Documents",
+      "description": "Returns the list of meta-data about issued documents in user\u2019s DigiLocker.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/2/files/issued",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-e-aadhaar-data-in-xml-format",
+      "name": "Get e-Aadhaar Data in XML Format",
+      "description": "Returns e-Aadhaar data in XML format for the account.",
+      "method": "GET",
+      "url": "https://betaapi.digitallocker.gov.in/public/oauth2/2/xml/eaadhaar",
+      "headers": {
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "verify-otp",
+      "name": "Verify OTP",
+      "description": "This API is used to verify the OTP sent by DigiLocker during the sign up API call above.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/signup/1/demoauthverify",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "hmac": "",
+        "mobile": 0,
+        "otp": 0,
+        "ts": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "sign-up",
+      "name": "SIGN UP",
+      "description": "This API is used to validate Aadhaar details and verify the mobile number by generating an OTP. This API call, if successful, will be followed by verify OTP call by the partner application if the user is online or available to perform OTP validation as indicated in verification parameter",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/signup/2/demoauth",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "consent": "",
+        "demoauth": "",
+        "dob": 0,
+        "gender": "",
+        "hmac": "",
+        "mobile": 0,
+        "name": "",
+        "ts": "",
+        "uid": 0,
+        "verification": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    },
+    {
+      "id": "get-statistics",
+      "name": "Get Statistics",
+      "description": "Returns DigiLocker statistics such as the count of users, authentic documents, issuers and requesters as on a specific date.",
+      "method": "POST",
+      "url": "https://betaapi.digitallocker.gov.in/public/statistics/1/counts",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientid": "",
+        "hmac": "",
+        "ts": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIGITALLOCKER_API_KEY}}",
+        "{{DIGITALLOCKER_GOV_IN_API_KEY}}"
+      ],
+      "notes": "Replace {{DIGITALLOCKER_API_KEY}} with your DIGITALLOCKER API KEY."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "api_id": "npr.org:station-finder:3",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "list-stations-close-to-you-or-filter-by-search-criteria",
+      "name": "List stations close to you or filter by search criteria",
+      "description": "This endpoint has two main use cases:\n\n- If no query parameters passed in, it returns a list of stations that are geographically closest to the calling client (based on GeoIP information)\n- If one or more query parameters are passed in, it performs a search of NPR stations that match those search criteria (not taking into account the client's physical location)\n\nClients wanting to implement a 'Change Station' UI should use this endpoint to power their search. In most cases, you'll want to build a search interface that uses one of the 3 provided schemas: `lat` and `lon` (using e.g. the HTML5 Geolocation API), `city` and `state`, _or_ the generic `q` query which can accept a station name, call letters, network name, or zip code. Technically speaking, `q` can also take in either a city name or a state name, but using the `city` and `state` parameters together will yield more accurate geographic search results than `q={cityName}`.\n\nThe `lat` and `lon` query parameters should always be passed in together (otherwise the API will return a 400 error), and if included in the query, they will take precedence over any other search criteria; that is, `lat` and `lon` will do a purely geographic search and not take into account `q`, `city` or `state`.\n\nSimilarly, `city` and/or `state` will take precedence over (and ignore) `q`.\n\nIf clients want to be able to offer multiple types of searches (e.g. 'Search for a station name, city or zipcode') using a *single* search input form, `q` should be used. But again, be aware that using `city` and `state` together will yield more accurate search results than `q={cityName}`.",
+      "method": "GET",
+      "url": "https://station.api.npr.org/v3/stations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "retrieve-metadata-for-the-station-with-the-given-numeric-id",
+      "name": "Retrieve metadata for the station with the given numeric ID",
+      "description": "This endpoint retrieves information about a given station, based on its numeric ID, which is consistent across all of NPR's APIs.\n\nA typical use case for this data is for clients who want to create a dropdown menu, modal/pop-up or dedicated page displaying more information about the station the client is localized to, including, for example, links to the station's homepage and donation (pledge) page.",
+      "method": "GET",
+      "url": "https://station.api.npr.org/v3/stations/{{STATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{STATIONID}}",
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN. Replace {{STATIONID}} with a real stationid."
+    }
+  ]
+}

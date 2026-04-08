@@ -1,0 +1,166 @@
+{
+  "api_id": "npr.org:listening:2",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-a-set-of-recommendations-for-an-aggregation-independent-of-the-user-s-listening-history",
+      "name": "Get a set of recommendations for an aggregation independent of the user's listening history",
+      "description": "This endpoint provides a list of recent audio items associated with the aggregation along with metadata about the aggregation.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/aggregation/{{AGGID}}/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{AGGID}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN. Replace {{AGGID}} with a real aggid."
+    },
+    {
+      "id": "get-the-list-of-available-channels",
+      "name": "Get the list of available channels",
+      "description": "These channels allow the user to specify a focus for the content returned in the recommendations endpoint.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/channels",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "get-recent-ratings-the-logged-in-user-has-submitted",
+      "name": "Get recent ratings the logged-in user has submitted",
+      "description": "This endpoint provides the list of recently-rated audio recommendations that the logged-in user has consumed. Some rated recommendations are filtered, such as sponsorship and donation.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/history",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-list-of-recommendations-from-a-category-of-content-from-an-organization",
+      "name": "Get a list of recommendations from a category of content from an organization",
+      "description": "This endpoint provides a list of recommendations from a category of content from  an organization.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/organizations/{{ORGID}}/categories/{{CATEGORY}}/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{ORGID}}",
+        "{{CATEGORY}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN. Replace {{ORGID}} with a real orgid. Replace {{CATEGORY}} with a real category."
+    },
+    {
+      "id": "get-a-variety-of-details-about-an-organization-including-various-lists-of-recent-audio-items",
+      "name": "Get a variety of details about an organization including various lists of recent audio items",
+      "description": "This endpoint provides a variety of details about an organization including various lists of recent audio items.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/organizations/{{ORGID}}/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORGID}}",
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN. Replace {{ORGID}} with a real orgid."
+    },
+    {
+      "id": "retrieve-the-most-recent-promo-audio-heard-by-the-logged-in-user",
+      "name": "Retrieve the most recent promo audio heard by the logged-in user",
+      "description": "Gets the most recently played promo for which the user has neither tapped through the promo or listened to the target story.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/promo/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "collect-new-ratings-for-media-previously-recommended-to-the-logged-in-user",
+      "name": "Collect new ratings for media previously recommended to the logged-in user",
+      "description": "This endpoint is the main mechanism for providing feedback from the user to NPR about the recommendations that are obtained from `GET /listening/v2/recommendations`.\n\nA fully-populated link to this endpoint is returned with each individual recommendation and is located in the AudioItemDocument under the `links['recommendations']` object. The query parameters in this link should not be modified.\nBe sure to copy and send back the entire ratings object (RatingData), as new fields may be added to it in the future.\n\nThis endpoint can return a blank JSON.doc or AudioItemDocument depending on the `recommend=true|false` parameter. The `recommend=true` flag allows this endpoint to both receive ratings and send back recommendations in the same call.",
+      "method": "POST",
+      "url": "https://listening.api.npr.org/v2/ratings",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "mediaId": "",
+          "origin": "",
+          "rating": "",
+          "elapsed": 0,
+          "duration": 0,
+          "timestamp": "",
+          "channel": "npr",
+          "cohort": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    },
+    {
+      "id": "get-a-list-of-media-for-the-logged-in-user-from-npr-s-recommendation-engine",
+      "name": "Get a list of media for the logged-in user from NPR's recommendation engine",
+      "description": "This endpoint returns a list of audio recommendations. It is designed to be used for an initial list of recommendations, and then `POST /v2/ratings?recommend=true` should be used for subsequent requests for recommendations.\n\nA fully-populated link to the ratings endpoint is returned with each individual recommendation and is located in the AudioItemDocument under the `links['recommendations']` object. The query parameters in this link should not be modified.\nBe sure to copy and send back the entire ratings object (RatingData), as new fields may be added to it in the future.\n\nA 500 will be returned if there are no eligible remaining recommendations.",
+      "method": "GET",
+      "url": "https://listening.api.npr.org/v2/recommendations",
+      "headers": {
+        "Authorization": "Bearer{{NPR_ORG_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NPR_ACCESS_TOKEN}}",
+        "{{NPR_ORG_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{NPR_ACCESS_TOKEN}} with your NPR ACCESS TOKEN."
+    }
+  ]
+}

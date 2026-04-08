@@ -1,0 +1,30 @@
+{
+  "api_id": "va.gov:confirmation:0.0.1",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "get-confirmation-about-an-individual-s-veteran-status-according-to-the-va",
+      "name": "Get confirmation about an individual's Veteran status according to the VA",
+      "description": "Get confirmation about an individual's Veteran status according to the VA",
+      "method": "POST",
+      "url": "https://sandbox-api.va.gov/services/veteran_confirmation/{version}/status",
+      "headers": {
+        "Content-Type": "application/json",
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "ssn": "555-55-5555",
+        "first_name": "John",
+        "last_name": "Doe",
+        "birth_date": "1965-01-01"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY."
+    }
+  ]
+}

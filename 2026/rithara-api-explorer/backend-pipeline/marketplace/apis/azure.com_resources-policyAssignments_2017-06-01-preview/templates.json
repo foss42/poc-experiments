@@ -1,0 +1,218 @@
+{
+  "api_id": "azure.com:resources-policyAssignments:2017-06-01-preview",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-authorization-policyassignments",
+      "name": "GET /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments",
+      "description": "Gets all the policy assignments for a subscription.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.Authorization/policyAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-authorization-policyassignments",
+      "name": "GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments",
+      "description": "Gets policy assignments for the resource group.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.Authorization/policyAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-resourceprovidernamespace-parentresourcepath-resourcetype-resourcename-providers-microsoft-authorization-policyassignments",
+      "name": "GET /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}/providers/Microsoft.Authorization/policyAssignments",
+      "description": "Gets policy assignments for a resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/subscriptions/{{SUBSCRIPTIONID}}/resourcegroups/{{RESOURCEGROUPNAME}}/providers/{{RESOURCEPROVIDERNAMESPACE}}/{{PARENTRESOURCEPATH}}/{{RESOURCETYPE}}/{{RESOURCENAME}}/providers/Microsoft.Authorization/policyAssignments",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENTRESOURCEPATH}}",
+        "{{RESOURCETYPE}}",
+        "{{RESOURCEPROVIDERNAMESPACE}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{RESOURCENAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{PARENTRESOURCEPATH}} with a real parentresourcepath. Replace {{RESOURCETYPE}} with a real resourcetype. Replace {{RESOURCEPROVIDERNAMESPACE}} with a real resourceprovidernamespace. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCENAME}} with a real resourcename. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname."
+    },
+    {
+      "id": "gets-a-policy-assignment-by-id",
+      "name": "Gets a policy assignment by ID.",
+      "description": "When providing a scope for the assignment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{POLICYASSIGNMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYASSIGNMENTID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTID}} with a real policyassignmentid."
+    },
+    {
+      "id": "creates-a-policy-assignment-by-id",
+      "name": "Creates a policy assignment by ID.",
+      "description": "Policy assignments are inherited by child resources. For example, when you apply a policy to a resource group that policy is assigned to all resources in the group. When providing a scope for the assignment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{POLICYASSIGNMENTID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": "",
+        "sku": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYASSIGNMENTID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTID}} with a real policyassignmentid."
+    },
+    {
+      "id": "deletes-a-policy-assignment-by-id",
+      "name": "Deletes a policy assignment by ID.",
+      "description": "When providing a scope for the assignment, use '/subscriptions/{subscription-id}/' for subscriptions, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for resource groups, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}' for resources.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{POLICYASSIGNMENTID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{POLICYASSIGNMENTID}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTID}} with a real policyassignmentid."
+    },
+    {
+      "id": "get-scope-providers-microsoft-authorization-policyassignments-policyassignmentname",
+      "name": "GET /{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
+      "description": "Gets a policy assignment.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/policyAssignments/{{POLICYASSIGNMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTNAME}} with a real policyassignmentname. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "creates-a-policy-assignment",
+      "name": "Creates a policy assignment.",
+      "description": "Policy assignments are inherited by child resources. For example, when you apply a policy to a resource group that policy is assigned to all resources in the group.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/policyAssignments/{{POLICYASSIGNMENTNAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "id": "",
+        "name": "",
+        "properties": "",
+        "sku": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTNAME}} with a real policyassignmentname. Replace {{SCOPE}} with a real scope."
+    },
+    {
+      "id": "delete-scope-providers-microsoft-authorization-policyassignments-policyassignmentname",
+      "name": "DELETE /{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
+      "description": "Deletes a policy assignment.",
+      "method": "DELETE",
+      "url": "https://management.azure.com/{{SCOPE}}/providers/Microsoft.Authorization/policyAssignments/{{POLICYASSIGNMENTNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{POLICYASSIGNMENTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{SCOPE}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{POLICYASSIGNMENTNAME}} with a real policyassignmentname. Replace {{SCOPE}} with a real scope."
+    }
+  ]
+}

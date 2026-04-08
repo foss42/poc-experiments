@@ -1,0 +1,197 @@
+{
+  "api_id": "api2pdf.com:1.0.0",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "convert-raw-html-to-pdf",
+      "name": "Convert raw HTML to PDF",
+      "description": "Convert HTML to a PDF using Headless Chrome on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/chrome/html",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "html": "<p>Hello World</p>"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-url-to-pdf",
+      "name": "Convert URL to PDF",
+      "description": "Convert a URL or Web Page to PDF using Headless Chrome on AWS Lambda. This GET request is for convenience and does not support advanced options. Use the POST request for more flexibility.\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/chrome/url?url={UrlToConvert}&apikey={YourApiKey} ``` ",
+      "method": "GET",
+      "url": "https://v2018.api2pdf.com/chrome/url",
+      "headers": {
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {
+        "url": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-url-to-pdf-2",
+      "name": "Convert URL to PDF",
+      "description": "Convert a URL or Web Page to PDF using Headless Chrome on AWS Lambda..\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/chrome/url",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": "https://www.github.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-office-document-or-image-to-pdf",
+      "name": "Convert office document or image to PDF",
+      "description": "Convert an office document (Word, Excel, Powerpoint) or an image (jpg, gif, png) to a PDF using LibreOffice on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/libreoffice/convert",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": "https://www.api2pdf.com/wp-content/themes/api2pdf/assets/samples/sample-word-doc.docx"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "merge-multiple-pdfs-together",
+      "name": "Merge multiple PDFs together",
+      "description": "Merge two or more PDFs together on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/merge",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "urls": [
+          "link-to-pdf1",
+          "link-to-pdf2",
+          "link-to-pdf3"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-raw-html-to-pdf-2",
+      "name": "Convert raw HTML to PDF",
+      "description": "Convert HTML to a PDF using WkHtmlToPdf on AWS Lambda.\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/wkhtmltopdf/html",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "html": "<p>Hello World</p>"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-url-to-pdf-3",
+      "name": "Convert URL to PDF",
+      "description": "Convert a URL or Web Page to PDF using WkHtmlToPdf on AWS Lambda. This GET request is for convenience and does not support advanced options. Use the POST request for more flexibility.\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/wkhtmltopdf/url?url={UrlToConvert}&apikey={YourApiKey} ``` ",
+      "method": "GET",
+      "url": "https://v2018.api2pdf.com/wkhtmltopdf/url",
+      "headers": {
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {
+        "url": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "convert-url-to-pdf-4",
+      "name": "Convert URL to PDF",
+      "description": "Convert a URL or Web Page to PDF using WkHtmlToPdf on AWS Lambda..\n### Authorize via Header of Request\n**Authorization: YOUR-API-KEY**",
+      "method": "POST",
+      "url": "https://v2018.api2pdf.com/wkhtmltopdf/url",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "url": "https://www.github.com"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    },
+    {
+      "id": "generate-bar-codes-and-qr-codes-with-zxing",
+      "name": "Generate bar codes and QR codes with ZXING.",
+      "description": "See full list of options and documentation [here](https://www.api2pdf.com/documentation/advanced-options-zxing-zebra-crossing-barcodes/)\n### Authorize via Query String Parameter\n**apikey=YOUR-API-KEY**\n### Example\n``` https://v2018.api2pdf.com/zebra?format={format}&apikey={YourApiKey}&value={YourText} ``` ",
+      "method": "GET",
+      "url": "https://v2018.api2pdf.com/zebra",
+      "headers": {
+        "Authorization": "Bearer{{API2PDF_COM_API_KEY}}"
+      },
+      "query_params": {
+        "format": "",
+        "value": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{API2PDF_API_KEY}}",
+        "{{API2PDF_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{API2PDF_API_KEY}} with your API2PDF API KEY."
+    }
+  ]
+}

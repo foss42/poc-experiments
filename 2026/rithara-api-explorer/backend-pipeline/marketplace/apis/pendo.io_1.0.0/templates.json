@@ -1,0 +1,577 @@
+{
+  "api_id": "pendo.io:1.0.0",
+  "endpoint_count": 28,
+  "endpoints": [
+    {
+      "id": "query-accounts",
+      "name": "Query accounts",
+      "description": "Query accounts",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/accounts",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "get-an-account",
+      "name": "Get an Account",
+      "description": "Get an Account",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/accounts/{{ID}}",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-an-account",
+      "name": "Update an Account",
+      "description": "Update an Account",
+      "method": "PUT",
+      "url": "https://api.feedback.eu.pendo.io/accounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "monthly_value": 0.0,
+        "name": "",
+        "status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-an-account",
+      "name": "Delete an Account",
+      "description": "This removes most traces of an Accounts existence from the system.",
+      "method": "DELETE",
+      "url": "https://api.feedback.eu.pendo.io/accounts/{{ID}}",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-custom-account-tags",
+      "name": "Get custom Account tags",
+      "description": "Get custom Account tags",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/accounts/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-custom-account-tags",
+      "name": "Delete custom Account tags",
+      "description": "Removes all custom tags associated with the Account",
+      "method": "DELETE",
+      "url": "https://api.feedback.eu.pendo.io/accounts/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "fetch-comment-records",
+      "name": "fetch Comment records",
+      "description": "get a list of Comment records",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/comments",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}",
+        "case_id": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "query-features",
+      "name": "Query features",
+      "description": "Query features",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/features",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "get-a-feature-by-id",
+      "name": "Get a Feature by ID",
+      "description": "Get a Feature by ID",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/features/{{ID}}",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-custom-feature-tags",
+      "name": "Get custom Feature tags",
+      "description": "Get custom Feature tags",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/features/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-custom-feature-tags",
+      "name": "Delete custom Feature tags",
+      "description": "Removes all custom tags associated with the Feature",
+      "method": "DELETE",
+      "url": "https://api.feedback.eu.pendo.io/features/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "health-check-for-api",
+      "name": "Health check for API",
+      "description": "Provides a response for automatic checks that the API and load balancers are healthy",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/health-check/ping",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "subscribe-to-webhooks",
+      "name": "Subscribe to webhooks",
+      "description": "Use this endpoint to subscribe to webhooks.",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/hooks",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "event": "",
+        "target_url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "unsubscribe-from-webhooks",
+      "name": "Unsubscribe from webhooks",
+      "description": "Use this endpoint to unsubscribe from a webhook",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/hooks/unsubscribe",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "target_url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "search-features",
+      "name": "Search features",
+      "description": "Search features",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/search",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}",
+        "scope": "",
+        "q": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "fetch-user-records",
+      "name": "fetch User records",
+      "description": "get a list of User records",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/users",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}",
+        "role": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "ping-to-create-or-update-an-enduser-and-account-in-one-call",
+      "name": "Ping to create or update an EndUser and Account in one call",
+      "description": "Replicates much of the functionality of the widget ping, allowing callers to create or update User records for End Users. If you call this with a new User and/or Account, the record will be created. If you call for an existing User/Account, the record will be updated. You can also call this at EndUser login time, or more frequently, to notify Feedback that the EndUser has been seen. This keeps Feedback's 'last seen' data fresh and updates your reporting. This endpoint is used by our Zapier integration. The only value allowed in user.roles is 'endUser'. The id you supply here for the User and Account should be your own unique id, which Feedback calls external_id. This probably isn't the same as Feedback's id seen elsewhere in the API.",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "account": {},
+        "return_url": "",
+        "user": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "invite-an-enduser-customer",
+      "name": "Invite an EndUser (customer)",
+      "description": "Invite an EndUser (customer)",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/users/invite_end_user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "account_status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "invite-a-vendoruser-team-member",
+      "name": "Invite a VendorUser (Team member)",
+      "description": "Invite a VendorUser (Team member)",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/users/invite_vendor_user",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "email": "",
+        "full_name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "find-a-user-with-a-query",
+      "name": "Find a User with a query",
+      "description": "Find a User with a query",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/users/search",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "get-a-user-record",
+      "name": "Get a User record",
+      "description": "Get a User record",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/users/{{ID}}",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a User",
+      "description": "Update a User",
+      "method": "PUT",
+      "url": "https://api.feedback.eu.pendo.io/users/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "email": "",
+        "external_id": "",
+        "name": "",
+        "permission_group_id": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a User",
+      "description": "This removes most traces of a User's existence from the system. For an EndUser you might want to consider just letting them churn after a period of inactivity.",
+      "method": "DELETE",
+      "url": "https://api.feedback.eu.pendo.io/users/{{ID}}",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-custom-user-tags",
+      "name": "Get custom User tags",
+      "description": "Get custom User tags",
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/users/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-custom-user-tags",
+      "name": "Delete custom User tags",
+      "description": "Removes all custom tags associated with the User",
+      "method": "DELETE",
+      "url": "https://api.feedback.eu.pendo.io/users/{{ID}}/tags",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-or-update-a-team-member-by-their-external-id",
+      "name": "Create or update a team member by their external_id",
+      "description": "the POST /vendor_users is very similar to the POST /users/invite_vendor_user but /vendor_users is intended for consumers to refresh team member data periodically, rather than just a one-off user creation.",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/vendor_users",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "email": "",
+        "external_id": "",
+        "full_name": "",
+        "permission_group_id": 0.0,
+        "team": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "get-votes",
+      "name": "GET /votes",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.feedback.eu.pendo.io/votes",
+      "headers": {},
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    },
+    {
+      "id": "update-specified-votes-for-a-user",
+      "name": "update specified votes for a User",
+      "description": "Automatically subscribes/unsubscribes the User to the specifed feature depending on the quantity value",
+      "method": "POST",
+      "url": "https://api.feedback.eu.pendo.io/votes",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "auth-token": "{{PENDO_IO_API_KEY}}"
+      },
+      "body": {
+        "user_id": "",
+        "votes": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PENDO_API_KEY}}",
+        "{{PENDO_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{PENDO_API_KEY}} with your PENDO API KEY."
+    }
+  ]
+}

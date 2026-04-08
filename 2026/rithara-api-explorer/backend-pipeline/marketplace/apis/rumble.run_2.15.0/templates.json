@@ -1,0 +1,2258 @@
+{
+  "api_id": "rumble.run:2.15.0",
+  "endpoint_count": 114,
+  "endpoints": [
+    {
+      "id": "get-all-agents-across-all-organizations",
+      "name": "Get all agents across all organizations",
+      "description": "Get all agents across all organizations",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/agents",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-account-credentials",
+      "name": "Get all account credentials",
+      "description": "Get all account credentials",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/credentials",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-credential",
+      "name": "Create a new credential",
+      "description": "Create a new credential",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/credentials",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "acl": {
+          "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8": "user",
+          "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa9": "none"
+        },
+        "cidrs": "10.0.0.17/32, 192.168.1.0/24",
+        "global": false,
+        "name": "credentials_name",
+        "secret": "",
+        "type": "miradore_api_key_v1"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-credential-details",
+      "name": "Get credential details",
+      "description": "Get credential details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/credentials/{{CREDENTIAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CREDENTIAL_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{CREDENTIAL_ID}} with a real credential_id."
+    },
+    {
+      "id": "remove-this-credential",
+      "name": "Remove this credential",
+      "description": "Remove this credential",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/credentials/{{CREDENTIAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CREDENTIAL_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{CREDENTIAL_ID}} with a real credential_id."
+    },
+    {
+      "id": "system-event-log-as-json",
+      "name": "System event log as JSON",
+      "description": "System event log as JSON",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/events.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "system-event-log-as-json-line-delimited",
+      "name": "System event log as JSON line-delimited",
+      "description": "System event log as JSON line-delimited",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/events.jsonl",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-groups",
+      "name": "Get all groups",
+      "description": "Get all groups",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/groups",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-group",
+      "name": "Create a new group",
+      "description": "Create a new group",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/account/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Viewers Group",
+        "expires_at": 1576300370,
+        "name": "Viewers",
+        "org_default_role": "admin",
+        "org_roles": {
+          "1a5e612e-4d64-45fe-aa3e-afba5cf3b9bf": "viewer",
+          "fd6d6662-732b-4c4b-8331-051178994384": "admin"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "update-an-existing-group",
+      "name": "Update an existing group",
+      "description": "Update an existing group",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Viewers Group",
+        "expires_at": 1576300370,
+        "id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8",
+        "name": "Viewers",
+        "org_default_role": "admin",
+        "org_roles": {
+          "1a5e612e-4d64-45fe-aa3e-afba5cf3b9bf": "viewer",
+          "fd6d6662-732b-4c4b-8331-051178994384": "admin"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-group-details",
+      "name": "Get group details",
+      "description": "Get group details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/groups/{{GROUP_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{GROUP_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{GROUP_ID}} with a real group_id."
+    },
+    {
+      "id": "remove-this-group",
+      "name": "Remove this group",
+      "description": "Remove this group",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/groups/{{GROUP_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{GROUP_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{GROUP_ID}} with a real group_id."
+    },
+    {
+      "id": "get-all-active-api-keys",
+      "name": "Get all active API keys",
+      "description": "Get all active API keys",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/keys",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-key",
+      "name": "Create a new key",
+      "description": "Create a new key",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comment": "Splunk integration key",
+        "organization_id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-key-details",
+      "name": "Get key details",
+      "description": "Get key details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/keys/{{KEY_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{KEY_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{KEY_ID}} with a real key_id."
+    },
+    {
+      "id": "remove-this-key",
+      "name": "Remove this key",
+      "description": "Remove this key",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/keys/{{KEY_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{KEY_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{KEY_ID}} with a real key_id."
+    },
+    {
+      "id": "rotates-the-key-secret",
+      "name": "Rotates the key secret",
+      "description": "Rotates the key secret",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/keys/{{KEY_ID}}/rotate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{KEY_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{KEY_ID}} with a real key_id."
+    },
+    {
+      "id": "get-license-details",
+      "name": "Get license details",
+      "description": "Get license details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/license",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-organization-details",
+      "name": "Get all organization details",
+      "description": "Get all organization details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-organization",
+      "name": "Create a new organization",
+      "description": "Create a new organization",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Wobbly Widgets, Inc.",
+        "expiration_assets_offline": "365",
+        "expiration_assets_stale": "365",
+        "expiration_scans": "365",
+        "export_token": "ETXXXXXXXXXXXXXXXX",
+        "name": "My Organization",
+        "parent_id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8",
+        "project": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-organization-details",
+      "name": "Get organization details",
+      "description": "Get organization details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs/{{ORG_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORG_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ORG_ID}} with a real org_id."
+    },
+    {
+      "id": "remove-this-organization",
+      "name": "Remove this organization",
+      "description": "Remove this organization",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs/{{ORG_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORG_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ORG_ID}} with a real org_id."
+    },
+    {
+      "id": "update-organization-details",
+      "name": "Update organization details",
+      "description": "Update organization details",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs/{{ORG_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Wobbly Widgets, Inc.",
+        "expiration_assets_offline": "365",
+        "expiration_assets_stale": "365",
+        "expiration_scans": "365",
+        "export_token": "ETXXXXXXXXXXXXXXXX",
+        "name": "My Organization",
+        "parent_id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8",
+        "project": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORG_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ORG_ID}} with a real org_id."
+    },
+    {
+      "id": "removes-the-export-token-from-the-specified-organization",
+      "name": "Removes the export token from the specified organization",
+      "description": "Removes the export token from the specified organization",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs/{{ORG_ID}}/exportToken",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORG_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ORG_ID}} with a real org_id."
+    },
+    {
+      "id": "rotates-the-organization-export-token-and-returns-the-updated-organization",
+      "name": "Rotates the organization export token and returns the updated organization",
+      "description": "Rotates the organization export token and returns the updated organization",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/orgs/{{ORG_ID}}/exportToken/rotate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ORG_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ORG_ID}} with a real org_id."
+    },
+    {
+      "id": "get-all-sites-details-across-all-organizations",
+      "name": "Get all sites details across all organizations",
+      "description": "Get all sites details across all organizations",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/sites",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-sso-group-mappings",
+      "name": "Get all SSO group mappings",
+      "description": "Get all SSO group mappings",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/sso/groups",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-sso-group-mapping",
+      "name": "Create a new SSO group mapping",
+      "description": "Create a new SSO group mapping",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/account/sso/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "f6cfb91a-52ea-4a86-bf9a-5a891a26f52b",
+        "group_id": "2b096711-4d28-4417-8635-64af4f62c1ae",
+        "sso_attribute": "basic-attribute",
+        "sso_value": "basic-attribute-value"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "update-an-existing-sso-group-mapping",
+      "name": "Update an existing SSO group mapping",
+      "description": "Update an existing SSO group mapping",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/sso/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "f6cfb91a-52ea-4a86-bf9a-5a891a26f52b",
+        "group_id": "2b096711-4d28-4417-8635-64af4f62c1ae",
+        "sso_attribute": "basic-attribute",
+        "sso_value": "basic-attribute-value"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-sso-group-mapping-details",
+      "name": "Get SSO group mapping details",
+      "description": "Get SSO group mapping details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/sso/groups/{{GROUP_MAPPING_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_MAPPING_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{GROUP_MAPPING_ID}} with a real group_mapping_id."
+    },
+    {
+      "id": "remove-this-sso-group-mapping",
+      "name": "Remove this SSO group mapping",
+      "description": "Remove this SSO group mapping",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/sso/groups/{{GROUP_MAPPING_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_MAPPING_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{GROUP_MAPPING_ID}} with a real group_mapping_id."
+    },
+    {
+      "id": "get-all-task-details-across-all-organizations-up-to-1000",
+      "name": "Get all task details across all organizations (up to 1000)",
+      "description": "Get all task details across all organizations (up to 1000)",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-scan-templates-across-all-organizations-up-to-1000",
+      "name": "Get all scan templates across all organizations (up to 1000)",
+      "description": "Get all scan templates across all organizations (up to 1000)",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks/templates",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-scan-template",
+      "name": "Create a new scan template",
+      "description": "Create a new scan template",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks/templates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "My Scan Template",
+        "global": false,
+        "acl": {
+          "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8": "user"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "update-scan-template",
+      "name": "Update scan template",
+      "description": "Update scan template",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks/templates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8",
+        "global": false,
+        "acl": {
+          "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8": "user"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-scan-template-details",
+      "name": "Get scan template details",
+      "description": "Get scan template details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks/templates/{{SCAN_TEMPLATE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SCAN_TEMPLATE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SCAN_TEMPLATE_ID}} with a real scan_template_id."
+    },
+    {
+      "id": "remove-scan-template",
+      "name": "Remove scan template",
+      "description": "Remove scan template",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/tasks/templates/{{SCAN_TEMPLATE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SCAN_TEMPLATE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SCAN_TEMPLATE_ID}} with a real scan_template_id."
+    },
+    {
+      "id": "get-all-users",
+      "name": "Get all users",
+      "description": "Get all users",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/users",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-user-account",
+      "name": "Create a new user account",
+      "description": "Create a new user account",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_admin": true,
+        "email": "jsmith@example.com",
+        "first_name": "James",
+        "last_name": "Smith",
+        "org_default_role": "admin",
+        "org_roles": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-user-account-and-send-an-email-invite",
+      "name": "Create a new user account and send an email invite",
+      "description": "Create a new user account and send an email invite",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/account/users/invite",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_admin": true,
+        "email": "jsmith@example.com",
+        "first_name": "James",
+        "last_name": "Smith",
+        "message": "You have been invited to the Rumble Network Discovery platform",
+        "org_default_role": "admin",
+        "org_roles": {},
+        "subject": "Welcome to Rumble"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-user-details",
+      "name": "Get user details",
+      "description": "Get user details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "remove-this-user",
+      "name": "Remove this user",
+      "description": "Remove this user",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "update-a-user-s-details",
+      "name": "Update a user's details",
+      "description": "Update a user's details",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "client_admin": true,
+        "email": "jsmith@example.com",
+        "first_name": "James",
+        "last_name": "Smith",
+        "org_default_role": "admin",
+        "org_roles": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "resets-the-user-s-lockout-status",
+      "name": "Resets the user's lockout status",
+      "description": "Resets the user's lockout status",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}/resetLockout",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "resets-the-user-s-mfa-tokens",
+      "name": "Resets the user's MFA tokens",
+      "description": "Resets the user's MFA tokens",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}/resetMFA",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "sends-the-user-a-password-reset-email",
+      "name": "Sends the user a password reset email",
+      "description": "Sends the user a password reset email",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/account/users/{{USER_ID}}/resetPassword",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "cisco-serial-number-and-model-name-export-for-cisco-smart-net-total-care-service",
+      "name": "Cisco serial number and model name export for Cisco Smart Net Total Care Service.",
+      "description": "Cisco serial number and model name export for Cisco Smart Net Total Care Service.",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.cisco.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "asset-inventory-as-csv",
+      "name": "Asset inventory as CSV",
+      "description": "Asset inventory as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "exports-the-asset-inventory",
+      "name": "Exports the asset inventory",
+      "description": "Exports the asset inventory",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "asset-inventory-as-json-line-delimited",
+      "name": "Asset inventory as JSON line-delimited",
+      "description": "Asset inventory as JSON line-delimited",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.jsonl",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "asset-inventory-as-nmap-style-xml",
+      "name": "Asset inventory as Nmap-style XML",
+      "description": "Asset inventory as Nmap-style XML",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.nmap.xml",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "export-an-asset-inventory-as-csv-for-servicenow-integration",
+      "name": "Export an asset inventory as CSV for ServiceNow integration",
+      "description": "Export an asset inventory as CSV for ServiceNow integration",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.servicenow.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "exports-the-asset-inventory-as-json",
+      "name": "Exports the asset inventory as JSON",
+      "description": "Exports the asset inventory as JSON",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets.servicenow.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "exports-the-asset-inventory-in-a-sync-friendly-manner-using-created-at-as-a-checkpoint-requires-the-splunk-entitlement",
+      "name": "Exports the asset inventory in a sync-friendly manner using created_at as a checkpoint. Requires the Splunk entitlement.",
+      "description": "Exports the asset inventory in a sync-friendly manner using created_at as a checkpoint. Requires the Splunk entitlement.",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets/sync/created/assets.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "exports-the-asset-inventory-in-a-sync-friendly-manner-using-updated-at-as-a-checkpoint-requires-the-splunk-entitlement",
+      "name": "Exports the asset inventory in a sync-friendly manner using updated_at as a checkpoint. Requires the Splunk entitlement.",
+      "description": "Exports the asset inventory in a sync-friendly manner using updated_at as a checkpoint. Requires the Splunk entitlement.",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/assets/sync/updated/assets.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "service-inventory-as-csv",
+      "name": "Service inventory as CSV",
+      "description": "Service inventory as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/services.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "service-inventory-as-json",
+      "name": "Service inventory as JSON",
+      "description": "Service inventory as JSON",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/services.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "service-inventory-as-json-line-delimited",
+      "name": "Service inventory as JSON line-delimited",
+      "description": "Service inventory as JSON line-delimited",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/services.jsonl",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "export-a-service-inventory-as-csv-for-servicenow-integration",
+      "name": "Export a service inventory as CSV for ServiceNow integration",
+      "description": "Export a service inventory as CSV for ServiceNow integration",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/services.servicenow.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "site-list-as-csv",
+      "name": "Site list as CSV",
+      "description": "Site list as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/sites.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "export-all-sites",
+      "name": "Export all sites",
+      "description": "Export all sites",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/sites.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "site-list-as-json-line-delimited",
+      "name": "Site list as JSON line-delimited",
+      "description": "Site list as JSON line-delimited",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/sites.jsonl",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "wireless-inventory-as-csv",
+      "name": "Wireless inventory as CSV",
+      "description": "Wireless inventory as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/wireless.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "wireless-inventory-as-json",
+      "name": "Wireless inventory as JSON",
+      "description": "Wireless inventory as JSON",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/wireless.json",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "wireless-inventory-as-json-line-delimited",
+      "name": "Wireless inventory as JSON line-delimited",
+      "description": "Wireless inventory as JSON line-delimited",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/export/org/wireless.jsonl",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-organization-details-2",
+      "name": "Get organization details",
+      "description": "Get organization details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "update-organization-details-2",
+      "name": "Update organization details",
+      "description": "Update organization details",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "Wobbly Widgets, Inc.",
+        "expiration_assets_offline": "365",
+        "expiration_assets_stale": "365",
+        "expiration_scans": "365",
+        "export_token": "ETXXXXXXXXXXXXXXXX",
+        "name": "My Organization",
+        "parent_id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8",
+        "project": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-agents",
+      "name": "Get all agents",
+      "description": "Get all agents",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/agents",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-details-for-a-single-agent",
+      "name": "Get details for a single agent",
+      "description": "Get details for a single agent",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/agents/{{AGENT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENT_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{AGENT_ID}} with a real agent_id."
+    },
+    {
+      "id": "remove-and-uninstall-an-agent",
+      "name": "Remove and uninstall an agent",
+      "description": "Remove and uninstall an agent",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/agents/{{AGENT_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENT_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{AGENT_ID}} with a real agent_id."
+    },
+    {
+      "id": "update-the-site-associated-with-agent",
+      "name": "Update the site associated with agent",
+      "description": "Update the site associated with agent",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/agents/{{AGENT_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "site_id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENT_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{AGENT_ID}} with a real agent_id."
+    },
+    {
+      "id": "force-an-agent-to-update-and-restart",
+      "name": "Force an agent to update and restart",
+      "description": "Force an agent to update and restart",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/org/agents/{{AGENT_ID}}/update",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AGENT_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{AGENT_ID}} with a real agent_id."
+    },
+    {
+      "id": "get-all-assets",
+      "name": "Get all assets",
+      "description": "Get all assets",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "clear-all-tags-across-multiple-assets-based-on-a-search-query",
+      "name": "Clear all tags across multiple assets based on a search query",
+      "description": "Clear all tags across multiple assets based on a search query",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/bulk/clearTags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "search": "alive:true and os:windows"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "update-tags-across-multiple-assets-based-on-a-search-query",
+      "name": "Update tags across multiple assets based on a search query",
+      "description": "Update tags across multiple assets based on a search query",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/bulk/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tags": "ThisTag=Value -OldTag",
+        "search": "alive:true and os:windows"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-asset-hardware-products-as-csv",
+      "name": "Top asset hardware products as CSV",
+      "description": "Top asset hardware products as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/top.hw.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-asset-operating-systems-as-csv",
+      "name": "Top asset operating systems as CSV",
+      "description": "Top asset operating systems as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/top.os.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-asset-tags-as-csv",
+      "name": "Top asset tags as CSV",
+      "description": "Top asset tags as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/top.tags.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-asset-types-as-csv",
+      "name": "Top asset types as CSV",
+      "description": "Top asset types as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/top.types.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-asset-details",
+      "name": "Get asset details",
+      "description": "Get asset details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/{{ASSET_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSET_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ASSET_ID}} with a real asset_id."
+    },
+    {
+      "id": "remove-an-asset",
+      "name": "Remove an asset",
+      "description": "Remove an asset",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/{{ASSET_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSET_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ASSET_ID}} with a real asset_id."
+    },
+    {
+      "id": "update-asset-comments",
+      "name": "Update asset comments",
+      "description": "Update asset comments",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/{{ASSET_ID}}/comments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "comments": "Sales Laptop"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSET_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ASSET_ID}} with a real asset_id."
+    },
+    {
+      "id": "update-asset-tags",
+      "name": "Update asset tags",
+      "description": "Update asset tags",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/assets/{{ASSET_ID}}/tags",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "tags": "ThisTag=Value -OldTag"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ASSET_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{ASSET_ID}} with a real asset_id."
+    },
+    {
+      "id": "get-api-key-details",
+      "name": "Get API key details",
+      "description": "Get API key details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/key",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "remove-the-current-api-key",
+      "name": "Remove the current API key",
+      "description": "Remove the current API key",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/key",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "rotate-the-api-key-secret-and-return-the-updated-key",
+      "name": "Rotate the API key secret and return the updated key",
+      "description": "Rotate the API key secret and return the updated key",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/key/rotate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-all-services",
+      "name": "Get all services",
+      "description": "Get all services",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "subnet-utilization-statistics-as-as-csv",
+      "name": "Subnet utilization statistics as as CSV",
+      "description": "Subnet utilization statistics as as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/subnet.stats.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-service-products-as-csv",
+      "name": "Top service products as CSV",
+      "description": "Top service products as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/top.products.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-service-protocols-as-csv",
+      "name": "Top service protocols as CSV",
+      "description": "Top service protocols as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/top.protocols.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-tcp-services-as-csv",
+      "name": "Top TCP services as CSV",
+      "description": "Top TCP services as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/top.tcp.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "top-udp-services-as-csv",
+      "name": "Top UDP services as CSV",
+      "description": "Top UDP services as CSV",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/top.udp.csv",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-service-details",
+      "name": "Get service details",
+      "description": "Get service details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/services/{{SERVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SERVICE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "remove-a-service",
+      "name": "Remove a service",
+      "description": "Remove a service",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/services/{{SERVICE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SERVICE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SERVICE_ID}} with a real service_id."
+    },
+    {
+      "id": "get-all-sites",
+      "name": "Get all sites",
+      "description": "Get all sites",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/sites",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "create-a-new-site",
+      "name": "Create a new site",
+      "description": "Create a new site",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/org/sites",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "New Site"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-site-details",
+      "name": "Get site details",
+      "description": "Get site details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/sites/{{SITE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SITE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SITE_ID}} with a real site_id."
+    },
+    {
+      "id": "remove-a-site-and-associated-assets",
+      "name": "Remove a site and associated assets",
+      "description": "Remove a site and associated assets",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/sites/{{SITE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SITE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SITE_ID}} with a real site_id."
+    },
+    {
+      "id": "update-a-site-definition",
+      "name": "Update a site definition",
+      "description": "Update a site definition",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/sites/{{SITE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "New Site"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SITE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SITE_ID}} with a real site_id."
+    },
+    {
+      "id": "create-a-scan-task-for-a-given-site",
+      "name": "Create a scan task for a given site",
+      "description": "Create a scan task for a given site",
+      "method": "PUT",
+      "url": "https://console.rumble.run/api/v1.0/org/sites/{{SITE_ID}}/scan",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "targets": "defaults"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{SITE_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{SITE_ID}} with a real site_id."
+    },
+    {
+      "id": "get-all-tasks-last-1000",
+      "name": "Get all tasks (last 1000)",
+      "description": "Get all tasks (last 1000)",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-task-details",
+      "name": "Get task details",
+      "description": "Get task details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "update-task-parameters",
+      "name": "Update task parameters",
+      "description": "Update task parameters",
+      "method": "PATCH",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "e77602e0-3fb8-4734-aef9-fbc6fdcb0fa8"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "returns-a-temporary-task-change-report-data-url",
+      "name": "Returns a temporary task change report data url",
+      "description": "Returns a temporary task change report data url",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}/changes",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "returns-a-temporary-task-scan-data-url",
+      "name": "Returns a temporary task scan data url",
+      "description": "Returns a temporary task scan data url",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}/data",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "signal-that-a-completed-task-should-be-hidden",
+      "name": "Signal that a completed task should be hidden",
+      "description": "Signal that a completed task should be hidden",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}/hide",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "returns-a-temporary-task-log-data-url",
+      "name": "Returns a temporary task log data url",
+      "description": "Returns a temporary task log data url",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}/log",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "signal-that-a-task-should-be-stopped-or-canceledthis-will-also-remove-recurring-and-scheduled-tasks",
+      "name": "Signal that a task should be stopped or canceledThis will also remove recurring and scheduled tasks",
+      "description": "Signal that a task should be stopped or canceledThis will also remove recurring and scheduled tasks",
+      "method": "POST",
+      "url": "https://console.rumble.run/api/v1.0/org/tasks/{{TASK_ID}}/stop",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TASK_ID}}",
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{TASK_ID}} with a real task_id."
+    },
+    {
+      "id": "get-all-wireless-lans",
+      "name": "Get all wireless LANs",
+      "description": "Get all wireless LANs",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/wireless",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "get-wireless-lan-details",
+      "name": "Get wireless LAN details",
+      "description": "Get wireless LAN details",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/org/wireless/{{WIRELESS_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{WIRELESS_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{WIRELESS_ID}} with a real wireless_id."
+    },
+    {
+      "id": "remove-a-wireless-lan",
+      "name": "Remove a wireless LAN",
+      "description": "Remove a wireless LAN",
+      "method": "DELETE",
+      "url": "https://console.rumble.run/api/v1.0/org/wireless/{{WIRELESS_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{WIRELESS_ID}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY. Replace {{WIRELESS_ID}} with a real wireless_id."
+    },
+    {
+      "id": "returns-latest-agent-version",
+      "name": "Returns latest agent version",
+      "description": "Returns latest agent version",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/releases/agent/version",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "returns-latest-platform-version",
+      "name": "Returns latest platform version",
+      "description": "Returns latest platform version",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/releases/platform/version",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    },
+    {
+      "id": "returns-latest-scanner-version",
+      "name": "Returns latest scanner version",
+      "description": "Returns latest scanner version",
+      "method": "GET",
+      "url": "https://console.rumble.run/api/v1.0/releases/scanner/version",
+      "headers": {
+        "Authorization": "Bearer{{RUMBLE_RUN_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RUMBLE_API_KEY}}",
+        "{{RUMBLE_RUN_API_KEY}}"
+      ],
+      "notes": "Replace {{RUMBLE_API_KEY}} with your RUMBLE API KEY."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "api_id": "azure.com:monitor-serviceDiagnosticsSettings_API:2015-07-01",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-resourceuri-providers-microsoft-insights-diagnosticsettings-service",
+      "name": "GET /{resourceUri}/providers/microsoft.insights/diagnosticSettings/service",
+      "description": "Gets the active diagnostic settings for the specified resource.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/microsoft.insights/diagnosticSettings/service",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RESOURCEURI}} with a real resourceuri."
+    },
+    {
+      "id": "put-resourceuri-providers-microsoft-insights-diagnosticsettings-service",
+      "name": "PUT /{resourceUri}/providers/microsoft.insights/diagnosticSettings/service",
+      "description": "Create or update new diagnostic settings for the specified resource.",
+      "method": "PUT",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/microsoft.insights/diagnosticSettings/service",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RESOURCEURI}} with a real resourceuri."
+    }
+  ]
+}

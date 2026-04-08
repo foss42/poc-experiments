@@ -1,0 +1,928 @@
+{
+  "api_id": "adyen.com:BalancePlatformService:2",
+  "endpoint_count": 30,
+  "endpoints": [
+    {
+      "id": "create-an-account-holder",
+      "name": "Create an account holder",
+      "description": "Creates an account holder linked to a [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities).\n\n",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createAccountHolder": {
+          "description": "Example request for creating an account holder",
+          "summary": "Create an account holder",
+          "value": {
+            "description": "Liable account holder used for international payments and payouts",
+            "legalEntityId": "LE322JV223222D5GG42KN6869",
+            "reference": "S.Eller-001"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-an-account-holder",
+      "name": "Get an account holder",
+      "description": "Returns an account holder.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-an-account-holder",
+      "name": "Update an account holder",
+      "description": "Updates an account holder. When updating an account holder resource, if a parameter is not provided in the request, it is left unchanged.",
+      "method": "PATCH",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "requestAccountHolderCapability": {
+          "description": "Example request for the `receivePayments` capability for an account holder",
+          "summary": "Request account holder capability",
+          "value": {
+            "capabilities": {
+              "receivePayments": {
+                "requested": true
+              }
+            },
+            "description": "Liable account holder used for international payments and payouts",
+            "legalEntityId": "LE322JV223222D5GG42KN6869",
+            "reference": "S.Eller-001"
+          }
+        },
+        "updateAccountHolderStatus": {
+          "description": "Example request for permanently deactivating an account holder",
+          "summary": "Deactivate an account holder",
+          "value": {
+            "status": "closed"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-balance-accounts-of-an-account-holder",
+      "name": "Get all balance accounts of an account holder",
+      "description": "Returns a paginated list of the balance accounts associated with an account holder. To fetch multiple pages, use the query parameters. \n\nFor example, to limit the page to 5 balance accounts and skip the first 10, use `/accountHolders/{id}/balanceAccounts?limit=5&offset=10`.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/accountHolders/{{ID}}/balanceAccounts",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-balance-account",
+      "name": "Create a balance account",
+      "description": "Creates a balance account that holds the funds of the associated account holder.",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createBalanceAccount": {
+          "description": "Example request for creating a balance account",
+          "summary": "Create a balance account",
+          "value": {
+            "accountHolderId": "AH32272223222C5GXTD343TKP",
+            "description": "S.Hopper - Main balance account"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-all-sweeps-for-a-balance-account",
+      "name": "Get all sweeps for a balance account",
+      "description": "Returns a list of the sweeps configured for a balance account.\n\nTo fetch multiple pages, use the query parameters. For example, to limit the page to 5 sweeps and to skip the first 10, use `/balanceAccounts/{balanceAccountId}/sweeps?limit=5&offset=10`.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{BALANCEACCOUNTID}}/sweeps",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{BALANCEACCOUNTID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{BALANCEACCOUNTID}} with a real balanceaccountid."
+    },
+    {
+      "id": "create-a-sweep",
+      "name": "Create a sweep",
+      "description": "Creates a sweep that results in moving funds from or to a balance account.\n\nA sweep pulls in or pushes out funds based on a defined schedule, amount, currency, and a source or a destination.",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{BALANCEACCOUNTID}}/sweeps",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createSweep-pull": {
+          "description": "Example request for creating a pull sweep",
+          "summary": "Create a sweep to pull funds in to a balance account",
+          "value": {
+            "counterparty": {
+              "merchantAccount": "YOUR_MERCHANT_ACCOUNT"
+            },
+            "currency": "EUR",
+            "schedule": {
+              "type": "balance"
+            },
+            "status": "active",
+            "triggerAmount": {
+              "currency": "EUR",
+              "value": 50000
+            },
+            "type": "pull"
+          }
+        },
+        "createSweep-push": {
+          "description": "Example request for creating a push sweep",
+          "summary": "Create a sweep to push funds out of a balance account",
+          "value": {
+            "counterparty": {
+              "balanceAccountId": "BA32278887611B5FTD2KR6TJD"
+            },
+            "currency": "EUR",
+            "schedule": {
+              "type": "weekly"
+            },
+            "status": "active",
+            "triggerAmount": {
+              "currency": "EUR",
+              "value": 50000
+            },
+            "type": "push"
+          }
+        },
+        "createSweep-push-priorities": {
+          "description": "Example request for creating a push sweep with priorities",
+          "summary": "Create a sweep to push funds out of a balance account with set priorities",
+          "value": {
+            "category": "bank",
+            "counterparty": {
+              "transferInstrumentId": "SE322JV223222J5HGLCGF2WDV"
+            },
+            "currency": "EUR",
+            "priorities": [
+              "fast",
+              "instant"
+            ],
+            "schedule": {
+              "type": "weekly"
+            },
+            "status": "active",
+            "triggerAmount": {
+              "currency": "EUR",
+              "value": 50000
+            },
+            "type": "push"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{BALANCEACCOUNTID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{BALANCEACCOUNTID}} with a real balanceaccountid."
+    },
+    {
+      "id": "get-a-sweep",
+      "name": "Get a sweep",
+      "description": "Returns a sweep.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{BALANCEACCOUNTID}}/sweeps/{{SWEEPID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SWEEPID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{BALANCEACCOUNTID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{SWEEPID}} with a real sweepid. Replace {{BALANCEACCOUNTID}} with a real balanceaccountid."
+    },
+    {
+      "id": "delete-a-sweep",
+      "name": "Delete a sweep",
+      "description": "Deletes a sweep for a balance account.",
+      "method": "DELETE",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{BALANCEACCOUNTID}}/sweeps/{{SWEEPID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SWEEPID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{BALANCEACCOUNTID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{SWEEPID}} with a real sweepid. Replace {{BALANCEACCOUNTID}} with a real balanceaccountid."
+    },
+    {
+      "id": "update-a-sweep",
+      "name": "Update a sweep",
+      "description": "Updates a sweep. When updating a sweep resource, note that if a request parameter is not provided, the parameter is left unchanged.",
+      "method": "PATCH",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{BALANCEACCOUNTID}}/sweeps/{{SWEEPID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "updateSweep-status": {
+          "description": "Example request for updating a sweep",
+          "summary": "Update the status of a sweep",
+          "value": {
+            "status": "inactive"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SWEEPID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{BALANCEACCOUNTID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{SWEEPID}} with a real sweepid. Replace {{BALANCEACCOUNTID}} with a real balanceaccountid."
+    },
+    {
+      "id": "get-a-balance-account",
+      "name": "Get a balance account",
+      "description": "Returns a balance account and its balances for the default currency and other currencies with a non-zero balance.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-balance-account",
+      "name": "Update a balance account",
+      "description": "Updates a balance account.",
+      "method": "PATCH",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountHolderId": "",
+        "defaultCurrencyCode": "",
+        "description": "",
+        "reference": "",
+        "status": "",
+        "timeZone": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-payment-instruments-for-a-balance-account",
+      "name": "Get all payment instruments for a balance account",
+      "description": "Returns a paginated list of the payment instruments associated with a balance account. \n\nTo fetch multiple pages, use the query parameters.For example, to limit the page to 3 payment instruments and to skip the first 6, use `/balanceAccounts/{id}/paymentInstruments?limit=3&offset=6`.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balanceAccounts/{{ID}}/paymentInstruments",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-balance-platform",
+      "name": "Get a balance platform",
+      "description": "Returns a balance platform.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-account-holders-under-a-balance-platform",
+      "name": "Get all account holders under a balance platform",
+      "description": "Returns a paginated list of all the account holders that belong to the balance platform. To fetch multiple pages, use the query parameters. \n\nFor example, to limit the page to 5 account holders and to skip the first 20, use `/balancePlatforms/{id}/accountHolders?limit=5&offset=20`.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/balancePlatforms/{{ID}}/accountHolders",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-grant-account",
+      "name": "Get a grant account",
+      "description": "Returns the details of the [grant account](https://docs.adyen.com/marketplaces-and-platforms/capital#grant-account).",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/grantAccounts/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-available-grant-offers",
+      "name": "Get all available grant offers",
+      "description": "Returns a list of all [grant offers](https://docs.adyen.com/marketplaces-and-platforms/capital#grant-offers) available for `accountHolderId` specified as a query parameter.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/grantOffers",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {
+        "accountHolderId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-grant-offer",
+      "name": "Get a grant offer",
+      "description": "Returns the details of a single grant offer.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/grantOffers/{{GRANTOFFERID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{GRANTOFFERID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{GRANTOFFERID}} with a real grantofferid."
+    },
+    {
+      "id": "create-a-payment-instrument-group",
+      "name": "Create a payment instrument group",
+      "description": "Creates a payment instrument group to associate and group payment instrument resources together. You can apply a transaction rule to a payment instrument group.",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstrumentGroups",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createPaymentInstrumentGroups": {
+          "description": "Example request for creating a payment instrument group",
+          "summary": "Create a payment instrument group",
+          "value": {
+            "balancePlatform": "YOUR_BALANCE_PLATFORM",
+            "txVariant": "mc"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-payment-instrument-group",
+      "name": "Get a payment instrument group",
+      "description": "Returns the details of a payment instrument group.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstrumentGroups/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-transaction-rules-for-a-payment-instrument-group",
+      "name": "Get all transaction rules for a payment instrument group",
+      "description": "Returns a list of all the transaction rules associated with a payment instrument group.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstrumentGroups/{{ID}}/transactionRules",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-payment-instrument",
+      "name": "Create a payment instrument",
+      "description": "Creates a payment instrument to issue a physical card, a virtual card, or a business account to your user.\n\n For more information, refer to [Issue cards](https://docs.adyen.com/issuing/create-cards) or [Issue business accounts](https://docs.adyen.com/marketplaces-and-platforms/business-accounts).",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createBusinessAccountNL": {
+          "description": "Example request for creating a business account in NL",
+          "summary": "Create a business account in NL",
+          "value": {
+            "balanceAccountId": "BA3227C223222B5CTBLR8BWJB",
+            "description": "YOUR_DESCRIPTION",
+            "issuingCountryCode": "NL",
+            "type": "bankAccount"
+          }
+        },
+        "createBusinessAccountUS": {
+          "description": "Example request for creating a business account in the US",
+          "summary": "Create a business account in the US",
+          "value": {
+            "balanceAccountId": "BA3227C223222B5CTBLR8BWJB",
+            "description": "YOUR_DESCRIPTION",
+            "issuingCountryCode": "US",
+            "type": "bankAccount"
+          }
+        },
+        "createPhysicalCard": {
+          "description": "Example request for creating a physical card",
+          "summary": "Create a physical card",
+          "value": {
+            "balanceAccountId": "BA32272223222B59CZ3T52DKZ",
+            "card": {
+              "brand": "mc",
+              "brandVariant": "mcdebit",
+              "cardholderName": "Sam Hopper",
+              "configuration": {
+                "configurationProfileId": "CP123AB45678C91ABCD2ABCDE"
+              },
+              "deliveryContact": {
+                "address": {
+                  "city": "Amsterdam",
+                  "country": "NL",
+                  "line1": "Brannan Street",
+                  "line2": "274",
+                  "postalCode": "1020CD",
+                  "stateOrProvince": "NH"
+                },
+                "name": {
+                  "firstName": "Sam",
+                  "lastName": "Hopper"
+                }
+              },
+              "formFactor": "physical"
+            },
+            "description": "S.Hopper - Main card",
+            "issuingCountryCode": "NL",
+            "status": "inactive",
+            "type": "card"
+          }
+        },
+        "createVirtualCard": {
+          "description": "Example request for creating a virtual card",
+          "summary": "Create a virtual card",
+          "value": {
+            "balanceAccountId": "BA3227C223222B5FG88S28BGN",
+            "card": {
+              "brand": "mc",
+              "brandVariant": "mcdebit",
+              "cardholderName": "Simon Hopper",
+              "formFactor": "virtual"
+            },
+            "description": "My test card",
+            "issuingCountryCode": "NL",
+            "type": "card"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-payment-instrument",
+      "name": "Get a payment instrument",
+      "description": "Returns the details of a payment instrument.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/{{ID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-payment-instrument",
+      "name": "Update a payment instrument",
+      "description": "Updates a payment instrument. Once a payment instrument is already active, you can only update its status. However, for cards created with **inactive** status, you can still update the balance account associated with the card.",
+      "method": "PATCH",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "updatePaymentInstrumentBalanceAccount": {
+          "description": "Example request for updating the balance account of a payment instrument",
+          "summary": "Update the balance account linked to a payment instrument",
+          "value": {
+            "balanceAccountId": "BA32272223222B5CM82WL892M"
+          }
+        },
+        "updatePaymentInstrumentStatus": {
+          "description": "Example request for updating the status of a payment instrument",
+          "summary": "Update the status of a payment instrument",
+          "value": {
+            "status": "suspended"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-the-pan-of-a-payment-instrument",
+      "name": "Get the PAN of a payment instrument",
+      "description": "Returns the primary account number (PAN) of a payment instrument.\n\nTo make this request, your API credential must have the following [role](https://docs.adyen.com/issuing/manage-access/api-credentials-web-service#api-permissions):\n\n* Balance Platform BCL PCI role",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/{{ID}}/reveal",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-all-transaction-rules-for-a-payment-instrument",
+      "name": "Get all transaction rules for a payment instrument",
+      "description": "Returns a list of transaction rules associated with a payment instrument.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/paymentInstruments/{{ID}}/transactionRules",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-transaction-rule",
+      "name": "Create a transaction rule",
+      "description": "Creates a [transaction rule](https://docs.adyen.com/issuing/transaction-rules). When your user makes a transaction with their Adyen-issued card, the transaction is allowed or declined based on the conditions and outcome defined in the transaction rule. You can apply the transaction rule to several cards, such as all the cards in your platform, or to a specific card. For use cases, see [examples](https://docs.adyen.com/issuing/transaction-rules/examples).",
+      "method": "POST",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/transactionRules",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "createTransactionRuleAllowPos": {
+          "description": "Example request to allow only point-of-sale transactions",
+          "summary": "Allow only point-of-sale transactions",
+          "value": {
+            "description": "Allow only point-of-sale transactions",
+            "entityKey": {
+              "entityReference": "PI3227C223222B5FG88SB8BHR",
+              "entityType": "paymentInstrument"
+            },
+            "interval": {
+              "type": "perTransaction"
+            },
+            "reference": "YOUR_REFERENCE_4F7346",
+            "ruleRestrictions": {
+              "processingTypes": {
+                "operation": "noneMatch",
+                "value": [
+                  "pos"
+                ]
+              }
+            },
+            "status": "active",
+            "type": "blockList"
+          }
+        },
+        "createTransactionRuleIncreaseScore": {
+          "description": "Example request to increase the score of a card",
+          "summary": "Increase the score of a card",
+          "value": {
+            "description": "Assign score if more than 500 EUR in 2 hours",
+            "entityKey": {
+              "entityReference": "PI3227C223222B5FG88SB8BHR",
+              "entityType": "paymentInstrument"
+            },
+            "interval": {
+              "duration": {
+                "unit": "hours",
+                "value": 2
+              },
+              "type": "sliding"
+            },
+            "outcomeType": "scoreBased",
+            "reference": "myRule11789",
+            "ruleRestrictions": {
+              "totalAmount": {
+                "operation": "greaterThan",
+                "value": {
+                  "currency": "EUR",
+                  "value": 50000
+                }
+              }
+            },
+            "score": 20,
+            "type": "velocity"
+          }
+        },
+        "createTransactionRuleLimitSliding": {
+          "description": "Example request to limit the total amount in a sliding interval",
+          "summary": "Limit total amount in the last 12 hours",
+          "value": {
+            "aggregationLevel": "paymentInstrument",
+            "description": "Up to 1000 EUR per card for the last 12 hours",
+            "entityKey": {
+              "entityReference": "BA3227C223222B5FN65355NR3",
+              "entityType": "balanceAccount"
+            },
+            "interval": {
+              "duration": {
+                "unit": "hours",
+                "value": 12
+              },
+              "type": "sliding"
+            },
+            "outcomeType": "hardBlock",
+            "reference": "YOUR_REFERENCE_2918A",
+            "ruleRestrictions": {
+              "totalAmount": {
+                "operation": "greaterThan",
+                "value": {
+                  "currency": "EUR",
+                  "value": 100000
+                }
+              }
+            },
+            "status": "active",
+            "type": "velocity"
+          }
+        },
+        "createTransactionRuleLimitTransaction": {
+          "description": "Example request to limit total amount of international transations",
+          "summary": "Limit international payments",
+          "value": {
+            "description": "Up to 50 EUR international transactions",
+            "entityKey": {
+              "entityReference": "BA3227C223222B5FN65355NR3",
+              "entityType": "balanceAccount"
+            },
+            "interval": {
+              "type": "daily"
+            },
+            "outcomeType": "hardBlock",
+            "reference": "YOUR_REFERENCE_B2634",
+            "ruleRestrictions": {
+              "internationalTransaction": {
+                "operation": "equals",
+                "value": true
+              },
+              "totalAmount": {
+                "operation": "greaterThan",
+                "value": {
+                  "currency": "EUR",
+                  "value": 5000
+                }
+              }
+            },
+            "status": "active",
+            "type": "velocity"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-transaction-rule",
+      "name": "Get a transaction rule",
+      "description": "Returns the details of a transaction rule.",
+      "method": "GET",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/transactionRules/{{TRANSACTIONRULEID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{TRANSACTIONRULEID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{TRANSACTIONRULEID}} with a real transactionruleid."
+    },
+    {
+      "id": "delete-a-transaction-rule",
+      "name": "Delete a transaction rule",
+      "description": "Deletes a transaction rule.",
+      "method": "DELETE",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/transactionRules/{{TRANSACTIONRULEID}}",
+      "headers": {
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{TRANSACTIONRULEID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{TRANSACTIONRULEID}} with a real transactionruleid."
+    },
+    {
+      "id": "update-a-transaction-rule",
+      "name": "Update a transaction rule",
+      "description": "Updates a transaction rule. \n\n* To update only the status of a transaction rule, send only the `status` parameter. All other parameters not provided in the request are left unchanged.\n\n* When updating any other parameter, you need to send all existing resource parameters. If you omit a parameter in the request, that parameter is removed from the resource.",
+      "method": "PATCH",
+      "url": "https://balanceplatform-api-test.adyen.com/bcl/v2/transactionRules/{{TRANSACTIONRULEID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "updateTransactionRuleStatus": {
+          "description": "Example request for updating the status of a transaction rule",
+          "summary": "Update the status of transaction rule",
+          "value": {
+            "status": "inactive"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{TRANSACTIONRULEID}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY. Replace {{TRANSACTIONRULEID}} with a real transactionruleid."
+    }
+  ]
+}

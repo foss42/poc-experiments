@@ -1,0 +1,28 @@
+{
+  "api_id": "azure.com:monitor-baseline_API:2017-11-01-preview",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "get-resourceuri-providers-microsoft-insights-baseline-metricname",
+      "name": "GET /{resourceUri}/providers/microsoft.insights/baseline/{metricName}",
+      "description": "**Gets the baseline values for a specific metric**.",
+      "method": "GET",
+      "url": "https://management.azure.com/{{RESOURCEURI}}/providers/microsoft.insights/baseline/{{METRICNAME}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RESOURCEURI}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{METRICNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{RESOURCEURI}} with a real resourceuri. Replace {{METRICNAME}} with a real metricname."
+    }
+  ]
+}

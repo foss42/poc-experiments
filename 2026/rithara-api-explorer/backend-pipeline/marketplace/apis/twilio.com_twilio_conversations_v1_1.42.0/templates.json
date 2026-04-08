@@ -1,0 +1,2323 @@
+{
+  "api_id": "twilio.com:twilio_conversations_v1:1.42.0",
+  "endpoint_count": 101,
+  "endpoints": [
+    {
+      "id": "get-v1-configuration",
+      "name": "GET /v1/Configuration",
+      "description": "Fetch the global configuration of conversations on your account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Configuration",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-configuration",
+      "name": "POST /v1/Configuration",
+      "description": "Update the global configuration of conversations on your account",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Configuration",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DefaultChatServiceSid": "",
+        "DefaultClosedTimer": "",
+        "DefaultInactiveTimer": "",
+        "DefaultMessagingServiceSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-configuration-addresses",
+      "name": "GET /v1/Configuration/Addresses",
+      "description": "Retrieve a list of address configurations for an account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Configuration/Addresses",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-configuration-addresses",
+      "name": "POST /v1/Configuration/Addresses",
+      "description": "Create a new address configuration",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Configuration/Addresses",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Type": "",
+        "Address": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-configuration-addresses-sid",
+      "name": "GET /v1/Configuration/Addresses/{Sid}",
+      "description": "Fetch an address configuration ",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Configuration/Addresses/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-configuration-addresses-sid",
+      "name": "POST /v1/Configuration/Addresses/{Sid}",
+      "description": "Update an existing address configuration",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Configuration/Addresses/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AutoCreation.ConversationServiceSid": "",
+        "AutoCreation.Enabled": false,
+        "AutoCreation.StudioFlowSid": "",
+        "AutoCreation.StudioRetryCount": 0,
+        "AutoCreation.Type": "",
+        "AutoCreation.WebhookFilters": [],
+        "AutoCreation.WebhookMethod": "",
+        "AutoCreation.WebhookUrl": "",
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-configuration-addresses-sid",
+      "name": "DELETE /v1/Configuration/Addresses/{Sid}",
+      "description": "Remove an existing address configuration",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Configuration/Addresses/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-configuration-webhooks",
+      "name": "GET /v1/Configuration/Webhooks",
+      "description": "A Webhook resource manages a service-level set of callback URLs and their configuration for receiving all conversation events.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Configuration/Webhooks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-configuration-webhooks",
+      "name": "POST /v1/Configuration/Webhooks",
+      "description": "A Webhook resource manages a service-level set of callback URLs and their configuration for receiving all conversation events.",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Configuration/Webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Filters": [],
+        "Method": "",
+        "PostWebhookUrl": "",
+        "PreWebhookUrl": "",
+        "Target": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-conversations",
+      "name": "GET /v1/Conversations",
+      "description": "Retrieve a list of conversations in your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-conversations",
+      "name": "POST /v1/Conversations",
+      "description": "Create a new conversation in your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "FriendlyName": "",
+        "MessagingServiceSid": "",
+        "State": "",
+        "Timers.Closed": "",
+        "Timers.Inactive": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-messages",
+      "name": "GET /v1/Conversations/{ConversationSid}/Messages",
+      "description": "Retrieve a list of all messages in the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-messages",
+      "name": "POST /v1/Conversations/{ConversationSid}/Messages",
+      "description": "Add a new message to the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "Author": "",
+        "Body": "",
+        "ContentSid": "",
+        "ContentVariables": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "MediaSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-messages-messagesid-receipts",
+      "name": "GET /v1/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts",
+      "description": "Retrieve a list of all delivery and read receipts of the conversation message",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages/{{MESSAGESID}}/Receipts",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{MESSAGESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MESSAGESID}} with a real messagesid. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-messages-messagesid-receipts-sid",
+      "name": "GET /v1/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts/{Sid}",
+      "description": "Fetch the delivery and read receipts of the conversation message",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages/{{MESSAGESID}}/Receipts/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MESSAGESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MESSAGESID}} with a real messagesid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-messages-sid",
+      "name": "GET /v1/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Fetch a message from the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-messages-sid",
+      "name": "POST /v1/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Update an existing message in the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "Author": "",
+        "Body": "",
+        "DateCreated": "",
+        "DateUpdated": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-conversations-conversationsid-messages-sid",
+      "name": "DELETE /v1/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Remove a message from the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-participants",
+      "name": "GET /v1/Conversations/{ConversationSid}/Participants",
+      "description": "Retrieve a list of all participants of the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Participants",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-participants",
+      "name": "POST /v1/Conversations/{ConversationSid}/Participants",
+      "description": "Add a new participant to the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Participants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "Identity": "",
+        "MessagingBinding.Address": "",
+        "MessagingBinding.ProjectedAddress": "",
+        "MessagingBinding.ProxyAddress": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-participants-sid",
+      "name": "GET /v1/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Fetch a participant of the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-participants-sid",
+      "name": "POST /v1/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Update an existing participant in the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "Identity": "",
+        "LastReadMessageIndex": 0,
+        "LastReadTimestamp": "",
+        "MessagingBinding.ProjectedAddress": "",
+        "MessagingBinding.ProxyAddress": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-conversations-conversationsid-participants-sid",
+      "name": "DELETE /v1/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Remove a participant from the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-webhooks",
+      "name": "GET /v1/Conversations/{ConversationSid}/Webhooks",
+      "description": "Retrieve a list of all webhooks scoped to the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Webhooks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-webhooks",
+      "name": "POST /v1/Conversations/{ConversationSid}/Webhooks",
+      "description": "Create a new webhook scoped to the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Target": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "get-v1-conversations-conversationsid-webhooks-sid",
+      "name": "GET /v1/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Fetch the configuration of a conversation-scoped webhook",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-conversations-conversationsid-webhooks-sid",
+      "name": "POST /v1/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Update an existing conversation-scoped webhook",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Configuration.Filters": [],
+        "Configuration.FlowSid": "",
+        "Configuration.Method": "",
+        "Configuration.Triggers": [],
+        "Configuration.Url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-conversations-conversationsid-webhooks-sid",
+      "name": "DELETE /v1/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Remove an existing webhook scoped to the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-conversations-sid",
+      "name": "GET /v1/Conversations/{Sid}",
+      "description": "Fetch a conversation from your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-conversations-sid",
+      "name": "POST /v1/Conversations/{Sid}",
+      "description": "Update an existing conversation in your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "FriendlyName": "",
+        "MessagingServiceSid": "",
+        "State": "",
+        "Timers.Closed": "",
+        "Timers.Inactive": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-conversations-sid",
+      "name": "DELETE /v1/Conversations/{Sid}",
+      "description": "Remove a conversation from your account's default service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Conversations/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-credentials",
+      "name": "GET /v1/Credentials",
+      "description": "Retrieve a list of all push notification credentials on your account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Credentials",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-credentials",
+      "name": "POST /v1/Credentials",
+      "description": "Add a new push notification credential to your account",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Credentials",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-credentials-sid",
+      "name": "GET /v1/Credentials/{Sid}",
+      "description": "Fetch a push notification credential from your account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Credentials/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-credentials-sid",
+      "name": "POST /v1/Credentials/{Sid}",
+      "description": "Update an existing push notification credential on your account",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Credentials/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "ApiKey": "",
+        "Certificate": "",
+        "FriendlyName": "",
+        "PrivateKey": "",
+        "Sandbox": false,
+        "Secret": "",
+        "Type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-credentials-sid",
+      "name": "DELETE /v1/Credentials/{Sid}",
+      "description": "Remove a push notification credential from your account",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Credentials/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-participantconversations",
+      "name": "GET /v1/ParticipantConversations",
+      "description": "Retrieve a list of all Conversations that this Participant belongs to by identity or by address. Only one parameter should be specified.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/ParticipantConversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-roles",
+      "name": "GET /v1/Roles",
+      "description": "Retrieve a list of all user roles in your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Roles",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-roles",
+      "name": "POST /v1/Roles",
+      "description": "Create a new user role in your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Roles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "Type": "",
+        "Permission": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-roles-sid",
+      "name": "GET /v1/Roles/{Sid}",
+      "description": "Fetch a user role from your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Roles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-roles-sid",
+      "name": "POST /v1/Roles/{Sid}",
+      "description": "Update an existing user role in your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Roles/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Permission": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-roles-sid",
+      "name": "DELETE /v1/Roles/{Sid}",
+      "description": "Remove a user role from your account's default service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Roles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services",
+      "name": "GET /v1/Services",
+      "description": "Retrieve a list of all conversation services on your account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-services",
+      "name": "POST /v1/Services",
+      "description": "Create a new conversation service on your account",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-bindings",
+      "name": "GET /v1/Services/{ChatServiceSid}/Bindings",
+      "description": "Retrieve a list of all push notification bindings in the conversation service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Bindings",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-bindings-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Bindings/{Sid}",
+      "description": "Fetch a push notification binding from the conversation service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Bindings/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-bindings-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Bindings/{Sid}",
+      "description": "Remove a push notification binding from the conversation service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Bindings/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-configuration",
+      "name": "GET /v1/Services/{ChatServiceSid}/Configuration",
+      "description": "Fetch the configuration of a conversation service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-configuration",
+      "name": "POST /v1/Services/{ChatServiceSid}/Configuration",
+      "description": "Update configuration settings of a conversation service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DefaultChatServiceRoleSid": "",
+        "DefaultConversationCreatorRoleSid": "",
+        "DefaultConversationRoleSid": "",
+        "ReachabilityEnabled": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-configuration-notifications",
+      "name": "GET /v1/Services/{ChatServiceSid}/Configuration/Notifications",
+      "description": "Fetch push notification service settings",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration/Notifications",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-configuration-notifications",
+      "name": "POST /v1/Services/{ChatServiceSid}/Configuration/Notifications",
+      "description": "Update push notification service settings",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration/Notifications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AddedToConversation.Enabled": false,
+        "AddedToConversation.Sound": "",
+        "AddedToConversation.Template": "",
+        "LogEnabled": false,
+        "NewMessage.BadgeCountEnabled": false,
+        "NewMessage.Enabled": false,
+        "NewMessage.Sound": "",
+        "NewMessage.Template": "",
+        "NewMessage.WithMedia.Enabled": false,
+        "NewMessage.WithMedia.Template": "",
+        "RemovedFromConversation.Enabled": false,
+        "RemovedFromConversation.Sound": "",
+        "RemovedFromConversation.Template": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-configuration-webhooks",
+      "name": "GET /v1/Services/{ChatServiceSid}/Configuration/Webhooks",
+      "description": "Fetch a specific service webhook configuration.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration/Webhooks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-configuration-webhooks",
+      "name": "POST /v1/Services/{ChatServiceSid}/Configuration/Webhooks",
+      "description": "Update a specific Webhook.",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Configuration/Webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Filters": [],
+        "Method": "",
+        "PostWebhookUrl": "",
+        "PreWebhookUrl": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations",
+      "description": "Retrieve a list of conversations in your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations",
+      "description": "Create a new conversation in your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "FriendlyName": "",
+        "MessagingServiceSid": "",
+        "State": "",
+        "Timers.Closed": "",
+        "Timers.Inactive": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-messages",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages",
+      "description": "Retrieve a list of all messages in the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-messages",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages",
+      "description": "Add a new message to the conversation in a specific service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "Author": "",
+        "Body": "",
+        "ContentSid": "",
+        "ContentVariables": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "MediaSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-messages-messagesid-receipts",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts",
+      "description": "Retrieve a list of all delivery and read receipts of the conversation message",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages/{{MESSAGESID}}/Receipts",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MESSAGESID}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MESSAGESID}} with a real messagesid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-messages-messagesid-receipts-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts/{Sid}",
+      "description": "Fetch the delivery and read receipts of the conversation message",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages/{{MESSAGESID}}/Receipts/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{MESSAGESID}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{MESSAGESID}} with a real messagesid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-messages-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Fetch a message from the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-messages-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Update an existing message in the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "Author": "",
+        "Body": "",
+        "DateCreated": "",
+        "DateUpdated": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-conversations-conversationsid-messages-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{Sid}",
+      "description": "Remove a message from the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Messages/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-participants",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants",
+      "description": "Retrieve a list of all participants of the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Participants",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-participants",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants",
+      "description": "Add a new participant to the conversation in a specific service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Participants",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "Identity": "",
+        "MessagingBinding.Address": "",
+        "MessagingBinding.ProjectedAddress": "",
+        "MessagingBinding.ProxyAddress": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-participants-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Fetch a participant of the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-participants-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Update an existing participant in the conversation",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "Identity": "",
+        "LastReadMessageIndex": 0,
+        "LastReadTimestamp": "",
+        "MessagingBinding.ProjectedAddress": "",
+        "MessagingBinding.ProxyAddress": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-conversations-conversationsid-participants-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants/{Sid}",
+      "description": "Remove a participant from the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Participants/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-webhooks",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks",
+      "description": "Retrieve a list of all webhooks scoped to the conversation",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Webhooks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-webhooks",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks",
+      "description": "Create a new webhook scoped to the conversation in a specific service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Webhooks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Target": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-conversationsid-webhooks-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Fetch the configuration of a conversation-scoped webhook",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-conversationsid-webhooks-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Update an existing conversation-scoped webhook",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Configuration.Filters": [],
+        "Configuration.FlowSid": "",
+        "Configuration.Method": "",
+        "Configuration.Triggers": [],
+        "Configuration.Url": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-conversations-conversationsid-webhooks-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks/{Sid}",
+      "description": "Remove an existing webhook scoped to the conversation",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{CONVERSATIONSID}}/Webhooks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-conversations-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Conversations/{Sid}",
+      "description": "Fetch a conversation from your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-conversations-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Conversations/{Sid}",
+      "description": "Update an existing conversation in your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "DateCreated": "",
+        "DateUpdated": "",
+        "FriendlyName": "",
+        "MessagingServiceSid": "",
+        "State": "",
+        "Timers.Closed": "",
+        "Timers.Inactive": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-conversations-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Conversations/{Sid}",
+      "description": "Remove a conversation from your service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Conversations/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-participantconversations",
+      "name": "GET /v1/Services/{ChatServiceSid}/ParticipantConversations",
+      "description": "Retrieve a list of all Conversations that this Participant belongs to by identity or by address. Only one parameter should be specified.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/ParticipantConversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-roles",
+      "name": "GET /v1/Services/{ChatServiceSid}/Roles",
+      "description": "Retrieve a list of all user roles in your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Roles",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-roles",
+      "name": "POST /v1/Services/{ChatServiceSid}/Roles",
+      "description": "Create a new user role in your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Roles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "FriendlyName": "",
+        "Type": "",
+        "Permission": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-roles-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Roles/{Sid}",
+      "description": "Fetch a user role from your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Roles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-roles-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Roles/{Sid}",
+      "description": "Update an existing user role in your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Roles/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Permission": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-roles-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Roles/{Sid}",
+      "description": "Remove a user role from your service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Roles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-users",
+      "name": "GET /v1/Services/{ChatServiceSid}/Users",
+      "description": "Retrieve a list of all conversation users in your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-users",
+      "name": "POST /v1/Services/{ChatServiceSid}/Users",
+      "description": "Add a new conversation user to your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Identity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-users-sid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Users/{Sid}",
+      "description": "Fetch a conversation user from your service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-users-sid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Users/{Sid}",
+      "description": "Update an existing conversation user in your service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "FriendlyName": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-users-sid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Users/{Sid}",
+      "description": "Remove a conversation user from your service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{CHATSERVICESID}} with a real chatservicesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-users-usersid-conversations",
+      "name": "GET /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations",
+      "description": "Retrieve a list of all User Conversations for the User.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{USERSID}}/Conversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{USERSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{CHATSERVICESID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-chatservicesid-users-usersid-conversations-conversationsid",
+      "name": "GET /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Fetch a specific User Conversation.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{USERSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "post-v1-services-chatservicesid-users-usersid-conversations-conversationsid",
+      "name": "POST /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Update a specific User Conversation.",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "LastReadMessageIndex": 0,
+        "LastReadTimestamp": "",
+        "NotificationLevel": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{USERSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "delete-v1-services-chatservicesid-users-usersid-conversations-conversationsid",
+      "name": "DELETE /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Delete a specific User Conversation.",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{CHATSERVICESID}}/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHATSERVICESID}}",
+        "{{USERSID}}",
+        "{{TWILIO_PASSWORD}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid. Replace {{CHATSERVICESID}} with a real chatservicesid."
+    },
+    {
+      "id": "get-v1-services-sid",
+      "name": "GET /v1/Services/{Sid}",
+      "description": "Fetch a conversation service from your account",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-services-sid",
+      "name": "DELETE /v1/Services/{Sid}",
+      "description": "Remove a conversation service with all its nested resources from your account",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Services/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-users",
+      "name": "GET /v1/Users",
+      "description": "Retrieve a list of all conversation users in your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Users",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-users",
+      "name": "POST /v1/Users",
+      "description": "Add a new conversation user to your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Identity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-users-sid",
+      "name": "GET /v1/Users/{Sid}",
+      "description": "Fetch a conversation user from your account's default service",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Users/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-users-sid",
+      "name": "POST /v1/Users/{Sid}",
+      "description": "Update an existing conversation user in your account's default service",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Users/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Attributes": "",
+        "FriendlyName": "",
+        "RoleSid": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-users-sid",
+      "name": "DELETE /v1/Users/{Sid}",
+      "description": "Remove a conversation user from your account's default service",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Users/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-users-usersid-conversations",
+      "name": "GET /v1/Users/{UserSid}/Conversations",
+      "description": "Retrieve a list of all User Conversations for the User.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Users/{{USERSID}}/Conversations",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{USERSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid."
+    },
+    {
+      "id": "get-v1-users-usersid-conversations-conversationsid",
+      "name": "GET /v1/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Fetch a specific User Conversation.",
+      "method": "GET",
+      "url": "https://conversations.twilio.com/v1/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{USERSID}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "post-v1-users-usersid-conversations-conversationsid",
+      "name": "POST /v1/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Update a specific User Conversation.",
+      "method": "POST",
+      "url": "https://conversations.twilio.com/v1/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "LastReadMessageIndex": 0,
+        "LastReadTimestamp": "",
+        "NotificationLevel": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{USERSID}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    },
+    {
+      "id": "delete-v1-users-usersid-conversations-conversationsid",
+      "name": "DELETE /v1/Users/{UserSid}/Conversations/{ConversationSid}",
+      "description": "Delete a specific User Conversation.",
+      "method": "DELETE",
+      "url": "https://conversations.twilio.com/v1/Users/{{USERSID}}/Conversations/{{CONVERSATIONSID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{USERSID}}",
+        "{{CONVERSATIONSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{USERSID}} with a real usersid. Replace {{CONVERSATIONSID}} with a real conversationsid."
+    }
+  ]
+}

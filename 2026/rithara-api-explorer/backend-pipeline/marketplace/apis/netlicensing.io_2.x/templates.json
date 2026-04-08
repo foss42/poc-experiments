@@ -1,0 +1,904 @@
+{
+  "api_id": "netlicensing.io:2.x",
+  "endpoint_count": 40,
+  "endpoints": [
+    {
+      "id": "list-licenses",
+      "name": "List Licenses",
+      "description": "Return a list of all Licenses for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/license",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-license",
+      "name": "Create License",
+      "description": "Creates a new License",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/license",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "licenseeNumber": "",
+        "licenseTemplateNumber": "",
+        "active": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-license",
+      "name": "Get License",
+      "description": "Get License by a 'licenseNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/license/{{LICENSENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{LICENSENUMBER}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSENUMBER}} with a real licensenumber."
+    },
+    {
+      "id": "update-license",
+      "name": "Update License",
+      "description": "Update License by a 'licenseNumber'",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/license/{{LICENSENUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "currency": "",
+        "hidden": false,
+        "name": "",
+        "number": "",
+        "parentfeature": "",
+        "price": 0.0,
+        "quantity": "",
+        "startDate": "",
+        "timeVolume": "",
+        "timeVolumePeriod": "",
+        "usedQuantity": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{LICENSENUMBER}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSENUMBER}} with a real licensenumber."
+    },
+    {
+      "id": "delete-license",
+      "name": "Delete License",
+      "description": "Delete License by a 'licenseNumber'",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/license/{{LICENSENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{LICENSENUMBER}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSENUMBER}} with a real licensenumber."
+    },
+    {
+      "id": "list-licensees",
+      "name": "List Licensees",
+      "description": "Return a list of all Licensees for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-licensee",
+      "name": "Create Licensee",
+      "description": "Creates a new Licensee",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "productNumber": "",
+        "active": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-licensee",
+      "name": "Get Licensee",
+      "description": "Return a Licensee by 'licenseeNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee/{{LICENSEENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSEENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSEENUMBER}} with a real licenseenumber."
+    },
+    {
+      "id": "update-licensee",
+      "name": "Update Licensee",
+      "description": "Sets the provided properties to a Licensee. Return an updated Licensee",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee/{{LICENSEENUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "markedForTransfer": false,
+        "name": "",
+        "number": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSEENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSEENUMBER}} with a real licenseenumber."
+    },
+    {
+      "id": "delete-licensee",
+      "name": "Delete Licensee",
+      "description": "Delete a Licensee by 'number'",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee/{{LICENSEENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSEENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSEENUMBER}} with a real licenseenumber."
+    },
+    {
+      "id": "transfer-licenses",
+      "name": "Transfer Licenses",
+      "description": "Licenses transfer between Licensees",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee/{{LICENSEENUMBER}}/transfer",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "sourceLicenseeNumber": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSEENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSEENUMBER}} with a real licenseenumber."
+    },
+    {
+      "id": "validate-licensee",
+      "name": "Validate Licensee",
+      "description": "Validates active Licenses of the Licensee",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensee/{{LICENSEENUMBER}}/validate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "action": "",
+        "licenseeName": "",
+        "nodeSecret": "",
+        "productModuleNumber": "",
+        "productNumber": "",
+        "sessionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSEENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSEENUMBER}} with a real licenseenumber."
+    },
+    {
+      "id": "list-license-templates",
+      "name": "List License Templates",
+      "description": "Return a list of all License Templates for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensetemplate",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-license-template",
+      "name": "Create License Template",
+      "description": "Creates a new License Template",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensetemplate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "productModuleNumber": "",
+        "name": "",
+        "active": false,
+        "licenseType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-license-template",
+      "name": "Get License Template",
+      "description": "Return a License Template by 'licenseTemplateNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensetemplate/{{LICENSETEMPLATENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSETEMPLATENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSETEMPLATENUMBER}} with a real licensetemplatenumber."
+    },
+    {
+      "id": "update-license-template",
+      "name": "Update License Template",
+      "description": "Sets the provided properties to a License Template. Return an updated License Template",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensetemplate/{{LICENSETEMPLATENUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "automatic": false,
+        "currency": "",
+        "hidden": false,
+        "hideLicenses": false,
+        "licenseType": "",
+        "maxSessions": "",
+        "name": "",
+        "number": "",
+        "price": 0.0,
+        "quantity": "",
+        "quota": "",
+        "timeVolume": "",
+        "timeVolumePeriod": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSETEMPLATENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSETEMPLATENUMBER}} with a real licensetemplatenumber."
+    },
+    {
+      "id": "delete-license-template",
+      "name": "Delete License Template",
+      "description": "Delete a License Template by 'number'.",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/licensetemplate/{{LICENSETEMPLATENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{LICENSETEMPLATENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{LICENSETEMPLATENUMBER}} with a real licensetemplatenumber."
+    },
+    {
+      "id": "list-payment-methods",
+      "name": "List Payment Methods",
+      "description": "Return a list of all Payment Methods for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/paymentmethod",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-payment-method",
+      "name": "Get Payment Method",
+      "description": "Return a Payment Method info by 'paymentMethodNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/paymentmethod/{{PAYMENTMETHODNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PAYMENTMETHODNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PAYMENTMETHODNUMBER}} with a real paymentmethodnumber."
+    },
+    {
+      "id": "update-payment-method",
+      "name": "Update Payment Method",
+      "description": "Sets the provided properties to a Payment Method. Return an updated Payment Method",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/paymentmethod/{{PAYMENTMETHODNUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "paypal.subject": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PAYMENTMETHODNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PAYMENTMETHODNUMBER}} with a real paymentmethodnumber."
+    },
+    {
+      "id": "list-products",
+      "name": "List Products",
+      "description": "Return a list of all configured Products for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/product",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-product",
+      "name": "Create Product",
+      "description": "Creates a new Product",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/product",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "name": "",
+        "version": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-product",
+      "name": "Get Product",
+      "description": "Return a Product by 'productNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/product/{{PRODUCTNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTNUMBER}} with a real productnumber."
+    },
+    {
+      "id": "update-product",
+      "name": "Update Product",
+      "description": "Sets the provided properties to a Product. Return an updated Product",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/product/{{PRODUCTNUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "description": "",
+        "licenseeAutoCreate": false,
+        "licensingInfo": "",
+        "name": "",
+        "number": "",
+        "vatMode": "",
+        "version": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTNUMBER}} with a real productnumber."
+    },
+    {
+      "id": "delete-product",
+      "name": "Delete Product",
+      "description": "Delete a Product by 'number'",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/product/{{PRODUCTNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTNUMBER}} with a real productnumber."
+    },
+    {
+      "id": "list-product-modules",
+      "name": "List Product Modules",
+      "description": "Return a list of all Product Modules for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/productmodule",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-product-module",
+      "name": "Create Product Module",
+      "description": "Creates a new Product Module",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/productmodule",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "productNumber": "",
+        "active": false,
+        "name": "",
+        "licensingModel": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-product-module",
+      "name": "Get Product Module",
+      "description": "Return a Product Module by 'productModuleNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/productmodule/{{PRODUCTMODULENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTMODULENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTMODULENUMBER}} with a real productmodulenumber."
+    },
+    {
+      "id": "update-product-module",
+      "name": "Update Product Module",
+      "description": "Sets the provided properties to a Product Module. Return an updated Product Module",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/productmodule/{{PRODUCTMODULENUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "licenseTemplate": [],
+        "licensingModel": "",
+        "maxCheckoutValidity": 0,
+        "name": "",
+        "nodeSecretMode": [],
+        "number": "",
+        "redThreshold": 0,
+        "yellowThreshold": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTMODULENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTMODULENUMBER}} with a real productmodulenumber."
+    },
+    {
+      "id": "delete-product-module",
+      "name": "Delete Product Module",
+      "description": "Delete a Product Module by 'number'",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/productmodule/{{PRODUCTMODULENUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{PRODUCTMODULENUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{PRODUCTMODULENUMBER}} with a real productmodulenumber."
+    },
+    {
+      "id": "list-tokens",
+      "name": "List Tokens",
+      "description": "Return a list of all tokens for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/token",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-token",
+      "name": "Create token",
+      "description": "Create token by 'tokenType' and additional token parameters",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/token",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "tokenType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-token",
+      "name": "Get token",
+      "description": "Return a token by 'tokenNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/token/{{TOKENNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{TOKENNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{TOKENNUMBER}} with a real tokennumber."
+    },
+    {
+      "id": "delete-token",
+      "name": "Delete token",
+      "description": "Delete a token by 'number'",
+      "method": "DELETE",
+      "url": "https://go.netlicensing.io/core/v2/rest/token/{{TOKENNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{TOKENNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{TOKENNUMBER}} with a real tokennumber."
+    },
+    {
+      "id": "list-transactions",
+      "name": "List Transactions",
+      "description": "Return a list of all Transactions for the current Vendor",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/transaction",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "create-transaction",
+      "name": "Create Transaction",
+      "description": "Creates a new Transaction",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/transaction",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "status": "",
+        "source": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "get-transaction",
+      "name": "Get Transaction ",
+      "description": "Return a Transaction by 'transactionNumber'",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/transaction/{{TRANSACTIONNUMBER}}",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{TRANSACTIONNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{TRANSACTIONNUMBER}} with a real transactionnumber."
+    },
+    {
+      "id": "update-transaction",
+      "name": "Update Transaction",
+      "description": "Sets the provided properties to a Transaction. Return an updated Transaction",
+      "method": "POST",
+      "url": "https://go.netlicensing.io/core/v2/rest/transaction/{{TRANSACTIONNUMBER}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "active": false,
+        "dateClosed": "",
+        "dateCreated": "",
+        "number": "",
+        "paymentMethod": "",
+        "source": "",
+        "status": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{TRANSACTIONNUMBER}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD. Replace {{TRANSACTIONNUMBER}} with a real transactionnumber."
+    },
+    {
+      "id": "list-license-types",
+      "name": "List License Types",
+      "description": "Return a list of all License Types supported by the service",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/utility/licenseTypes",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    },
+    {
+      "id": "list-licensing-models",
+      "name": "List Licensing Models",
+      "description": "Return a list of all licensing models supported by the service",
+      "method": "GET",
+      "url": "https://go.netlicensing.io/core/v2/rest/utility/licensingModels",
+      "headers": {
+        "Authorization": "Basic{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NETLICENSING_USERNAME}}",
+        "{{NETLICENSING_PASSWORD}}",
+        "{{NETLICENSING_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NETLICENSING_USERNAME}} with your NETLICENSING USERNAME. Replace {{NETLICENSING_PASSWORD}} with your NETLICENSING PASSWORD."
+    }
+  ]
+}

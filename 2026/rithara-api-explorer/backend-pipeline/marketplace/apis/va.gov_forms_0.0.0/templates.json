@@ -1,0 +1,43 @@
+{
+  "api_id": "va.gov:forms:0.0.0",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "returns-all-va-forms-and-their-last-revision-date",
+      "name": "Returns all VA Forms and their last revision date",
+      "description": "Returns an index of all available VA forms. Optionally, pass a query parameter to filter forms by form number or title.",
+      "method": "GET",
+      "url": "https://sandbox-api.va.gov/services/va_forms/{version}/forms",
+      "headers": {
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY."
+    },
+    {
+      "id": "find-form-by-form-name",
+      "name": "Find form by form name",
+      "description": "Returns a single form and the full revision history",
+      "method": "GET",
+      "url": "https://sandbox-api.va.gov/services/va_forms/{version}/forms/{{FORM_NAME}}",
+      "headers": {
+        "apikey": "{{VA_GOV_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VA_API_KEY}}",
+        "{{FORM_NAME}}",
+        "{{VA_GOV_API_KEY}}"
+      ],
+      "notes": "Replace {{VA_API_KEY}} with your VA API KEY. Replace {{FORM_NAME}} with a real form_name."
+    }
+  ]
+}

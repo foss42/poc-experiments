@@ -1,0 +1,165 @@
+{
+  "api_id": "apispot.io:whois:1.0",
+  "endpoint_count": 8,
+  "endpoints": [
+    {
+      "id": "get-batch",
+      "name": "GET /batch",
+      "description": "Get your batches",
+      "method": "GET",
+      "url": "http://localhost:5000/batch",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY."
+    },
+    {
+      "id": "post-batch",
+      "name": "POST /batch",
+      "description": "Create batch. Batch is then being processed until all provided items have been completed. At any time it can be `get` to provide current status with results optionally.",
+      "method": "POST",
+      "url": "http://localhost:5000/batch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "operation": "",
+        "domains": [
+          "foo.com",
+          "foo.net",
+          "foo.io"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY."
+    },
+    {
+      "id": "get-batch-id",
+      "name": "GET /batch/{id}",
+      "description": "Get batch",
+      "method": "GET",
+      "url": "http://localhost:5000/batch/{{ID}}",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-batch-id",
+      "name": "DELETE /batch/{id}",
+      "description": "Delete batch",
+      "method": "DELETE",
+      "url": "http://localhost:5000/batch/{{ID}}",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-db",
+      "name": "GET /db",
+      "description": "Query domain database",
+      "method": "GET",
+      "url": "http://localhost:5000/db",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY."
+    },
+    {
+      "id": "get-domains-domain-check",
+      "name": "GET /domains/{domain}/check",
+      "description": "Check domain availability",
+      "method": "GET",
+      "url": "http://localhost:5000/domains/{{DOMAIN}}/check",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY. Replace {{DOMAIN}} with a real domain."
+    },
+    {
+      "id": "get-domains-domain-rank",
+      "name": "GET /domains/{domain}/rank",
+      "description": "Check domain rank (authority).",
+      "method": "GET",
+      "url": "http://localhost:5000/domains/{{DOMAIN}}/rank",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY. Replace {{DOMAIN}} with a real domain."
+    },
+    {
+      "id": "get-domains-domain-whois",
+      "name": "GET /domains/{domain}/whois",
+      "description": "WHOIS query for a domain",
+      "method": "GET",
+      "url": "http://localhost:5000/domains/{{DOMAIN}}/whois",
+      "headers": {
+        "X-API-KEY": "{{APISPOT_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAIN}}",
+        "{{APISPOT_API_KEY}}",
+        "{{APISPOT_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{APISPOT_API_KEY}} with your APISPOT API KEY. Replace {{DOMAIN}} with a real domain."
+    }
+  ]
+}

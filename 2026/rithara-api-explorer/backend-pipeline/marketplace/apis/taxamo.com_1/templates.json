@@ -1,0 +1,736 @@
+{
+  "api_id": "taxamo.com:1",
+  "endpoint_count": 36,
+  "endpoints": [
+    {
+      "id": "countries",
+      "name": "Countries",
+      "description": "Countries",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/dictionaries/countries",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "currencies",
+      "name": "Currencies",
+      "description": "Currencies",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/dictionaries/currencies",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "product-types",
+      "name": "Product types",
+      "description": "Product types",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/dictionaries/product_types",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "locate-ip",
+      "name": "Locate IP",
+      "description": "Locate IP",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/geoip",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "locate-provided-ip",
+      "name": "Locate provided IP",
+      "description": "Locate provided IP",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/geoip/{{IP}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IP}}",
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{IP}} with a real ip."
+    },
+    {
+      "id": "calculate-domestic-summary",
+      "name": "Calculate domestic summary",
+      "description": "Calculate domestic summary",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/reports/domestic/summary",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "country_code": "",
+        "start_month": "",
+        "end_month": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "calculate-eu-vies-report",
+      "name": "Calculate EU VIES report",
+      "description": "Calculate EU VIES report",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/reports/eu/vies",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "end_month": "",
+        "start_month": "",
+        "eu_country_code": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "detailed-refunds",
+      "name": "Detailed refunds",
+      "description": "Detailed refunds",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/settlement/detailed_refunds",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "fetch-refunds",
+      "name": "Fetch refunds",
+      "description": "Fetch refunds",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/settlement/refunds",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date_from": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "fetch-summary",
+      "name": "Fetch summary",
+      "description": "Fetch summary",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/settlement/summary/{{QUARTER}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUARTER}}",
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{QUARTER}} with a real quarter."
+    },
+    {
+      "id": "fetch-settlement",
+      "name": "Fetch settlement",
+      "description": "Fetch settlement",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/settlement/{{QUARTER}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{QUARTER}}",
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{QUARTER}} with a real quarter."
+    },
+    {
+      "id": "settlement-by-country",
+      "name": "Settlement by country",
+      "description": "Settlement by country",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/stats/settlement/by_country",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date_from": "",
+        "date_to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "settlement-by-tax-type",
+      "name": "Settlement by tax type",
+      "description": "Settlement by tax type",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/stats/settlement/by_taxation_type",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date_from": "",
+        "date_to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "settlement-stats-over-time",
+      "name": "Settlement stats over time",
+      "description": "Settlement stats over time",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/stats/settlement/daily",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "interval": "",
+        "date_from": "",
+        "date_to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "transaction-stats",
+      "name": "Transaction stats",
+      "description": "Transaction stats",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/stats/transactions",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date_from": "",
+        "date_to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "settlement-by-country-2",
+      "name": "Settlement by country",
+      "description": "Settlement by country",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/stats/transactions/by_country",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "date_from": "",
+        "date_to": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "simple-tax",
+      "name": "Simple tax",
+      "description": "Simple tax",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/tax/calculate",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {
+        "currency_code": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "calculate-tax",
+      "name": "Calculate tax",
+      "description": "Calculate tax",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/tax/calculate",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "transaction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "calculate-location",
+      "name": "Calculate location",
+      "description": "Calculate location",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/tax/location/calculate",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "validate-vat-number",
+      "name": "Validate VAT number",
+      "description": "Validate VAT number",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/tax/vat_numbers/{{TAX_NUMBER}}/validate",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAX_NUMBER}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{TAX_NUMBER}} with a real tax_number."
+    },
+    {
+      "id": "browse-transactions",
+      "name": "Browse transactions",
+      "description": "Browse transactions",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/transactions",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "store-transaction",
+      "name": "Store transaction",
+      "description": "Store transaction",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "transaction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "retrieve-transaction-data",
+      "name": "Retrieve transaction data.",
+      "description": "Retrieve transaction data.",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "update-transaction",
+      "name": "Update transaction",
+      "description": "Update transaction",
+      "method": "PUT",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "transaction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "delete-transaction",
+      "name": "Delete transaction",
+      "description": "Delete transaction",
+      "method": "DELETE",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "confirm-transaction",
+      "name": "Confirm transaction",
+      "description": "Confirm transaction",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/confirm",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "transaction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "email-credit-note",
+      "name": "Email credit note",
+      "description": "Email credit note",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/invoice/refunds/{{REFUND_NOTE_NUMBER}}/send_email",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "buyer_email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{REFUND_NOTE_NUMBER}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{REFUND_NOTE_NUMBER}} with a real refund_note_number. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "email-invoice",
+      "name": "Email invoice",
+      "description": "Email invoice",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/invoice/send_email",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "buyer_email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "list-payments",
+      "name": "List payments",
+      "description": "List payments",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/payments",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "register-a-payment",
+      "name": "Register a payment",
+      "description": "Register a payment",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/payments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "capture-payment",
+      "name": "Capture payment",
+      "description": "Capture payment",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/payments/capture",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "get-transaction-refunds",
+      "name": "Get transaction refunds",
+      "description": "Get transaction refunds",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/refunds",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "create-a-refund",
+      "name": "Create a refund",
+      "description": "Create a refund",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/refunds",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "amount": 0.0,
+        "custom_id": "",
+        "line_key": "",
+        "refund_reason": "",
+        "total_amount": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "un-confirm-the-transaction",
+      "name": "Un-confirm the transaction",
+      "description": "Un-confirm the transaction",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/transactions/{{KEY}}/unconfirm",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "transaction": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{KEY}} with a real key."
+    },
+    {
+      "id": "create-sms-token",
+      "name": "Create SMS token",
+      "description": "Create SMS token",
+      "method": "POST",
+      "url": "https://api.taxamo.com/api/v1/verification/sms",
+      "headers": {
+        "Content-Type": "application/json",
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "country_code": "",
+        "recipient": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY."
+    },
+    {
+      "id": "verify-sms-token",
+      "name": "Verify SMS token",
+      "description": "Verify SMS token",
+      "method": "GET",
+      "url": "https://api.taxamo.com/api/v1/verification/sms/{{TOKEN}}",
+      "headers": {
+        "Token": "{{TAXAMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TAXAMO_API_KEY}}",
+        "{{TOKEN}}",
+        "{{TAXAMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{TAXAMO_API_KEY}} with your TAXAMO API KEY. Replace {{TOKEN}} with a real token."
+    }
+  ]
+}

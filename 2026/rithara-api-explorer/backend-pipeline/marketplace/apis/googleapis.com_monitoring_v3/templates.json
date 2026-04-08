@@ -1,0 +1,683 @@
+{
+  "api_id": "googleapis.com:monitoring:v3",
+  "endpoint_count": 29,
+  "endpoints": [
+    {
+      "id": "get-v3-uptimecheckips",
+      "name": "GET /v3/uptimeCheckIps",
+      "description": "Returns the list of IP addresses that checkers run from",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/uptimeCheckIps",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-v3-name",
+      "name": "GET /v3/{name}",
+      "description": "Get a ServiceLevelObjective by name.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "put-v3-name",
+      "name": "PUT /v3/{name}",
+      "description": "Updates an existing group. You can change any group attributes except name.",
+      "method": "PUT",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "filter": "",
+        "isCluster": false,
+        "name": "",
+        "parentName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v3-name",
+      "name": "DELETE /v3/{name}",
+      "description": "Delete the given ServiceLevelObjective.",
+      "method": "DELETE",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v3-name",
+      "name": "PATCH /v3/{name}",
+      "description": "Update the given ServiceLevelObjective.",
+      "method": "PATCH",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "calendarPeriod": "",
+        "displayName": "",
+        "goal": 0.0,
+        "name": "",
+        "rollingPeriod": "",
+        "serviceLevelIndicator": {},
+        "userLabels": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-alertpolicies",
+      "name": "GET /v3/{name}/alertPolicies",
+      "description": "Lists the existing alerting policies for the workspace.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/alertPolicies",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-alertpolicies",
+      "name": "POST /v3/{name}/alertPolicies",
+      "description": "Creates a new alerting policy.Design your application to single-thread API calls that modify the state of alerting policies in a single project. This includes calls to CreateAlertPolicy, DeleteAlertPolicy and UpdateAlertPolicy.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/alertPolicies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "alertStrategy": {},
+        "combiner": "",
+        "conditions": [],
+        "creationRecord": {},
+        "displayName": "",
+        "documentation": {},
+        "enabled": false,
+        "mutationRecord": {},
+        "name": "",
+        "notificationChannels": [],
+        "userLabels": {},
+        "validity": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-collectdtimeseries",
+      "name": "POST /v3/{name}/collectdTimeSeries",
+      "description": "Cloud Monitoring Agent only: Creates a new time series.This method is only for use by the Cloud Monitoring Agent. Use projects.timeSeries.create instead.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/collectdTimeSeries",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "collectdPayloads": [],
+        "collectdVersion": "",
+        "resource": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-groups",
+      "name": "GET /v3/{name}/groups",
+      "description": "Lists the existing groups.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/groups",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-groups",
+      "name": "POST /v3/{name}/groups",
+      "description": "Creates a new group.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "displayName": "",
+        "filter": "",
+        "isCluster": false,
+        "name": "",
+        "parentName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-members",
+      "name": "GET /v3/{name}/members",
+      "description": "Lists the monitored resources that are members of a group.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/members",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-metricdescriptors",
+      "name": "GET /v3/{name}/metricDescriptors",
+      "description": "Lists metric descriptors that match a filter.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/metricDescriptors",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-metricdescriptors",
+      "name": "POST /v3/{name}/metricDescriptors",
+      "description": "Creates a new metric descriptor. The creation is executed asynchronously. User-created metric descriptors define custom metrics (https://cloud.google.com/monitoring/custom-metrics). The metric descriptor is updated if it already exists, except that metric labels are never removed.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/metricDescriptors",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "displayName": "",
+        "labels": [],
+        "launchStage": "",
+        "metadata": {},
+        "metricKind": "",
+        "monitoredResourceTypes": [],
+        "name": "",
+        "type": "",
+        "unit": "",
+        "valueType": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-monitoredresourcedescriptors",
+      "name": "GET /v3/{name}/monitoredResourceDescriptors",
+      "description": "Lists monitored resource descriptors that match a filter.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/monitoredResourceDescriptors",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-notificationchanneldescriptors",
+      "name": "GET /v3/{name}/notificationChannelDescriptors",
+      "description": "Lists the descriptors for supported channel types. The use of descriptors makes it possible for new channel types to be dynamically added.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/notificationChannelDescriptors",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-notificationchannels",
+      "name": "POST /v3/{name}/notificationChannels",
+      "description": "Creates a new notification channel, representing a single notification endpoint such as an email address, SMS number, or PagerDuty service.Design your application to single-thread API calls that modify the state of notification channels in a single project. This includes calls to CreateNotificationChannel, DeleteNotificationChannel and UpdateNotificationChannel.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/notificationChannels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "creationRecord": {},
+        "description": "",
+        "displayName": "",
+        "enabled": false,
+        "labels": {},
+        "mutationRecords": [],
+        "name": "",
+        "type": "",
+        "userLabels": {},
+        "verificationStatus": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-name-timeseries",
+      "name": "GET /v3/{name}/timeSeries",
+      "description": "Lists time series that match a filter.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/timeSeries",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-timeseries",
+      "name": "POST /v3/{name}/timeSeries",
+      "description": "Creates or adds data to one or more time series. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/timeSeries",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "timeSeries": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-timeseries-createservice",
+      "name": "POST /v3/{name}/timeSeries:createService",
+      "description": "Creates or adds data to one or more service time series. A service time series is a time series for a metric from a Google Cloud service. The response is empty if all time series in the request were written. If any time series could not be written, a corresponding failure message is included in the error response. This endpoint rejects writes to user-defined metrics. This method is only for use by Google Cloud services. Use projects.timeSeries.create instead.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/timeSeries:createService",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "timeSeries": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-timeseries-query",
+      "name": "POST /v3/{name}/timeSeries:query",
+      "description": "Queries time series using Monitoring Query Language.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}/timeSeries:query",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "pageSize": 0,
+        "pageToken": "",
+        "query": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v3-name-sendverificationcode",
+      "name": "POST /v3/{name}:sendVerificationCode",
+      "description": "Causes a verification code to be delivered to the channel. The code can then be supplied in VerifyNotificationChannel to verify the channel.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{NAME}}:sendVerificationCode",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v3-parent-servicelevelobjectives",
+      "name": "GET /v3/{parent}/serviceLevelObjectives",
+      "description": "List the ServiceLevelObjectives for the given Service.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/serviceLevelObjectives",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v3-parent-servicelevelobjectives",
+      "name": "POST /v3/{parent}/serviceLevelObjectives",
+      "description": "Create a ServiceLevelObjective for the given Service.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/serviceLevelObjectives",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "calendarPeriod": "",
+        "displayName": "",
+        "goal": 0.0,
+        "name": "",
+        "rollingPeriod": "",
+        "serviceLevelIndicator": {},
+        "userLabels": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v3-parent-services",
+      "name": "GET /v3/{parent}/services",
+      "description": "List Services for this Metrics Scope.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/services",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v3-parent-services",
+      "name": "POST /v3/{parent}/services",
+      "description": "Create a Service.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/services",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "appEngine": {},
+        "basicService": {},
+        "cloudEndpoints": {},
+        "cloudRun": {},
+        "clusterIstio": {},
+        "custom": {},
+        "displayName": "",
+        "gkeNamespace": {},
+        "gkeService": {},
+        "gkeWorkload": {},
+        "istioCanonicalService": {},
+        "meshIstio": {},
+        "name": "",
+        "telemetry": {},
+        "userLabels": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v3-parent-snoozes",
+      "name": "GET /v3/{parent}/snoozes",
+      "description": "Lists the Snoozes associated with a project. Can optionally pass in filter, which specifies predicates to match Snoozes.",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/snoozes",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v3-parent-snoozes",
+      "name": "POST /v3/{parent}/snoozes",
+      "description": "Creates a Snooze that will prevent alerts, which match the provided criteria, from being opened. The Snooze applies for a specific time interval.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/snoozes",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "criteria": {},
+        "displayName": "",
+        "interval": {},
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v3-parent-uptimecheckconfigs",
+      "name": "GET /v3/{parent}/uptimeCheckConfigs",
+      "description": "Lists the existing valid Uptime check configurations for the project (leaving out any invalid configurations).",
+      "method": "GET",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/uptimeCheckConfigs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v3-parent-uptimecheckconfigs",
+      "name": "POST /v3/{parent}/uptimeCheckConfigs",
+      "description": "Creates a new Uptime check configuration.",
+      "method": "POST",
+      "url": "https://monitoring.googleapis.com/v3/{{PARENT}}/uptimeCheckConfigs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "checkerType": "",
+        "contentMatchers": [],
+        "displayName": "",
+        "httpCheck": {},
+        "internalCheckers": [],
+        "isInternal": false,
+        "monitoredResource": {},
+        "name": "",
+        "period": "",
+        "resourceGroup": {},
+        "selectedRegions": [],
+        "tcpCheck": {},
+        "timeout": "",
+        "userLabels": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

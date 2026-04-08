@@ -1,0 +1,222 @@
+{
+  "api_id": "azure.com:recoveryservicesbackup-bms:2018-12-20",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "fetches-the-aad-properties-from-target-region-bcm-stamp",
+      "name": "Fetches the AAD properties from target region BCM stamp.",
+      "description": "Fetches the AAD properties from target region BCM stamp.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupAadProperties/default",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "restores-the-specified-backed-up-data-in-a-different-region-as-compared-to-where-the-data-is-backed-up",
+      "name": "Restores the specified backed up data in a different region as compared to where the data is backed up.",
+      "description": "Restores the specified backed up data in a different region as compared to where the data is backed up.",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupCrossRegionRestore",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "properties": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-crr-job-details-from-target-region",
+      "name": "Get CRR job details from target region.",
+      "description": "Get CRR job details from target region.",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupCrrJob",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "gets-the-list-of-crr-jobs-from-the-target-region",
+      "name": "Gets the list of CRR jobs from the target region.",
+      "description": "Gets the list of CRR jobs from the target region.",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupCrrJobs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-recoveryservices-locations-azureregion-backupcrroperationresults-operationid",
+      "name": "GET /Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrrOperationResults/{operationId}",
+      "description": null,
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupCrrOperationResults/{{OPERATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{OPERATIONID}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{OPERATIONID}} with a real operationid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-providers-microsoft-recoveryservices-locations-azureregion-backupcrroperationsstatus-operationid",
+      "name": "GET /Subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrrOperationsStatus/{operationId}",
+      "description": null,
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/providers/Microsoft.RecoveryServices/locations/{{AZUREREGION}}/backupCrrOperationsStatus/{{OPERATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{OPERATIONID}}",
+        "{{AZUREREGION}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{OPERATIONID}} with a real operationid. Replace {{AZUREREGION}} with a real azureregion."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupfabrics-fabricname-protectioncontainers-containername-protecteditems-protecteditemname-recoverypoints",
+      "name": "GET /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/",
+      "description": "Lists the backup copies for the backed up item.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupFabrics/{{FABRICNAME}}/protectionContainers/{{CONTAINERNAME}}/protectedItems/{{PROTECTEDITEMNAME}}/recoveryPoints/",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTAINERNAME}}",
+        "{{FABRICNAME}}",
+        "{{PROTECTEDITEMNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{CONTAINERNAME}} with a real containername. Replace {{FABRICNAME}} with a real fabricname. Replace {{PROTECTEDITEMNAME}} with a real protecteditemname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "returns-the-access-token-for-communication-between-bms-and-protection-service",
+      "name": "Returns the Access token for communication between BMS and Protection service",
+      "description": "Returns the Access token for communication between BMS and Protection service",
+      "method": "POST",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupFabrics/{{FABRICNAME}}/protectionContainers/{{CONTAINERNAME}}/protectedItems/{{PROTECTEDITEMNAME}}/recoveryPoints/{{RECOVERYPOINTID}}/accessToken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CONTAINERNAME}}",
+        "{{FABRICNAME}}",
+        "{{RECOVERYPOINTID}}",
+        "{{PROTECTEDITEMNAME}}",
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{CONTAINERNAME}} with a real containername. Replace {{FABRICNAME}} with a real fabricname. Replace {{RECOVERYPOINTID}} with a real recoverypointid. Replace {{PROTECTEDITEMNAME}} with a real protecteditemname. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    },
+    {
+      "id": "get-subscriptions-subscriptionid-resourcegroups-resourcegroupname-providers-microsoft-recoveryservices-vaults-vaultname-backupprotecteditems",
+      "name": "GET /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectedItems/",
+      "description": "Provides a pageable list of all items that are backed up within a vault.",
+      "method": "GET",
+      "url": "https://management.azure.com/Subscriptions/{{SUBSCRIPTIONID}}/resourceGroups/{{RESOURCEGROUPNAME}}/providers/Microsoft.RecoveryServices/vaults/{{VAULTNAME}}/backupProtectedItems/",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBSCRIPTIONID}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{RESOURCEGROUPNAME}}",
+        "{{VAULTNAME}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{SUBSCRIPTIONID}} with a real subscriptionid. Replace {{RESOURCEGROUPNAME}} with a real resourcegroupname. Replace {{VAULTNAME}} with a real vaultname."
+    }
+  ]
+}

@@ -1,0 +1,660 @@
+{
+  "api_id": "adyen.com:AccountService:4",
+  "endpoint_count": 17,
+  "endpoints": [
+    {
+      "id": "close-an-account",
+      "name": "Close an account",
+      "description": "Closes an account. If an account is closed, you cannot process transactions, pay out its funds, or reopen it. If payments are made to a closed account, the payments are sent to your liable account.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/closeAccount",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "closeAccount": {
+          "summary": "Close an account",
+          "value": {
+            "accountCode": "CODE_OF_ACCOUNT"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "close-an-account-holder",
+      "name": "Close an account holder",
+      "description": "Changes the [status of an account holder](https://docs.adyen.com/marketplaces-and-platforms/classic/account-holders-and-accounts#account-holder-statuses) to **Closed**. This state is final. If an account holder is closed, you can't process transactions, pay out funds, or reopen it. If payments are made to an account of an account holder with a **Closed** [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status), the payments are sent to your liable account.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/closeAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Close an account holder",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "create-an-account",
+      "name": "Create an account",
+      "description": "Creates an account under an account holder. An account holder can have [multiple accounts](https://docs.adyen.com/marketplaces-and-platforms/classic/account-holders-and-accounts#create-additional-accounts).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/createAccount",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Add an account to an account holder",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "create-an-account-holder",
+      "name": "Create an account holder",
+      "description": "Creates an account holder that [represents the sub-merchant's entity](https://docs.adyen.com/marketplaces-and-platforms/classic/account-structure#your-platform) in your platform. The details that you need to provide in the request depend on the sub-merchant's legal entity type. For more information, refer to [Account holder and accounts](https://docs.adyen.com/marketplaces-and-platforms/classic/account-holders-and-accounts#legal-entity-types).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/createAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "business": {
+          "summary": "Create a business account holder",
+          "value": {
+            "accountHolderCode": "GENERATE_CODE",
+            "accountHolderDetails": {
+              "address": {
+                "country": "US"
+              },
+              "businessDetails": {
+                "doingBusinessAs": "Real Good Restaurant",
+                "legalBusinessName": "Real Good Restaurant Inc.",
+                "shareholders": [
+                  {
+                    "ShareholderContact": {
+                      "email": "testshareholder@adyen.com",
+                      "name": {
+                        "firstName": "John",
+                        "lastName": "Carpenter"
+                      }
+                    }
+                  }
+                ]
+              },
+              "email": "test@adyen.com",
+              "webAddress": "https://www.your-website.com"
+            },
+            "legalEntity": "Business"
+          }
+        },
+        "individual": {
+          "summary": "Create an individual account holder",
+          "value": {
+            "accountHolderCode": "GENERATE_CODE",
+            "accountHolderDetails": {
+              "address": {
+                "country": "US"
+              },
+              "email": "tim@green.com",
+              "individualDetails": {
+                "name": {
+                  "firstName": "Tim",
+                  "lastName": "Green"
+                }
+              },
+              "webAddress": "https://www.your-website.com"
+            },
+            "legalEntity": "Individual"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "delete-bank-accounts",
+      "name": "Delete bank accounts",
+      "description": "Deletes bank accounts associated with an account holder. ",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/deleteBankAccounts",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Delete bank accounts",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "bankAccountUUIDs": [
+              "eeb6ed22-3bae-483c-83b9-bc2097a75d40"
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "delete-legal-arrangements",
+      "name": "Delete legal arrangements",
+      "description": "Deletes legal arrangements and/or legal arrangement entities associated with an account holder.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/deleteLegalArrangements",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "arrangements": {
+          "description": "Example request for deleting legal arrangements",
+          "summary": "Delete legal arrangements",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "legalArrangements": [
+              {
+                "legalArrangementCode": "cdf92f5a-a114-4ce6-8f19-c3f6ec83141c"
+              }
+            ]
+          }
+        },
+        "entities": {
+          "description": "Example request for deleting legal arrangement entities",
+          "summary": "Delete legal arrangement entities",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "legalArrangements": [
+              {
+                "legalArrangementCode": "cdf92f5a-a114-4ce6-8f19-c3f6ec83141c",
+                "legalArrangementEntityCodes": [
+                  "755881d3-d6b0-4b34-8ace-1caceb8add63"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "delete-shareholders",
+      "name": "Delete shareholders",
+      "description": "Deletes shareholders associated with an account holder.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/deleteShareholders",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Delete shareholders",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "shareholderCodes": [
+              "9188218c-576e-4cbe-8e86-72722f453920"
+            ]
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "delete-signatories",
+      "name": "Delete signatories",
+      "description": "Deletes signatories associated with an account holder.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/deleteSignatories",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountHolderCode": "",
+        "signatoryCodes": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-an-account-holder",
+      "name": "Get an account holder",
+      "description": "Returns the details of an account holder.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/getAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "accountCode": {
+          "summary": "Get an account holder",
+          "value": {
+            "accountCode": "CODE_OF_ACCOUNT"
+          }
+        },
+        "accountHolderCode": {
+          "summary": "Get an account holder for the account",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-a-tax-form",
+      "name": "Get a tax form",
+      "description": "Generates a tax form for account holders operating in the US. For more information, refer to [Providing tax forms](https://docs.adyen.com/marketplaces-and-platforms/classic/tax-forms).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/getTaxForm",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Get a tax form",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "formType": "1099-K",
+            "year": 2020
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "get-documents",
+      "name": "Get documents",
+      "description": "Returns documents that were previously uploaded for an account holder. Adyen uses the documents during the [verification process](https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process).\n",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/getUploadedDocuments",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Get uploaded documents",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "bankAccountUUID": "EXAMPLE_UUID"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "suspend-an-account-holder",
+      "name": "Suspend an account holder",
+      "description": "Changes the [status of an account holder](https://docs.adyen.com/marketplaces-and-platforms/classic/account-holders-and-accounts#account-holder-statuses) to **Suspended**.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/suspendAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Suspend an account holder",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "unsuspend-an-account-holder",
+      "name": "Unsuspend an account holder",
+      "description": "Changes the [status of an account holder](https://docs.adyen.com/marketplaces-and-platforms/classic/account-holders-and-accounts#account-holder-statuses) from **Suspended** to **Inactive**. \nAccount holders can have a **Suspended** [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status) if you suspend them through the [`/suspendAccountHolder`](https://docs.adyen.com/api-explorer/#/Account/v5/post/suspendAccountHolder) endpoint or if a verification deadline expires.\n\nYou can only unsuspend account holders if they do not have verification checks with a **FAILED** [`status`](https://docs.adyen.com/api-explorer/#/Account/latest/post/getAccountHolder__resParam_verification-accountHolder-checks-status).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/unSuspendAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Unsuspend an account holder",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "update-an-account",
+      "name": "Update an account",
+      "description": "Updates the description or payout schedule of an account.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/updateAccount",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Set a payout schedule",
+          "value": {
+            "accountCode": "CODE_OF_ACCOUNT",
+            "payoutSchedule": {
+              "action": "CLOSE",
+              "schedule": "WEEKLY"
+            }
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "update-an-account-holder",
+      "name": "Update an account holder",
+      "description": "Updates the `accountHolderDetails` and `processingTier` of an account holder, and adds bank accounts and shareholders.\n\nWhen updating `accountHolderDetails`, parameters that are not included in the request are left unchanged except for the following object:\n\n* `metadata`: Updating the metadata replaces the entire object. This means that to update an existing key-value pair, you must provide the changes, as well as other existing key-value pairs.\n\nWhen updating any field in the following objects, you must submit all the fields required for validation:\n\n * `address`\n\n* `fullPhoneNumber`\n\n* `bankAccountDetails.BankAccountDetail`\n\n* `businessDetails.shareholders.ShareholderContact`\n\n For example, to update the `address.postalCode`, you must also submit the `address.country`, `.city`, `.street`, `.postalCode`, and possibly `.stateOrProvince` so that the address can be validated.\n\nTo add a bank account or shareholder, provide the bank account or shareholder details without a `bankAccountUUID` or a `shareholderCode`.\n\n",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/updateAccountHolder",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "addShareholders": {
+          "summary": "Add shareholders",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "accountHolderDetails": {
+              "bankAccountDetails": [],
+              "businessDetails": {
+                "legalBusinessName": "legalBusinessName",
+                "shareholders": [
+                  {
+                    "ShareholderContact": {
+                      "email": "testEmail@gmail.com",
+                      "personalData": {
+                        "idNumber": "12345"
+                      }
+                    }
+                  }
+                ],
+                "taxId": "taxid"
+              }
+            }
+          }
+        },
+        "bankAccountDetails": {
+          "summary": "Update bank account details",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "accountHolderDetails": {
+              "bankAccountDetails": [
+                {
+                  "BankAccountDetail": {
+                    "accountNumber": "1678116852",
+                    "branchCode": "053101273",
+                    "countryCode": "US",
+                    "currencyCode": "USD",
+                    "ownerCity": "Springfield",
+                    "ownerCountryCode": "US",
+                    "ownerHouseNumberOrName": "100",
+                    "ownerName": "Tim Green",
+                    "ownerPostalCode": "02894",
+                    "ownerState": "AZ",
+                    "ownerStreet": "Main Street"
+                  }
+                }
+              ],
+              "email": "tim@green.com",
+              "individualDetails": {
+                "name": {
+                  "firstName": "Tim",
+                  "lastName": "Green"
+                }
+              }
+            }
+          }
+        },
+        "businessDetails": {
+          "summary": "Update business details",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "accountHolderDetails": {
+              "bankAccountDetails": [],
+              "businessDetails": {
+                "doingBusinessAs": "Test company B.V.",
+                "legalBusinessName": "Test company",
+                "shareholders": [
+                  {
+                    "ShareholderContact": {
+                      "address": {
+                        "city": "Amsterdam",
+                        "country": "NL",
+                        "houseNumberOrName": "1",
+                        "postalCode": "1111AA",
+                        "stateOrProvince": "NH",
+                        "street": "Teststreet"
+                      },
+                      "email": "testShareholder@adyen.com",
+                      "name": {
+                        "firstName": "TestFirstName",
+                        "lastName": "TestLastName"
+                      }
+                    }
+                  }
+                ],
+                "taxId": "BV123456789"
+              },
+              "email": "test@adyen.com",
+              "phoneNumber": {
+                "phoneCountryCode": "NL",
+                "phoneNumber": "0612345678",
+                "phoneType": "Mobile"
+              },
+              "webAddress": "http://www.accountholderwebsite.com"
+            }
+          }
+        },
+        "general": {
+          "summary": "Update account holder details",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "accountHolderDetails": {
+              "address": {
+                "city": "Amsterdam",
+                "country": "NL",
+                "postalCode": "12345",
+                "stateOrProvince": "NH",
+                "street": "Teststreet 1"
+              },
+              "bankAccountDetails": [],
+              "email": "test@adyen.com",
+              "individualDetails": {
+                "name": {
+                  "firstName": "First name",
+                  "lastName": "Last Name"
+                },
+                "personalData": {
+                  "dateOfBirth": "1970-01-01",
+                  "idNumber": "1234567890",
+                  "nationality": "NL"
+                }
+              },
+              "merchantCategoryCode": "7999",
+              "phoneNumber": {
+                "phoneCountryCode": "NL",
+                "phoneNumber": "0612345678",
+                "phoneType": "Mobile"
+              },
+              "webAddress": "http://www.accountholderwebsite.com"
+            }
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "update-payout-or-processing-state",
+      "name": "Update payout or processing state",
+      "description": "Disables or enables the processing or payout state of an account holder.",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/updateAccountHolderState",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Update account holder state",
+          "value": {
+            "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+            "disable": true,
+            "reason": "test reason payout",
+            "stateType": "Payout"
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    },
+    {
+      "id": "upload-a-document",
+      "name": "Upload a document",
+      "description": "Uploads a document for an account holder. Adyen uses the documents during the [verification process](https://docs.adyen.com/marketplaces-and-platforms/classic/verification-process).",
+      "method": "POST",
+      "url": "https://cal-test.adyen.com/cal/services/Account/v4/uploadDocument",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-API-Key": "{{ADYEN_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "basic": {
+          "summary": "Upload a document",
+          "value": {
+            "documentContent": "dGVzdCBkb2N1bWVudCBjb250ZW50",
+            "documentDetail": {
+              "accountHolderCode": "CODE_OF_ACCOUNT_HOLDER",
+              "description": "test passport description",
+              "documentType": "PASSPORT",
+              "filename": "passport.png"
+            }
+          }
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADYEN_API_KEY}}",
+        "{{ADYEN_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADYEN_API_KEY}} with your ADYEN API KEY."
+    }
+  ]
+}

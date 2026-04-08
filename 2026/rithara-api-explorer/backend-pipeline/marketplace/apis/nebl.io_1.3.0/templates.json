@@ -1,0 +1,1042 @@
+{
+  "api_id": "nebl.io:1.3.0",
+  "endpoint_count": 50,
+  "endpoints": [
+    {
+      "id": "send-a-json-rpc-call-to-a-localhost-neblio-qt-or-nebliod-node",
+      "name": "Send a JSON-RPC call to a localhost neblio-Qt or nebliod node",
+      "description": "Call any Neblio RPC command from the Neblio API libraries. Useful for signing transactions with a local node and other functions. Will not work from a browser due to CORS restrictions. Requires a node to be running locally at 127.0.0.1",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "jsonrpc": "1.0",
+        "id": "neblio-apis",
+        "method": "getstakinginfo",
+        "params": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "returns-address-object",
+      "name": "Returns address object",
+      "description": "Returns NEBL address object containing information on a specific address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-address-balance-in-sats",
+      "name": "Returns address balance in sats",
+      "description": "Returns NEBL address balance in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}/balance",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-total-received-by-address-in-sats",
+      "name": "Returns total received by address in sats",
+      "description": "Returns total NEBL received by address in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}/totalReceived",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-total-sent-by-address-in-sats",
+      "name": "Returns total sent by address in sats",
+      "description": "Returns total NEBL sent by address in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}/totalSent",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-address-unconfirmed-balance-in-sats",
+      "name": "Returns address unconfirmed balance in sats",
+      "description": "Returns NEBL address unconfirmed balance in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}/unconfirmedBalance",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-all-utxos-at-a-given-address",
+      "name": "Returns all UTXOs at a given address",
+      "description": "Returns information on each Unspent Transaction Output contained at an address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/addr/{{ADDRESS}}/utxo",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-block-hash-of-block",
+      "name": "Returns block hash of block",
+      "description": "Returns the block hash of a block at a given block index",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/block-index/{{BLOCKINDEX}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_USERNAME}}",
+        "{{BLOCKINDEX}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{BLOCKINDEX}} with a real blockindex."
+    },
+    {
+      "id": "returns-information-regarding-a-neblio-block",
+      "name": "Returns information regarding a Neblio block",
+      "description": "Returns blockchain data for a given block based upon the block hash",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/block/{{BLOCKHASH}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BLOCKHASH}}",
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{BLOCKHASH}} with a real blockhash."
+    },
+    {
+      "id": "returns-raw-transaction-hex",
+      "name": "Returns raw transaction hex",
+      "description": "Returns raw transaction hex representing a NEBL transaction",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/rawtx/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    },
+    {
+      "id": "utility-api-for-calling-several-blockchain-node-functions",
+      "name": "Utility API for calling several blockchain node functions",
+      "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/status",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "get-node-sync-status",
+      "name": "Get node sync status",
+      "description": "Returns information on the node's sync progress",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/sync",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "broadcasts-a-signed-raw-transaction-to-the-network-not-ntp1-specific",
+      "name": "Broadcasts a signed raw transaction to the network (not NTP1 specific)",
+      "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/ins/tx/send",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "rawtx": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "returns-transaction-object",
+      "name": "Returns transaction object",
+      "description": "Returns NEBL transaction object representing a NEBL transaction",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/tx/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    },
+    {
+      "id": "get-transactions-by-block-or-address",
+      "name": "Get transactions by block or address",
+      "description": "Returns all transactions by block or address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ins/txs",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "information-on-a-neblio-address",
+      "name": "Information On a Neblio Address",
+      "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/addressinfo/{{ADDRESS}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "broadcasts-a-signed-raw-transaction-to-the-network",
+      "name": "Broadcasts a signed raw transaction to the network",
+      "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/ntp1/broadcast",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "txHex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-burns-an-ntp1-token",
+      "name": "Builds a transaction that burns an NTP1 Token",
+      "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/ntp1/burntoken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "fee": 0.0,
+        "burn": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-issues-a-new-ntp1-token",
+      "name": "Builds a transaction that issues a new NTP1 Token",
+      "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/ntp1/issue",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "issueAddress": "",
+        "amount": 0.0,
+        "divisibility": 0.0,
+        "fee": 0.0,
+        "reissuable": false,
+        "transfer": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-sends-an-ntp1-token",
+      "name": "Builds a transaction that sends an NTP1 Token",
+      "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/ntp1/sendtoken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "fee": 0.0,
+        "to": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "get-addresses-holding-a-token",
+      "name": "Get Addresses Holding a Token",
+      "description": "Returns the the the addresses holding a token and how many tokens are held\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/stakeholders/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "returns-the-tokenid-representing-a-token",
+      "name": "Returns the tokenId representing a token",
+      "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/tokenid/{{TOKENSYMBOL}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENSYMBOL}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENSYMBOL}} with a real tokensymbol."
+    },
+    {
+      "id": "get-metadata-of-token",
+      "name": "Get Metadata of Token",
+      "description": "Returns the metadata associated with a token.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/tokenmetadata/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "get-utxo-metadata-of-token",
+      "name": "Get UTXO Metadata of Token",
+      "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/tokenmetadata/{{TOKENID}}/{{UTXO}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{UTXO}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid. Replace {{UTXO}} with a real utxo."
+    },
+    {
+      "id": "information-on-an-ntp1-transaction",
+      "name": "Information On an NTP1 Transaction",
+      "description": "Returns detailed information regarding an NTP1 transaction.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/ntp1/transactioninfo/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    },
+    {
+      "id": "withdraws-testnet-nebl-to-the-specified-address",
+      "name": "Withdraws testnet NEBL to the specified address",
+      "description": "Withdraw testnet NEBL to your Neblio Testnet address. By default amount is 1500000000 or 15 NEBL and has a max of 50 NEBL. Only 2 withdrawals allowed per 24 hour period.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/faucet",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {
+        "address": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "returns-address-object-2",
+      "name": "Returns address object",
+      "description": "Returns NEBL address object containing information on a specific address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-address-balance-in-sats-2",
+      "name": "Returns address balance in sats",
+      "description": "Returns NEBL address balance in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}/balance",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-total-received-by-address-in-sats-2",
+      "name": "Returns total received by address in sats",
+      "description": "Returns total NEBL received by address in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}/totalReceived",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-total-sent-by-address-in-sats-2",
+      "name": "Returns total sent by address in sats",
+      "description": "Returns total NEBL sent by address in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}/totalSent",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-address-unconfirmed-balance-in-sats-2",
+      "name": "Returns address unconfirmed balance in sats",
+      "description": "Returns NEBL address unconfirmed balance in satoshis",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}/unconfirmedBalance",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-all-utxos-at-a-given-address-2",
+      "name": "Returns all UTXOs at a given address",
+      "description": "Returns information on each Unspent Transaction Output contained at an address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/addr/{{ADDRESS}}/utxo",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "returns-block-hash-of-block-2",
+      "name": "Returns block hash of block",
+      "description": "Returns the block hash of a block at a given block index",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/block-index/{{BLOCKINDEX}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_USERNAME}}",
+        "{{BLOCKINDEX}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{BLOCKINDEX}} with a real blockindex."
+    },
+    {
+      "id": "returns-information-regarding-a-neblio-block-2",
+      "name": "Returns information regarding a Neblio block",
+      "description": "Returns blockchain data for a given block based upon the block hash",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/block/{{BLOCKHASH}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{BLOCKHASH}}",
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{BLOCKHASH}} with a real blockhash."
+    },
+    {
+      "id": "returns-raw-transaction-hex-2",
+      "name": "Returns raw transaction hex",
+      "description": "Returns raw transaction hex representing a NEBL transaction",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/rawtx/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    },
+    {
+      "id": "utility-api-for-calling-several-blockchain-node-functions-2",
+      "name": "Utility API for calling several blockchain node functions",
+      "description": "Utility API for calling several blockchain node functions - getInfo, getDifficulty, getBestBlockHash, getLastBlockHash",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/status",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "get-node-sync-status-2",
+      "name": "Get node sync status",
+      "description": "Returns information on the node's sync progress",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/sync",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "broadcasts-a-signed-raw-transaction-to-the-network-not-ntp1-specific-2",
+      "name": "Broadcasts a signed raw transaction to the network (not NTP1 specific)",
+      "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/testnet/ins/tx/send",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "rawtx": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "returns-transaction-object-2",
+      "name": "Returns transaction object",
+      "description": "Returns NEBL transaction object representing a NEBL transaction",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/tx/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    },
+    {
+      "id": "get-transactions-by-block-or-address-2",
+      "name": "Get transactions by block or address",
+      "description": "Returns all transactions by block or address",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ins/txs",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "information-on-a-neblio-address-2",
+      "name": "Information On a Neblio Address",
+      "description": "Returns both NEBL and NTP1 token UTXOs held at the given address.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/addressinfo/{{ADDRESS}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{ADDRESS}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{ADDRESS}} with a real address."
+    },
+    {
+      "id": "broadcasts-a-signed-raw-transaction-to-the-network-2",
+      "name": "Broadcasts a signed raw transaction to the network",
+      "description": "Broadcasts a signed raw transaction to the network. If successful returns the txid of the broadcast trasnaction.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/broadcast",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "txHex": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-burns-an-ntp1-token-2",
+      "name": "Builds a transaction that burns an NTP1 Token",
+      "description": "Builds an unsigned raw transaction that burns an NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/burntoken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "fee": 0.0,
+        "burn": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-issues-a-new-ntp1-token-2",
+      "name": "Builds a transaction that issues a new NTP1 Token",
+      "description": "Builds an unsigned raw transaction that issues a new NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/issue",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "issueAddress": "",
+        "amount": 0.0,
+        "divisibility": 0.0,
+        "fee": 0.0,
+        "reissuable": false,
+        "transfer": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "builds-a-transaction-that-sends-an-ntp1-token-2",
+      "name": "Builds a transaction that sends an NTP1 Token",
+      "description": "Builds an unsigned raw transaction that sends an NTP1 token on the Neblio blockchain.\n",
+      "method": "POST",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/sendtoken",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "fee": 0.0,
+        "to": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD."
+    },
+    {
+      "id": "get-addresses-holding-a-token-2",
+      "name": "Get Addresses Holding a Token",
+      "description": "Returns the the the addresses holding a token and how many tokens are held\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/stakeholders/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "returns-the-tokenid-representing-a-token-2",
+      "name": "Returns the tokenId representing a token",
+      "description": "Translates a token symbol to a tokenId if a token exists with that symbol on the network\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/tokenid/{{TOKENSYMBOL}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENSYMBOL}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENSYMBOL}} with a real tokensymbol."
+    },
+    {
+      "id": "get-metadata-of-token-2",
+      "name": "Get Metadata of Token",
+      "description": "Returns the metadata associated with a token.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/tokenmetadata/{{TOKENID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid."
+    },
+    {
+      "id": "get-utxo-metadata-of-token-2",
+      "name": "Get UTXO Metadata of Token",
+      "description": "Returns the metadata associated with a token for that specific utxo instead of the issuance transaction.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/tokenmetadata/{{TOKENID}}/{{UTXO}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TOKENID}}",
+        "{{UTXO}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TOKENID}} with a real tokenid. Replace {{UTXO}} with a real utxo."
+    },
+    {
+      "id": "information-on-an-ntp1-transaction-2",
+      "name": "Information On an NTP1 Transaction",
+      "description": "Returns detailed information regarding an NTP1 transaction.\n",
+      "method": "GET",
+      "url": "https://ntp1node.nebl.io/testnet/ntp1/transactioninfo/{{TXID}}",
+      "headers": {
+        "Authorization": "Basic{{NEBL_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEBL_USERNAME}}",
+        "{{NEBL_PASSWORD}}",
+        "{{TXID}}",
+        "{{NEBL_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{NEBL_USERNAME}} with your NEBL USERNAME. Replace {{NEBL_PASSWORD}} with your NEBL PASSWORD. Replace {{TXID}} with a real txid."
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "api_id": "googleapis.com:paymentsresellersubscription:v1",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Used by partners to get a subscription by id. It should be called directly by the partner using service accounts.",
+      "method": "GET",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-cancel",
+      "name": "POST /v1/{name}:cancel",
+      "description": "Used by partners to cancel a subscription service either immediately or by the end of the current billing cycle for their customers. It should be called directly by the partner using service accounts.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{NAME}}:cancel",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "cancelImmediately": false,
+        "cancellationReason": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-entitle",
+      "name": "POST /v1/{name}:entitle",
+      "description": "Used by partners to entitle a previously provisioned subscription to the current end user. The end user identity is inferred from the authorized credential of the request. This API must be authorized by the end user using OAuth.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{NAME}}:entitle",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-extend",
+      "name": "POST /v1/{name}:extend",
+      "description": "[Deprecated] New partners should be on auto-extend by default. Used by partners to extend a subscription service for their customers on an ongoing basis for the subscription to remain active and renewable. It should be called directly by the partner using service accounts.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{NAME}}:extend",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "extension": {},
+        "requestId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-undocancel",
+      "name": "POST /v1/{name}:undoCancel",
+      "description": "Used by partners to revoke the pending cancellation of a subscription, which is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already cancelled, the request will fail. It should be called directly by the partner using service accounts.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{NAME}}:undoCancel",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-products",
+      "name": "GET /v1/{parent}/products",
+      "description": "To retrieve the products that can be resold by the partner. It should be autenticated with a service account.",
+      "method": "GET",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{PARENT}}/products",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-promotions",
+      "name": "GET /v1/{parent}/promotions",
+      "description": "To retrieve the promotions, such as free trial, that can be used by the partner. It should be autenticated with a service account.",
+      "method": "GET",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{PARENT}}/promotions",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-promotions-findeligible",
+      "name": "POST /v1/{parent}/promotions:findEligible",
+      "description": "To find eligible promotions for the current user. The API requires user authorization via OAuth. The user is inferred from the authenticated OAuth credential.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{PARENT}}/promotions:findEligible",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "filter": "",
+        "pageSize": 0,
+        "pageToken": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-subscriptions",
+      "name": "POST /v1/{parent}/subscriptions",
+      "description": "Used by partners to create a subscription for their customers. The created subscription is associated with the end user inferred from the end user credentials. This API must be authorized by the end user using OAuth.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{PARENT}}/subscriptions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "cancellationDetails": {},
+        "createTime": "",
+        "cycleEndTime": "",
+        "endUserEntitled": false,
+        "freeTrialEndTime": "",
+        "lineItems": [],
+        "name": "",
+        "partnerUserToken": "",
+        "processingState": "",
+        "products": [],
+        "promotionSpecs": [],
+        "promotions": [],
+        "redirectUri": "",
+        "renewalTime": "",
+        "serviceLocation": {},
+        "state": "",
+        "updateTime": "",
+        "upgradeDowngradeDetails": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-subscriptions-provision",
+      "name": "POST /v1/{parent}/subscriptions:provision",
+      "description": "Used by partners to provision a subscription for their customers. This creates a subscription without associating it with the end user account. EntitleSubscription must be called separately using OAuth in order for the end user account to be associated with the subscription. It should be called directly by the partner using service accounts.",
+      "method": "POST",
+      "url": "https://paymentsresellersubscription.googleapis.com/v1/{{PARENT}}/subscriptions:provision",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "cancellationDetails": {},
+        "createTime": "",
+        "cycleEndTime": "",
+        "endUserEntitled": false,
+        "freeTrialEndTime": "",
+        "lineItems": [],
+        "name": "",
+        "partnerUserToken": "",
+        "processingState": "",
+        "products": [],
+        "promotionSpecs": [],
+        "promotions": [],
+        "redirectUri": "",
+        "renewalTime": "",
+        "serviceLocation": {},
+        "state": "",
+        "updateTime": "",
+        "upgradeDowngradeDetails": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

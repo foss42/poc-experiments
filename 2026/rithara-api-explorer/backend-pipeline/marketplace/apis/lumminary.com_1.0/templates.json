@@ -1,0 +1,349 @@
+{
+  "api_id": "lumminary.com:1.0",
+  "endpoint_count": 17,
+  "endpoints": [
+    {
+      "id": "general-purpose-authentication",
+      "name": "General-purpose authentication",
+      "description": "## Note:\n* The JWT tokens returned should be passed to any resource that requires authentication, in the Authentication header, in the format `Bearer: your-token-here`\n* Only JWT authentication tokens are provided (no refresh tokens). These tokens are valid for 30 seconds from the moment they were issued",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/auth/jwt",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY."
+    },
+    {
+      "id": "get-gene-by-symbol",
+      "name": "Get gene by symbol",
+      "description": "Gets A gene by its symbol, which can be found by querying the reference/ resource.\n\nWill return a 404 if a gene exists as a reference, but its genomic coordinates intersect no SNPs in the dataset",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/clients/{{CLIENTID}}/datasets/{{DATASETID}}/genes/{{GENESYMBOL}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATASETID}}",
+        "{{CLIENTID}}",
+        "{{GENESYMBOL}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{DATASETID}} with a real datasetid. Replace {{CLIENTID}} with a real clientid. Replace {{GENESYMBOL}} with a real genesymbol."
+    },
+    {
+      "id": "get-clients-clientid-datasets-datasetid-snps",
+      "name": "GET /clients/{clientId}/datasets/{datasetId}/snps/",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/clients/{{CLIENTID}}/datasets/{{DATASETID}}/snps/",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATASETID}}",
+        "{{CLIENTID}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{DATASETID}} with a real datasetid. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "get-a-large-group-of-snps",
+      "name": "Get a large group of SNPs",
+      "description": "SNPs that are not present in the dataset are ignored, 404 is returned only if the dataset/client does not exist",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/clients/{{CLIENTID}}/datasets/{{DATASETID}}/snps/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATASETID}}",
+        "{{CLIENTID}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{DATASETID}} with a real datasetid. Replace {{CLIENTID}} with a real clientid."
+    },
+    {
+      "id": "get-snp-information",
+      "name": "Get SNP information",
+      "description": "Gets SNP information, as provided by the dataset.\n\nIf fetching this as an product, the client must have already granted access to the snip (see the 'products' group)",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/clients/{{CLIENTID}}/datasets/{{DATASETID}}/snps/{{SNPID}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DATASETID}}",
+        "{{CLIENTID}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{SNPID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{DATASETID}} with a real datasetid. Replace {{CLIENTID}} with a real clientid. Replace {{SNPID}} with a real snpid."
+    },
+    {
+      "id": "get-product-details",
+      "name": "Get product details",
+      "description": "Get product details",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "get-products-productid-authorizations",
+      "name": "GET /products/{productId}/authorizations",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "get-products-productid-authorizations-authorizationid",
+      "name": "GET /products/{productId}/authorizations/{authorizationId}",
+      "description": null,
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations/{{AUTHORIZATIONID}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{AUTHORIZATIONID}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{AUTHORIZATIONID}} with a real authorizationid. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "signal-that-processing-is-complete-without-uploading-any-result",
+      "name": "Signal that processing is complete, without uploading any result",
+      "description": "Signal that processing is complete, without uploading any result",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations/{{AUTHORIZATIONID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{AUTHORIZATIONID}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{AUTHORIZATIONID}} with a real authorizationid. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "provide-a-result-for-the-authorization",
+      "name": "Provide a result for the authorization",
+      "description": "These can be log-in credentials for a website where the result is available",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations/{{AUTHORIZATIONID}}/credentials",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{AUTHORIZATIONID}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{AUTHORIZATIONID}} with a real authorizationid. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "provide-a-file-result-to-the-authorization-e",
+      "name": "Provide a file result to the authorization, e",
+      "description": "g. a pdf report",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations/{{AUTHORIZATIONID}}/file",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{AUTHORIZATIONID}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{AUTHORIZATIONID}} with a real authorizationid. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "catch-all-authorization-state-for-authorizations-that-passed-all-verifications-and-should-reach-the-partner-product-but-cannot-be-fulfilled-for-various-reasons",
+      "name": "Catch-all Authorization state, for authorizations that passed all verifications and should reach the partner Product, but cannot be fulfilled for various reasons",
+      "description": "Catch-all Authorization state, for authorizations that passed all verifications and should reach the partner Product, but cannot be fulfilled for various reasons",
+      "method": "POST",
+      "url": "https://api.lumminary.com/v1/products/{{PRODUCTID}}/authorizations/{{AUTHORIZATIONID}}/unfulfillable",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{AUTHORIZATIONID}}",
+        "{{PRODUCTID}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{AUTHORIZATIONID}} with a real authorizationid. Replace {{PRODUCTID}} with a real productid."
+    },
+    {
+      "id": "generic-gene-information",
+      "name": "Generic gene information",
+      "description": "Generic gene information",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/reference/genes/databases/{{DATABASENAME}}/accessions/{{ACCESSION}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESSION}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{DATABASENAME}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{ACCESSION}} with a real accession. Replace {{DATABASENAME}} with a real databasename."
+    },
+    {
+      "id": "reference-genome-builds",
+      "name": "Reference genome builds",
+      "description": "Lists reference genome builds that are available",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/reference/genomes/",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY."
+    },
+    {
+      "id": "reference-genome-metadata",
+      "name": "Reference genome metadata",
+      "description": "Reference genome metadata",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/reference/genomes/{{GENOMEBUILDACCESSION}}/chromosomes",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LUMMINARY_API_KEY}}",
+        "{{GENOMEBUILDACCESSION}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{GENOMEBUILDACCESSION}} with a real genomebuildaccession."
+    },
+    {
+      "id": "sequence-for-a-region-of-the-reference-genome",
+      "name": "Sequence for a region of the reference genome",
+      "description": "Fetch a closed interval of nucleotides on a given chromosome. Includes start and stop positions",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/reference/genomes/{{GENOMEBUILDACCESSION}}/chromosomes/{{CHROMOSOMEACCESSION}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {
+        "range_start": "",
+        "range_stop": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHROMOSOMEACCESSION}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{GENOMEBUILDACCESSION}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{CHROMOSOMEACCESSION}} with a real chromosomeaccession. Replace {{GENOMEBUILDACCESSION}} with a real genomebuildaccession."
+    },
+    {
+      "id": "reference-snp-data",
+      "name": "Reference SNP data",
+      "description": "Get reference SNP information, from dbSNP",
+      "method": "GET",
+      "url": "https://api.lumminary.com/v1/reference/snps/{{SNPACCESSION}}",
+      "headers": {
+        "Authorization": "Bearer{{LUMMINARY_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SNPACCESSION}}",
+        "{{LUMMINARY_API_KEY}}",
+        "{{LUMMINARY_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{LUMMINARY_API_KEY}} with your LUMMINARY API KEY. Replace {{SNPACCESSION}} with a real snpaccession."
+    }
+  ]
+}

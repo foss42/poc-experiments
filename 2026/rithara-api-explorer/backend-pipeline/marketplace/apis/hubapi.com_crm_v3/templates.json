@@ -1,0 +1,389 @@
+{
+  "api_id": "hubapi.com:crm:v3",
+  "endpoint_count": 6,
+  "endpoints": [
+    {
+      "id": "get-sample-card-detail-response",
+      "name": "Get sample card detail response",
+      "description": "Returns an example card detail response. This is the payload with displayed details for a card that will be shown to a user. An app should send this in response to the data fetch request.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/sample-response",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {
+        "allItemsLinkUrl": "https://example.com/all-items-link-url",
+        "cardLabel": "Tickets",
+        "responseVersion": "v3",
+        "sections": [
+          {
+            "actions": [
+              {
+                "httpMethod": "POST",
+                "label": "action-hook-label",
+                "propertyNamesIncluded": [
+                  "email",
+                  "firstName"
+                ],
+                "type": "ACTION_HOOK",
+                "url": "https://example.com/action-hook-frame"
+              },
+              {
+                "confirmation": {
+                  "cancelButtonLabel": "Cancel",
+                  "confirmButtonLabel": "Continue",
+                  "prompt": "action-confirmation-body-prompt"
+                },
+                "httpMethod": "POST",
+                "label": "confirmation-hook-label",
+                "propertyNamesIncluded": [],
+                "type": "ACTION_HOOK",
+                "url": "https://example.com/confirmation-action-hook"
+              },
+              {
+                "height": 480,
+                "label": "iframe-action-label",
+                "propertyNamesIncluded": [
+                  "property1",
+                  "property2",
+                  "property3"
+                ],
+                "type": "IFRAME",
+                "url": "https://example.com/iframe-action-label",
+                "width": 640
+              }
+            ],
+            "id": "123",
+            "linkUrl": "http://example.com/1",
+            "title": "API-22: APIs working too fast",
+            "tokens": [
+              {
+                "dataType": "DATE",
+                "label": "test_label",
+                "name": "created",
+                "value": "2016-08-04"
+              }
+            ]
+          }
+        ],
+        "topLevelActions": {
+          "primary": {
+            "height": 480,
+            "label": "test_label_primary",
+            "propertyNamesIncluded": [],
+            "type": "IFRAME",
+            "url": "https://example.com/primary-iframe",
+            "width": 640
+          },
+          "secondary": [
+            {
+              "height": 480,
+              "label": "test_label_secondary",
+              "propertyNamesIncluded": [],
+              "type": "IFRAME",
+              "url": "https://example.com/secondary-iframe",
+              "width": 640
+            }
+          ],
+          "settings": {
+            "height": 480,
+            "label": "Edit",
+            "propertyNamesIncluded": [
+              "some_crm_property"
+            ],
+            "type": "IFRAME",
+            "url": "https://example.com/iframe-contents",
+            "width": 640
+          }
+        },
+        "totalCount": 1
+      },
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY."
+    },
+    {
+      "id": "get-all-cards",
+      "name": "Get all cards",
+      "description": "Returns a list of cards for a given app.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/{{APPID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {
+        "results": [
+          {
+            "actions": {
+              "baseUrls": [
+                "https://www.example.com/hubspot"
+              ]
+            },
+            "createdAt": "2020-02-26T18:30:53.451Z",
+            "display": {
+              "properties": [
+                {
+                  "dataType": "STRING",
+                  "label": "Pets Name",
+                  "name": "pet_name"
+                }
+              ]
+            },
+            "fetch": {
+              "objectTypes": [
+                {
+                  "name": "contacts",
+                  "propertiesToSend": [
+                    "email",
+                    "firstname"
+                  ]
+                }
+              ],
+              "targetUrl": "https://www.example.com/hubspot/target"
+            },
+            "id": "123",
+            "title": "PetSpot",
+            "updatedAt": "2020-02-26T18:30:53.451Z"
+          }
+        ]
+      },
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "create-a-new-card",
+      "name": "Create a new card",
+      "description": "Defines a new card that will become active on an account when this app is installed.",
+      "method": "POST",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/{{APPID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "actions": {
+          "baseUrls": [
+            "https://www.example.com/hubspot"
+          ]
+        },
+        "display": {
+          "properties": {
+            "dataType": "STRING",
+            "label": "Pets Name",
+            "name": "pet_name"
+          }
+        },
+        "fetch": {
+          "objectTypes": [
+            {
+              "name": "contacts",
+              "propertiesToSend": [
+                "email",
+                "firstname"
+              ]
+            }
+          ],
+          "targetUrl": "https://www.example.com/hubspot/target"
+        },
+        "title": "PetSpot"
+      },
+      "sample_response": {
+        "actions": {
+          "baseUrls": [
+            "https://www.example.com/hubspot"
+          ]
+        },
+        "createdAt": "2019-10-30T03:30:17.883Z",
+        "display": {
+          "properties": [
+            {
+              "dataType": "STRING",
+              "label": "Pet's Name",
+              "name": "pet_name"
+            }
+          ]
+        },
+        "fetch": {
+          "objectTypes": [
+            {
+              "name": "contacts",
+              "propertiesToSend": [
+                "email",
+                "firstname"
+              ]
+            }
+          ],
+          "targetUrl": "https://www.example.com/hubspot/target"
+        },
+        "title": "PetSpot",
+        "updatedAt": "2019-11-30T03:30:17.883Z"
+      },
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid."
+    },
+    {
+      "id": "get-a-card",
+      "name": "Get a card.",
+      "description": "Returns the definition for a card with the given ID.",
+      "method": "GET",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/{{APPID}}/{{CARDID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {
+        "actions": {
+          "baseUrls": [
+            "https://www.example.com/hubspot"
+          ]
+        },
+        "createdAt": "2019-10-30T03:30:17.883Z",
+        "display": {
+          "properties": [
+            {
+              "dataType": "STRING",
+              "label": "Pets Name",
+              "name": "pet_name"
+            }
+          ]
+        },
+        "fetch": {
+          "objectTypes": [
+            {
+              "name": "contacts",
+              "propertiesToSend": [
+                "email",
+                "firstname"
+              ]
+            }
+          ],
+          "targetUrl": "https://www.example.com/hubspot/target"
+        },
+        "title": "PetSpot",
+        "updatedAt": "2019-11-30T03:30:17.883Z"
+      },
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{CARDID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid. Replace {{CARDID}} with a real cardid."
+    },
+    {
+      "id": "delete-a-card",
+      "name": "Delete a card",
+      "description": "Permanently deletes a card definition with the given ID. Once deleted, data fetch requests for this card will no longer be sent to your service. This can't be undone.",
+      "method": "DELETE",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/{{APPID}}/{{CARDID}}",
+      "headers": {},
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{CARDID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid. Replace {{CARDID}} with a real cardid."
+    },
+    {
+      "id": "update-a-card",
+      "name": "Update a card",
+      "description": "Update a card definition with new details.",
+      "method": "PATCH",
+      "url": "https://api.hubapi.com/crm/v3/extensions/cards/{{APPID}}/{{CARDID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "hapikey": "{{HUBAPI_COM_API_KEY}}"
+      },
+      "body": {
+        "actions": {
+          "baseUrls": [
+            "https://www.example.com/hubspot"
+          ]
+        },
+        "display": {
+          "properties": {
+            "dataType": "STRING",
+            "label": "Pets Name",
+            "name": "pet_name"
+          }
+        },
+        "fetch": {
+          "objectTypes": [
+            {
+              "name": "contacts",
+              "propertiesToSend": [
+                "email",
+                "firstname"
+              ]
+            }
+          ],
+          "targetUrl": "https://www.example.com/hubspot/target"
+        },
+        "title": "PetSpot"
+      },
+      "sample_response": {
+        "actions": {
+          "baseUrls": [
+            "https://www.example.com/hubspot"
+          ]
+        },
+        "createdAt": "2019-10-30T03:30:17.883Z",
+        "display": {
+          "properties": [
+            {
+              "dataType": "STRING",
+              "label": "Pets Name",
+              "name": "pet_name"
+            }
+          ]
+        },
+        "fetch": {
+          "objectTypes": [
+            {
+              "name": "contacts",
+              "propertiesToSend": [
+                "email",
+                "firstname"
+              ]
+            }
+          ],
+          "targetUrl": "https://www.example.com/hubspot/target"
+        },
+        "title": "PetSpot",
+        "updatedAt": "2019-11-30T03:30:17.883Z"
+      },
+      "auth_placeholders": [
+        "{{HUBAPI_API_KEY}}",
+        "{{APPID}}",
+        "{{CARDID}}",
+        "{{HUBAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{HUBAPI_API_KEY}} with your HUBAPI API KEY. Replace {{APPID}} with a real appid. Replace {{CARDID}} with a real cardid."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "api_id": "codesearch.debian.net:1.4.0",
+  "endpoint_count": 1,
+  "endpoints": [
+    {
+      "id": "searches-through-source-code",
+      "name": "Searches through source code",
+      "description": "Performs a search through the full Debian Code Search corpus, blocking until all results are available (might take a few seconds depending on the search query).\n\nSearch results are ordered by their ranking (best results come first).",
+      "method": "GET",
+      "url": "https://codesearch.debian.net/api/v1/search",
+      "headers": {
+        "x-dcs-apikey": "{{CODESEARCH_DEBIAN_NET_API_KEY}}"
+      },
+      "query_params": {
+        "query": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CODESEARCH_API_KEY}}",
+        "{{CODESEARCH_DEBIAN_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{CODESEARCH_API_KEY}} with your CODESEARCH API KEY."
+    }
+  ]
+}

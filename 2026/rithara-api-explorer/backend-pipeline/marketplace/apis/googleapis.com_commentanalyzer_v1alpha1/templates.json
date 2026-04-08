@@ -1,0 +1,63 @@
+{
+  "api_id": "googleapis.com:commentanalyzer:v1alpha1",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "post-v1alpha1-comments-analyze",
+      "name": "POST /v1alpha1/comments:analyze",
+      "description": "Analyzes the provided text and returns scores for requested attributes.",
+      "method": "POST",
+      "url": "https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "clientToken": "",
+        "comment": {},
+        "communityId": "",
+        "context": {},
+        "doNotStore": false,
+        "dropUnsupportedAttributes": false,
+        "languages": [],
+        "requestedAttributes": {},
+        "sessionId": "",
+        "spanAnnotations": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-v1alpha1-comments-suggestscore",
+      "name": "POST /v1alpha1/comments:suggestscore",
+      "description": "Suggest comment scores as training data.",
+      "method": "POST",
+      "url": "https://commentanalyzer.googleapis.com/v1alpha1/comments:suggestscore",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "attributeScores": {},
+        "clientToken": "",
+        "comment": {},
+        "communityId": "",
+        "context": {},
+        "languages": [],
+        "sessionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    }
+  ]
+}

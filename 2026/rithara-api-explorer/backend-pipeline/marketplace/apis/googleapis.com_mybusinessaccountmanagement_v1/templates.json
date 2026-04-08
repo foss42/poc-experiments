@@ -1,0 +1,204 @@
+{
+  "api_id": "googleapis.com:mybusinessaccountmanagement:v1",
+  "endpoint_count": 11,
+  "endpoints": [
+    {
+      "id": "get-v1-accounts",
+      "name": "GET /v1/accounts",
+      "description": "Lists all of the accounts for the authenticated user. This includes all accounts that the user owns, as well as any accounts for which the user has management rights.",
+      "method": "GET",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "post-v1-accounts",
+      "name": "POST /v1/accounts",
+      "description": "Creates an account with the specified name and type under the given parent. - Personal accounts and Organizations cannot be created. - User Groups cannot be created with a Personal account as primary owner. - Location Groups cannot be created with a primary owner of a Personal account if the Personal account is in an Organization. - Location Groups cannot own Location Groups.",
+      "method": "POST",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "accountName": "",
+        "accountNumber": "",
+        "name": "",
+        "organizationInfo": {},
+        "permissionLevel": "",
+        "primaryOwner": "",
+        "role": "",
+        "type": "",
+        "verificationState": "",
+        "vettedState": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-v1-name",
+      "name": "GET /v1/{name}",
+      "description": "Gets the specified account. Returns `NOT_FOUND` if the account does not exist or if the caller does not have access rights to it.",
+      "method": "GET",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1-name",
+      "name": "DELETE /v1/{name}",
+      "description": "Removes the specified admin as a manager of the specified location.",
+      "method": "DELETE",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1-name",
+      "name": "PATCH /v1/{name}",
+      "description": "Updates the Admin for the specified location. Only the AdminRole of the Admin can be updated.",
+      "method": "PATCH",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "account": "",
+        "admin": "",
+        "name": "",
+        "pendingInvitation": false,
+        "role": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-accept",
+      "name": "POST /v1/{name}:accept",
+      "description": "Accepts the specified invitation.",
+      "method": "POST",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}:accept",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-decline",
+      "name": "POST /v1/{name}:decline",
+      "description": "Declines the specified invitation.",
+      "method": "POST",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}:decline",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1-name-transfer",
+      "name": "POST /v1/{name}:transfer",
+      "description": "Moves a location from an account that the user owns to another account that the same user administers. The user must be an owner of the account the location is currently associated with and must also be at least a manager of the destination account.",
+      "method": "POST",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{NAME}}:transfer",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "destinationAccount": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1-parent-admins",
+      "name": "GET /v1/{parent}/admins",
+      "description": "Lists all of the admins for the specified location.",
+      "method": "GET",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{PARENT}}/admins",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1-parent-admins",
+      "name": "POST /v1/{parent}/admins",
+      "description": "Invites the specified user to become an administrator for the specified location. The invitee must accept the invitation in order to be granted access to the location. See AcceptInvitation to programmatically accept an invitation.",
+      "method": "POST",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{PARENT}}/admins",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "account": "",
+        "admin": "",
+        "name": "",
+        "pendingInvitation": false,
+        "role": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1-parent-invitations",
+      "name": "GET /v1/{parent}/invitations",
+      "description": "Lists pending invitations for the specified account.",
+      "method": "GET",
+      "url": "https://mybusinessaccountmanagement.googleapis.com/v1/{{PARENT}}/invitations",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}"
+      ],
+      "notes": "No authentication required. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

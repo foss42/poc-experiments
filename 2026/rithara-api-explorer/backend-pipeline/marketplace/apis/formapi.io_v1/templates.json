@@ -1,0 +1,867 @@
+{
+  "api_id": "formapi.io:v1",
+  "endpoint_count": 33,
+  "endpoints": [
+    {
+      "id": "test-authentication",
+      "name": "Test Authentication",
+      "description": "Test Authentication",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/authentication",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "get-a-list-of-all-combined-submissions",
+      "name": "Get a list of all combined submissions",
+      "description": "Get a list of all combined submissions",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/combined_submissions",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "merge-generated-pdfs-together",
+      "name": "Merge generated PDFs together",
+      "description": "Merge generated PDFs together",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/combined_submissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "expires_in": 300,
+        "metadata": {
+          "bar": "baz",
+          "foo": 123
+        },
+        "password": "p@ssword",
+        "submission_ids": [
+          "sub_000000000000000001",
+          "sub_000000000000000002"
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "check-the-status-of-a-combined-submission-merged-pdfs",
+      "name": "Check the status of a combined submission (merged PDFs)",
+      "description": "Check the status of a combined submission (merged PDFs)",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/combined_submissions/{{COMBINED_SUBMISSION_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{COMBINED_SUBMISSION_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{COMBINED_SUBMISSION_ID}} with a real combined_submission_id."
+    },
+    {
+      "id": "expire-a-combined-submission",
+      "name": "Expire a combined submission",
+      "description": "Expire a combined submission",
+      "method": "DELETE",
+      "url": "https://api.docspring.com/api/v1/combined_submissions/{{COMBINED_SUBMISSION_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{COMBINED_SUBMISSION_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{COMBINED_SUBMISSION_ID}} with a real combined_submission_id."
+    },
+    {
+      "id": "merge-submission-pdfs-template-pdfs-or-custom-files",
+      "name": "Merge submission PDFs, template PDFs, or custom files",
+      "description": "Merge submission PDFs, template PDFs, or custom files",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/combined_submissions?v=2",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "delete_custom_files": true,
+        "expires_in": 300,
+        "metadata": {
+          "bar": "baz",
+          "foo": 123
+        },
+        "source_pdfs": [
+          {
+            "id": "sub_000000000000000001",
+            "type": "submission"
+          },
+          {
+            "id": "tpl_000000000000000001",
+            "type": "template"
+          },
+          {
+            "id": "sub_000000000000000002",
+            "type": "submission"
+          },
+          {
+            "id": "cfi_0000000000000000000000001",
+            "type": "custom_file"
+          },
+          {
+            "id": "com_000000000000000001",
+            "type": "combined_submission"
+          },
+          {
+            "type": "url",
+            "url": "http://example.com/test-pdf.pdf"
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "create-a-new-custom-file-from-a-cached-presign-upload",
+      "name": "Create a new custom file from a cached presign upload",
+      "description": "Create a new custom file from a cached presign upload",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/custom_files",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "cache_id": "00000000000000001.pdf"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "look-up-a-submission-data-request",
+      "name": "Look up a submission data request",
+      "description": "Look up a submission data request",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/data_requests/{{DATA_REQUEST_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{DATA_REQUEST_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{DATA_REQUEST_ID}} with a real data_request_id."
+    },
+    {
+      "id": "creates-a-new-data-request-token-for-form-authentication",
+      "name": "Creates a new data request token for form authentication",
+      "description": "Creates a new data request token for form authentication",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/data_requests/{{DATA_REQUEST_ID}}/tokens",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{DATA_REQUEST_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{DATA_REQUEST_ID}} with a real data_request_id."
+    },
+    {
+      "id": "get-a-list-of-all-folders",
+      "name": "Get a list of all folders",
+      "description": "Get a list of all folders",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/folders/",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "create-a-folder",
+      "name": "Create a folder",
+      "description": "Create a folder",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/folders/",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "folder": {
+          "name": "Folder 3"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "delete-a-folder",
+      "name": "Delete a folder",
+      "description": "Delete a folder",
+      "method": "DELETE",
+      "url": "https://api.docspring.com/api/v1/folders/{{FOLDER_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FOLDER_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{FOLDER_ID}} with a real folder_id."
+    },
+    {
+      "id": "move-a-folder",
+      "name": "Move a folder",
+      "description": "Move a folder",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/folders/{{FOLDER_ID}}/move",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "parent_folder_id": "fld_000000000000000002"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FOLDER_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{FOLDER_ID}} with a real folder_id."
+    },
+    {
+      "id": "rename-a-folder",
+      "name": "Rename a folder",
+      "description": "Rename a folder",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/folders/{{FOLDER_ID}}/rename",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Folder 3"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FOLDER_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{FOLDER_ID}} with a real folder_id."
+    },
+    {
+      "id": "list-all-submissions",
+      "name": "List all submissions",
+      "description": "List all submissions",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/submissions",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "generates-multiple-pdfs",
+      "name": "Generates multiple PDFs",
+      "description": "Generates multiple PDFs",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/submissions/batches",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "metadata": {
+          "job_id": 54321
+        },
+        "submissions": [
+          {
+            "data": {
+              "first_name": "Johnny",
+              "last_name": "Smith"
+            },
+            "metadata": {
+              "submission_number": 1
+            },
+            "template_id": "tpl_000000000000000001",
+            "test": false
+          },
+          {
+            "data": {
+              "first_name": "Jane",
+              "last_name": "Doe"
+            },
+            "metadata": {
+              "submission_number": 2
+            },
+            "template_id": "tpl_000000000000000001"
+          }
+        ],
+        "template_id": null,
+        "test": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "check-the-status-of-a-submission-batch-job",
+      "name": "Check the status of a submission batch job",
+      "description": "Check the status of a submission batch job",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/submissions/batches/{{SUBMISSION_BATCH_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{SUBMISSION_BATCH_ID}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{SUBMISSION_BATCH_ID}} with a real submission_batch_id."
+    },
+    {
+      "id": "check-the-status-of-a-pdf",
+      "name": "Check the status of a PDF",
+      "description": "Check the status of a PDF",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/submissions/{{SUBMISSION_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBMISSION_ID}}",
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{SUBMISSION_ID}} with a real submission_id."
+    },
+    {
+      "id": "expire-a-pdf-submission",
+      "name": "Expire a PDF submission",
+      "description": "Expire a PDF submission",
+      "method": "DELETE",
+      "url": "https://api.docspring.com/api/v1/submissions/{{SUBMISSION_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SUBMISSION_ID}}",
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{SUBMISSION_ID}} with a real submission_id."
+    },
+    {
+      "id": "get-a-list-of-all-templates",
+      "name": "Get a list of all templates",
+      "description": "Get a list of all templates",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/templates",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "create-a-new-pdf-template-with-a-form-post-file-upload",
+      "name": "Create a new PDF template with a form POST file upload",
+      "description": "Create a new PDF template with a form POST file upload",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "template[document]": "<Uploaded File>",
+        "template[name]": "Test Template"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "check-the-status-of-an-uploaded-template",
+      "name": "Check the status of an uploaded template",
+      "description": "Check the status of an uploaded template",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "update-a-template",
+      "name": "Update a Template",
+      "description": "Update a Template",
+      "method": "PUT",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "template": {
+          "footer_html": "updated footer",
+          "header_html": "updated header",
+          "html": "updated html",
+          "scss": "updated scss"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "add-new-fields-to-a-template",
+      "name": "Add new fields to a Template",
+      "description": "Add new fields to a Template",
+      "method": "PUT",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/add_fields",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "fields": [
+          {
+            "name": "new_field1",
+            "page": 1
+          },
+          {
+            "default": "default text",
+            "displayType": "text",
+            "name": "new_field2",
+            "overflow": "truncate",
+            "page": 1,
+            "rotation": 10,
+            "type": "string"
+          },
+          {
+            "displayType": "text",
+            "integer": true,
+            "name": "new_field3",
+            "page": 2,
+            "rotation": 0,
+            "type": "number"
+          },
+          {
+            "displayType": "text",
+            "integer": true,
+            "name": "new_field4",
+            "page": 3,
+            "rotation": 0,
+            "type": "number"
+          },
+          {
+            "displayType": "text",
+            "height": 50,
+            "id": 99,
+            "integer": true,
+            "name": "new_field5",
+            "page": 2,
+            "rotation": 0,
+            "type": "number",
+            "width": 150,
+            "x": 20,
+            "y": 60
+          },
+          {
+            "description": "updated description for existing field",
+            "displayType": "text",
+            "height": 50,
+            "integer": true,
+            "maximum": 100,
+            "minimum": 10,
+            "name": "first_name",
+            "page": 1,
+            "rotation": 0,
+            "type": "number",
+            "width": 150,
+            "x": 40,
+            "y": 60
+          }
+        ]
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "copy-a-template",
+      "name": "Copy a Template",
+      "description": "Copy a Template",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/copy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Copied Template Name",
+        "parent_folder_id": "fld_000000000000000001"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "move-template-to-folder",
+      "name": "Move Template to folder",
+      "description": "Move Template to folder",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/move",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "parent_folder_id": "fld_000000000000000001"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "fetch-the-json-schema-for-a-template",
+      "name": "Fetch the JSON schema for a template",
+      "description": "Fetch the JSON schema for a template",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/schema",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "list-all-submissions-for-a-given-template",
+      "name": "List all submissions for a given template",
+      "description": "List all submissions for a given template",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/submissions",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "generates-a-new-pdf",
+      "name": "Generates a new PDF",
+      "description": "Generates a new PDF",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/submissions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "data": {
+          "first_name": "John",
+          "last_name": "Smith",
+          "phone_number": "+11234567890"
+        },
+        "expires_in": 300,
+        "metadata": {
+          "bar": "baz",
+          "foo": 123
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "generates-multiple-pdfs-2",
+      "name": "Generates multiple PDFs",
+      "description": "Generates multiple PDFs",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}/submissions/batch",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "data": {
+            "first_name": "Johnny",
+            "last_name": "Smith"
+          },
+          "metadata": {
+            "submission_number": 1
+          }
+        },
+        {
+          "data": {
+            "first_name": "Jane",
+            "last_name": "Doe"
+          },
+          "metadata": {
+            "submission_number": 2
+          }
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "fetch-the-full-template-attributes",
+      "name": "Fetch the full template attributes",
+      "description": "Fetch the full template attributes",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/templates/{{TEMPLATE_ID}}?full=true",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{TEMPLATE_ID}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD. Replace {{TEMPLATE_ID}} with a real template_id."
+    },
+    {
+      "id": "create-a-new-html-template",
+      "name": "Create a new HTML template",
+      "description": "Create a new HTML template",
+      "method": "POST",
+      "url": "https://api.docspring.com/api/v1/templates?desc=html",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "template": {
+          "description": "HTML template created via API",
+          "footer_html": "Test Footer",
+          "header_html": "Test Header",
+          "html": "<html><body><p>Test Content</p></body></html>",
+          "name": "Test HTML Template",
+          "scss": "body { color: #444; }",
+          "template_type": "html"
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    },
+    {
+      "id": "get-a-presigned-url-so-that-you-can-upload-a-file-to-our-aws-s3-bucket",
+      "name": "Get a presigned URL so that you can upload a file to our AWS S3 bucket",
+      "description": "Get a presigned URL so that you can upload a file to our AWS S3 bucket",
+      "method": "GET",
+      "url": "https://api.docspring.com/api/v1/uploads/presign",
+      "headers": {
+        "Authorization": "Basic{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAPI_USERNAME}}",
+        "{{FORMAPI_PASSWORD}}",
+        "{{FORMAPI_IO_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{FORMAPI_USERNAME}} with your FORMAPI USERNAME. Replace {{FORMAPI_PASSWORD}} with your FORMAPI PASSWORD."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "api_id": "azure.com:subscription-subscriptions:2018-03-01-preview",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "post-providers-microsoft-billing-enrollmentaccounts-enrollmentaccountname-providers-microsoft-subscription-createsubscription",
+      "name": "POST /providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountName}/providers/Microsoft.Subscription/createSubscription",
+      "description": "Creates an Azure subscription",
+      "method": "POST",
+      "url": "https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{{ENROLLMENTACCOUNTNAME}}/providers/Microsoft.Subscription/createSubscription",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "additionalParameters": {},
+        "displayName": "",
+        "offerType": "",
+        "owners": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ENROLLMENTACCOUNTNAME}}",
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN. Replace {{ENROLLMENTACCOUNTNAME}} with a real enrollmentaccountname."
+    },
+    {
+      "id": "get-providers-microsoft-subscription-subscriptionoperations",
+      "name": "GET /providers/Microsoft.Subscription/subscriptionOperations",
+      "description": "Lists all of the available pending Microsoft.Subscription API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.Subscription/subscriptionOperations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    }
+  ]
+}

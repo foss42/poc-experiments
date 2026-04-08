@@ -1,0 +1,806 @@
+{
+  "api_id": "turbinelabs.io:1.0",
+  "endpoint_count": 40,
+  "endpoints": [
+    {
+      "id": "returns-the-user-object-for-the-account-authorized-and-making-this-request",
+      "name": "Returns the user object for the account authorized and making this request.",
+      "description": "Request the user object for an authorized requesting account.",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/admin/user/self",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "delete-the-specified-access-token",
+      "name": "Delete the specified access token.",
+      "description": "Delete the specified access token.",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/admin/user/self/access_token/{{ACCESS-TOKEN-KEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ACCESS-TOKEN-KEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ACCESS-TOKEN-KEY}} with a real access-token-key."
+    },
+    {
+      "id": "lists-access-tokens-that-are-configured-for-the-authenticated-user",
+      "name": "Lists Access Tokens that are configured for the authenticated user.",
+      "description": "Lists Access Tokens that are configured for the authenticated user.",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/admin/user/self/access_tokens",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "creates-a-new-access-token-and-associates-it-with-the-authenticated-user",
+      "name": "Creates a new Access Token and associates it with the authenticated user.",
+      "description": "Creates a new Access Token and associates it with the authenticated user.",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/admin/user/self/access_tokens",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "allows-an-arbitrary-filter-to-be-specified-and-applied-to-the-org-s-change-log",
+      "name": "Allows an arbitrary filter to be specified and applied to the org\\'s change log.",
+      "description": "Perform an adhoc query against the change log for your org. The filter is a JSON encoded FilterSum as defined in this file.",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/adhoc",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-changes-related-to-the-indicated-cluster",
+      "name": "get changes related to the indicated cluster",
+      "description": "Gets all changes to a cluster.\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/cluster-graph/{{CLUSTERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLUSTERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{CLUSTERKEY}} with a real clusterkey."
+    },
+    {
+      "id": "get-changes-related-to-the-indicated-domain",
+      "name": "get changes related to the indicated domain",
+      "description": "Gets all changes to a domain, the proxies that front the specified domain,\nroutes within that domain, the shared rules of each route, the clusters\nconnected via route or shared rules.\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/domain-graph/{{DOMAINKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{DOMAINKEY}} with a real domainkey."
+    },
+    {
+      "id": "get-changes-related-to-the-indicated-route",
+      "name": "get changes related to the indicated route",
+      "description": "Gets all changes to a route, the domains associated with it, the shared\nrules it references, and the clusters connected to it.\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/route-graph/{{ROUTEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ROUTEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ROUTEKEY}} with a real routekey."
+    },
+    {
+      "id": "get-changes-related-to-the-indicated-sharedrules",
+      "name": "get changes related to the indicated SharedRules",
+      "description": "Gets all changes associated with set of Shared Rules; the domains using\nit and the clusters referenced by it.\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/shared-rules-graph/{{SHAREDRULESKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHAREDRULESKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{SHAREDRULESKEY}} with a real sharedruleskey."
+    },
+    {
+      "id": "get-changes-in-a-specified-zone",
+      "name": "get changes in a specified zone",
+      "description": "Retrieve all changes in the specified zone.",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/changelog/zone/{{ZONEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ZONEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ZONEKEY}} with a real zonekey."
+    },
+    {
+      "id": "get-clusters",
+      "name": "get clusters",
+      "description": "Get a list of clusters",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/cluster",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-cluster",
+      "name": "create cluster",
+      "description": "Create a new cluster",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/cluster",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "zone_key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-cluster",
+      "name": "get cluster",
+      "description": "Get details for an existing cluster",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/cluster/{{CLUSTERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLUSTERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{CLUSTERKEY}} with a real clusterkey."
+    },
+    {
+      "id": "delete-cluster",
+      "name": "delete cluster",
+      "description": "Delete an existing cluster",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/cluster/{{CLUSTERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLUSTERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{CLUSTERKEY}} with a real clusterkey."
+    },
+    {
+      "id": "add-instance",
+      "name": "add instance",
+      "description": "Add a new instance to a cluster",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/cluster/{{CLUSTERKEY}}/instances",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "host": "",
+        "metadata": [],
+        "port": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLUSTERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{CLUSTERKEY}} with a real clusterkey."
+    },
+    {
+      "id": "remove-instance",
+      "name": "remove instance",
+      "description": "Remove an instance from a cluster",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/cluster/{{CLUSTERKEY}}/instances/{{INSTANCEIDENTIFIER}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CLUSTERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{INSTANCEIDENTIFIER}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{CLUSTERKEY}} with a real clusterkey. Replace {{INSTANCEIDENTIFIER}} with a real instanceidentifier."
+    },
+    {
+      "id": "get-domains",
+      "name": "get domains",
+      "description": "Get a list of domains",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/domain",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-domain",
+      "name": "create domain",
+      "description": "Create a new domain",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/domain",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "zone_key": "",
+        "name": "",
+        "port": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-domain",
+      "name": "get domain",
+      "description": "Get details for a single domain",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/domain/{{DOMAINKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{DOMAINKEY}} with a real domainkey."
+    },
+    {
+      "id": "delete-domain",
+      "name": "delete domain",
+      "description": "Delete an existing domain",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/domain/{{DOMAINKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DOMAINKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{DOMAINKEY}} with a real domainkey."
+    },
+    {
+      "id": "list-listeners",
+      "name": "list listeners",
+      "description": "Get a list of listeners",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/listener",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-listener",
+      "name": "create listener",
+      "description": "Create a new listener",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/listener",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "port": 0,
+        "protocol": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-listener",
+      "name": "get listener",
+      "description": "Get details for a single listener",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/listener/{{LISTENERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTENERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{LISTENERKEY}} with a real listenerkey."
+    },
+    {
+      "id": "delete-listener",
+      "name": "delete listener",
+      "description": "Delete existing listener",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/listener/{{LISTENERKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{LISTENERKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{LISTENERKEY}} with a real listenerkey."
+    },
+    {
+      "id": "list-proxies",
+      "name": "list proxies",
+      "description": "Get a list of proxies",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/proxy",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-proxy",
+      "name": "create proxy",
+      "description": "Create a new proxy",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/proxy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "zone_key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-proxy",
+      "name": "get proxy",
+      "description": "Get details for a single proxy",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/proxy/{{PROXYKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROXYKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{PROXYKEY}} with a real proxykey."
+    },
+    {
+      "id": "delete-proxy",
+      "name": "delete proxy",
+      "description": "Delete existing proxy",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/proxy/{{PROXYKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROXYKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{PROXYKEY}} with a real proxykey."
+    },
+    {
+      "id": "get-routes",
+      "name": "get routes",
+      "description": "Get a list of routes",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/route",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-route",
+      "name": "create route",
+      "description": "Create a new route",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/route",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "domain_key": "",
+        "zone_key": "",
+        "path": "",
+        "shared_rules_key": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-route",
+      "name": "get route",
+      "description": "Get details for an existing route",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/route/{{ROUTEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ROUTEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ROUTEKEY}} with a real routekey."
+    },
+    {
+      "id": "delete-route",
+      "name": "delete route",
+      "description": "Delete an existing route",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/route/{{ROUTEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ROUTEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ROUTEKEY}} with a real routekey."
+    },
+    {
+      "id": "get-shared-rules",
+      "name": "get shared_rules",
+      "description": "Get a list of shared_rules",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/shared_rules",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-shared-rules",
+      "name": "create shared_rules",
+      "description": "Create a new shared_rules object",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/shared_rules",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "zone_key": "",
+        "default": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-shared-rules-object",
+      "name": "get shared_rules object",
+      "description": "Get details for an existing shared_rules object",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/shared_rules/{{SHAREDRULESKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHAREDRULESKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{SHAREDRULESKEY}} with a real sharedruleskey."
+    },
+    {
+      "id": "delete-shared-rules-object",
+      "name": "delete shared_rules object",
+      "description": "Delete an existing shared_rules object",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/shared_rules/{{SHAREDRULESKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{SHAREDRULESKEY}}",
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{SHAREDRULESKEY}} with a real sharedruleskey."
+    },
+    {
+      "id": "get-a-list-of-zones",
+      "name": "get a list of zones",
+      "description": "Get all zones. possibly with filters\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/zone",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "create-zone",
+      "name": "create zone",
+      "description": "Create a new zone.\n",
+      "method": "POST",
+      "url": "https://api.turbinelabs.io/v1.0/zone",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY."
+    },
+    {
+      "id": "get-zone",
+      "name": "get zone",
+      "description": "Get details for a single zone\n",
+      "method": "GET",
+      "url": "https://api.turbinelabs.io/v1.0/zone/{{ZONEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ZONEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ZONEKEY}} with a real zonekey."
+    },
+    {
+      "id": "delete-zone",
+      "name": "delete zone",
+      "description": "Delete a zone.\n",
+      "method": "DELETE",
+      "url": "https://api.turbinelabs.io/v1.0/zone/{{ZONEKEY}}",
+      "headers": {
+        "Authorization": "Bearer{{TURBINELABS_IO_API_KEY}}"
+      },
+      "query_params": {
+        "checksum": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TURBINELABS_API_KEY}}",
+        "{{ZONEKEY}}",
+        "{{TURBINELABS_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{TURBINELABS_API_KEY}} with your TURBINELABS API KEY. Replace {{ZONEKEY}} with a real zonekey."
+    }
+  ]
+}

@@ -1,0 +1,662 @@
+{
+  "api_id": "twilio.com:twilio_supersim_v1:1.42.0",
+  "endpoint_count": 31,
+  "endpoints": [
+    {
+      "id": "get-v1-esimprofiles",
+      "name": "GET /v1/ESimProfiles",
+      "description": "Retrieve a list of eSIM Profiles.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/ESimProfiles",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-esimprofiles",
+      "name": "POST /v1/ESimProfiles",
+      "description": "Order an eSIM Profile.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/ESimProfiles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "CallbackMethod": "",
+        "CallbackUrl": "",
+        "Eid": "",
+        "GenerateMatchingId": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-esimprofiles-sid",
+      "name": "GET /v1/ESimProfiles/{Sid}",
+      "description": "Fetch an eSIM Profile.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/ESimProfiles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-fleets",
+      "name": "GET /v1/Fleets",
+      "description": "Retrieve a list of Fleets from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Fleets",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-fleets",
+      "name": "POST /v1/Fleets",
+      "description": "Create a Fleet",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/Fleets",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "NetworkAccessProfile": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-fleets-sid",
+      "name": "GET /v1/Fleets/{Sid}",
+      "description": "Fetch a Fleet instance from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Fleets/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-fleets-sid",
+      "name": "POST /v1/Fleets/{Sid}",
+      "description": "Updates the given properties of a Super SIM Fleet instance from your account.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/Fleets/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "DataLimit": 0,
+        "IpCommandsMethod": "",
+        "IpCommandsUrl": "",
+        "NetworkAccessProfile": "",
+        "SmsCommandsMethod": "",
+        "SmsCommandsUrl": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-ipcommands",
+      "name": "GET /v1/IpCommands",
+      "description": "Retrieve a list of IP Commands from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/IpCommands",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-ipcommands",
+      "name": "POST /v1/IpCommands",
+      "description": "Send an IP Command to a Super SIM.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/IpCommands",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Sim": "",
+        "Payload": "",
+        "DevicePort": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-ipcommands-sid",
+      "name": "GET /v1/IpCommands/{Sid}",
+      "description": "Fetch IP Command instance from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/IpCommands/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-networkaccessprofiles",
+      "name": "GET /v1/NetworkAccessProfiles",
+      "description": "Retrieve a list of Network Access Profiles from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-networkaccessprofiles",
+      "name": "POST /v1/NetworkAccessProfiles",
+      "description": "Create a new Network Access Profile",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Networks": [],
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-networkaccessprofiles-networkaccessprofilesid-networks",
+      "name": "GET /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks",
+      "description": "Retrieve a list of Network Access Profile resource's Network resource.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{NETWORKACCESSPROFILESID}}/Networks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{NETWORKACCESSPROFILESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{NETWORKACCESSPROFILESID}} with a real networkaccessprofilesid."
+    },
+    {
+      "id": "post-v1-networkaccessprofiles-networkaccessprofilesid-networks",
+      "name": "POST /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks",
+      "description": "Add a Network resource to the Network Access Profile resource.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{NETWORKACCESSPROFILESID}}/Networks",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Network": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{NETWORKACCESSPROFILESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{NETWORKACCESSPROFILESID}} with a real networkaccessprofilesid."
+    },
+    {
+      "id": "get-v1-networkaccessprofiles-networkaccessprofilesid-networks-sid",
+      "name": "GET /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}",
+      "description": "Fetch a Network Access Profile resource's Network resource.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{NETWORKACCESSPROFILESID}}/Networks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{NETWORKACCESSPROFILESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{NETWORKACCESSPROFILESID}} with a real networkaccessprofilesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "delete-v1-networkaccessprofiles-networkaccessprofilesid-networks-sid",
+      "name": "DELETE /v1/NetworkAccessProfiles/{NetworkAccessProfileSid}/Networks/{Sid}",
+      "description": "Remove a Network resource from the Network Access Profile resource's.",
+      "method": "DELETE",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{NETWORKACCESSPROFILESID}}/Networks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{NETWORKACCESSPROFILESID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{NETWORKACCESSPROFILESID}} with a real networkaccessprofilesid. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-networkaccessprofiles-sid",
+      "name": "GET /v1/NetworkAccessProfiles/{Sid}",
+      "description": "Fetch a Network Access Profile instance from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-networkaccessprofiles-sid",
+      "name": "POST /v1/NetworkAccessProfiles/{Sid}",
+      "description": "Updates the given properties of a Network Access Profile in your account.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/NetworkAccessProfiles/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-networks",
+      "name": "GET /v1/Networks",
+      "description": "Retrieve a list of Network resources.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Networks",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-networks-sid",
+      "name": "GET /v1/Networks/{Sid}",
+      "description": "Fetch a Network resource.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Networks/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-settingsupdates",
+      "name": "GET /v1/SettingsUpdates",
+      "description": "Retrieve a list of Settings Updates.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/SettingsUpdates",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-sims",
+      "name": "GET /v1/Sims",
+      "description": "Retrieve a list of Super SIMs from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Sims",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-sims",
+      "name": "POST /v1/Sims",
+      "description": "Register a Super SIM to your Account",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/Sims",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Iccid": "",
+        "RegistrationCode": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-sims-sid",
+      "name": "GET /v1/Sims/{Sid}",
+      "description": "Fetch a Super SIM instance from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Sims/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "post-v1-sims-sid",
+      "name": "POST /v1/Sims/{Sid}",
+      "description": "Updates the given properties of a Super SIM instance from your account.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/Sims/{{SID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "AccountSid": "",
+        "CallbackMethod": "",
+        "CallbackUrl": "",
+        "Fleet": "",
+        "Status": "",
+        "UniqueName": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-sims-simsid-billingperiods",
+      "name": "GET /v1/Sims/{SimSid}/BillingPeriods",
+      "description": "Retrieve a list of Billing Periods for a Super SIM.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Sims/{{SIMSID}}/BillingPeriods",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SIMSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SIMSID}} with a real simsid."
+    },
+    {
+      "id": "get-v1-sims-simsid-ipaddresses",
+      "name": "GET /v1/Sims/{SimSid}/IpAddresses",
+      "description": "Retrieve a list of IP Addresses for the given Super SIM.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/Sims/{{SIMSID}}/IpAddresses",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{SIMSID}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SIMSID}} with a real simsid."
+    },
+    {
+      "id": "get-v1-smscommands",
+      "name": "GET /v1/SmsCommands",
+      "description": "Retrieve a list of SMS Commands from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/SmsCommands",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "post-v1-smscommands",
+      "name": "POST /v1/SmsCommands",
+      "description": "Send SMS Command to a Sim.",
+      "method": "POST",
+      "url": "https://supersim.twilio.com/v1/SmsCommands",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": {
+        "Sim": "",
+        "Payload": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    },
+    {
+      "id": "get-v1-smscommands-sid",
+      "name": "GET /v1/SmsCommands/{Sid}",
+      "description": "Fetch SMS Command instance from your account.",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/SmsCommands/{{SID}}",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{SID}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD. Replace {{SID}} with a real sid."
+    },
+    {
+      "id": "get-v1-usagerecords",
+      "name": "GET /v1/UsageRecords",
+      "description": "List UsageRecords",
+      "method": "GET",
+      "url": "https://supersim.twilio.com/v1/UsageRecords",
+      "headers": {
+        "Authorization": "Basic{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TWILIO_PASSWORD}}",
+        "{{TWILIO_USERNAME}}",
+        "{{TWILIO_COM_BASE64_CREDENTIALS}}"
+      ],
+      "notes": "Replace {{TWILIO_USERNAME}} with your TWILIO USERNAME. Replace {{TWILIO_PASSWORD}} with your TWILIO PASSWORD."
+    }
+  ]
+}

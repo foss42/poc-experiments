@@ -1,0 +1,249 @@
+{
+  "api_id": "pdfgeneratorapi.com:3.1.1",
+  "endpoint_count": 11,
+  "endpoints": [
+    {
+      "id": "get-templates",
+      "name": "Get templates",
+      "description": "Returns a list of templates available for the authenticated workspace",
+      "method": "GET",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates",
+      "headers": {
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "create-template",
+      "name": "Create template",
+      "description": "Creates a new template. If template configuration is not specified in the request body then an empty template is created. Template is placed to the workspace specified in authentication params. Template configuration must be sent in the request body.",
+      "method": "POST",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "Invoice template"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "generate-document-multiple-templates",
+      "name": "Generate document (multiple templates)",
+      "description": "Allows to merge multiples template with data and returns base64 encoded document or public URL to a document. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.",
+      "method": "POST",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/output",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "data": {
+            "key": "value"
+          },
+          "template": 52272
+        },
+        {
+          "data": {
+            "key2": "value2"
+          },
+          "template": 52273
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "get-template",
+      "name": "Get template",
+      "description": "Returns template configuration",
+      "method": "GET",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId",
+      "headers": {
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "update-template",
+      "name": "Update template",
+      "description": "Updates template configuration. The template configuration for pages and layout must be complete as the entire configuration is replaced and not merged.",
+      "method": "PUT",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": {
+        "name": "Invoice template"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "delete-template",
+      "name": "Delete template",
+      "description": "Deletes the template from workspace",
+      "method": "DELETE",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId",
+      "headers": {
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "copy-template",
+      "name": "Copy template",
+      "description": "Creates a copy of a template to the workspace specified in authentication parameters.",
+      "method": "POST",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId/copy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "open-editor",
+      "name": "Open editor",
+      "description": "Returns an unique URL which you can use to redirect your user to the editor from your application or use the generated URL as iframe source to show the editor within your application.\n",
+      "method": "POST",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId/editor",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": {
+        "id": 12312,
+        "name": "Sample Data"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "generate-document",
+      "name": "Generate document",
+      "description": "Merges template with data and returns base64 encoded document or a public URL to a document. You can send json encoded data in request body or a public URL to your json file as the data parameter. NB! When the public URL option is used, the document is stored for 30 days and automatically deleted.",
+      "method": "POST",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/templates/templateId/output",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "templateId": ""
+      },
+      "body": {
+        "id": 12312,
+        "name": "Sample Data"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "get-workspace",
+      "name": "Get workspace",
+      "description": "Returns workspace information",
+      "method": "GET",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/workspaces/workspaceId",
+      "headers": {
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspaceId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    },
+    {
+      "id": "delete-workspace",
+      "name": "Delete workspace",
+      "description": "Deletes the workspace",
+      "method": "DELETE",
+      "url": "https://us1.pdfgeneratorapi.com/api/v3/workspaces/workspaceId",
+      "headers": {
+        "Authorization": "Bearer{{PDFGENERATORAPI_COM_API_KEY}}"
+      },
+      "query_params": {
+        "workspaceId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PDFGENERATORAPI_API_KEY}}",
+        "{{PDFGENERATORAPI_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{PDFGENERATORAPI_API_KEY}} with your PDFGENERATORAPI API KEY."
+    }
+  ]
+}

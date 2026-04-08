@@ -1,0 +1,152 @@
+{
+  "api_id": "deutschebahn.com:flinkster:v1",
+  "endpoint_count": 10,
+  "endpoints": [
+    {
+      "id": "list-areas-by-criteria",
+      "name": "List Areas by Criteria.",
+      "description": "Search for areas (locations of rental objects) by criteria.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/areas",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-area-by-uid",
+      "name": "Get area by UID.",
+      "description": "Search for a specific area by UID.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/areas/{{AREAUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AREAUID}}"
+      ],
+      "notes": "No authentication required. Replace {{AREAUID}} with a real areauid."
+    },
+    {
+      "id": "query-for-available-rentalobjects-of-a-specific-view",
+      "name": "Query for available RentalObjects of a specific view",
+      "description": "Here you can query all bookable Rental Objects with different Parameters (Time, Location,...)",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/bookingproposals",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "show-index",
+      "name": "Show index.",
+      "description": "Show Service index.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/index",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "lists-all-categories",
+      "name": "Lists all categories",
+      "description": "Search for categorie.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providernetworks/{{PROVIDERNETWORKUID}}/categories",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERNETWORKUID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERNETWORKUID}} with a real providernetworkuid."
+    },
+    {
+      "id": "get-a-category-by-uid",
+      "name": "Get a Category by UID",
+      "description": "Search for categorie.",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providernetworks/{{PROVIDERNETWORKUID}}/categories/{{CATEGORYUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERNETWORKUID}}",
+        "{{CATEGORYUID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERNETWORKUID}} with a real providernetworkuid. Replace {{CATEGORYUID}} with a real categoryuid."
+    },
+    {
+      "id": "get-information-about-the-prices",
+      "name": "Get information about the prices.",
+      "description": "Prices of a rental object by query params. The params depend on the price determination strategy of the provider network.\n",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providernetworks/{{PROVIDERNETWORKUID}}/prices",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDERNETWORKUID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDERNETWORKUID}} with a real providernetworkuid."
+    },
+    {
+      "id": "get-information-about-the-rentalobject",
+      "name": "Get information about the RentalObject.",
+      "description": "Get information about the Rental Object.\n",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providernetworks/{{PROVIDERNETWORKUID}}/rentalobjects/{{RENTALOBJECTUID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RENTALOBJECTUID}}",
+        "{{PROVIDERNETWORKUID}}"
+      ],
+      "notes": "No authentication required. Replace {{RENTALOBJECTUID}} with a real rentalobjectuid. Replace {{PROVIDERNETWORKUID}} with a real providernetworkuid."
+    },
+    {
+      "id": "get-information-about-the-providernetworkresources",
+      "name": "Get information about the ProviderNetworkResources.",
+      "description": "Get information about the ProviderNetworkResources.\n",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providernetworks/{{UID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UID}}"
+      ],
+      "notes": "No authentication required. Replace {{UID}} with a real uid."
+    },
+    {
+      "id": "get-information-about-the-providerresourceimpl",
+      "name": "Get information about the ProviderResourceImpl.",
+      "description": "Get information about the ProviderResourcesCtrl.\n",
+      "method": "GET",
+      "url": "https://api.deutschebahn.com/flinkster-api-ng/v1/providers/{{UID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{UID}}"
+      ],
+      "notes": "No authentication required. Replace {{UID}} with a real uid."
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "api_id": "googleapis.com:doubleclickbidmanager:v2",
+  "endpoint_count": 7,
+  "endpoints": [
+    {
+      "id": "get-queries",
+      "name": "GET /queries",
+      "description": "Lists queries created by the current user.",
+      "method": "GET",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "post-queries",
+      "name": "POST /queries",
+      "description": "Creates a query.",
+      "method": "POST",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "metadata": {},
+        "params": {},
+        "queryId": "",
+        "schedule": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN."
+    },
+    {
+      "id": "get-queries-queryid",
+      "name": "GET /queries/{queryId}",
+      "description": "Retrieves a query.",
+      "method": "GET",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries/{{QUERYID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{QUERYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{QUERYID}} with a real queryid."
+    },
+    {
+      "id": "delete-queries-queryid",
+      "name": "DELETE /queries/{queryId}",
+      "description": "Deletes a query as well as the associated reports.",
+      "method": "DELETE",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries/{{QUERYID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{QUERYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{QUERYID}} with a real queryid."
+    },
+    {
+      "id": "get-queries-queryid-reports",
+      "name": "GET /queries/{queryId}/reports",
+      "description": "Lists reports associated with a query.",
+      "method": "GET",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries/{{QUERYID}}/reports",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{QUERYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{QUERYID}} with a real queryid."
+    },
+    {
+      "id": "get-queries-queryid-reports-reportid",
+      "name": "GET /queries/{queryId}/reports/{reportId}",
+      "description": "Retrieves a report.",
+      "method": "GET",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries/{{QUERYID}}/reports/{{REPORTID}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{REPORTID}}",
+        "{{QUERYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{QUERYID}} with a real queryid. Replace {{REPORTID}} with a real reportid."
+    },
+    {
+      "id": "post-queries-queryid-run",
+      "name": "POST /queries/{queryId}:run",
+      "description": "Runs a stored query to generate a report.",
+      "method": "POST",
+      "url": "https://doubleclickbidmanager.googleapis.com/v2/queries/{{QUERYID}}:run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "dataRange": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{QUERYID}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{QUERYID}} with a real queryid."
+    }
+  ]
+}

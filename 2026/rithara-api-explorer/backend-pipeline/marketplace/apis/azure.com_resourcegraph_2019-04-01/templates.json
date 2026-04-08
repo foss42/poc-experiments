@@ -1,0 +1,50 @@
+{
+  "api_id": "azure.com:resourcegraph:2019-04-01",
+  "endpoint_count": 2,
+  "endpoints": [
+    {
+      "id": "get-providers-microsoft-resourcegraph-operations",
+      "name": "GET /providers/Microsoft.ResourceGraph/operations",
+      "description": "Lists all of the available REST API operations.",
+      "method": "GET",
+      "url": "https://management.azure.com/providers/Microsoft.ResourceGraph/operations",
+      "headers": {
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    },
+    {
+      "id": "post-providers-microsoft-resourcegraph-resources",
+      "name": "POST /providers/Microsoft.ResourceGraph/resources",
+      "description": "Queries the resources managed by Azure Resource Manager for all subscriptions specified in the request.",
+      "method": "POST",
+      "url": "https://management.azure.com/providers/Microsoft.ResourceGraph/resources",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{AZURE_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {
+        "api-version": ""
+      },
+      "body": {
+        "subscriptions": [],
+        "query": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{AZURE_ACCESS_TOKEN}}",
+        "{{AZURE_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{AZURE_ACCESS_TOKEN}} with your AZURE ACCESS TOKEN."
+    }
+  ]
+}

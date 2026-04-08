@@ -1,0 +1,328 @@
+{
+  "api_id": "googleapis.com:osconfig:v1beta",
+  "endpoint_count": 14,
+  "endpoints": [
+    {
+      "id": "post-v1beta-instance-lookupeffectiveguestpolicy",
+      "name": "POST /v1beta/{instance}:lookupEffectiveGuestPolicy",
+      "description": "Lookup the effective guest policy that applies to a VM instance. This lookup merges all policies that are assigned to the instance ancestry.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{INSTANCE}}:lookupEffectiveGuestPolicy",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "osArchitecture": "",
+        "osShortName": "",
+        "osVersion": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{INSTANCE}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{INSTANCE}} with a real instance."
+    },
+    {
+      "id": "get-v1beta-name",
+      "name": "GET /v1beta/{name}",
+      "description": "Get the patch job. This can be used to track the progress of an ongoing patch job or review the details of completed jobs.",
+      "method": "GET",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-v1beta-name",
+      "name": "DELETE /v1beta/{name}",
+      "description": "Delete an OS Config patch deployment.",
+      "method": "DELETE",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "patch-v1beta-name",
+      "name": "PATCH /v1beta/{name}",
+      "description": "Update an OS Config patch deployment.",
+      "method": "PATCH",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "createTime": "",
+        "description": "",
+        "duration": "",
+        "instanceFilter": {},
+        "lastExecuteTime": "",
+        "name": "",
+        "oneTimeSchedule": {},
+        "patchConfig": {},
+        "recurringSchedule": {},
+        "rollout": {},
+        "state": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta-name-cancel",
+      "name": "POST /v1beta/{name}:cancel",
+      "description": "Cancel a patch job. The patch job must be active. Canceled patch jobs cannot be restarted.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}:cancel",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta-name-pause",
+      "name": "POST /v1beta/{name}:pause",
+      "description": "Change state of patch deployment to \"PAUSED\". Patch deployment in paused state doesn't generate patch jobs.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}:pause",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "post-v1beta-name-resume",
+      "name": "POST /v1beta/{name}:resume",
+      "description": "Change state of patch deployment back to \"ACTIVE\". Patch deployment in active state continues to generate patch jobs.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{NAME}}:resume",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{NAME}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-v1beta-parent-guestpolicies",
+      "name": "GET /v1beta/{parent}/guestPolicies",
+      "description": "Get a page of OS Config guest policies.",
+      "method": "GET",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/guestPolicies",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta-parent-guestpolicies",
+      "name": "POST /v1beta/{parent}/guestPolicies",
+      "description": "Create an OS Config guest policy.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/guestPolicies",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "assignment": {},
+        "createTime": "",
+        "description": "",
+        "etag": "",
+        "name": "",
+        "packageRepositories": [],
+        "packages": [],
+        "recipes": [],
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta-parent-instancedetails",
+      "name": "GET /v1beta/{parent}/instanceDetails",
+      "description": "Get a list of instance details for a given patch job.",
+      "method": "GET",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/instanceDetails",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta-parent-patchdeployments",
+      "name": "GET /v1beta/{parent}/patchDeployments",
+      "description": "Get a page of OS Config patch deployments.",
+      "method": "GET",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/patchDeployments",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta-parent-patchdeployments",
+      "name": "POST /v1beta/{parent}/patchDeployments",
+      "description": "Create an OS Config patch deployment.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/patchDeployments",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "createTime": "",
+        "description": "",
+        "duration": "",
+        "instanceFilter": {},
+        "lastExecuteTime": "",
+        "name": "",
+        "oneTimeSchedule": {},
+        "patchConfig": {},
+        "recurringSchedule": {},
+        "rollout": {},
+        "state": "",
+        "updateTime": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "get-v1beta-parent-patchjobs",
+      "name": "GET /v1beta/{parent}/patchJobs",
+      "description": "Get a list of patch jobs.",
+      "method": "GET",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/patchJobs",
+      "headers": {
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    },
+    {
+      "id": "post-v1beta-parent-patchjobs-execute",
+      "name": "POST /v1beta/{parent}/patchJobs:execute",
+      "description": "Patch VM instances by creating and running a patch job.",
+      "method": "POST",
+      "url": "https://osconfig.googleapis.com/v1beta/{{PARENT}}/patchJobs:execute",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "displayName": "",
+        "dryRun": false,
+        "duration": "",
+        "instanceFilter": {},
+        "patchConfig": {},
+        "rollout": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PARENT}}",
+        "{{GOOGLEAPIS_ACCESS_TOKEN}}",
+        "{{GOOGLEAPIS_COM_ACCESS_TOKEN}}"
+      ],
+      "notes": "Replace {{GOOGLEAPIS_ACCESS_TOKEN}} with your GOOGLEAPIS ACCESS TOKEN. Replace {{PARENT}} with a real parent."
+    }
+  ]
+}

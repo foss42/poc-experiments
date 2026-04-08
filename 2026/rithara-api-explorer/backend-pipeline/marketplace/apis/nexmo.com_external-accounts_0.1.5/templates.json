@@ -1,0 +1,192 @@
+{
+  "api_id": "nexmo.com:external-accounts:0.1.5",
+  "endpoint_count": 9,
+  "endpoints": [
+    {
+      "id": "retrieve-all-accounts-you-own",
+      "name": "Retrieve all accounts you own",
+      "description": "Retrieve all accounts you own",
+      "method": "GET",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY."
+    },
+    {
+      "id": "create-a-messenger-account",
+      "name": "Create a Messenger account",
+      "description": "Create a Messenger account",
+      "method": "POST",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/messenger",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "external_id": "12345678",
+        "access_token": "myAccessToken"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY."
+    },
+    {
+      "id": "retrieve-a-messenger-account",
+      "name": "Retrieve a Messenger account",
+      "description": "Retrieve a Messenger account",
+      "method": "GET",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/messenger/{{EXTERNAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "delete-a-messenger-account",
+      "name": "Delete a Messenger account",
+      "description": "Delete a Messenger account",
+      "method": "DELETE",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/messenger/{{EXTERNAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "update-a-messenger-account",
+      "name": "Update a Messenger account",
+      "description": "Update a Messenger account",
+      "method": "PATCH",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/messenger/{{EXTERNAL_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "access_token": "updatedAccessToken",
+        "applications": [
+          "newApplicationId"
+        ],
+        "name": "newName"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "retrieve-a-viber-service-message-account",
+      "name": "Retrieve a Viber Service Message account",
+      "description": "Retrieve a Viber Service Message account",
+      "method": "GET",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/viber_service_msg/{{EXTERNAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "retrieve-a-whatsapp-account",
+      "name": "Retrieve a Whatsapp account",
+      "description": "Retrieve a Whatsapp account",
+      "method": "GET",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/whatsapp/{{EXTERNAL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "link-application-to-an-account",
+      "name": "Link application to an account",
+      "description": "Link application to an account",
+      "method": "POST",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/{{PROVIDER}}/{{EXTERNAL_ID}}/applications",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "application": "applicationId"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{PROVIDER}}",
+        "{{EXTERNAL_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{PROVIDER}} with a real provider. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "unlink-application-from-an-account",
+      "name": "Unlink application from an account",
+      "description": "Unlink application from an account",
+      "method": "DELETE",
+      "url": "https://api.nexmo.com/beta/chatapp-accounts/{{PROVIDER}}/{{EXTERNAL_ID}}/applications/{{APPLICATION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{NEXMO_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NEXMO_API_KEY}}",
+        "{{PROVIDER}}",
+        "{{EXTERNAL_ID}}",
+        "{{APPLICATION_ID}}",
+        "{{NEXMO_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{NEXMO_API_KEY}} with your NEXMO API KEY. Replace {{PROVIDER}} with a real provider. Replace {{EXTERNAL_ID}} with a real external_id. Replace {{APPLICATION_ID}} with a real application_id."
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "api_id": "bluemix.net:containers:3.0.0",
+  "endpoint_count": 46,
+  "endpoints": [
+    {
+      "id": "create-and-start-a-single-container",
+      "name": "Create and start a single container",
+      "description": "This endpoint creates and starts a single container in your space based on the Docker image that is specified in the Image field of the request json. A single container in IBM Containers is similar to a container that you create in your local Docker environment. Single containers are a good way to start with IBM Containers and to learn about how containers work in the IBM Cloud and the features that IBM Containers provides. They are also recommended when you want to run simple app tests or during the development process of an app. \n\n In the Docker API there are two separate APIs to create and start a container. However in IBM Containers a container is created and started in a single API call. Therefore, this API merges parameters from the Docker API to create and start container. \n\n To create a container with IBM Containers, you must at least define the image that the container is based on.\n\n- Image: You must include the full path to the image in your private Bluemix registry in the format: `registry.ng.bluemix.net/<namespace>/<image>`.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/create",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Image": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-available-public-ip-addresses-in-a-space",
+      "name": "List available public IP addresses in a space",
+      "description": "This endpoint returns a list of all public IP addresses that are allocated to a space and not bound to a container. If you want to list all public IP addresses that are allocated to a space, even those that are already bound to a container, use the `all` query parameter (corrsponding IBM Containers command: `cf ic ip list`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/floating-ips",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "request-a-public-ip-address-for-a-space",
+      "name": "Request a public IP address for a space",
+      "description": "This endpoint requests a new public IP address for a space (corresponding IBM Containers command: `cf ic ip request`). The number of public IP addresses depends on the quota that is assigned to the space. If there is not enough quota left to request a new public IP address, you can either contact your organization manager to increase the quota, or unbind an existing IP address from a container by running `cf ic ip unbind <ip_adress> <container>` command, or  calling the `POST /container/{name_or_id}/floating-ips/{ip}/unbind` endpoint.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/floating-ips/request",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "release-public-ip-address",
+      "name": "Release public IP address",
+      "description": "This endpoint releases a public IP address from a space (corresponding IBM Containers command: `cf ic ip release <ip_adress>`). The public IP address is no longer allocated to the space. If a container was bound to the IP address, it is automatically unbound.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/floating-ips/{{IP}}/release",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IP}}"
+      ],
+      "notes": "No authentication required. Replace {{IP}} with a real ip."
+    },
+    {
+      "id": "list-all-container-groups-in-a-space",
+      "name": "List all container groups in a space",
+      "description": "This endpoint returns a list of all container groups in a space independent of their current state. (corresponding IBM Containers command: `cf ic group list`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-and-start-a-container-group",
+      "name": "Create and start a container group.",
+      "description": "This endpoint creates and starts a new container group in your space. A container group consists of two or more single containers that are all created from the same container image and as a consequence are configured in the same way. Container groups offer different options at no cost to make your app highly available, such as in-built load balancing, auto-recovery of unhealthy container instances, and auto-scaling of container instances based on CPU and memory usage.\n\nTo create a container group with IBM Containers, you must at least define a container group name and the image that the container group is based on. Required attributes:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n- Name: The container group name must start with a letter and then can include uppercase letters, lowercase letters, numbers, periods (.), underscores (_), or hyphens (-). \n- Image: You must include the full path to the image in your private Bluemix registry in the format:`registry.ng.bluemix.net/<namespace>/<image>`.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Name": "",
+        "Image": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "inspect-a-container-group",
+      "name": "Inspect a container group.",
+      "description": "This endpoint retrieves detailed information about a container group with a given name (corresponding IBM Containers command: `cf ic group inspect GROUP`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups/{{NAME_OR_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "stop-and-delete-all-container-instances-in-a-container-group",
+      "name": "Stop and delete all container instances in a container group.",
+      "description": "Stops and deletes the container instances that run in a container group (corresponding IBM Containers command: `cf ic group rm <group_name>`). When you delete a container group, all floating private IP addresses are released.",
+      "method": "DELETE",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups/{{NAME_OR_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "update-a-container-group",
+      "name": "Update a container group.",
+      "description": "Update the number of container instances that run in a container group (corresponding IBM Containers command: `cf ic group update <option> <group>`). \n\nNote: You can run only one update at a time.  \n\n The desired number is the number of container instances that you require. It must be within the current limits of Max and Min. To increase the number of desired container instances above the Max value, you must first execute an update on the Max value. Once this update is completed, you can increase the desired number of container instances. ",
+      "method": "PATCH",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups/{{NAME_OR_ID}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "Autorecovery": "",
+        "Environment": [],
+        "NumberInstances": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "map-a-public-route-to-a-container-group",
+      "name": "Map a public route to a container group.",
+      "description": "If you want your container group to be accessible from the Internet, you need to expose a public port and map a public route to it (corresponding IBM Containers command: `cf ic route map -n <host> -d <domain> <group>`). Every route consists of the host name and domain.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups/{{NAME_OR_ID}}/maproute",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "domain": "",
+        "host": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "unmap-a-public-route-from-a-container-group",
+      "name": "Unmap a public route from a container group",
+      "description": "This endpoint unmaps a public route from a container group (corresponding IBM Containers command: `cf ic route unmap -n <host> -d <domain> <group>`). If no other public route is mapped to the container group, then the container group is no longer available from the internet. \n\n When you unmap a route from a container group, the route is not deleted and can be mapped to other container groups. ",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/groups/{{NAME_OR_ID}}/unmaproute",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "domain": "",
+        "host": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "list-single-containers-in-a-space",
+      "name": "List single containers in a space.",
+      "description": "This endpoint returns a list of all single containers in a space that are currently in a running state (corresponding IBM Containers command: `cf ic ps`). To list all single containers independent of their current state, set the `all` query parameter to true.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-messages-for-the-user",
+      "name": "List messages for the user",
+      "description": "This endpoint retrieves all IBM Containers system messages for the user.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/messages",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-organization-and-space-specific-quota",
+      "name": "Retrieve organization and space specific quota",
+      "description": "Retrieve the quota that is assigned to the organization and space.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/quota",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-space-quota",
+      "name": "Update space quota",
+      "description": "This endpoint updates the quota that is allocated to a Bluemix space. \n\n **Note**: Only paid accounts are eligbile to update the space quota. If you are using a free-trial account, upgrade to a paid account first.",
+      "method": "PUT",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/quota",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "floating_ips": 0,
+        "ram": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-container-sizes-and-quota-limits",
+      "name": "List container sizes and quota limits",
+      "description": "This endpoint returns a list of available container sizes and the quota limit and usage for the space. \n\n- Container sizes: A list of available container sizes indicating the amount of container memory, disk space and virtual CPUs that can be assigned to the container.\n- Quota limit: Lists the number of containers, public IP addresses, available container memory, and virtual CPUS that are allocated to a space. \n- Quota usage: Lists the current number of containers, images, and public IP addresses in a space that is counted towards your quota limit. ",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/usage",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-latest-api-version",
+      "name": "List latest API version",
+      "description": "This endpoint retrieves a list of all microservices that are used in the IBM Containers service with their current build version. This method does not require authentication.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/version",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-the-current-state-of-a-container",
+      "name": "List the current state of a container.",
+      "description": "This endpoint returns the current state of a container. This state can either be a transient state, such as BUILDING and NETWORKING, or a non-transient state, such as RUNNING, SHUTDOWN, CRASHED, or SUSPENDED.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{ID}}/status",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-single-container",
+      "name": "Remove a single container",
+      "description": "Remove a single container that is identified by container ID or name from a space (corresponding IBM Containers command: `cf ic delete <container>`). The container must be stopped before it can be deleted, unless the `force` query parameter is set to true.",
+      "method": "DELETE",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "bind-a-public-ip-address-to-a-single-container",
+      "name": "Bind a public IP address to a single container",
+      "description": "This endpoint binds an available public IP address to a single container (corresponding IBM Containers command: `cf ic ip bind <ip_adress> <container>`). After a container is bound to a public IP address, it can be accessed at `https://<public_ip_adress>:<public_port>`.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/floating-ips/{{IP}}/bind",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IP}}",
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{IP}} with a real ip. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "unbind-a-public-ip-address-from-a-container",
+      "name": "Unbind a public IP address from a container",
+      "description": "This endpoint unbinds a public IP address from a container (corresponding IBM Containers command: `cf ic ip unbind <ip_adress> <container>`). The container that is unbound from the IP address will not be accessible from the internet anymore. The public IP address will be further allocated to the space and can be used to be bound to other containers. ",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/floating-ips/{{IP}}/unbind",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{IP}}",
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{IP}} with a real ip. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "inspect-a-single-container",
+      "name": "Inspect a single container",
+      "description": "This endpoint retrieves detailed information about a single container (corresponding IBM Containers command: `cf ic inspect <container>`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "pause-a-single-container",
+      "name": "Pause a single container",
+      "description": "Pause all processes in a running single container with a given container ID or name (corresponding IBM Containers command: `cf ic pause <container>`).",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/pause",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "rename-a-single-container",
+      "name": "Rename a single container",
+      "description": "Change the current name of an existing single container that is identified by the container ID or name (corresponding IBM Containers command: `cf ic rename <old_name> <new_name>`). ",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/rename",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "name": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "restart-a-single-container",
+      "name": "Restart a single container",
+      "description": "Restart a container with a given container ID or name (corresponding IBM Containers command: `cf ic restart <container>`).",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/restart",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "start-a-single-container",
+      "name": "Start a single container",
+      "description": "Start a single container with a given container name or ID (corresponding IBM Containers command: `cf ic start <container>`).",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/start",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "stop-a-single-container",
+      "name": "Stop a single container",
+      "description": "Stop a single container with a given container name or ID (corresponding IBM Containers command: `cf ic stop <container>`).",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/stop",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "unpause-a-single-container",
+      "name": "Unpause a single container",
+      "description": "Unpause all processes that are currently stopped inside a single containers with a given container ID or name (corresponding IBM Containers command: `cf ic unpause <container>`).",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/containers/{{NAME_OR_ID}}/unpause",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "list-all-docker-images-that-are-available-in-your-private-bluemix-registry",
+      "name": "List all Docker images that are available in your private Bluemix registry.",
+      "description": "This endpoint returns a list of all available Docker images in a private Bluemix registry (corresponding IBM Containers command: `cf ic images`.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/images/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "remove-a-docker-image",
+      "name": "Remove a Docker image.",
+      "description": "Remove a Docker image from the private Bluemix registry that is identified by the image ID (corresponding IBM Containers command: `cf ic rmi <image>`).",
+      "method": "DELETE",
+      "url": "https://containers-api.ng.bluemix.net/v3/images/{{ID}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "inspect-a-docker-image-in-private-bluemix-registry",
+      "name": "Inspect a Docker image in private Bluemix registry",
+      "description": "This endpoint returns detailed information about a Docker image that is stored in the private Bluemix registry of an organization (corresponding IBM Containers command: `cf ic inspect <image_name_or_id>`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/images/{{NAME_OR_ID}}/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME_OR_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME_OR_ID}} with a real name_or_id."
+    },
+    {
+      "id": "retrieve-the-namespace-of-an-organization",
+      "name": "Retrieve the namespace of an organization.",
+      "description": "This endpoint retrieves the namespace that was set for the organization that owns the current space (corresponding IBM Containers command: `cf ic namespace get`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/registry/namespaces",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "check-the-availability-of-a-namespace",
+      "name": "Check the availability of a namespace",
+      "description": "This endpoint checks whether a namespace is available in Bluemix and can be used to set up the private Docker images registry for an organization. When a HTTP code `201 Ok` is returned, the namespace is already assigned to another organization in Bluemix and cannot be used. When a HTTP code `404 Not found` is returned, the namespace can be used for your organization. \n\n Consider the following rules when choosing a namespace for your organization: \n\n- Every organization can have one namespace at a time only \n- The namespace must be unique in Bluemix. \n- The namespace can be 4-30 characters long. \n- The namespace must start with at least one letter or number. \n- The namespace can only contain lowercase letters, numbers or underscores (_). ",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/registry/namespaces/{{NAMESPACE}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMESPACE}}"
+      ],
+      "notes": "No authentication required. Replace {{NAMESPACE}} with a real namespace."
+    },
+    {
+      "id": "set-a-namespace-for-your-private-bluemix-registry",
+      "name": "Set a namespace for your private Bluemix registry.",
+      "description": "Set up your own Docker images registry in Bluemix by defining a namespace for your organization (corresponding IBM Containers command: `cf ic namespace set <namespace>`). The namespace is used to generate a unique URL to your private Bluemix registry. In your private registry you store all Docker images that you want to share across your organization. To create a container from an image, you must first push the image to your registry. \n\n The namespace cannot be changed after is has been set. Consider the following rules to choose a namespace for your organization: \n\n- Every organization can have one namespace at a time only \n- The namespace must be unique in Bluemix. \n- The namespace can be 4-30 characters long. \n- The namespace must start with at least one letter or number. \n- The namespace can only contain lowercase letters, numbers or underscores (_).",
+      "method": "PUT",
+      "url": "https://containers-api.ng.bluemix.net/v3/registry/namespaces/{{NAMESPACE}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAMESPACE}}"
+      ],
+      "notes": "No authentication required. Replace {{NAMESPACE}} with a real namespace."
+    },
+    {
+      "id": "retrieve-the-tls-certificate",
+      "name": "Retrieve the TLS Certificate",
+      "description": "This endpoint returns the TLS (Transport Layer Security) certificate to the user (corresponding IBM Containers command: `cf ic login`). The TLS certificate is a SSL certificate that is used to authenticate the user's CLI with the IBM Containers service and to establish a secure communication between the user's local machine and the container in Bluemix.",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/tlskey",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "refresh-the-tls-certificate",
+      "name": "Refresh the TLS Certificate",
+      "description": "This endpoint requests to generate a new TLS (Transport Layer Security) certificate on the server and to update the existing user TLS certificate (corresponding IBM Containers command: `cf ic init`).",
+      "method": "PUT",
+      "url": "https://containers-api.ng.bluemix.net/v3/tlskey/refresh",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-volume-in-a-space",
+      "name": "Create a volume in a space",
+      "description": "This endpoints creates a new volume in your space (corresponding IBM Containers command: `cf ic volume create VOLNAME`). A volume is used to persist and access app data between container restarts. Volumes are hosted on file shares that define the available actual storage in Bluemix and the number of input and output transactions per second (IOPS). \n\n After you have created a volume, you must mount it to a container by using the `--volume` option in the `cf ic run` (single containers) or `cf ic group create` (container groups) command. You can also define the volume as part of the HTTP body and send a request to the `POST /containers/create` (single containers) or `POST /containers/groups` (container groups) endpoints. \n\n Note: If you mount multiple containers in a space to the same volume, they share the data in the volume and can access them anytime. When a container is deleted, the associated volume is not removed.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/create",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {
+        "name": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-a-file-share-in-a-space",
+      "name": "Create a file share in a space",
+      "description": "This endpoint creates a new file share in a space (corresponding IBM Containers command: `cf ic volume fs-create FSNAME FSSIZE FSIOPS`). \n\n A file share is a persistent NFS-based (Network File System) storage system that hosts Docker volumes in a Bluemix space and allows a user to store and access container and app-related files. To store files in a file share, you must create a container volume and save the data into this volume.\n\n As soon as you create your first volume in a space with the `cf ic volume create VOLNAME` command or the `POST /volumes/create` API endpoint, a default file share with 20 GB at 4 IOPS (Input Output operations Per Second) is created at no cost. \n\nThe organization manager can create file shares with specific storage size and IOPS to meet the storage needs of the space. File shares can be provisioned in sizes from 20 GB to 12 TB and at IOPS per GB of 0.25, 2 or 4. Run `cf ic volume fs-flavor-list` or call the `GET /volumes/fs/flavors/json` API endpoint to retrieve a list of available file share sizes. The file share size in relation to the number of IOPS impacts the speed that data can be read and written from and to the container volume.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/fs/create",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "fsName": "",
+        "fsSize": 0,
+        "fsIOPS": 0.0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-available-file-share-sizes",
+      "name": "List available file share sizes",
+      "description": "This endpoint returns a list of available file shares in gigabyte (corresponding IBM Containers command: `cf ic volume fs-flavor-list`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/fs/flavors/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-available-file-shares-in-a-space",
+      "name": "List available file shares in a space",
+      "description": "This endpoint returns a list of all file shares that are availble in a space (corresponding IBM Containers command: `cf ic volume fs-list`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/fs/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-a-file-share",
+      "name": "Delete a file share",
+      "description": "This endpoint deletes a file share from a space (corresponding IBM Containers command: `cf ic volume fs-rm FSNAME`).\n\n Before you can delete a file share, all mounted volumes must be deleted first. To delete a volume, run `cf ic volume rm VOLNAME` or call the `DELETE /volumes/{name}` API endpoint. \n\n **Note:** To delete a file share you must have been granted organization developer rights.",
+      "method": "DELETE",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/fs/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "inspect-a-file-share",
+      "name": "Inspect a file share",
+      "description": "This endpoint returns detailed information about a file share (corresponding IBM Containers command: `cf ic volume fs-inspect FSNAME`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/fs/{{NAME}}/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "list-all-volumes-for-a-space",
+      "name": "List all volumes for a space",
+      "description": "This endpoint returns a list of all volumes that are available in the given space (corresponding IBM Containers command: `cf ic volume list`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "share-a-volume-with-another-space",
+      "name": "Share a volume with another space",
+      "description": "This endpoint provisions an existing volume that was created in one space to another space within the same organization. Single containers and container groups in each space can read and write to the shared volume. The volume remains owned by the original space it was created in, including management and billing. For example, the volume can be deleted from the original space only.",
+      "method": "POST",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/{{NAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "addSpaces": [],
+        "removeSpaces": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "delete-a-volume",
+      "name": "Delete a volume",
+      "description": "Delete a volume with a given name from a space (corresponding IBM Containers command: `cf ic volume rm VOLNAME`). To delete a volume, all mounted containers must be unmounted first. After the volume is deleted, the data that are stored in the volume are lost. ",
+      "method": "DELETE",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/{{NAME}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "retrieve-detailed-information-about-a-volume",
+      "name": "Retrieve detailed information about a volume. ",
+      "description": "Retrieve a detailed list of information about a volume that is identified by the volume name (corresponding IBM Containers command: `cf ic volume inspect VOLNAME`).",
+      "method": "GET",
+      "url": "https://containers-api.ng.bluemix.net/v3/volumes/{{NAME}}/json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    }
+  ]
+}

@@ -1,0 +1,1336 @@
+{
+  "api_id": "ritc.io:1.0.0",
+  "endpoint_count": 65,
+  "endpoints": [
+    {
+      "id": "get-actions",
+      "name": "GET /actions",
+      "description": "List actions",
+      "method": "GET",
+      "url": "https://api.ritc.io/actions",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-actions",
+      "name": "POST /actions",
+      "description": "Create a new action",
+      "method": "POST",
+      "url": "https://api.ritc.io/actions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "channelId": 0,
+        "functionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-actions-action-id",
+      "name": "GET /actions/{action_id}",
+      "description": "Get an action",
+      "method": "GET",
+      "url": "https://api.ritc.io/actions/{{ACTION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{ACTION_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{ACTION_ID}} with a real action_id."
+    },
+    {
+      "id": "delete-actions-action-id",
+      "name": "DELETE /actions/{action_id}",
+      "description": "Delete an action",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/actions/{{ACTION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{ACTION_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{ACTION_ID}} with a real action_id."
+    },
+    {
+      "id": "patch-actions-action-id",
+      "name": "PATCH /actions/{action_id}",
+      "description": "Update information about a specific action",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/actions/{{ACTION_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "channelId": 0,
+        "functionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{ACTION_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{ACTION_ID}} with a real action_id."
+    },
+    {
+      "id": "get-admin",
+      "name": "GET /admin",
+      "description": "Ping the server",
+      "method": "GET",
+      "url": "https://api.ritc.io/admin",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-admin-log",
+      "name": "POST /admin/log",
+      "description": "Log a message",
+      "method": "POST",
+      "url": "https://api.ritc.io/admin/log",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-admin-ping",
+      "name": "GET /admin/ping",
+      "description": "Ping the server",
+      "method": "GET",
+      "url": "https://api.ritc.io/admin/ping",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-apps",
+      "name": "GET /apps",
+      "description": "Get apps information",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-apps",
+      "name": "POST /apps",
+      "description": "Create a new app",
+      "method": "POST",
+      "url": "https://api.ritc.io/apps",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "desc": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-apps-channels-users",
+      "name": "GET /apps/channels/users",
+      "description": "Get app channels",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/channels/users",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-apps-channels-channel-id-users",
+      "name": "GET /apps/channels/{channel_id}/users",
+      "description": "Get users of a specified channel",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/channels/{{CHANNEL_ID}}/users",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "get-apps-channels-channel-id-users-user-id",
+      "name": "GET /apps/channels/{channel_id}/users/{user_id}",
+      "description": "Get user of a specified channel",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/channels/{{CHANNEL_ID}}/users/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "post-apps-channels-channel-id-users-user-id",
+      "name": "POST /apps/channels/{channel_id}/users/{user_id}",
+      "description": "Create user channel",
+      "method": "POST",
+      "url": "https://api.ritc.io/apps/channels/{{CHANNEL_ID}}/users/{{USER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-apps-ext-api-credentials",
+      "name": "GET /apps/ext/api/credentials",
+      "description": "Get external credentials",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/ext/api/credentials",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-apps-ext-api-credentials",
+      "name": "POST /apps/ext/api/credentials",
+      "description": "Create new external credentials",
+      "method": "POST",
+      "url": "https://api.ritc.io/apps/ext/api/credentials",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "authType": "",
+        "channel_id": "",
+        "credentials": {},
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-apps-ext-api-credentials-channel-id",
+      "name": "GET /apps/ext/api/credentials/{channel_id}",
+      "description": "Get credentials for a channel in an app",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/ext/api/credentials/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "delete-apps-ext-api-credentials-channel-id",
+      "name": "DELETE /apps/ext/api/credentials/{channel_id}",
+      "description": "Delete credentials for a channel",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/apps/ext/api/credentials/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "patch-apps-ext-api-credentials-channel-id",
+      "name": "PATCH /apps/ext/api/credentials/{channel_id}",
+      "description": "Update credentials for a channel",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/apps/ext/api/credentials/{{CHANNEL_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "authType": "",
+        "channel_id": "",
+        "credentials": {},
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "post-apps-rulegroup-run-rule-id-list",
+      "name": "POST /apps/rulegroup/run/{rule_id_list}",
+      "description": "Run specified rule group in the app",
+      "method": "POST",
+      "url": "https://api.ritc.io/apps/rulegroup/run/{{RULE_ID_LIST}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID_LIST}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID_LIST}} with a real rule_id_list."
+    },
+    {
+      "id": "post-apps-rules-run",
+      "name": "POST /apps/rules/run",
+      "description": "Run active app rules",
+      "method": "POST",
+      "url": "https://api.ritc.io/apps/rules/run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-apps-app-id",
+      "name": "GET /apps/{app_id}",
+      "description": "Get app information",
+      "method": "GET",
+      "url": "https://api.ritc.io/apps/{{APP_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APP_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "delete-apps-app-id",
+      "name": "DELETE /apps/{app_id}",
+      "description": "Delete an app",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/apps/{{APP_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APP_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "patch-apps-app-id",
+      "name": "PATCH /apps/{app_id}",
+      "description": "Update an app",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/apps/{{APP_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "desc": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{APP_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "get-channels",
+      "name": "GET /channels",
+      "description": "Retrieve Channels",
+      "method": "GET",
+      "url": "https://api.ritc.io/channels",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-channels",
+      "name": "POST /channels",
+      "description": "Create a channel",
+      "method": "POST",
+      "url": "https://api.ritc.io/channels",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "functions": [],
+        "id": "",
+        "name": "",
+        "type": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-channels-anonymous",
+      "name": "GET /channels/anonymous",
+      "description": "Retrieve Channels anonymously",
+      "method": "GET",
+      "url": "https://api.ritc.io/channels/anonymous",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-channels-channel-id",
+      "name": "GET /channels/{channel_id}",
+      "description": "Get channel information",
+      "method": "GET",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "delete-channels-channel-id",
+      "name": "DELETE /channels/{channel_id}",
+      "description": "Delete a channel",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "patch-channels-channel-id",
+      "name": "PATCH /channels/{channel_id}",
+      "description": "Update a channel",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "actionIds": "",
+        "description": "",
+        "name": "",
+        "status": "",
+        "triggerIds": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "get-channels-channel-id-functions",
+      "name": "GET /channels/{channel_id}/functions",
+      "description": "Retrieve Channel Functions",
+      "method": "GET",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}/functions",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "post-channels-channel-id-functions",
+      "name": "POST /channels/{channel_id}/functions",
+      "description": "Create a channel function",
+      "method": "POST",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}/functions",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "apiType": "",
+        "desc": "",
+        "endpoint": "",
+        "httpMethod": "",
+        "name": "",
+        "requestParameters": [],
+        "responseFormat": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id."
+    },
+    {
+      "id": "get-channels-channel-id-functions-function-id",
+      "name": "GET /channels/{channel_id}/functions/{function_id}",
+      "description": "Get channel function information",
+      "method": "GET",
+      "url": "https://api.ritc.io/channels/{{CHANNEL_ID}}/functions/{{FUNCTION_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{FUNCTION_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{FUNCTION_ID}} with a real function_id."
+    },
+    {
+      "id": "post-orgs",
+      "name": "POST /orgs",
+      "description": "Create an org",
+      "method": "POST",
+      "url": "https://api.ritc.io/orgs",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-orgs-me",
+      "name": "GET /orgs/me",
+      "description": "Get org information",
+      "method": "GET",
+      "url": "https://api.ritc.io/orgs/me",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-rules",
+      "name": "GET /rules",
+      "description": "List rules",
+      "method": "GET",
+      "url": "https://api.ritc.io/rules",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-rules",
+      "name": "POST /rules",
+      "description": "Create a new rule",
+      "method": "POST",
+      "url": "https://api.ritc.io/rules",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "actionIds": "",
+        "description": "",
+        "name": "",
+        "status": "",
+        "triggerIds": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-rules-rule-id",
+      "name": "GET /rules/{rule_id}",
+      "description": "Get a rule",
+      "method": "GET",
+      "url": "https://api.ritc.io/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "delete-rules-rule-id",
+      "name": "DELETE /rules/{rule_id}",
+      "description": "Delete a rule",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "patch-rules-rule-id",
+      "name": "PATCH /rules/{rule_id}",
+      "description": "Update information about a specific rule",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/rules/{{RULE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "actionIds": "",
+        "description": "",
+        "name": "",
+        "status": "",
+        "triggerIds": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "post-rules-rule-id-run",
+      "name": "POST /rules/{rule_id}/run",
+      "description": "Run a rule",
+      "method": "POST",
+      "url": "https://api.ritc.io/rules/{{RULE_ID}}/run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {},
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "get-triggers",
+      "name": "GET /triggers",
+      "description": "Triggers in an app",
+      "method": "GET",
+      "url": "https://api.ritc.io/triggers",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-triggers",
+      "name": "POST /triggers",
+      "description": "Create a new trigger in an app",
+      "method": "POST",
+      "url": "https://api.ritc.io/triggers",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "channelId": 0,
+        "functionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-triggers-trigger-id",
+      "name": "GET /triggers/{trigger_id}",
+      "description": "Get a trigger",
+      "method": "GET",
+      "url": "https://api.ritc.io/triggers/{{TRIGGER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{TRIGGER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{TRIGGER_ID}} with a real trigger_id."
+    },
+    {
+      "id": "delete-triggers-trigger-id",
+      "name": "DELETE /triggers/{trigger_id}",
+      "description": "Delete a trigger",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/triggers/{{TRIGGER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{TRIGGER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{TRIGGER_ID}} with a real trigger_id."
+    },
+    {
+      "id": "patch-triggers-trigger-id",
+      "name": "PATCH /triggers/{trigger_id}",
+      "description": "Update a trigger",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/triggers/{{TRIGGER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "channelId": 0,
+        "functionId": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{TRIGGER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{TRIGGER_ID}} with a real trigger_id."
+    },
+    {
+      "id": "get-users",
+      "name": "GET /users",
+      "description": "Users",
+      "method": "GET",
+      "url": "https://api.ritc.io/users",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-users",
+      "name": "POST /users",
+      "description": "Create a new App User",
+      "method": "POST",
+      "url": "https://api.ritc.io/users",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "config": {},
+        "name": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-users-admin",
+      "name": "GET /users/admin",
+      "description": "Admin users",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/admin",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "post-users-admin",
+      "name": "POST /users/admin",
+      "description": "Create a new admin user",
+      "method": "POST",
+      "url": "https://api.ritc.io/users/admin",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "password": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY."
+    },
+    {
+      "id": "get-users-admin-user-id",
+      "name": "GET /users/admin/{user_id}",
+      "description": "Get an admin user",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/admin/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "delete-users-admin-user-id",
+      "name": "DELETE /users/admin/{user_id}",
+      "description": "Remove an admin user",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/users/admin/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "patch-users-admin-user-id",
+      "name": "PATCH /users/admin/{user_id}",
+      "description": "Update information about an admin user",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/users/admin/{{USER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "password": "",
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "post-users-authenticate-user-id-channel-channel-id",
+      "name": "POST /users/authenticate/{user_id}/channel/{channel_id}",
+      "description": "Authenticate a user for a channel",
+      "method": "POST",
+      "url": "https://api.ritc.io/users/authenticate/{{USER_ID}}/channel/{{CHANNEL_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-users-user-id",
+      "name": "GET /users/{user_id}",
+      "description": "Get an App User",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "delete-users-user-id",
+      "name": "DELETE /users/{user_id}",
+      "description": "Remove a user",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/users/{{USER_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "patch-users-user-id",
+      "name": "PATCH /users/{user_id}",
+      "description": "Update information about an App User",
+      "method": "PATCH",
+      "url": "https://api.ritc.io/users/{{USER_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "config": {},
+        "name": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-users-user-id-channels",
+      "name": "GET /users/{user_id}/channels",
+      "description": "Channels available to a User",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/channels",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-users-user-id-channels-channel-id",
+      "name": "GET /users/{user_id}/channels/{channel_id}",
+      "description": "Get a user channel",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/channels/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "delete-users-user-id-channels-channel-id",
+      "name": "DELETE /users/{user_id}/channels/{channel_id}",
+      "description": "Remove a user channel assignment",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/channels/{{CHANNEL_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{CHANNEL_ID}}",
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{CHANNEL_ID}} with a real channel_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-users-user-id-rules",
+      "name": "GET /users/{user_id}/rules",
+      "description": "Rules for a User",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/rules",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "get-users-user-id-rules-rule-id",
+      "name": "GET /users/{user_id}/rules/{rule_id}",
+      "description": "Get a user",
+      "method": "GET",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "post-users-user-id-rules-rule-id",
+      "name": "POST /users/{user_id}/rules/{rule_id}",
+      "description": "Assign a user to a rule",
+      "method": "POST",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/rules/{{RULE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "delete-users-user-id-rules-rule-id",
+      "name": "DELETE /users/{user_id}/rules/{rule_id}",
+      "description": "Remove a rule user",
+      "method": "DELETE",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id. Replace {{USER_ID}} with a real user_id."
+    },
+    {
+      "id": "post-users-user-id-rules-rule-id-run",
+      "name": "POST /users/{user_id}/rules/{rule_id}/run",
+      "description": "Run rule for a user",
+      "method": "POST",
+      "url": "https://api.ritc.io/users/{{USER_ID}}/rules/{{RULE_ID}}/run",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{RITC_IO_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{RITC_API_KEY}}",
+        "{{RULE_ID}}",
+        "{{USER_ID}}",
+        "{{RITC_IO_API_KEY}}"
+      ],
+      "notes": "Replace {{RITC_API_KEY}} with your RITC API KEY. Replace {{RULE_ID}} with a real rule_id. Replace {{USER_ID}} with a real user_id."
+    }
+  ]
+}

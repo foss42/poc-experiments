@@ -1,0 +1,1408 @@
+{
+  "api_id": "discourse.local:latest",
+  "endpoint_count": 84,
+  "endpoints": [
+    {
+      "id": "list-backups",
+      "name": "List backups",
+      "description": "List backups",
+      "method": "GET",
+      "url": "http://discourse.local/admin/backups.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-backup",
+      "name": "Create backup",
+      "description": "Create backup",
+      "method": "POST",
+      "url": "http://discourse.local/admin/backups.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "with_uploads": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "download-backup",
+      "name": "Download backup",
+      "description": "Download backup",
+      "method": "GET",
+      "url": "http://discourse.local/admin/backups/{{FILENAME}}",
+      "headers": {},
+      "query_params": {
+        "token": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "send-download-backup-email",
+      "name": "Send download backup email",
+      "description": "Send download backup email",
+      "method": "PUT",
+      "url": "http://discourse.local/admin/backups/{{FILENAME}}",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FILENAME}}"
+      ],
+      "notes": "No authentication required. Replace {{FILENAME}} with a real filename."
+    },
+    {
+      "id": "list-badges",
+      "name": "List badges",
+      "description": "List badges",
+      "method": "GET",
+      "url": "http://discourse.local/admin/badges.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "create-badge",
+      "name": "Create badge",
+      "description": "Create badge",
+      "method": "POST",
+      "url": "http://discourse.local/admin/badges.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "badge_type_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-badge",
+      "name": "Update badge",
+      "description": "Update badge",
+      "method": "PUT",
+      "url": "http://discourse.local/admin/badges/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "badge_type_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-badge",
+      "name": "Delete badge",
+      "description": "Delete badge",
+      "method": "DELETE",
+      "url": "http://discourse.local/admin/badges/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-a-group",
+      "name": "Create a group",
+      "description": "Create a group",
+      "method": "POST",
+      "url": "http://discourse.local/admin/groups.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "group": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "delete-a-group",
+      "name": "Delete a group",
+      "description": "Delete a group",
+      "method": "DELETE",
+      "url": "http://discourse.local/admin/groups/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-users",
+      "name": "Get a list of users",
+      "description": "Get a list of users",
+      "method": "GET",
+      "url": "http://discourse.local/admin/users/list/{{FLAG}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FLAG}}"
+      ],
+      "notes": "No authentication required. Replace {{FLAG}} with a real flag."
+    },
+    {
+      "id": "get-a-user-by-id",
+      "name": "Get a user by id",
+      "description": "Get a user by id",
+      "method": "GET",
+      "url": "http://discourse.local/admin/users/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-user",
+      "name": "Delete a user",
+      "description": "Delete a user",
+      "method": "DELETE",
+      "url": "http://discourse.local/admin/users/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "anonymize-a-user",
+      "name": "Anonymize a user",
+      "description": "Anonymize a user",
+      "method": "PUT",
+      "url": "http://discourse.local/admin/users/{{ID}}/anonymize.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "log-a-user-out",
+      "name": "Log a user out",
+      "description": "Log a user out",
+      "method": "POST",
+      "url": "http://discourse.local/admin/users/{{ID}}/log_out.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "silence-a-user",
+      "name": "Silence a user",
+      "description": "Silence a user",
+      "method": "PUT",
+      "url": "http://discourse.local/admin/users/{{ID}}/silence.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "message": "",
+        "post_action": "",
+        "reason": "",
+        "silenced_till": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "suspend-a-user",
+      "name": "Suspend a user",
+      "description": "Suspend a user",
+      "method": "PUT",
+      "url": "http://discourse.local/admin/users/{{ID}}/suspend.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "suspend_until": "",
+        "reason": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "show-category",
+      "name": "Show category",
+      "description": "Show category",
+      "method": "GET",
+      "url": "http://discourse.local/c/{{ID}}/show.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-topics",
+      "name": "List topics",
+      "description": "List topics",
+      "method": "GET",
+      "url": "http://discourse.local/c/{{SLUG}}/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{SLUG}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id. Replace {{SLUG}} with a real slug."
+    },
+    {
+      "id": "retrieves-a-list-of-categories",
+      "name": "Retrieves a list of categories",
+      "description": "Retrieves a list of categories",
+      "method": "GET",
+      "url": "http://discourse.local/categories.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "creates-a-category",
+      "name": "Creates a category",
+      "description": "Creates a category",
+      "method": "POST",
+      "url": "http://discourse.local/categories.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "updates-a-category",
+      "name": "Updates a category",
+      "description": "Updates a category",
+      "method": "PUT",
+      "url": "http://discourse.local/categories/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-public-list-of-users",
+      "name": "Get a public list of users",
+      "description": "Get a public list of users",
+      "method": "GET",
+      "url": "http://discourse.local/directory_items.json",
+      "headers": {},
+      "query_params": {
+        "period": "",
+        "order": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-groups",
+      "name": "List groups",
+      "description": "List groups",
+      "method": "GET",
+      "url": "http://discourse.local/groups.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-group",
+      "name": "Get a group",
+      "description": "Get a group",
+      "method": "GET",
+      "url": "http://discourse.local/groups/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-group",
+      "name": "Update a group",
+      "description": "Update a group",
+      "method": "PUT",
+      "url": "http://discourse.local/groups/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "group": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-group-members",
+      "name": "List group members",
+      "description": "List group members",
+      "method": "GET",
+      "url": "http://discourse.local/groups/{{ID}}/members.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "add-group-members",
+      "name": "Add group members",
+      "description": "Add group members",
+      "method": "PUT",
+      "url": "http://discourse.local/groups/{{ID}}/members.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "usernames": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-group-members",
+      "name": "Remove group members",
+      "description": "Remove group members",
+      "method": "DELETE",
+      "url": "http://discourse.local/groups/{{ID}}/members.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-an-invite",
+      "name": "Create an invite",
+      "description": "Create an invite",
+      "method": "POST",
+      "url": "http://discourse.local/invites.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "custom_message": "",
+        "email": "",
+        "expires_at": "",
+        "group_id": 0,
+        "group_names": "",
+        "max_redemptions_allowed": 1,
+        "skip_email": false,
+        "topic_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-latest-topics",
+      "name": "Get the latest topics",
+      "description": "Get the latest topics",
+      "method": "GET",
+      "url": "http://discourse.local/latest.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-notifications-that-belong-to-the-current-user",
+      "name": "Get the notifications that belong to the current user",
+      "description": "Get the notifications that belong to the current user",
+      "method": "GET",
+      "url": "http://discourse.local/notifications.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "mark-notifications-as-read",
+      "name": "Mark notifications as read",
+      "description": "Mark notifications as read",
+      "method": "PUT",
+      "url": "http://discourse.local/notifications/mark-read.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "like-a-post-and-other-actions",
+      "name": "Like a post and other actions",
+      "description": "Like a post and other actions",
+      "method": "POST",
+      "url": "http://discourse.local/post_actions.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "id": 0,
+        "post_action_type_id": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-latest-posts-across-topics",
+      "name": "List latest posts across topics",
+      "description": "List latest posts across topics",
+      "method": "GET",
+      "url": "http://discourse.local/posts.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "creates-a-new-topic-a-new-post-or-a-private-message",
+      "name": "Creates a new topic, a new post, or a private message",
+      "description": "Creates a new topic, a new post, or a private message",
+      "method": "POST",
+      "url": "http://discourse.local/posts.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "raw": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "retrieve-a-single-post",
+      "name": "Retrieve a single post",
+      "description": "Retrieve a single post",
+      "method": "GET",
+      "url": "http://discourse.local/posts/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-a-single-post",
+      "name": "Update a single post",
+      "description": "Update a single post",
+      "method": "PUT",
+      "url": "http://discourse.local/posts/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "post": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "delete-a-single-post",
+      "name": "delete a single post",
+      "description": "delete a single post",
+      "method": "DELETE",
+      "url": "http://discourse.local/posts/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "lock-a-post-from-being-edited",
+      "name": "Lock a post from being edited",
+      "description": "Lock a post from being edited",
+      "method": "PUT",
+      "url": "http://discourse.local/posts/{{ID}}/locked.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "locked": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "list-replies-to-a-post",
+      "name": "List replies to a post",
+      "description": "List replies to a post",
+      "method": "GET",
+      "url": "http://discourse.local/posts/{{ID}}/replies.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "search-for-a-term",
+      "name": "Search for a term",
+      "description": "Search for a term",
+      "method": "GET",
+      "url": "http://discourse.local/search.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "send-password-reset-email",
+      "name": "Send password reset email",
+      "description": "Send password reset email",
+      "method": "POST",
+      "url": "http://discourse.local/session/forgot_password.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "login": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-site-info",
+      "name": "Get site info",
+      "description": "Can be used to fetch all categories and subcategories",
+      "method": "GET",
+      "url": "http://discourse.local/site.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "update-a-topic",
+      "name": "Update a topic",
+      "description": "Update a topic",
+      "method": "PUT",
+      "url": "http://discourse.local/t/-/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "topic": {}
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-topic-by-external-id",
+      "name": "Get topic by external_id",
+      "description": "Get topic by external_id",
+      "method": "GET",
+      "url": "http://discourse.local/t/external_id/{{EXTERNAL_ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EXTERNAL_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "get-a-single-topic",
+      "name": "Get a single topic",
+      "description": "Get a single topic",
+      "method": "GET",
+      "url": "http://discourse.local/t/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "remove-a-topic",
+      "name": "Remove a topic",
+      "description": "Remove a topic",
+      "method": "DELETE",
+      "url": "http://discourse.local/t/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "bookmark-topic",
+      "name": "Bookmark topic",
+      "description": "Bookmark topic",
+      "method": "PUT",
+      "url": "http://discourse.local/t/{{ID}}/bookmark.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-topic-timestamp",
+      "name": "Update topic timestamp",
+      "description": "Update topic timestamp",
+      "method": "PUT",
+      "url": "http://discourse.local/t/{{ID}}/change-timestamp.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "timestamp": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "invite-to-topic",
+      "name": "Invite to topic",
+      "description": "Invite to topic",
+      "method": "POST",
+      "url": "http://discourse.local/t/{{ID}}/invite.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "user": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "set-notification-level",
+      "name": "Set notification level",
+      "description": "Set notification level",
+      "method": "POST",
+      "url": "http://discourse.local/t/{{ID}}/notifications.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "notification_level": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-specific-posts-from-a-topic",
+      "name": "Get specific posts from a topic",
+      "description": "Get specific posts from a topic",
+      "method": "GET",
+      "url": "http://discourse.local/t/{{ID}}/posts.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-the-status-of-a-topic",
+      "name": "Update the status of a topic",
+      "description": "Update the status of a topic",
+      "method": "PUT",
+      "url": "http://discourse.local/t/{{ID}}/status.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "status": "",
+        "enabled": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "create-topic-timer",
+      "name": "Create topic timer",
+      "description": "Create topic timer",
+      "method": "POST",
+      "url": "http://discourse.local/t/{{ID}}/timer.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "based_on_last_post": false,
+        "category_id": 0,
+        "status_type": "",
+        "time": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-specific-tag",
+      "name": "Get a specific tag",
+      "description": "Get a specific tag",
+      "method": "GET",
+      "url": "http://discourse.local/tag/{{NAME}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{NAME}}"
+      ],
+      "notes": "No authentication required. Replace {{NAME}} with a real name."
+    },
+    {
+      "id": "get-a-list-of-tag-groups",
+      "name": "Get a list of tag groups",
+      "description": "Get a list of tag groups",
+      "method": "GET",
+      "url": "http://discourse.local/tag_groups.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "creates-a-tag-group",
+      "name": "Creates a tag group",
+      "description": "Creates a tag group",
+      "method": "POST",
+      "url": "http://discourse.local/tag_groups.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-single-tag-group",
+      "name": "Get a single tag group",
+      "description": "Get a single tag group",
+      "method": "GET",
+      "url": "http://discourse.local/tag_groups/{{ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "update-tag-group",
+      "name": "Update tag group",
+      "description": "Update tag group",
+      "method": "PUT",
+      "url": "http://discourse.local/tag_groups/{{ID}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}"
+      ],
+      "notes": "No authentication required. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-a-list-of-tags",
+      "name": "Get a list of tags",
+      "description": "Get a list of tags",
+      "method": "GET",
+      "url": "http://discourse.local/tags.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-the-top-topics-filtered-by-period",
+      "name": "Get the top topics filtered by period",
+      "description": "Get the top topics filtered by period",
+      "method": "GET",
+      "url": "http://discourse.local/top.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "get-a-list-of-private-messages-sent-for-a-user",
+      "name": "Get a list of private messages sent for a user",
+      "description": "Get a list of private messages sent for a user",
+      "method": "GET",
+      "url": "http://discourse.local/topics/private-messages-sent/{{USERNAME}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-a-list-of-private-messages-for-a-user",
+      "name": "Get a list of private messages for a user",
+      "description": "Get a list of private messages for a user",
+      "method": "GET",
+      "url": "http://discourse.local/topics/private-messages/{{USERNAME}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-a-user-by-external-id",
+      "name": "Get a user by external_id",
+      "description": "Get a user by external_id",
+      "method": "GET",
+      "url": "http://discourse.local/u/by-external/{{EXTERNAL_ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{EXTERNAL_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "get-a-user-by-identity-provider-external-id",
+      "name": "Get a user by identity provider external ID",
+      "description": "Get a user by identity provider external ID",
+      "method": "GET",
+      "url": "http://discourse.local/u/by-external/{{PROVIDER}}/{{EXTERNAL_ID}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{PROVIDER}}",
+        "{{EXTERNAL_ID}}"
+      ],
+      "notes": "No authentication required. Replace {{PROVIDER}} with a real provider. Replace {{EXTERNAL_ID}} with a real external_id."
+    },
+    {
+      "id": "get-a-single-user-by-username",
+      "name": "Get a single user by username",
+      "description": "Get a single user by username",
+      "method": "GET",
+      "url": "http://discourse.local/u/{{USERNAME}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-a-user",
+      "name": "Update a user",
+      "description": "Update a user",
+      "method": "PUT",
+      "url": "http://discourse.local/u/{{USERNAME}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "email": "",
+        "external_ids": {},
+        "name": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-email-addresses-belonging-to-a-user",
+      "name": "Get email addresses belonging to a user",
+      "description": "Get email addresses belonging to a user",
+      "method": "GET",
+      "url": "http://discourse.local/u/{{USERNAME}}/emails.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-avatar",
+      "name": "Update avatar",
+      "description": "Update avatar",
+      "method": "PUT",
+      "url": "http://discourse.local/u/{{USERNAME}}/preferences/avatar/pick.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "upload_id": 0,
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-email",
+      "name": "Update email",
+      "description": "Update email",
+      "method": "PUT",
+      "url": "http://discourse.local/u/{{USERNAME}}/preferences/email.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "email": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-username",
+      "name": "Update username",
+      "description": "Update username",
+      "method": "PUT",
+      "url": "http://discourse.local/u/{{USERNAME}}/preferences/username.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "new_username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "creates-an-upload",
+      "name": "Creates an upload",
+      "description": "Creates an upload",
+      "method": "POST",
+      "url": "http://discourse.local/uploads.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "abort-multipart-upload",
+      "name": "Abort multipart upload",
+      "description": "This endpoint aborts the multipart upload initiated with /create-multipart.\nThis should be used when cancelling the upload. It does not matter if parts\nwere already uploaded into the external storage provider.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/abort-multipart.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "external_upload_identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "generates-batches-of-presigned-urls-for-multipart-parts",
+      "name": "Generates batches of presigned URLs for multipart parts",
+      "description": "Multipart uploads are uploaded in chunks or parts to individual presigned\nURLs, similar to the one generated by /generate-presigned-put. The part\nnumbers provided must be between 1 and 10000. The total number of parts\nwill depend on the chunk size in bytes that you intend to use to upload\neach chunk. For example a 12MB file may have 2 5MB chunks and a final\n2MB chunk, for part numbers 1, 2, and 3.\n\nThis endpoint will return a presigned URL for each part number provided,\nwhich you can then use to send PUT requests for the binary chunk corresponding\nto that part. When the part is uploaded, the provider should return an\nETag for the part, and this should be stored along with the part number,\nbecause this is needed to complete the multipart upload.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/batch-presign-multipart-parts.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "part_numbers": [],
+        "unique_identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "completes-a-direct-external-upload",
+      "name": "Completes a direct external upload",
+      "description": "Completes an external upload initialized with /get-presigned-put. The\nfile will be moved from its temporary location in external storage to\na final destination in the S3 bucket. An Upload record will also be\ncreated in the database in most cases.\n\nIf a sha1-checksum was provided in the initial request it will also\nbe compared with the uploaded file in storage to make sure the same\nfile was uploaded. The file size will be compared for the same reason.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/complete-external-upload.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "unique_identifier": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "complete-multipart-upload",
+      "name": "Complete multipart upload",
+      "description": "Completes the multipart upload in the external store, and copies the\nfile from its temporary location to its final location in the store.\nAll of the parts must have been uploaded to the external storage provider.\nAn Upload record will be completed in most cases once the file is copied\nto its final location.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/complete-multipart.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "unique_identifier": "",
+        "parts": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "creates-a-multipart-external-upload",
+      "name": "Creates a multipart external upload",
+      "description": "Creates a multipart upload in the external storage provider, storing\na temporary reference to the external upload similar to /get-presigned-put.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/create-multipart.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "upload_type": "",
+        "file_name": "",
+        "file_size": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "initiates-a-direct-external-upload",
+      "name": "Initiates a direct external upload",
+      "description": "Direct external uploads bypass the usual method of creating uploads\nvia the POST /uploads route, and upload directly to an external provider,\nwhich by default is S3. This route begins the process, and will return\na unique identifier for the external upload as well as a presigned URL\nwhich is where the file binary blob should be uploaded to.\n\nOnce the upload is complete to the external service, you must call the\nPOST /complete-external-upload route using the unique identifier returned\nby this route, which will create any required Upload record in the Discourse\ndatabase and also move file from its temporary location to the final\ndestination in the external storage service.\n\nYou must have the correct permissions and CORS settings configured in your\nexternal provider. We support AWS S3 as the default. See:\n\nhttps://meta.discourse.org/t/-/210469#s3-multipart-direct-uploads-4.\n\nAn external file store must be set up and `enable_direct_s3_uploads` must\nbe set to true for this endpoint to function.\n\n",
+      "method": "POST",
+      "url": "http://discourse.local/uploads/generate-presigned-put.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "type": "",
+        "file_name": "",
+        "file_size": 0
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "list-badges-for-a-user",
+      "name": "List badges for a user",
+      "description": "List badges for a user",
+      "method": "GET",
+      "url": "http://discourse.local/user-badges/{{USERNAME}}.json",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-a-list-of-user-actions",
+      "name": "Get a list of user actions",
+      "description": "Get a list of user actions",
+      "method": "GET",
+      "url": "http://discourse.local/user_actions.json",
+      "headers": {},
+      "query_params": {
+        "offset": "",
+        "username": "",
+        "filter": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "refresh-gravatar",
+      "name": "Refresh gravatar",
+      "description": "Refresh gravatar",
+      "method": "POST",
+      "url": "http://discourse.local/user_avatar/{{USERNAME}}/refresh_gravatar.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}"
+      ],
+      "notes": "No authentication required. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "creates-a-user",
+      "name": "Creates a user",
+      "description": "Creates a user",
+      "method": "POST",
+      "url": "http://discourse.local/users.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "email": "",
+        "password": "",
+        "username": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [],
+      "notes": "No authentication required."
+    },
+    {
+      "id": "change-password",
+      "name": "Change password",
+      "description": "Change password",
+      "method": "PUT",
+      "url": "http://discourse.local/users/password-reset/{{TOKEN}}.json",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "query_params": {},
+      "body": {
+        "username": "",
+        "password": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TOKEN}}"
+      ],
+      "notes": "No authentication required. Replace {{TOKEN}} with a real token."
+    }
+  ]
+}

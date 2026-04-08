@@ -1,0 +1,84 @@
+{
+  "api_id": "parliament.uk:commonsvotes:v1",
+  "endpoint_count": 5,
+  "endpoints": [
+    {
+      "id": "return-a-division",
+      "name": "Return a Division",
+      "description": "Single Division which has the specified Id",
+      "method": "GET",
+      "url": "http://commonsvotes-api.parliament.uk/data/division/{{DIVISIONID}}.{{FORMAT}}",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DIVISIONID}}",
+        "{{FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{DIVISIONID}} with a real divisionid. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "return-divisions-results-grouped-by-party",
+      "name": "Return Divisions results grouped by party",
+      "description": "Division results which meet the specified criteria grouped by parties",
+      "method": "GET",
+      "url": "http://commonsvotes-api.parliament.uk/data/divisions.{{FORMAT}}/groupedbyparty",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "return-voting-records-for-a-member",
+      "name": "Return voting records for a Member",
+      "description": "List of voting records for a member which meet the specified criteria.",
+      "method": "GET",
+      "url": "http://commonsvotes-api.parliament.uk/data/divisions.{{FORMAT}}/membervoting",
+      "headers": {},
+      "query_params": {
+        "queryParameters.memberId": ""
+      },
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "return-a-list-of-divisions",
+      "name": "Return a list of Divisions",
+      "description": "List of Divisions which meet the specified criteria",
+      "method": "GET",
+      "url": "http://commonsvotes-api.parliament.uk/data/divisions.{{FORMAT}}/search",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{FORMAT}} with a real format."
+    },
+    {
+      "id": "return-total-results-count",
+      "name": "Return total results count",
+      "description": "Total count of Divisions meeting the specified criteria",
+      "method": "GET",
+      "url": "http://commonsvotes-api.parliament.uk/data/divisions.{{FORMAT}}/searchTotalResults",
+      "headers": {},
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FORMAT}}"
+      ],
+      "notes": "No authentication required. Replace {{FORMAT}} with a real format."
+    }
+  ]
+}
