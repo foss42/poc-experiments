@@ -4,10 +4,13 @@
  * - Data / Context / Runtime inspect tabs
  * - Live bridge registration by widget session
  */
+/* eslint-disable react/prop-types */
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { buildCspString, buildOpenaiCompatScript, buildIframeSrcdoc } from './iframeUtils.js';
 import { JsonView } from './JsonView.jsx';
 import { formatModelContextDisplay, formatToolDisplay } from '../../../utils/toolDisplay.js';
+
+const MAX_IFRAME_HEIGHT = 800;
 
 const STATUS_LABELS = {
   resource_loading: 'Loading Resource',
@@ -79,21 +82,27 @@ export function ChatWidget({ session, registerWidget, unregisterWidget }) {
     const fitHeight = () => {
       try {
         const root = iframe.contentDocument?.documentElement;
-        if (!root) return;
-        let targetHeight = root.scrollHeight;
+        const body = iframe.contentDocument?.body;
+        if (!root || !body) return;
+        let targetHeight = Math.max(body.scrollHeight, root.clientHeight);
 
         const width = iframe.offsetWidth;
-        const hasCharts = iframe.contentDocument.querySelector('canvas, svg');
+        const hasCharts = iframe.contentDocument.querySelector('canvas');
+        const hasSvg = iframe.contentDocument.querySelector('svg');
         const isPdfViewer = iframe.contentDocument.querySelector('#viewer, #canvasContainer');
 
         if (isPdfViewer) {
-          targetHeight = Math.max(targetHeight, width * 1.3);
+          targetHeight = Math.max(targetHeight, Math.min(width * 1.3, MAX_IFRAME_HEIGHT));
         } else if (hasCharts) {
-          targetHeight = Math.max(targetHeight, width * 1.1);
+          targetHeight = Math.max(targetHeight, Math.min(width * 0.7, 600));
+        } else if (hasSvg) {
+          // Measured height is sufficient for inline SVG content.
         }
 
+        targetHeight = Math.min(targetHeight + 10, MAX_IFRAME_HEIGHT);
+
         if (targetHeight > 0) {
-          iframe.style.height = `${targetHeight + 10}px`;
+          iframe.style.height = `${targetHeight}px`;
         }
       } catch {
         // cross-origin guard
@@ -164,8 +173,8 @@ export function ChatWidget({ session, registerWidget, unregisterWidget }) {
   ]);
 
   return (
-    <div className="w-full mt-3 flex flex-col">
-      <div className="bg-white rounded-xl border border-neutral-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] overflow-hidden w-full">
+    <div className="w-full mt-3 flex flex-col animate-fade-in">
+      <div className="w-full overflow-hidden rounded-xl border border-neutral-200/70 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
         <div className="h-10 px-4 bg-neutral-50/80 border-b border-neutral-200/80 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-neutral-400">
@@ -321,7 +330,7 @@ export function ChatWidget({ session, registerWidget, unregisterWidget }) {
           ) : (
             <>
               {session.status !== 'ready' && (
-                <div className="px-4 py-2 text-[11px] font-mono border-b border-neutral-200/80 bg-neutral-50 text-neutral-600">
+                <div className="border-b border-neutral-200 bg-neutral-100/90 px-4 py-2 text-[11px] font-mono text-neutral-700">
                   Runtime state: {formatStatus(session.status)}
                 </div>
               )}
@@ -329,7 +338,7 @@ export function ChatWidget({ session, registerWidget, unregisterWidget }) {
                 ref={iframeRef}
                 srcDoc={srcdoc}
                 sandbox="allow-scripts allow-forms allow-popups allow-downloads allow-modals allow-same-origin"
-                className="w-full border-0 bg-white"
+                className="w-full border-0"
               />
             </>
           )}

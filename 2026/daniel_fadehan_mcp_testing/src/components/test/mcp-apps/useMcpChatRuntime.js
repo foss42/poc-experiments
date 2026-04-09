@@ -317,6 +317,79 @@ function applyAssistantStreamPart(messages, assistantMessageId, part) {
   }
 }
 
+async function maybeCreateWidgetSessionFromToolResult({
+  appendWidgetEvent,
+  createWidgetSession,
+  fetchWidgetResource,
+  setWidgetStatus,
+  setMessages,
+  updateWidgetSession,
+  assistantMessageId,
+  callId,
+  toolName,
+  args,
+  toolResult,
+  tools,
+  supportsWidgets,
+  source,
+  traceId,
+  startedAt,
+  completionMessage,
+}) {
+  const toolDef = tools.find((tool) => tool.name === toolName);
+  const resourceUri = getWidgetResourceUri(toolResult, toolDef, supportsWidgets);
+  if (!resourceUri) return null;
+
+  const completedAt = new Date().toISOString();
+  const widgetId = createWidgetSession({
+    traceId,
+    toolName,
+    resourceUri,
+    invocationArgs: args,
+    toolResult,
+    source,
+    status: 'resource_loading',
+  });
+
+  appendWidgetEvent(widgetId, {
+    kind: 'tool-origin',
+    source,
+    message: completionMessage,
+    data: {
+      traceId,
+      startedAt,
+      completedAt,
+    },
+  });
+
+  setMessages((prev) => appendAssistantWidgetPart(prev, assistantMessageId, callId, widgetId));
+
+  try {
+    const resource = await fetchWidgetResource(resourceUri);
+    if (resource?.text) {
+      updateWidgetSession(widgetId, {
+        html: resource.text,
+        resourceMeta: resource._meta || null,
+      });
+      setWidgetStatus(widgetId, 'iframe_initializing');
+      appendWidgetEvent(widgetId, {
+        kind: 'resource-ready',
+        source: 'host',
+        message: 'UI resource loaded and ready for iframe initialization',
+        data: { resourceUri },
+      });
+    } else {
+      setWidgetStatus(widgetId, 'error', {
+        lastError: 'UI resource was empty or unavailable',
+      });
+    }
+  } catch (error) {
+    setWidgetStatus(widgetId, 'error', { lastError: error.message });
+  }
+
+  return widgetId;
+}
+
 export function useMcpChatRuntime({
   tools,
   serverInfo,
@@ -591,56 +664,25 @@ export function useMcpChatRuntime({
             return;
           }
 
-          const toolDef = tools.find((tool) => tool.name === name);
-          const resourceUri = getWidgetResourceUri(toolResult, toolDef, transport.supportsWidgets);
-
-          if (resourceUri) {
-            const widgetId = createWidgetSession({
-              traceId: toolTrace.traceId,
-              toolName: name,
-              resourceUri,
-              invocationArgs: args,
-              toolResult,
-              source: testMode === 'builder' ? 'builder' : 'model',
-              status: 'resource_loading',
-            });
-
-            appendWidgetEvent(widgetId, {
-              kind: 'tool-origin',
-              source: testMode === 'builder' ? 'builder' : 'model',
-              message: `Model completed ${name}`,
-              data: {
-                traceId: toolTrace.traceId,
-                startedAt: toolTrace.startedAt,
-                completedAt: new Date().toISOString(),
-              },
-            });
-
-            setMessages((prev) => appendAssistantWidgetPart(prev, assistantMessageId, callId, widgetId));
-
-            try {
-              const resource = await fetchWidgetResource(resourceUri);
-              if (resource?.text) {
-                updateWidgetSession(widgetId, {
-                  html: resource.text,
-                  resourceMeta: resource._meta || null,
-                });
-                setWidgetStatus(widgetId, 'iframe_initializing');
-                appendWidgetEvent(widgetId, {
-                  kind: 'resource-ready',
-                  source: 'host',
-                  message: 'UI resource loaded and ready for iframe initialization',
-                  data: { resourceUri },
-                });
-              } else {
-                setWidgetStatus(widgetId, 'error', {
-                  lastError: 'UI resource was empty or unavailable',
-                });
-              }
-            } catch (error) {
-              setWidgetStatus(widgetId, 'error', { lastError: error.message });
-            }
-          }
+          await maybeCreateWidgetSessionFromToolResult({
+            appendWidgetEvent,
+            createWidgetSession,
+            fetchWidgetResource,
+            setWidgetStatus,
+            setMessages,
+            updateWidgetSession,
+            assistantMessageId,
+            callId,
+            toolName: name,
+            args,
+            toolResult,
+            tools,
+            supportsWidgets: transport.supportsWidgets,
+            source: testMode === 'builder' ? 'builder' : 'model',
+            traceId: toolTrace.traceId,
+            startedAt: toolTrace.startedAt,
+            completionMessage: `Model completed ${name}`,
+          });
 
           toolTraceRef.current.delete(callId);
         },
@@ -709,6 +751,143 @@ export function useMcpChatRuntime({
     updateWidgetSession,
   ]);
 
+  const executeDirectTool = useCallback(async (toolName, args = {}) => {
+    if (!transport) return false;
+
+    const assistantMessageId = createRuntimeId('assistant');
+    const callId = createRuntimeId('direct-tool');
+    const traceId = createRuntimeId('trace');
+    const startedAt = new Date().toISOString();
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: createRuntimeId('user'),
+        role: 'user',
+        content: `Direct run: ${toolName}`,
+        isDirectRun: true,
+        isHidden: true,
+      },
+      createAssistantMessage({
+        id: assistantMessageId,
+        isDirectRun: true,
+        parts: [
+          createToolPart({
+            callId,
+            toolName,
+            args,
+            status: 'running',
+            summary: `Running ${toolName}.`,
+          }),
+        ],
+      }),
+    ]);
+
+    addLog({
+      dir: '->',
+      type: `tools/call: ${toolName}`,
+      source: 'direct-run',
+    });
+
+    try {
+      const toolResult = await transport.callTool(toolName, args);
+      const outcome = classifyToolOutcome(toolResult);
+      const outcomeMessage = outcome.ok ? null : getToolErrorMessage(toolResult);
+
+      addLog({
+        dir: outcome.ok ? '<-' : '!',
+        type: outcome.ok
+          ? `tools/result: ${toolName}`
+          : `tools/error: ${toolName}${outcomeMessage ? ` (${outcomeMessage})` : ''}`,
+        source: 'direct-run',
+        status: outcome.ok ? 'success' : 'error',
+      });
+
+      setMessages((prev) =>
+        updateAssistantToolPart(prev, assistantMessageId, callId, {
+          callId,
+          toolName,
+          args,
+          status: outcome.ok ? 'completed' : 'failed',
+          result: toolResult,
+          summary: outcome.ok ? summarizeToolResult(toolResult) : outcomeMessage,
+        })
+      );
+
+      if (!outcome.ok) {
+        setMessages((prev) =>
+          appendAssistantNote(
+            prev,
+            assistantMessageId,
+            `Tool error (${toolName}): ${outcomeMessage}`,
+            'error'
+          )
+        );
+        return false;
+      }
+
+      await maybeCreateWidgetSessionFromToolResult({
+        appendWidgetEvent,
+        createWidgetSession,
+        fetchWidgetResource,
+        setWidgetStatus,
+        setMessages,
+        updateWidgetSession,
+        assistantMessageId,
+        callId,
+        toolName,
+        args,
+        toolResult,
+        tools,
+        supportsWidgets: transport.supportsWidgets,
+        source: 'direct-run',
+        traceId,
+        startedAt,
+        completionMessage: `Direct run completed ${toolName}`,
+      });
+
+      return true;
+    } catch (error) {
+      const message = error.message || `Failed to run ${toolName}`;
+
+      addLog({
+        dir: '!',
+        type: `tools/error: ${toolName} (${message})`,
+        source: 'direct-run',
+        status: 'error',
+      });
+
+      setMessages((prev) =>
+        updateAssistantToolPart(prev, assistantMessageId, callId, {
+          callId,
+          toolName,
+          args,
+          status: 'failed',
+          summary: message,
+        })
+      );
+      setMessages((prev) =>
+        appendAssistantNote(
+          prev,
+          assistantMessageId,
+          `Tool error (${toolName}): ${message}`,
+          'error'
+        )
+      );
+
+      return false;
+    }
+  }, [
+    addLog,
+    appendWidgetEvent,
+    createWidgetSession,
+    fetchWidgetResource,
+    setWidgetStatus,
+    tools,
+    transport,
+    updateWidgetSession,
+  ]);
+
   const sendMessage = useCallback(async (content) => {
     if (!content?.trim() || isStreaming || !transport || !geminiApiKey) return false;
 
@@ -738,6 +917,7 @@ export function useMcpChatRuntime({
     logs,
     sessionsById,
     sendMessage,
+    executeDirectTool,
     clearConversation,
     registerWidget,
     unregisterWidget,

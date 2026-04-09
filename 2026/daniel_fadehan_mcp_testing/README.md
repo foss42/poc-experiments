@@ -50,3 +50,6 @@ If you'd like to run the PoC locally to evaluate the codebase:
 
 4. **Open in browser:**
    Navigate to `http://localhost:5173`
+
+5. **Make AI requests:**
+   Navigate to the settings tab, select provider and slot in your API key

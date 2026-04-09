@@ -27,6 +27,86 @@ describe('aiChatService generic helpers', () => {
     assert.deepEqual(schema.properties, {});
   });
 
+  test('hydrateToolArgsFromConversation fills missing required fields from the latest tool result', () => {
+    const args = __test.hydrateToolArgsFromConversation(
+      {},
+      {
+        type: 'object',
+        properties: {
+          selections: { type: 'object' },
+          report: { type: 'object' },
+        },
+        required: ['selections', 'report'],
+      },
+      [
+        {
+          role: 'assistant',
+          parts: [
+            {
+              type: 'tool',
+              toolCall: {
+                callId: 'call_visualize',
+                toolName: 'visualize-sales-data',
+                status: 'completed',
+                result: {
+                  structuredContent: {
+                    selections: {
+                      states: ['MH', 'TN'],
+                      metric: 'revenue',
+                      period: 'monthly',
+                      year: 2025,
+                    },
+                    report: {
+                      summary: { total: 1234 },
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
+      ]
+    );
+
+    assert.deepEqual(args, {
+      selections: {
+        states: ['MH', 'TN'],
+        metric: 'revenue',
+        period: 'monthly',
+        year: 2025,
+      },
+      report: {
+        summary: { total: 1234 },
+      },
+    });
+  });
+
+  test('hydrateToolArgsFromConversation falls back to hidden widget context updates', () => {
+    const args = __test.hydrateToolArgsFromConversation(
+      { selections: { states: ['KA'] } },
+      {
+        type: 'object',
+        properties: {
+          selections: { type: 'object' },
+          report: { type: 'object' },
+        },
+        required: ['selections', 'report'],
+      },
+      [
+        {
+          role: 'user',
+          isHidden: true,
+          content: '[System Note: The MCP app updated its model context]\n{"selections":{"states":["MH","TN"]},"report":{"summary":{"total":999}}}',
+        },
+      ]
+    );
+
+    assert.deepEqual(args, {
+      selections: { states: ['KA'] },
+      report: { summary: { total: 999 } },
+    });
+  });
+
   test('default prompt requires visible narration before and between tool calls', () => {
     assert.match(__test.DEFAULT_SYSTEM_PROMPT, /Before calling ANY tool/);
     assert.match(__test.DEFAULT_SYSTEM_PROMPT, /AFTER EACH TOOL RESULT/);
@@ -99,6 +179,77 @@ describe('aiChatService generic helpers', () => {
         },
       ],
     });
+  });
+
+  test('flattenMessagesForModel skips failed tool calls so they do not orphan the next turn', () => {
+    const messages = __test.flattenMessagesForModel([
+      {
+        role: 'assistant',
+        parts: [
+          { type: 'text', text: 'Trying that tool now.' },
+          {
+            type: 'tool',
+            toolCall: {
+              callId: 'call_failed',
+              toolName: 'broken_tool',
+              args: { id: '123' },
+              status: 'failed',
+              result: {
+                isError: true,
+                error: { message: 'Broken' },
+              },
+            },
+          },
+          { type: 'error', text: 'That tool failed.' },
+        ],
+      },
+    ]);
+
+    assert.deepEqual(messages, [{
+      role: 'assistant',
+      content: [
+        { type: 'text', text: 'Trying that tool now.' },
+        { type: 'text', text: 'That tool failed.' },
+      ],
+    }]);
+  });
+
+  test('flattenMessagesForModel excludes hidden direct-run stubs from model history', () => {
+    const messages = __test.flattenMessagesForModel([
+      {
+        role: 'user',
+        content: 'Direct run: weather_tool',
+        isDirectRun: true,
+        isHidden: true,
+      },
+      {
+        role: 'assistant',
+        isDirectRun: true,
+        parts: [
+          {
+            type: 'tool',
+            toolCall: {
+              callId: 'direct_call',
+              toolName: 'weather_tool',
+              args: { city: 'Lagos' },
+              status: 'completed',
+              result: {
+                structuredContent: { temperature: 29 },
+              },
+            },
+          },
+        ],
+      },
+      {
+        role: 'user',
+        content: 'Tell me what happened next.',
+      },
+    ]);
+
+    assert.deepEqual(messages, [{
+      role: 'user',
+      content: 'Tell me what happened next.',
+    }]);
   });
 
   test('sendChatMessage step mapping keeps toolCallIds for UI ordering fallbacks', () => {

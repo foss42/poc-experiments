@@ -44,9 +44,15 @@ export async function sendChatMessage({
       // Zod conversion issues and guarantees Gemini always sees type:object.
       parameters: jsonSchema(normalizeSchema(mcpTool.inputSchema)),
       execute: async (args, { toolCallId }) => {
-        onToolCall?.(mcpTool.name, args, toolCallId);
-        const result = await mcpClient.callTool(mcpTool.name, args);
-        await onToolResult?.(mcpTool.name, args, result, toolCallId);
+        const hydratedArgs = hydrateToolArgsFromConversation(
+          args,
+          mcpTool.inputSchema,
+          messages
+        );
+
+        onToolCall?.(mcpTool.name, hydratedArgs, toolCallId);
+        const result = await mcpClient.callTool(mcpTool.name, hydratedArgs);
+        await onToolResult?.(mcpTool.name, hydratedArgs, result, toolCallId);
 
         const outcome = classifyToolOutcome(result);
         if (!outcome.ok) {
@@ -112,6 +118,7 @@ export async function sendChatMessage({
 function flattenMessagesForModel(messages = []) {
   return messages
     .filter((message) => {
+      if (message.isDirectRun) return false;
       if (message.role !== 'assistant') return true;
 
       const hasContent = typeof message.content === 'string' && message.content.trim().length > 0;
@@ -148,6 +155,7 @@ function flattenMessagesForModel(messages = []) {
         const toolCallId = part.toolCall?.callId;
         const toolName = part.toolCall?.toolName;
         if (!toolCallId || !toolName) continue;
+        if (part.toolCall?.status === 'failed') continue;
 
         assistantContent.push({
           type: 'tool-call',
@@ -158,7 +166,7 @@ function flattenMessagesForModel(messages = []) {
         flushAssistantContent();
 
         const resultPayload = part.toolCall.result ?? part.toolCall.output;
-        if (resultPayload !== undefined && part.toolCall.status !== 'failed') {
+        if (resultPayload !== undefined) {
           flattened.push({
             role: 'tool',
             content: [{
@@ -195,6 +203,87 @@ function normalizeAssistantParts(message) {
   }
 
   return parts;
+}
+
+function hydrateToolArgsFromConversation(args = {}, inputSchema, messages = []) {
+  const baseArgs = isPlainObject(args) ? { ...args } : {};
+  const schema = normalizeSchema(inputSchema);
+  const requiredKeys = Array.isArray(schema.required) ? schema.required : [];
+  if (requiredKeys.length === 0) return baseArgs;
+
+  const nextArgs = { ...baseArgs };
+  let missingKeys = requiredKeys.filter((key) => nextArgs[key] == null);
+  if (missingKeys.length === 0) return nextArgs;
+
+  const candidates = collectHydrationCandidates(messages);
+  for (const candidate of candidates) {
+    if (!isPlainObject(candidate)) continue;
+
+    for (const key of missingKeys) {
+      if (candidate[key] !== undefined) {
+        nextArgs[key] = candidate[key];
+      }
+    }
+
+    missingKeys = requiredKeys.filter((key) => nextArgs[key] == null);
+    if (missingKeys.length === 0) {
+      break;
+    }
+  }
+
+  return nextArgs;
+}
+
+function collectHydrationCandidates(messages = []) {
+  const candidates = [];
+
+  for (let messageIndex = messages.length - 1; messageIndex >= 0; messageIndex -= 1) {
+    const message = messages[messageIndex];
+
+    if (message?.role === 'assistant') {
+      const parts = normalizeAssistantParts(message);
+      for (let partIndex = parts.length - 1; partIndex >= 0; partIndex -= 1) {
+        const part = parts[partIndex];
+        if (part?.type !== 'tool') continue;
+        if (part.toolCall?.status === 'failed') continue;
+
+        const resultPayload = part.toolCall?.result ?? part.toolCall?.output;
+        const extracted = extractToolData(resultPayload);
+        if (isPlainObject(extracted)) {
+          candidates.push(extracted);
+        }
+      }
+    }
+
+    if (message?.role === 'user' && message?.isHidden) {
+      const extracted = extractHiddenContextPayload(message.content);
+      if (isPlainObject(extracted)) {
+        candidates.push(extracted);
+      }
+    }
+  }
+
+  return candidates;
+}
+
+function extractHiddenContextPayload(content) {
+  if (typeof content !== 'string' || !content.trim()) return null;
+
+  const newlineIndex = content.indexOf('\n');
+  if (newlineIndex < 0) return null;
+
+  const maybeJson = content.slice(newlineIndex + 1).trim();
+  if (!maybeJson) return null;
+
+  try {
+    return JSON.parse(maybeJson);
+  } catch {
+    return null;
+  }
+}
+
+function isPlainObject(value) {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
 }
 
 // Gemini requires functionDeclaration.parameters to be type:"object".
@@ -250,6 +339,7 @@ function extractToolData(result) {
 export const __test = {
   extractToolData,
   flattenMessagesForModel,
+  hydrateToolArgsFromConversation,
   normalizeSchema,
   normalizeAssistantParts,
   DEFAULT_SYSTEM_PROMPT,
