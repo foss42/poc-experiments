@@ -15,3 +15,6 @@ export 'src/models/items/function_call_output_item.dart';
 export 'src/models/items/message_item.dart';
 export 'src/models/items/unknown_item.dart';
 export 'src/parser/open_response_parser.dart';
+export 'src/streaming/streaming_state.dart';
+export 'src/streaming/streaming_reducer.dart';
+export 'src/streaming/streaming_session.dart';
