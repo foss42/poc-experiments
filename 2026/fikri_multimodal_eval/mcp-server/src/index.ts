@@ -23,7 +23,7 @@ import { EVAL_RESULTS_UI } from "./ui/eval-results.js";
 
 const MIME = "text/html;profile=mcp-app" as const;
 const URI = "ui://multimodal-eval";
-const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8000";
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8001";
 
 const server = new McpServer({
   name: "multimodal-eval-mcp",
