@@ -42,6 +42,7 @@ class BenchmarkRun {
   final int? numFewshot;
   final bool applyChatTemplate;
   final bool fewshotAsMultiturn;
+  final String? resultsJson;
   final String? errorMessage;
   final String createdAt;
   final String? completedAt;
@@ -56,6 +57,7 @@ class BenchmarkRun {
     this.numFewshot,
     this.applyChatTemplate = true,
     this.fewshotAsMultiturn = true,
+    this.resultsJson,
     this.errorMessage,
     required this.createdAt,
     this.completedAt,
@@ -79,6 +81,7 @@ class BenchmarkRun {
       numFewshot: json['num_fewshot'],
       applyChatTemplate: json['apply_chat_template'] ?? true,
       fewshotAsMultiturn: json['fewshot_as_multiturn'] ?? true,
+      resultsJson: json['results_json'],
       errorMessage: json['error_message'],
       createdAt: json['created_at'] ?? '',
       completedAt: json['completed_at'],

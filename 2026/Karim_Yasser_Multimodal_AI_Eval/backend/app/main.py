@@ -1,10 +1,9 @@
-"""FastAPI application entry point."""
-
 import os
 from pathlib import Path
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 
 from app.database import init_db
@@ -38,7 +37,7 @@ async def _load_hf_token():
 app = FastAPI(
     title="AI Evaluation Framework",
     description="Evaluate AI models via API using datasets and produce metrics.",
-    version="0.1.0",
+    version="0.2.0",
     lifespan=lifespan,
 )
 
@@ -57,6 +56,11 @@ app.include_router(models.router)
 app.include_router(evaluations.router)
 app.include_router(benchmarks.router)
 app.include_router(settings.router)
+
+# Serve uploaded media files
+uploads_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "uploads")
+os.makedirs(uploads_dir, exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 
 
 @app.get("/api/health", response_model=HealthResponse, tags=["health"])

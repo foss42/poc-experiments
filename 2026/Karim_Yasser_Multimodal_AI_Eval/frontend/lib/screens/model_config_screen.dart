@@ -19,6 +19,7 @@ class _ModelConfigScreenState extends ConsumerState<ModelConfigScreen> {
   double _temperature = 0.7;
   int _maxTokens = 256;
   String _provider = 'openai';
+  bool _supportsVision = false;
 
   void _onProviderChanged(String provider) {
     setState(() {
@@ -53,10 +54,12 @@ class _ModelConfigScreenState extends ConsumerState<ModelConfigScreen> {
         temperature: _temperature,
         maxTokens: _maxTokens,
         baseUrl: _baseUrlCtrl.text,
+        supportsVision: _supportsVision,
       );
       _nameCtrl.clear();
       _modelNameCtrl.clear();
       _apiKeyCtrl.clear();
+      if (mounted) setState(() => _supportsVision = false);
       ref.read(modelConfigsProvider.notifier).refresh();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -85,7 +88,7 @@ class _ModelConfigScreenState extends ConsumerState<ModelConfigScreen> {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Form
           Expanded(
@@ -214,6 +217,14 @@ class _ModelConfigScreenState extends ConsumerState<ModelConfigScreen> {
                         onChanged: (v) =>
                             setState(() => _maxTokens = v.toInt()),
                       ),
+                      const SizedBox(height: 16),
+                      SwitchListTile(
+                        title: const Text('Supports Vision / Multimodal'),
+                        value: _supportsVision,
+                        onChanged: (v) => setState(() => _supportsVision = v),
+                        contentPadding: EdgeInsets.zero,
+                        activeThumbColor: AppTheme.secondary,
+                      ),
                       const SizedBox(height: 24),
                       SizedBox(
                         width: double.infinity,
@@ -286,19 +297,39 @@ class _ModelConfigScreenState extends ConsumerState<ModelConfigScreen> {
                                       color: AppTheme.textSecondary,
                                     ),
                                   ),
-                                  trailing: IconButton(
-                                    icon: const Icon(
-                                      Icons.delete_outline,
-                                      color: AppTheme.error,
-                                      size: 20,
-                                    ),
-                                    onPressed: () async {
-                                      final api = ref.read(apiServiceProvider);
-                                      await api.deleteModelConfig(c.id);
-                                      ref
-                                          .read(modelConfigsProvider.notifier)
-                                          .refresh();
-                                    },
+                                  trailing: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      if (c.supportsVision) ...[
+                                        const Icon(Icons.visibility, color: AppTheme.secondary, size: 20),
+                                        const SizedBox(width: 8),
+                                      ],
+                                      IconButton(
+                                        icon: const Icon(
+                                          Icons.delete_outline,
+                                          color: AppTheme.error,
+                                          size: 20,
+                                        ),
+                                        onPressed: () async {
+                                          try {
+                                            final api = ref.read(apiServiceProvider);
+                                            await api.deleteModelConfig(c.id);
+                                            ref
+                                                .read(modelConfigsProvider.notifier)
+                                                .refresh();
+                                          } catch (e) {
+                                            if (context.mounted) {
+                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                SnackBar(
+                                                  content: Text('Failed to delete: $e'),
+                                                  backgroundColor: AppTheme.error,
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        },
+                                      ),
+                                    ],
                                   ),
                                 ),
                               );

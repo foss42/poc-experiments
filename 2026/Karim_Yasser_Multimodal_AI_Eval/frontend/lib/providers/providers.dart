@@ -134,3 +134,19 @@ class SelectedNavIndexNotifier extends Notifier<int> {
   }
 }
 
+// ─── Selected Run auto-open ────────────────────────────────────────────
+
+final selectedRunIdProvider =
+    NotifierProvider<SelectedRunIdNotifier, String?>(
+      SelectedRunIdNotifier.new,
+    );
+
+class SelectedRunIdNotifier extends Notifier<String?> {
+  @override
+  String? build() => null;
+
+  void select(String? runId) {
+    state = runId;
+  }
+}
+

@@ -7,7 +7,7 @@ import '../models/evaluation.dart';
 import '../models/benchmark.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://127.0.0.1:9000/api';
+  static const String baseUrl = 'http://127.0.0.1:8000/api';
 
   final Dio _dio = Dio(
     BaseOptions(
@@ -54,6 +54,43 @@ class ApiService {
   Future<Dataset> getDataset(String id) async {
     final response = await _dio.get('/datasets/$id');
     return Dataset.fromJson(response.data);
+  }
+
+  Future<void> deleteDataset(String id) async {
+    await _dio.delete('/datasets/$id');
+  }
+
+
+  Future<Dataset> uploadMultimodalDataset({
+    required Uint8List fileBytes,
+    required String fileName,
+    String name = '',
+    String description = '',
+  }) async {
+    final formData = FormData.fromMap({
+      'file': MultipartFile.fromBytes(fileBytes, filename: fileName),
+      'name': name.isEmpty ? fileName.replaceAll('.json', '') : name,
+      'description': description,
+    });
+    final response = await _dio.post(
+      '/datasets/upload-multimodal',
+      data: formData,
+    );
+    return Dataset.fromJson(response.data);
+  }
+
+  Future<Map<String, String>> uploadMediaFile({
+    required Uint8List fileBytes,
+    required String fileName,
+  }) async {
+    final formData = FormData.fromMap({
+      'file': MultipartFile.fromBytes(fileBytes, filename: fileName),
+    });
+    final response = await _dio.post('/datasets/upload-media', data: formData);
+    return {
+      'file_path': response.data['file_path'] as String,
+      'filename': response.data['filename'] as String,
+    };
   }
 
   // ─── Models ─────────────────────────────────────────────────────────
@@ -160,6 +197,11 @@ class ApiService {
         .map((e) => EvaluationResult.fromJson(e))
         .toList();
   }
+
+  Future<void> deleteEvaluationRun(String id) async {
+    await _dio.delete('/evaluations/$id');
+  }
+
 
   // ─── Benchmarks ────────────────────────────────────────────────────
 

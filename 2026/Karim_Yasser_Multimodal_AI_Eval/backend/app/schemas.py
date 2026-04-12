@@ -11,11 +11,21 @@ class DatasetItem(BaseModel):
     expected_output: Union[str, list[str]]
 
 
+class MultimodalDatasetItem(BaseModel):
+    """Dataset item for multimodal evaluation (media in → text out)."""
+    media_url: Optional[str] = None      # URL to fetch media from
+    media_file: Optional[str] = None     # Local uploaded file path
+    input: str = "Describe this concisely and accurately"  # Text prompt
+    expected_output: Union[str, list[str]]
+
+
 class DatasetResponse(BaseModel):
     id: str
     name: str
     description: str
     item_count: int
+    is_multimodal: bool = False
+    media_type: str = "text"
     created_at: str
 
 
@@ -24,6 +34,8 @@ class DatasetPreview(BaseModel):
     name: str
     description: str
     item_count: int
+    is_multimodal: bool = False
+    media_type: str = "text"
     created_at: str
     items: list[DatasetItem]
 
@@ -85,6 +97,7 @@ class EvaluationResultResponse(BaseModel):
     input: str
     expected_output: Union[str, list[str]]
     actual_output: str
+    media_url: Optional[str] = None
     score_level: int
     score_label: str
     hard_score: float
@@ -116,6 +129,7 @@ class BenchmarkRunResponse(BaseModel):
     num_fewshot: Optional[int] = None
     apply_chat_template: bool
     fewshot_as_multiturn: bool
+    results_json: Optional[str] = None
     error_message: Optional[str] = None
     created_at: str
     completed_at: Optional[str] = None

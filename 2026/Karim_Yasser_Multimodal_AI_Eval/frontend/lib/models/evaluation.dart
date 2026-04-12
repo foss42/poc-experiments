@@ -95,6 +95,7 @@ class EvaluationResult {
   final bool isHardMatch;  // level == 5
   final bool isSoftMatch;  // level >= 4
   final double latencyMs;
+  final String? mediaUrl;
 
   EvaluationResult({
     required this.id,
@@ -107,6 +108,7 @@ class EvaluationResult {
     required this.isHardMatch,
     required this.isSoftMatch,
     required this.latencyMs,
+    this.mediaUrl,
   });
 
   factory EvaluationResult.fromJson(Map<String, dynamic> json) {
@@ -154,6 +156,7 @@ class EvaluationResult {
           ? (json['soft_score'] as num) >= 1.0
           : legacyIsMatch,
       latencyMs: (json['latency_ms'] ?? 0.0).toDouble(),
+      mediaUrl: json['media_url'],
     );
   }
 }

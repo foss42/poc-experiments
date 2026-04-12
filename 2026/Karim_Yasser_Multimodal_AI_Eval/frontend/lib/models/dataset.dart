@@ -3,8 +3,9 @@ import 'dart:convert';
 class DatasetItem {
   final String input;
   final String expectedOutput;
+  final String? mediaUrl;
 
-  DatasetItem({required this.input, required this.expectedOutput});
+  DatasetItem({required this.input, required this.expectedOutput, this.mediaUrl});
 
   factory DatasetItem.fromJson(Map<String, dynamic> json) {
     var rawExpected = json['expected_output'];
@@ -33,6 +34,7 @@ class DatasetItem {
     return DatasetItem(
       input: json['input'] ?? '',
       expectedOutput: expected,
+      mediaUrl: json['media_url'] ?? json['media_file'],
     );
   }
 }
@@ -41,6 +43,8 @@ class Dataset {
   final String name;
   final String description;
   final int itemCount;
+  final bool isMultimodal;
+  final String mediaType;
   final String createdAt;
   final List<DatasetItem>? items;
 
@@ -49,6 +53,8 @@ class Dataset {
     required this.name,
     required this.description,
     required this.itemCount,
+    this.isMultimodal = false,
+    this.mediaType = 'text',
     required this.createdAt,
     this.items,
   });
@@ -59,6 +65,8 @@ class Dataset {
       name: json['name'] ?? '',
       description: json['description'] ?? '',
       itemCount: json['item_count'] ?? 0,
+      isMultimodal: json['is_multimodal'] ?? false,
+      mediaType: json['media_type'] ?? 'text',
       createdAt: json['created_at'] ?? '',
       items: json['items'] != null
           ? (json['items'] as List).map((e) => DatasetItem.fromJson(e)).toList()

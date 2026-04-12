@@ -10,7 +10,7 @@ from sqlalchemy import select
 from app.database import get_db, async_session
 from app.models import EvaluationRun, EvaluationResult, Dataset, ModelConfig
 from app.schemas import EvaluationCreate, EvaluationRunResponse, EvaluationResultResponse
-from app.services.eval_runner import run_evaluation
+from app.services.eval_runner import run_evaluation, run_multimodal_evaluation
 
 router = APIRouter(prefix="/api/evaluations", tags=["evaluations"])
 
@@ -41,8 +41,11 @@ async def start_evaluation(
     await db.flush()
     await db.refresh(run)
 
-    # Launch evaluation in background
-    asyncio.create_task(run_evaluation(run.id, async_session))
+    # Launch evaluation in background — dispatch based on dataset type
+    if dataset.is_multimodal:
+        asyncio.create_task(run_multimodal_evaluation(run.id, async_session))
+    else:
+        asyncio.create_task(run_evaluation(run.id, async_session))
 
     return EvaluationRunResponse(
         id=run.id,
@@ -161,6 +164,7 @@ async def get_evaluation_results(run_id: str, db: AsyncSession = Depends(get_db)
             input=r.input,
             expected_output=r.expected_output,
             actual_output=r.actual_output,
+            media_url=r.media_url,
             score_level=r.score_level,
             score_label=r.score_label,
             hard_score=r.hard_score,
@@ -169,3 +173,15 @@ async def get_evaluation_results(run_id: str, db: AsyncSession = Depends(get_db)
         )
         for r in results
     ]
+
+
+@router.delete("/{run_id}", status_code=204)
+async def delete_evaluation(run_id: str, db: AsyncSession = Depends(get_db)):
+    """Delete an evaluation run and all associated results."""
+    run = await db.get(EvaluationRun, run_id)
+    if not run:
+        raise HTTPException(status_code=404, detail="Evaluation run not found.")
+
+    await db.delete(run)
+    await db.commit()
+    return None

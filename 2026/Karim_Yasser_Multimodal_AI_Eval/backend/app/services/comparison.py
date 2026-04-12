@@ -63,6 +63,8 @@ class ScoreResult:
 def _normalize(text: str) -> str:
     """Normalize a string: lowercase, strip whitespace and trailing punctuation."""
     result = text.strip().lower()
+    # Normalize smart apostrophes/quotes
+    result = result.replace("’", "'").replace("‘", "'").replace("`", "'")
     result = re.sub(r'[.,!?;:]+$', '', result)
     return result
 

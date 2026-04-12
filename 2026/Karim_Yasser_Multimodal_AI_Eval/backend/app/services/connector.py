@@ -26,10 +26,20 @@ class BaseConnector(ABC):
         text: str,
         image_bytes: bytes,
         image_media_type: str = "image/jpeg",
+        *,
+        system_prompt: str = "",
+        image_list: list[bytes] | None = None,
+        image_url: str | None = None,
     ) -> tuple[str, float]:
-        """Send a multimodal prompt (text + image) to the model.
+        """Send a multimodal prompt (text + image(s)) to the model.
 
-        Connectors that do not support multimodal requests should raise ConnectorError.
+        Args:
+            text: The text prompt.
+            image_bytes: Primary image bytes (ignored if image_list is provided).
+            image_media_type: MIME type of the image(s).
+            system_prompt: Optional system instruction.
+            image_list: Optional list of image bytes (for video frames / PDF pages).
+            image_url: Optional URL to pass directly instead of base64.
         """
         raise ConnectorError("Multimodal requests are not supported by this connector.")
 
@@ -116,35 +126,45 @@ class OpenAIConnector(BaseConnector):
         text: str,
         image_bytes: bytes,
         image_media_type: str = "image/jpeg",
+        *,
+        system_prompt: str = "",
+        image_list: list[bytes] | None = None,
+        image_url: str | None = None,
     ) -> tuple[str, float]:
         """Send a multimodal chat completion request and return (response_text, latency_ms)."""
-        if not image_bytes:
-            raise ConnectorError("image_bytes cannot be empty for multimodal requests.")
+        images = image_list if image_list else ([image_bytes] if image_bytes else [])
+        if not images and not image_url:
+            raise ConnectorError("At least one image or image_url is required for multimodal requests.")
 
         url = f"{self.base_url}/chat/completions"
         headers = self._build_auth_headers()
-        image_b64 = base64.b64encode(image_bytes).decode("ascii")
-        data_url = f"data:{image_media_type};base64,{image_b64}"
+
+        # Build message content parts
+        content_parts = [{"type": "text", "text": text}]
+
+        if image_url and not images:
+            # Use URL directly (avoids base64 encoding)
+            content_parts.append({
+                "type": "image_url",
+                "image_url": {"url": image_url},
+            })
+        else:
+            for img_bytes in images:
+                image_b64 = base64.b64encode(img_bytes).decode("ascii")
+                data_url = f"data:{image_media_type};base64,{image_b64}"
+                content_parts.append({
+                    "type": "image_url",
+                    "image_url": {"url": data_url},
+                })
+
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": content_parts})
 
         payload = {
             "model": self.model_name,
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": text,
-                        },
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": data_url,
-                            },
-                        },
-                    ],
-                }
-            ],
+            "messages": messages,
             "temperature": self.temperature,
             "max_tokens": self.max_tokens,
         }
@@ -232,34 +252,42 @@ class HuggingFaceConnector(BaseConnector):
         text: str,
         image_bytes: bytes,
         image_media_type: str = "image/jpeg",
+        *,
+        system_prompt: str = "",
+        image_list: list[bytes] | None = None,
+        image_url: str | None = None,
     ) -> tuple[str, float]:
-        """Send text + image chat completion through Hugging Face InferenceClient."""
-        if not image_bytes:
-            raise ConnectorError("image_bytes cannot be empty for multimodal requests.")
+        """Send text + image(s) chat completion through Hugging Face InferenceClient."""
+        images = image_list if image_list else ([image_bytes] if image_bytes else [])
+        if not images and not image_url:
+            raise ConnectorError("At least one image or image_url is required for multimodal requests.")
 
-        image_b64 = base64.b64encode(image_bytes).decode("ascii")
-        data_url = f"data:{image_media_type};base64,{image_b64}"
+        # Build content parts
+        content_parts = [{"type": "text", "text": text}]
+
+        if image_url and not images:
+            content_parts.append({
+                "type": "image_url",
+                "image_url": {"url": image_url},
+            })
+        else:
+            for img_bytes in images:
+                image_b64 = base64.b64encode(img_bytes).decode("ascii")
+                data_url = f"data:{image_media_type};base64,{image_b64}"
+                content_parts.append({
+                    "type": "image_url",
+                    "image_url": {"url": data_url},
+                })
 
         def _call():
+            messages = []
+            if system_prompt:
+                messages.append({"role": "system", "content": system_prompt})
+            messages.append({"role": "user", "content": content_parts})
+
             completion = self.client.chat.completions.create(
                 model=self.model_name,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": text,
-                            },
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": data_url,
-                                },
-                            },
-                        ],
-                    }
-                ],
+                messages=messages,
                 temperature=self.temperature,
                 max_tokens=self.max_tokens,
             )

@@ -23,9 +23,11 @@ class Dataset(Base):
     description = Column(String, default="")
     item_count = Column(Integer, default=0)
     file_path = Column(String, nullable=False)
+    is_multimodal = Column(Boolean, default=False)
+    media_type = Column(String, default="text")  # text, image, video, pdf, mixed
     created_at = Column(String, default=utcnow_iso)
 
-    evaluation_runs = relationship("EvaluationRun", back_populates="dataset")
+    evaluation_runs = relationship("EvaluationRun", back_populates="dataset", cascade="all, delete-orphan")
 
 
 class ModelConfig(Base):
@@ -42,8 +44,8 @@ class ModelConfig(Base):
     supports_vision = Column(Boolean, default=False)
     created_at = Column(String, default=utcnow_iso)
 
-    evaluation_runs = relationship("EvaluationRun", back_populates="model_config")
-    benchmark_runs = relationship("BenchmarkRun", back_populates="model_config")
+    evaluation_runs = relationship("EvaluationRun", back_populates="model_config", cascade="all, delete-orphan")
+    benchmark_runs = relationship("BenchmarkRun", back_populates="model_config", cascade="all, delete-orphan")
 
 
 class EvaluationRun(Base):
@@ -65,7 +67,7 @@ class EvaluationRun(Base):
 
     dataset = relationship("Dataset", back_populates="evaluation_runs")
     model_config = relationship("ModelConfig", back_populates="evaluation_runs")
-    results = relationship("EvaluationResult", back_populates="run")
+    results = relationship("EvaluationResult", back_populates="run", cascade="all, delete-orphan")
 
 
 class EvaluationResult(Base):
@@ -76,6 +78,7 @@ class EvaluationResult(Base):
     input = Column(Text, nullable=False)
     expected_output = Column(Text, nullable=False)
     actual_output = Column(Text, default="")
+    media_url = Column(String, nullable=True)  # media reference for multimodal items
     # Five-level quality taxonomy (MUSE-inspired: arXiv:2603.02482)
     # Level 5=Full Match, 4=Partial Match, 3=Indirect Match, 2=Mismatch, 1=Non-Responsive
     score_level = Column(Integer, default=1)

@@ -82,6 +82,63 @@ class _EvaluationScreenState extends ConsumerState<EvaluationScreen> {
     );
   }
 
+  Future<void> _deleteRun(EvaluationRun run) async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: AppTheme.surfaceVariant,
+        title: const Text('Delete Evaluation Run?'),
+        content: const Text(
+          'Are you sure you want to delete this run?\n'
+          'This will permanently delete it and all its result rows!',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: TextButton.styleFrom(foregroundColor: AppTheme.error),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirm != true) return;
+
+    try {
+      final api = ref.read(apiServiceProvider);
+      await api.deleteEvaluationRun(run.id);
+
+      if (_activeRun?.id == run.id) {
+        setState(() => _activeRun = null);
+        _sseSubscription?.cancel();
+      }
+
+      ref.read(evaluationsProvider.notifier).refresh();
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Run deleted successfully.'),
+            backgroundColor: AppTheme.success,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Failed to delete run: $e'),
+            backgroundColor: AppTheme.error,
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final datasetsAsync = ref.watch(datasetsProvider);
@@ -112,70 +169,174 @@ class _EvaluationScreenState extends ConsumerState<EvaluationScreen> {
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppTheme.border),
             ),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Dataset selector
-                Expanded(
-                  child: datasetsAsync.when(
-                    loading: () => const LinearProgressIndicator(),
-                    error: (e, _) => Text('Error: $e'),
-                    data: (datasets) => DropdownButtonFormField<String>(
-                      initialValue: _selectedDatasetId,
-                      decoration: const InputDecoration(
-                        labelText: 'Select Dataset',
-                      ),
-                      dropdownColor: AppTheme.surfaceVariant,
-                      items: datasets
-                          .map(
-                            (d) => DropdownMenuItem(
-                              value: d.id,
-                              child: Text('${d.name} (${d.itemCount} items)'),
-                            ),
-                          )
-                          .toList(),
-                      onChanged: (v) => setState(() => _selectedDatasetId = v),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                // Model selector
-                Expanded(
-                  child: modelsAsync.when(
-                    loading: () => const LinearProgressIndicator(),
-                    error: (e, _) => Text('Error: $e'),
-                    data: (models) => DropdownButtonFormField<String>(
-                      initialValue: _selectedModelId,
-                      decoration: const InputDecoration(
-                        labelText: 'Select Model',
-                      ),
-                      dropdownColor: AppTheme.surfaceVariant,
-                      items: models
-                          .map(
-                            (m) => DropdownMenuItem(
-                              value: m.id,
-                              child: Text('${m.name} (${m.modelName})'),
-                            ),
-                          )
-                          .toList(),
-                      onChanged: (v) => setState(() => _selectedModelId = v),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                ElevatedButton.icon(
-                  onPressed: _starting ? null : _startEvaluation,
-                  icon: _starting
-                      ? const SizedBox(
-                          width: 16,
-                          height: 16,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
+                Row(
+                  children: [
+                    // Dataset selector
+                    Expanded(
+                      child: datasetsAsync.when(
+                        loading: () => const LinearProgressIndicator(),
+                        error: (e, _) => Text('Error: $e'),
+                        data: (datasets) => DropdownButtonFormField<String>(
+                          initialValue: _selectedDatasetId,
+                          decoration: const InputDecoration(
+                            labelText: 'Select Dataset',
                           ),
-                        )
-                      : const Icon(Icons.rocket_launch),
-                  label: Text(_starting ? 'Starting...' : 'Start Evaluation'),
+                          dropdownColor: AppTheme.surfaceVariant,
+                          items: datasets
+                              .map(
+                                (d) => DropdownMenuItem(
+                                  value: d.id,
+                                  child: Row(
+                                    children: [
+                                      if (d.isMultimodal) ...[
+                                        Icon(
+                                          Icons.image_search,
+                                          size: 16,
+                                          color: AppTheme.secondary,
+                                        ),
+                                        const SizedBox(width: 6),
+                                      ],
+                                      Text(
+                                        '${d.name} (${d.itemCount} items)',
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (v) =>
+                              setState(() => _selectedDatasetId = v),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    // Model selector (filtered for vision when multimodal)
+                    Expanded(
+                      child: modelsAsync.when(
+                        loading: () => const LinearProgressIndicator(),
+                        error: (e, _) => Text('Error: $e'),
+                        data: (models) {
+                          // Check if selected dataset is multimodal
+                          final selectedDataset = datasetsAsync.value
+                              ?.where((d) => d.id == _selectedDatasetId)
+                              .firstOrNull;
+                          final isMultimodal =
+                              selectedDataset?.isMultimodal ?? false;
+
+                          final filteredModels = isMultimodal
+                              ? models
+                                    .where((m) => m.supportsVision)
+                                    .toList()
+                              : models;
+
+                          return DropdownButtonFormField<String>(
+                            initialValue: filteredModels.any(
+                                    (m) => m.id == _selectedModelId)
+                                ? _selectedModelId
+                                : null,
+                            decoration: InputDecoration(
+                              labelText: isMultimodal
+                                  ? 'Select Vision Model'
+                                  : 'Select Model',
+                            ),
+                            dropdownColor: AppTheme.surfaceVariant,
+                            items: filteredModels
+                                .map(
+                                  (m) => DropdownMenuItem(
+                                    value: m.id,
+                                    child: Row(
+                                      children: [
+                                        if (m.supportsVision) ...[
+                                          const Icon(
+                                            Icons.visibility,
+                                            size: 14,
+                                            color: AppTheme.secondary,
+                                          ),
+                                          const SizedBox(width: 6),
+                                        ],
+                                        Text(
+                                          '${m.name} (${m.modelName})',
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                            onChanged: (v) =>
+                                setState(() => _selectedModelId = v),
+                          );
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    ElevatedButton.icon(
+                      onPressed: _starting ? null : _startEvaluation,
+                      icon: _starting
+                          ? const SizedBox(
+                              width: 16,
+                              height: 16,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
+                            )
+                          : const Icon(Icons.rocket_launch),
+                      label: Text(
+                          _starting ? 'Starting...' : 'Start Evaluation'),
+                    ),
+                  ],
                 ),
+                // Warning for multimodal datasets with no vision models
+                if (_selectedDatasetId != null) ...[
+                  Builder(builder: (context) {
+                    final selectedDataset = datasetsAsync.value
+                        ?.where((d) => d.id == _selectedDatasetId)
+                        .firstOrNull;
+                    if (selectedDataset?.isMultimodal == true) {
+                      final visionModels = modelsAsync.value
+                              ?.where((m) => m.supportsVision)
+                              .length ??
+                          0;
+                      if (visionModels == 0) {
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color:
+                                  AppTheme.warning.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: AppTheme.warning
+                                    .withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: const Row(
+                              children: [
+                                Icon(Icons.warning_amber,
+                                    color: AppTheme.warning, size: 18),
+                                SizedBox(width: 8),
+                                Flexible(
+                                  child: Text(
+                                    'This is a multimodal dataset. Please add a model with "Supports Vision" enabled.',
+                                    style: TextStyle(
+                                      color: AppTheme.warning,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                    }
+                    return const SizedBox.shrink();
+                  }),
+                ],
               ],
             ),
           ),
@@ -301,6 +462,8 @@ class _EvaluationScreenState extends ConsumerState<EvaluationScreen> {
                           itemCount: runs.length,
                           itemBuilder: (context, index) {
                             final run = runs[index];
+                            final dsName = datasetsAsync.value?.where((d) => d.id == run.datasetId).firstOrNull?.name ?? 'Unknown Dataset';
+                            final modelName = modelsAsync.value?.where((m) => m.id == run.modelConfigId).firstOrNull?.name ?? 'Unknown Model';
                             return Card(
                               child: ListTile(
                                 leading: Icon(
@@ -316,7 +479,7 @@ class _EvaluationScreenState extends ConsumerState<EvaluationScreen> {
                                       : AppTheme.warning,
                                 ),
                                 title: Text(
-                                  'Run ${run.id.substring(0, 8)}',
+                                  '$dsName  •  $modelName',
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -329,8 +492,23 @@ class _EvaluationScreenState extends ConsumerState<EvaluationScreen> {
                                     color: AppTheme.textSecondary,
                                   ),
                                 ),
-                                trailing: StatusBadge(status: run.status),
+                                trailing: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    StatusBadge(status: run.status),
+                                    const SizedBox(width: 8),
+                                    IconButton(
+                                      icon: const Icon(Icons.delete_outline, size: 20),
+                                      color: AppTheme.error,
+                                      tooltip: 'Delete run',
+                                      onPressed: () => _deleteRun(run),
+                                    ),
+                                  ],
+                                ),
                                 onTap: () {
+                                  ref
+                                      .read(selectedRunIdProvider.notifier)
+                                      .select(run.id);
                                   ref
                                       .read(selectedNavIndexProvider.notifier)
                                       .select(3);

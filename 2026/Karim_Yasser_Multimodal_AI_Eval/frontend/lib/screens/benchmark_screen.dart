@@ -321,10 +321,7 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
                                 .map(
                                   (m) => DropdownMenuItem(
                                     value: m.id,
-                                    child: Text(
-                                      '${m.name} (${m.modelName})',
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
+                                    child: Text('${m.name} (${m.modelName})'),
                                   ),
                                 )
                                 .toList(),
@@ -395,7 +392,7 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
                             items: [
                               const DropdownMenuItem(
                                 value: 'local-chat-completions',
-                                child: Text('Local API (OpenAI-compatible)'),
+                                child: Text('Local API'),
                               ),
                               const DropdownMenuItem(
                                 value: 'openai-chat-completions',
@@ -404,9 +401,7 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
                               if (!isHfRouter)
                                 const DropdownMenuItem(
                                   value: 'hf-multimodal',
-                                  child: Text(
-                                    'HF Multimodal (Local Torch/GPU)',
-                                  ),
+                                  child: Text('HF Multimodal'),
                                 ),
                             ],
                             onChanged: (v) {
@@ -802,6 +797,45 @@ class _BenchmarkScreenState extends ConsumerState<BenchmarkScreen> {
               ),
             );
           }),
+          if (_activeRun != null && _activeRun!.resultsJson != null) ...[
+            const SizedBox(height: 16),
+            const Divider(color: AppTheme.border),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton.icon(
+                icon: const Icon(Icons.data_object, size: 18),
+                label: const Text('View Raw JSON'),
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                      backgroundColor: AppTheme.surfaceVariant,
+                      title: const Text('Raw LM Harness Results'),
+                      content: SizedBox(
+                        width: 800,
+                        height: 600,
+                        child: SingleChildScrollView(
+                          child: SelectableText(
+                            _activeRun!.resultsJson!,
+                            style: const TextStyle(
+                              fontFamily: 'monospace',
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(context),
+                          child: const Text('Close'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ],
       ),
     );
