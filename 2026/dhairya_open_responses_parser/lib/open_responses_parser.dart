@@ -18,3 +18,7 @@ export 'src/parser/open_response_parser.dart';
 export 'src/streaming/streaming_state.dart';
 export 'src/streaming/streaming_reducer.dart';
 export 'src/streaming/streaming_session.dart';
+export 'src/detector/response_format.dart';
+export 'src/detector/detection_result.dart';
+export 'src/detector/open_responses_detector.dart';
+export 'src/detector/view_router.dart';
