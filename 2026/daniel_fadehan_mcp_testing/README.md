@@ -6,7 +6,7 @@
 
 <h4 align="center">A visual Model Context Protocol (MCP) Creation and Testing Suite.</h4>
 
-**Demo Video:** [Watch the demo](images/demo.mp4)
+**Demo Video:** [Watch on YouTube](https://youtu.be/7kFNVd7rKkE?si=5ADp5sz4STd8qrN-)
 
 ---
 

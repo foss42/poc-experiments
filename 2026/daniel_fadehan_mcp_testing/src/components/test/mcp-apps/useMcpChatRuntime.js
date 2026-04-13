@@ -13,7 +13,7 @@ export function getWidgetResourceUri(toolResult, toolDef, supportsWidgets = true
   return meta?.ui?.resourceUri || null;
 }
 
-function createTransportAdapter(testMode, client, tools) {
+export function createTransportAdapter(testMode, client, tools) {
   if (testMode === 'builder') {
     return createBuilderChatAdapter(tools);
   }
@@ -335,6 +335,7 @@ async function maybeCreateWidgetSessionFromToolResult({
   traceId,
   startedAt,
   completionMessage,
+  traceRecorder,
 }) {
   const toolDef = tools.find((tool) => tool.name === toolName);
   const resourceUri = getWidgetResourceUri(toolResult, toolDef, supportsWidgets);
@@ -363,6 +364,11 @@ async function maybeCreateWidgetSessionFromToolResult({
   });
 
   setMessages((prev) => appendAssistantWidgetPart(prev, assistantMessageId, callId, widgetId));
+  traceRecorder?.addWidgetRender({
+    widgetId,
+    resourceUri,
+    toolCallId: callId,
+  });
 
   try {
     const resource = await fetchWidgetResource(resourceUri);
@@ -396,11 +402,15 @@ export function useMcpChatRuntime({
   client,
   geminiApiKey,
   testMode = 'external',
+  transportOverride = null,
+  traceRecorder = null,
+  modelPreset = null,
 }) {
   const [messages, setMessages] = useState([]);
   const [isStreaming, setIsStreaming] = useState(false);
   const [clientLogs, setClientLogs] = useState([]);
   const [runtimeLogs, setRuntimeLogs] = useState([]);
+  const [lastUsage, setLastUsage] = useState(null);
 
   const messagesRef = useRef([]);
   const widgetRegistry = useRef(new Map());
@@ -410,8 +420,8 @@ export function useMcpChatRuntime({
   const currentAssistantMessageIdRef = useRef(null);
 
   const transport = useMemo(
-    () => createTransportAdapter(testMode, client, tools),
-    [testMode, client, tools]
+    () => transportOverride || createTransportAdapter(testMode, client, tools),
+    [transportOverride, testMode, client, tools]
   );
 
   const logs = useMemo(
@@ -491,6 +501,7 @@ export function useMcpChatRuntime({
       type: preload ? `widget/preload: ${resourceUri}` : `widget/load: ${resourceUri}`,
       source: 'chat-runtime',
     });
+    traceRecorder?.startResourceRead(resourceUri);
 
     const promise = transport.readResource(resourceUri)
       .then((result) => {
@@ -505,6 +516,11 @@ export function useMcpChatRuntime({
           source: 'chat-runtime',
           status: resource ? 'success' : 'error',
         });
+        traceRecorder?.finishResourceRead(
+          resourceUri,
+          resource,
+          resource ? 'completed' : 'failed'
+        );
 
         return resource;
       })
@@ -515,6 +531,7 @@ export function useMcpChatRuntime({
           source: 'chat-runtime',
           status: 'error',
         });
+        traceRecorder?.finishResourceRead(resourceUri, { error: error.message }, 'failed');
         throw error;
       })
       .finally(() => {
@@ -523,7 +540,7 @@ export function useMcpChatRuntime({
 
     resourcePromiseRef.current.set(resourceUri, promise);
     return promise;
-  }, [addLog, transport]);
+  }, [addLog, traceRecorder, transport]);
 
   useEffect(() => {
     if (!transport?.supportsWidgets || !(tools || []).length) return;
@@ -558,9 +575,11 @@ export function useMcpChatRuntime({
   });
 
   const clearConversation = useCallback(() => {
+    messagesRef.current = [];
     setMessages([]);
     setClientLogs([]);
     setRuntimeLogs([]);
+    setLastUsage(null);
     widgetRegistry.current.clear();
     resourceCacheRef.current.clear();
     resourcePromiseRef.current.clear();
@@ -576,6 +595,8 @@ export function useMcpChatRuntime({
     currentAssistantMessageIdRef.current = assistantMessageId;
     setMessages((prev) => [...prev, createAssistantMessage({ id: assistantMessageId })]);
     setIsStreaming(true);
+    setLastUsage(null);
+    traceRecorder?.ensureAssistantSpan();
     addLog({ dir: '->', type: 'chat/send', source: 'model' });
 
     try {
@@ -584,6 +605,7 @@ export function useMcpChatRuntime({
         mcpTools: tools,
         mcpClient: transport,
         apiKey: geminiApiKey,
+        modelId: modelPreset?.modelId || 'gemini-2.5-flash',
         onStreamPart: async (part) => {
           if (!part) return;
 
@@ -601,11 +623,16 @@ export function useMcpChatRuntime({
             return;
           }
 
+          if (part.type === 'text-delta') {
+            traceRecorder?.appendAssistantText(part.text ?? part.delta ?? '');
+          }
+
           setMessages((prev) =>
             applyAssistantStreamPart(prev, assistantMessageId, part)
           );
         },
         onToolCall: (name, args, callId) => {
+          traceRecorder?.startToolCall({ callId, toolName: name, args });
           toolTraceRef.current.set(callId, {
             traceId: createRuntimeId('trace'),
             startedAt: new Date().toISOString(),
@@ -623,6 +650,11 @@ export function useMcpChatRuntime({
         onToolResult: async (name, args, toolResult, callId) => {
           const outcome = classifyToolOutcome(toolResult);
           const outcomeMessage = outcome.ok ? null : getToolErrorMessage(toolResult);
+          traceRecorder?.finishToolCall({
+            callId,
+            result: toolResult,
+            status: outcome.ok ? 'completed' : 'failed',
+          });
           const toolTrace = toolTraceRef.current.get(callId) || {
             traceId: createRuntimeId('trace'),
             startedAt: new Date().toISOString(),
@@ -682,6 +714,7 @@ export function useMcpChatRuntime({
             traceId: toolTrace.traceId,
             startedAt: toolTrace.startedAt,
             completionMessage: `Model completed ${name}`,
+            traceRecorder,
           });
 
           toolTraceRef.current.delete(callId);
@@ -718,8 +751,12 @@ export function useMcpChatRuntime({
         });
       }
 
+      setLastUsage(response?.usage || null);
+      traceRecorder?.finishAssistantSpan('completed');
       addLog({ dir: '<-', type: 'chat/result', source: 'model', status: 'success' });
     } catch (error) {
+      traceRecorder?.finishAssistantSpan('failed');
+      traceRecorder?.addError(error.message, { phase: 'chat/run' });
       setMessages((prev) =>
         appendAssistantNote(
           prev,
@@ -744,8 +781,10 @@ export function useMcpChatRuntime({
     createWidgetSession,
     fetchWidgetResource,
     geminiApiKey,
+    modelPreset?.modelId,
     setWidgetStatus,
     testMode,
+    traceRecorder,
     tools,
     transport,
     updateWidgetSession,
@@ -844,6 +883,7 @@ export function useMcpChatRuntime({
         traceId,
         startedAt,
         completionMessage: `Direct run completed ${toolName}`,
+        traceRecorder,
       });
 
       return true;
@@ -883,6 +923,7 @@ export function useMcpChatRuntime({
     createWidgetSession,
     fetchWidgetResource,
     setWidgetStatus,
+    traceRecorder,
     tools,
     transport,
     updateWidgetSession,
@@ -923,6 +964,7 @@ export function useMcpChatRuntime({
     unregisterWidget,
     canSend: !!transport && !!geminiApiKey && !isStreaming,
     supportsWidgets: !!transport?.supportsWidgets,
+    lastUsage,
   };
 }
 

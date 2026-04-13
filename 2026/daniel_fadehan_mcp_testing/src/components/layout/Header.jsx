@@ -1,5 +1,6 @@
 import { useMcpStore } from '../../stores/mcpStore';
 import { useTestStore } from '../../stores/testStore';
+import { useEvaluationStore } from '../../stores/evaluationStore';
 
 export function Header() {
   const { getSelectedServer, getSelectedTool, activeTab, previousTab, setActiveTab } = useMcpStore();
@@ -20,11 +21,18 @@ export function Header() {
   const testTool = getTestTool();
   const testResource = getTestResource();
   const testPrompt = getTestPrompt();
+  const { currentScopeKey, scenariosByScope, selectedScenarioIdByScope } = useEvaluationStore();
+  const selectedEvaluationScenario = currentScopeKey
+    ? (scenariosByScope[currentScopeKey] || []).find(
+        (scenario) => scenario.id === selectedScenarioIdByScope[currentScopeKey]
+      )
+    : null;
 
   const getTestActiveItemName = () => {
     switch (selectedPrimitiveType) {
       case 'chat': return 'Chat';
       case 'apps': return 'MCP Apps';
+      case 'evaluations': return selectedEvaluationScenario?.title || 'Evaluations';
       case 'tools': return testTool?.name;
       case 'resources': return testResource?.name;
       case 'prompts': return testPrompt?.name;

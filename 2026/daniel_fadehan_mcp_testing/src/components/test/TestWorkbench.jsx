@@ -11,6 +11,7 @@ import { ChatPanel } from './ChatPanel';
 import { McpAppsPanel } from './McpAppsPanel';
 import { LogBusPanel } from './LogBusPanel';
 import { DebugPanel } from './DebugPanel';
+import { EvaluationsPanel } from './evaluations/EvaluationsPanel.jsx';
 
 // Icons
 const ServerIcon = () => (
@@ -56,7 +57,6 @@ export function TestWorkbench() {
     selectedPromptName,
     selectedPrimitiveType,
     getSelectedTool,
-    tools,
     resources,
     prompts,
   } = useTestStore();
@@ -114,6 +114,9 @@ export function TestWorkbench() {
     }
     if (selectedPrimitiveType === 'apps') {
       return <McpAppsPanel />;
+    }
+    if (selectedPrimitiveType === 'evaluations') {
+      return <EvaluationsPanel />;
     }
     if (selectedPrimitiveType === 'tools') {
       const selectedTool = getSelectedTool();
@@ -201,7 +204,7 @@ export function TestWorkbench() {
       </div>
       
       {/* Tools/resources/prompts still use the generic side panel. Chat and Apps own their runtime-specific logs. */}
-      {selectedPrimitiveType !== 'apps' && selectedPrimitiveType !== 'chat' && (
+      {selectedPrimitiveType !== 'apps' && selectedPrimitiveType !== 'chat' && selectedPrimitiveType !== 'evaluations' && (
         <LogBusPanel
           logs={[]}
           isCollapsed={isLogsCollapsed}

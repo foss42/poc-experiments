@@ -29,6 +29,7 @@ export async function sendChatMessage({
   mcpTools,
   mcpClient,
   apiKey,
+  modelId = 'gemini-2.5-flash',
   onToolCall,
   onToolResult,
   onStreamPart,
@@ -70,7 +71,7 @@ export async function sendChatMessage({
   }
 
   const result = streamText({
-    model: google('gemini-2.5-flash'),
+    model: google(modelId),
     system,
     tools,
     messages: flattenMessagesForModel(messages),
@@ -98,6 +99,7 @@ export async function sendChatMessage({
   }
 
   const steps = await result.steps;
+  const totalUsage = await result.totalUsage;
 
   return {
     text: await result.text,
@@ -112,6 +114,13 @@ export async function sendChatMessage({
       })),
     })),
     toolCalls: (steps || []).flatMap((s) => s.toolCalls || []),
+    usage: totalUsage
+      ? {
+          inputTokens: totalUsage.inputTokens,
+          outputTokens: totalUsage.outputTokens,
+          totalTokens: totalUsage.totalTokens,
+        }
+      : null,
   };
 }
 
