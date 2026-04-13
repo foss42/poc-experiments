@@ -5,6 +5,16 @@ export interface TrajectoryStep {
   source: string;
 }
 
+export interface VisionSample {
+  id: string | number;
+  image_base64: string;
+  image_mime_type?: string;
+  question?: string | null;
+  prediction?: string | null;
+  target?: string | null;
+  is_correct?: boolean | null;
+}
+
 export interface EvalResults {
   run_id: string;
   model: string;
@@ -13,6 +23,8 @@ export interface EvalResults {
   engine: 'lmms-eval' | 'inspect-ai';
   metrics: Record<string, number>;
   trajectory?: TrajectoryStep[];
+  input_preview: string | null;
+  vision_samples?: VisionSample[];
 }
 
 export interface EvalConfig {
@@ -36,4 +48,4 @@ export const startEvaluation = async (config: EvalConfig): Promise<{ run_id: str
   }
 
   return response.json();
-};
+};

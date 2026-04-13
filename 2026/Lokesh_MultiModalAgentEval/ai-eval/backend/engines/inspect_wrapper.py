@@ -76,7 +76,7 @@ def main():
     env = os.environ.copy()
     env["OLLAMA_BASE_URL"] = "http://localhost:11434/v1"  # Must include /v1 - inspect_ai reads this to override Ollama's service_base_url
     env["OPENAI_API_KEY"] = "dummy_key_for_local"
-    env["HF_TOKEN"] = os.environ.get("HF_TOKEN", "")
+    env["HF_TOKEN"] = os.getenv("HF_TOKEN")
     env["HF_HOME"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".hf_cache"))
     env["HF_DATASETS_CACHE"] = env["HF_HOME"]
     env["HUGGINGFACE_HUB_CACHE"] = env["HF_HOME"]

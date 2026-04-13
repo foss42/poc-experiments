@@ -72,28 +72,28 @@ function App() {
     setIsRunning(false);
   }, []);
   return (
-    <div className="min-h-screen bg-gray-50 p-8 text-gray-900">
-      <div className="max-w-5xl mx-auto space-y-6">
+    <div className="min-h-screen bg-slate-950 p-6 text-slate-100">
+      <div className="max-w-7xl mx-auto space-y-6">
         
         {backendHealth === 'checking' && (
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-3 rounded-md shadow-sm">
-            <p className="text-blue-700 text-sm">⏳ Connecting to backend...</p>
+          <div className="bg-blue-950/50 border border-blue-700 p-3 rounded-md shadow-sm">
+            <p className="text-blue-200 text-sm">Connecting to backend...</p>
           </div>
         )}
 
         {backendHealth === 'error' && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-md shadow-sm">
+          <div className="bg-red-950/60 border border-red-700 p-4 rounded-md shadow-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <svg className="w-6 h-6 text-red-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                <svg className="w-6 h-6 text-red-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
                 <div>
-                  <h3 className="text-red-800 font-bold">Health Check Failed</h3>
-                  <p className="text-red-700 text-sm mt-1">{healthMessage}. Ensure backend and Ollama are running.</p>
+                  <h3 className="text-red-200 font-bold">Health Check Failed</h3>
+                  <p className="text-red-300 text-sm mt-1">{healthMessage}. Ensure backend and Ollama are running.</p>
                 </div>
               </div>
               <button
                 onClick={runHealthCheck}
-                className="ml-4 px-3 py-1 text-sm bg-red-100 hover:bg-red-200 text-red-800 rounded-md border border-red-300 transition-colors flex-shrink-0"
+                className="ml-4 px-3 py-1 text-sm bg-red-700/40 hover:bg-red-700/60 text-red-100 rounded-md border border-red-500 transition-colors flex-shrink-0"
               >
                 Retry
               </button>
@@ -101,24 +101,30 @@ function App() {
           </div>
         )}
 
-        <header>
-          <h1 className="text-3xl font-bold">Multimodal API Eval Framework</h1>
-          <p className="text-gray-500">PoC v3.0 // Capability-Aware Router</p>
+        <header className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+          <div className="flex flex-wrap justify-between items-center gap-3">
+            <div>
+              <h1 className="text-3xl font-bold text-white">Multimodal AI Evaluation Dashboard</h1>
+              <p className="text-slate-400">Live capability benchmarking for text, vision, audio, and agent tasks</p>
+            </div>
+            <div className="text-xs px-3 py-1 rounded-full border border-slate-700 bg-slate-800 text-slate-300">
+              {isRunning ? 'Run in progress' : 'Idle'}
+            </div>
+          </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="col-span-1">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
+          <div className="xl:col-span-3 xl:sticky xl:top-6 self-start">
             <ConfigPanel onRun={handleRun} isRunning={isRunning} />
           </div>
           
-          <div className="col-span-1 md:col-span-2 space-y-6">
+          <div className="xl:col-span-9 space-y-6">
             <LogStream 
               runId={runId} 
               logs={logs} 
               setLogs={setLogs} 
-              onComplete={handleEvalComplete} 
+              onComplete={handleEvalComplete}
             />
-            
             {results && <Results data={results} />}
           </div>
         </div>

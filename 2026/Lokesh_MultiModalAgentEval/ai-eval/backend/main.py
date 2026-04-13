@@ -74,7 +74,7 @@ async def stream_logs(run_id: str):
                 final_data = results_store.get(run_id, {})
                 yield f"data: {json.dumps({'done': True, 'results': final_data.get('data')})}\n\n"
                 break
-            elif msg.startswith("[EVAL_ERROR]"):
+            elif isinstance(msg, str) and msg.startswith("[EVAL_ERROR]"):
                 yield f"data: {json.dumps({'error': msg})}\n\n"
                 break
             else:

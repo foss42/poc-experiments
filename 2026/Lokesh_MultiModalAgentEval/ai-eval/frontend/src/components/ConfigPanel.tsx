@@ -42,11 +42,11 @@ export default function ConfigPanel({ onRun, isRunning }: Props) {
   };
 
   return (
-    <div className="p-6 border border-gray-200 rounded-xl bg-white shadow-sm">
-      <h2 className="text-xl font-bold text-gray-800 mb-4">Configuration</h2>
+    <div className="p-5 border border-slate-700 rounded-xl bg-slate-900 shadow-sm">
+      <h2 className="text-lg font-bold text-white mb-4">Run Configuration</h2>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        <label className="flex flex-col text-sm font-semibold text-gray-700">
+        <label className="flex flex-col text-sm font-semibold text-slate-200">
           Model Array:
           <select
             value={model}
@@ -55,35 +55,35 @@ export default function ConfigPanel({ onRun, isRunning }: Props) {
               setSelectedTasks([]); // Reset tasks on model change to prevent capability mismatch
             }}
             disabled={isRunning}
-            className="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-gray-100"
+            className="mt-1 p-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-slate-700"
           >
             {Object.keys(MODEL_CAPABILITIES).map(m => (
               <option key={m} value={m}>{m}</option>
             ))}
           </select>
-          <span className="text-xs text-gray-500 mt-1 font-normal">Capabilites: {activeModelCaps.join(', ')}</span>
+          <span className="text-xs text-slate-400 mt-1 font-normal">Capabilities: {activeModelCaps.join(', ')}</span>
         </label>
 
-        <div className="flex flex-col text-sm font-semibold text-gray-700 gap-2">
+        <div className="flex flex-col text-sm font-semibold text-slate-200 gap-2">
           Tasks (Auto-filtered by capabilities):
-          <div className="grid grid-cols-1 gap-2 border border-gray-200 rounded-md p-3 bg-gray-50 max-h-48 overflow-y-auto">
+          <div className="grid grid-cols-1 gap-2 border border-slate-700 rounded-md p-3 bg-slate-800/80 max-h-56 overflow-y-auto">
             {AVAILABLE_TASKS.map(task => {
               const isDisabled = !activeModelCaps.includes(task.modality) || isRunning;
               return (
                 <label
                   key={task.id}
-                  className={`flex items-center gap-2 p-2 rounded-md transition-colors ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 cursor-pointer'}`}
+                  className={`flex items-center gap-2 p-2 rounded-md transition-colors ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-slate-700 cursor-pointer'}`}
                 >
                   <input
                     type="checkbox"
                     checked={selectedTasks.includes(task.id)}
                     disabled={isDisabled}
                     onChange={() => handleTaskToggle(task.id, task.modality)}
-                    className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500"
+                    className="w-4 h-4 rounded text-blue-500 focus:ring-blue-500"
                   />
                   <div className="flex-1">
-                    <span className="block text-sm font-medium text-gray-900">{task.label}</span>
-                    <span className="block text-xs text-gray-500 uppercase tracking-wider">{task.modality}</span>
+                    <span className="block text-sm font-medium text-slate-100">{task.label}</span>
+                    <span className="block text-xs text-slate-400 uppercase tracking-wider">{task.modality}</span>
                   </div>
                 </label>
               );
@@ -91,7 +91,7 @@ export default function ConfigPanel({ onRun, isRunning }: Props) {
           </div>
         </div>
 
-        <label className="flex flex-col text-sm font-semibold text-gray-700">
+        <label className="flex flex-col text-sm font-semibold text-slate-200">
           Sample Limit:
           <input
             type="number"
@@ -99,11 +99,11 @@ export default function ConfigPanel({ onRun, isRunning }: Props) {
             value={limit}
             onChange={e => setLimit(Number(e.target.value))}
             disabled={isRunning}
-            className="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-gray-100"
+            className="mt-1 p-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-slate-700"
           />
         </label>
 
-        <label className="flex flex-col text-sm font-semibold text-gray-700">
+        <label className="flex flex-col text-sm font-semibold text-slate-200">
           API Key (Optional for local):
           <input
             type="password"
@@ -111,7 +111,7 @@ export default function ConfigPanel({ onRun, isRunning }: Props) {
             onChange={e => setApiKey(e.target.value)}
             placeholder="sk-..."
             disabled={isRunning}
-            className="mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-gray-100 disabled:text-gray-400"
+            className="mt-1 p-2 border border-slate-600 bg-slate-800 text-slate-100 rounded-md focus:ring-2 focus:ring-blue-500 outline-none disabled:bg-slate-700 disabled:text-slate-400"
           />
         </label>
 

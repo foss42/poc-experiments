@@ -16,4 +16,6 @@ class EvalResult(BaseModel):
     metrics: Dict[str, float]
     trajectory: Optional[List[Dict[str, Any]]] = Field(default_factory=list)
     metadata: Optional[Dict[str, Any]] = None
+    input_preview: Optional[str] = None
+    vision_samples: Optional[List[Dict[str, Any]]] = Field(default_factory=list)
 

@@ -104,4 +104,4 @@ def run_evaluation_thread(run_id: str, req: EvalRequest, queue: asyncio.Queue, l
 
     except Exception as e:
         results_store[run_id] = {"status": "error", "error": str(e)}
-        asyncio.run_coroutine_threadsafe(queue.put(f"[EVAL_ERROR] {str(e)}"), loop)
+        asyncio.run_coroutine_threadsafe(queue.put(f"[EVAL_ERROR] {str(e)}"), loop)
