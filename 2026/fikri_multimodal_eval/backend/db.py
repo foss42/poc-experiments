@@ -53,14 +53,32 @@ async def get_result(eval_id: str) -> dict[str, Any] | None:
             return json.loads(row[0]) if row else None
 
 
-async def list_results() -> list[dict[str, Any]]:
+async def list_results(
+    limit: int = 20,
+    offset: int = 0,
+) -> dict[str, Any]:
+    """Return a paginated slice of results with a total count.
+
+    Response shape::
+
+        {
+            "total": 42,
+            "results": [{ "eval_id": ..., ... }, ...]
+        }
+    """
     async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute("SELECT COUNT(*) FROM eval_results") as cur:
+            row = await cur.fetchone()
+            total = row[0] if row else 0
+
         async with db.execute(
             """SELECT eval_id, created_at, eval_type, tasks, models, harness
-               FROM eval_results ORDER BY created_at DESC"""
+               FROM eval_results ORDER BY created_at DESC
+               LIMIT ? OFFSET ?""",
+            (limit, offset),
         ) as cursor:
             rows = await cursor.fetchall()
-            return [
+            items = [
                 {
                     "eval_id": r[0],
                     "created_at": r[1],
@@ -71,3 +89,4 @@ async def list_results() -> list[dict[str, Any]]:
                 }
                 for r in rows
             ]
+    return {"total": total, "results": items}

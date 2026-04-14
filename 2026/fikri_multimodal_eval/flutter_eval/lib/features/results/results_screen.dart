@@ -15,7 +15,10 @@ class ResultsScreen extends ConsumerWidget {
 
     return Column(
       children: [
-        _ResultsHeader(onRefresh: notifier.refresh, resultsAsync: resultsAsync),
+        _ResultsHeader(
+          onRefresh: notifier.refresh,
+          isLoading: resultsAsync.isLoading,
+        ),
         Expanded(
           child: resultsAsync.when(
             loading: () => const Center(
@@ -42,13 +45,14 @@ class ResultsScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            data: (results) {
-              if (results.isEmpty) {
+            data: (state) {
+              if (state.items.isEmpty) {
                 return const Center(
                   child: Text(
                     'No evaluations yet.\nRun one from the Eval tab.',
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: AppTheme.textMuted, fontSize: 13),
+                    style:
+                        TextStyle(color: AppTheme.textMuted, fontSize: 13),
                   ),
                 );
               }
@@ -57,8 +61,16 @@ class ResultsScreen extends ConsumerWidget {
                 color: AppTheme.primary,
                 child: ListView.builder(
                   padding: const EdgeInsets.all(16),
-                  itemCount: results.length,
-                  itemBuilder: (_, i) => ResultCard(result: results[i]),
+                  itemCount: state.items.length + (state.hasMore ? 1 : 0),
+                  itemBuilder: (_, i) {
+                    if (i == state.items.length) {
+                      return _LoadMoreButton(
+                        isLoading: state.isLoadingMore,
+                        onTap: notifier.loadMore,
+                      );
+                    }
+                    return ResultCard(result: state.items[i]);
+                  },
                 ),
               );
             },
@@ -72,11 +84,11 @@ class ResultsScreen extends ConsumerWidget {
 class _ResultsHeader extends StatelessWidget {
   const _ResultsHeader({
     required this.onRefresh,
-    required this.resultsAsync,
+    required this.isLoading,
   });
 
   final Future<void> Function() onRefresh;
-  final AsyncValue<ResultList> resultsAsync;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -97,8 +109,8 @@ class _ResultsHeader extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: resultsAsync.isLoading ? null : onRefresh,
-            icon: resultsAsync.isLoading
+            onPressed: isLoading ? null : onRefresh,
+            icon: isLoading
                 ? const SizedBox(
                     width: 16,
                     height: 16,
@@ -113,6 +125,33 @@ class _ResultsHeader extends StatelessWidget {
                 const BoxConstraints(minWidth: 32, minHeight: 32),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _LoadMoreButton extends StatelessWidget {
+  const _LoadMoreButton({required this.isLoading, required this.onTap});
+
+  final bool isLoading;
+  final Future<void> Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Center(
+        child: isLoading
+            ? const SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                    strokeWidth: 2, color: AppTheme.primary),
+              )
+            : OutlinedButton(
+                onPressed: onTap,
+                child: const Text('Load more'),
+              ),
       ),
     );
   }

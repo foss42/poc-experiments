@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/theme/app_theme.dart';
 
@@ -18,7 +19,9 @@ class ResultCard extends StatelessWidget {
 
     final isCompare = evalType == 'compare';
 
-    return Container(
+    return GestureDetector(
+      onTap: () => context.go('/results/$evalId'),
+      child: Container(
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -81,6 +84,7 @@ class ResultCard extends StatelessWidget {
             ),
           ],
         ],
+      ),
       ),
     );
   }

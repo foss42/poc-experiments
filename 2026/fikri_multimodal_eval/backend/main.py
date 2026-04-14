@@ -307,8 +307,9 @@ async def eval_harness_compare(req: HarnessCompareRequest):
 
 
 @app.get("/api/results")
-async def get_results():
-    return await list_results()
+async def get_results(limit: int = 20, offset: int = 0):
+    """Return paginated results. Response: {total: int, results: [...]}"""
+    return await list_results(limit=limit, offset=offset)
 
 
 @app.get("/api/results/{eval_id}")
