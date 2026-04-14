@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'screens/input_screen.dart';
+import 'screens/streaming_simulator_screen.dart';
 
 void main() {
   runApp(const OpenResponsesExplorerApp());
@@ -8,6 +9,8 @@ void main() {
 
 class OpenResponsesExplorerApp extends StatefulWidget {
   const OpenResponsesExplorerApp({super.key});
+
+  static const String streamingRoute = '/streaming-simulator';
 
   @override
   State<OpenResponsesExplorerApp> createState() =>
@@ -43,6 +46,10 @@ class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
           brightness: Brightness.dark,
         ),
       ),
+      routes: <String, WidgetBuilder>{
+        OpenResponsesExplorerApp.streamingRoute: (BuildContext context) =>
+            const StreamingSimulatorScreen(),
+      },
       home: InputScreen(themeMode: _themeMode, onToggleTheme: _toggleTheme),
     );
   }

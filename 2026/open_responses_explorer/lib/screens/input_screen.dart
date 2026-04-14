@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import '../domain/open_response_parser.dart';
 import '../domain/response_models.dart';
 import 'response_explorer_screen.dart';
+import 'streaming_simulator_screen.dart';
 
 const Color _reasoningAccent = Color(0xFF7C3AED);
 const Color _functionAccent = Color(0xFF2563EB);
@@ -180,7 +181,7 @@ _samplePayloads = <_SamplePayloadDefinition>[
   ),
 ];
 
-enum _InputMode { pasteJson, loadSample }
+enum _InputMode { pasteJson, loadSample, streaming }
 
 enum _ParseButtonState { idle, loading, success, error }
 
@@ -313,7 +314,7 @@ class _InputScreenState extends State<InputScreen>
       _errorMessage = null;
       _warningMessage = null;
       _textFieldHasError = false;
-      if (mode == _InputMode.pasteJson) {
+      if (mode != _InputMode.loadSample) {
         _showPreviewPanel = false;
       }
     });
@@ -355,6 +356,11 @@ class _InputScreenState extends State<InputScreen>
 
   Future<void> _handleParsePressed() async {
     if (_isBusy) {
+      return;
+    }
+
+    if (_mode == _InputMode.streaming) {
+      await Navigator.of(context).push(_buildStreamingRoute());
       return;
     }
 
@@ -533,6 +539,29 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
+  Route<void> _buildStreamingRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const StreamingSimulatorScreen(),
+      transitionDuration: const Duration(milliseconds: 320),
+      reverseTransitionDuration: const Duration(milliseconds: 260),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curved = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutCubic,
+        );
+
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curved),
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -607,6 +636,11 @@ class _InputScreenState extends State<InputScreen>
                           icon: Icon(Icons.auto_awesome_rounded),
                           label: Text('Load Sample'),
                         ),
+                        ButtonSegment<_InputMode>(
+                          value: _InputMode.streaming,
+                          icon: Icon(Icons.stream_rounded),
+                          label: Text('Streaming'),
+                        ),
                       ],
                       selected: <_InputMode>{_mode},
                       showSelectedIcon: false,
@@ -634,9 +668,11 @@ class _InputScreenState extends State<InputScreen>
                               ),
                             );
                           },
-                      child: _mode == _InputMode.pasteJson
-                          ? _buildPasteMode(theme)
-                          : _buildSampleMode(theme),
+                      child: switch (_mode) {
+                        _InputMode.pasteJson => _buildPasteMode(theme),
+                        _InputMode.loadSample => _buildSampleMode(theme),
+                        _InputMode.streaming => _buildStreamingMode(theme),
+                      },
                     ),
                   ],
                 ),
@@ -860,6 +896,58 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
+  Widget _buildStreamingMode(ThemeData theme) {
+    return Container(
+      key: const ValueKey<String>('streaming-mode'),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: _tintedSurface(theme, _functionAccent),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              const Icon(Icons.stream_rounded, color: _functionAccent),
+              const SizedBox(width: 8),
+              Text(
+                'Live Streaming Simulator',
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: _functionAccent,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'Watch a real-time OpenAI Responses streaming sequence event by '
+            'event, with live timeline rendering and full playback controls.',
+            style: theme.textTheme.bodySmall?.copyWith(
+              height: 1.45,
+              color: theme.colorScheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: const <Widget>[
+              _StreamingModeChip(label: 'SSE Event Feed'),
+              _StreamingModeChip(label: 'Live Timeline View'),
+              _StreamingModeChip(label: 'Playback Controls'),
+              _StreamingModeChip(label: 'Step Debugging'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildSampleCard(ThemeData theme, _SamplePayloadDefinition sample) {
     final selected = sample.id == _selectedSample?.id;
     final borderColor = selected
@@ -962,6 +1050,7 @@ class _InputScreenState extends State<InputScreen>
 
   Widget _buildParseButton(ThemeData theme) {
     final colorScheme = theme.colorScheme;
+    final isStreamingMode = _mode == _InputMode.streaming;
 
     Color buttonColor;
     switch (_buttonState) {
@@ -1010,16 +1099,26 @@ class _InputScreenState extends State<InputScreen>
               color: Colors.white,
               size: 22,
             ),
-            _ParseButtonState.idle => const Row(
-              key: ValueKey<String>('idle'),
+            _ParseButtonState.idle => Row(
+              key: const ValueKey<String>('idle'),
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Parse Response',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+                  isStreamingMode
+                      ? 'Open Streaming Simulator'
+                      : 'Parse Response',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-                SizedBox(width: 10),
-                Icon(Icons.arrow_right_alt_rounded, size: 22),
+                const SizedBox(width: 10),
+                Icon(
+                  isStreamingMode
+                      ? Icons.play_circle_fill_rounded
+                      : Icons.arrow_right_alt_rounded,
+                  size: 22,
+                ),
               ],
             ),
           },
@@ -1186,6 +1285,33 @@ class _TagChip extends StatelessWidget {
         tag.label,
         style: theme.textTheme.labelSmall?.copyWith(
           color: tag.color,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _StreamingModeChip extends StatelessWidget {
+  const _StreamingModeChip({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      child: Text(
+        label,
+        style: theme.textTheme.labelSmall?.copyWith(
+          color: _functionAccent,
           fontWeight: FontWeight.w700,
         ),
       ),

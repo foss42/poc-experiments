@@ -9,6 +9,7 @@ void main() {
     expect(find.text('Open Responses Explorer'), findsOneWidget);
     expect(find.text('Paste JSON'), findsOneWidget);
     expect(find.text('Load Sample'), findsOneWidget);
+    expect(find.text('Streaming'), findsOneWidget);
     expect(find.text('Parse Response'), findsOneWidget);
   });
 }

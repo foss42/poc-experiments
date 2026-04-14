@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../domain/response_models.dart';
+import 'streaming_simulator_screen.dart';
 
 const Color _reasoningAccent = Color(0xFF7C3AED);
 const Color _functionAccent = Color(0xFF2563EB);
@@ -95,6 +96,29 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
     });
   }
 
+  Route<void> _buildStreamingRoute() {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const StreamingSimulatorScreen(),
+      transitionDuration: const Duration(milliseconds: 320),
+      reverseTransitionDuration: const Duration(milliseconds: 260),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curved = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutCubic,
+        );
+
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curved),
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -103,6 +127,11 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
       backgroundColor: theme.brightness == Brightness.light
           ? _lightModeBackground
           : theme.colorScheme.surface,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.of(context).push(_buildStreamingRoute()),
+        icon: const Icon(Icons.play_circle_fill_rounded),
+        label: const Text('Simulate Stream'),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
