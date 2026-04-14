@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/models/health_status.dart';
 import '../../core/theme/app_theme.dart';
+import '../providers/health_provider.dart';
+import 'status_bar.dart';
 
-class AppShell extends StatelessWidget {
+class AppShell extends ConsumerWidget {
   const AppShell({super.key, required this.child});
 
   final Widget child;
@@ -21,8 +25,19 @@ class AppShell extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = _selectedIndex(context);
+    final healthAsync = ref.watch(healthProvider);
+    final bar = healthAsync.when(
+      data: (h) => StatusBar(status: h),
+      loading: () => const LinearProgressIndicator(
+        minHeight: 2,
+        backgroundColor: AppTheme.surface,
+        color: AppTheme.primary,
+      ),
+      error: (_, __) => StatusBar(status: HealthStatus.allOffline()),
+    );
+
     return PopScope(
       canPop: false,
       child: LayoutBuilder(
@@ -31,12 +46,14 @@ class AppShell extends StatelessWidget {
             return _WideShell(
               selectedIndex: selectedIndex,
               onNavigate: (i) => _navigate(context, i),
+              statusBar: bar,
               child: child,
             );
           }
           return _NarrowShell(
             selectedIndex: selectedIndex,
             onNavigate: (i) => _navigate(context, i),
+            statusBar: bar,
             child: child,
           );
         },
@@ -49,11 +66,13 @@ class _WideShell extends StatelessWidget {
   const _WideShell({
     required this.selectedIndex,
     required this.onNavigate,
+    required this.statusBar,
     required this.child,
   });
 
   final int selectedIndex;
   final ValueChanged<int> onNavigate;
+  final Widget statusBar;
   final Widget child;
 
   @override
@@ -85,7 +104,14 @@ class _WideShell extends StatelessWidget {
             ],
           ),
           const VerticalDivider(thickness: 1, width: 1),
-          Expanded(child: child),
+          Expanded(
+            child: Column(
+              children: [
+                statusBar,
+                Expanded(child: child),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -96,18 +122,25 @@ class _NarrowShell extends StatelessWidget {
   const _NarrowShell({
     required this.selectedIndex,
     required this.onNavigate,
+    required this.statusBar,
     required this.child,
   });
 
   final int selectedIndex;
   final ValueChanged<int> onNavigate;
+  final Widget statusBar;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.background,
-      body: child,
+      body: Column(
+        children: [
+          statusBar,
+          Expanded(child: child),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: onNavigate,
