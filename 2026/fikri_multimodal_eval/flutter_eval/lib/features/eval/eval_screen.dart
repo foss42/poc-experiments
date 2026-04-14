@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/models/benchmark_config.dart';
-import '../../core/theme/app_theme.dart';
 import '../../shared/widgets/section_card.dart';
 import 'providers/eval_config_provider.dart';
 import 'widgets/benchmark_card.dart';
+import 'widgets/model_input_list.dart';
 import 'widgets/modality_selector.dart';
 import 'widgets/provider_selector.dart';
 import 'widgets/task_selector.dart';
@@ -63,9 +63,13 @@ class _Step3Placeholder extends StatelessWidget {
     return const SectionCard(
       step: '3',
       title: 'Configure model',
-      child: Text(
-        'Model configuration — coming in Story 2.3',
-        style: TextStyle(color: AppTheme.textMuted, fontSize: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ModelInputList(),
+          SizedBox(height: 12),
+          SampleLimitField(),
+        ],
       ),
     );
   }
