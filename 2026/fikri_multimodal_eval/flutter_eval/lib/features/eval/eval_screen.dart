@@ -4,12 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/models/benchmark_config.dart';
 import '../../core/theme/app_theme.dart';
 import '../../shared/widgets/section_card.dart';
+import 'providers/compare_provider.dart';
 import 'providers/eval_config_provider.dart';
 import 'providers/eval_provider.dart';
 import 'widgets/benchmark_card.dart';
 import 'widgets/model_input_list.dart';
 import 'widgets/modality_selector.dart';
 import 'widgets/provider_selector.dart';
+import 'widgets/progress_view.dart';
 import 'widgets/run_button.dart';
 import 'widgets/single_result_view.dart';
 import 'widgets/task_selector.dart';
@@ -23,6 +25,8 @@ class EvalScreen extends ConsumerWidget {
     final modality = ref.watch(evalConfigProvider.select((c) => c.modality));
     final benchmarks = benchmarksForModality(modality);
     final evalAsync = ref.watch(evalProvider);
+    final compare = ref.watch(compareProvider);
+    final isComparison = ref.watch(evalConfigProvider.select((c) => c.models.length >= 2));
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -69,12 +73,32 @@ class EvalScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           const RunButton(),
           const EvalErrorBanner(),
-          if (evalAsync.hasValue && evalAsync.value != null) ...[
+          if (isComparison && (compare.isRunning || compare.results.isNotEmpty)) ...[
+            const SizedBox(height: 16),
+            const _CompareResultSection(),
+          ] else if (!isComparison && evalAsync.hasValue && evalAsync.value != null) ...[
             const SizedBox(height: 16),
             _ResultSection(data: evalAsync.value!),
           ],
         ],
       ),
+    );
+  }
+}
+
+class _CompareResultSection extends StatelessWidget {
+  const _CompareResultSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppTheme.border),
+      ),
+      padding: const EdgeInsets.all(16),
+      child: const ProgressView(),
     );
   }
 }
