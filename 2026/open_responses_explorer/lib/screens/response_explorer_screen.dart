@@ -3,7 +3,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../domain/gen_ui_models.dart';
+import '../domain/open_responses_detector.dart';
 import '../domain/response_models.dart';
+import 'gen_ui_preview_screen.dart';
 import 'streaming_simulator_screen.dart';
 
 const Color _reasoningAccent = Color(0xFF7C3AED);
@@ -100,6 +103,34 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const StreamingSimulatorScreen(),
+      transitionDuration: const Duration(milliseconds: 320),
+      reverseTransitionDuration: const Duration(milliseconds: 260),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curved = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutCubic,
+        );
+
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curved),
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route<void> _buildGenUIPreviewRoute(Map<String, dynamic> descriptorJson) {
+    final descriptor = GenUIDescriptor.fromJson(descriptorJson);
+
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          GenUIPreviewScreen(
+            descriptor: descriptor,
+            rawDescriptorJson: descriptorJson,
+          ),
       transitionDuration: const Duration(milliseconds: 320),
       reverseTransitionDuration: const Duration(milliseconds: 260),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -288,33 +319,47 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   }
 
   Widget _buildTimelineTab(ThemeData theme) {
-    if (widget.response.items.isEmpty) {
+    final genUiDescriptorJson =
+        OpenResponsesDetector.extractGenUIDescriptorJson(widget.response);
+    final hasGenUiDescriptor = genUiDescriptorJson != null;
+
+    if (widget.response.items.isEmpty && !hasGenUiDescriptor) {
       return const _CenteredPlaceholder(
         icon: Icons.inventory_2_outlined,
         title: 'No items in this response',
       );
     }
 
-    return ListView.builder(
+    return ListView(
       padding: const EdgeInsets.all(16),
-      itemCount: widget.response.items.length,
-      itemBuilder: (BuildContext context, int index) {
-        final item = widget.response.items[index];
-        final visible = _matchesTimelineQuery(item);
-
-        return _TimelineVisibility(
-          visible: visible,
-          child: Padding(
+      children: <Widget>[
+        if (hasGenUiDescriptor)
+          Padding(
             padding: EdgeInsets.only(
-              bottom: index == widget.response.items.length - 1 ? 0 : 12,
+              bottom: widget.response.items.isEmpty ? 0 : 12,
             ),
-            child: _StaggeredEntrance(
-              delay: Duration(milliseconds: index * 50),
-              child: _buildTimelineCard(theme, item),
+            child: _GenUIBanner(
+              onPressed: () {
+                Navigator.of(context).push(
+                  _buildGenUIPreviewRoute(genUiDescriptorJson),
+                );
+              },
             ),
           ),
-        );
-      },
+        for (int index = 0; index < widget.response.items.length; index++)
+          _TimelineVisibility(
+            visible: _matchesTimelineQuery(widget.response.items[index]),
+            child: Padding(
+              padding: EdgeInsets.only(
+                bottom: index == widget.response.items.length - 1 ? 0 : 12,
+              ),
+              child: _StaggeredEntrance(
+                delay: Duration(milliseconds: index * 50),
+                child: _buildTimelineCard(theme, widget.response.items[index]),
+              ),
+            ),
+          ),
+      ],
     );
   }
 
@@ -1225,6 +1270,56 @@ class _CenteredPlaceholder extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _GenUIBanner extends StatelessWidget {
+  const _GenUIBanner({required this.onPressed});
+
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: <Color>[Color(0xFF1D4ED8), Color(0xFF2563EB), Color(0xFF3B82F6)],
+        ),
+      ),
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+      child: Row(
+        children: <Widget>[
+          const Icon(Icons.dashboard_customize_rounded, color: Colors.white),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              'This response contains a generated UI descriptor',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: onPressed,
+            style: TextButton.styleFrom(
+              foregroundColor: const Color(0xFF1D4ED8),
+              backgroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(999),
+              ),
+            ),
+            child: const Text('Preview UI'),
+          ),
+        ],
       ),
     );
   }

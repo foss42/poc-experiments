@@ -5,8 +5,11 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../domain/gen_ui_models.dart';
+import '../domain/gen_ui_samples.dart';
 import '../domain/open_response_parser.dart';
 import '../domain/response_models.dart';
+import 'gen_ui_preview_screen.dart';
 import 'response_explorer_screen.dart';
 import 'streaming_simulator_screen.dart';
 
@@ -181,7 +184,7 @@ _samplePayloads = <_SamplePayloadDefinition>[
   ),
 ];
 
-enum _InputMode { pasteJson, loadSample, streaming }
+enum _InputMode { pasteJson, loadSample, streaming, genUiPreview }
 
 enum _ParseButtonState { idle, loading, success, error }
 
@@ -205,6 +208,8 @@ class _InputScreenState extends State<InputScreen>
 
   final TextEditingController _jsonController = TextEditingController();
   final FocusNode _jsonFocusNode = FocusNode();
+  final TextEditingController _genUiController = TextEditingController();
+  final FocusNode _genUiFocusNode = FocusNode();
 
   late final AnimationController _shakeController;
   Timer? _errorFadeTimer;
@@ -212,6 +217,7 @@ class _InputScreenState extends State<InputScreen>
   _InputMode _mode = _InputMode.pasteJson;
   _ParseButtonState _buttonState = _ParseButtonState.idle;
   _SamplePayloadDefinition? _selectedSample;
+  GenUISampleDescriptor? _selectedGenUiSample;
 
   bool _showPreviewPanel = false;
   bool _showWelcomeTooltip = false;
@@ -232,6 +238,8 @@ class _InputScreenState extends State<InputScreen>
 
     _jsonController.addListener(_handleTextChanged);
     _jsonFocusNode.addListener(_handleTextChanged);
+    _genUiController.addListener(_handleTextChanged);
+    _genUiFocusNode.addListener(_handleTextChanged);
 
     if (!_welcomeTooltipAlreadyShown) {
       _showWelcomeTooltip = true;
@@ -249,6 +257,12 @@ class _InputScreenState extends State<InputScreen>
     _jsonFocusNode
       ..removeListener(_handleTextChanged)
       ..dispose();
+    _genUiController
+      ..removeListener(_handleTextChanged)
+      ..dispose();
+    _genUiFocusNode
+      ..removeListener(_handleTextChanged)
+      ..dispose();
     super.dispose();
   }
 
@@ -257,7 +271,9 @@ class _InputScreenState extends State<InputScreen>
       return;
     }
 
-    final hasText = _jsonController.text.trim().isNotEmpty;
+    final hasText = _mode == _InputMode.genUiPreview
+        ? _genUiController.text.trim().isNotEmpty
+        : _jsonController.text.trim().isNotEmpty;
     if (_textFieldHasError && hasText) {
       setState(() {
         _textFieldHasError = false;
@@ -275,9 +291,13 @@ class _InputScreenState extends State<InputScreen>
       return;
     }
 
-    _jsonController.text = pastedText;
-    _jsonController.selection = TextSelection.collapsed(
-      offset: _jsonController.text.length,
+    final target = _mode == _InputMode.genUiPreview
+        ? _genUiController
+        : _jsonController;
+
+    target.text = pastedText;
+    target.selection = TextSelection.collapsed(
+      offset: target.text.length,
     );
 
     if (!mounted) {
@@ -296,7 +316,11 @@ class _InputScreenState extends State<InputScreen>
   }
 
   void _clearInput() {
-    _jsonController.clear();
+    if (_mode == _InputMode.genUiPreview) {
+      _genUiController.clear();
+    } else {
+      _jsonController.clear();
+    }
     setState(() {
       _warningMessage = null;
       _errorMessage = null;
@@ -317,6 +341,9 @@ class _InputScreenState extends State<InputScreen>
       if (mode != _InputMode.loadSample) {
         _showPreviewPanel = false;
       }
+      if (mode != _InputMode.genUiPreview) {
+        _selectedGenUiSample = null;
+      }
     });
   }
 
@@ -325,6 +352,18 @@ class _InputScreenState extends State<InputScreen>
       _selectedSample = sample;
       _showPreviewPanel = true;
       _errorMessage = null;
+    });
+  }
+
+  void _selectGenUiSample(GenUISampleDescriptor sample) {
+    setState(() {
+      _selectedGenUiSample = sample;
+      _genUiController.text = sample.payload;
+      _genUiController.selection = TextSelection.collapsed(
+        offset: _genUiController.text.length,
+      );
+      _errorMessage = null;
+      _textFieldHasError = false;
     });
   }
 
@@ -361,6 +400,11 @@ class _InputScreenState extends State<InputScreen>
 
     if (_mode == _InputMode.streaming) {
       await Navigator.of(context).push(_buildStreamingRoute());
+      return;
+    }
+
+    if (_mode == _InputMode.genUiPreview) {
+      await _handleGenUiPreviewPressed();
       return;
     }
 
@@ -456,6 +500,81 @@ class _InputScreenState extends State<InputScreen>
     }
 
     await Navigator.of(context).push(_buildExplorerRoute(parsed));
+
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      _buttonState = _ParseButtonState.idle;
+    });
+  }
+
+  Future<void> _handleGenUiPreviewPressed() async {
+    if (_isBusy) {
+      return;
+    }
+
+    _errorFadeTimer?.cancel();
+
+    final source = _genUiController.text.trim().isNotEmpty
+        ? _genUiController.text.trim()
+        : _selectedGenUiSample?.payload ?? '';
+
+    if (source.isEmpty) {
+      setState(() {
+        _textFieldHasError = true;
+        _errorMessage = 'Please paste or load a GenUI descriptor JSON.';
+      });
+      return;
+    }
+
+    setState(() {
+      _buttonState = _ParseButtonState.loading;
+      _errorMessage = null;
+      _textFieldHasError = false;
+    });
+
+    final startedAt = DateTime.now();
+
+    Map<String, dynamic> descriptorJson;
+    GenUIDescriptor descriptor;
+
+    try {
+      final decoded = jsonDecode(source);
+      if (decoded is! Map) {
+        throw const FormatException('Descriptor root must be an object.');
+      }
+      descriptorJson = _normalizeMap(decoded);
+      descriptor = GenUIDescriptor.fromJson(descriptorJson);
+    } catch (_) {
+      await _showButtonErrorAndSetMessage(
+        startedAt,
+        'Invalid GenUI descriptor JSON. Please verify and try again.',
+        highlightField: true,
+      );
+      return;
+    }
+
+    await _ensureMinimumLoadingTime(startedAt);
+
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      _buttonState = _ParseButtonState.success;
+    });
+
+    await Future<void>.delayed(const Duration(milliseconds: 260));
+
+    if (!mounted) {
+      return;
+    }
+
+    await Navigator.of(context).push(
+      _buildGenUiPreviewRoute(descriptor, descriptorJson),
+    );
 
     if (!mounted) {
       return;
@@ -562,6 +681,35 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
+  Route<void> _buildGenUiPreviewRoute(
+    GenUIDescriptor descriptor,
+    Map<String, dynamic> descriptorJson,
+  ) {
+    return PageRouteBuilder<void>(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          GenUIPreviewScreen(
+            descriptor: descriptor,
+            rawDescriptorJson: descriptorJson,
+          ),
+      transitionDuration: const Duration(milliseconds: 320),
+      reverseTransitionDuration: const Duration(milliseconds: 260),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        final curved = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutCubic,
+        );
+
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 1),
+            end: Offset.zero,
+          ).animate(curved),
+          child: child,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -641,6 +789,11 @@ class _InputScreenState extends State<InputScreen>
                           icon: Icon(Icons.stream_rounded),
                           label: Text('Streaming'),
                         ),
+                        ButtonSegment<_InputMode>(
+                          value: _InputMode.genUiPreview,
+                          icon: Icon(Icons.dashboard_customize_rounded),
+                          label: Text('GenUI Preview'),
+                        ),
                       ],
                       selected: <_InputMode>{_mode},
                       showSelectedIcon: false,
@@ -672,6 +825,7 @@ class _InputScreenState extends State<InputScreen>
                         _InputMode.pasteJson => _buildPasteMode(theme),
                         _InputMode.loadSample => _buildSampleMode(theme),
                         _InputMode.streaming => _buildStreamingMode(theme),
+                        _InputMode.genUiPreview => _buildGenUiPreviewMode(theme),
                       },
                     ),
                   ],
@@ -948,6 +1102,214 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
+  Widget _buildGenUiPreviewMode(ThemeData theme) {
+    final isDark = theme.brightness == Brightness.dark;
+    final borderColor = _textFieldHasError
+        ? theme.colorScheme.error
+        : (_genUiFocusNode.hasFocus
+              ? _functionAccent
+              : theme.colorScheme.outlineVariant);
+
+    final background = isDark
+        ? const Color(0xFF0D1117)
+        : const Color(0xFFFBFDFF);
+
+    final boxHeight = math.max(230.0, MediaQuery.sizeOf(context).height * 0.33);
+
+    return Column(
+      key: const ValueKey<String>('genui-preview-mode'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: _tintedSurface(theme, _functionAccent),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+          ),
+          padding: const EdgeInsets.all(14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  const Icon(Icons.dashboard_customize_rounded, color: _functionAccent),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Direct GenUI Descriptor Preview',
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                      color: _functionAccent,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Paste raw descriptor JSON from an AI agent to render a live, '
+                'interactive Flutter preview instantly.',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurface,
+                  height: 1.45,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          curve: Curves.easeOut,
+          height: boxHeight,
+          decoration: BoxDecoration(
+            color: background,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: borderColor),
+          ),
+          child: Stack(
+            children: <Widget>[
+              TextField(
+                controller: _genUiController,
+                focusNode: _genUiFocusNode,
+                maxLines: null,
+                minLines: null,
+                expands: true,
+                autocorrect: false,
+                enableSuggestions: false,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  fontFamily: 'monospace',
+                  fontSize: 13,
+                  height: 1.35,
+                ),
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText:
+                      'Paste GenUI descriptor JSON here...\n\n'
+                      '{\n'
+                      '  "type": "screen",\n'
+                      '  "components": [...]\n'
+                      '}',
+                  hintStyle: theme.textTheme.bodySmall?.copyWith(
+                    fontFamily: 'monospace',
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                  contentPadding: const EdgeInsets.fromLTRB(16, 44, 16, 14),
+                ),
+              ),
+              Positioned(
+                top: 4,
+                right: 6,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: _pasteFromClipboard,
+                      tooltip: 'Paste',
+                      icon: const Icon(Icons.content_paste_rounded, size: 20),
+                    ),
+                    if (_genUiController.text.isNotEmpty)
+                      IconButton(
+                        onPressed: _clearInput,
+                        tooltip: 'Clear',
+                        icon: const Icon(Icons.clear_rounded, size: 20),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          '${_formatNumber(_genUiController.text.length)} characters',
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: theme.colorScheme.onSurfaceVariant,
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(height: 14),
+        Text(
+          'Load Sample Descriptor',
+          style: theme.textTheme.labelLarge?.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 8),
+        for (int i = 0; i < genUiSampleDescriptors.length; i++)
+          Padding(
+            padding: EdgeInsets.only(
+              bottom: i == genUiSampleDescriptors.length - 1 ? 0 : 10,
+            ),
+            child: _buildGenUiSampleCard(theme, genUiSampleDescriptors[i]),
+          ),
+        if (_errorMessage != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              _errorMessage!,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.error,
+                fontSize: 12,
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildGenUiSampleCard(
+    ThemeData theme,
+    GenUISampleDescriptor sample,
+  ) {
+    final selected = sample.id == _selectedGenUiSample?.id;
+
+    return InkWell(
+      onTap: () => _selectGenUiSample(sample),
+      borderRadius: BorderRadius.circular(12),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.easeInOut,
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: selected ? _functionAccent : theme.colorScheme.outlineVariant,
+            width: selected ? 1.8 : 1,
+          ),
+        ),
+        padding: const EdgeInsets.all(12),
+        child: Row(
+          children: <Widget>[
+            const Icon(Icons.widgets_outlined, color: _functionAccent),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    sample.title,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    sample.description,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (selected)
+              const Icon(Icons.check_circle_rounded, color: _functionAccent),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildSampleCard(ThemeData theme, _SamplePayloadDefinition sample) {
     final selected = sample.id == _selectedSample?.id;
     final borderColor = selected
@@ -1051,6 +1413,7 @@ class _InputScreenState extends State<InputScreen>
   Widget _buildParseButton(ThemeData theme) {
     final colorScheme = theme.colorScheme;
     final isStreamingMode = _mode == _InputMode.streaming;
+    final isGenUiMode = _mode == _InputMode.genUiPreview;
 
     Color buttonColor;
     switch (_buttonState) {
@@ -1104,7 +1467,9 @@ class _InputScreenState extends State<InputScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  isStreamingMode
+                  isGenUiMode
+                      ? 'Preview UI'
+                      : isStreamingMode
                       ? 'Open Streaming Simulator'
                       : 'Parse Response',
                   style: const TextStyle(
@@ -1116,6 +1481,8 @@ class _InputScreenState extends State<InputScreen>
                 Icon(
                   isStreamingMode
                       ? Icons.play_circle_fill_rounded
+                      : isGenUiMode
+                      ? Icons.dashboard_customize_rounded
                       : Icons.arrow_right_alt_rounded,
                   size: 22,
                 ),
