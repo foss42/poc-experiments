@@ -92,6 +92,19 @@ abstract final class AppTheme {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: surface,
+        selectedItemColor: primary,
+        unselectedItemColor: textMuted,
+        type: BottomNavigationBarType.fixed,
+      ),
+      navigationRailTheme: const NavigationRailThemeData(
+        backgroundColor: surface,
+        selectedIconTheme: IconThemeData(color: primary),
+        unselectedIconTheme: IconThemeData(color: textMuted),
+        selectedLabelTextStyle: TextStyle(color: primary, fontSize: 12),
+        unselectedLabelTextStyle: TextStyle(color: textMuted, fontSize: 12),
+      ),
     );
   }
 }
