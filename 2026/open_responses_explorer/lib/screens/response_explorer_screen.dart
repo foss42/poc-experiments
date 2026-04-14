@@ -144,12 +144,23 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
 
   Widget _buildHeader(ThemeData theme) {
     final statusColor = _statusColor(widget.response.status);
+    final canPop = Navigator.of(context).canPop();
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          if (canPop)
+            IconButton(
+              onPressed: () => Navigator.of(context).maybePop(),
+              tooltip: 'Back',
+              icon: const Icon(Icons.arrow_back_rounded),
+              constraints: const BoxConstraints.tightFor(width: 34, height: 34),
+              visualDensity: VisualDensity.compact,
+              padding: EdgeInsets.zero,
+            ),
+          if (canPop) const SizedBox(width: 10),
           Expanded(
             child: InkWell(
               onTap: () => _copyText(widget.response.id),
