@@ -7,6 +7,7 @@
 ///   dart example/detector_demo.dart
 ///
 /// (No Flutter needed — the detector and router have zero Flutter deps.)
+library;
 // ignore_for_file: avoid_print
 
 import 'package:open_responses_parser/open_responses_parser.dart';
@@ -94,8 +95,8 @@ const Map<String, dynamic> kStandardPayload = {
 // ---------------------------------------------------------------------------
 
 void main() {
-  final detector = OpenResponsesDetector();
-  final router = ViewRouter();
+  final detector = const OpenResponsesDetector();
+  final router = const ViewRouter();
 
   final scenarios = [
     (

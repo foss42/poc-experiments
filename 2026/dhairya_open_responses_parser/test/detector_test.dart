@@ -305,7 +305,7 @@ void main() {
 
   group('ViewRouter', () {
     test('openResponses → OpenResponsesView', () {
-      final result = DetectionResult(
+      final result = const DetectionResult(
           format: ResponseFormat.openResponses,
           confidence: 0.95,
           reason: 'test');
@@ -313,7 +313,7 @@ void main() {
     });
 
     test('openResponsesStreaming → StreamingTimelineView', () {
-      final result = DetectionResult(
+      final result = const DetectionResult(
           format: ResponseFormat.openResponsesStreaming,
           confidence: 0.95,
           reason: 'test');
@@ -321,7 +321,7 @@ void main() {
     });
 
     test('standard → StandardJsonView', () {
-      final result = DetectionResult(
+      final result = const DetectionResult(
           format: ResponseFormat.standard, confidence: 1.0, reason: 'test');
       expect(router.route(result), equals('StandardJsonView'));
     });
