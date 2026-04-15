@@ -36,7 +36,7 @@ void main() {
     await tester.pumpWidget(_wrapSettings(prefs));
     await tester.pumpAndSettle();
 
-    expect(find.byType(TextField), findsOneWidget);
+    expect(find.byType(TextField), findsNWidgets(2)); // base URL + OpenRouter API key
     expect(find.text('Save'), findsOneWidget);
     expect(find.text('Test connection'), findsOneWidget);
   });

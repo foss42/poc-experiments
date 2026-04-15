@@ -14,18 +14,20 @@ class SettingsScreen extends ConsumerStatefulWidget {
 
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   late TextEditingController _urlController;
+  late TextEditingController _apiKeyController;
 
   @override
   void initState() {
     super.initState();
-    _urlController = TextEditingController(
-      text: ref.read(settingsProvider).baseUrl,
-    );
+    final settings = ref.read(settingsProvider);
+    _urlController = TextEditingController(text: settings.baseUrl);
+    _apiKeyController = TextEditingController(text: settings.openRouterApiKey);
   }
 
   @override
   void dispose() {
     _urlController.dispose();
+    _apiKeyController.dispose();
     super.dispose();
   }
 
@@ -48,6 +50,19 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               decoration: const InputDecoration(
                 hintText: 'http://localhost:8001',
                 labelText: 'Backend base URL',
+                labelStyle: TextStyle(color: AppTheme.textMuted),
+              ),
+              style: const TextStyle(color: AppTheme.textPrimary),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: _apiKeyController,
+              obscureText: true,
+              onChanged: (v) =>
+                  ref.read(settingsProvider.notifier).setOpenRouterApiKey(v),
+              decoration: const InputDecoration(
+                hintText: 'sk-or-v1-…',
+                labelText: 'OpenRouter API key',
                 labelStyle: TextStyle(color: AppTheme.textMuted),
               ),
               style: const TextStyle(color: AppTheme.textPrimary),
