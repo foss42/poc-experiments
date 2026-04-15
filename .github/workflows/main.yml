@@ -41,7 +41,7 @@ jobs:
           echo "Checking registry contents..."
           ls -R registry/
 
-      # 7. (Optional but impressive) Node check
+      # 7. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -52,12 +52,16 @@ jobs:
           cd backend
           npm install
 
-      - name: Check backend starts
+      - name: Start backend
         run: |
           cd backend
           node simple-server.js &
-          sleep 10
-          curl -f http://localhost:3002/health || echo "Health check skipped"
+      
+      - name: Wait for backend
+        run: sleep 10
+
+      - name: Backend health check
+        run: curl -f http://localhost:3002/health
 
       # 8. Run basic frontend check
       - name: Check frontend files
@@ -65,22 +69,20 @@ jobs:
           echo "Checking frontend..."
           ls -la frontend/ || echo "⚠️ frontend folder not found"
 
-            # 9. Validate JSON registry safely
+      # 9. Validate JSON registry safely
       - name: Validate JSON
         run: |
           echo "Validating registry JSON..."
           python -c "import json; json.load(open('registry/global_index.json')); print('✅ JSON is valid')"
 
-      # 10. Validate API count (SAFE Python way)
+      # 10. Validate API count
       - name: Validate API count
         run: |
           python -c "import json, sys; data=json.load(open('registry/global_index.json')); count=len(data.get('apis', [])); print(f'APIs found: {count}'); sys.exit(1) if count < 1 else None"
 
-      # 11. Health check (STRICT)
-      - name: Backend health check
-        run: |
-          sleep 5
-          curl -f http://localhost:3002/health
+      # 11. Success message
+      - name: Success message
+        run: echo "✅ CI Pipeline completed successfully!"
 
       # 12. Success message
       - name: Success message
