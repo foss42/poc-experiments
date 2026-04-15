@@ -1,5 +1,7 @@
 import 'package:image_picker/image_picker.dart';
 
+const _sentinel = Object();
+
 class DatasetSample {
   const DatasetSample({
     required this.image,
@@ -17,13 +19,13 @@ class DatasetSample {
     XFile? image,
     String? question,
     List<String>? choices,
-    String? answer,
+    Object? answer = _sentinel,
   }) {
     return DatasetSample(
       image: image ?? this.image,
       question: question ?? this.question,
       choices: choices ?? this.choices,
-      answer: answer ?? this.answer,
+      answer: identical(answer, _sentinel) ? this.answer : answer as String?,
     );
   }
 }

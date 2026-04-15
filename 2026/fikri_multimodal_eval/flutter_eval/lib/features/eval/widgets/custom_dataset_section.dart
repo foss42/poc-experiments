@@ -28,7 +28,11 @@ class _CustomDatasetSectionState extends ConsumerState<CustomDatasetSection> {
   }
 
   Future<void> _pickImages() async {
-    final picked = await _picker.pickMultiImage();
+    final current = ref.read(customDatasetProvider).length;
+    final remaining = _maxImages - current;
+    if (remaining <= 0) return;
+
+    final picked = await _picker.pickMultiImage(limit: remaining);
     if (picked.isEmpty) return;
 
     final newSamples =
@@ -66,13 +70,17 @@ class _CustomDatasetSectionState extends ConsumerState<CustomDatasetSection> {
   @override
   Widget build(BuildContext context) {
     final samples = ref.watch(customDatasetProvider);
+    assert(
+      _questionControllers.length == samples.length,
+      'Controller list out of sync with provider (${_questionControllers.length} vs ${samples.length})',
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Image picker button
         OutlinedButton.icon(
-          onPressed: _pickImages,
+          onPressed: samples.length >= _maxImages ? null : _pickImages,
           icon: const Icon(Icons.add_photo_alternate_outlined, size: 18),
           label: const Text('Add images'),
         ),
