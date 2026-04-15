@@ -17,7 +17,7 @@ import httpx
 SESSION_DIR = Path("/tmp/custom_eval")
 
 
-def encode_image(image_path: str) -> str:
+def encode_image(image_path: Path) -> str:
     """Encode an image as a base64 data URI.
 
     TODO: Implement in Task 2.
