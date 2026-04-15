@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../shared/providers/shared_prefs_provider.dart';
 
 const _kBaseUrlKey = 'base_url';
+const _kOpenRouterApiKeyKey = 'openrouter_api_key';
 
 String _platformDefaultUrl() {
   if (kIsWeb) return '';
@@ -22,15 +23,18 @@ enum TestConnectionStatus { idle, testing, ok, error }
 class SettingsState {
   const SettingsState({
     required this.baseUrl,
+    this.openRouterApiKey = '',
     this.testStatus = TestConnectionStatus.idle,
   });
 
   final String baseUrl;
+  final String openRouterApiKey;
   final TestConnectionStatus testStatus;
 
-  SettingsState copyWith({String? baseUrl, TestConnectionStatus? testStatus}) {
+  SettingsState copyWith({String? baseUrl, String? openRouterApiKey, TestConnectionStatus? testStatus}) {
     return SettingsState(
       baseUrl: baseUrl ?? this.baseUrl,
+      openRouterApiKey: openRouterApiKey ?? this.openRouterApiKey,
       testStatus: testStatus ?? this.testStatus,
     );
   }
@@ -40,6 +44,7 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
   SettingsNotifier(this._prefs)
       : super(SettingsState(
           baseUrl: _prefs.getString(_kBaseUrlKey) ?? _platformDefaultUrl(),
+          openRouterApiKey: _prefs.getString(_kOpenRouterApiKeyKey) ?? '',
         ));
 
   final SharedPreferences _prefs;
@@ -47,6 +52,11 @@ class SettingsNotifier extends StateNotifier<SettingsState> {
   Future<void> setBaseUrl(String url) async {
     await _prefs.setString(_kBaseUrlKey, url);
     state = state.copyWith(baseUrl: url, testStatus: TestConnectionStatus.idle);
+  }
+
+  Future<void> setOpenRouterApiKey(String key) async {
+    await _prefs.setString(_kOpenRouterApiKeyKey, key);
+    state = state.copyWith(openRouterApiKey: key);
   }
 
   Future<void> testConnection() async {
