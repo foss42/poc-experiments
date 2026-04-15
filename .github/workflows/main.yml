@@ -59,41 +59,22 @@ jobs:
           sleep 10
           curl -f http://localhost:3002/health || echo "Health check skipped"
 
-             # 8. Run basic frontend check
+      # 8. Run basic frontend check
       - name: Check frontend files
         run: |
           echo "Checking frontend..."
           ls -la frontend/ || echo "⚠️ frontend folder not found"
 
-      # 9. Validate JSON registry safely
+            # 9. Validate JSON registry safely
       - name: Validate JSON
         run: |
           echo "Validating registry JSON..."
-          python - <<EOF
-import json
-with open("registry/global_index.json") as f:
-    data = json.load(f)
-print("✅ JSON is valid")
-EOF
+          python -c "import json; json.load(open('registry/global_index.json')); print('✅ JSON is valid')"
 
       # 10. Validate API count (SAFE Python way)
       - name: Validate API count
         run: |
-          python - <<EOF
-import json, sys
-
-with open("registry/global_index.json") as f:
-    data = json.load(f)
-
-apis = data.get("apis", [])
-count = len(apis)
-
-print(f"APIs found: {count}")
-
-if count < 1:
-    print("❌ No APIs processed!")
-    sys.exit(1)
-EOF
+          python -c "import json, sys; data=json.load(open('registry/global_index.json')); count=len(data.get('apis', [])); print(f'APIs found: {count}'); sys.exit(1) if count < 1 else None"
 
       # 11. Health check (STRICT)
       - name: Backend health check
