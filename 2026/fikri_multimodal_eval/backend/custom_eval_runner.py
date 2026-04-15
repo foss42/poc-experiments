@@ -145,7 +145,11 @@ async def run_custom_eval(
     """Iterate samples, call the model, score, and yield SSE-ready dicts.
 
     Yields: started → (sample | sample_error) × N → complete
+
+    Errors count as wrong answers in accuracy (denominator = total samples).
     """
+    _prev_key = os.environ.get("OPENAI_API_KEY")
+    _prev_base = os.environ.get("OPENAI_API_BASE")
     if provider == "openrouter" and openrouter_api_key:
         os.environ["OPENAI_API_KEY"] = openrouter_api_key
         os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
@@ -153,43 +157,55 @@ async def run_custom_eval(
     sdir = SESSION_DIR / session_id
     has_ground_truth = any(s.get("answer") for s in samples)
 
-    yield {"type": "started", "total": len(samples)}
+    try:
+        yield {"type": "started", "total": len(samples)}
 
-    correct_count = 0
-    for i, sample in enumerate(samples):
-        image_path = sdir / sample["filename"]
-        try:
-            image_uri = encode_image(image_path)
-            answer = await call_model(
-                provider,
-                model,
-                image_uri,
-                sample["question"],
-                sample.get("choices"),
-            )
-            is_correct = score(answer, sample.get("answer"))
-            if is_correct is True:
-                correct_count += 1
-            yield {
-                "type": "sample",
-                "index": i,
-                "total": len(samples),
-                "filename": sample["filename"],
-                "question": sample["question"],
-                "model_answer": answer,
-                "correct": is_correct,
-            }
-        except Exception as e:
-            yield {
-                "type": "sample_error",
-                "index": i,
-                "total": len(samples),
-                "filename": sample["filename"],
-                "question": sample["question"],
-                "detail": str(e),
-            }
+        correct_count = 0
+        for i, sample in enumerate(samples):
+            image_path = sdir / sample["filename"]
+            try:
+                image_uri = encode_image(image_path)
+                answer = await call_model(
+                    provider,
+                    model,
+                    image_uri,
+                    sample["question"],
+                    sample.get("choices"),
+                )
+                is_correct = score(answer, sample.get("answer"))
+                if is_correct is True:
+                    correct_count += 1
+                yield {
+                    "type": "sample",
+                    "index": i,
+                    "total": len(samples),
+                    "filename": sample["filename"],
+                    "question": sample["question"],
+                    "model_answer": answer,
+                    "correct": is_correct,
+                }
+            except Exception as e:
+                yield {
+                    "type": "sample_error",
+                    "index": i,
+                    "total": len(samples),
+                    "filename": sample["filename"],
+                    "question": sample["question"],
+                    "detail": str(e),
+                }
 
-    complete: dict = {"type": "complete"}
-    if has_ground_truth and samples:
-        complete["accuracy"] = round(correct_count / len(samples), 4)
-    yield complete
+        complete: dict = {"type": "complete"}
+        if has_ground_truth and samples:
+            complete["accuracy"] = round(correct_count / len(samples), 4)
+        yield complete
+
+    finally:
+        if provider == "openrouter" and openrouter_api_key:
+            if _prev_key is None:
+                os.environ.pop("OPENAI_API_KEY", None)
+            else:
+                os.environ["OPENAI_API_KEY"] = _prev_key
+            if _prev_base is None:
+                os.environ.pop("OPENAI_API_BASE", None)
+            else:
+                os.environ["OPENAI_API_BASE"] = _prev_base

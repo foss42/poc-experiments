@@ -192,3 +192,33 @@ async def test_run_custom_eval_model_error_yields_sample_error():
     assert events[1]["type"] == "sample_error"
     assert "API error" in events[1]["detail"]
     assert events[2]["type"] == "complete"
+
+
+@pytest.mark.asyncio
+async def test_run_custom_eval_sets_openrouter_env_vars():
+    import custom_eval_runner
+    import os as _os
+    sdir = Path(tempfile.mkdtemp())
+    session_id = sdir.name
+    original_dir = custom_eval_runner.SESSION_DIR
+    custom_eval_runner.SESSION_DIR = sdir.parent
+    (sdir / "img.jpg").write_bytes(b"fake")
+    samples = [{"filename": "img.jpg", "question": "Q?"}]
+
+    with patch("custom_eval_runner.call_model", new_callable=AsyncMock) as mock_call:
+        mock_call.return_value = "answer"
+        events = []
+        async for e in run_custom_eval(
+            session_id, samples, "openrouter", "openai/gpt-4o-mini",
+            openrouter_api_key="sk-test",
+        ):
+            events.append(e)
+            if e["type"] == "started":
+                # Check env vars are set during execution
+                assert _os.environ.get("OPENAI_API_KEY") == "sk-test"
+                assert _os.environ.get("OPENAI_API_BASE") == "https://openrouter.ai/api/v1"
+
+    custom_eval_runner.SESSION_DIR = original_dir
+    shutil.rmtree(sdir, ignore_errors=True)
+    # Env vars should be cleaned up by the generator's finally block
+    assert _os.environ.get("OPENAI_API_KEY") != "sk-test"
