@@ -1,6 +1,6 @@
 enum Modality { image, audio, agent }
 
-enum EvalProvider { huggingface, ollama }
+enum EvalProvider { huggingface, ollama, openrouter }
 
 class BenchmarkConfig {
   const BenchmarkConfig({
