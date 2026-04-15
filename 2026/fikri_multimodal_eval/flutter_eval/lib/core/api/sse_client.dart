@@ -10,7 +10,7 @@ sealed class SSEEvent {
 }
 
 class SSEInit extends SSEEvent {
-  SSEInit({required this.totalModels});
+  const SSEInit({required this.totalModels});
   final int totalModels;
 }
 
@@ -28,7 +28,7 @@ class SSEModelComplete extends SSEEvent {
 }
 
 class SSEModelError extends SSEEvent {
-  SSEModelError({required this.model, required this.error});
+  const SSEModelError({required this.model, required this.error});
   final String model;
   final String error;
 }
@@ -224,7 +224,7 @@ EvalSSEEvent? _parseEvalEvent(Map<String, dynamic> json) {
         json['elapsed'] as int? ?? 0,
       );
     case 'complete':
-      return EvalSSEComplete(json.cast<String, dynamic>());
+      return EvalSSEComplete(Map<String, dynamic>.from(json)..remove('type'));
     case 'error':
       return EvalSSEError(json['detail'] as String? ?? 'Unknown error');
     default:
