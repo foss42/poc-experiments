@@ -454,14 +454,29 @@ async def custom_eval_upload(
     sdir.mkdir(parents=True, exist_ok=True)
 
     for upload in files:
+        if not upload.filename:
+            shutil.rmtree(sdir, ignore_errors=True)
+            raise HTTPException(400, "File must have a filename")
+        from pathlib import PurePosixPath
+        safe_name = PurePosixPath(upload.filename).name
+        if not safe_name or safe_name == "manifest.json":
+            shutil.rmtree(sdir, ignore_errors=True)
+            raise HTTPException(400, f"Invalid filename: {upload.filename!r}")
         content = await upload.read()
         if len(content) > _MAX_FILE_BYTES:
             shutil.rmtree(sdir, ignore_errors=True)
             raise HTTPException(400, f"File too large: {upload.filename}")
-        (sdir / upload.filename).write_bytes(content)
+        (sdir / safe_name).write_bytes(content)
 
+    try:
+        samples = json.loads(manifest)
+    except json.JSONDecodeError as e:
+        shutil.rmtree(sdir, ignore_errors=True)
+        raise HTTPException(400, f"Invalid manifest JSON: {e}")
+    if not isinstance(samples, list):
+        shutil.rmtree(sdir, ignore_errors=True)
+        raise HTTPException(400, "Manifest must be a JSON array")
     (sdir / "manifest.json").write_text(manifest)
-    samples = json.loads(manifest)
     return {"session_id": session_id, "count": len(samples)}
 
 
@@ -480,28 +495,32 @@ async def custom_eval_stream(req: CustomEvalStreamRequest):
     async def _stream():
         eval_id = str(uuid.uuid4())[:8]
         all_results: list[dict] = []
-
-        async for event in _run_custom_eval(
-            session_id=req.session_id,
-            samples=samples,
-            provider=req.provider,
-            model=req.model,
-            openrouter_api_key=req.openrouter_api_key,
-        ):
-            if event["type"] == "sample":
-                all_results.append(event)
-            elif event["type"] == "complete":
-                event = {**event, "eval_id": eval_id, "results": all_results}
-                await save_result(
-                    eval_id=eval_id,
-                    eval_type="custom",
-                    tasks=["custom"],
-                    models=[req.model],
-                    harness="custom",
-                    data=event,
-                )
-                shutil.rmtree(sdir, ignore_errors=True)
-            yield f"data: {json.dumps(event)}\n\n"
+        try:
+            async for event in _run_custom_eval(
+                session_id=req.session_id,
+                samples=samples,
+                provider=req.provider,
+                model=req.model,
+                openrouter_api_key=req.openrouter_api_key,
+            ):
+                if event["type"] in ("sample", "sample_error"):
+                    all_results.append(event)
+                elif event["type"] == "complete":
+                    event = {**event, "eval_id": eval_id, "results": all_results}
+                    try:
+                        await save_result(
+                            eval_id=eval_id,
+                            eval_type="custom",
+                            tasks=["custom"],
+                            models=[req.model],
+                            harness="custom",
+                            data=event,
+                        )
+                    except Exception as db_err:
+                        yield f"data: {json.dumps({'type': 'error', 'detail': f'Failed to save: {db_err}'})}\n\n"
+                yield f"data: {json.dumps(event)}\n\n"
+        finally:
+            shutil.rmtree(sdir, ignore_errors=True)
 
     return StreamingResponse(
         _stream(),
