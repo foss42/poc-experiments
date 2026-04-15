@@ -97,3 +97,18 @@ async def test_call_model_appends_choices_to_prompt():
 async def test_call_model_unknown_provider_raises():
     with pytest.raises(ValueError, match="Unknown provider"):
         await call_model("unknown", "model", "data:image/jpeg;base64,x", "Q?")
+
+@pytest.mark.asyncio
+async def test_call_model_routes_to_huggingface():
+    with patch("custom_eval_runner._call_huggingface", new_callable=AsyncMock) as mock:
+        mock.return_value = "dog"
+        result = await call_model(
+            "huggingface", "Salesforce/blip-vqa-base",
+            "data:image/png;base64,abc", "What animal?"
+        )
+        mock.assert_called_once_with(
+            "Salesforce/blip-vqa-base",
+            "data:image/png;base64,abc",
+            "What animal?",
+        )
+        assert result == "dog"

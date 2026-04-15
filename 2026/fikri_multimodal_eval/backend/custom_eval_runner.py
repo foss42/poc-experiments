@@ -91,6 +91,8 @@ async def _call_ollama(model: str, image_data_uri: str, prompt: str) -> str:
 
 async def _call_openrouter(model: str, image_data_uri: str, prompt: str) -> str:
     api_key = os.getenv("OPENAI_API_KEY", "")
+    if not api_key:
+        raise ValueError("OPENAI_API_KEY env var is required for the openrouter provider")
     base_url = os.getenv("OPENAI_API_BASE", "https://openrouter.ai/api/v1")
     payload = {
         "model": model,
@@ -117,13 +119,17 @@ async def _call_openrouter(model: str, image_data_uri: str, prompt: str) -> str:
 async def _call_huggingface(model: str, image_data_uri: str, prompt: str) -> str:
     import io
     from PIL import Image
-    from transformers import pipeline
 
-    header, b64 = image_data_uri.split(",", 1)
+    b64 = image_data_uri.split(",", 1)[1] if "," in image_data_uri else image_data_uri
     image_bytes = base64.b64decode(b64)
     image = Image.open(io.BytesIO(image_bytes))
 
     loop = asyncio.get_running_loop()
-    pipe = pipeline("visual-question-answering", model=model)
-    result = await loop.run_in_executor(None, lambda: pipe(image, question=prompt))
+
+    def _run() -> list:
+        from transformers import pipeline as hf_pipeline
+        pipe = hf_pipeline("visual-question-answering", model=model)
+        return pipe(image, question=prompt)
+
+    result = await loop.run_in_executor(None, _run)
     return result[0]["answer"] if result else ""
