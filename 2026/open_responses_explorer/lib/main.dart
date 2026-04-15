@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'app_colors.dart';
 import 'screens/input_screen.dart';
 import 'screens/gen_ui_preview_screen.dart';
 import 'screens/streaming_simulator_screen.dart';
@@ -29,13 +30,13 @@ class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
     super.initState();
     _lightTheme = ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2563EB)),
-      scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+      colorScheme: ColorScheme.fromSeed(seedColor: kFunctionAccent),
+      scaffoldBackgroundColor: kLightBackground,
     );
     _darkTheme = ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color(0xFF2563EB),
+        seedColor: kFunctionAccent,
         brightness: Brightness.dark,
       ),
     );
@@ -64,7 +65,8 @@ class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
             const StreamingSimulatorScreen(),
         OpenResponsesExplorerApp.genUiPreviewRoute: (BuildContext context) =>
             GenUIPreviewScreen.fromRawJson(
-              rawDescriptorJson: GenUIPreviewScreen.defaultRouteDescriptorJson(),
+              rawDescriptorJson:
+                  GenUIPreviewScreen.defaultRouteDescriptorJson(),
             ),
       },
       home: InputScreen(themeMode: _themeMode, onToggleTheme: _toggleTheme),

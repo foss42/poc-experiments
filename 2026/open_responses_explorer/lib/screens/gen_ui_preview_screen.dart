@@ -5,6 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../app_colors.dart';
 import '../domain/gen_ui_component_registry.dart';
 import '../domain/gen_ui_models.dart';
 import '../domain/gen_ui_samples.dart';
@@ -13,7 +14,6 @@ const Color _previewAccent = Color(0xFF2563EB);
 const Color _successGreen = Color(0xFF16A34A);
 const Color _warningAmber = Color(0xFFD97706);
 const Color _phoneBezelColor = Color(0xFF1C1C1E);
-const Color _lightModeBackground = Color(0xFFF8FAFC);
 
 class GenUIPreviewScreen extends StatefulWidget {
   const GenUIPreviewScreen({
@@ -58,7 +58,7 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
   bool _splitMode = false;
   bool _phoneFrameMode = false;
   bool _fullscreen = false;
-  double _previewOpacity = 1;
+  final double _previewOpacity = 1;
 
   String? _selectedComponentKey;
 
@@ -70,19 +70,12 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
     super.dispose();
   }
 
-  Future<void> _refreshPreview() async {
-    setState(() {
-      _previewOpacity = 0;
-    });
-
-    await Future<void>.delayed(const Duration(milliseconds: 140));
-
-    if (!mounted) {
+  void _resetSelection() {
+    if (_selectedComponentKey == null) {
       return;
     }
 
     setState(() {
-      _previewOpacity = 1;
       _selectedComponentKey = null;
     });
   }
@@ -382,7 +375,7 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
     if (_fullscreen) {
       return Scaffold(
         backgroundColor: theme.brightness == Brightness.light
-            ? _lightModeBackground
+            ? kLightBackground
             : theme.colorScheme.surface,
         body: SafeArea(
           child: Stack(
@@ -405,14 +398,16 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
 
     return Scaffold(
       backgroundColor: theme.brightness == Brightness.light
-          ? _lightModeBackground
+          ? kLightBackground
           : theme.colorScheme.surface,
       appBar: AppBar(
         title: const Text('GenUI Preview'),
         actions: <Widget>[
           IconButton(
             onPressed: () => setState(() => _splitMode = !_splitMode),
-            tooltip: _splitMode ? 'Preview only' : 'Split view',
+            tooltip: _splitMode
+                ? 'Exit split view'
+                : 'Show descriptor side-by-side',
             icon: Icon(
               _splitMode
                   ? Icons.close_fullscreen_rounded
@@ -520,11 +515,12 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
               color: theme.colorScheme.onSurfaceVariant,
             ),
           ),
-          IconButton(
-            onPressed: _refreshPreview,
-            tooltip: 'Refresh preview',
-            icon: const Icon(Icons.refresh_rounded),
-          ),
+          if (_selectedComponentKey != null)
+            IconButton(
+              onPressed: _resetSelection,
+              tooltip: 'Reset selection',
+              icon: const Icon(Icons.restart_alt_rounded),
+            ),
         ],
       ),
     );

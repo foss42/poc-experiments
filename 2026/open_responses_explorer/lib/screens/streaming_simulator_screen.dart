@@ -6,19 +6,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../app_colors.dart';
 import '../domain/response_models.dart';
 import '../domain/streaming_reducer.dart';
 import '../domain/streaming_session.dart';
 
-const Color _reasoningAccent = Color(0xFF7C3AED);
-const Color _functionAccent = Color(0xFF2563EB);
-const Color _outputAccent = Color(0xFF16A34A);
-const Color _messageAccent = Color(0xFF6B7280);
-const Color _unknownAccent = Color(0xFFD97706);
 const Color _processingBlue = Color(0xFF2563EB);
 const Color _completedGreen = Color(0xFF16A34A);
 const Color _pendingGray = Color(0xFF94A3B8);
-const Color _lightModeBackground = Color(0xFFF8FAFC);
 
 const ParsedResponse _emptyStreamingResponse = ParsedResponse(
   id: 'resp_stream_simulated',
@@ -289,13 +284,13 @@ extension on _EventCategory {
   Color get color {
     switch (this) {
       case _EventCategory.reasoning:
-        return _reasoningAccent;
+        return kReasoningAccent;
       case _EventCategory.toolCalls:
-        return _functionAccent;
+        return kFunctionAccent;
       case _EventCategory.outputs:
-        return _outputAccent;
+        return kOutputAccent;
       case _EventCategory.messages:
-        return _messageAccent;
+        return kMessageAccent;
       case _EventCategory.deltas:
         return const Color(0xFFEA580C);
       case _EventCategory.lifecycle:
@@ -319,7 +314,6 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
 
   late final List<_SimulationEvent> _simulationEvents;
   late final StreamingSession _session;
-  StreamSubscription<ParsedResponse>? _sessionSubscription;
 
   ParsedResponse _currentResponse = _emptyStreamingResponse;
   _SimulationSpeed _speed = _SimulationSpeed.normal;
@@ -367,21 +361,11 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
       ),
     );
     _currentResponse = _session.currentResponse;
-
-    _sessionSubscription = _session.stream.listen((ParsedResponse response) {
-      if (!mounted) {
-        return;
-      }
-      setState(() {
-        _currentResponse = response;
-      });
-    });
   }
 
   @override
   void dispose() {
     _playbackTimer?.cancel();
-    _sessionSubscription?.cancel();
     _session.dispose();
     _eventScrollController.dispose();
     super.dispose();
@@ -723,7 +707,7 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
 
       events.add(
         _SimulationEvent(
-          delayAfterPreviousMs: index == 0 ? 0 : 280,
+          delayAfterPreviousMs: index == 0 ? 0 : 120,
           payload: <String, dynamic>{
             'type': 'response.output_item.added',
             'output_index': index,
@@ -954,7 +938,7 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
 
     return Scaffold(
       backgroundColor: theme.brightness == Brightness.light
-          ? _lightModeBackground
+          ? kLightBackground
           : theme.colorScheme.surface,
       appBar: AppBar(
         titleSpacing: 16,
@@ -1314,6 +1298,31 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.tune_rounded,
+                    size: 16,
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                  const SizedBox(width: 6),
+                  Text(
+                    'Event scrubber',
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    '$_processedCount / $_totalEventCount events',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontFamily: 'monospace',
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 6),
               Slider(
                 min: 0,
                 max: _totalEventCount.toDouble(),
@@ -1807,8 +1816,8 @@ class _ExpandedJsonPayload extends StatelessWidget {
                 tooltip: 'Copy JSON',
                 icon: const Icon(Icons.copy_rounded, size: 16),
                 constraints: const BoxConstraints.tightFor(
-                  width: 28,
-                  height: 28,
+                  width: 36,
+                  height: 36,
                 ),
                 visualDensity: VisualDensity.compact,
                 padding: EdgeInsets.zero,
@@ -2029,20 +2038,20 @@ class _LiveReasoningCard extends StatelessWidget {
     );
 
     return _LiveCardFrame(
-      accentColor: _reasoningAccent,
+      accentColor: kReasoningAccent,
       flashComplete: flashComplete,
-      backgroundColor: _tintedSurface(theme, _reasoningAccent),
+      backgroundColor: _tintedSurface(theme, kReasoningAccent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.psychology_alt_rounded, color: _reasoningAccent),
+              const Icon(Icons.psychology_alt_rounded, color: kReasoningAccent),
               const SizedBox(width: 8),
               Text(
                 'Reasoning',
                 style: theme.textTheme.titleSmall?.copyWith(
-                  color: _reasoningAccent,
+                  color: kReasoningAccent,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -2088,15 +2097,15 @@ class _LiveFunctionCallCard extends StatelessWidget {
     );
 
     return _LiveCardFrame(
-      accentColor: _functionAccent,
+      accentColor: kFunctionAccent,
       flashComplete: flashComplete,
-      backgroundColor: _tintedSurface(theme, _functionAccent),
+      backgroundColor: _tintedSurface(theme, kFunctionAccent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.functions_rounded, color: _functionAccent),
+              const Icon(Icons.functions_rounded, color: kFunctionAccent),
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
@@ -2104,7 +2113,7 @@ class _LiveFunctionCallCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.titleSmall?.copyWith(
-                    color: _functionAccent,
+                    color: kFunctionAccent,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -2125,7 +2134,7 @@ class _LiveFunctionCallCard extends StatelessWidget {
           Text(
             'Arguments',
             style: theme.textTheme.labelLarge?.copyWith(
-              color: _functionAccent,
+              color: kFunctionAccent,
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -2178,20 +2187,20 @@ class _LiveFunctionOutputCard extends StatelessWidget {
     );
 
     return _LiveCardFrame(
-      accentColor: _outputAccent,
+      accentColor: kOutputAccent,
       flashComplete: flashComplete,
-      backgroundColor: _tintedSurface(theme, _outputAccent),
+      backgroundColor: _tintedSurface(theme, kOutputAccent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.check_circle_rounded, color: _outputAccent),
+              const Icon(Icons.check_circle_rounded, color: kOutputAccent),
               const SizedBox(width: 8),
               Text(
                 'Function Output',
                 style: theme.textTheme.titleSmall?.copyWith(
-                  color: _outputAccent,
+                  color: kOutputAccent,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -2234,7 +2243,7 @@ class _LiveMessageCard extends StatelessWidget {
     final theme = Theme.of(context);
 
     return _LiveCardFrame(
-      accentColor: _messageAccent,
+      accentColor: kMessageAccent,
       flashComplete: flashComplete,
       backgroundColor: theme.colorScheme.surface,
       child: Column(
@@ -2248,7 +2257,7 @@ class _LiveMessageCard extends StatelessWidget {
                   vertical: 4,
                 ),
                 decoration: BoxDecoration(
-                  color: _functionAccent,
+                  color: kFunctionAccent,
                   borderRadius: BorderRadius.circular(999),
                 ),
                 child: Text(
@@ -2288,20 +2297,20 @@ class _LiveUnknownCard extends StatelessWidget {
     final rawText = const JsonEncoder.withIndent('  ').convert(raw);
 
     return _LiveCardFrame(
-      accentColor: _unknownAccent,
+      accentColor: kUnknownAccent,
       flashComplete: flashComplete,
-      backgroundColor: _tintedSurface(theme, _unknownAccent),
+      backgroundColor: _tintedSurface(theme, kUnknownAccent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.warning_amber_rounded, color: _unknownAccent),
+              const Icon(Icons.warning_amber_rounded, color: kUnknownAccent),
               const SizedBox(width: 8),
               Text(
                 'Unknown Item',
                 style: theme.textTheme.titleSmall?.copyWith(
-                  color: _unknownAccent,
+                  color: kUnknownAccent,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -2346,7 +2355,7 @@ class _SmallCopyButton extends StatelessWidget {
       onPressed: onPressed,
       tooltip: 'Copy',
       icon: const Icon(Icons.copy_rounded, size: 18),
-      constraints: const BoxConstraints.tightFor(width: 30, height: 30),
+      constraints: const BoxConstraints.tightFor(width: 36, height: 36),
       visualDensity: VisualDensity.compact,
       padding: EdgeInsets.zero,
     );

@@ -4,22 +4,18 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../app_colors.dart';
 import '../domain/gen_ui_models.dart';
 import '../domain/gen_ui_samples.dart';
 import '../domain/open_response_parser.dart';
 import '../domain/response_models.dart';
+import '../routing.dart';
 import 'gen_ui_preview_screen.dart';
 import 'response_explorer_screen.dart';
 import 'streaming_simulator_screen.dart';
-
-const Color _reasoningAccent = Color(0xFF7C3AED);
-const Color _functionAccent = Color(0xFF2563EB);
-const Color _outputAccent = Color(0xFF16A34A);
-const Color _messageAccent = Color(0xFF6B7280);
-const Color _unknownAccent = Color(0xFFD97706);
-const Color _lightModeBackground = Color(0xFFF8FAFC);
 
 const String _warningBannerText =
     'This does not look like an Open Responses payload. '
@@ -151,8 +147,8 @@ _samplePayloads = <_SamplePayloadDefinition>[
     title: 'Simple Message Response',
     description: 'A basic assistant message with no tool calls',
     icon: Icons.chat_bubble_outline_rounded,
-    iconColor: _messageAccent,
-    tags: <_SampleTag>[_SampleTag(label: 'message', color: _messageAccent)],
+    iconColor: kMessageAccent,
+    tags: <_SampleTag>[_SampleTag(label: 'message', color: kMessageAccent)],
     payload: _sampleSimpleMessagePayload,
   ),
   _SamplePayloadDefinition(
@@ -161,10 +157,10 @@ _samplePayloads = <_SamplePayloadDefinition>[
     description:
         'A function call to get weather with correlated output and reasoning trace',
     icon: Icons.build_circle_outlined,
-    iconColor: _functionAccent,
+    iconColor: kFunctionAccent,
     tags: <_SampleTag>[
-      _SampleTag(label: 'function_call', color: _functionAccent),
-      _SampleTag(label: 'reasoning', color: _reasoningAccent),
+      _SampleTag(label: 'function_call', color: kFunctionAccent),
+      _SampleTag(label: 'reasoning', color: kReasoningAccent),
     ],
     payload: _sampleWeatherToolCallPayload,
   ),
@@ -174,12 +170,12 @@ _samplePayloads = <_SamplePayloadDefinition>[
     description:
         'Two parallel weather tool calls for Tokyo and London with full correlation and a final summary message',
     icon: Icons.layers_outlined,
-    iconColor: _functionAccent,
+    iconColor: kFunctionAccent,
     tags: <_SampleTag>[
-      _SampleTag(label: 'function_call', color: _functionAccent),
-      _SampleTag(label: 'function_call', color: _functionAccent),
-      _SampleTag(label: 'reasoning', color: _reasoningAccent),
-      _SampleTag(label: 'message', color: _messageAccent),
+      _SampleTag(label: 'function_call', color: kFunctionAccent),
+      _SampleTag(label: 'function_call', color: kFunctionAccent),
+      _SampleTag(label: 'reasoning', color: kReasoningAccent),
+      _SampleTag(label: 'message', color: kMessageAccent),
     ],
     payload: _sampleMultiToolPayload,
   ),
@@ -207,7 +203,7 @@ class _InputScreenState extends State<InputScreen>
     with SingleTickerProviderStateMixin {
   static bool _welcomeTooltipAlreadyShown = false;
   static const double _minPasteEditorHeight = 260;
-  static const double _pasteResizeHandleSize = 24;
+  static const double _pasteResizeHandleSize = 40;
 
   final TextEditingController _jsonController = TextEditingController();
   final FocusNode _jsonFocusNode = FocusNode();
@@ -229,6 +225,7 @@ class _InputScreenState extends State<InputScreen>
 
   String? _errorMessage;
   String? _warningMessage;
+  String _appVersion = 'v0.1.0+1';
 
   bool get _isBusy => _buttonState != _ParseButtonState.idle;
 
@@ -244,6 +241,7 @@ class _InputScreenState extends State<InputScreen>
     _jsonFocusNode.addListener(_handleTextChanged);
     _genUiController.addListener(_handleTextChanged);
     _genUiFocusNode.addListener(_handleTextChanged);
+    unawaited(_loadAppVersion());
 
     if (!_welcomeTooltipAlreadyShown) {
       _showWelcomeTooltip = true;
@@ -282,7 +280,44 @@ class _InputScreenState extends State<InputScreen>
       setState(() {
         _textFieldHasError = false;
       });
+      return;
     }
+
+    if (_mode == _InputMode.pasteJson || _mode == _InputMode.genUiPreview) {
+      setState(() {});
+    }
+  }
+
+  Future<void> _loadAppVersion() async {
+    try {
+      final packageInfo = await PackageInfo.fromPlatform();
+
+      if (!mounted) {
+        return;
+      }
+
+      setState(() {
+        _appVersion = 'v${packageInfo.version}+${packageInfo.buildNumber}';
+      });
+    } catch (_) {
+      // Keep default fallback version when package metadata is unavailable.
+    }
+  }
+
+  void _handleEnterShortcut() {
+    final focusedEditor =
+        (_mode == _InputMode.pasteJson && _jsonFocusNode.hasFocus) ||
+        (_mode == _InputMode.genUiPreview && _genUiFocusNode.hasFocus);
+    final canSubmitFromContext =
+        _mode == _InputMode.loadSample || _mode == _InputMode.streaming;
+
+    if ((!focusedEditor && !canSubmitFromContext) ||
+        _isBusy ||
+        _isInputEmpty()) {
+      return;
+    }
+
+    unawaited(_handleParsePressed());
   }
 
   Future<void> _pasteFromClipboard() async {
@@ -290,6 +325,19 @@ class _InputScreenState extends State<InputScreen>
     final pastedText = clipboardData?.text;
 
     if (pastedText == null || pastedText.isEmpty) {
+      if (!mounted) {
+        return;
+      }
+
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          const SnackBar(
+            content: Text('Nothing in clipboard to paste.'),
+            duration: Duration(milliseconds: 1100),
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
       return;
     }
 
@@ -408,8 +456,8 @@ class _InputScreenState extends State<InputScreen>
                         icon: const Icon(Icons.close_rounded),
                         tooltip: 'Close',
                         constraints: const BoxConstraints.tightFor(
-                          width: 30,
-                          height: 30,
+                          width: 36,
+                          height: 36,
                         ),
                         visualDensity: VisualDensity.compact,
                         padding: EdgeInsets.zero,
@@ -423,6 +471,27 @@ class _InputScreenState extends State<InputScreen>
                     'debug OpenAI Responses API payloads with a clear visual flow '
                     'for parsed items, correlations, streaming behavior, and raw JSON.',
                     style: theme.textTheme.bodyMedium?.copyWith(height: 1.55),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surfaceContainerHighest,
+                      borderRadius: BorderRadius.circular(999),
+                      border: Border.all(
+                        color: theme.colorScheme.outlineVariant,
+                      ),
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 5,
+                    ),
+                    child: Text(
+                      'App version: $_appVersion',
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -548,7 +617,7 @@ class _InputScreenState extends State<InputScreen>
                 SelectableText(
                   url,
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: _functionAccent,
+                    color: kFunctionAccent,
                     height: 1.35,
                   ),
                 ),
@@ -629,16 +698,23 @@ class _InputScreenState extends State<InputScreen>
       _textFieldHasError = false;
     });
 
-    final startedAt = DateTime.now();
-
     Map<String, dynamic> payload;
 
     try {
       final decoded = _decodeJsonLenient(source);
       payload = _normalizeRootPayload(decoded);
+    } on FormatException catch (error) {
+      final position = error.offset != null
+          ? ' near position ${error.offset}'
+          : '';
+      await _showButtonErrorAndSetMessage(
+        'Invalid JSON$position. Check your payload and try again.',
+        highlightField: _mode == _InputMode.pasteJson,
+        transient: true,
+      );
+      return;
     } catch (_) {
       await _showButtonErrorAndSetMessage(
-        startedAt,
         'Invalid JSON. Please check your payload and try again.',
         highlightField: _mode == _InputMode.pasteJson,
         transient: true,
@@ -663,13 +739,10 @@ class _InputScreenState extends State<InputScreen>
       parsed = OpenResponseParser.parse(payload);
     } catch (_) {
       await _showButtonErrorAndSetMessage(
-        startedAt,
         'Unable to parse this payload. Please verify the structure and try again.',
       );
       return;
     }
-
-    await _ensureMinimumLoadingTime(startedAt);
 
     if (!mounted) {
       return;
@@ -678,8 +751,6 @@ class _InputScreenState extends State<InputScreen>
     setState(() {
       _buttonState = _ParseButtonState.success;
     });
-
-    await Future<void>.delayed(const Duration(milliseconds: 300));
 
     if (!mounted) {
       return;
@@ -721,8 +792,6 @@ class _InputScreenState extends State<InputScreen>
       _textFieldHasError = false;
     });
 
-    final startedAt = DateTime.now();
-
     Map<String, dynamic> descriptorJson;
     GenUIDescriptor descriptor;
 
@@ -735,14 +804,11 @@ class _InputScreenState extends State<InputScreen>
       descriptor = GenUIDescriptor.fromJson(descriptorJson);
     } catch (_) {
       await _showButtonErrorAndSetMessage(
-        startedAt,
         'Invalid GenUI descriptor JSON. Please verify and try again.',
         highlightField: true,
       );
       return;
     }
-
-    await _ensureMinimumLoadingTime(startedAt);
 
     if (!mounted) {
       return;
@@ -751,8 +817,6 @@ class _InputScreenState extends State<InputScreen>
     setState(() {
       _buttonState = _ParseButtonState.success;
     });
-
-    await Future<void>.delayed(const Duration(milliseconds: 260));
 
     if (!mounted) {
       return;
@@ -772,13 +836,10 @@ class _InputScreenState extends State<InputScreen>
   }
 
   Future<void> _showButtonErrorAndSetMessage(
-    DateTime startedAt,
     String message, {
     bool highlightField = false,
     bool transient = false,
   }) async {
-    await _ensureMinimumLoadingTime(startedAt);
-
     if (!mounted) {
       return;
     }
@@ -813,86 +874,26 @@ class _InputScreenState extends State<InputScreen>
     }
   }
 
-  Future<void> _ensureMinimumLoadingTime(DateTime startedAt) async {
-    final elapsed = DateTime.now().difference(startedAt);
-    const minimum = Duration(milliseconds: 600);
-    if (elapsed < minimum) {
-      await Future<void>.delayed(minimum - elapsed);
-    }
-  }
-
   Route<void> _buildExplorerRoute(ParsedResponse response) {
-    return PageRouteBuilder<void>(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          ResponseExplorerScreen(response: response),
-      transitionDuration: const Duration(milliseconds: 360),
-      reverseTransitionDuration: const Duration(milliseconds: 300),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        final curved = CurvedAnimation(
-          parent: animation,
-          curve: Curves.easeOutCubic,
-        );
-
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, 1),
-            end: Offset.zero,
-          ).animate(curved),
-          child: child,
-        );
-      },
+    return slideUpRoute(
+      ResponseExplorerScreen(response: response),
+      durationMs: 360,
     );
   }
 
   Route<void> _buildStreamingRoute() {
-    return PageRouteBuilder<void>(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          const StreamingSimulatorScreen(),
-      transitionDuration: const Duration(milliseconds: 320),
-      reverseTransitionDuration: const Duration(milliseconds: 260),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        final curved = CurvedAnimation(
-          parent: animation,
-          curve: Curves.easeOutCubic,
-        );
-
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, 1),
-            end: Offset.zero,
-          ).animate(curved),
-          child: child,
-        );
-      },
-    );
+    return slideUpRoute(const StreamingSimulatorScreen());
   }
 
   Route<void> _buildGenUiPreviewRoute(
     GenUIDescriptor descriptor,
     Map<String, dynamic> descriptorJson,
   ) {
-    return PageRouteBuilder<void>(
-      pageBuilder: (context, animation, secondaryAnimation) =>
-          GenUIPreviewScreen(
-            descriptor: descriptor,
-            rawDescriptorJson: descriptorJson,
-          ),
-      transitionDuration: const Duration(milliseconds: 320),
-      reverseTransitionDuration: const Duration(milliseconds: 260),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        final curved = CurvedAnimation(
-          parent: animation,
-          curve: Curves.easeOutCubic,
-        );
-
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, 1),
-            end: Offset.zero,
-          ).animate(curved),
-          child: child,
-        );
-      },
+    return slideUpRoute(
+      GenUIPreviewScreen(
+        descriptor: descriptor,
+        rawDescriptorJson: descriptorJson,
+      ),
     );
   }
 
@@ -902,119 +903,110 @@ class _InputScreenState extends State<InputScreen>
     final isDark = theme.brightness == Brightness.dark;
     final keyboardInset = MediaQuery.viewInsetsOf(context).bottom;
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: isDark
-          ? theme.colorScheme.surface
-          : _lightModeBackground,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        titleSpacing: 16,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'Open Responses Explorer',
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w700,
-                fontSize: 18,
+    return CallbackShortcuts(
+      bindings: <ShortcutActivator, VoidCallback>{
+        const SingleActivator(LogicalKeyboardKey.enter): _handleEnterShortcut,
+        const SingleActivator(LogicalKeyboardKey.numpadEnter):
+            _handleEnterShortcut,
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: isDark ? theme.colorScheme.surface : kLightBackground,
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          titleSpacing: 16,
+          title: Text(
+            'Open Responses Explorer',
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+            ),
+          ),
+          actions: <Widget>[
+            IconButton(
+              onPressed: widget.onToggleTheme,
+              tooltip: 'Toggle Theme',
+              icon: Icon(
+                widget.themeMode == ThemeMode.dark
+                    ? Icons.light_mode_rounded
+                    : Icons.dark_mode_rounded,
               ),
             ),
-            Text(
-              'Proof of Concept by Dhairya for GSoC26 for API Dash',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: theme.colorScheme.onSurfaceVariant,
-                fontSize: 12,
-              ),
+            IconButton(
+              onPressed: _showInfoDialog,
+              tooltip: 'About',
+              icon: const Icon(Icons.info_outline_rounded),
             ),
+            const SizedBox(width: 4),
           ],
         ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: widget.onToggleTheme,
-            tooltip: 'Toggle Theme',
-            icon: Icon(
-              widget.themeMode == ThemeMode.dark
-                  ? Icons.light_mode_rounded
-                  : Icons.dark_mode_rounded,
-            ),
-          ),
-          IconButton(
-            onPressed: _showInfoDialog,
-            tooltip: 'About',
-            icon: const Icon(Icons.info_outline_rounded),
-          ),
-          const SizedBox(width: 4),
-        ],
-      ),
-      body: SafeArea(
-        top: false,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(24, 26, 24, 30 + keyboardInset),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              if (_showWelcomeTooltip) _buildWelcomeTooltip(theme),
-              LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  final compact = constraints.maxWidth < 980;
+        body: SafeArea(
+          top: false,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(24, 26, 24, 30 + keyboardInset),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                if (_showWelcomeTooltip) _buildWelcomeTooltip(theme),
+                LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints constraints) {
+                    final compact = constraints.maxWidth < 980;
 
-                  if (compact) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    if (compact) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: _buildModeSelector(),
+                          ),
+                          const SizedBox(height: 14),
+                          _buildParseButton(theme, compact: true),
+                        ],
+                      );
+                    }
+
+                    return Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: _buildModeSelector(),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: _buildModeSelector(),
+                          ),
                         ),
-                        const SizedBox(height: 14),
+                        const SizedBox(width: 12),
                         _buildParseButton(theme, compact: true),
                       ],
                     );
-                  }
-
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: _buildModeSelector(),
-                        ),
+                  },
+                ),
+                const SizedBox(height: 36),
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 260),
+                  switchInCurve: Curves.easeOutCubic,
+                  switchOutCurve: Curves.easeInCubic,
+                  transitionBuilder: (Widget child, Animation<double> anim) {
+                    return FadeTransition(
+                      opacity: anim,
+                      child: SlideTransition(
+                        position: Tween<Offset>(
+                          begin: const Offset(0.03, 0),
+                          end: Offset.zero,
+                        ).animate(anim),
+                        child: child,
                       ),
-                      const SizedBox(width: 12),
-                      _buildParseButton(theme, compact: true),
-                    ],
-                  );
-                },
-              ),
-              const SizedBox(height: 36),
-              AnimatedSwitcher(
-                duration: const Duration(milliseconds: 260),
-                switchInCurve: Curves.easeOutCubic,
-                switchOutCurve: Curves.easeInCubic,
-                transitionBuilder: (Widget child, Animation<double> anim) {
-                  return FadeTransition(
-                    opacity: anim,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0.03, 0),
-                        end: Offset.zero,
-                      ).animate(anim),
-                      child: child,
-                    ),
-                  );
-                },
-                child: switch (_mode) {
-                  _InputMode.pasteJson => _buildPasteMode(theme),
-                  _InputMode.loadSample => _buildSampleMode(theme),
-                  _InputMode.streaming => _buildStreamingMode(theme),
-                  _InputMode.genUiPreview => _buildGenUiPreviewMode(theme),
-                },
-              ),
-            ],
+                    );
+                  },
+                  child: switch (_mode) {
+                    _InputMode.pasteJson => _buildPasteMode(theme),
+                    _InputMode.loadSample => _buildSampleMode(theme),
+                    _InputMode.streaming => _buildStreamingMode(theme),
+                    _InputMode.genUiPreview => _buildGenUiPreviewMode(theme),
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1066,9 +1058,9 @@ class _InputScreenState extends State<InputScreen>
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: _tintedSurface(theme, _functionAccent),
+                color: _tintedSurface(theme, kFunctionAccent),
                 border: Border.all(
-                  color: _functionAccent.withValues(alpha: 0.35),
+                  color: kFunctionAccent.withValues(alpha: 0.35),
                 ),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -1079,7 +1071,7 @@ class _InputScreenState extends State<InputScreen>
                 ),
               ),
             ),
-            const Icon(Icons.arrow_drop_down_rounded, color: _functionAccent),
+            const Icon(Icons.arrow_drop_down_rounded, color: kFunctionAccent),
           ],
         ),
       ),
@@ -1091,7 +1083,7 @@ class _InputScreenState extends State<InputScreen>
     final baseBorder = _textFieldHasError
         ? theme.colorScheme.error
         : (_jsonFocusNode.hasFocus
-              ? _functionAccent
+              ? kFunctionAccent
               : theme.colorScheme.outlineVariant);
 
     final background = isDark
@@ -1190,20 +1182,18 @@ class _InputScreenState extends State<InputScreen>
                         onPanUpdate: (DragUpdateDetails details) {
                           _resizePasteEditor(details.delta.dy);
                         },
-                        child: Container(
+                        child: SizedBox(
                           width: _pasteResizeHandleSize,
                           height: _pasteResizeHandleSize,
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.surfaceContainerHighest,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              color: theme.colorScheme.outlineVariant,
+                          child: Center(
+                            child: Container(
+                              width: 36,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: theme.colorScheme.outlineVariant,
+                                borderRadius: BorderRadius.circular(999),
+                              ),
                             ),
-                          ),
-                          child: Icon(
-                            Icons.unfold_more_rounded,
-                            size: 14,
-                            color: theme.colorScheme.onSurfaceVariant,
                           ),
                         ),
                       ),
@@ -1237,7 +1227,7 @@ class _InputScreenState extends State<InputScreen>
         if (_warningMessage != null)
           Padding(
             padding: const EdgeInsets.only(top: 10),
-            child: _InlineBanner(color: _unknownAccent, text: _warningMessage!),
+            child: _InlineBanner(color: kUnknownAccent, text: _warningMessage!),
           ),
         AnimatedSwitcher(
           duration: const Duration(milliseconds: 220),
@@ -1318,9 +1308,9 @@ class _InputScreenState extends State<InputScreen>
       key: const ValueKey<String>('streaming-mode'),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: _tintedSurface(theme, _functionAccent),
+        color: _tintedSurface(theme, kFunctionAccent),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+        border: Border.all(color: kFunctionAccent.withValues(alpha: 0.35)),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -1328,14 +1318,14 @@ class _InputScreenState extends State<InputScreen>
         children: <Widget>[
           Row(
             children: <Widget>[
-              const Icon(Icons.stream_rounded, color: _functionAccent),
+              const Icon(Icons.stream_rounded, color: kFunctionAccent),
               const SizedBox(width: 8),
               Text(
                 'Live Streaming Simulator',
                 style: theme.textTheme.titleSmall?.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
-                  color: _functionAccent,
+                  color: kFunctionAccent,
                 ),
               ),
             ],
@@ -1370,7 +1360,7 @@ class _InputScreenState extends State<InputScreen>
     final borderColor = _textFieldHasError
         ? theme.colorScheme.error
         : (_genUiFocusNode.hasFocus
-              ? _functionAccent
+              ? kFunctionAccent
               : theme.colorScheme.outlineVariant);
 
     final background = isDark
@@ -1386,9 +1376,9 @@ class _InputScreenState extends State<InputScreen>
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: _tintedSurface(theme, _functionAccent),
+            color: _tintedSurface(theme, kFunctionAccent),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+            border: Border.all(color: kFunctionAccent.withValues(alpha: 0.35)),
           ),
           padding: const EdgeInsets.all(14),
           child: Column(
@@ -1398,7 +1388,7 @@ class _InputScreenState extends State<InputScreen>
                 children: <Widget>[
                   const Icon(
                     Icons.dashboard_customize_rounded,
-                    color: _functionAccent,
+                    color: kFunctionAccent,
                   ),
                   const SizedBox(width: 8),
                   Text(
@@ -1406,7 +1396,7 @@ class _InputScreenState extends State<InputScreen>
                     style: theme.textTheme.titleSmall?.copyWith(
                       fontSize: 16,
                       fontWeight: FontWeight.w700,
-                      color: _functionAccent,
+                      color: kFunctionAccent,
                     ),
                   ),
                 ],
@@ -1454,7 +1444,12 @@ class _InputScreenState extends State<InputScreen>
                       'Paste GenUI descriptor JSON here...\n\n'
                       '{\n'
                       '  "type": "screen",\n'
-                      '  "components": [...]\n'
+                      '  "version": "1.0.0",\n'
+                      '  "agent": "weather_assistant",\n'
+                      '  "components": [\n'
+                      '    {"id": "hero", "type": "heading", "text": "Weather"},\n'
+                      '    {"id": "card_1", "type": "card", "children": []}\n'
+                      '  ]\n'
                       '}',
                   hintStyle: theme.textTheme.bodySmall?.copyWith(
                     fontFamily: 'monospace',
@@ -1540,7 +1535,7 @@ class _InputScreenState extends State<InputScreen>
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: selected
-                ? _functionAccent
+                ? kFunctionAccent
                 : theme.colorScheme.outlineVariant,
             width: selected ? 1.8 : 1,
           ),
@@ -1548,7 +1543,7 @@ class _InputScreenState extends State<InputScreen>
         padding: const EdgeInsets.all(12),
         child: Row(
           children: <Widget>[
-            const Icon(Icons.widgets_outlined, color: _functionAccent),
+            const Icon(Icons.widgets_outlined, color: kFunctionAccent),
             const SizedBox(width: 10),
             Expanded(
               child: Column(
@@ -1571,7 +1566,7 @@ class _InputScreenState extends State<InputScreen>
               ),
             ),
             if (selected)
-              const Icon(Icons.check_circle_rounded, color: _functionAccent),
+              const Icon(Icons.check_circle_rounded, color: kFunctionAccent),
           ],
         ),
       ),
@@ -1581,7 +1576,7 @@ class _InputScreenState extends State<InputScreen>
   Widget _buildSampleCard(ThemeData theme, _SamplePayloadDefinition sample) {
     final selected = sample.id == _selectedSample?.id;
     final borderColor = selected
-        ? _functionAccent
+        ? kFunctionAccent
         : theme.colorScheme.outlineVariant;
 
     return InkWell(
@@ -1661,7 +1656,7 @@ class _InputScreenState extends State<InputScreen>
                   width: 22,
                   height: 22,
                   decoration: const BoxDecoration(
-                    color: _functionAccent,
+                    color: kFunctionAccent,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
@@ -1682,11 +1677,12 @@ class _InputScreenState extends State<InputScreen>
     final colorScheme = theme.colorScheme;
     final isStreamingMode = _mode == _InputMode.streaming;
     final isGenUiMode = _mode == _InputMode.genUiPreview;
+    final isInputEmpty = _isInputEmpty();
 
     Color buttonColor;
     switch (_buttonState) {
       case _ParseButtonState.success:
-        buttonColor = _outputAccent;
+        buttonColor = kOutputAccent;
       case _ParseButtonState.error:
         buttonColor = colorScheme.error;
       case _ParseButtonState.loading:
@@ -1698,13 +1694,12 @@ class _InputScreenState extends State<InputScreen>
       height: compact ? 40 : 52,
       width: compact ? 220 : double.infinity,
       child: FilledButton(
-        onPressed: _isBusy ? null : _handleParsePressed,
+        onPressed: _isBusy || isInputEmpty ? null : _handleParsePressed,
         style: FilledButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(compact ? 10 : 12),
           ),
           backgroundColor: buttonColor,
-          disabledBackgroundColor: buttonColor,
           padding: EdgeInsets.symmetric(
             horizontal: compact ? 14 : 18,
             vertical: compact ? 0 : 10,
@@ -1743,7 +1738,7 @@ class _InputScreenState extends State<InputScreen>
                     isGenUiMode
                         ? 'Preview UI'
                         : isStreamingMode
-                        ? 'Open Streaming Simulator'
+                        ? 'Launch Simulator'
                         : 'Parse Response',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -1768,6 +1763,20 @@ class _InputScreenState extends State<InputScreen>
         ),
       ),
     );
+  }
+
+  bool _isInputEmpty() {
+    switch (_mode) {
+      case _InputMode.pasteJson:
+        return _jsonController.text.trim().isEmpty;
+      case _InputMode.loadSample:
+        return _selectedSample == null;
+      case _InputMode.streaming:
+        return false;
+      case _InputMode.genUiPreview:
+        return _genUiController.text.trim().isEmpty &&
+            _selectedGenUiSample == null;
+    }
   }
 
   Map<String, dynamic> _normalizeMap(dynamic value) {
@@ -1903,8 +1912,8 @@ class _SamplePreviewPanel extends StatelessWidget {
                 tooltip: 'Close Preview',
                 icon: const Icon(Icons.close_rounded, size: 18),
                 constraints: const BoxConstraints.tightFor(
-                  width: 30,
-                  height: 30,
+                  width: 36,
+                  height: 36,
                 ),
                 visualDensity: VisualDensity.compact,
                 padding: EdgeInsets.zero,
@@ -1977,13 +1986,13 @@ class _StreamingModeChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
         borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: _functionAccent.withValues(alpha: 0.35)),
+        border: Border.all(color: kFunctionAccent.withValues(alpha: 0.35)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Text(
         label,
         style: theme.textTheme.labelSmall?.copyWith(
-          color: _functionAccent,
+          color: kFunctionAccent,
           fontWeight: FontWeight.w700,
         ),
       ),
