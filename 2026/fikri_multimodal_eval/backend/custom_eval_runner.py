@@ -18,11 +18,14 @@ SESSION_DIR = Path("/tmp/custom_eval")
 
 
 def encode_image(image_path: Path) -> str:
-    """Encode an image as a base64 data URI.
+    """Return a data URI (base64-encoded) for the given image file.
 
-    TODO: Implement in Task 2.
+    .jpg and .jpeg both map to MIME type image/jpeg per the spec.
     """
-    raise NotImplementedError("encode_image is implemented in Task 2")
+    suffix = image_path.suffix.lower().lstrip(".")
+    mime = "jpeg" if suffix in ("jpg", "jpeg") else suffix
+    data = base64.b64encode(image_path.read_bytes()).decode()
+    return f"data:image/{mime};base64,{data}"
 
 
 def normalize(text: str) -> str:

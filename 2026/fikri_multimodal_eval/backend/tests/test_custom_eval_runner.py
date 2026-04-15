@@ -1,3 +1,7 @@
+import base64
+import tempfile
+from pathlib import Path
+
 import pytest
 from custom_eval_runner import normalize, score, encode_image
 
@@ -28,6 +32,34 @@ def test_score_no_match_returns_false():
 
 def test_score_none_ground_truth_returns_none():
     assert score("anything", None) is None
+
+# --- encode_image ---
+
+def test_encode_image_jpg_returns_jpeg_data_uri():
+    content = b"fake-jpeg-bytes"
+    with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as f:
+        f.write(content)
+        path = Path(f.name)
+    uri = encode_image(path)
+    assert uri.startswith("data:image/jpeg;base64,")
+    assert base64.b64decode(uri.split(",", 1)[1]) == content
+
+def test_encode_image_jpeg_extension_maps_to_jpeg_mime():
+    content = b"data"
+    with tempfile.NamedTemporaryFile(suffix=".jpeg", delete=False) as f:
+        f.write(content)
+        path = Path(f.name)
+    uri = encode_image(path)
+    assert uri.startswith("data:image/jpeg;base64,")
+
+def test_encode_image_png_returns_png_data_uri():
+    content = b"fake-png-bytes"
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as f:
+        f.write(content)
+        path = Path(f.name)
+    uri = encode_image(path)
+    assert uri.startswith("data:image/png;base64,")
+    assert base64.b64decode(uri.split(",", 1)[1]) == content
 
 def test_score_case_insensitive():
     assert score("A CAT", "a cat") is True
