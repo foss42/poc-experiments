@@ -51,3 +51,79 @@ def score(model_answer: str, ground_truth: str | None) -> bool | None:
     nm = normalize(model_answer)
     ng = normalize(ground_truth)
     return nm == ng or ng in nm
+
+
+async def call_model(
+    provider: str,
+    model: str,
+    image_data_uri: str,
+    question: str,
+    choices: list[str] | None = None,
+) -> str:
+    """Dispatch to the correct provider and return the model's text answer."""
+    prompt = question
+    if choices:
+        prompt = f"{question}\nChoices: {', '.join(choices)}"
+
+    if provider == "ollama":
+        return await _call_ollama(model, image_data_uri, prompt)
+    if provider == "openrouter":
+        return await _call_openrouter(model, image_data_uri, prompt)
+    if provider == "huggingface":
+        return await _call_huggingface(model, image_data_uri, prompt)
+    raise ValueError(f"Unknown provider: {provider}")
+
+
+async def _call_ollama(model: str, image_data_uri: str, prompt: str) -> str:
+    ollama_base = os.getenv("OLLAMA_BASE_URL", "http://host.docker.internal:11434")
+    # Ollama expects raw base64, not the full data URI
+    b64 = image_data_uri.split(",", 1)[1] if "," in image_data_uri else image_data_uri
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt, "images": [b64]}],
+        "stream": False,
+    }
+    async with httpx.AsyncClient(timeout=120) as client:
+        r = await client.post(f"{ollama_base}/api/chat", json=payload)
+        r.raise_for_status()
+        return r.json()["message"]["content"].strip()
+
+
+async def _call_openrouter(model: str, image_data_uri: str, prompt: str) -> str:
+    api_key = os.getenv("OPENAI_API_KEY", "")
+    base_url = os.getenv("OPENAI_API_BASE", "https://openrouter.ai/api/v1")
+    payload = {
+        "model": model,
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "image_url", "image_url": {"url": image_data_uri}},
+                    {"type": "text", "text": prompt},
+                ],
+            }
+        ],
+    }
+    async with httpx.AsyncClient(timeout=120) as client:
+        r = await client.post(
+            f"{base_url}/chat/completions",
+            json=payload,
+            headers={"Authorization": f"Bearer {api_key}"},
+        )
+        r.raise_for_status()
+        return r.json()["choices"][0]["message"]["content"].strip()
+
+
+async def _call_huggingface(model: str, image_data_uri: str, prompt: str) -> str:
+    import io
+    from PIL import Image
+    from transformers import pipeline
+
+    header, b64 = image_data_uri.split(",", 1)
+    image_bytes = base64.b64decode(b64)
+    image = Image.open(io.BytesIO(image_bytes))
+
+    loop = asyncio.get_running_loop()
+    pipe = pipeline("visual-question-answering", model=model)
+    result = await loop.run_in_executor(None, lambda: pipe(image, question=prompt))
+    return result[0]["answer"] if result else ""

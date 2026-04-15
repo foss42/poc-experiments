@@ -2,7 +2,9 @@ import base64
 from pathlib import Path
 
 import pytest
-from custom_eval_runner import normalize, score, encode_image
+from unittest.mock import AsyncMock, patch
+
+from custom_eval_runner import normalize, score, encode_image, call_model
 
 # --- normalize ---
 
@@ -62,3 +64,36 @@ def test_encode_image_png_returns_png_data_uri(tmp_path):
 
 def test_score_case_insensitive():
     assert score("A CAT", "a cat") is True
+
+# --- call_model ---
+
+@pytest.mark.asyncio
+async def test_call_model_routes_to_ollama():
+    with patch("custom_eval_runner._call_ollama", new_callable=AsyncMock) as mock:
+        mock.return_value = "a cat"
+        result = await call_model("ollama", "llava", "data:image/jpeg;base64,abc", "What is this?")
+        mock.assert_called_once_with("llava", "data:image/jpeg;base64,abc", "What is this?")
+        assert result == "a cat"
+
+@pytest.mark.asyncio
+async def test_call_model_routes_to_openrouter():
+    with patch("custom_eval_runner._call_openrouter", new_callable=AsyncMock) as mock:
+        mock.return_value = "blue"
+        result = await call_model("openrouter", "openai/gpt-4o-mini", "data:image/png;base64,xyz", "What color?")
+        mock.assert_called_once_with("openai/gpt-4o-mini", "data:image/png;base64,xyz", "What color?")
+        assert result == "blue"
+
+@pytest.mark.asyncio
+async def test_call_model_appends_choices_to_prompt():
+    with patch("custom_eval_runner._call_ollama", new_callable=AsyncMock) as mock:
+        mock.return_value = "A"
+        await call_model("ollama", "llava", "data:image/jpeg;base64,abc",
+                         "Which color?", choices=["A. red", "B. blue"])
+        prompt_used = mock.call_args[0][2]
+        assert "A. red" in prompt_used
+        assert "B. blue" in prompt_used
+
+@pytest.mark.asyncio
+async def test_call_model_unknown_provider_raises():
+    with pytest.raises(ValueError, match="Unknown provider"):
+        await call_model("unknown", "model", "data:image/jpeg;base64,x", "Q?")
