@@ -14,6 +14,7 @@ This folder contains the Proof of Concept for exploring and debugging OpenAI Res
 
 - Flutter (Material 3)
 - Dart SDK 3.11+
+- package_info_plus (app metadata shown in About dialog)
 - url_launcher (for external links from the app)
 
 ## Architecture
@@ -62,12 +63,13 @@ flowchart TB
 
 - `lib/screens/input_screen.dart`
 	- Entry screen for paste/sample/streaming/genui modes.
-	- Handles theme toggle, parse actions, validation feedback, and About dialog.
+	- Handles theme toggle, parse actions, validation feedback, Enter shortcut submit, and About dialog with app version.
 - `lib/screens/response_explorer_screen.dart`
 	- Main analysis surface with tabs: Parsed, Calls, Raw, Diagnostics.
-	- Includes searchable timeline and code-like raw JSON view.
+	- Includes parsed-tab search, dismissible GenUI banner, and code-like raw JSON view.
 - `lib/screens/streaming_simulator_screen.dart`
 	- Event feed + live response simulation and playback controls.
+	- Uses faster inter-item replay pacing for denser timelines.
 - `lib/screens/gen_ui_preview_screen.dart`
 	- Visual preview for detected GenUI descriptors.
 
@@ -92,8 +94,15 @@ flowchart TB
 
 - `lib/main.dart`
 	- Application bootstrap.
-	- Theme management and route registration.
+	- Theme management (shared seed/background colors) and route registration.
 	- Entry route to `InputScreen`.
+
+### 4. Shared Utilities
+
+- `lib/app_colors.dart`
+	- Centralized app color constants used across screens/themes.
+- `lib/routing.dart`
+	- Reusable slide-up route transition helper.
 
 ## Data Flow
 
@@ -114,14 +123,26 @@ flowchart TB
 1. A parsed response is passed into `StreamingSimulatorScreen` as seed state.
 2. Simulation events are generated or loaded.
 3. `StreamingSession` forwards each event to `StreamingReducer`.
-4. Reducer emits updated `ParsedResponse` snapshots.
-5. UI updates both event timeline and live response panel in sync.
+4. Reducer updates session state with the latest `ParsedResponse` snapshot.
+5. UI reads synchronized snapshots to keep event timeline and live response panel aligned.
 
 ### GenUI Detection Flow
 
 1. Explorer checks parsed items via `OpenResponsesDetector`.
 2. If a valid descriptor is found, user can open `GenUIPreviewScreen`.
 3. Descriptor is rendered using the GenUI component registry.
+
+## UX and Performance Notes
+
+- Parse actions can be triggered with Enter / Numpad Enter when the active mode has valid input context.
+- Parse button is disabled on empty input to reduce accidental no-op actions.
+- About dialog shows app version from package metadata.
+- Search UI is scoped to the Parsed tab and closes automatically when leaving it.
+- Diagnostics summary is precomputed for stable tab rendering.
+- GenUI preview banner can be dismissed in Parsed view.
+- Placeholder panels are width-constrained for better readability on wide layouts.
+- Highlighted timeline text uses memoized spans to reduce unnecessary rebuild work.
+- Streaming replay uses shorter inter-item delay (`120ms`) for faster, clearer progression.
 
 ## Repository Structure
 
@@ -131,6 +152,8 @@ flowchart TB
 	open_responses_explorer/
 		lib/
 			main.dart
+			app_colors.dart
+			routing.dart
 			domain/
 				gen_ui_component_registry.dart
 				gen_ui_models.dart
@@ -167,6 +190,12 @@ From `2026/open_responses_explorer`:
 3. Run smoke test
 
 	 `flutter test test/response_explorer_smoke_test.dart`
+
+4. Run analyzer and full test suite
+
+	 `flutter analyze`
+
+	 `flutter test`
 
 ## References
 
