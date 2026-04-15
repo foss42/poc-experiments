@@ -10,9 +10,8 @@ The main goal of this project is to implement a production-grade headless execut
 **Contributors:** Roshan Melvin G A  
 **Approvers:** Ankit Mahato (`@animator`) , Ashita Prasad (`@ashitaprasad`) 
 **Status:** For Review  
-**Created:** 31/03/2026
-
-Currently, I am working on this bug - [Request/Response pane widths reset when toggling View Code [#1090] - API Dash](https://github.com/foss42/apidash/issues/1090)
+**Created:** 31/03/2026(#1650)
+**Updated:** 15/04/2026
 
 ---
 
