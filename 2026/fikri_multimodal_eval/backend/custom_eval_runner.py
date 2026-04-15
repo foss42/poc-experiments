@@ -21,8 +21,13 @@ def encode_image(image_path: Path) -> str:
     """Return a data URI (base64-encoded) for the given image file.
 
     .jpg and .jpeg both map to MIME type image/jpeg per the spec.
+    Raises ValueError if the file has no extension.
     """
     suffix = image_path.suffix.lower().lstrip(".")
+    if not suffix:
+        raise ValueError(
+            f"Cannot determine image type for file with no extension: {image_path}"
+        )
     mime = "jpeg" if suffix in ("jpg", "jpeg") else suffix
     data = base64.b64encode(image_path.read_bytes()).decode()
     return f"data:image/{mime};base64,{data}"
