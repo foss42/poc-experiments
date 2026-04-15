@@ -19,26 +19,27 @@ class CustomResultStreamView extends ConsumerWidget {
         if (state.sampleResults.isNotEmpty ||
             state.sampleErrors.isNotEmpty) ...[
           const SizedBox(height: 12),
-          ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount:
-                state.sampleResults.length + state.sampleErrors.length,
-            separatorBuilder: (_, __) => const SizedBox(height: 6),
-            itemBuilder: (context, i) {
-              // Show results in arrival order (index field from server)
-              final allEvents = [
-                ...state.sampleResults,
-                ...state.sampleErrors,
-              ]..sort((a, b) =>
-                  (a['index'] as int).compareTo(b['index'] as int));
-              final event = allEvents[i];
-              if (event.containsKey('detail')) {
-                return _SampleErrorCard(event: event);
-              }
-              return _SampleResultCard(event: event);
-            },
-          ),
+          Builder(builder: (context) {
+            final allEvents = [
+              ...state.sampleResults,
+              ...state.sampleErrors,
+            ]..sort((a, b) =>
+                ((a['index'] as int?) ?? 0)
+                    .compareTo((b['index'] as int?) ?? 0));
+            return ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: allEvents.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 6),
+              itemBuilder: (context, i) {
+                final event = allEvents[i];
+                if (event['type'] == 'sample_error') {
+                  return _SampleErrorCard(event: event);
+                }
+                return _SampleResultCard(event: event);
+              },
+            );
+          }),
         ],
         if (state.error != null) ...[
           const SizedBox(height: 8),

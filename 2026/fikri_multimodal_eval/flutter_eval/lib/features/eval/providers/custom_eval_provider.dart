@@ -170,6 +170,7 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
           sampleResults: [
             ...state.sampleResults,
             {
+              'type': 'sample',
               'index': index,
               'filename': filename,
               'question': question,
@@ -182,7 +183,7 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
         state = state.copyWith(
           sampleErrors: [
             ...state.sampleErrors,
-            {'index': index, 'filename': filename, 'detail': detail},
+            {'type': 'sample_error', 'index': index, 'filename': filename, 'detail': detail},
           ],
         );
       case CustomEvalComplete(:final evalId, :final accuracy, :final results):
