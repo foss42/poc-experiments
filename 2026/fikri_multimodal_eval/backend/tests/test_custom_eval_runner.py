@@ -1,10 +1,12 @@
 import base64
+import shutil
+import tempfile
 from pathlib import Path
 
 import pytest
 from unittest.mock import AsyncMock, patch
 
-from custom_eval_runner import normalize, score, encode_image, call_model
+from custom_eval_runner import normalize, score, encode_image, call_model, run_custom_eval
 
 # --- normalize ---
 
@@ -112,3 +114,81 @@ async def test_call_model_routes_to_huggingface():
             "What animal?",
         )
         assert result == "dog"
+
+
+@pytest.mark.asyncio
+async def test_run_custom_eval_yields_started_then_samples_then_complete():
+    import custom_eval_runner
+    sdir = Path(tempfile.mkdtemp())
+    session_id = sdir.name
+    parent = sdir.parent
+    original = custom_eval_runner.SESSION_DIR
+    custom_eval_runner.SESSION_DIR = parent
+
+    (sdir / "cat.jpg").write_bytes(b"fake")
+    samples = [{"filename": "cat.jpg", "question": "What animal?", "answer": "cat"}]
+
+    with patch("custom_eval_runner.call_model", new_callable=AsyncMock) as mock_call:
+        mock_call.return_value = "a cat"
+        events = [e async for e in run_custom_eval(session_id, samples, "ollama", "llava")]
+
+    custom_eval_runner.SESSION_DIR = original
+    shutil.rmtree(sdir, ignore_errors=True)
+
+    assert events[0] == {"type": "started", "total": 1}
+    sample_event = events[1]
+    assert sample_event["type"] == "sample"
+    assert sample_event["index"] == 0
+    assert sample_event["model_answer"] == "a cat"
+    assert sample_event["correct"] is True
+    complete_event = events[2]
+    assert complete_event["type"] == "complete"
+    assert complete_event["accuracy"] == 1.0
+
+
+@pytest.mark.asyncio
+async def test_run_custom_eval_no_ground_truth_correct_is_none():
+    import custom_eval_runner
+    sdir = Path(tempfile.mkdtemp())
+    session_id = sdir.name
+    parent = sdir.parent
+    original = custom_eval_runner.SESSION_DIR
+    custom_eval_runner.SESSION_DIR = parent
+    (sdir / "img.png").write_bytes(b"fake")
+
+    samples = [{"filename": "img.png", "question": "Describe this."}]
+
+    with patch("custom_eval_runner.call_model", new_callable=AsyncMock) as mock_call:
+        mock_call.return_value = "a landscape"
+        events = [e async for e in run_custom_eval(session_id, samples, "ollama", "llava")]
+
+    custom_eval_runner.SESSION_DIR = original
+    shutil.rmtree(sdir, ignore_errors=True)
+
+    assert events[1]["correct"] is None
+    complete_event = events[2]
+    assert "accuracy" not in complete_event
+
+
+@pytest.mark.asyncio
+async def test_run_custom_eval_model_error_yields_sample_error():
+    import custom_eval_runner
+    sdir = Path(tempfile.mkdtemp())
+    session_id = sdir.name
+    parent = sdir.parent
+    original = custom_eval_runner.SESSION_DIR
+    custom_eval_runner.SESSION_DIR = parent
+    (sdir / "img.jpg").write_bytes(b"fake")
+
+    samples = [{"filename": "img.jpg", "question": "Q?", "answer": "A"}]
+
+    with patch("custom_eval_runner.call_model", new_callable=AsyncMock) as mock_call:
+        mock_call.side_effect = RuntimeError("API error")
+        events = [e async for e in run_custom_eval(session_id, samples, "ollama", "llava")]
+
+    custom_eval_runner.SESSION_DIR = original
+    shutil.rmtree(sdir, ignore_errors=True)
+
+    assert events[1]["type"] == "sample_error"
+    assert "API error" in events[1]["detail"]
+    assert events[2]["type"] == "complete"

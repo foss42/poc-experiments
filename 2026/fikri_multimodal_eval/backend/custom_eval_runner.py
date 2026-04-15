@@ -133,3 +133,63 @@ async def _call_huggingface(model: str, image_data_uri: str, prompt: str) -> str
 
     result = await loop.run_in_executor(None, _run)
     return result[0]["answer"] if result else ""
+
+
+async def run_custom_eval(
+    session_id: str,
+    samples: list[dict],
+    provider: str,
+    model: str,
+    openrouter_api_key: str | None = None,
+) -> AsyncGenerator[dict, None]:
+    """Iterate samples, call the model, score, and yield SSE-ready dicts.
+
+    Yields: started → (sample | sample_error) × N → complete
+    """
+    if provider == "openrouter" and openrouter_api_key:
+        os.environ["OPENAI_API_KEY"] = openrouter_api_key
+        os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+
+    sdir = SESSION_DIR / session_id
+    has_ground_truth = any(s.get("answer") for s in samples)
+
+    yield {"type": "started", "total": len(samples)}
+
+    correct_count = 0
+    for i, sample in enumerate(samples):
+        image_path = sdir / sample["filename"]
+        try:
+            image_uri = encode_image(image_path)
+            answer = await call_model(
+                provider,
+                model,
+                image_uri,
+                sample["question"],
+                sample.get("choices"),
+            )
+            is_correct = score(answer, sample.get("answer"))
+            if is_correct is True:
+                correct_count += 1
+            yield {
+                "type": "sample",
+                "index": i,
+                "total": len(samples),
+                "filename": sample["filename"],
+                "question": sample["question"],
+                "model_answer": answer,
+                "correct": is_correct,
+            }
+        except Exception as e:
+            yield {
+                "type": "sample_error",
+                "index": i,
+                "total": len(samples),
+                "filename": sample["filename"],
+                "question": sample["question"],
+                "detail": str(e),
+            }
+
+    complete: dict = {"type": "complete"}
+    if has_ground_truth and samples:
+        complete["accuracy"] = round(correct_count / len(samples), 4)
+    yield complete
