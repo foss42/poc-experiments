@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../domain/response_models.dart';
+import '../domain/streaming_reducer.dart';
 import '../domain/streaming_session.dart';
 
 const Color _reasoningAccent = Color(0xFF7C3AED);
@@ -28,7 +29,7 @@ const ParsedResponse _emptyStreamingResponse = ParsedResponse(
   totalTokens: null,
 );
 
-final List<_SimulationEvent> _simulationEvents = <_SimulationEvent>[
+final List<_SimulationEvent> _defaultSimulationEvents = <_SimulationEvent>[
   _SimulationEvent(
     delayAfterPreviousMs: 0,
     payload: <String, dynamic>{
@@ -244,19 +245,6 @@ extension on _SimulationSpeed {
     }
   }
 
-  String get shortLabel {
-    switch (this) {
-      case _SimulationSpeed.slow:
-        return '0.5x';
-      case _SimulationSpeed.normal:
-        return '1x';
-      case _SimulationSpeed.fast:
-        return '2x';
-      case _SimulationSpeed.step:
-        return 'Step';
-    }
-  }
-
   double get multiplier {
     switch (this) {
       case _SimulationSpeed.slow:
@@ -271,8 +259,55 @@ extension on _SimulationSpeed {
   }
 }
 
+enum _EventCategory {
+  reasoning,
+  toolCalls,
+  outputs,
+  messages,
+  deltas,
+  lifecycle,
+}
+
+extension on _EventCategory {
+  String get label {
+    switch (this) {
+      case _EventCategory.reasoning:
+        return 'Reasoning';
+      case _EventCategory.toolCalls:
+        return 'Tool Calls';
+      case _EventCategory.outputs:
+        return 'Outputs';
+      case _EventCategory.messages:
+        return 'Messages';
+      case _EventCategory.deltas:
+        return 'Deltas';
+      case _EventCategory.lifecycle:
+        return 'Lifecycle';
+    }
+  }
+
+  Color get color {
+    switch (this) {
+      case _EventCategory.reasoning:
+        return _reasoningAccent;
+      case _EventCategory.toolCalls:
+        return _functionAccent;
+      case _EventCategory.outputs:
+        return _outputAccent;
+      case _EventCategory.messages:
+        return _messageAccent;
+      case _EventCategory.deltas:
+        return const Color(0xFFEA580C);
+      case _EventCategory.lifecycle:
+        return const Color(0xFF0D9488);
+    }
+  }
+}
+
 class StreamingSimulatorScreen extends StatefulWidget {
-  const StreamingSimulatorScreen({super.key});
+  const StreamingSimulatorScreen({super.key, this.seedResponse});
+
+  final ParsedResponse? seedResponse;
 
   @override
   State<StreamingSimulatorScreen> createState() =>
@@ -282,6 +317,7 @@ class StreamingSimulatorScreen extends StatefulWidget {
 class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
   final ScrollController _eventScrollController = ScrollController();
 
+  late final List<_SimulationEvent> _simulationEvents;
   late final StreamingSession _session;
   StreamSubscription<ParsedResponse>? _sessionSubscription;
 
@@ -303,10 +339,14 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
   final Set<int> _knownOutputIndexes = <int>{};
   final Set<int> _flashingOutputIndexes = <int>{};
   final Map<int, String> _argumentsByOutputIndex = <int, String>{};
+  final Set<_EventCategory> _visibleCategories = _EventCategory.values.toSet();
+
+  bool _showPendingEvents = true;
 
   double? _scrubbingValue;
 
   int get _totalEventCount => _simulationEvents.length;
+  bool get _isReplayMode => widget.seedResponse != null;
 
   bool get _isComplete => _processedCount >= _totalEventCount;
 
@@ -315,7 +355,17 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
   @override
   void initState() {
     super.initState();
-    _session = StreamingSession();
+    _simulationEvents = widget.seedResponse == null
+        ? _defaultSimulationEvents
+        : _buildSimulationEventsFromParsedResponse(widget.seedResponse!);
+
+    final initialResponse = widget.seedResponse;
+    _session = StreamingSession(
+      reducer: StreamingReducer(
+        initialId: initialResponse?.id ?? 'resp_stream_simulated',
+        initialModel: initialResponse?.model ?? 'gpt-4o',
+      ),
+    );
     _currentResponse = _session.currentResponse;
 
     _sessionSubscription = _session.stream.listen((ParsedResponse response) {
@@ -504,7 +554,8 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
       _triggerOutputCompletionFlash(outputIndex);
     }
 
-    if (type == 'response.function_call_arguments.delta' && outputIndex != null) {
+    if (type == 'response.function_call_arguments.delta' &&
+        outputIndex != null) {
       final currentArguments = _argumentsByOutputIndex[outputIndex] ?? '';
       _argumentsByOutputIndex[outputIndex] =
           '$currentArguments${_asString(event.payload['delta'])}';
@@ -649,7 +700,9 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
       _processingIndex = null;
       _recentlyProcessedIndex = null;
       _scrubbingValue = null;
-      _expandedEventIndexes.removeWhere((int index) => index >= _processedCount);
+      _expandedEventIndexes.removeWhere(
+        (int index) => index >= _processedCount,
+      );
       _currentResponse = _session.currentResponse;
       if (_processedCount >= _totalEventCount) {
         _isRunning = false;
@@ -659,16 +712,240 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
     _autoScrollEventsToLatest();
   }
 
-  void _cycleSpeed() {
-    setState(() {
-      final values = _SimulationSpeed.values;
-      final currentIndex = values.indexOf(_speed);
-      _speed = values[(currentIndex + 1) % values.length];
-    });
+  List<_SimulationEvent> _buildSimulationEventsFromParsedResponse(
+    ParsedResponse response,
+  ) {
+    final events = <_SimulationEvent>[];
 
-    if (_isRunning) {
-      _scheduleNextEvent();
+    for (var index = 0; index < response.items.length; index++) {
+      final item = response.items[index];
+      final addedItem = _toStreamingItem(item, inProgress: true);
+
+      events.add(
+        _SimulationEvent(
+          delayAfterPreviousMs: index == 0 ? 0 : 280,
+          payload: <String, dynamic>{
+            'type': 'response.output_item.added',
+            'output_index': index,
+            'item': addedItem,
+          },
+        ),
+      );
+
+      if (item is MessageItem) {
+        for (final delta in _splitMessageDeltas(item.text)) {
+          events.add(
+            _SimulationEvent(
+              delayAfterPreviousMs: 100,
+              payload: <String, dynamic>{
+                'type': 'response.output_text.delta',
+                'output_index': index,
+                'content_index': 0,
+                'delta': delta,
+              },
+            ),
+          );
+        }
+      }
+
+      if (item is FunctionCallItem) {
+        for (final delta in _splitArgumentsDeltas(item.arguments)) {
+          events.add(
+            _SimulationEvent(
+              delayAfterPreviousMs: 90,
+              payload: <String, dynamic>{
+                'type': 'response.function_call_arguments.delta',
+                'output_index': index,
+                'delta': delta,
+              },
+            ),
+          );
+        }
+      }
+
+      events.add(
+        _SimulationEvent(
+          delayAfterPreviousMs: 160,
+          payload: <String, dynamic>{
+            'type': 'response.output_item.done',
+            'output_index': index,
+            'item': _toStreamingItem(item, inProgress: false),
+          },
+        ),
+      );
     }
+
+    events.add(
+      _SimulationEvent(
+        delayAfterPreviousMs: 240,
+        payload: <String, dynamic>{
+          'type': 'response.completed',
+          'response': <String, dynamic>{
+            'id': response.id,
+            'status': 'completed',
+            'model': response.model,
+          },
+        },
+      ),
+    );
+
+    return events;
+  }
+
+  Map<String, dynamic> _toStreamingItem(
+    ResponseItem item, {
+    required bool inProgress,
+  }) {
+    if (item is ReasoningItem) {
+      return <String, dynamic>{
+        'type': 'reasoning',
+        'id': item.id,
+        if (!inProgress)
+          'summary': <Map<String, dynamic>>[
+            <String, dynamic>{'type': 'summary_text', 'text': item.summaryText},
+          ],
+        'status': inProgress ? 'in_progress' : 'completed',
+      };
+    }
+
+    if (item is FunctionCallItem) {
+      return <String, dynamic>{
+        'type': 'function_call',
+        'id': item.id,
+        'call_id': item.callId,
+        'name': item.name,
+        if (!inProgress)
+          'arguments': _serializeMapLike(
+            item.arguments,
+            fallbackKey: 'raw_arguments',
+          ),
+        'status': inProgress ? 'in_progress' : 'completed',
+      };
+    }
+
+    if (item is FunctionCallOutputItem) {
+      return <String, dynamic>{
+        'type': 'function_call_output',
+        'call_id': item.callId,
+        if (!inProgress)
+          'output': _serializeMapLike(
+            item.parsedOutput,
+            fallbackKey: 'raw_output',
+          ),
+        'status': inProgress ? 'in_progress' : 'completed',
+      };
+    }
+
+    if (item is MessageItem) {
+      return <String, dynamic>{
+        'type': 'message',
+        'role': item.role,
+        if (!inProgress)
+          'content': <Map<String, dynamic>>[
+            <String, dynamic>{'type': 'text', 'text': item.text},
+          ],
+        'status': inProgress ? 'in_progress' : 'completed',
+      };
+    }
+
+    if (item is UnknownItem) {
+      final raw = Map<String, dynamic>.from(item.raw);
+      raw.putIfAbsent('type', () => 'unknown');
+      raw['status'] = inProgress ? 'in_progress' : 'completed';
+      return raw;
+    }
+
+    return <String, dynamic>{
+      'type': 'unknown',
+      'status': inProgress ? 'in_progress' : 'completed',
+    };
+  }
+
+  List<String> _splitMessageDeltas(String text) {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return const <String>[];
+    }
+
+    final words = trimmed.split(RegExp(r'\s+'));
+    final chunks = <String>[];
+    const wordsPerChunk = 7;
+
+    for (var i = 0; i < words.length; i += wordsPerChunk) {
+      final end = math.min(i + wordsPerChunk, words.length);
+      chunks.add('${words.sublist(i, end).join(' ')} ');
+    }
+
+    return chunks;
+  }
+
+  List<String> _splitArgumentsDeltas(Map<String, dynamic> arguments) {
+    final source = _serializeMapLike(arguments, fallbackKey: 'raw_arguments');
+    final value = source is String ? source : jsonEncode(source);
+
+    if (value.isEmpty) {
+      return const <String>[];
+    }
+
+    const chunkLength = 18;
+    final chunks = <String>[];
+    for (var i = 0; i < value.length; i += chunkLength) {
+      final end = math.min(i + chunkLength, value.length);
+      chunks.add(value.substring(i, end));
+    }
+    return chunks;
+  }
+
+  dynamic _serializeMapLike(
+    Map<String, dynamic> value, {
+    required String fallbackKey,
+  }) {
+    if (value.containsKey(fallbackKey)) {
+      return value[fallbackKey]?.toString() ?? '';
+    }
+    return jsonEncode(value);
+  }
+
+  void _toggleCategoryFilter(_EventCategory category) {
+    setState(() {
+      if (_visibleCategories.contains(category) &&
+          _visibleCategories.length > 1) {
+        _visibleCategories.remove(category);
+      } else {
+        _visibleCategories.add(category);
+      }
+    });
+  }
+
+  int _eventsInCategory(_EventCategory category) {
+    return _simulationEvents
+        .where((event) => event.category == category)
+        .length;
+  }
+
+  bool _shouldShowEventIndex(int index) {
+    final event = _simulationEvents[index];
+    if (!_visibleCategories.contains(event.category)) {
+      return false;
+    }
+
+    if (_showPendingEvents) {
+      return true;
+    }
+
+    final isCompleted = index < _processedCount;
+    final isProcessing = index == _processingIndex;
+    return isCompleted || isProcessing;
+  }
+
+  List<int> _visibleEventIndexes() {
+    final indexes = <int>[];
+    for (var index = 0; index < _simulationEvents.length; index++) {
+      if (_shouldShowEventIndex(index)) {
+        indexes.add(index);
+      }
+    }
+    return indexes;
   }
 
   @override
@@ -692,7 +969,9 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
               ),
             ),
             Text(
-              'Simulating live SSE session',
+              _isReplayMode
+                  ? 'Replaying current response as SSE-like timeline'
+                  : 'Simulating live SSE session',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
                 fontSize: 12,
@@ -701,20 +980,6 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
           ],
         ),
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: _SpeedDropdown(
-              speed: _speed,
-              onChanged: (_SimulationSpeed value) {
-                setState(() {
-                  _speed = value;
-                });
-                if (_isRunning) {
-                  _scheduleNextEvent();
-                }
-              },
-            ),
-          ),
           IconButton(
             onPressed: _resetSimulation,
             tooltip: 'Reset simulation',
@@ -767,6 +1032,8 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
   }
 
   Widget _buildEventFeedPanel(ThemeData theme) {
+    final visibleIndexes = _visibleEventIndexes();
+
     return _PanelFrame(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -791,14 +1058,65 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
                 ),
                 const Spacer(),
                 Text(
-                  '$_processedCount / $_totalEventCount events',
+                  '$_processedCount / $_totalEventCount · ${visibleIndexes.length} shown',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                     fontFamily: 'monospace',
                     fontSize: 12,
                   ),
                 ),
+                const SizedBox(width: 10),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      _showPendingEvents = !_showPendingEvents;
+                    });
+                  },
+                  tooltip: _showPendingEvents
+                      ? 'Hide pending events'
+                      : 'Show pending events',
+                  icon: Icon(
+                    _showPendingEvents
+                        ? Icons.visibility_rounded
+                        : Icons.visibility_off_rounded,
+                    size: 20,
+                  ),
+                ),
               ],
+            ),
+          ),
+          Divider(height: 1, color: theme.colorScheme.outlineVariant),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+            child: Row(
+              children: _EventCategory.values
+                  .map(
+                    (_EventCategory category) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: FilterChip(
+                        selected: _visibleCategories.contains(category),
+                        onSelected: (_) => _toggleCategoryFilter(category),
+                        showCheckmark: false,
+                        selectedColor: _tintedSurface(theme, category.color),
+                        label: Text(
+                          '${category.label} ${_eventsInCategory(category)}',
+                          style: theme.textTheme.labelSmall?.copyWith(
+                            color: _visibleCategories.contains(category)
+                                ? category.color
+                                : theme.colorScheme.onSurfaceVariant,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        side: BorderSide(
+                          color: _visibleCategories.contains(category)
+                              ? category.color.withValues(alpha: 0.35)
+                              : theme.colorScheme.outlineVariant,
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(growable: false),
             ),
           ),
           Divider(height: 1, color: theme.colorScheme.outlineVariant),
@@ -806,29 +1124,31 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
             child: ListView.builder(
               controller: _eventScrollController,
               padding: const EdgeInsets.all(10),
-              itemCount: _simulationEvents.length,
+              itemCount: visibleIndexes.length,
               itemBuilder: (BuildContext context, int index) {
-                final event = _simulationEvents[index];
-                final isCompleted = index < _processedCount;
-                final isProcessing = index == _processingIndex;
+                final eventIndex = visibleIndexes[index];
+                final event = _simulationEvents[eventIndex];
+                final isCompleted = eventIndex < _processedCount;
+                final isProcessing = eventIndex == _processingIndex;
                 final isPending = !isCompleted && !isProcessing;
-                final isExpanded = _expandedEventIndexes.contains(index);
-                final isRecentlyProcessed = index == _recentlyProcessedIndex;
+                final isExpanded = _expandedEventIndexes.contains(eventIndex);
+                final isRecentlyProcessed =
+                    eventIndex == _recentlyProcessedIndex;
 
                 return Padding(
                   padding: EdgeInsets.only(
-                    bottom: index == _simulationEvents.length - 1 ? 0 : 8,
+                    bottom: index == visibleIndexes.length - 1 ? 0 : 8,
                   ),
                   child: _EventRow(
                     event: event,
-                    eventIndex: index,
+                    eventIndex: eventIndex,
                     isCompleted: isCompleted,
                     isPending: isPending,
                     isProcessing: isProcessing,
                     isExpanded: isExpanded,
                     isRecentlyProcessed: isRecentlyProcessed,
-                    timestampMs: _arrivalTimeMsByEventIndex[index],
-                    onToggleExpanded: () => _toggleEventExpanded(index),
+                    timestampMs: _arrivalTimeMsByEventIndex[eventIndex],
+                    onToggleExpanded: () => _toggleEventExpanded(eventIndex),
                     onCopyJson: () => _copyEventJson(event),
                   ),
                 );
@@ -883,8 +1203,9 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
                           _outputCompletionByIndex[outputIndex] ?? false;
                       final isInProgress =
                           _hasStarted && !isComplete && !_isComplete;
-                      final shouldFlash =
-                          _flashingOutputIndexes.contains(outputIndex);
+                      final shouldFlash = _flashingOutputIndexes.contains(
+                        outputIndex,
+                      );
 
                       return Padding(
                         padding: EdgeInsets.only(
@@ -930,7 +1251,8 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
     }
 
     if (item is FunctionCallItem) {
-      final argumentsText = _argumentsByOutputIndex[outputIndex] ??
+      final argumentsText =
+          _argumentsByOutputIndex[outputIndex] ??
           _argumentsToText(item.arguments);
       return _LiveFunctionCallCard(
         item: item,
@@ -1001,52 +1323,67 @@ class _StreamingSimulatorScreenState extends State<StreamingSimulatorScreen> {
                 onChanged: _handleScrubChanged,
                 onChangeEnd: _handleScrubEnd,
               ),
-              Row(
-                children: <Widget>[
-                  IconButton(
-                    onPressed: _rewindToStart,
-                    tooltip: 'Rewind',
-                    icon: const Icon(Icons.first_page_rounded),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(999),
+                  color: theme.colorScheme.surfaceContainerHighest.withValues(
+                    alpha: 0.35,
                   ),
-                  const SizedBox(width: 10),
-                  FilledButton(
-                    onPressed: _togglePlayPause,
-                    style: FilledButton.styleFrom(
-                      shape: const CircleBorder(),
-                      padding: const EdgeInsets.all(14),
+                  border: Border.all(color: theme.colorScheme.outlineVariant),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: _rewindToStart,
+                      tooltip: 'Rewind',
+                      icon: const Icon(Icons.first_page_rounded),
                     ),
-                    child: Icon(
-                      _isRunning
-                          ? Icons.pause_rounded
-                          : Icons.play_arrow_rounded,
-                      size: 28,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  IconButton(
-                    onPressed: canStep ? _stepForward : null,
-                    tooltip: 'Step forward',
-                    icon: const Icon(Icons.skip_next_rounded),
-                  ),
-                  const Spacer(),
-                  InkWell(
-                    onTap: _cycleSpeed,
-                    borderRadius: BorderRadius.circular(999),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 8,
+                    const SizedBox(width: 6),
+                    FilledButton(
+                      onPressed: _togglePlayPause,
+                      style: FilledButton.styleFrom(
+                        shape: const CircleBorder(),
+                        padding: const EdgeInsets.all(14),
                       ),
-                      child: Text(
-                        _speed.shortLabel,
-                        style: theme.textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: theme.colorScheme.onSurfaceVariant,
-                        ),
+                      child: Icon(
+                        _isRunning
+                            ? Icons.pause_rounded
+                            : Icons.play_arrow_rounded,
+                        size: 28,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 6),
+                    IconButton(
+                      onPressed: canStep ? _stepForward : null,
+                      tooltip: 'Step forward',
+                      icon: const Icon(Icons.skip_next_rounded),
+                    ),
+                    const SizedBox(width: 10),
+                    _SpeedDropdown(
+                      speed: _speed,
+                      onChanged: (_SimulationSpeed value) {
+                        setState(() {
+                          _speed = value;
+                        });
+                        if (_isRunning) {
+                          _scheduleNextEvent();
+                        }
+                      },
+                    ),
+                    const SizedBox(width: 4),
+                    IconButton(
+                      onPressed: _resetSimulation,
+                      tooltip: 'Reset simulation',
+                      icon: const Icon(Icons.refresh_rounded),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -1126,34 +1463,49 @@ class _SpeedDropdown extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Container(
-      height: 36,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      height: 38,
+      padding: const EdgeInsets.fromLTRB(10, 0, 8, 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(999),
+        color: theme.colorScheme.surface.withValues(alpha: 0.55),
         border: Border.all(color: theme.colorScheme.outlineVariant),
       ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<_SimulationSpeed>(
-          value: speed,
-          icon: const Icon(Icons.expand_more_rounded, size: 18),
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurface,
-            fontWeight: FontWeight.w600,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(
+            Icons.speed_rounded,
+            size: 16,
+            color: theme.colorScheme.onSurfaceVariant,
           ),
-          items: _SimulationSpeed.values
-              .map(
-                (_SimulationSpeed item) => DropdownMenuItem<_SimulationSpeed>(
-                  value: item,
-                  child: Text(item.dropdownLabel),
-                ),
-              )
-              .toList(growable: false),
-          onChanged: (_SimulationSpeed? value) {
-            if (value != null) {
-              onChanged(value);
-            }
-          },
-        ),
+          const SizedBox(width: 6),
+          DropdownButtonHideUnderline(
+            child: DropdownButton<_SimulationSpeed>(
+              value: speed,
+              icon: const Icon(Icons.expand_more_rounded, size: 18),
+              borderRadius: BorderRadius.circular(12),
+              menuMaxHeight: 220,
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurface,
+                fontWeight: FontWeight.w700,
+              ),
+              items: _SimulationSpeed.values
+                  .map(
+                    (_SimulationSpeed item) =>
+                        DropdownMenuItem<_SimulationSpeed>(
+                          value: item,
+                          child: Text(item.dropdownLabel),
+                        ),
+                  )
+                  .toList(growable: false),
+              onChanged: (_SimulationSpeed? value) {
+                if (value != null) {
+                  onChanged(value);
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1195,7 +1547,9 @@ class _EventRow extends StatelessWidget {
 
     final leftBorderColor = isProcessing
         ? _processingBlue
-        : (isCompleted ? _completedGreen.withValues(alpha: 0.45) : Colors.transparent);
+        : (isCompleted
+              ? _completedGreen.withValues(alpha: 0.45)
+              : Colors.transparent);
 
     Widget content = AnimatedContainer(
       duration: const Duration(milliseconds: 180),
@@ -1203,9 +1557,7 @@ class _EventRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
-        border: Border(
-          left: BorderSide(color: leftBorderColor, width: 3),
-        ),
+        border: Border(left: BorderSide(color: leftBorderColor, width: 3)),
       ),
       child: Material(
         color: Colors.transparent,
@@ -1244,19 +1596,27 @@ class _EventRow extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
-                            event.type,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: theme.textTheme.labelLarge?.copyWith(
-                              fontFamily: 'monospace',
-                              fontWeight: FontWeight.w700,
-                              color: _eventTypeColor(event.type),
-                            ),
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Text(
+                                  event.type,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: theme.textTheme.labelLarge?.copyWith(
+                                    fontFamily: 'monospace',
+                                    fontWeight: FontWeight.w700,
+                                    color: _eventTypeColor(event.type),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              _EventCategoryBadge(category: event.category),
+                            ],
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            event.previewText,
+                            event.summary,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: theme.textTheme.bodySmall?.copyWith(
@@ -1275,7 +1635,9 @@ class _EventRow extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Text(
-                            timestampMs == null ? 'pending' : '+${timestampMs}ms',
+                            timestampMs == null
+                                ? 'pending'
+                                : '+${timestampMs}ms',
                             style: theme.textTheme.bodySmall?.copyWith(
                               fontFamily: 'monospace',
                               fontSize: 11,
@@ -1377,8 +1739,40 @@ class _EventIndexBadge extends StatelessWidget {
   }
 }
 
+class _EventCategoryBadge extends StatelessWidget {
+  const _EventCategoryBadge({required this.category});
+
+  final _EventCategory category;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final color = category.color;
+
+    return Container(
+      decoration: BoxDecoration(
+        color: _tintedSurface(theme, color),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: color.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      child: Text(
+        category.label,
+        style: theme.textTheme.labelSmall?.copyWith(
+          color: color,
+          fontWeight: FontWeight.w700,
+          fontSize: 10,
+        ),
+      ),
+    );
+  }
+}
+
 class _ExpandedJsonPayload extends StatelessWidget {
-  const _ExpandedJsonPayload({required this.payload, required this.onCopyPressed});
+  const _ExpandedJsonPayload({
+    required this.payload,
+    required this.onCopyPressed,
+  });
 
   final Map<String, dynamic> payload;
   final VoidCallback onCopyPressed;
@@ -1412,7 +1806,10 @@ class _ExpandedJsonPayload extends StatelessWidget {
                 onPressed: onCopyPressed,
                 tooltip: 'Copy JSON',
                 icon: const Icon(Icons.copy_rounded, size: 16),
-                constraints: const BoxConstraints.tightFor(width: 28, height: 28),
+                constraints: const BoxConstraints.tightFor(
+                  width: 28,
+                  height: 28,
+                ),
                 visualDensity: VisualDensity.compact,
                 padding: EdgeInsets.zero,
               ),
@@ -1687,10 +2084,7 @@ class _LiveFunctionCallCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       padding: const EdgeInsets.all(10),
-      child: _CharacterRevealText(
-        text: argumentsText,
-        animate: inProgress,
-      ),
+      child: _CharacterRevealText(text: argumentsText, animate: inProgress),
     );
 
     return _LiveCardFrame(
@@ -1759,7 +2153,9 @@ class _LiveFunctionOutputCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final outputText = const JsonEncoder.withIndent('  ').convert(item.parsedOutput);
+    final outputText = const JsonEncoder.withIndent(
+      '  ',
+    ).convert(item.parsedOutput);
 
     final outputBox = Container(
       width: double.infinity,
@@ -1847,7 +2243,10 @@ class _LiveMessageCard extends StatelessWidget {
           Row(
             children: <Widget>[
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: _functionAccent,
                   borderRadius: BorderRadius.circular(999),
@@ -1865,10 +2264,7 @@ class _LiveMessageCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          _WordByWordStreamingText(
-            text: item.text,
-            inProgress: inProgress,
-          ),
+          _WordByWordStreamingText(text: item.text, inProgress: inProgress),
         ],
       ),
     );
@@ -2021,7 +2417,10 @@ class _CharacterRevealTextState extends State<_CharacterRevealText> {
 
   @override
   Widget build(BuildContext context) {
-    final visible = widget.text.substring(0, _visibleChars.clamp(0, widget.text.length));
+    final visible = widget.text.substring(
+      0,
+      _visibleChars.clamp(0, widget.text.length),
+    );
 
     return Text(
       visible,
@@ -2035,13 +2434,17 @@ class _CharacterRevealTextState extends State<_CharacterRevealText> {
 }
 
 class _WordByWordStreamingText extends StatefulWidget {
-  const _WordByWordStreamingText({required this.text, required this.inProgress});
+  const _WordByWordStreamingText({
+    required this.text,
+    required this.inProgress,
+  });
 
   final String text;
   final bool inProgress;
 
   @override
-  State<_WordByWordStreamingText> createState() => _WordByWordStreamingTextState();
+  State<_WordByWordStreamingText> createState() =>
+      _WordByWordStreamingTextState();
 }
 
 class _WordByWordStreamingTextState extends State<_WordByWordStreamingText> {
@@ -2350,8 +2753,8 @@ class _SimulationEvent {
   final Map<String, dynamic> payload;
 
   String get type => _asString(payload['type']);
-
-  String get previewText => jsonEncode(payload);
+  _EventCategory get category => _eventCategoryFromPayload(payload);
+  String get summary => _eventSummary(payload);
 }
 
 String _argumentsToText(Map<String, dynamic> arguments) {
@@ -2379,6 +2782,92 @@ Color _eventTypeColor(String type) {
     default:
       return _pendingGray;
   }
+}
+
+_EventCategory _eventCategoryFromPayload(Map<String, dynamic> payload) {
+  final type = _asString(payload['type']);
+  final item = _normalizeMap(payload['item']);
+  final itemType = _asString(item['type']);
+
+  if (type == 'response.completed') {
+    return _EventCategory.lifecycle;
+  }
+
+  if (type == 'response.function_call_arguments.delta') {
+    return _EventCategory.deltas;
+  }
+
+  if (type == 'response.output_text.delta') {
+    return _EventCategory.deltas;
+  }
+
+  if (type == 'response.output_item.added' ||
+      type == 'response.output_item.done') {
+    switch (itemType) {
+      case 'reasoning':
+        return _EventCategory.reasoning;
+      case 'function_call':
+        return _EventCategory.toolCalls;
+      case 'function_call_output':
+        return _EventCategory.outputs;
+      case 'message':
+        return _EventCategory.messages;
+      default:
+        return _EventCategory.lifecycle;
+    }
+  }
+
+  return _EventCategory.lifecycle;
+}
+
+String _eventSummary(Map<String, dynamic> payload) {
+  final type = _asString(payload['type']);
+
+  if (type == 'response.output_text.delta') {
+    return _asString(payload['delta']);
+  }
+
+  if (type == 'response.function_call_arguments.delta') {
+    return _asString(payload['delta']);
+  }
+
+  if (type == 'response.completed') {
+    final response = _normalizeMap(payload['response']);
+    return 'status=${_asString(response['status'])}, id=${_asString(response['id'])}';
+  }
+
+  final item = _normalizeMap(payload['item']);
+  if (item.isNotEmpty) {
+    final itemType = _asString(item['type']);
+    switch (itemType) {
+      case 'reasoning':
+        final summaryParts = item['summary'];
+        if (summaryParts is List && summaryParts.isNotEmpty) {
+          final first = _normalizeMap(summaryParts.first);
+          final summary = _asString(first['text']);
+          if (summary.isNotEmpty) {
+            return summary;
+          }
+        }
+        return 'reasoning item ${_asString(item['status'])}'.trim();
+      case 'function_call':
+        return '${_asString(item['name'])} (${_asString(item['call_id'])})';
+      case 'function_call_output':
+        return 'call_id=${_asString(item['call_id'])} output ready';
+      case 'message':
+        final content = item['content'];
+        if (content is List && content.isNotEmpty) {
+          final first = _normalizeMap(content.first);
+          final text = _asString(first['text']);
+          if (text.isNotEmpty) {
+            return text;
+          }
+        }
+        return '${_asString(item['role'], fallback: 'assistant')} message';
+    }
+  }
+
+  return jsonEncode(payload);
 }
 
 Map<String, dynamic> _normalizeMap(dynamic value) {

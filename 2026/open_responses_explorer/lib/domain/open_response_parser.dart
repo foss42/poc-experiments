@@ -5,6 +5,8 @@ import 'response_models.dart';
 class OpenResponseParser {
   const OpenResponseParser._();
 
+  static int _syntheticIdCounter = 0;
+
   static ParsedResponse parseFromJsonString(String jsonSource) {
     final decoded = jsonDecode(jsonSource);
     if (decoded is! Map) {
@@ -14,7 +16,18 @@ class OpenResponseParser {
   }
 
   static ParsedResponse parse(Map<String, dynamic> root) {
-    final items = _parseItems(root['output'] ?? root['items']);
+    final looksLikeOpenResponses = looksLikeOpenResponsesPayload(root);
+    final parsedItems = _parseItems(root['output'] ?? root['items']);
+    final items = parsedItems.isEmpty && !looksLikeOpenResponses
+        ? <ResponseItem>[
+            UnknownItem(
+              raw: <String, dynamic>{
+                'source': 'generic_json_payload',
+                'payload': root,
+              },
+            ),
+          ]
+        : parsedItems;
     final outputsByCallId = <String, FunctionCallOutputItem>{};
     final functionCalls = <FunctionCallItem>[];
 
@@ -38,9 +51,22 @@ class OpenResponseParser {
         .toList(growable: false);
 
     return ParsedResponse(
-      id: _asString(root['id'], fallback: 'unknown_response'),
-      status: _asString(root['status'], fallback: 'unknown'),
-      model: _asString(root['model'], fallback: 'unknown'),
+      id: _asString(
+        root['id'],
+        fallback: looksLikeOpenResponses
+            ? 'unknown_response'
+            : 'generic_payload',
+      ),
+      status: _asString(
+        root['status'],
+        fallback: looksLikeOpenResponses ? 'unknown' : 'inspected',
+      ),
+      model: _asString(
+        root['model'],
+        fallback: looksLikeOpenResponses
+            ? 'unknown'
+            : 'non_open_responses_json',
+      ),
       items: items,
       correlatedCalls: correlatedCalls,
       totalTokens: _extractTotalTokens(root),
@@ -82,6 +108,18 @@ class OpenResponseParser {
     final items = <ResponseItem>[];
 
     for (final raw in rawOutput) {
+      if (raw is! Map) {
+        items.add(
+          UnknownItem(
+            raw: <String, dynamic>{
+              'raw_item': raw,
+              'raw_item_type': raw.runtimeType.toString(),
+            },
+          ),
+        );
+        continue;
+      }
+
       final item = _normalizeMap(raw);
       final type = _asString(item['type']);
 
@@ -121,7 +159,7 @@ class OpenResponseParser {
                 fallback: _syntheticId('call'),
               ),
               parsedOutput: _decodeMapLike(
-                item['output'],
+                item['output'] ?? item['parsed_output'],
                 fallbackKey: 'raw_output',
               ),
             ),
@@ -235,7 +273,8 @@ class OpenResponseParser {
   }
 
   static String _syntheticId(String prefix) {
-    return '${prefix}_${DateTime.now().microsecondsSinceEpoch}';
+    _syntheticIdCounter += 1;
+    return '${prefix}_${DateTime.now().microsecondsSinceEpoch}_$_syntheticIdCounter';
   }
 
   static String _asString(dynamic value, {String fallback = ''}) {

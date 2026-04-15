@@ -21,6 +21,25 @@ class OpenResponsesExplorerApp extends StatefulWidget {
 
 class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
   ThemeMode _themeMode = ThemeMode.light;
+  late final ThemeData _lightTheme;
+  late final ThemeData _darkTheme;
+
+  @override
+  void initState() {
+    super.initState();
+    _lightTheme = ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2563EB)),
+      scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+    );
+    _darkTheme = ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: const Color(0xFF2563EB),
+        brightness: Brightness.dark,
+      ),
+    );
+  }
 
   void _toggleTheme() {
     setState(() {
@@ -36,18 +55,10 @@ class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
       debugShowCheckedModeBanner: false,
       title: 'Open Responses Explorer',
       themeMode: _themeMode,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2563EB)),
-        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
-      ),
-      darkTheme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF2563EB),
-          brightness: Brightness.dark,
-        ),
-      ),
+      theme: _lightTheme,
+      darkTheme: _darkTheme,
+      themeAnimationDuration: const Duration(milliseconds: 320),
+      themeAnimationCurve: Curves.easeInOutCubic,
       routes: <String, WidgetBuilder>{
         OpenResponsesExplorerApp.streamingRoute: (BuildContext context) =>
             const StreamingSimulatorScreen(),

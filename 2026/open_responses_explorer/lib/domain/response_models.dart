@@ -118,7 +118,7 @@ Map<String, dynamic> itemToJson(ResponseItem item) {
     return <String, dynamic>{
       'type': 'function_call_output',
       'call_id': item.callId,
-      'parsed_output': item.parsedOutput,
+      'output': item.parsedOutput,
     };
   }
   if (item is MessageItem) {

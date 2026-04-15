@@ -4,6 +4,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../domain/gen_ui_models.dart';
 import '../domain/gen_ui_samples.dart';
@@ -22,7 +23,7 @@ const Color _lightModeBackground = Color(0xFFF8FAFC);
 
 const String _warningBannerText =
     'This does not look like an Open Responses payload. '
-    'We will try to parse it anyway.';
+    'We will open it in generic inspection mode.';
 
 const String _sampleSimpleMessagePayload = '''
 {
@@ -205,6 +206,8 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen>
     with SingleTickerProviderStateMixin {
   static bool _welcomeTooltipAlreadyShown = false;
+  static const double _minPasteEditorHeight = 260;
+  static const double _pasteResizeHandleSize = 24;
 
   final TextEditingController _jsonController = TextEditingController();
   final FocusNode _jsonFocusNode = FocusNode();
@@ -222,6 +225,7 @@ class _InputScreenState extends State<InputScreen>
   bool _showPreviewPanel = false;
   bool _showWelcomeTooltip = false;
   bool _textFieldHasError = false;
+  double _pasteEditorHeight = 420;
 
   String? _errorMessage;
   String? _warningMessage;
@@ -278,8 +282,6 @@ class _InputScreenState extends State<InputScreen>
       setState(() {
         _textFieldHasError = false;
       });
-    } else {
-      setState(() {});
     }
   }
 
@@ -296,9 +298,7 @@ class _InputScreenState extends State<InputScreen>
         : _jsonController;
 
     target.text = pastedText;
-    target.selection = TextSelection.collapsed(
-      offset: target.text.length,
-    );
+    target.selection = TextSelection.collapsed(offset: target.text.length);
 
     if (!mounted) {
       return;
@@ -373,24 +373,213 @@ class _InputScreenState extends State<InputScreen>
     });
   }
 
-  void _showInfoBottomSheet() {
-    showModalBottomSheet<void>(
+  void _showInfoDialog() {
+    showDialog<void>(
       context: context,
-      showDragHandle: true,
-      builder: (BuildContext context) {
-        final theme = Theme.of(context);
-        return Padding(
-          padding: const EdgeInsets.fromLTRB(20, 8, 20, 26),
-          child: Text(
-            'Open Responses Explorer helps developers inspect and debug '
-            'OpenAI Responses API payloads visually. Paste raw JSON or '
-            'load a sample to parse and explore the response timeline, '
-            'correlations, and raw structure.',
-            style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
+      builder: (BuildContext dialogContext) {
+        final theme = Theme.of(dialogContext);
+        return Dialog(
+          insetPadding: const EdgeInsets.symmetric(
+            horizontal: 140,
+            vertical: 80,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 860, maxHeight: 700),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(24, 20, 24, 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'About Open Responses Explorer',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        icon: const Icon(Icons.close_rounded),
+                        tooltip: 'Close',
+                        constraints: const BoxConstraints.tightFor(
+                          width: 30,
+                          height: 30,
+                        ),
+                        visualDensity: VisualDensity.compact,
+                        padding: EdgeInsets.zero,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Open Responses Explorer is a Proof of Concept built for '
+                    'GSoC 2026 with API Dash. It helps developers inspect and '
+                    'debug OpenAI Responses API payloads with a clear visual flow '
+                    'for parsed items, correlations, streaming behavior, and raw JSON.',
+                    style: theme.textTheme.bodyMedium?.copyWith(height: 1.55),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    'Why this was made',
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    'The goal is to validate a practical response-inspection '
+                    'experience for API Dash users: easier debugging, better '
+                    'visibility into tool-call chains, and a replayable streaming '
+                    'timeline that reflects real model output behavior.',
+                    style: theme.textTheme.bodyMedium?.copyWith(height: 1.55),
+                  ),
+                  const SizedBox(height: 14),
+                  Text(
+                    'Project links',
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: <Widget>[
+                          _buildAboutLinkTile(
+                            theme,
+                            title: 'GSoC Proposal PR',
+                            url: 'https://github.com/foss42/apidash/pull/1608',
+                          ),
+                          _buildAboutLinkTile(
+                            theme,
+                            title: 'Old POC (testing)',
+                            url: 'https://github.com/foss42/gsoc-poc/pull/29',
+                          ),
+                          _buildAboutLinkTile(
+                            theme,
+                            title: 'New Final POC',
+                            url: 'https://github.com/foss42/gsoc-poc/pull/51',
+                          ),
+                          _buildAboutLinkTile(
+                            theme,
+                            title: 'GitHub: dhairyajangir',
+                            url: 'https://github.com/dhairyajangir',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
       },
     );
+  }
+
+  Future<void> _openExternalUrl(String url) async {
+    final uri = Uri.tryParse(url);
+    final isWebScheme =
+        uri != null &&
+        (uri.scheme == 'https' || uri.scheme == 'http') &&
+        uri.hasAuthority;
+
+    if (!isWebScheme) {
+      return;
+    }
+
+    final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+
+    if (launched || !mounted) {
+      return;
+    }
+
+    await Clipboard.setData(ClipboardData(text: url));
+    if (!mounted) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        const SnackBar(
+          content: Text('Could not open the link. URL copied to clipboard.'),
+          duration: Duration(milliseconds: 1300),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+  }
+
+  Widget _buildAboutLinkTile(
+    ThemeData theme, {
+    required String title,
+    required String url,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.36,
+        ),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+      ),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                SelectableText(
+                  url,
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: _functionAccent,
+                    height: 1.35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 10),
+          FilledButton.tonalIcon(
+            onPressed: () => _openExternalUrl(url),
+            icon: const Icon(Icons.open_in_new_rounded, size: 16),
+            label: const Text('Open'),
+            style: FilledButton.styleFrom(
+              visualDensity: VisualDensity.compact,
+              minimumSize: const Size(0, 34),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _resizePasteEditor(double verticalDelta) {
+    final maxHeight = math.max(340.0, MediaQuery.sizeOf(context).height * 0.78);
+
+    setState(() {
+      _pasteEditorHeight = (_pasteEditorHeight + verticalDelta).clamp(
+        _minPasteEditorHeight,
+        maxHeight,
+      );
+    });
   }
 
   Future<void> _handleParsePressed() async {
@@ -445,11 +634,8 @@ class _InputScreenState extends State<InputScreen>
     Map<String, dynamic> payload;
 
     try {
-      final decoded = jsonDecode(source);
-      if (decoded is! Map) {
-        throw const FormatException('Root JSON value must be an object.');
-      }
-      payload = _normalizeMap(decoded);
+      final decoded = _decodeJsonLenient(source);
+      payload = _normalizeRootPayload(decoded);
     } catch (_) {
       await _showButtonErrorAndSetMessage(
         startedAt,
@@ -572,9 +758,9 @@ class _InputScreenState extends State<InputScreen>
       return;
     }
 
-    await Navigator.of(context).push(
-      _buildGenUiPreviewRoute(descriptor, descriptorJson),
-    );
+    await Navigator.of(
+      context,
+    ).push(_buildGenUiPreviewRoute(descriptor, descriptorJson));
 
     if (!mounted) {
       return;
@@ -735,7 +921,9 @@ class _InputScreenState extends State<InputScreen>
               ),
             ),
             Text(
-              'by API Dash',
+              'Proof of Concept by Dhairya for GSoC26 for API Dash',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
                 fontSize: 12,
@@ -754,7 +942,7 @@ class _InputScreenState extends State<InputScreen>
             ),
           ),
           IconButton(
-            onPressed: _showInfoBottomSheet,
+            onPressed: _showInfoDialog,
             tooltip: 'About',
             icon: const Icon(Icons.info_outline_rounded),
           ),
@@ -763,84 +951,107 @@ class _InputScreenState extends State<InputScreen>
       ),
       body: SafeArea(
         top: false,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(16, 12, 16, 16 + keyboardInset),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    if (_showWelcomeTooltip) _buildWelcomeTooltip(theme),
-                    SegmentedButton<_InputMode>(
-                      segments: const <ButtonSegment<_InputMode>>[
-                        ButtonSegment<_InputMode>(
-                          value: _InputMode.pasteJson,
-                          icon: Icon(Icons.content_paste_rounded),
-                          label: Text('Paste JSON'),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(24, 26, 24, 30 + keyboardInset),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              if (_showWelcomeTooltip) _buildWelcomeTooltip(theme),
+              LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  final compact = constraints.maxWidth < 980;
+
+                  if (compact) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: _buildModeSelector(),
                         ),
-                        ButtonSegment<_InputMode>(
-                          value: _InputMode.loadSample,
-                          icon: Icon(Icons.auto_awesome_rounded),
-                          label: Text('Load Sample'),
-                        ),
-                        ButtonSegment<_InputMode>(
-                          value: _InputMode.streaming,
-                          icon: Icon(Icons.stream_rounded),
-                          label: Text('Streaming'),
-                        ),
-                        ButtonSegment<_InputMode>(
-                          value: _InputMode.genUiPreview,
-                          icon: Icon(Icons.dashboard_customize_rounded),
-                          label: Text('GenUI Preview'),
-                        ),
+                        const SizedBox(height: 14),
+                        _buildParseButton(theme, compact: true),
                       ],
-                      selected: <_InputMode>{_mode},
-                      showSelectedIcon: false,
-                      onSelectionChanged: (Set<_InputMode> selected) {
-                        if (selected.isNotEmpty) {
-                          _setMode(selected.first);
-                        }
-                      },
-                    ),
-                    const SizedBox(height: 14),
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 260),
-                      switchInCurve: Curves.easeOutCubic,
-                      switchOutCurve: Curves.easeInCubic,
-                      transitionBuilder:
-                          (Widget child, Animation<double> anim) {
-                            return FadeTransition(
-                              opacity: anim,
-                              child: SlideTransition(
-                                position: Tween<Offset>(
-                                  begin: const Offset(0.03, 0),
-                                  end: Offset.zero,
-                                ).animate(anim),
-                                child: child,
-                              ),
-                            );
-                          },
-                      child: switch (_mode) {
-                        _InputMode.pasteJson => _buildPasteMode(theme),
-                        _InputMode.loadSample => _buildSampleMode(theme),
-                        _InputMode.streaming => _buildStreamingMode(theme),
-                        _InputMode.genUiPreview => _buildGenUiPreviewMode(theme),
-                      },
-                    ),
-                  ],
-                ),
+                    );
+                  }
+
+                  return Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: _buildModeSelector(),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      _buildParseButton(theme, compact: true),
+                    ],
+                  );
+                },
               ),
-            ),
-            AnimatedPadding(
-              duration: const Duration(milliseconds: 180),
-              curve: Curves.easeOut,
-              padding: EdgeInsets.fromLTRB(16, 8, 16, keyboardInset + 12),
-              child: _buildParseButton(theme),
-            ),
-          ],
+              const SizedBox(height: 36),
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 260),
+                switchInCurve: Curves.easeOutCubic,
+                switchOutCurve: Curves.easeInCubic,
+                transitionBuilder: (Widget child, Animation<double> anim) {
+                  return FadeTransition(
+                    opacity: anim,
+                    child: SlideTransition(
+                      position: Tween<Offset>(
+                        begin: const Offset(0.03, 0),
+                        end: Offset.zero,
+                      ).animate(anim),
+                      child: child,
+                    ),
+                  );
+                },
+                child: switch (_mode) {
+                  _InputMode.pasteJson => _buildPasteMode(theme),
+                  _InputMode.loadSample => _buildSampleMode(theme),
+                  _InputMode.streaming => _buildStreamingMode(theme),
+                  _InputMode.genUiPreview => _buildGenUiPreviewMode(theme),
+                },
+              ),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildModeSelector() {
+    return SegmentedButton<_InputMode>(
+      segments: const <ButtonSegment<_InputMode>>[
+        ButtonSegment<_InputMode>(
+          value: _InputMode.pasteJson,
+          icon: Icon(Icons.content_paste_rounded),
+          label: Text('Paste JSON'),
+        ),
+        ButtonSegment<_InputMode>(
+          value: _InputMode.loadSample,
+          icon: Icon(Icons.auto_awesome_rounded),
+          label: Text('Load Sample'),
+        ),
+        ButtonSegment<_InputMode>(
+          value: _InputMode.streaming,
+          icon: Icon(Icons.stream_rounded),
+          label: Text('Streaming'),
+        ),
+        ButtonSegment<_InputMode>(
+          value: _InputMode.genUiPreview,
+          icon: Icon(Icons.dashboard_customize_rounded),
+          label: Text('GenUI Preview'),
+        ),
+      ],
+      selected: <_InputMode>{_mode},
+      showSelectedIcon: false,
+      onSelectionChanged: (Set<_InputMode> selected) {
+        if (selected.isNotEmpty) {
+          _setMode(selected.first);
+        }
+      },
     );
   }
 
@@ -887,7 +1098,11 @@ class _InputScreenState extends State<InputScreen>
         ? const Color(0xFF0D1117)
         : const Color(0xFFFBFDFF);
 
-    final boxHeight = math.max(280.0, MediaQuery.sizeOf(context).height * 0.43);
+    final maxHeight = math.max(340.0, MediaQuery.sizeOf(context).height * 0.78);
+    final boxHeight = _pasteEditorHeight.clamp(
+      _minPasteEditorHeight,
+      maxHeight,
+    );
 
     return Column(
       key: const ValueKey<String>('paste-mode'),
@@ -906,7 +1121,7 @@ class _InputScreenState extends State<InputScreen>
             height: boxHeight,
             decoration: BoxDecoration(
               color: background,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(14),
               border: Border.all(color: baseBorder),
             ),
             child: Stack(
@@ -953,23 +1168,71 @@ class _InputScreenState extends State<InputScreen>
                       if (_jsonController.text.isNotEmpty)
                         IconButton(
                           onPressed: _clearInput,
-                          tooltip: 'Clear',
-                          icon: const Icon(Icons.clear_rounded, size: 20),
+                          tooltip: 'Delete JSON',
+                          icon: const Icon(
+                            Icons.delete_outline_rounded,
+                            size: 20,
+                          ),
+                          visualDensity: VisualDensity.compact,
                         ),
                     ],
+                  ),
+                ),
+                Positioned(
+                  right: 6,
+                  bottom: 6,
+                  child: Tooltip(
+                    message: 'Drag to resize editor',
+                    child: MouseRegion(
+                      cursor: SystemMouseCursors.resizeUpLeftDownRight,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onPanUpdate: (DragUpdateDetails details) {
+                          _resizePasteEditor(details.delta.dy);
+                        },
+                        child: Container(
+                          width: _pasteResizeHandleSize,
+                          height: _pasteResizeHandleSize,
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: theme.colorScheme.outlineVariant,
+                            ),
+                          ),
+                          child: Icon(
+                            Icons.unfold_more_rounded,
+                            size: 14,
+                            color: theme.colorScheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
             ),
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          '${_formatNumber(_jsonController.text.length)} characters',
-          style: theme.textTheme.bodySmall?.copyWith(
-            color: theme.colorScheme.onSurfaceVariant,
-            fontSize: 12,
-          ),
+        const SizedBox(height: 10),
+        Row(
+          children: <Widget>[
+            Text(
+              '${_formatNumber(_jsonController.text.length)} characters',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontSize: 12,
+              ),
+            ),
+            const SizedBox(width: 20),
+            Text(
+              'Editor height: ${boxHeight.round()} px',
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontSize: 12,
+              ),
+            ),
+          ],
         ),
         if (_warningMessage != null)
           Padding(
@@ -1133,7 +1396,10 @@ class _InputScreenState extends State<InputScreen>
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  const Icon(Icons.dashboard_customize_rounded, color: _functionAccent),
+                  const Icon(
+                    Icons.dashboard_customize_rounded,
+                    color: _functionAccent,
+                  ),
                   const SizedBox(width: 8),
                   Text(
                     'Direct GenUI Descriptor Preview',
@@ -1210,8 +1476,11 @@ class _InputScreenState extends State<InputScreen>
                     if (_genUiController.text.isNotEmpty)
                       IconButton(
                         onPressed: _clearInput,
-                        tooltip: 'Clear',
-                        icon: const Icon(Icons.clear_rounded, size: 20),
+                        tooltip: 'Delete JSON',
+                        icon: const Icon(
+                          Icons.delete_outline_rounded,
+                          size: 20,
+                        ),
                       ),
                   ],
                 ),
@@ -1257,10 +1526,7 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
-  Widget _buildGenUiSampleCard(
-    ThemeData theme,
-    GenUISampleDescriptor sample,
-  ) {
+  Widget _buildGenUiSampleCard(ThemeData theme, GenUISampleDescriptor sample) {
     final selected = sample.id == _selectedGenUiSample?.id;
 
     return InkWell(
@@ -1273,7 +1539,9 @@ class _InputScreenState extends State<InputScreen>
           color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: selected ? _functionAccent : theme.colorScheme.outlineVariant,
+            color: selected
+                ? _functionAccent
+                : theme.colorScheme.outlineVariant,
             width: selected ? 1.8 : 1,
           ),
         ),
@@ -1410,7 +1678,7 @@ class _InputScreenState extends State<InputScreen>
     );
   }
 
-  Widget _buildParseButton(ThemeData theme) {
+  Widget _buildParseButton(ThemeData theme, {bool compact = false}) {
     final colorScheme = theme.colorScheme;
     final isStreamingMode = _mode == _InputMode.streaming;
     final isGenUiMode = _mode == _InputMode.genUiPreview;
@@ -1427,24 +1695,28 @@ class _InputScreenState extends State<InputScreen>
     }
 
     return SizedBox(
-      height: 52,
-      width: double.infinity,
+      height: compact ? 40 : 52,
+      width: compact ? 220 : double.infinity,
       child: FilledButton(
         onPressed: _isBusy ? null : _handleParsePressed,
         style: FilledButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(compact ? 10 : 12),
           ),
           backgroundColor: buttonColor,
           disabledBackgroundColor: buttonColor,
+          padding: EdgeInsets.symmetric(
+            horizontal: compact ? 14 : 18,
+            vertical: compact ? 0 : 10,
+          ),
         ),
         child: AnimatedSwitcher(
           duration: const Duration(milliseconds: 170),
           child: switch (_buttonState) {
             _ParseButtonState.loading => const SizedBox(
               key: ValueKey<String>('loading'),
-              width: 22,
-              height: 22,
+              width: 18,
+              height: 18,
               child: CircularProgressIndicator(
                 strokeWidth: 2.3,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -1454,37 +1726,41 @@ class _InputScreenState extends State<InputScreen>
               Icons.check_rounded,
               key: ValueKey<String>('success'),
               color: Colors.white,
-              size: 22,
+              size: 18,
             ),
             _ParseButtonState.error => const Icon(
               Icons.close_rounded,
               key: ValueKey<String>('error'),
               color: Colors.white,
-              size: 22,
+              size: 18,
             ),
             _ParseButtonState.idle => Row(
               key: const ValueKey<String>('idle'),
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  isGenUiMode
-                      ? 'Preview UI'
-                      : isStreamingMode
-                      ? 'Open Streaming Simulator'
-                      : 'Parse Response',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
+                Flexible(
+                  child: Text(
+                    isGenUiMode
+                        ? 'Preview UI'
+                        : isStreamingMode
+                        ? 'Open Streaming Simulator'
+                        : 'Parse Response',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: compact ? 13 : 16,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: compact ? 6 : 10),
                 Icon(
                   isStreamingMode
                       ? Icons.play_circle_fill_rounded
                       : isGenUiMode
                       ? Icons.dashboard_customize_rounded
                       : Icons.arrow_right_alt_rounded,
-                  size: 22,
+                  size: compact ? 16 : 22,
                 ),
               ],
             ),
@@ -1506,6 +1782,35 @@ class _InputScreenState extends State<InputScreen>
     }
 
     return <String, dynamic>{};
+  }
+
+  dynamic _decodeJsonLenient(String source) {
+    try {
+      return jsonDecode(source);
+    } catch (_) {
+      final trimmed = source.trim();
+      final mayBeObjectFields =
+          !trimmed.startsWith('{') &&
+          !trimmed.startsWith('[') &&
+          trimmed.contains(':');
+
+      if (mayBeObjectFields) {
+        return jsonDecode('{$trimmed}');
+      }
+      rethrow;
+    }
+  }
+
+  Map<String, dynamic> _normalizeRootPayload(dynamic decoded) {
+    if (decoded is Map) {
+      return _normalizeMap(decoded);
+    }
+
+    if (decoded is List) {
+      return <String, dynamic>{'items': decoded};
+    }
+
+    return <String, dynamic>{'value': decoded};
   }
 
   String _previewFromSample(String payload) {

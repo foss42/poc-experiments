@@ -87,7 +87,10 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
     });
   }
 
-  Future<void> _copyToClipboard(String text, {String message = 'Copied'}) async {
+  Future<void> _copyToClipboard(
+    String text, {
+    String message = 'Copied',
+  }) async {
     await Clipboard.setData(ClipboardData(text: text));
 
     if (!mounted) {
@@ -121,7 +124,9 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
                 onTap: () {
                   Navigator.of(context).pop();
                   _copyToClipboard(
-                    const JsonEncoder.withIndent('  ').convert(widget.rawDescriptorJson),
+                    const JsonEncoder.withIndent(
+                      '  ',
+                    ).convert(widget.rawDescriptorJson),
                     message: 'Descriptor JSON copied',
                   );
                 },
@@ -131,9 +136,12 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
                 title: const Text('Copy as Dart code'),
                 onTap: () {
                   Navigator.of(context).pop();
-                  final pretty = const JsonEncoder.withIndent('  ').convert(widget.rawDescriptorJson);
+                  final pretty = const JsonEncoder.withIndent(
+                    '  ',
+                  ).convert(widget.rawDescriptorJson);
                   final escaped = pretty.replaceAll("'''", "\\'\\'\\'");
-                  final snippet = """
+                  final snippet =
+                      """
 import 'dart:convert';
 
 import 'package:open_responses_explorer/domain/gen_ui_models.dart';
@@ -255,7 +263,9 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
                   ),
                   child: Table(
                     border: TableBorder.symmetric(
-                      inside: BorderSide(color: theme.colorScheme.outlineVariant),
+                      inside: BorderSide(
+                        color: theme.colorScheme.outlineVariant,
+                      ),
                     ),
                     columnWidths: const <int, TableColumnWidth>{
                       0: FlexColumnWidth(1),
@@ -404,14 +414,20 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
             onPressed: () => setState(() => _splitMode = !_splitMode),
             tooltip: _splitMode ? 'Preview only' : 'Split view',
             icon: Icon(
-              _splitMode ? Icons.close_fullscreen_rounded : Icons.view_sidebar_rounded,
+              _splitMode
+                  ? Icons.close_fullscreen_rounded
+                  : Icons.view_sidebar_rounded,
             ),
           ),
           IconButton(
             onPressed: () => setState(() => _phoneFrameMode = !_phoneFrameMode),
-            tooltip: _phoneFrameMode ? 'Disable phone frame' : 'Enable phone frame',
+            tooltip: _phoneFrameMode
+                ? 'Disable phone frame'
+                : 'Enable phone frame',
             icon: Icon(
-              _phoneFrameMode ? Icons.smartphone_rounded : Icons.phone_android_rounded,
+              _phoneFrameMode
+                  ? Icons.smartphone_rounded
+                  : Icons.phone_android_rounded,
             ),
           ),
           const SizedBox(width: 6),
@@ -421,16 +437,21 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
         top: false,
         child: Column(
           children: <Widget>[
-            _buildAgentInfoBar(theme, totalCount),
+            _buildAgentInfoBar(theme, successfulCount, totalCount),
             Expanded(child: content),
-            _buildBottomToolbar(theme, successfulCount, totalCount),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildAgentInfoBar(ThemeData theme, int componentCount) {
+  Widget _buildAgentInfoBar(
+    ThemeData theme,
+    int successfulCount,
+    int totalCount,
+  ) {
+    final allSuccessful = successfulCount == totalCount;
+
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -458,7 +479,10 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
                     borderRadius: BorderRadius.circular(999),
                     border: Border.all(color: theme.colorScheme.outlineVariant),
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 3,
+                  ),
                   child: Text(
                     widget.descriptor.version,
                     style: theme.textTheme.labelSmall?.copyWith(
@@ -471,8 +495,28 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
             ),
           ),
           Text(
-            '$componentCount components',
+            '$successfulCount / $totalCount rendered',
             style: theme.textTheme.bodySmall?.copyWith(
+              color: allSuccessful ? _successGreen : _warningAmber,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(width: 10),
+          _buildLivePreviewChip(theme),
+          const SizedBox(width: 4),
+          IconButton(
+            onPressed: _showShareSheet,
+            tooltip: 'Share',
+            icon: const Icon(Icons.share_rounded),
+          ),
+          IconButton(
+            onPressed: () => setState(() => _fullscreen = true),
+            tooltip: 'Fullscreen',
+            icon: const Icon(Icons.fullscreen_rounded),
+          ),
+          Text(
+            '$totalCount components',
+            style: theme.textTheme.labelSmall?.copyWith(
               color: theme.colorScheme.onSurfaceVariant,
             ),
           ),
@@ -486,46 +530,46 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
     );
   }
 
-  Widget _buildBottomToolbar(ThemeData theme, int successfulCount, int totalCount) {
-    final allSuccessful = successfulCount == totalCount;
-
-    return SafeArea(
-      top: false,
-      child: Material(
-        elevation: 12,
-        color: theme.colorScheme.surface,
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Text(
-                  '$successfulCount / $totalCount rendered',
-                  style: theme.textTheme.labelLarge?.copyWith(
-                    color: allSuccessful ? _successGreen : _warningAmber,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+  Widget _buildLivePreviewChip(ThemeData theme) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surfaceContainerHighest.withValues(
+          alpha: 0.36,
+        ),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Container(
+              width: 8,
+              height: 8,
+              decoration: const BoxDecoration(
+                color: _successGreen,
+                shape: BoxShape.circle,
               ),
-              IconButton(
-                onPressed: _showShareSheet,
-                tooltip: 'Share',
-                icon: const Icon(Icons.share_rounded),
+            ),
+            const SizedBox(width: 6),
+            Text(
+              'Live Preview',
+              style: theme.textTheme.labelSmall?.copyWith(
+                color: theme.colorScheme.onSurfaceVariant,
+                fontWeight: FontWeight.w700,
               ),
-              const Spacer(),
-              IconButton(
-                onPressed: () => setState(() => _fullscreen = true),
-                tooltip: 'Fullscreen',
-                icon: const Icon(Icons.fullscreen_rounded),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildMainContent(ThemeData theme, List<_RenderedComponentEntry> renderedEntries) {
+  Widget _buildMainContent(
+    ThemeData theme,
+    List<_RenderedComponentEntry> renderedEntries,
+  ) {
     if (_splitMode) {
       return AnimatedOpacity(
         opacity: _previewOpacity,
@@ -600,41 +644,6 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
                 ),
               ),
             ),
-          Positioned(
-            right: 10,
-            bottom: 10,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: theme.colorScheme.surface.withValues(alpha: 0.72),
-                borderRadius: BorderRadius.circular(999),
-                border: Border.all(color: theme.colorScheme.outlineVariant),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Container(
-                      width: 7,
-                      height: 7,
-                      decoration: const BoxDecoration(
-                        color: _successGreen,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    Text(
-                      'Live Preview',
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                        fontSize: 10,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
         ],
       ),
     );
@@ -645,10 +654,7 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
 
     return Padding(
       padding: const EdgeInsets.all(10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: panel,
-      ),
+      child: ClipRRect(borderRadius: BorderRadius.circular(12), child: panel),
     );
   }
 
@@ -703,7 +709,10 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
                   Positioned.fill(
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 18, 0, 22),
-                      child: _buildPreviewScrollableContent(theme, renderedEntries),
+                      child: _buildPreviewScrollableContent(
+                        theme,
+                        renderedEntries,
+                      ),
                     ),
                   ),
                   Positioned(
@@ -745,7 +754,10 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
     );
   }
 
-  Widget _buildDescriptorPane(ThemeData theme, List<_RenderedComponentEntry> renderedEntries) {
+  Widget _buildDescriptorPane(
+    ThemeData theme,
+    List<_RenderedComponentEntry> renderedEntries,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -765,9 +777,18 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
             children: <Widget>[
               _buildDescriptorHeaderBlock(theme),
               const SizedBox(height: 10),
-              for (int index = 0; index < renderedEntries.length; index++) ...<Widget>[
-                _buildDescriptorComponentBlock(theme, renderedEntries[index], index),
-                if (index != renderedEntries.length - 1) const SizedBox(height: 10),
+              for (
+                int index = 0;
+                index < renderedEntries.length;
+                index++
+              ) ...<Widget>[
+                _buildDescriptorComponentBlock(
+                  theme,
+                  renderedEntries[index],
+                  index,
+                ),
+                if (index != renderedEntries.length - 1)
+                  const SizedBox(height: 10),
               ],
             ],
           ),
@@ -807,7 +828,9 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
   ) {
     _descriptorSectionKeys.putIfAbsent(entry.key, () => GlobalKey());
     final selected = _selectedComponentKey == entry.key;
-    final source = const JsonEncoder.withIndent('  ').convert(entry.component.toJson());
+    final source = const JsonEncoder.withIndent(
+      '  ',
+    ).convert(entry.component.toJson());
 
     return AnimatedContainer(
       key: _descriptorSectionKeys[entry.key],
@@ -936,7 +959,10 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
                   borderRadius: BorderRadius.circular(999),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   child: Text(
                     '${component.type} - ${component.id}',
                     style: Theme.of(context).textTheme.labelSmall?.copyWith(
@@ -987,7 +1013,8 @@ class _GenUIPreviewPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final hasHeader = descriptor.title.trim().isNotEmpty ||
+    final hasHeader =
+        descriptor.title.trim().isNotEmpty ||
         descriptor.description.trim().isNotEmpty;
 
     return Column(
@@ -1127,19 +1154,34 @@ List<TextSpan> _jsonSyntaxSpans(String source, ThemeData theme) {
     }
 
     if (source.startsWith('true', index)) {
-      spans.add(const TextSpan(text: 'true', style: TextStyle(color: boolColor)));
+      spans.add(
+        const TextSpan(
+          text: 'true',
+          style: TextStyle(color: boolColor),
+        ),
+      );
       index += 4;
       continue;
     }
 
     if (source.startsWith('false', index)) {
-      spans.add(const TextSpan(text: 'false', style: TextStyle(color: boolColor)));
+      spans.add(
+        const TextSpan(
+          text: 'false',
+          style: TextStyle(color: boolColor),
+        ),
+      );
       index += 5;
       continue;
     }
 
     if (source.startsWith('null', index)) {
-      spans.add(const TextSpan(text: 'null', style: TextStyle(color: nullColor)));
+      spans.add(
+        const TextSpan(
+          text: 'null',
+          style: TextStyle(color: nullColor),
+        ),
+      );
       index += 4;
       continue;
     }
@@ -1172,7 +1214,12 @@ List<TextSpan> _jsonSyntaxSpans(String source, ThemeData theme) {
     }
 
     if ('{}[]'.contains(current) || ':,'.contains(current)) {
-      spans.add(TextSpan(text: current, style: TextStyle(color: bracketColor)));
+      spans.add(
+        TextSpan(
+          text: current,
+          style: TextStyle(color: bracketColor),
+        ),
+      );
       index++;
       continue;
     }

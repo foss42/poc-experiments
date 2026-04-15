@@ -193,6 +193,138 @@ const String unknownComponentGenUiDescriptor = '''
 }
 ''';
 
+const String tripPlannerGenUiDescriptor = '''
+{
+  "type": "screen",
+  "version": "0.1.0",
+  "agent": "trip-planner-agent",
+  "title": "Weekend Trip Planner",
+  "description": "Quick itinerary planning with budget and checklist",
+  "components": [
+    {
+      "type": "input",
+      "id": "destination_input",
+      "label": "Destination",
+      "placeholder": "Enter city or region"
+    },
+    {
+      "type": "input",
+      "id": "budget_input",
+      "label": "Budget",
+      "placeholder": "Example: 1200 USD"
+    },
+    {
+      "type": "table",
+      "id": "itinerary_table",
+      "headers": ["Day", "Plan", "Estimated Cost"],
+      "rows": [
+        ["Day 1", "Arrival + city walk", "120"],
+        ["Day 2", "Museum + local food tour", "180"],
+        ["Day 3", "Nature trail + return", "140"]
+      ]
+    },
+    {
+      "type": "divider",
+      "id": "trip_divider"
+    },
+    {
+      "type": "card",
+      "id": "trip_summary_card",
+      "title": "Planner Notes",
+      "children": [
+        {
+          "type": "text",
+          "id": "trip_note_1",
+          "content": "Best value hotels are near the city center transit line.",
+          "style": "body"
+        },
+        {
+          "type": "text",
+          "id": "trip_note_2",
+          "content": "Reserve museum slots 2-3 days in advance.",
+          "style": "caption"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "id": "generate_checklist_btn",
+      "label": "Generate Packing Checklist",
+      "variant": "primary"
+    }
+  ]
+}
+''';
+
+const String incidentTriageGenUiDescriptor = '''
+{
+  "type": "screen",
+  "version": "0.1.0",
+  "agent": "incident-triage-agent",
+  "title": "Production Incident Triage",
+  "description": "Priority scoring and response checklist for active incidents",
+  "components": [
+    {
+      "type": "text",
+      "id": "incident_heading",
+      "content": "Current Incident: API timeout spike in region ap-south-1",
+      "style": "heading"
+    },
+    {
+      "type": "table",
+      "id": "triage_score_table",
+      "headers": ["Signal", "Status", "Impact"],
+      "rows": [
+        ["Error Rate", "High", "Critical"],
+        ["Latency", "High", "Major"],
+        ["Auth Failures", "Stable", "Low"]
+      ]
+    },
+    {
+      "type": "card",
+      "id": "response_steps_card",
+      "title": "Recommended Next Steps",
+      "children": [
+        {
+          "type": "text",
+          "id": "step_1",
+          "content": "1. Route 30% traffic to backup region.",
+          "style": "body"
+        },
+        {
+          "type": "text",
+          "id": "step_2",
+          "content": "2. Enable circuit breaker for unstable downstream dependency.",
+          "style": "body"
+        },
+        {
+          "type": "text",
+          "id": "step_3",
+          "content": "3. Post status page update every 15 minutes.",
+          "style": "body"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "id": "triage_divider"
+    },
+    {
+      "type": "button",
+      "id": "open_war_room_btn",
+      "label": "Open War Room",
+      "variant": "primary"
+    },
+    {
+      "type": "button",
+      "id": "notify_oncall_btn",
+      "label": "Notify On-call",
+      "variant": "secondary"
+    }
+  ]
+}
+''';
+
 class GenUISampleDescriptor {
   const GenUISampleDescriptor({
     required this.id,
@@ -209,22 +341,35 @@ class GenUISampleDescriptor {
 
 const List<GenUISampleDescriptor> genUiSampleDescriptors =
     <GenUISampleDescriptor>[
-  GenUISampleDescriptor(
-    id: 'weather_dashboard',
-    title: 'Weather Dashboard',
-    description: 'Tool-driven city weather comparison dashboard',
-    payload: weatherDashboardGenUiDescriptor,
-  ),
-  GenUISampleDescriptor(
-    id: 'search_interface',
-    title: 'Search Interface',
-    description: 'Product search with cards, input, and actions',
-    payload: searchInterfaceGenUiDescriptor,
-  ),
-  GenUISampleDescriptor(
-    id: 'unknown_component',
-    title: 'Unknown Component Fallback',
-    description: 'Demonstrates fallback behavior for unsupported types',
-    payload: unknownComponentGenUiDescriptor,
-  ),
-];
+      GenUISampleDescriptor(
+        id: 'weather_dashboard',
+        title: 'Weather Dashboard',
+        description: 'Tool-driven city weather comparison dashboard',
+        payload: weatherDashboardGenUiDescriptor,
+      ),
+      GenUISampleDescriptor(
+        id: 'search_interface',
+        title: 'Search Interface',
+        description: 'Product search with cards, input, and actions',
+        payload: searchInterfaceGenUiDescriptor,
+      ),
+      GenUISampleDescriptor(
+        id: 'unknown_component',
+        title: 'Unknown Component Fallback',
+        description: 'Demonstrates fallback behavior for unsupported types',
+        payload: unknownComponentGenUiDescriptor,
+      ),
+      GenUISampleDescriptor(
+        id: 'trip_planner',
+        title: 'Trip Planner Workspace',
+        description:
+            'Inputs, itinerary table, and summary card for travel planning',
+        payload: tripPlannerGenUiDescriptor,
+      ),
+      GenUISampleDescriptor(
+        id: 'incident_triage',
+        title: 'Incident Triage Console',
+        description: 'Operational triage board with response actions',
+        payload: incidentTriageGenUiDescriptor,
+      ),
+    ];

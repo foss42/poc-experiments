@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +17,8 @@ const Color _unknownAccent = Color(0xFFD97706);
 const Color _lightModeBackground = Color(0xFFF8FAFC);
 const Duration _expandDuration = Duration(milliseconds: 250);
 
+enum _TimelineArrangement { sequence, grouped }
+
 class ResponseExplorerScreen extends StatefulWidget {
   const ResponseExplorerScreen({super.key, required this.response});
 
@@ -31,13 +33,15 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   late final TabController _tabController;
   late final TextEditingController _searchController;
   bool _showSearchField = false;
+  _TimelineArrangement _timelineArrangement = _TimelineArrangement.grouped;
+  bool _prettyPrintRawJson = true;
 
   String get _query => _searchController.text.trim();
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
     _searchController = TextEditingController();
     _searchController.addListener(_handleSearchChanged);
   }
@@ -102,7 +106,7 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   Route<void> _buildStreamingRoute() {
     return PageRouteBuilder<void>(
       pageBuilder: (context, animation, secondaryAnimation) =>
-          const StreamingSimulatorScreen(),
+          StreamingSimulatorScreen(seedResponse: widget.response),
       transitionDuration: const Duration(milliseconds: 320),
       reverseTransitionDuration: const Duration(milliseconds: 260),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -158,15 +162,11 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
       backgroundColor: theme.brightness == Brightness.light
           ? _lightModeBackground
           : theme.colorScheme.surface,
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.of(context).push(_buildStreamingRoute()),
-        icon: const Icon(Icons.play_circle_fill_rounded),
-        label: const Text('Simulate Stream'),
-      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
             _buildHeader(theme),
+            const SizedBox(height: 4),
             AnimatedSize(
               duration: _expandDuration,
               curve: Curves.easeInOut,
@@ -177,13 +177,23 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
             const Divider(height: 1),
             Material(
               color: theme.colorScheme.surface,
-              child: TabBar(
-                controller: _tabController,
-                tabs: const <Tab>[
-                  Tab(icon: Icon(Icons.timeline_outlined), text: 'Timeline'),
-                  Tab(icon: Icon(Icons.link_rounded), text: 'Correlation'),
-                  Tab(icon: Icon(Icons.data_object_rounded), text: 'Raw'),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 8),
+                child: TabBar(
+                  controller: _tabController,
+                  isScrollable: true,
+                  tabAlignment: TabAlignment.start,
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 24),
+                  tabs: const <Tab>[
+                    Tab(icon: Icon(Icons.timeline_outlined), text: 'Parsed'),
+                    Tab(icon: Icon(Icons.link_rounded), text: 'Calls'),
+                    Tab(icon: Icon(Icons.data_object_rounded), text: 'Raw'),
+                    Tab(
+                      icon: Icon(Icons.error_outline_rounded),
+                      text: 'Diagnostics',
+                    ),
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -193,6 +203,7 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
                   _buildTimelineTab(theme),
                   _buildCorrelationTab(theme),
                   _buildRawTab(theme),
+                  _buildDiagnosticsTab(theme),
                 ],
               ),
             ),
@@ -205,11 +216,14 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   Widget _buildHeader(ThemeData theme) {
     final statusColor = _statusColor(widget.response.status);
     final canPop = Navigator.of(context).canPop();
+    final tokensLabel = widget.response.totalTokens == null
+        ? 'tokens n/a'
+        : '${_formatTokens(widget.response.totalTokens!)} tokens';
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+      padding: const EdgeInsets.fromLTRB(22, 18, 22, 12),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           if (canPop)
             IconButton(
@@ -274,20 +288,38 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
           Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              if (widget.response.totalTokens != null)
-                Text(
-                  '${_formatTokens(widget.response.totalTokens!)} tokens',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
-                    fontSize: 12,
-                  ),
+              Text(
+                tokensLabel,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontSize: 12,
                 ),
+              ),
+              const SizedBox(width: 8),
+              FilledButton.tonalIcon(
+                onPressed: () =>
+                    Navigator.of(context).push(_buildStreamingRoute()),
+                icon: const Icon(Icons.play_circle_fill_rounded, size: 17),
+                label: const Text('Simulate'),
+                style: FilledButton.styleFrom(
+                  visualDensity: VisualDensity.compact,
+                  minimumSize: const Size(0, 36),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  shape: const StadiumBorder(),
+                ),
+              ),
+              const SizedBox(width: 4),
               IconButton(
                 onPressed: _toggleSearchField,
                 tooltip: _showSearchField ? 'Close Search' : 'Search Timeline',
                 icon: Icon(
                   _showSearchField ? Icons.close_rounded : Icons.search_rounded,
                 ),
+                constraints: const BoxConstraints.tightFor(
+                  width: 36,
+                  height: 36,
+                ),
+                visualDensity: VisualDensity.compact,
               ),
             ],
           ),
@@ -298,7 +330,7 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
 
   Widget _buildSearchField(ThemeData theme) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+      padding: const EdgeInsets.fromLTRB(22, 10, 22, 14),
       child: TextField(
         controller: _searchController,
         decoration: InputDecoration(
@@ -323,43 +355,183 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
         OpenResponsesDetector.extractGenUIDescriptorJson(widget.response);
     final hasGenUiDescriptor = genUiDescriptorJson != null;
 
-    if (widget.response.items.isEmpty && !hasGenUiDescriptor) {
+    final visibleItems = widget.response.items
+        .where(_matchesTimelineQuery)
+        .toList(growable: false);
+
+    if (visibleItems.isEmpty && !hasGenUiDescriptor) {
       return const _CenteredPlaceholder(
-        icon: Icons.inventory_2_outlined,
-        title: 'No items in this response',
+        icon: Icons.search_off_rounded,
+        title: 'No timeline items match the active query',
       );
     }
 
+    final reasoningItems = <ResponseItem>[];
+    final functionCallItems = <ResponseItem>[];
+    final outputItems = <ResponseItem>[];
+    final messageItems = <ResponseItem>[];
+    final unknownItems = <ResponseItem>[];
+
+    for (final item in visibleItems) {
+      if (item is ReasoningItem) {
+        reasoningItems.add(item);
+      } else if (item is FunctionCallItem) {
+        functionCallItems.add(item);
+      } else if (item is FunctionCallOutputItem) {
+        outputItems.add(item);
+      } else if (item is MessageItem) {
+        messageItems.add(item);
+      } else {
+        unknownItems.add(item);
+      }
+    }
+
+    final groupedSections =
+        <({String title, Color color, List<ResponseItem> items})>[
+          (title: 'Reasoning', color: _reasoningAccent, items: reasoningItems),
+          (
+            title: 'Tool Calls',
+            color: _functionAccent,
+            items: functionCallItems,
+          ),
+          (title: 'Tool Outputs', color: _outputAccent, items: outputItems),
+          (title: 'Messages', color: _messageAccent, items: messageItems),
+          (title: 'Unknown', color: _unknownAccent, items: unknownItems),
+        ];
+
     return ListView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       children: <Widget>[
+        _buildTimelineModePanel(theme, visibleItems.length),
+        const SizedBox(height: 14),
         if (hasGenUiDescriptor)
           Padding(
-            padding: EdgeInsets.only(
-              bottom: widget.response.items.isEmpty ? 0 : 12,
-            ),
+            padding: EdgeInsets.only(bottom: visibleItems.isEmpty ? 0 : 12),
             child: _GenUIBanner(
               onPressed: () {
-                Navigator.of(context).push(
-                  _buildGenUIPreviewRoute(genUiDescriptorJson),
-                );
+                Navigator.of(
+                  context,
+                ).push(_buildGenUIPreviewRoute(genUiDescriptorJson));
               },
             ),
           ),
-        for (int index = 0; index < widget.response.items.length; index++)
-          _TimelineVisibility(
-            visible: _matchesTimelineQuery(widget.response.items[index]),
-            child: Padding(
+        if (_timelineArrangement == _TimelineArrangement.sequence)
+          for (int index = 0; index < visibleItems.length; index++)
+            Padding(
               padding: EdgeInsets.only(
-                bottom: index == widget.response.items.length - 1 ? 0 : 12,
+                bottom: index == visibleItems.length - 1 ? 0 : 12,
               ),
               child: _StaggeredEntrance(
                 delay: Duration(milliseconds: index * 50),
-                child: _buildTimelineCard(theme, widget.response.items[index]),
+                child: _buildTimelineCard(theme, visibleItems[index]),
               ),
             ),
-          ),
+        if (_timelineArrangement == _TimelineArrangement.grouped)
+          for (final section in groupedSections)
+            if (section.items.isNotEmpty) ...<Widget>[
+              _TimelineSectionHeader(
+                title: section.title,
+                count: section.items.length,
+                color: section.color,
+              ),
+              const SizedBox(height: 8),
+              for (int index = 0; index < section.items.length; index++)
+                Padding(
+                  padding: EdgeInsets.only(
+                    bottom: index == section.items.length - 1 ? 14 : 10,
+                  ),
+                  child: _buildTimelineCard(theme, section.items[index]),
+                ),
+            ],
       ],
+    );
+  }
+
+  Widget _buildTimelineModePanel(ThemeData theme, int visibleItemCount) {
+    final totalItems = widget.response.items.length;
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: theme.colorScheme.surface,
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+      ),
+      padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                'Parsed timeline view',
+                style: theme.textTheme.labelLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '$visibleItemCount / $totalItems visible',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          SegmentedButton<_TimelineArrangement>(
+            segments: const <ButtonSegment<_TimelineArrangement>>[
+              ButtonSegment<_TimelineArrangement>(
+                value: _TimelineArrangement.grouped,
+                icon: Icon(Icons.account_tree_outlined),
+                label: Text('Grouped'),
+              ),
+              ButtonSegment<_TimelineArrangement>(
+                value: _TimelineArrangement.sequence,
+                icon: Icon(Icons.sort_rounded),
+                label: Text('Sequence'),
+              ),
+            ],
+            selected: <_TimelineArrangement>{_timelineArrangement},
+            showSelectedIcon: false,
+            onSelectionChanged: (Set<_TimelineArrangement> selected) {
+              if (selected.isEmpty) {
+                return;
+              }
+              setState(() {
+                _timelineArrangement = selected.first;
+              });
+            },
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: <Widget>[
+              _TimelineCountChip(
+                color: _reasoningAccent,
+                label:
+                    '${widget.response.items.whereType<ReasoningItem>().length} reasoning',
+              ),
+              _TimelineCountChip(
+                color: _functionAccent,
+                label:
+                    '${widget.response.items.whereType<FunctionCallItem>().length} calls',
+              ),
+              _TimelineCountChip(
+                color: _outputAccent,
+                label:
+                    '${widget.response.items.whereType<FunctionCallOutputItem>().length} outputs',
+              ),
+              _TimelineCountChip(
+                color: _messageAccent,
+                label:
+                    '${widget.response.items.whereType<MessageItem>().length} messages',
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -442,7 +614,7 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
     }
 
     return ListView.separated(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       itemCount: widget.response.correlatedCalls.length,
       separatorBuilder: (_, index) =>
           Divider(height: 24, color: theme.colorScheme.outlineVariant),
@@ -454,60 +626,371 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   }
 
   Widget _buildRawTab(ThemeData theme) {
-    final source = const JsonEncoder.withIndent(
+    final prettySource = const JsonEncoder.withIndent(
       '  ',
     ).convert(widget.response.toJson());
+    final compactSource = jsonEncode(widget.response.toJson());
+    final source = _prettyPrintRawJson ? prettySource : compactSource;
     final lineCount = '\n'.allMatches(source).length + 1;
+    final frameBackground = theme.brightness == Brightness.dark
+        ? const Color(0xFF0D1117)
+        : const Color(0xFF111827);
 
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 10, 16, 8),
-          child: Row(
-            children: <Widget>[
-              Text(
-                '$lineCount lines',
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                  fontSize: 12,
-                ),
-              ),
-              const Spacer(),
-              TextButton.icon(
-                onPressed: () => _copyText(source),
-                icon: const Icon(Icons.copy_rounded),
-                label: const Text('Copy'),
-              ),
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+      child: Container(
+        decoration: BoxDecoration(
+          color: theme.colorScheme.surface,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
         ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Theme.of(context).colorScheme.surfaceContainerHighest,
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16),
-                  child: SelectableText.rich(
-                    TextSpan(children: _jsonSyntaxSpans(source, theme)),
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      fontFamily: 'monospace',
-                      fontSize: 13,
-                      height: 1.45,
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(14, 12, 14, 10),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    '$lineCount lines',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontSize: 12,
                     ),
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    _prettyPrintRawJson ? 'Pretty print' : 'Compact',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
+                      fontSize: 12,
+                    ),
+                  ),
+                  const SizedBox(width: 6),
+                  Switch.adaptive(
+                    value: _prettyPrintRawJson,
+                    onChanged: (bool value) {
+                      setState(() {
+                        _prettyPrintRawJson = value;
+                      });
+                    },
+                  ),
+                  const Spacer(),
+                  FilledButton.tonalIcon(
+                    onPressed: () => _copyText(source, message: 'JSON copied'),
+                    icon: const Icon(Icons.copy_rounded, size: 16),
+                    label: const Text('Copy JSON'),
+                    style: FilledButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      minimumSize: const Size(0, 34),
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Divider(height: 1, color: theme.colorScheme.outlineVariant),
+            Expanded(
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  return Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: frameBackground,
+                      borderRadius: const BorderRadius.vertical(
+                        bottom: Radius.circular(12),
+                      ),
+                    ),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minWidth: constraints.maxWidth,
+                        ),
+                        child: SingleChildScrollView(
+                          padding: const EdgeInsets.fromLTRB(14, 14, 20, 18),
+                          child: SelectableText.rich(
+                            TextSpan(
+                              children: _prettyPrintRawJson
+                                  ? _buildLineNumberedJsonSpans(source, theme)
+                                  : _jsonSyntaxSpans(source, theme),
+                            ),
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              fontFamily: 'monospace',
+                              fontSize: 13,
+                              height: 1.55,
+                              color: const Color(0xFFE5E7EB),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDiagnosticsTab(ThemeData theme) {
+    final unknownCount = widget.response.items.whereType<UnknownItem>().length;
+    final incompleteCalls = widget.response.correlatedCalls
+        .where((CorrelatedCall pair) => !pair.isComplete)
+        .length;
+    final hasAssistantMessage = widget.response.items
+        .whereType<MessageItem>()
+        .any((MessageItem item) => item.role.toLowerCase() == 'assistant');
+    final hasGenUiDescriptor =
+        OpenResponsesDetector.extractGenUIDescriptorJson(widget.response) !=
+        null;
+
+    final diagnostics = <_DiagnosticFinding>[];
+
+    if (incompleteCalls > 0) {
+      diagnostics.add(
+        _DiagnosticFinding(
+          severity: _DiagnosticSeverity.error,
+          title: 'Unresolved tool calls',
+          details:
+              '$incompleteCalls function call(s) do not have matching output payloads.',
+          action:
+              'Inspect call_id links in the Calls tab and verify stream completeness.',
+        ),
+      );
+    }
+
+    if (unknownCount > 0) {
+      diagnostics.add(
+        _DiagnosticFinding(
+          severity: _DiagnosticSeverity.warning,
+          title: 'Unsupported output item types',
+          details:
+              '$unknownCount item(s) were preserved as unknown. This may indicate schema drift.',
+          action:
+              'Review unknown cards in Parsed tab and expand parser mappings.',
+        ),
+      );
+    }
+
+    if (!hasAssistantMessage) {
+      diagnostics.add(
+        const _DiagnosticFinding(
+          severity: _DiagnosticSeverity.warning,
+          title: 'No assistant message item',
+          details:
+              'A final assistant message was not detected in this parsed response.',
+          action:
+              'Confirm whether the stream ended early or only intermediate states were captured.',
+        ),
+      );
+    }
+
+    if (_query.isNotEmpty &&
+        widget.response.items.where(_matchesTimelineQuery).isEmpty) {
+      diagnostics.add(
+        _DiagnosticFinding(
+          severity: _DiagnosticSeverity.info,
+          title: 'Active search hides all timeline items',
+          details: 'No parsed item matches query "$_query".',
+          action:
+              'Clear or broaden the search query to resume timeline inspection.',
+        ),
+      );
+    }
+
+    if (hasGenUiDescriptor) {
+      diagnostics.add(
+        const _DiagnosticFinding(
+          severity: _DiagnosticSeverity.info,
+          title: 'GenUI descriptor detected',
+          details:
+              'A generated UI descriptor was found in this response payload.',
+          action:
+              'Open Preview UI from Parsed tab to validate rendered interface output.',
+        ),
+      );
+    }
+
+    if (diagnostics.isEmpty) {
+      return const _CenteredPlaceholder(
+        icon: Icons.verified_rounded,
+        title: 'No diagnostics findings',
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.all(20),
+      itemCount: diagnostics.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: index == diagnostics.length - 1 ? 0 : 12,
+          ),
+          child: _DiagnosticsFindingCard(finding: diagnostics[index]),
+        );
+      },
+    );
+  }
+}
+
+enum _DiagnosticSeverity { info, warning, error }
+
+class _DiagnosticFinding {
+  const _DiagnosticFinding({
+    required this.severity,
+    required this.title,
+    required this.details,
+    required this.action,
+  });
+
+  final _DiagnosticSeverity severity;
+  final String title;
+  final String details;
+  final String action;
+}
+
+class _TimelineCountChip extends StatelessWidget {
+  const _TimelineCountChip({required this.color, required this.label});
+
+  final Color color;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      decoration: BoxDecoration(
+        color: _tintedSurface(theme, color),
+        borderRadius: BorderRadius.circular(999),
+        border: Border.all(color: color.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      child: Text(
+        label,
+        style: theme.textTheme.labelSmall?.copyWith(
+          color: color,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _TimelineSectionHeader extends StatelessWidget {
+  const _TimelineSectionHeader({
+    required this.title,
+    required this.count,
+    required this.color,
+  });
+
+  final String title;
+  final int count;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: _tintedSurface(theme, color),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: color.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      child: Row(
+        children: <Widget>[
+          Text(
+            title,
+            style: theme.textTheme.titleSmall?.copyWith(
+              color: color,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const Spacer(),
+          Text(
+            '$count',
+            style: theme.textTheme.labelLarge?.copyWith(
+              color: color,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DiagnosticsFindingCard extends StatelessWidget {
+  const _DiagnosticsFindingCard({required this.finding});
+
+  final _DiagnosticFinding finding;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    late final Color color;
+    late final IconData icon;
+
+    switch (finding.severity) {
+      case _DiagnosticSeverity.info:
+        color = _functionAccent;
+        icon = Icons.info_outline_rounded;
+      case _DiagnosticSeverity.warning:
+        color = _unknownAccent;
+        icon = Icons.warning_amber_rounded;
+      case _DiagnosticSeverity.error:
+        color = const Color(0xFFDC2626);
+        icon = Icons.error_outline_rounded;
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: _tintedSurface(theme, color),
+        border: Border.all(color: color.withValues(alpha: 0.35)),
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Icon(icon, color: color, size: 20),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  finding.title,
+                  style: theme.textTheme.titleSmall?.copyWith(
+                    color: color,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            finding.details,
+            style: theme.textTheme.bodySmall?.copyWith(height: 1.45),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Action: ${finding.action}',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+              fontStyle: FontStyle.italic,
+              height: 1.45,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -1152,29 +1635,6 @@ class _JsonBox extends StatelessWidget {
   }
 }
 
-class _TimelineVisibility extends StatelessWidget {
-  const _TimelineVisibility({required this.visible, required this.child});
-
-  final bool visible;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: visible ? 1 : 0,
-      duration: _expandDuration,
-      curve: Curves.easeInOut,
-      child: ClipRect(
-        child: AnimatedSize(
-          duration: _expandDuration,
-          curve: Curves.easeInOut,
-          child: visible ? child : const SizedBox.shrink(),
-        ),
-      ),
-    );
-  }
-}
-
 class _StaggeredEntrance extends StatefulWidget {
   const _StaggeredEntrance({required this.delay, required this.child});
 
@@ -1290,7 +1750,11 @@ class _GenUIBanner extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[Color(0xFF1D4ED8), Color(0xFF2563EB), Color(0xFF3B82F6)],
+          colors: <Color>[
+            Color(0xFF1D4ED8),
+            Color(0xFF2563EB),
+            Color(0xFF3B82F6),
+          ],
         ),
       ),
       padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
@@ -1448,8 +1912,12 @@ List<TextSpan> _buildHighlightedSpans({
 
 List<TextSpan> _jsonSyntaxSpans(String source, ThemeData theme) {
   final spans = <TextSpan>[];
-  final keyColor = theme.colorScheme.onSurface;
-  final bracketColor = theme.colorScheme.onSurfaceVariant;
+  final keyColor = theme.brightness == Brightness.dark
+      ? const Color(0xFFA5B4FC)
+      : const Color(0xFF93C5FD);
+  final bracketColor = theme.brightness == Brightness.dark
+      ? const Color(0xFFCBD5E1)
+      : const Color(0xFFD1D5DB);
   const stringValueColor = Color(0xFF16A34A);
   const numberColor = Color(0xFFD97706);
   const boolColor = Color(0xFF2563EB);
@@ -1583,6 +2051,37 @@ List<TextSpan> _jsonSyntaxSpans(String source, ThemeData theme) {
 
     spans.add(TextSpan(text: current));
     index++;
+  }
+
+  return spans;
+}
+
+List<InlineSpan> _buildLineNumberedJsonSpans(String source, ThemeData theme) {
+  final spans = <InlineSpan>[];
+  final lines = source.split('\n');
+  final lineNumberColor = const Color(0xFF6AA84F);
+
+  for (var i = 0; i < lines.length; i++) {
+    final number = (i + 1).toString().padLeft(3, ' ');
+    spans.add(
+      TextSpan(
+        text: '$number  ',
+        style: const TextStyle(
+          color: Color(0xFF6AA84F),
+          fontFamily: 'monospace',
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+    spans.addAll(_jsonSyntaxSpans(lines[i], theme));
+    if (i != lines.length - 1) {
+      spans.add(
+        TextSpan(
+          text: '\n',
+          style: TextStyle(color: lineNumberColor),
+        ),
+      );
+    }
   }
 
   return spans;

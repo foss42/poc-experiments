@@ -130,10 +130,9 @@ class StreamingReducer {
     }
 
     final incomingItem = _normalizeMap(event['item']);
-    final existingItem = _state.outputByIndex[outputIndex] ??
-        <String, dynamic>{
-          'type': incomingItem['type'],
-        };
+    final existingItem =
+        _state.outputByIndex[outputIndex] ??
+        <String, dynamic>{'type': incomingItem['type']};
 
     final merged = <String, dynamic>{...existingItem, ...incomingItem};
     merged['status'] = 'completed';
@@ -184,8 +183,7 @@ class StreamingReducer {
     }
     if (value is Map) {
       return value.map(
-        (dynamic key, dynamic mapValue) =>
-            MapEntry(key.toString(), mapValue),
+        (dynamic key, dynamic mapValue) => MapEntry(key.toString(), mapValue),
       );
     }
     return <String, dynamic>{};
@@ -259,7 +257,10 @@ class _StreamingState {
           responseItems.add(
             FunctionCallOutputItem(
               callId: _asString(raw['call_id'], fallback: 'call_$index'),
-              parsedOutput: _decodeMapLike(raw['output'], fallbackKey: 'raw_output'),
+              parsedOutput: _decodeMapLike(
+                raw['output'] ?? raw['parsed_output'],
+                fallbackKey: 'raw_output',
+              ),
             ),
           );
         case 'message':
@@ -416,8 +417,7 @@ class _StreamingState {
     }
     if (value is Map) {
       return value.map(
-        (dynamic key, dynamic mapValue) =>
-            MapEntry(key.toString(), mapValue),
+        (dynamic key, dynamic mapValue) => MapEntry(key.toString(), mapValue),
       );
     }
     return <String, dynamic>{};
