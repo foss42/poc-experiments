@@ -1,5 +1,5 @@
 # Stage 1 — Flutter web builder
-FROM ghcr.io/cirruslabs/flutter:3.41.0 AS builder
+FROM ghcr.io/cirruslabs/flutter:3.41.6 AS builder
 WORKDIR /app
 
 # Cache pub dependencies separately from source
