@@ -65,6 +65,10 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
   StreamSubscription<CustomEvalSSEEvent>? _sub;
 
   Future<void> run() async {
+    if (state.isRunning) return;
+    _sub?.cancel();
+    _sub = null;
+
     final samples = _ref.read(customDatasetProvider);
     if (samples.isEmpty) {
       state = state.copyWith(error: 'Add at least one image before running.');
@@ -78,6 +82,10 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
     }
 
     final config = _ref.read(evalConfigProvider);
+    if (config.models.isEmpty || config.models.first.trim().isEmpty) {
+      state = state.copyWith(error: 'Select a model before running.');
+      return;
+    }
     final dio = _ref.read(dioProvider);
     final apiKey = _ref.read(settingsProvider).openRouterApiKey;
     final providerStr = switch (config.provider) {
@@ -177,12 +185,13 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
             {'index': index, 'filename': filename, 'detail': detail},
           ],
         );
-      case CustomEvalComplete(:final evalId, :final accuracy):
+      case CustomEvalComplete(:final evalId, :final accuracy, :final results):
         state = state.copyWith(
           isRunning: false,
           isComplete: true,
           evalId: evalId,
           accuracy: accuracy,
+          sampleResults: results,
         );
       case CustomEvalError(:final detail):
         _setError(detail);
@@ -190,7 +199,7 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
   }
 
   void _setError(String message) {
-    state = state.copyWith(isRunning: false, error: message);
+    state = state.copyWith(isRunning: false, isComplete: false, error: message);
   }
 
   void reset() {
