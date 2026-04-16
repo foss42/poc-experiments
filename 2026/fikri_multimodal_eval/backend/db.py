@@ -72,7 +72,9 @@ async def list_results(
             total = row[0] if row else 0
 
         async with db.execute(
-            """SELECT eval_id, created_at, eval_type, tasks, models, harness
+            """SELECT eval_id, created_at, eval_type, tasks, models, harness,
+                      json_extract(data, '$.accuracy') as accuracy,
+                      json_extract(data, '$.first_thumbnail') as first_thumbnail
                FROM eval_results ORDER BY created_at DESC
                LIMIT ? OFFSET ?""",
             (limit, offset),
@@ -86,6 +88,8 @@ async def list_results(
                     "tasks": json.loads(r[3]),
                     "models": json.loads(r[4]),
                     "harness": r[5],
+                    "accuracy": r[6],
+                    "first_thumbnail": r[7],  # base64 data URI, None if not available
                 }
                 for r in rows
             ]

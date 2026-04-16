@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -5,11 +6,37 @@ import '../../core/theme/app_theme.dart';
 import 'providers/results_provider.dart';
 import 'widgets/result_card.dart';
 
-class ResultsScreen extends ConsumerWidget {
+class ResultsScreen extends ConsumerStatefulWidget {
   const ResultsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends ConsumerState<ResultsScreen> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _onScroll() {
+    final pos = _scrollController.position;
+    if (pos.pixels >= pos.maxScrollExtent - 200) {
+      ref.read(resultsProvider.notifier).loadMore();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final resultsAsync = ref.watch(resultsProvider);
     final notifier = ref.read(resultsProvider.notifier);
 
@@ -60,16 +87,43 @@ class ResultsScreen extends ConsumerWidget {
                 onRefresh: notifier.refresh,
                 color: AppTheme.primary,
                 child: ListView.builder(
+                  controller: _scrollController,
                   padding: const EdgeInsets.all(16),
-                  itemCount: state.items.length + (state.hasMore ? 1 : 0),
+                  itemCount: state.items.length +
+                      (_chartItems(state.items).isNotEmpty ? 1 : 0) +
+                      (state.hasMore || state.isLoadingMore ? 1 : 0),
                   itemBuilder: (_, i) {
-                    if (i == state.items.length) {
-                      return _LoadMoreButton(
-                        isLoading: state.isLoadingMore,
-                        onTap: notifier.loadMore,
-                      );
+                    int offset = 0;
+
+                    // Chart section as first item
+                    final chartItems = _chartItems(state.items);
+                    if (chartItems.isNotEmpty) {
+                      if (i == 0) {
+                        return _AccuracyChart(items: chartItems);
+                      }
+                      offset = 1;
                     }
-                    return ResultCard(result: state.items[i]);
+
+                    final listIndex = i - offset;
+                    if (listIndex < state.items.length) {
+                      return ResultCard(result: state.items[listIndex]);
+                    }
+
+                    // Footer: loading indicator or spacer
+                    return state.isLoadingMore
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(vertical: 16),
+                            child: Center(
+                              child: SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: AppTheme.primary),
+                              ),
+                            ),
+                          )
+                        : const SizedBox(height: 16);
                   },
                 ),
               );
@@ -79,7 +133,135 @@ class ResultsScreen extends ConsumerWidget {
       ],
     );
   }
+
+  /// Returns the subset of items that have accuracy data (custom evals).
+  static List<Map<String, dynamic>> _chartItems(
+      List<Map<String, dynamic>> items) {
+    return items
+        .where((r) => r['accuracy'] != null)
+        .toList()
+        .reversed
+        .take(10)
+        .toList();
+  }
 }
+
+// ─── Accuracy chart ───────────────────────────────────────────────────────
+
+class _AccuracyChart extends StatelessWidget {
+  const _AccuracyChart({required this.items});
+
+  final List<Map<String, dynamic>> items;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 14),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppTheme.surface,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppTheme.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Custom Eval Accuracy',
+            style: TextStyle(
+                color: AppTheme.textPrimary,
+                fontSize: 12,
+                fontWeight: FontWeight.w500),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            'Last ${items.length} evaluation${items.length == 1 ? '' : 's'}',
+            style: const TextStyle(color: AppTheme.textMuted, fontSize: 11),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 120,
+            child: BarChart(
+              BarChartData(
+                barGroups: items.asMap().entries.map((entry) {
+                  final accuracy =
+                      (entry.value['accuracy'] as num?)?.toDouble() ?? 0.0;
+                  return BarChartGroupData(
+                    x: entry.key,
+                    barRods: [
+                      BarChartRodData(
+                        toY: accuracy * 100,
+                        color: AppTheme.accent,
+                        width: 16,
+                        borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(3)),
+                      ),
+                    ],
+                  );
+                }).toList(),
+                maxY: 100,
+                gridData: FlGridData(
+                  show: true,
+                  drawVerticalLine: false,
+                  horizontalInterval: 25,
+                  getDrawingHorizontalLine: (_) => const FlLine(
+                    color: AppTheme.border,
+                    strokeWidth: 1,
+                  ),
+                ),
+                borderData: FlBorderData(show: false),
+                titlesData: FlTitlesData(
+                  leftTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 36,
+                      interval: 25,
+                      getTitlesWidget: (v, _) => Text(
+                        '${v.toInt()}%',
+                        style: const TextStyle(
+                            color: AppTheme.textMuted, fontSize: 9),
+                      ),
+                    ),
+                  ),
+                  rightTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  topTitles: const AxisTitles(
+                      sideTitles: SideTitles(showTitles: false)),
+                  bottomTitles: AxisTitles(
+                    sideTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 24,
+                      getTitlesWidget: (v, _) {
+                        final idx = v.toInt();
+                        if (idx < 0 || idx >= items.length) {
+                          return const SizedBox.shrink();
+                        }
+                        final evalId =
+                            items[idx]['eval_id'] as String? ?? '';
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            evalId.length > 6
+                                ? evalId.substring(0, 6)
+                                : evalId,
+                            style: const TextStyle(
+                                color: AppTheme.textMuted, fontSize: 8),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────
 
 class _ResultsHeader extends StatelessWidget {
   const _ResultsHeader({
@@ -125,33 +307,6 @@ class _ResultsHeader extends StatelessWidget {
                 const BoxConstraints(minWidth: 32, minHeight: 32),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _LoadMoreButton extends StatelessWidget {
-  const _LoadMoreButton({required this.isLoading, required this.onTap});
-
-  final bool isLoading;
-  final Future<void> Function() onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: Center(
-        child: isLoading
-            ? const SizedBox(
-                width: 20,
-                height: 20,
-                child: CircularProgressIndicator(
-                    strokeWidth: 2, color: AppTheme.primary),
-              )
-            : OutlinedButton(
-                onPressed: onTap,
-                child: const Text('Load more'),
-              ),
       ),
     );
   }
