@@ -9,6 +9,22 @@ import '../models/open_responses.dart';
 import 'open_responses_viewer.dart';
 
 // ---------------------------------------------------------------------------
+// Event categories — used for timeline filtering
+// ---------------------------------------------------------------------------
+
+enum _EventCategory { all, stream, tool, lifecycle }
+
+_EventCategory _categoryOf(String type) {
+  if (type.contains('output_text') || type.contains('reasoning')) {
+    return _EventCategory.stream;
+  }
+  if (type.contains('function_call')) {
+    return _EventCategory.tool;
+  }
+  return _EventCategory.lifecycle;
+}
+
+// ---------------------------------------------------------------------------
 // Data model
 // ---------------------------------------------------------------------------
 
@@ -132,6 +148,7 @@ class _SseStreamDebuggerState extends State<SseStreamDebugger> {
   int _step = 0;
   bool _isPlaying = false;
   double _speed = 1.0;
+  _EventCategory _filter = _EventCategory.all;
   Timer? _timer;
 
   final _timelineController = ScrollController();
@@ -277,8 +294,10 @@ class _SseStreamDebuggerState extends State<SseStreamDebugger> {
                 child: _EventTimeline(
                   events: _events,
                   currentStep: _step,
+                  filter: _filter,
                   scrollController: _timelineController,
                   onTap: _jumpTo,
+                  onFilterChanged: (f) => setState(() => _filter = f),
                 ),
               ),
               VerticalDivider(
@@ -473,14 +492,25 @@ class _EventTimeline extends StatelessWidget {
   const _EventTimeline({
     required this.events,
     required this.currentStep,
+    required this.filter,
     required this.scrollController,
     required this.onTap,
+    required this.onFilterChanged,
   });
 
   final List<_SseEvent> events;
   final int currentStep;
+  final _EventCategory filter;
   final ScrollController scrollController;
   final ValueChanged<int> onTap;
+  final ValueChanged<_EventCategory> onFilterChanged;
+
+  static const _filterLabels = {
+    _EventCategory.all: 'All',
+    _EventCategory.stream: 'Text',
+    _EventCategory.tool: 'Tool',
+    _EventCategory.lifecycle: 'Meta',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -490,7 +520,7 @@ class _EventTimeline extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(10, 8, 8, 5),
+          padding: const EdgeInsets.fromLTRB(10, 8, 8, 4),
           child: Text(
             'EVENT TIMELINE',
             style: theme.textTheme.labelSmall?.copyWith(
@@ -498,6 +528,49 @@ class _EventTimeline extends StatelessWidget {
               letterSpacing: 0.8,
               fontWeight: FontWeight.w700,
             ),
+          ),
+        ),
+        // Filter chips — non-matching events are dimmed, not hidden,
+        // so step indices stay consistent with playback.
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 6),
+          child: Row(
+            children: _filterLabels.entries.map((e) {
+              final selected = filter == e.key;
+              return Padding(
+                padding: const EdgeInsets.only(right: 4),
+                child: GestureDetector(
+                  onTap: () => onFilterChanged(e.key),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 7, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: selected
+                          ? theme.colorScheme.primaryContainer
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(
+                        color: selected
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.outlineVariant,
+                      ),
+                    ),
+                    child: Text(
+                      e.value,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        color: selected
+                            ? theme.colorScheme.primary
+                            : theme.colorScheme.outline,
+                        fontWeight: selected
+                            ? FontWeight.w700
+                            : FontWeight.normal,
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         ),
         Expanded(
@@ -511,59 +584,66 @@ class _EventTimeline extends StatelessWidget {
               final isPlayed = i < currentStep;
               final isCurrent = i == currentStep - 1;
               final color = _eventColor(event.type, theme);
+              final matchesFilter = filter == _EventCategory.all ||
+                  _categoryOf(event.type) == filter;
 
-              return InkWell(
-                onTap: () => onTap(i),
-                child: Container(
-                  color: isCurrent
-                      ? color.withValues(alpha: 0.1)
-                      : Colors.transparent,
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 8,
-                        height: 8,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: isPlayed
-                              ? color
-                              : theme.colorScheme.outlineVariant,
-                          border: isCurrent
-                              ? Border.all(color: color, width: 2)
-                              : null,
-                        ),
-                      ),
-                      kHSpacer8,
-                      Expanded(
-                        child: Text(
-                          event.label,
-                          style: kCodeStyle.copyWith(
-                            fontSize: 11,
+              return Opacity(
+                opacity: matchesFilter ? 1.0 : 0.25,
+                child: InkWell(
+                  onTap: () => onTap(i),
+                  child: Container(
+                    color: isCurrent
+                        ? color.withValues(alpha: 0.1)
+                        : Colors.transparent,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
                             color: isPlayed
-                                ? (isCurrent
-                                    ? color
-                                    : theme.colorScheme.onSurface)
+                                ? color
                                 : theme.colorScheme.outlineVariant,
-                            fontWeight: isCurrent
-                                ? FontWeight.w700
-                                : FontWeight.normal,
+                            border: isCurrent
+                                ? Border.all(color: color, width: 2)
+                                : null,
                           ),
-                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
-                      if (isCurrent && event.json != null)
-                        GestureDetector(
-                          onTap: () {
-                            final pretty = const JsonEncoder.withIndent('  ')
-                                .convert(event.json);
-                            Clipboard.setData(ClipboardData(text: pretty));
-                          },
-                          child: Icon(Icons.copy_rounded,
-                              size: 10,
-                              color: theme.colorScheme.outline),
+                        kHSpacer8,
+                        Expanded(
+                          child: Text(
+                            event.label,
+                            style: kCodeStyle.copyWith(
+                              fontSize: 11,
+                              color: isPlayed
+                                  ? (isCurrent
+                                      ? color
+                                      : theme.colorScheme.onSurface)
+                                  : theme.colorScheme.outlineVariant,
+                              fontWeight: isCurrent
+                                  ? FontWeight.w700
+                                  : FontWeight.normal,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                    ],
+                        if (isCurrent && event.json != null)
+                          GestureDetector(
+                            onTap: () {
+                              final pretty =
+                                  const JsonEncoder.withIndent('  ')
+                                      .convert(event.json);
+                              Clipboard.setData(
+                                  ClipboardData(text: pretty));
+                            },
+                            child: Icon(Icons.copy_rounded,
+                                size: 10,
+                                color: theme.colorScheme.outline),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               );

@@ -222,6 +222,7 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
   int _selectedSample = 0;
   bool _showSource = false;
   bool _inspectMode = false;
+  bool _deviceFrame = false;
   final List<({String type, String id})> _diagnostics = [];
   late final TextEditingController _customCtrl;
 
@@ -319,11 +320,35 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                   ),
                 ),
               const SizedBox(width: 4),
+              // Device frame toggle
+              if (_selectedSample < _samples.length - 1 && !_showSource)
+                Tooltip(
+                  message: _deviceFrame
+                      ? 'Exit device frame'
+                      : 'Preview inside a phone frame',
+                  child: TextButton.icon(
+                    onPressed: () =>
+                        setState(() => _deviceFrame = !_deviceFrame),
+                    icon: Icon(_deviceFrame
+                        ? Icons.smartphone_rounded
+                        : Icons.phone_iphone_rounded),
+                    label: Text(_deviceFrame ? 'Frame on' : 'Device'),
+                    style: TextButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      foregroundColor:
+                          _deviceFrame ? theme.colorScheme.primary : null,
+                    ),
+                  ),
+                ),
+              const SizedBox(width: 4),
               // Show source toggle
               TextButton.icon(
                 onPressed: () => setState(() {
                   _showSource = !_showSource;
-                  if (_showSource) _inspectMode = false;
+                  if (_showSource) {
+                    _inspectMode = false;
+                    _deviceFrame = false;
+                  }
                 }),
                 icon: Icon(_showSource
                     ? Icons.visibility_off_outlined
@@ -356,6 +381,7 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                     onSelected: (_) => setState(() {
                       _selectedSample = i;
                       _inspectMode = false;
+                      _deviceFrame = false;
                       _resetDiagnostics();
                       if (i < _samples.length - 1) _showSource = false;
                     }),
@@ -432,6 +458,7 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                   : _RenderPane(
                       parsed: parsed,
                       inspectMode: _inspectMode,
+                      deviceFrame: _deviceFrame,
                       onDiagnostic: _handleDiagnostic,
                     ),
         ),
@@ -446,6 +473,7 @@ class _RenderPane extends StatelessWidget {
   const _RenderPane({
     required this.parsed,
     this.inspectMode = false,
+    this.deviceFrame = false,
     this.onDiagnostic,
   });
 
@@ -455,6 +483,7 @@ class _RenderPane extends StatelessWidget {
     String? surfaceTitle,
   })? parsed;
   final bool inspectMode;
+  final bool deviceFrame;
   final void Function(String type, String id)? onDiagnostic;
 
   @override
@@ -480,6 +509,19 @@ class _RenderPane extends StatelessWidget {
       );
     }
 
+    final renderer = A2UIRenderer(
+      components: parsed!.components,
+      dataModel: parsed!.dataModel,
+      inspectMode: inspectMode,
+      onDiagnostic: onDiagnostic,
+    );
+
+    if (deviceFrame) {
+      return Center(
+        child: _DeviceFrame(title: parsed!.surfaceTitle, child: renderer),
+      );
+    }
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Column(
@@ -502,13 +544,146 @@ class _RenderPane extends StatelessWidget {
             ),
             const SizedBox(height: 16),
           ],
-          A2UIRenderer(
-            components: parsed!.components,
-            dataModel: parsed!.dataModel,
-            inspectMode: inspectMode,
-            onDiagnostic: onDiagnostic,
-          ),
+          renderer,
         ],
+      ),
+    );
+  }
+}
+
+// ── Device frame ─────────────────────────────────────────────────────────────
+//
+// A realistic phone mockup that wraps the GenUI renderer output, showing
+// how the agent-generated UI would look on a mobile screen. Includes a
+// dynamic island notch, status bar, and home indicator.
+
+class _DeviceFrame extends StatelessWidget {
+  const _DeviceFrame({required this.child, this.title});
+  final Widget child;
+  final String? title;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    const bezelColor = Color(0xFF1C1C1E);
+    const bezelThickness = 10.0;
+    const cornerRadius = 40.0;
+    const innerRadius = 34.0;
+
+    return SizedBox(
+      width: 300,
+      height: 620,
+      child: Container(
+        decoration: BoxDecoration(
+          color: bezelColor,
+          borderRadius: BorderRadius.circular(cornerRadius),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.45),
+              blurRadius: 32,
+              spreadRadius: 4,
+              offset: const Offset(0, 8),
+            ),
+            BoxShadow(
+              color: Colors.white.withValues(alpha: 0.06),
+              blurRadius: 1,
+              offset: const Offset(0, -1),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(bezelThickness),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(innerRadius),
+            child: Container(
+              color: theme.colorScheme.surface,
+              child: Column(
+                children: [
+                  // Status bar with dynamic island
+                  Container(
+                    height: 44,
+                    color: theme.colorScheme.surface,
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Container(
+                          width: 100,
+                          height: 26,
+                          decoration: BoxDecoration(
+                            color: bezelColor,
+                            borderRadius: BorderRadius.circular(13),
+                          ),
+                        ),
+                        Positioned(
+                          left: 16,
+                          child: Text('9:41',
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                  fontWeight: FontWeight.w600)),
+                        ),
+                        Positioned(
+                          right: 12,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(Icons.signal_cellular_alt_rounded,
+                                  size: 14,
+                                  color: theme.colorScheme.onSurface),
+                              const SizedBox(width: 3),
+                              Icon(Icons.wifi_rounded,
+                                  size: 14,
+                                  color: theme.colorScheme.onSurface),
+                              const SizedBox(width: 3),
+                              Icon(Icons.battery_5_bar_rounded,
+                                  size: 14,
+                                  color: theme.colorScheme.onSurface),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Surface title bar
+                  if (title != null)
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
+                      decoration: BoxDecoration(
+                        border: Border(
+                            bottom: BorderSide(
+                                color: theme.colorScheme.outlineVariant)),
+                      ),
+                      child: Text(title!,
+                          style: theme.textTheme.titleSmall
+                              ?.copyWith(fontWeight: FontWeight.w700)),
+                    ),
+                  // Scrollable content
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.all(12),
+                      child: child,
+                    ),
+                  ),
+                  // Home indicator
+                  Container(
+                    height: 28,
+                    color: theme.colorScheme.surface,
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: 90,
+                      height: 5,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.onSurface
+                            .withValues(alpha: 0.2),
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -746,7 +921,7 @@ class _AboutPage extends StatelessWidget {
                 'Debug any Open Responses payload offline. Paste a JSON object or raw SSE transcript, and the app auto-detects the format and routes it to the right viewer. Three built-in samples (agentic JSON, SSE stream, chained conversation) let you explore the feature without a live server.',
           ),
           const SizedBox(height: 12),
-          _FeatureCard(
+          const _FeatureCard(
             icon: Icons.widgets_outlined,
             color: Colors.deepPurple,
             title: 'Generative UI (A2UI)',
@@ -760,7 +935,7 @@ class _AboutPage extends StatelessWidget {
                 ?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 12),
-          _ParserCoverageTable(),
+          const _ParserCoverageTable(),
         ],
       ),
     );
@@ -824,7 +999,7 @@ class _FeatureCard extends StatelessWidget {
 }
 
 class _ParserCoverageTable extends StatelessWidget {
-  _ParserCoverageTable();
+  const _ParserCoverageTable();
 
   final _rows = const [
     ('message', 'text, input_text, refusal, output_image, input_image'),

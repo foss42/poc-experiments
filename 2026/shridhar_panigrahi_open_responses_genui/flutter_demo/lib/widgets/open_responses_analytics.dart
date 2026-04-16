@@ -31,7 +31,7 @@ class OpenResponsesAnalytics extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       children: [
         // ── Response metadata ──────────────────────────────────────────────
-        _SectionHeader('Response'),
+        const _SectionHeader('Response'),
         kVSpacer8,
         _MetaGrid(items: [
           _MetaItem(
@@ -73,7 +73,7 @@ class OpenResponsesAnalytics extends StatelessWidget {
         kVSpacer16,
 
         // ── Output item breakdown ──────────────────────────────────────────
-        _SectionHeader('Output Breakdown'),
+        const _SectionHeader('Output Breakdown'),
         kVSpacer8,
         _ItemBreakdown(
           messages: msgs,
@@ -88,7 +88,7 @@ class OpenResponsesAnalytics extends StatelessWidget {
         // ── Tool calls detail ──────────────────────────────────────────────
         if (calls.isNotEmpty) ...[
           kVSpacer16,
-          _SectionHeader('Tool Calls'),
+          const _SectionHeader('Tool Calls'),
           kVSpacer8,
           _ToolCallsTable(calls: calls),
         ],
@@ -96,7 +96,7 @@ class OpenResponsesAnalytics extends StatelessWidget {
         // ── Token usage ────────────────────────────────────────────────────
         if (result.usage != null) ...[
           kVSpacer16,
-          _SectionHeader('Token Usage'),
+          const _SectionHeader('Token Usage'),
           kVSpacer8,
           _TokenUsagePanel(usage: result.usage!),
         ],
