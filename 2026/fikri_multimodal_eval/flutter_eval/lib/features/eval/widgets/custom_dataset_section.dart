@@ -152,17 +152,25 @@ class _SampleRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Filename badge
+          // Image thumbnail — Container with clipBehavior enforces clipping on Web
           Container(
-            width: 40,
-            height: 40,
+            width: 48,
+            height: 48,
+            clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               color: AppTheme.muted,
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(6),
             ),
-            alignment: Alignment.center,
-            child: const Icon(Icons.image_outlined,
-                size: 20, color: AppTheme.textMuted),
+            child: Image.network(
+              sample.image.path,
+              width: 48,
+              height: 48,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => const Center(
+                child: Icon(Icons.broken_image_outlined,
+                    size: 20, color: AppTheme.textMuted),
+              ),
+            ),
           ),
           const SizedBox(width: 10),
           // Fields
