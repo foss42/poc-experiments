@@ -1,41 +1,115 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../design.dart';
 
 /// Renders an A2UI component tree built from the parsed JSONL payload.
-/// Supports 24 component types — Text, Button, Card, Row, Column, Image,
+///
+/// Supports 28 component types — Text, Button, Card, Row, Column, Image,
 /// Icon, Divider, List, Tabs, TextField, Checkbox, Switch, Progress, Chip,
-/// Badge, Avatar, Slider, Radio, Dropdown, Table, Wrap, CircularProgress,
-/// Tooltip, Container, Alert, CodeBlock, Link.
+/// Badge, Avatar, Slider, Radio, Dropdown, Table, Wrap, Spacer,
+/// CircularProgress, Tooltip, Container, Alert, CodeBlock, Link.
+///
+/// Set [inspectMode] to true to enable tap-to-inspect overlays: every
+/// rendered component gets a highlight border and can be tapped to open
+/// a bottom sheet showing its raw JSON definition.
+///
+/// [onDiagnostic] is called with `(componentType, componentId)` whenever
+/// an unknown component type is encountered during rendering.
 class A2UIRenderer extends StatefulWidget {
   const A2UIRenderer({
     super.key,
     required this.components,
     required this.dataModel,
+    this.inspectMode = false,
+    this.onDiagnostic,
   });
 
   final Map<String, dynamic> components;
   final Map<String, dynamic> dataModel;
+  final bool inspectMode;
+
+  /// Called with `(type, id)` for every component type that is not
+  /// recognised by the renderer. Useful for surfacing diagnostics in the
+  /// parent (e.g. showing a warning banner).
+  final void Function(String type, String id)? onDiagnostic;
 
   @override
   State<A2UIRenderer> createState() => _A2UIRendererState();
 }
 
+// ---------------------------------------------------------------------------
+// Inherited widget — propagates inspect-mode toggle + inspector callback
+// down the component sub-tree without threading parameters through every
+// _build* method.
+// ---------------------------------------------------------------------------
+
+class _InspectScope extends InheritedWidget {
+  const _InspectScope({
+    required this.enabled,
+    required this.onInspect,
+    required super.child,
+  });
+
+  final bool enabled;
+  final void Function(String id, Map<String, dynamic> node) onInspect;
+
+  static _InspectScope? of(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<_InspectScope>();
+
+  @override
+  bool updateShouldNotify(_InspectScope old) => enabled != old.enabled;
+}
+
+// ---------------------------------------------------------------------------
+// State
+// ---------------------------------------------------------------------------
+
 class _A2UIRendererState extends State<A2UIRenderer> {
   final Map<String, dynamic> _localState = {};
+
+  void _showInspector(BuildContext context, String id, Map<String, dynamic> node) {
+    final pretty = const JsonEncoder.withIndent('  ').convert(node);
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      builder: (ctx) => DraggableScrollableSheet(
+        expand: false,
+        initialChildSize: 0.45,
+        minChildSize: 0.25,
+        maxChildSize: 0.85,
+        builder: (_, sc) => _InspectorSheet(
+          id: id,
+          node: node,
+          prettyJson: pretty,
+          scrollController: sc,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     if (!widget.components.containsKey('root')) {
       return const _A2UIError(message: 'No root component');
     }
-    return _renderComponent(context, 'root');
+    return _InspectScope(
+      enabled: widget.inspectMode,
+      onInspect: (id, node) => _showInspector(context, id, node),
+      child: _renderComponent(context, 'root'),
+    );
   }
 
   Widget _renderComponent(BuildContext context, String id) {
     final node = widget.components[id];
     if (node is! Map<String, dynamic>) return const SizedBox.shrink();
 
-    return switch (node['component'] as String? ?? '') {
+    final type = node['component'] as String? ?? '';
+    final built = switch (type) {
       'Text' => _buildText(context, node),
       'Button' => _buildButton(context, node),
       'Card' => _buildCard(context, node),
@@ -65,8 +139,65 @@ class _A2UIRendererState extends State<A2UIRenderer> {
       'Alert' => _buildAlert(context, node),
       'CodeBlock' => _buildCodeBlock(context, node),
       'Link' => _buildLink(context, node),
-      final t => _A2UIError(message: 'Unknown component: $t'),
+      final t => _buildUnknown(context, t, id),
     };
+    return _maybeInspect(context, id, node, built);
+  }
+
+  // Wraps [child] with a tap-to-inspect overlay when inspect mode is on.
+  Widget _maybeInspect(
+      BuildContext context, String id, Map<String, dynamic> node, Widget child) {
+    final scope = _InspectScope.of(context);
+    if (scope == null || !scope.enabled) return child;
+    return GestureDetector(
+      onTap: () => scope.onInspect(id, node),
+      behavior: HitTestBehavior.translucent,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.45),
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(2),
+        ),
+        child: child,
+      ),
+    );
+  }
+
+  // Renders a visible placeholder for unrecognised component types and
+  // notifies the parent via the onDiagnostic callback.
+  Widget _buildUnknown(BuildContext context, String type, String id) {
+    widget.onDiagnostic?.call(type, id);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Theme.of(context).colorScheme.error.withValues(alpha: 0.5),
+          width: 1,
+          style: BorderStyle.solid,
+        ),
+        borderRadius: BorderRadius.circular(4),
+        color: Theme.of(context).colorScheme.errorContainer.withValues(alpha: 0.15),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.help_outline_rounded,
+              size: 14,
+              color: Theme.of(context).colorScheme.error),
+          const SizedBox(width: 4),
+          Text(
+            'Unknown: $type',
+            style: TextStyle(
+              fontFamily: 'monospace',
+              fontSize: 11,
+              color: Theme.of(context).colorScheme.error,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   String _resolve(dynamic value) {
@@ -598,8 +729,116 @@ class _A2UIError extends StatelessWidget {
         padding: kP8,
         child: Text(
           message,
-          style: TextStyle(
-              color: Theme.of(context).colorScheme.error),
+          style: TextStyle(color: Theme.of(context).colorScheme.error),
         ),
       );
+}
+
+// ---------------------------------------------------------------------------
+// Inspector bottom sheet
+// ---------------------------------------------------------------------------
+
+class _InspectorSheet extends StatelessWidget {
+  const _InspectorSheet({
+    required this.id,
+    required this.node,
+    required this.prettyJson,
+    required this.scrollController,
+  });
+
+  final String id;
+  final Map<String, dynamic> node;
+  final String prettyJson;
+  final ScrollController scrollController;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final type = node['component'] as String? ?? '?';
+
+    return Column(
+      children: [
+        // Handle
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Container(
+            width: 36,
+            height: 4,
+            decoration: BoxDecoration(
+              color: theme.colorScheme.outlineVariant,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ),
+
+        // Header
+        Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 16, 12),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  type,
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'monospace',
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '#$id',
+                style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.outline),
+              ),
+              const Spacer(),
+              IconButton(
+                tooltip: 'Copy JSON',
+                icon: const Icon(Icons.copy_rounded, size: 18),
+                visualDensity: VisualDensity.compact,
+                onPressed: () {
+                  Clipboard.setData(ClipboardData(text: prettyJson));
+                  ScaffoldMessenger.of(context)
+                    ..hideCurrentSnackBar()
+                    ..showSnackBar(const SnackBar(
+                      content: Text('Component JSON copied'),
+                      duration: Duration(seconds: 1),
+                    ));
+                },
+              ),
+            ],
+          ),
+        ),
+
+        const Divider(height: 1),
+
+        // JSON body
+        Expanded(
+          child: SingleChildScrollView(
+            controller: scrollController,
+            padding: const EdgeInsets.all(16),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: SelectableText(
+                prettyJson,
+                style: const TextStyle(
+                    fontFamily: 'monospace', fontSize: 12, height: 1.6),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }

@@ -104,11 +104,22 @@ class _DemoShellState extends State<_DemoShell> {
           VerticalDivider(width: 1, color: theme.colorScheme.outlineVariant),
           // Main content
           Expanded(
-            child: switch (_index) {
-              0 => const OpenResponsesExplorer(),
-              1 => const _GenUIPlayground(),
-              _ => const _AboutPage(),
-            },
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 220),
+              transitionBuilder: (child, animation) => FadeTransition(
+                opacity: CurvedAnimation(
+                    parent: animation, curve: Curves.easeInOut),
+                child: child,
+              ),
+              child: KeyedSubtree(
+                key: ValueKey(_index),
+                child: switch (_index) {
+                  0 => const OpenResponsesExplorer(),
+                  1 => const _GenUIPlayground(),
+                  _ => const _AboutPage(),
+                },
+              ),
+            ),
           ),
         ],
       ),
@@ -120,78 +131,74 @@ class _DemoShellState extends State<_DemoShell> {
 // Built-in A2UI JSONL samples
 // ---------------------------------------------------------------------------
 
-const _kSampleDashboard = r'''
-{"createSurface":{"id":"s1","title":"Sales Dashboard"}}
-{"updateComponents":{"components":[
-  {"id":"root","component":"Column","children":["header","sp1","stats_row","div1","tbl_title","sales_table"]},
-  {"id":"header","component":"Row","justify":"spaceBetween","children":["title_text","live_badge"]},
-  {"id":"title_text","component":"Text","text":"Sales Dashboard","variant":"h2"},
-  {"id":"live_badge","component":"Badge","label":"Live","color":"green"},
-  {"id":"sp1","component":"Spacer"},
-  {"id":"stats_row","component":"Wrap","spacing":12,"children":["stat1","stat2","stat3"]},
-  {"id":"stat1","component":"Card","children":["s1v","s1l"]},
-  {"id":"s1v","component":"Text","text":{"path":"/revenue"},"variant":"h2"},
-  {"id":"s1l","component":"Text","text":"Total Revenue","variant":"caption"},
-  {"id":"stat2","component":"Card","children":["s2v","s2l"]},
-  {"id":"s2v","component":"Text","text":{"path":"/orders"},"variant":"h2"},
-  {"id":"s2l","component":"Text","text":"Orders","variant":"caption"},
-  {"id":"stat3","component":"Card","children":["s3v","s3l"]},
-  {"id":"s3v","component":"Text","text":{"path":"/conversion"},"variant":"h2"},
-  {"id":"s3l","component":"Text","text":"Conversion Rate","variant":"caption"},
-  {"id":"div1","component":"Divider"},
-  {"id":"tbl_title","component":"Text","text":"Recent Orders","variant":"h3"},
-  {"id":"sales_table","component":"Table","headers":["Order ID","Customer","Amount","Status"],"rows":[["#1042","Alice Chen","$240","Shipped"],["#1041","Bob Kumar","$180","Processing"],["#1040","Carol Smith","$320","Delivered"],["#1039","Dan Park","$95","Refunded"]]}
-]}}
-{"updateDataModel":{"path":"/revenue","value":"$12,450"}}
-{"updateDataModel":{"path":"/orders","value":"342"}}
-{"updateDataModel":{"path":"/conversion","value":"3.2%"}}
-''';
+const _kSampleDashboard = '{"createSurface":{"id":"s1","title":"Sales Dashboard"}}\n'
+    '{"updateComponents":{"components":['
+    '{"id":"root","component":"Column","children":["header","sp1","stats_row","div1","tbl_title","sales_table"]},'
+    '{"id":"header","component":"Row","justify":"spaceBetween","children":["title_text","live_badge"]},'
+    '{"id":"title_text","component":"Text","text":"Sales Dashboard","variant":"h2"},'
+    '{"id":"live_badge","component":"Badge","label":"Live","color":"green"},'
+    '{"id":"sp1","component":"Spacer"},'
+    '{"id":"stats_row","component":"Wrap","spacing":12,"children":["stat1","stat2","stat3"]},'
+    '{"id":"stat1","component":"Card","children":["s1v","s1l"]},'
+    r'{"id":"s1v","component":"Text","text":{"path":"/revenue"},"variant":"h2"},'
+    '{"id":"s1l","component":"Text","text":"Total Revenue","variant":"caption"},'
+    '{"id":"stat2","component":"Card","children":["s2v","s2l"]},'
+    r'{"id":"s2v","component":"Text","text":{"path":"/orders"},"variant":"h2"},'
+    '{"id":"s2l","component":"Text","text":"Orders","variant":"caption"},'
+    '{"id":"stat3","component":"Card","children":["s3v","s3l"]},'
+    r'{"id":"s3v","component":"Text","text":{"path":"/conversion"},"variant":"h2"},'
+    '{"id":"s3l","component":"Text","text":"Conversion Rate","variant":"caption"},'
+    '{"id":"div1","component":"Divider"},'
+    '{"id":"tbl_title","component":"Text","text":"Recent Orders","variant":"h3"},'
+    '{"id":"sales_table","component":"Table","headers":["Order ID","Customer","Amount","Status"],'
+    '"rows":[["#1042","Alice Chen","\$240","Shipped"],["#1041","Bob Kumar","\$180","Processing"],'
+    '["#1040","Carol Smith","\$320","Delivered"],["#1039","Dan Park","\$95","Refunded"]]}'
+    ']}}\n'
+    '{"updateDataModel":{"path":"/revenue","value":"\$12,450"}}\n'
+    '{"updateDataModel":{"path":"/orders","value":"342"}}\n'
+    '{"updateDataModel":{"path":"/conversion","value":"3.2%"}}';
 
-const _kSampleApiConfig = r'''
-{"createSurface":{"id":"s2","title":"API Configuration"}}
-{"updateComponents":{"components":[
-  {"id":"root","component":"Column","children":["form_title","sp1","model_field","sp2","temp_slider","stream_sw","sp3","fmt_drop","sp4","info_alert","sp5","submit_btn"]},
-  {"id":"form_title","component":"Text","text":"API Configuration","variant":"h2"},
-  {"id":"sp1","component":"Spacer"},
-  {"id":"model_field","component":"TextField","label":"Model","hint":"e.g. gpt-4o"},
-  {"id":"sp2","component":"Spacer"},
-  {"id":"temp_slider","component":"Slider","id":"temperature","label":"Temperature","min":0,"max":2,"value":0.7},
-  {"id":"stream_sw","component":"Switch","id":"streaming","label":"Enable Streaming","value":true},
-  {"id":"sp3","component":"Spacer"},
-  {"id":"fmt_drop","component":"Dropdown","id":"format","label":"Response Format","options":["text","json","json_schema"],"value":"text"},
-  {"id":"sp4","component":"Spacer"},
-  {"id":"info_alert","component":"Alert","severity":"info","message":"Changes apply to the next API request sent from APIDash."},
-  {"id":"sp5","component":"Spacer"},
-  {"id":"submit_btn","component":"Button","text":"Save Configuration","variant":"primary","action":"save_config"}
-]}}
-''';
+const _kSampleApiConfig = '{"createSurface":{"id":"s2","title":"API Configuration"}}\n'
+    '{"updateComponents":{"components":['
+    '{"id":"root","component":"Column","children":["form_title","sp1","model_field","sp2","temp_slider","stream_sw","sp3","fmt_drop","sp4","info_alert","sp5","submit_btn"]},'
+    '{"id":"form_title","component":"Text","text":"API Configuration","variant":"h2"},'
+    '{"id":"sp1","component":"Spacer"},'
+    '{"id":"model_field","component":"TextField","label":"Model","hint":"e.g. gpt-4o"},'
+    '{"id":"sp2","component":"Spacer"},'
+    '{"id":"temp_slider","component":"Slider","id":"temperature","label":"Temperature","min":0,"max":2,"value":0.7},'
+    '{"id":"stream_sw","component":"Switch","id":"streaming","label":"Enable Streaming","value":true},'
+    '{"id":"sp3","component":"Spacer"},'
+    '{"id":"fmt_drop","component":"Dropdown","id":"format","label":"Response Format","options":["text","json","json_schema"],"value":"text"},'
+    '{"id":"sp4","component":"Spacer"},'
+    '{"id":"info_alert","component":"Alert","severity":"info","message":"Changes apply to the next API request sent from APIDash."},'
+    '{"id":"sp5","component":"Spacer"},'
+    '{"id":"submit_btn","component":"Button","text":"Save Configuration","variant":"primary","action":"save_config"}'
+    ']}}';
 
-const _kSampleCodeReview = r'''
-{"createSurface":{"id":"s3","title":"Code Review"}}
-{"updateComponents":{"components":[
-  {"id":"root","component":"Column","children":["review_title","score_row","sp1","issues_title","issues_wrap","sp2","code_title","code_block","sp3","suggest_title","suggest_alert","sp4","action_row"]},
-  {"id":"review_title","component":"Text","text":"Code Review Results","variant":"h2"},
-  {"id":"score_row","component":"Row","justify":"start","children":["score_lbl","score_badge"]},
-  {"id":"score_lbl","component":"Text","text":"Quality Score: ","variant":"body"},
-  {"id":"score_badge","component":"Badge","label":"B+","color":"blue"},
-  {"id":"sp1","component":"Spacer"},
-  {"id":"issues_title","component":"Text","text":"Issues Found","variant":"h3"},
-  {"id":"issues_wrap","component":"Wrap","spacing":8,"children":["iss1","iss2","iss3"]},
-  {"id":"iss1","component":"Chip","label":"Missing error handling"},
-  {"id":"iss2","component":"Chip","label":"Unused import"},
-  {"id":"iss3","component":"Chip","label":"Magic number (3.14159)"},
-  {"id":"sp2","component":"Spacer"},
-  {"id":"code_title","component":"Text","text":"Flagged Snippet","variant":"h3"},
-  {"id":"code_block","component":"CodeBlock","language":"dart","code":"double result = value / 3.14159;\nif (result != null) {\n  process(result);\n}"},
-  {"id":"sp3","component":"Spacer"},
-  {"id":"suggest_title","component":"Text","text":"Suggestion","variant":"h3"},
-  {"id":"suggest_alert","component":"Alert","severity":"warning","message":"Extract 3.14159 into a named constant (pi). The null check on a non-nullable double is always false in null-safe Dart."},
-  {"id":"sp4","component":"Spacer"},
-  {"id":"action_row","component":"Row","justify":"start","children":["fix_btn","ignore_btn"]},
-  {"id":"fix_btn","component":"Button","text":"Apply Fix","variant":"primary","action":"apply_fix"},
-  {"id":"ignore_btn","component":"Button","text":"Ignore","variant":"text","action":"ignore"}
-]}}
-''';
+const _kSampleCodeReview = '{"createSurface":{"id":"s3","title":"Code Review"}}\n'
+    '{"updateComponents":{"components":['
+    '{"id":"root","component":"Column","children":["review_title","score_row","sp1","issues_title","issues_wrap","sp2","code_title","code_block","sp3","suggest_title","suggest_alert","sp4","action_row"]},'
+    '{"id":"review_title","component":"Text","text":"Code Review Results","variant":"h2"},'
+    '{"id":"score_row","component":"Row","justify":"start","children":["score_lbl","score_badge"]},'
+    '{"id":"score_lbl","component":"Text","text":"Quality Score: ","variant":"body"},'
+    '{"id":"score_badge","component":"Badge","label":"B+","color":"blue"},'
+    '{"id":"sp1","component":"Spacer"},'
+    '{"id":"issues_title","component":"Text","text":"Issues Found","variant":"h3"},'
+    '{"id":"issues_wrap","component":"Wrap","spacing":8,"children":["iss1","iss2","iss3"]},'
+    '{"id":"iss1","component":"Chip","label":"Missing error handling"},'
+    '{"id":"iss2","component":"Chip","label":"Unused import"},'
+    r'{"id":"iss3","component":"Chip","label":"Magic number (3.14159)"},'
+    '{"id":"sp2","component":"Spacer"},'
+    '{"id":"code_title","component":"Text","text":"Flagged Snippet","variant":"h3"},'
+    r'{"id":"code_block","component":"CodeBlock","language":"dart","code":"double result = value / 3.14159;\nif (result != null) {\n  process(result);\n}"},'
+    '{"id":"sp3","component":"Spacer"},'
+    '{"id":"suggest_title","component":"Text","text":"Suggestion","variant":"h3"},'
+    '{"id":"suggest_alert","component":"Alert","severity":"warning","message":"Extract 3.14159 into a named constant (pi). The null check on a non-nullable double is always false in null-safe Dart."},'
+    '{"id":"sp4","component":"Spacer"},'
+    '{"id":"action_row","component":"Row","justify":"start","children":["fix_btn","ignore_btn"]},'
+    '{"id":"fix_btn","component":"Button","text":"Apply Fix","variant":"primary","action":"apply_fix"},'
+    '{"id":"ignore_btn","component":"Button","text":"Ignore","variant":"text","action":"ignore"}'
+    ']}}';
 
 // ---------------------------------------------------------------------------
 // GenUI Playground
@@ -214,6 +221,8 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
 
   int _selectedSample = 0;
   bool _showSource = false;
+  bool _inspectMode = false;
+  final List<({String type, String id})> _diagnostics = [];
   late final TextEditingController _customCtrl;
 
   @override
@@ -234,6 +243,13 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
     }
     return _customCtrl.text;
   }
+
+  void _handleDiagnostic(String type, String id) {
+    if (_diagnostics.any((d) => d.type == type && d.id == id)) return;
+    setState(() => _diagnostics.add((type: type, id: id)));
+  }
+
+  void _resetDiagnostics() => _diagnostics.clear();
 
   @override
   Widget build(BuildContext context) {
@@ -279,10 +295,36 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                 ),
               ),
               const Spacer(),
+              // Inspect mode toggle
+              if (_selectedSample < _samples.length - 1 && !_showSource)
+                Tooltip(
+                  message: _inspectMode
+                      ? 'Exit inspect mode'
+                      : 'Inspect mode — tap any widget to see its JSON',
+                  child: TextButton.icon(
+                    onPressed: () => setState(() {
+                      _inspectMode = !_inspectMode;
+                      _resetDiagnostics();
+                    }),
+                    icon: Icon(_inspectMode
+                        ? Icons.search_off_rounded
+                        : Icons.manage_search_rounded),
+                    label: Text(_inspectMode ? 'Inspecting' : 'Inspect'),
+                    style: TextButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      foregroundColor: _inspectMode
+                          ? theme.colorScheme.primary
+                          : null,
+                    ),
+                  ),
+                ),
+              const SizedBox(width: 4),
               // Show source toggle
               TextButton.icon(
-                onPressed: () =>
-                    setState(() => _showSource = !_showSource),
+                onPressed: () => setState(() {
+                  _showSource = !_showSource;
+                  if (_showSource) _inspectMode = false;
+                }),
                 icon: Icon(_showSource
                     ? Icons.visibility_off_outlined
                     : Icons.code_rounded),
@@ -296,14 +338,13 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
 
         // ── Sample selector ───────────────────────────────────────────────
         Container(
-          padding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           color: theme.colorScheme.surface,
           child: Row(
             children: [
               Text('Sample:',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.outline)),
+                  style: theme.textTheme.bodySmall
+                      ?.copyWith(color: theme.colorScheme.outline)),
               const SizedBox(width: 10),
               Wrap(
                 spacing: 6,
@@ -314,6 +355,8 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                     selected: selected,
                     onSelected: (_) => setState(() {
                       _selectedSample = i;
+                      _inspectMode = false;
+                      _resetDiagnostics();
                       if (i < _samples.length - 1) _showSource = false;
                     }),
                     visualDensity: VisualDensity.compact,
@@ -324,12 +367,61 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
           ),
         ),
 
+        // ── Inspect mode hint banner ──────────────────────────────────────
+        if (_inspectMode)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+            color: theme.colorScheme.primaryContainer.withValues(alpha: 0.5),
+            child: Row(
+              children: [
+                Icon(Icons.touch_app_rounded,
+                    size: 15, color: theme.colorScheme.primary),
+                const SizedBox(width: 6),
+                Text(
+                  'Tap any widget to inspect its component definition',
+                  style: theme.textTheme.labelSmall?.copyWith(
+                      color: theme.colorScheme.primary),
+                ),
+              ],
+            ),
+          ),
+
+        // ── Diagnostics banner ────────────────────────────────────────────
+        if (_diagnostics.isNotEmpty)
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 7),
+            color: theme.colorScheme.errorContainer.withValues(alpha: 0.35),
+            child: Row(
+              children: [
+                Icon(Icons.warning_amber_rounded,
+                    size: 15, color: theme.colorScheme.error),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    'Unknown components: ${_diagnostics.map((d) => d.type).toSet().join(", ")}',
+                    style: theme.textTheme.labelSmall
+                        ?.copyWith(color: theme.colorScheme.error),
+                  ),
+                ),
+                InkWell(
+                  onTap: () => setState(_resetDiagnostics),
+                  child: Icon(Icons.close_rounded,
+                      size: 14, color: theme.colorScheme.error),
+                ),
+              ],
+            ),
+          ),
+
         // ── Content ───────────────────────────────────────────────────────
         Expanded(
           child: _selectedSample == _samples.length - 1
               ? _CustomPane(
                   controller: _customCtrl,
                   parsed: parsed,
+                  inspectMode: _inspectMode,
+                  onDiagnostic: _handleDiagnostic,
                   onChanged: () => setState(() {}),
                 )
               : _showSource
@@ -337,7 +429,11 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                       jsonl: _activeJsonl,
                       surfaceTitle: parsed?.surfaceTitle,
                     )
-                  : _RenderPane(parsed: parsed),
+                  : _RenderPane(
+                      parsed: parsed,
+                      inspectMode: _inspectMode,
+                      onDiagnostic: _handleDiagnostic,
+                    ),
         ),
       ],
     );
@@ -347,12 +443,19 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
 // ── Render pane ─────────────────────────────────────────────────────────────
 
 class _RenderPane extends StatelessWidget {
-  const _RenderPane({required this.parsed});
+  const _RenderPane({
+    required this.parsed,
+    this.inspectMode = false,
+    this.onDiagnostic,
+  });
+
   final ({
     Map<String, dynamic> components,
     Map<String, dynamic> dataModel,
     String? surfaceTitle,
   })? parsed;
+  final bool inspectMode;
+  final void Function(String type, String id)? onDiagnostic;
 
   @override
   Widget build(BuildContext context) {
@@ -402,6 +505,8 @@ class _RenderPane extends StatelessWidget {
           A2UIRenderer(
             components: parsed!.components,
             dataModel: parsed!.dataModel,
+            inspectMode: inspectMode,
+            onDiagnostic: onDiagnostic,
           ),
         ],
       ),
@@ -476,6 +581,8 @@ class _CustomPane extends StatelessWidget {
     required this.controller,
     required this.parsed,
     required this.onChanged,
+    this.inspectMode = false,
+    this.onDiagnostic,
   });
 
   final TextEditingController controller;
@@ -485,6 +592,8 @@ class _CustomPane extends StatelessWidget {
     String? surfaceTitle,
   })? parsed;
   final VoidCallback onChanged;
+  final bool inspectMode;
+  final void Function(String type, String id)? onDiagnostic;
 
   @override
   Widget build(BuildContext context) {
@@ -540,7 +649,11 @@ class _CustomPane extends StatelessWidget {
 
         // Right: live render
         Expanded(
-          child: _RenderPane(parsed: parsed),
+          child: _RenderPane(
+            parsed: parsed,
+            inspectMode: inspectMode,
+            onDiagnostic: onDiagnostic,
+          ),
         ),
       ],
     );
