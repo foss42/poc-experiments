@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Evaluation PoC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🤖 AI Model Evaluation</h1>
+            <p>Compare model outputs and evaluate performance metrics</p>
+        </header>
+
+        <!-- Form Section -->
+        <div class="form-section">
+            <form id="evaluationForm">
+                <!-- CSV Upload -->
+                <div class="form-group">
+                    <label>📁 Upload CSV File</label>
+                    <div class="file-upload-area" id="dropZone">
+                        <div class="file-upload-icon">📤</div>
+                        <p>Drag and drop your CSV file here</p>
+                        <p><span class="highlight">or click to browse</span></p>
+                        <p style="font-size: 0.85em; color: #707080; margin-top: 8px;">
+                            Required columns: prompt, expected_answer
+                        </p>
+                    </div>
+                    <input type="file" id="csvFile" accept=".csv" required>
+                    <div class="file-name" id="fileName"></div>
+                </div>
+
+                <!-- Model Selection -->
+                <div class="form-group">
+                    <label>🧠 Select Models</label>
+                    <div class="model-grid">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="groqCheckbox" name="models" value="groq" checked>
+                            <label for="groqCheckbox">Groq (llama-3.1-8b)</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="mistralCheckbox" name="models" value="mistral" checked>
+                            <label for="mistralCheckbox">Mistral (mistral-medium)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Slider -->
+                <div class="form-group">
+                    <label>🌡️ Temperature</label>
+                    <div class="slider-container">
+                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                        <div class="temperature-value" id="tempValue">0.7</div>
+                    </div>
+                    <p style="color: #707080; font-size: 0.85em; margin-top: 8px;">
+                        Lower = deterministic, Higher = creative
+                    </p>
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-group">
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            ▶️ Start Evaluation
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage"></div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p class="loading-text">Processing evaluation... This may take a minute</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2>📊 Evaluation Results</h2>
+                <button type="button" class="btn-secondary" id="exportBtn">
+                    💾 Export CSV
+                </button>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="results-summary" id="resultsSummary"></div>
+
+            <!-- Results Table -->
+            <div class="table-wrapper">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>Prompt</th>
+                            <th>Expected Answer</th>
+                            <th>Groq Output</th>
+                            <th>Groq BLEU</th>
+                            <th>Groq ROUGE-L</th>
+                            <th>Groq Match</th>
+                            <th>Mistral Output</th>
+                            <th>Mistral BLEU</th>
+                            <th>Mistral ROUGE-L</th>
+                            <th>Mistral Match</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
