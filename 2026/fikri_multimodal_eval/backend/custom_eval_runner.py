@@ -17,6 +17,21 @@ import httpx
 SESSION_DIR = Path("/tmp/custom_eval")
 
 
+def make_thumbnail(image_path: Path, size: int = 80) -> str | None:
+    """Return a base64 JPEG data-URI thumbnail (80×80), or None on error."""
+    try:
+        import io
+        from PIL import Image as PILImage
+        with PILImage.open(image_path) as img:
+            img = img.convert("RGB")
+            img.thumbnail((size, size), PILImage.LANCZOS)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=72)
+        return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return None
+
+
 def encode_image(image_path: Path) -> str:
     """Return a data URI (base64-encoded) for the given image file.
 
@@ -43,14 +58,31 @@ def normalize(text: str) -> str:
 def score(model_answer: str, ground_truth: str | None) -> bool | None:
     """Return True/False if ground_truth is provided, None otherwise.
 
-    Exact match is checked first; substring match handles verbose model answers
-    (e.g. "I think it is a cat" matches ground truth "cat").
+    Tries three increasingly lenient strategies:
+    1. Exact match after normalization.
+    2. Whole-phrase word-boundary match: ground truth appears as a complete
+       phrase in the model answer (uses \\b so "cat" does NOT match inside
+       "identification").
+    3. Soft word overlap: ≥ 50 % of ground-truth words appear individually as
+       whole words in the model answer — handles abbreviation expansion
+       ("id" → "identification"), verbose answers, and different word order.
     """
     if ground_truth is None:
         return None
     nm = normalize(model_answer)
     ng = normalize(ground_truth)
-    return nm == ng or ng in nm
+    if nm == ng:
+        return True
+    if re.search(r"\b" + re.escape(ng) + r"\b", nm):
+        return True
+    # Soft word-level overlap
+    gt_words = set(ng.split())
+    model_words = set(nm.split())
+    if gt_words:
+        overlap_ratio = len(gt_words & model_words) / len(gt_words)
+        if overlap_ratio >= 0.5:
+            return True
+    return False
 
 
 async def call_model(
@@ -112,7 +144,13 @@ async def _call_openrouter(model: str, image_data_uri: str, prompt: str) -> str:
             json=payload,
             headers={"Authorization": f"Bearer {api_key}"},
         )
-        r.raise_for_status()
+        if r.status_code >= 400:
+            try:
+                body = r.json()
+                detail = body.get("error", {}).get("message", r.text[:300])
+            except Exception:
+                detail = r.text[:300]
+            raise RuntimeError(f"OpenRouter {r.status_code}: {detail}")
         return r.json()["choices"][0]["message"]["content"].strip()
 
 
@@ -133,6 +171,108 @@ async def _call_huggingface(model: str, image_data_uri: str, prompt: str) -> str
 
     result = await loop.run_in_executor(None, _run)
     return result[0]["answer"] if result else ""
+
+
+async def run_custom_eval_compare(
+    session_id: str,
+    samples: list[dict],
+    provider: str,
+    models: list[str],
+    openrouter_api_key: str | None = None,
+) -> AsyncGenerator[dict, None]:
+    """Run every model over all samples sequentially, streaming per-model events.
+
+    Yields: started → (model_started → (sample|sample_error)×N → model_complete)×M → complete
+    """
+    has_ground_truth = any(s.get("answer") for s in samples)
+    total_models = len(models)
+    sdir = SESSION_DIR / session_id
+
+    yield {"type": "started", "total": len(samples) * total_models, "total_models": total_models}
+
+    all_model_results: dict[str, list[dict]] = {}
+
+    # Set OpenRouter env once for all models
+    _prev_key = os.environ.get("OPENAI_API_KEY")
+    _prev_base = os.environ.get("OPENAI_API_BASE")
+    if provider == "openrouter" and openrouter_api_key:
+        os.environ["OPENAI_API_KEY"] = openrouter_api_key
+        os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+
+    try:
+        for model_index, model in enumerate(models):
+            yield {
+                "type": "model_started",
+                "model": model,
+                "model_index": model_index,
+                "total_models": total_models,
+            }
+
+            correct_count = 0
+            model_results: list[dict] = []
+
+            for i, sample in enumerate(samples):
+                image_path = sdir / sample["filename"]
+                thumbnail = make_thumbnail(image_path)
+                try:
+                    image_uri = encode_image(image_path)
+                    answer = await call_model(
+                        provider, model, image_uri,
+                        sample["question"], sample.get("choices"),
+                    )
+                    is_correct = score(answer, sample.get("answer"))
+                    if is_correct is True:
+                        correct_count += 1
+                    event = {
+                        "type": "sample",
+                        "model": model,
+                        "model_index": model_index,
+                        "index": i,
+                        "total": len(samples),
+                        "filename": sample["filename"],
+                        "question": sample["question"],
+                        "model_answer": answer,
+                        "correct": is_correct,
+                        **({"thumbnail": thumbnail} if thumbnail else {}),
+                    }
+                except Exception as e:
+                    event = {
+                        "type": "sample_error",
+                        "model": model,
+                        "model_index": model_index,
+                        "index": i,
+                        "total": len(samples),
+                        "filename": sample["filename"],
+                        "question": sample["question"],
+                        "detail": str(e),
+                        **({"thumbnail": thumbnail} if thumbnail else {}),
+                    }
+                model_results.append(event)
+                yield event
+
+            model_complete: dict = {
+                "type": "model_complete",
+                "model": model,
+                "model_index": model_index,
+                "results": model_results,
+            }
+            if has_ground_truth and samples:
+                model_complete["accuracy"] = round(correct_count / len(samples), 4)
+            all_model_results[model] = model_results
+            yield model_complete
+
+    finally:
+        if provider == "openrouter" and openrouter_api_key:
+            if _prev_key is None:
+                os.environ.pop("OPENAI_API_KEY", None)
+            else:
+                os.environ["OPENAI_API_KEY"] = _prev_key
+            if _prev_base is None:
+                os.environ.pop("OPENAI_API_BASE", None)
+            else:
+                os.environ["OPENAI_API_BASE"] = _prev_base
+
+    yield {"type": "complete", "comparison": all_model_results}
 
 
 async def run_custom_eval(
@@ -163,6 +303,7 @@ async def run_custom_eval(
         correct_count = 0
         for i, sample in enumerate(samples):
             image_path = sdir / sample["filename"]
+            thumbnail = make_thumbnail(image_path)
             try:
                 image_uri = encode_image(image_path)
                 answer = await call_model(
@@ -175,7 +316,7 @@ async def run_custom_eval(
                 is_correct = score(answer, sample.get("answer"))
                 if is_correct is True:
                     correct_count += 1
-                yield {
+                sample_event: dict = {
                     "type": "sample",
                     "index": i,
                     "total": len(samples),
@@ -184,8 +325,11 @@ async def run_custom_eval(
                     "model_answer": answer,
                     "correct": is_correct,
                 }
+                if thumbnail:
+                    sample_event["thumbnail"] = thumbnail
+                yield sample_event
             except Exception as e:
-                yield {
+                err_event: dict = {
                     "type": "sample_error",
                     "index": i,
                     "total": len(samples),
@@ -193,6 +337,9 @@ async def run_custom_eval(
                     "question": sample["question"],
                     "detail": str(e),
                 }
+                if thumbnail:
+                    err_event["thumbnail"] = thumbnail
+                yield err_event
 
         complete: dict = {"type": "complete"}
         if has_ground_truth and samples:

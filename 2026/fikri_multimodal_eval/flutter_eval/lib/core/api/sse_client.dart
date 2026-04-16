@@ -71,8 +71,20 @@ sealed class CustomEvalSSEEvent {
 }
 
 class CustomEvalStarted extends CustomEvalSSEEvent {
-  const CustomEvalStarted(this.total);
+  const CustomEvalStarted({required this.total, this.totalModels = 1});
   final int total;
+  final int totalModels;
+}
+
+class CustomEvalModelStarted extends CustomEvalSSEEvent {
+  const CustomEvalModelStarted({
+    required this.model,
+    required this.modelIndex,
+    required this.totalModels,
+  });
+  final String model;
+  final int modelIndex;
+  final int totalModels;
 }
 
 class CustomEvalSample extends CustomEvalSSEEvent {
@@ -83,6 +95,9 @@ class CustomEvalSample extends CustomEvalSSEEvent {
     required this.question,
     required this.modelAnswer,
     this.correct,
+    this.model,
+    this.modelIndex,
+    this.thumbnailUri,
   });
   final int index;
   final int total;
@@ -90,6 +105,9 @@ class CustomEvalSample extends CustomEvalSSEEvent {
   final String question;
   final String modelAnswer;
   final bool? correct;
+  final String? model;
+  final int? modelIndex;
+  final String? thumbnailUri;
 }
 
 class CustomEvalSampleError extends CustomEvalSSEEvent {
@@ -97,21 +115,41 @@ class CustomEvalSampleError extends CustomEvalSSEEvent {
     required this.index,
     required this.filename,
     required this.detail,
+    this.model,
+    this.modelIndex,
   });
   final int index;
   final String filename;
   final String detail;
+  final String? model;
+  final int? modelIndex;
+}
+
+class CustomEvalModelComplete extends CustomEvalSSEEvent {
+  const CustomEvalModelComplete({
+    required this.model,
+    required this.modelIndex,
+    required this.results,
+    this.accuracy,
+  });
+  final String model;
+  final int modelIndex;
+  final double? accuracy;
+  final List<Map<String, dynamic>> results;
 }
 
 class CustomEvalComplete extends CustomEvalSSEEvent {
   const CustomEvalComplete({
     required this.evalId,
-    required this.results,
+    this.results = const [],
     this.accuracy,
+    this.comparison,
   });
   final String evalId;
   final double? accuracy;
   final List<Map<String, dynamic>> results;
+  /// For compare mode: model → list of sample results
+  final Map<String, List<Map<String, dynamic>>>? comparison;
 }
 
 class CustomEvalError extends CustomEvalSSEEvent {
@@ -236,7 +274,16 @@ CustomEvalSSEEvent? _parseCustomEvalEvent(Map<String, dynamic> json) {
   final type = json['type'] as String? ?? '';
   switch (type) {
     case 'started':
-      return CustomEvalStarted(json['total'] as int? ?? 0);
+      return CustomEvalStarted(
+        total: json['total'] as int? ?? 0,
+        totalModels: json['total_models'] as int? ?? 1,
+      );
+    case 'model_started':
+      return CustomEvalModelStarted(
+        model: json['model'] as String? ?? '',
+        modelIndex: json['model_index'] as int? ?? 0,
+        totalModels: json['total_models'] as int? ?? 1,
+      );
     case 'sample':
       return CustomEvalSample(
         index: json['index'] as int? ?? 0,
@@ -245,14 +292,38 @@ CustomEvalSSEEvent? _parseCustomEvalEvent(Map<String, dynamic> json) {
         question: json['question'] as String? ?? '',
         modelAnswer: json['model_answer'] as String? ?? '',
         correct: json['correct'] as bool?,
+        model: json['model'] as String?,
+        modelIndex: json['model_index'] as int?,
+        thumbnailUri: json['thumbnail'] as String?,
       );
     case 'sample_error':
       return CustomEvalSampleError(
         index: json['index'] as int? ?? 0,
         filename: json['filename'] as String? ?? '',
         detail: json['detail'] as String? ?? 'Error',
+        model: json['model'] as String?,
+        modelIndex: json['model_index'] as int?,
+      );
+    case 'model_complete':
+      return CustomEvalModelComplete(
+        model: json['model'] as String? ?? '',
+        modelIndex: json['model_index'] as int? ?? 0,
+        accuracy: (json['accuracy'] as num?)?.toDouble(),
+        results: (json['results'] as List<dynamic>?)
+                ?.map((e) => (e as Map).cast<String, dynamic>())
+                .toList() ??
+            [],
       );
     case 'complete':
+      Map<String, List<Map<String, dynamic>>>? comparison;
+      if (json['comparison'] != null) {
+        comparison = (json['comparison'] as Map<String, dynamic>).map(
+          (k, v) => MapEntry(
+            k,
+            (v as List).map((e) => (e as Map).cast<String, dynamic>()).toList(),
+          ),
+        );
+      }
       return CustomEvalComplete(
         evalId: json['eval_id'] as String? ?? '',
         accuracy: (json['accuracy'] as num?)?.toDouble(),
@@ -260,6 +331,7 @@ CustomEvalSSEEvent? _parseCustomEvalEvent(Map<String, dynamic> json) {
                 ?.map((e) => (e as Map).cast<String, dynamic>())
                 .toList() ??
             [],
+        comparison: comparison,
       );
     case 'error':
       return CustomEvalError(json['detail'] as String? ?? 'Unknown error');

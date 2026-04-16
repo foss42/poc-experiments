@@ -7,6 +7,7 @@ import '../../../core/api/api_client.dart';
 import '../../../core/api/sse_client.dart';
 import '../../../core/models/benchmark_config.dart';
 import '../../../core/models/eval_config.dart';
+import '../../settings/providers/settings_provider.dart';
 import 'eval_config_provider.dart';
 
 class ModelResult {
@@ -62,12 +63,13 @@ class CompareNotifier extends StateNotifier<CompareState> {
   Future<void> run() async {
     final config = _ref.read(evalConfigProvider);
     final dio = _ref.read(dioProvider);
+    final apiKey = _ref.read(settingsProvider).openRouterApiKey;
 
     _cancelToken = CancelToken();
     state = const CompareState(isRunning: true);
 
     try {
-      final body = _buildRequest(config);
+      final body = _buildRequest(config, openRouterApiKey: apiKey);
       final response = await dio.post<ResponseBody>(
         '/api/eval/harness/compare',
         data: body,
@@ -135,17 +137,27 @@ class CompareNotifier extends StateNotifier<CompareState> {
   }
 }
 
-Map<String, dynamic> _buildRequest(EvalConfig config) => {
-      'model_type': 'hf-multimodal',
-      'models': config.models,
-      'tasks': config.tasks,
-      'num_fewshot': 0,
-      'limit': config.sampleLimit,
-      'device': 'cpu',
-      'harness': config.benchmark.harness,
-      'provider':
-          config.provider == EvalProvider.ollama ? 'ollama' : 'huggingface',
-    };
+Map<String, dynamic> _buildRequest(EvalConfig config, {String? openRouterApiKey}) {
+  final providerStr = switch (config.provider) {
+    EvalProvider.ollama => 'ollama',
+    EvalProvider.openrouter => 'openrouter',
+    EvalProvider.huggingface => 'huggingface',
+  };
+  return {
+    'model_type': 'hf-multimodal',
+    'models': config.models,
+    'tasks': config.tasks,
+    'num_fewshot': 0,
+    'limit': config.sampleLimit,
+    'device': 'cpu',
+    'harness': config.benchmark.harness,
+    'provider': providerStr,
+    if (config.provider == EvalProvider.openrouter &&
+        openRouterApiKey != null &&
+        openRouterApiKey.isNotEmpty)
+      'openrouter_api_key': openRouterApiKey,
+  };
+}
 
 final compareProvider =
     StateNotifierProvider<CompareNotifier, CompareState>(

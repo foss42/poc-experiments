@@ -21,6 +21,13 @@ class CustomEvalState {
     this.evalId,
     this.error,
     this.isComplete = false,
+    // compare mode
+    this.isCompareMode = false,
+    this.currentModel,
+    this.currentModelIndex = 0,
+    this.totalModels = 1,
+    this.modelResults = const {},
+    this.modelAccuracies = const {},
   });
 
   final bool isRunning;
@@ -31,6 +38,14 @@ class CustomEvalState {
   final String? evalId;
   final String? error;
   final bool isComplete;
+
+  // compare mode fields
+  final bool isCompareMode;
+  final String? currentModel;
+  final int currentModelIndex;
+  final int totalModels;
+  final Map<String, List<Map<String, dynamic>>> modelResults;
+  final Map<String, double?> modelAccuracies;
 
   int get received => sampleResults.length + sampleErrors.length;
   double get progress => total == 0 ? 0.0 : received / total;
@@ -44,6 +59,12 @@ class CustomEvalState {
     String? evalId,
     String? error,
     bool? isComplete,
+    bool? isCompareMode,
+    String? currentModel,
+    int? currentModelIndex,
+    int? totalModels,
+    Map<String, List<Map<String, dynamic>>>? modelResults,
+    Map<String, double?>? modelAccuracies,
   }) {
     return CustomEvalState(
       isRunning: isRunning ?? this.isRunning,
@@ -54,6 +75,12 @@ class CustomEvalState {
       evalId: evalId ?? this.evalId,
       error: error ?? this.error,
       isComplete: isComplete ?? this.isComplete,
+      isCompareMode: isCompareMode ?? this.isCompareMode,
+      currentModel: currentModel ?? this.currentModel,
+      currentModelIndex: currentModelIndex ?? this.currentModelIndex,
+      totalModels: totalModels ?? this.totalModels,
+      modelResults: modelResults ?? this.modelResults,
+      modelAccuracies: modelAccuracies ?? this.modelAccuracies,
     );
   }
 }
@@ -124,13 +151,13 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
       );
       final sessionId = uploadResp.data!['session_id'] as String;
 
-      // ── Step 2: stream eval results ────────────────────────────────────
+      // ── Step 2: stream eval results (single or compare) ───────────────
       final streamResp = await dio.post<ResponseBody>(
         '/api/custom-eval/stream',
         data: {
           'session_id': sessionId,
           'provider': providerStr,
-          'model': config.models.first,
+          'models': config.models,  // always send full list
           if (config.provider == EvalProvider.openrouter && apiKey.isNotEmpty)
             'openrouter_api_key': apiKey,
         },
@@ -157,14 +184,30 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
 
   void _onEvent(CustomEvalSSEEvent event) {
     switch (event) {
-      case CustomEvalStarted(:final total):
-        state = state.copyWith(total: total);
+      case CustomEvalStarted(:final total, :final totalModels):
+        state = state.copyWith(
+          total: total,
+          totalModels: totalModels,
+          isCompareMode: totalModels > 1,
+        );
+
+      case CustomEvalModelStarted(:final model, :final modelIndex, :final totalModels):
+        state = state.copyWith(
+          currentModel: model,
+          currentModelIndex: modelIndex,
+          totalModels: totalModels,
+          isCompareMode: true,
+        );
+
       case CustomEvalSample(
           :final index,
           :final filename,
           :final question,
           :final modelAnswer,
           :final correct,
+          :final model,
+          :final modelIndex,
+          :final thumbnailUri,
         ):
         state = state.copyWith(
           sampleResults: [
@@ -176,24 +219,61 @@ class CustomEvalNotifier extends StateNotifier<CustomEvalState> {
               'question': question,
               'model_answer': modelAnswer,
               'correct': correct,
+              if (model != null) 'model': model,
+              if (modelIndex != null) 'model_index': modelIndex,
+              if (thumbnailUri != null) 'thumbnail': thumbnailUri,
             }
           ],
         );
-      case CustomEvalSampleError(:final index, :final filename, :final detail):
+
+      case CustomEvalSampleError(:final index, :final filename, :final detail, :final model, :final modelIndex):
         state = state.copyWith(
           sampleErrors: [
             ...state.sampleErrors,
-            {'type': 'sample_error', 'index': index, 'filename': filename, 'detail': detail},
+            {
+              'type': 'sample_error',
+              'index': index,
+              'filename': filename,
+              'detail': detail,
+              if (model != null) 'model': model,
+              if (modelIndex != null) 'model_index': modelIndex,
+            },
           ],
         );
-      case CustomEvalComplete(:final evalId, :final accuracy, :final results):
+
+      case CustomEvalModelComplete(:final model, :final accuracy, :final results):
+        final updatedResults = Map<String, List<Map<String, dynamic>>>.from(state.modelResults);
+        updatedResults[model] = results;
+        final updatedAccuracies = Map<String, double?>.from(state.modelAccuracies);
+        updatedAccuracies[model] = accuracy;
         state = state.copyWith(
-          isRunning: false,
-          isComplete: true,
-          evalId: evalId,
-          accuracy: accuracy,
-          sampleResults: results,
+          modelResults: updatedResults,
+          modelAccuracies: updatedAccuracies,
         );
+
+      case CustomEvalComplete(:final evalId, :final accuracy, :final results, :final comparison):
+        if (comparison != null) {
+          // compare mode — use comparison data, clear streaming buffers
+          state = state.copyWith(
+            isRunning: false,
+            isComplete: true,
+            evalId: evalId,
+            modelResults: comparison,
+            sampleResults: const [],
+            sampleErrors: const [],
+          );
+        } else {
+          // single model mode
+          state = state.copyWith(
+            isRunning: false,
+            isComplete: true,
+            evalId: evalId,
+            accuracy: accuracy,
+            sampleResults: results,
+            sampleErrors: const [],
+          );
+        }
+
       case CustomEvalError(:final detail):
         _setError(detail);
     }

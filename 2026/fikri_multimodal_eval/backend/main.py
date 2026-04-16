@@ -33,7 +33,7 @@ from harness_runner import (
     run_faster_whisper_eval,
     list_available_tasks,
 )
-from custom_eval_runner import run_custom_eval as _run_custom_eval
+from custom_eval_runner import run_custom_eval as _run_custom_eval, run_custom_eval_compare as _run_custom_eval_compare
 
 _SESSION_DIR = _Path("/tmp/custom_eval")
 _MAX_FILE_BYTES = 10 * 1024 * 1024   # 10 MB
@@ -87,7 +87,8 @@ class HarnessCompareRequest(BaseModel):
 class CustomEvalStreamRequest(BaseModel):
     session_id: str
     provider: str
-    model: str
+    model: str | None = None          # single-model (backward compat)
+    models: list[str] | None = None   # multi-model compare
     openrouter_api_key: str | None = None
 
 
@@ -237,13 +238,13 @@ async def list_models():
         "openrouter": [
             "openai/gpt-4o-mini",
             "openai/gpt-4o",
-            "anthropic/claude-3-haiku",
+            "anthropic/claude-3.5-haiku",
             "anthropic/claude-3.5-sonnet",
-            "meta-llama/llama-3.1-8b-instruct",
+            "google/gemini-2.0-flash-001",
+            "google/gemini-2.5-flash-preview",
             "meta-llama/llama-3.2-11b-vision-instruct",
-            "google/gemma-3-4b-it",
-            "google/gemini-flash-1.5",
-            "mistralai/mistral-7b-instruct",
+            "meta-llama/llama-4-scout",
+            "qwen/qwen-2.5-vl-72b-instruct",
         ],
     }
 
@@ -492,27 +493,56 @@ async def custom_eval_stream(req: CustomEvalStreamRequest):
         raise HTTPException(404, "Manifest not found in session")
     samples = json.loads(manifest_path.read_text())
 
+    resolved_models: list[str] = req.models or ([req.model] if req.model else [])
+    if not resolved_models:
+        raise HTTPException(400, "Provide 'model' or 'models'")
+
+    is_compare = len(resolved_models) > 1
+
     async def _stream():
         eval_id = str(uuid.uuid4())[:8]
         all_results: list[dict] = []
         try:
-            async for event in _run_custom_eval(
-                session_id=req.session_id,
-                samples=samples,
-                provider=req.provider,
-                model=req.model,
-                openrouter_api_key=req.openrouter_api_key,
-            ):
+            runner = (
+                _run_custom_eval_compare(
+                    session_id=req.session_id,
+                    samples=samples,
+                    provider=req.provider,
+                    models=resolved_models,
+                    openrouter_api_key=req.openrouter_api_key,
+                )
+                if is_compare
+                else _run_custom_eval(
+                    session_id=req.session_id,
+                    samples=samples,
+                    provider=req.provider,
+                    model=resolved_models[0],
+                    openrouter_api_key=req.openrouter_api_key,
+                )
+            )
+            async for event in runner:
                 if event["type"] in ("sample", "sample_error"):
                     all_results.append(event)
                 elif event["type"] == "complete":
-                    event = {**event, "eval_id": eval_id, "results": all_results}
+                    event = {**event, "eval_id": eval_id}
+                    if not is_compare:
+                        event["results"] = all_results
+                    # Hoist a single thumbnail to the top level for fast DB extraction
+                    _first_thumb: str | None = None
+                    if not is_compare and all_results:
+                        _first_thumb = all_results[0].get("thumbnail")
+                    elif is_compare and event.get("comparison"):
+                        _first_model_results = next(iter(event["comparison"].values()), [])
+                        if _first_model_results:
+                            _first_thumb = _first_model_results[0].get("thumbnail")
+                    if _first_thumb:
+                        event["first_thumbnail"] = _first_thumb
                     try:
                         await save_result(
                             eval_id=eval_id,
                             eval_type="custom",
                             tasks=["custom"],
-                            models=[req.model],
+                            models=resolved_models,
                             harness="custom",
                             data=event,
                         )
