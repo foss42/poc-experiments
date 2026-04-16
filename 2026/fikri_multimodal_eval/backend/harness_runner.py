@@ -21,8 +21,8 @@ async def run_harness_eval(
 
     def _run():
         if harness == "lmms-eval":
-            import lmms_eval
-            results = lmms_eval.simple_evaluate(
+            from lmms_eval.evaluator import simple_evaluate as lmms_simple_evaluate
+            results = lmms_simple_evaluate(
                 model=model_type,
                 model_args=model_args,
                 tasks=tasks,
