@@ -29,6 +29,11 @@ class ProviderSelector extends ConsumerWidget {
               icon: Icon(Icons.computer_outlined),
               label: Text('Ollama'),
             ),
+            ButtonSegment(
+              value: EvalProvider.openrouter,
+              icon: Icon(Icons.route_outlined),
+              label: Text('OpenRouter'),
+            ),
           ],
           selected: {config.provider},
           onSelectionChanged: (selected) => ref
@@ -40,6 +45,14 @@ class ProviderSelector extends ConsumerWidget {
             padding: EdgeInsets.only(top: 8),
             child: Text(
               'Ollama serves the model at localhost:11434/v1 — make sure it is running.',
+              style: TextStyle(color: AppTheme.textMuted, fontSize: 12),
+            ),
+          ),
+        if (config.provider == EvalProvider.openrouter)
+          const Padding(
+            padding: EdgeInsets.only(top: 8),
+            child: Text(
+              'Set your OpenRouter API key in Settings, then enter a model ID (e.g. google/gemini-2.0-flash-001).',
               style: TextStyle(color: AppTheme.textMuted, fontSize: 12),
             ),
           ),

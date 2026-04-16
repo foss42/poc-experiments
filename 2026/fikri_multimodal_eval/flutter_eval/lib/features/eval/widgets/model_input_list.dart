@@ -10,8 +10,11 @@ import '../providers/eval_config_provider.dart';
 
 /// Returns the /api/models key that corresponds to the current config.
 String _modelKey(EvalConfig config) => switch (config.modality) {
-      Modality.image =>
-        config.provider == EvalProvider.ollama ? 'ollama_vlm' : 'image_vlm',
+      Modality.image => switch (config.provider) {
+          EvalProvider.ollama => 'ollama_vlm',
+          EvalProvider.openrouter => 'openrouter',
+          EvalProvider.huggingface => 'image_vlm',
+        },
       Modality.audio => config.benchmark.harness == 'faster-whisper'
           ? 'faster_whisper_sizes'
           : 'audio_asr',
@@ -19,9 +22,11 @@ String _modelKey(EvalConfig config) => switch (config.modality) {
     };
 
 String _placeholder(EvalConfig config) => switch (config.modality) {
-      Modality.image => config.provider == EvalProvider.ollama
-          ? 'e.g. llava-phi3'
-          : 'e.g. pretrained=org/model',
+      Modality.image => switch (config.provider) {
+          EvalProvider.ollama => 'e.g. llava-phi3',
+          EvalProvider.openrouter => 'e.g. openai/gpt-4o-mini',
+          EvalProvider.huggingface => 'e.g. pretrained=org/model',
+        },
       Modality.audio => config.benchmark.harness == 'faster-whisper'
           ? 'e.g. base'
           : 'e.g. pretrained=openai/whisper-base',

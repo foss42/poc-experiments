@@ -5,8 +5,11 @@ import '../../../core/models/eval_config.dart';
 
 String _defaultModel(BenchmarkConfig benchmark, EvalProvider provider, Modality modality) {
   if (modality == Modality.agent) return 'qwen2.5:1.5b';
-  if (provider == EvalProvider.ollama) return benchmark.defaultModelOllama ?? '';
-  return benchmark.defaultModelHf ?? '';
+  return switch (provider) {
+    EvalProvider.ollama => benchmark.defaultModelOllama ?? '',
+    EvalProvider.openrouter => 'openai/gpt-4o-mini',
+    EvalProvider.huggingface => benchmark.defaultModelHf ?? '',
+  };
 }
 
 EvalConfig _initialConfig() {
