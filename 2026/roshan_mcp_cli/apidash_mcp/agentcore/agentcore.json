@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.agentcore.aws.dev/v1/agentcore.json",
+  "name": "apidashmcp",
+  "version": 1,
+  "managedBy": "CDK",
+  "runtimes": [
+    {
+      "name": "apidashmcp",
+      "build": "Container",
+      "entrypoint": "dist/index.js",
+      "codeLocation": ".",
+      "runtimeVersion": "NODE_22",
+      "protocol": "MCP",
+      "authorizerType": "CUSTOM_JWT",
+      "authorizerConfiguration": {
+        "customJwtAuthorizer": {
+          "discoveryUrl": "PLACEHOLDER_DISCOVERY_URL",
+          "allowedClients": ["PLACEHOLDER_CLIENT_ID"]
+        }
+      },
+      "tags": {}
+    }
+  ],
+  "memories": [],
+  "credentials": [],
+  "evaluators": [],
+  "agentCoreGateways": []
+}
