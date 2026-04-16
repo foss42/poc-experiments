@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analytics Verifier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0A0A0A; color: #ffffff; font-family: 'Inter', sans-serif; overflow: hidden; }
+        .accent { color: #E8FF00; }
+        .border-brutal { border: 1px solid #222222; }
+        .score-box { border: 1px solid #222222; transition: all 0.2s ease; cursor: pointer; background: #111; color: #444; }
+        .score-box:hover { border-color: #E8FF00; color: #E8FF00; }
+        .score-box.active { border-color: #E8FF00; background-color: #E8FF00; color: #000; font-weight: 800; }
+        textarea { resize: none; background: #0d0d0d; color: #ccc; border: 1px solid #222; outline: none; font-family: 'Courier New', monospace; }
+        textarea:focus { border-color: #444; }
+        .tab-btn { border-bottom: 2px solid transparent; color: #555; transition: all 0.15s; }
+        .tab-btn.active { border-bottom-color: #E8FF00; color: #E8FF00; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+    </style>
+</head>
+<body class="p-6 h-screen flex flex-col max-w-5xl mx-auto w-full">
+    <!-- Header -->
+    <div class="mb-6 flex justify-between items-end bg-[#111] p-5 border border-brutal flex-shrink-0">
+        <div>
+            <h1 class="text-lg font-black uppercase tracking-tighter leading-none mb-1">VERIFIER / <span class="accent">SALES ANALYTICS MCP</span></h1>
+            <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest">Evaluates output from ashitaprasad/sample-mcp-apps-chatflow</p>
+        </div>
+        <div id="status" class="text-[9px] font-black text-red-500 uppercase tracking-widest px-3 py-1 bg-black border border-red-950/30 rounded-full">Disconnected</div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6 flex-1 min-h-0">
+        <!-- Left: Input Panel -->
+        <div class="col-span-7 flex flex-col gap-4 min-h-0">
+            <!-- Tabs -->
+            <div class="flex gap-6 border-b border-[#222] pb-2 flex-shrink-0">
+                <button onclick="switchTab('text')" id="tab-text" class="tab-btn active text-[10px] font-black uppercase tracking-widest pb-2">Agent Text Output</button>
+                <button onclick="switchTab('trace')" id="tab-trace" class="tab-btn text-[10px] font-black uppercase tracking-widest pb-2">Tool Call Trace (JSON)</button>
+            </div>
+
+            <!-- Text tab -->
+            <div id="panel-text" class="flex flex-col gap-3 flex-1 min-h-0">
+                <p class="text-[9px] text-gray-500 uppercase tracking-widest flex-shrink-0">Paste the agent's natural language response from the Sales Analytics MCP server:</p>
+                <textarea id="agent-text" class="flex-1 p-4 text-xs rounded-sm min-h-0"
+                    placeholder="Paste agent response here...&#10;&#10;Example:&#10;Based on Q3 sales data for EMEA region, revenue was $1.2M with 15% YoY growth. Top category was Cloud Infrastructure."></textarea>
+            </div>
+
+            <!-- Trace tab (hidden) -->
+            <div id="panel-trace" class="flex flex-col gap-3 flex-1 min-h-0 hidden">
+                <p class="text-[9px] text-gray-500 uppercase tracking-widest flex-shrink-0">Paste the JSON tool-call trace from the MCP server (array of tool calls):</p>
+                <textarea id="trace-json" class="flex-1 p-4 text-[10px] rounded-sm min-h-0"
+                    placeholder='[&#10;  {&#10;    "tool": "get_regional_sales",&#10;    "args": {"region": "EMEA", "period": "Q3"},&#10;    "result": {"revenue": 1200000, "growth": 0.15}&#10;  }&#10;]'></textarea>
+                <div id="parse-error" class="text-[9px] text-red-500 font-mono hidden"></div>
+                <button onclick="parseTrace()" class="flex-shrink-0 py-2 border border-[#333] hover:border-[#E8FF00] text-[10px] font-black uppercase text-gray-400 hover:text-[#E8FF00] transition-all">
+                    Parse &amp; Validate Trace
+                </button>
+            </div>
+
+            <!-- Parsed trace preview -->
+            <div id="trace-preview" class="hidden flex-shrink-0 bg-black border border-[#1a2a00] p-4 rounded-sm">
+                <span class="text-[9px] font-black text-gray-600 uppercase tracking-widest">Parsed Tool Calls</span>
+                <div id="trace-list" class="mt-3 flex flex-col gap-2"></div>
+            </div>
+        </div>
+
+        <!-- Right: Scoring Panel -->
+        <div class="col-span-5 bg-[#111] border border-brutal p-6 flex flex-col gap-6">
+            <h2 class="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em]">Evaluation Matrix</h2>
+
+            <div class="flex flex-col gap-3">
+                <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Data Fidelity (Ground Truth)</span>
+                <div id="fidelity-group" class="grid grid-cols-5 gap-2">
+                    <button onclick="setScore('fidelity', this, 1)" class="score-box p-3 text-xs font-black">1</button>
+                    <button onclick="setScore('fidelity', this, 2)" class="score-box p-3 text-xs font-black">2</button>
+                    <button onclick="setScore('fidelity', this, 3)" class="score-box p-3 text-xs font-black">3</button>
+                    <button onclick="setScore('fidelity', this, 4)" class="score-box p-3 text-xs font-black">4</button>
+                    <button onclick="setScore('fidelity', this, 5)" class="score-box p-3 text-xs font-black active">5</button>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Constraint Adherence</span>
+                <div id="constraint-group" class="grid grid-cols-5 gap-2">
+                    <button onclick="setScore('constraint', this, 1)" class="score-box p-3 text-xs font-black">1</button>
+                    <button onclick="setScore('constraint', this, 2)" class="score-box p-3 text-xs font-black">2</button>
+                    <button onclick="setScore('constraint', this, 3)" class="score-box p-3 text-xs font-black">3</button>
+                    <button onclick="setScore('constraint', this, 4)" class="score-box p-3 text-xs font-black active">4</button>
+                    <button onclick="setScore('constraint', this, 5)" class="score-box p-3 text-xs font-black">5</button>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Tool Call Accuracy (TFS)</span>
+                <div id="tfs-group" class="grid grid-cols-5 gap-2">
+                    <button onclick="setScore('tfs', this, 1)" class="score-box p-3 text-xs font-black">1</button>
+                    <button onclick="setScore('tfs', this, 2)" class="score-box p-3 text-xs font-black">2</button>
+                    <button onclick="setScore('tfs', this, 3)" class="score-box p-3 text-xs font-black">3</button>
+                    <button onclick="setScore('tfs', this, 4)" class="score-box p-3 text-xs font-black">4</button>
+                    <button onclick="setScore('tfs', this, 5)" class="score-box p-3 text-xs font-black active">5</button>
+                </div>
+            </div>
+
+            <div class="mt-auto flex flex-col gap-3">
+                <div id="score-summary" class="text-[9px] font-mono text-gray-600 uppercase">
+                    Ready to submit score
+                </div>
+                <button onclick="submitScore()" class="w-full py-4 bg-[#E8FF00] text-black text-xs font-black uppercase tracking-widest hover:opacity-90 transition-all">
+                    Submit Quality Score
+                </button>
+                <p class="text-center text-[8px] text-gray-600 uppercase font-bold tracking-widest">Score is dispatched to agent host context</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ─── State ───────────────────────────────────────────────────────────
+        const scores = { fidelity: 5, constraint: 4, tfs: 5 };
+        let parsedTrace = null;
+
+        // ─── MCP Apps Handshake ──────────────────────────────────────────────
+        window.addEventListener('message', (event) => {
+            if (event.data?.type === 'mcp-apps-handshake') {
+                const status = document.getElementById('status');
+                status.innerText = 'Connected';
+                status.classList.remove('text-red-500', 'border-red-950/30');
+                status.classList.add('accent', 'border-lime-950/30');
+                window.parent.postMessage({ type: 'mcp-apps-ready' }, '*');
+            }
+        });
+
+        // ─── Tab Switching ───────────────────────────────────────────────────
+        function switchTab(tab) {
+            document.getElementById('panel-text').classList.toggle('hidden', tab !== 'text');
+            document.getElementById('panel-trace').classList.toggle('hidden', tab !== 'trace');
+            document.getElementById('tab-text').classList.toggle('active', tab === 'text');
+            document.getElementById('tab-trace').classList.toggle('active', tab === 'trace');
+        }
+
+        // ─── Score Selection ─────────────────────────────────────────────────
+        function setScore(group, btn, val) {
+            scores[group] = val;
+            const container = document.getElementById(`${group}-group`);
+            container.querySelectorAll('.score-box').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const avg = ((scores.fidelity + scores.constraint + scores.tfs) / 3).toFixed(2);
+            document.getElementById('score-summary').innerText =
+                `FIDELITY=${scores.fidelity}  CONSTRAINT=${scores.constraint}  TFS=${scores.tfs}  AVG=${avg}`;
+        }
+
+        // ─── Trace Parser ────────────────────────────────────────────────────
+        function parseTrace() {
+            const raw = document.getElementById('trace-json').value.trim();
+            const errEl = document.getElementById('parse-error');
+            try {
+                parsedTrace = JSON.parse(raw);
+                if (!Array.isArray(parsedTrace)) throw new Error('Expected a JSON array of tool calls.');
+                errEl.classList.add('hidden');
+                renderTracePreview();
+            } catch (e) {
+                errEl.textContent = `Parse error: ${e.message}`;
+                errEl.classList.remove('hidden');
+                parsedTrace = null;
+                document.getElementById('trace-preview').classList.add('hidden');
+            }
+        }
+
+        function renderTracePreview() {
+            const preview = document.getElementById('trace-preview');
+            const list = document.getElementById('trace-list');
+            list.innerHTML = '';
+            parsedTrace.forEach((call, i) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-start gap-3 p-2 bg-[#0d0d0d] border border-[#1a2a00]';
+                div.innerHTML = `
+                    <span class="text-[9px] font-black accent mt-0.5">${i + 1}</span>
+                    <div>
+                        <span class="text-[10px] font-black text-white">${call.tool || call.name || 'unknown'}</span>
+                        <p class="text-[9px] text-gray-600 font-mono mt-0.5">${JSON.stringify(call.args || call.arguments || {})}</p>
+                    </div>`;
+                list.appendChild(div);
+            });
+            preview.classList.remove('hidden');
+        }
+
+        // ─── Submit Score ─────────────────────────────────────────────────────
+        function submitScore() {
+            const agentText = document.getElementById('agent-text').value.trim();
+            const traceJson = document.getElementById('trace-json').value.trim();
+            const avg = ((scores.fidelity + scores.constraint + scores.tfs) / 3).toFixed(2);
+
+            const payload = {
+                type: 'ui/message',
+                params: {
+                    text: `[Sales Analytics Verifier] Score submitted:\n` +
+                          `• Data Fidelity: ${scores.fidelity}/5\n` +
+                          `• Constraint Adherence: ${scores.constraint}/5\n` +
+                          `• Tool Call Accuracy (TFS): ${scores.tfs}/5\n` +
+                          `• Average Score: ${avg}/5\n` +
+                          (agentText ? `\nEvaluated output: "${agentText.slice(0, 120)}${agentText.length > 120 ? '...' : ''}"` : '') +
+                          (parsedTrace ? `\nTool calls analyzed: ${parsedTrace.length}` : ''),
+                }
+            };
+
+            window.parent.postMessage(payload, '*');
+
+            // Visual feedback
+            const btn = event.target;
+            btn.textContent = 'SCORE DISPATCHED ✓';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            setTimeout(() => {
+                btn.textContent = 'Submit Quality Score';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }, 2500);
+        }
+
+        // Init
+        updateSummary();
+    </script>
+</body>
+</html>
