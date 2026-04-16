@@ -18,7 +18,7 @@ class SectionCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.surface,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppTheme.border),
       ),
       padding: const EdgeInsets.all(16),
@@ -54,19 +54,19 @@ class _StepBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 20,
-      height: 20,
+      width: 22,
+      height: 22,
       decoration: BoxDecoration(
-        color: AppTheme.primary.withValues(alpha: 0.2),
-        shape: BoxShape.circle,
+        color: AppTheme.primary,
+        borderRadius: BorderRadius.circular(4),
       ),
       alignment: Alignment.center,
       child: Text(
         step,
         style: const TextStyle(
-          color: AppTheme.primaryLight,
+          color: Colors.white,
           fontSize: 10,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );

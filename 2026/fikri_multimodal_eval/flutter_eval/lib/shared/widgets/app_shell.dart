@@ -81,29 +81,52 @@ class _WideShell extends StatelessWidget {
       backgroundColor: AppTheme.background,
       body: Row(
         children: [
-          NavigationRail(
-            selectedIndex: selectedIndex,
-            onDestinationSelected: onNavigate,
-            labelType: NavigationRailLabelType.all,
-            destinations: const [
-              NavigationRailDestination(
-                icon: Icon(Icons.science_outlined),
-                selectedIcon: Icon(Icons.science),
-                label: Text('Eval'),
+          // Rail with left indigo indicator for active tab
+          Stack(
+            children: [
+              NavigationRail(
+                selectedIndex: selectedIndex,
+                onDestinationSelected: onNavigate,
+                labelType: NavigationRailLabelType.all,
+                minWidth: 64,
+                destinations: const [
+                  NavigationRailDestination(
+                    icon: Icon(Icons.science_outlined),
+                    selectedIcon: Icon(Icons.science),
+                    label: Text('Eval'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Icons.history_outlined),
+                    selectedIcon: Icon(Icons.history),
+                    label: Text('Results'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Icons.settings_outlined),
+                    selectedIcon: Icon(Icons.settings),
+                    label: Text('Settings'),
+                  ),
+                ],
               ),
-              NavigationRailDestination(
-                icon: Icon(Icons.history_outlined),
-                selectedIcon: Icon(Icons.history),
-                label: Text('Results'),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.settings_outlined),
-                selectedIcon: Icon(Icons.settings),
-                label: Text('Settings'),
+              // Left indigo indicator bar
+              AnimatedPositioned(
+                duration: const Duration(milliseconds: 200),
+                curve: Curves.easeOut,
+                left: 0,
+                top: 18.0 + selectedIndex * 72.0,
+                child: Container(
+                  width: 3,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: AppTheme.primary,
+                    borderRadius: const BorderRadius.horizontal(
+                      right: Radius.circular(2),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
-          const VerticalDivider(thickness: 1, width: 1),
+          const VerticalDivider(thickness: 1, width: 1, color: AppTheme.border),
           Expanded(
             child: Column(
               children: [

@@ -13,23 +13,31 @@ class EngineDot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dotColor = ok ? AppTheme.accent : AppTheme.error;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 6,
-          height: 6,
+          width: 5,
+          height: 5,
           decoration: BoxDecoration(
-            color: ok ? AppTheme.success : AppTheme.muted,
+            color: dotColor,
             shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: dotColor.withValues(alpha: 0.45),
+                blurRadius: 4,
+                spreadRadius: 1,
+              ),
+            ],
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: 5),
         Text(
           label,
           style: const TextStyle(
             color: AppTheme.textMuted,
-            fontSize: 11,
+            fontSize: 10,
           ),
         ),
       ],

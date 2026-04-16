@@ -152,7 +152,7 @@ class EvalScreen extends ConsumerWidget {
               Container(
                 decoration: BoxDecoration(
                   color: AppTheme.surface,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: AppTheme.border),
                 ),
                 padding: const EdgeInsets.all(16),
@@ -209,7 +209,7 @@ class _CompareResultSection extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.surface,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppTheme.border),
       ),
       padding: const EdgeInsets.all(16),
@@ -232,7 +232,7 @@ class _ResultSection extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             color: AppTheme.surface,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(8),
             border: Border.all(color: AppTheme.border),
           ),
           padding: const EdgeInsets.all(16),
@@ -297,7 +297,7 @@ class _EvalProgressBannerState extends State<_EvalProgressBanner> {
     return Container(
       decoration: BoxDecoration(
         color: AppTheme.surface,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(color: AppTheme.border),
       ),
       padding: const EdgeInsets.all(16),
