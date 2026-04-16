@@ -1,0 +1,56 @@
+# MCP Conformance Testing — Full Test Environment
+#
+# Run all 50 tests:
+#   docker compose up tests --build --abort-on-container-exit
+#
+# Open the interactive MCP Apps viewer:
+#   docker compose up viewer --build
+#   Open http://localhost:8080
+#
+# What happens:
+#   1. mcp-server: Starts the Sales Analytics MCP Apps server
+#   2. tests: Runs the conformance suite (core + MCP Apps + Host simulation)
+#   3. viewer: Interactive MCP Apps host with dual protocol inspector
+
+services:
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"]
+      interval: 2s
+      timeout: 3s
+      start_period: 10s
+      retries: 15
+
+  tests:
+    build: .
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    environment:
+      - MCP_SERVER_URL=http://mcp-server:3000/mcp
+    # Use shell form to expand the env var
+    command: >
+      npx tsx src/cli.ts
+      --transport http
+      --url http://mcp-server:3000/mcp
+
+  viewer:
+    build:
+      context: .
+      dockerfile: Dockerfile.viewer
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    command: >
+      npx tsx src/cli.ts
+      --transport http
+      --url http://mcp-server:3000/mcp
+      --viewer
+      --viewer-port 8080

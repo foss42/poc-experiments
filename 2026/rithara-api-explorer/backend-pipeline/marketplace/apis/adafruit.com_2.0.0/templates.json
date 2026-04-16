@@ -1,0 +1,1615 @@
+{
+  "api_id": "adafruit.com:2.0.0",
+  "endpoint_count": 71,
+  "endpoints": [
+    {
+      "id": "get-information-about-the-current-user",
+      "name": "Get information about the current user",
+      "description": "Get information about the current user",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/user",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY."
+    },
+    {
+      "id": "send-data-to-a-feed-via-webhook-url",
+      "name": "Send data to a feed via webhook URL.",
+      "description": "Send data to a feed via webhook URL.",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/webhooks/feed/:token",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY."
+    },
+    {
+      "id": "send-arbitrary-data-to-a-feed-via-webhook-url",
+      "name": "Send arbitrary data to a feed via webhook URL.",
+      "description": "The raw data webhook receiver accepts POST requests and stores the raw request body on your feed. This is useful when you don't have control of the webhook sender. If feed history is turned on, payloads will be truncated at 1024 bytes. If feed history is turned off, payloads will be truncated at 100KB.",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/webhooks/feed/:token/raw",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY."
+    },
+    {
+      "id": "all-activities-for-current-user",
+      "name": "All activities for current user",
+      "description": "The Activities endpoint returns information about the user's activities.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/activities",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-activities-for-current-user-2",
+      "name": "All activities for current user",
+      "description": "Delete all your activities.",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/activities",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-activities-by-type-for-current-user",
+      "name": "Get activities by type for current user",
+      "description": "The Activities endpoint returns information about the user's activities.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/activities/{{TYPE}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-dashboards-for-current-user",
+      "name": "All dashboards for current user",
+      "description": "The Dashboards endpoint returns information about the user's dashboards.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-dashboard",
+      "name": "Create a new Dashboard",
+      "description": "Create a new Dashboard",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-blocks-for-current-user",
+      "name": "All blocks for current user",
+      "description": "The Blocks endpoint returns information about the user's blocks.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-block",
+      "name": "Create a new Block",
+      "description": "Create a new Block",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "block_feeds": [],
+        "column": 0.0,
+        "dashboard_id": 0.0,
+        "description": "",
+        "key": "",
+        "name": "",
+        "properties": {},
+        "row": 0.0,
+        "size_x": 0.0,
+        "size_y": 0.0,
+        "visual_type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-block-based-on-id",
+      "name": "Returns Block based on ID",
+      "description": "Returns Block based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-block",
+      "name": "Replace an existing Block",
+      "description": "Replace an existing Block",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "block_feeds": [],
+        "column": 0.0,
+        "dashboard_id": 0.0,
+        "description": "",
+        "key": "",
+        "name": "",
+        "properties": {},
+        "row": 0.0,
+        "size_x": 0.0,
+        "size_y": 0.0,
+        "visual_type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-block",
+      "name": "Delete an existing Block",
+      "description": "Delete an existing Block",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-block",
+      "name": "Update properties of an existing Block",
+      "description": "Update properties of an existing Block",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{DASHBOARD_ID}}/blocks/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "block_feeds": [],
+        "column": 0.0,
+        "dashboard_id": 0.0,
+        "description": "",
+        "key": "",
+        "name": "",
+        "properties": {},
+        "row": 0.0,
+        "size_x": 0.0,
+        "size_y": 0.0,
+        "visual_type": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{DASHBOARD_ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{DASHBOARD_ID}} with a real dashboard_id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-dashboard-based-on-id",
+      "name": "Returns Dashboard based on ID",
+      "description": "Returns Dashboard based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-dashboard",
+      "name": "Replace an existing Dashboard",
+      "description": "Replace an existing Dashboard",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-dashboard",
+      "name": "Delete an existing Dashboard",
+      "description": "Delete an existing Dashboard",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-dashboard",
+      "name": "Update properties of an existing Dashboard",
+      "description": "Update properties of an existing Dashboard",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/dashboards/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-feeds-for-current-user",
+      "name": "All feeds for current user",
+      "description": "The Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-feed",
+      "name": "Create a new Feed",
+      "description": "Create a new Feed",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "license": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-feed-by-feed-key",
+      "name": "Get feed by feed key",
+      "description": "Returns feed based on the feed key",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-feed",
+      "name": "Replace an existing Feed",
+      "description": "Replace an existing Feed",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "license": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-feed",
+      "name": "Delete an existing Feed",
+      "description": "Delete an existing Feed",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-feed",
+      "name": "Update properties of an existing Feed",
+      "description": "Update properties of an existing Feed",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "license": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-all-data-for-the-given-feed",
+      "name": "Get all data for the given feed",
+      "description": "Get all data for the given feed",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-new-data",
+      "name": "Create new Data",
+      "description": "Create new data records on the given feed.\n\n**NOTE:** when feed history is on, data `value` size is limited to 1KB, when feed history is turned off data value size is limited to 100KB.",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "created_at": "",
+        "ele": "",
+        "epoch": 0.0,
+        "lat": "",
+        "lon": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-multiple-new-data-records",
+      "name": "Create multiple new Data records",
+      "description": "Create multiple new Data records",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/batch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "created_at": "",
+          "ele": "",
+          "epoch": 0.0,
+          "lat": "",
+          "lon": "",
+          "value": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "chart-data-for-current-feed",
+      "name": "Chart data for current feed",
+      "description": "The Chart API is what we use on io.adafruit.com to populate charts over varying timespans with a consistent number of data points. The maximum number of points returned is 480. This API works by aggregating slices of time into a single value by averaging.\n\nAll time-based parameters are optional, if none are given it will default to 1 hour at the finest-grained resolution possible.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/chart",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "first-data-in-queue",
+      "name": "First Data in Queue",
+      "description": "Get the oldest data point in the feed. This request sets the queue pointer to the beginning of the feed.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/first",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "last-data-in-queue",
+      "name": "Last Data in Queue",
+      "description": "Get the most recent data point in the feed. This request sets the queue pointer to the end of the feed.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/last",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "next-data-in-queue",
+      "name": "Next Data in Queue",
+      "description": "Get the next newest data point in the feed. If queue processing hasn't been started, the first data point in the feed will be returned.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/next",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "previous-data-in-queue",
+      "name": "Previous Data in Queue",
+      "description": "Get the previously processed data point in the feed. NOTE: this method doesn't move the processing queue pointer.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/previous",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "last-data-in-mqtt-csv-format",
+      "name": "Last Data in MQTT CSV format",
+      "description": "Get the most recent data point in the feed in an MQTT compatible CSV format: `value,lat,lon,ele`",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/retain",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-data-based-on-feed-key",
+      "name": "Returns data based on feed key",
+      "description": "Returns data based on feed key",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-existing-data",
+      "name": "Replace existing Data",
+      "description": "Replace existing Data",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "created_at": "",
+        "ele": "",
+        "epoch": 0.0,
+        "lat": "",
+        "lon": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-existing-data",
+      "name": "Delete existing Data",
+      "description": "Delete existing Data",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-existing-data",
+      "name": "Update properties of existing Data",
+      "description": "Update properties of existing Data",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/data/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "created_at": "",
+        "ele": "",
+        "epoch": 0.0,
+        "lat": "",
+        "lon": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-detailed-feed-by-feed-key",
+      "name": "Get detailed feed by feed key",
+      "description": "Returns more detailed feed record based on the feed key",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/feeds/{{FEED_KEY}}/details",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-groups-for-current-user",
+      "name": "All groups for current user",
+      "description": "The Groups endpoint returns information about the user's groups. The response includes the latest value of each feed in the group, and other metadata about the group.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-group",
+      "name": "Create a new Group",
+      "description": "Create a new Group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-group-based-on-id",
+      "name": "Returns Group based on ID",
+      "description": "Returns Group based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-group",
+      "name": "Replace an existing Group",
+      "description": "Replace an existing Group",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-group",
+      "name": "Delete an existing Group",
+      "description": "Delete an existing Group",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-group",
+      "name": "Update properties of an existing Group",
+      "description": "Update properties of an existing Group",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "add-an-existing-feed-to-a-group",
+      "name": "Add an existing Feed to a Group",
+      "description": "Add an existing Feed to a Group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/add",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-new-data-for-multiple-feeds-in-a-group",
+      "name": "Create new data for multiple feeds in a group",
+      "description": "Create new data for multiple feeds in a group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/data",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "feeds": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-feeds-for-current-user-in-a-given-group",
+      "name": "All feeds for current user in a given group",
+      "description": "The Group Feeds endpoint returns information about the user's feeds. The response includes the latest value of each feed, and other metadata about each feed, but only for feeds within the given group.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/feeds",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-feed-in-a-group",
+      "name": "Create a new Feed in a Group",
+      "description": "Create a new Feed in a Group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/feeds",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "description": "",
+        "key": "",
+        "license": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-data-for-current-feed-in-a-specific-group",
+      "name": "All data for current feed in a specific group",
+      "description": "All data for current feed in a specific group",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/feeds/{{FEED_KEY}}/data",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-new-data-in-a-feed-belonging-to-a-particular-group",
+      "name": "Create new Data in a feed belonging to a particular group",
+      "description": "Create new Data in a feed belonging to a particular group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/feeds/{{FEED_KEY}}/data",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "created_at": "",
+        "ele": "",
+        "epoch": 0.0,
+        "lat": "",
+        "lon": "",
+        "value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-multiple-new-data-records-in-a-feed-belonging-to-a-particular-group",
+      "name": "Create multiple new Data records in a feed belonging to a particular group",
+      "description": "Create multiple new Data records in a feed belonging to a particular group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/feeds/{{FEED_KEY}}/data/batch",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": [
+        {
+          "created_at": "",
+          "ele": "",
+          "epoch": 0.0,
+          "lat": "",
+          "lon": "",
+          "value": ""
+        }
+      ],
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{FEED_KEY}}",
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{FEED_KEY}} with a real feed_key. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "remove-a-feed-from-a-group",
+      "name": "Remove a Feed from a Group",
+      "description": "Remove a Feed from a Group",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/groups/{{GROUP_KEY}}/remove",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{GROUP_KEY}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{GROUP_KEY}} with a real group_key. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "get-the-user-s-data-rate-limit-and-current-activity-level",
+      "name": "Get the user's data rate limit and current activity level.",
+      "description": "Get the user's data rate limit and current activity level.",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/throttle",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-tokens-for-current-user",
+      "name": "All tokens for current user",
+      "description": "The Tokens endpoint returns information about the user's tokens.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-token",
+      "name": "Create a new Token",
+      "description": "Create a new Token",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-token-based-on-id",
+      "name": "Returns Token based on ID",
+      "description": "Returns Token based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-token",
+      "name": "Replace an existing Token",
+      "description": "Replace an existing Token",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-token",
+      "name": "Delete an existing Token",
+      "description": "Delete an existing Token",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-token",
+      "name": "Update properties of an existing Token",
+      "description": "Update properties of an existing Token",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/tokens/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "token": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-triggers-for-current-user",
+      "name": "All triggers for current user",
+      "description": "The Triggers endpoint returns information about the user's triggers.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "create-a-new-trigger",
+      "name": "Create a new Trigger",
+      "description": "Create a new Trigger",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "returns-trigger-based-on-id",
+      "name": "Returns Trigger based on ID",
+      "description": "Returns Trigger based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "replace-an-existing-trigger",
+      "name": "Replace an existing Trigger",
+      "description": "Replace an existing Trigger",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "delete-an-existing-trigger",
+      "name": "Delete an existing Trigger",
+      "description": "Delete an existing Trigger",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "update-properties-of-an-existing-trigger",
+      "name": "Update properties of an existing Trigger",
+      "description": "Update properties of an existing Trigger",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/triggers/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{USERNAME}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{USERNAME}} with a real username."
+    },
+    {
+      "id": "all-permissions-for-current-user-and-type",
+      "name": "All permissions for current user and type",
+      "description": "The Permissions endpoint returns information about the user's permissions.\n",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    },
+    {
+      "id": "create-a-new-permission",
+      "name": "Create a new Permission",
+      "description": "Create a new Permission",
+      "method": "POST",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "mode": "r",
+        "scope": "public",
+        "scope_value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    },
+    {
+      "id": "returns-permission-based-on-id",
+      "name": "Returns Permission based on ID",
+      "description": "Returns Permission based on ID",
+      "method": "GET",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    },
+    {
+      "id": "replace-an-existing-permission",
+      "name": "Replace an existing Permission",
+      "description": "Replace an existing Permission",
+      "method": "PUT",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "mode": "r",
+        "scope": "public",
+        "scope_value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    },
+    {
+      "id": "delete-an-existing-permission",
+      "name": "Delete an existing Permission",
+      "description": "Delete an existing Permission",
+      "method": "DELETE",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl/{{ID}}",
+      "headers": {
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    },
+    {
+      "id": "update-properties-of-an-existing-permission",
+      "name": "Update properties of an existing Permission",
+      "description": "Update properties of an existing Permission",
+      "method": "PATCH",
+      "url": "https://io.adafruit.com/api/v2/{{USERNAME}}/{{TYPE}}/{{TYPE_ID}}/acl/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-AIO-Key": "{{ADAFRUIT_COM_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "mode": "r",
+        "scope": "public",
+        "scope_value": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{TYPE}}",
+        "{{USERNAME}}",
+        "{{TYPE_ID}}",
+        "{{ID}}",
+        "{{ADAFRUIT_API_KEY}}",
+        "{{ADAFRUIT_COM_API_KEY}}"
+      ],
+      "notes": "Replace {{ADAFRUIT_API_KEY}} with your ADAFRUIT API KEY. Replace {{ID}} with a real id. Replace {{TYPE}} with a real type. Replace {{USERNAME}} with a real username. Replace {{TYPE_ID}} with a real type_id."
+    }
+  ]
+}
