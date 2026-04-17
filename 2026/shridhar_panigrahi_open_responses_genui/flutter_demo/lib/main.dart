@@ -297,7 +297,7 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
               ),
               const Spacer(),
               // Inspect mode toggle
-              if (_selectedSample < _samples.length - 1 && !_showSource)
+              if (!_showSource)
                 Tooltip(
                   message: _inspectMode
                       ? 'Exit inspect mode'
@@ -332,7 +332,7 @@ class _GenUIPlaygroundState extends State<_GenUIPlayground> {
                     icon: Icon(_deviceFrame
                         ? Icons.smartphone_rounded
                         : Icons.phone_iphone_rounded),
-                    label: Text(_deviceFrame ? 'Frame on' : 'Device'),
+                    label: Text(_deviceFrame ? 'Frame' : 'Frame'),
                     style: TextButton.styleFrom(
                       visualDensity: VisualDensity.compact,
                       foregroundColor:
@@ -492,19 +492,39 @@ class _RenderPane extends StatelessWidget {
 
     if (parsed == null) {
       return Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.widgets_outlined,
-                size: 48,
-                color: theme.colorScheme.outline.withValues(alpha: 0.4)),
-            const SizedBox(height: 12),
-            Text(
-              'No renderable A2UI payload',
-              style: theme.textTheme.bodyMedium
-                  ?.copyWith(color: theme.colorScheme.outline),
-            ),
-          ],
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 420),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.widgets_outlined,
+                  size: 48,
+                  color: theme.colorScheme.outline.withValues(alpha: 0.35)),
+              const SizedBox(height: 14),
+              Text(
+                'Paste valid A2UI JSONL to render components here',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyMedium
+                    ?.copyWith(color: theme.colorScheme.outline),
+              ),
+              const SizedBox(height: 16),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const SelectableText(
+                  '{"createSurface":{"id":"s1","title":"My UI"}}\n'
+                  '{"updateComponents":{"components":[...]}}\n'
+                  '{"updateDataModel":{"path":"/key","value":"data"}}',
+                  style: TextStyle(
+                      fontFamily: 'monospace', fontSize: 11, height: 1.6),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
@@ -880,7 +900,38 @@ class _AboutPage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 32),
+          const SizedBox(height: 20),
+          // Live demo URL
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.primaryContainer.withValues(alpha: 0.35),
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                  color: theme.colorScheme.primary.withValues(alpha: 0.25)),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.open_in_browser_rounded,
+                    size: 16, color: theme.colorScheme.primary),
+                const SizedBox(width: 8),
+                Text('Live demo: ',
+                    style: theme.textTheme.bodySmall
+                        ?.copyWith(color: theme.colorScheme.outline)),
+                Expanded(
+                  child: SelectableText(
+                    'https://sridhar-panigrahi.github.io/gsoc-poc/',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.primary,
+                      fontWeight: FontWeight.w600,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
           _FeatureCard(
             icon: Icons.list_alt_rounded,
             color: theme.colorScheme.primary,

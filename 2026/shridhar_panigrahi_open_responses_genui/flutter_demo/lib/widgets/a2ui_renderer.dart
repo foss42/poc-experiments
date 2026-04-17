@@ -463,8 +463,10 @@ class _A2UIRendererState extends State<A2UIRenderer> {
         if (label.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 2),
-            child: Text('$label: ${value.toStringAsFixed(0)}',
-                style: Theme.of(context).textTheme.bodySmall),
+            child: Text(
+              '$label: ${value == value.truncateToDouble() ? value.toStringAsFixed(0) : value.toStringAsFixed(1)}',
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
           ),
         Slider(
           value: value.clamp(min, max),

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../design.dart';
 import '../models/open_responses.dart';
@@ -281,7 +282,7 @@ class _InputView extends StatelessWidget {
           ),
           kVSpacer10,
 
-          // Textarea
+          // Textarea — Ctrl+Enter or Cmd+Enter triggers parsing
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -292,22 +293,30 @@ class _InputView extends StatelessWidget {
                 ),
                 borderRadius: kBorderRadius8,
               ),
-              child: TextField(
-                controller: controller,
-                maxLines: null,
-                expands: true,
-                style: kCodeStyle.copyWith(fontSize: 12),
-                decoration: InputDecoration(
-                  hintText:
-                      '{\n  "id": "resp_...",\n  "object": "response",\n  "output": [...]\n}\n\nor paste SSE lines:\n\ndata: {"type":"response.created",...}\ndata: {"type":"response.output_item.added",...}',
-                  hintStyle: kCodeStyle.copyWith(
-                    fontSize: 12,
-                    color: theme.colorScheme.outlineVariant,
+              child: CallbackShortcuts(
+                bindings: {
+                  const SingleActivator(LogicalKeyboardKey.enter,
+                      control: true): onParse,
+                  const SingleActivator(LogicalKeyboardKey.enter,
+                      meta: true): onParse,
+                },
+                child: TextField(
+                  controller: controller,
+                  maxLines: null,
+                  expands: true,
+                  style: kCodeStyle.copyWith(fontSize: 12),
+                  decoration: InputDecoration(
+                    hintText:
+                        '{\n  "id": "resp_...",\n  "object": "response",\n  "output": [...]\n}\n\nor paste SSE lines:\n\ndata: {"type":"response.created",...}\ndata: {"type":"response.output_item.added",...}',
+                    hintStyle: kCodeStyle.copyWith(
+                      fontSize: 12,
+                      color: theme.colorScheme.outlineVariant,
+                    ),
+                    contentPadding: kP8,
+                    border: InputBorder.none,
                   ),
-                  contentPadding: kP8,
-                  border: InputBorder.none,
+                  textAlignVertical: TextAlignVertical.top,
                 ),
-                textAlignVertical: TextAlignVertical.top,
               ),
             ),
           ),
@@ -338,6 +347,12 @@ class _InputView extends StatelessWidget {
             ),
           ],
 
+          kVSpacer5,
+          Text(
+            'Ctrl+Enter to parse',
+            style: theme.textTheme.labelSmall
+                ?.copyWith(color: theme.colorScheme.outline),
+          ),
           kVSpacer10,
 
           Row(
