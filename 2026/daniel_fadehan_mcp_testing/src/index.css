@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  --color-border: #e5e5e5;
+  --color-border-hover: #d4d4d4;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+}
+
+/* Base styles */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: #171717;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* React Flow customization */
+.react-flow__background {
+  background-color: #ffffff !important;
+}
+
+.react-flow__controls {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 6px !important;
+}
+
+.react-flow__controls-button {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #f5f5f5 !important;
+}
+
+.react-flow__minimap {
+  background-color: #f5f5f5 !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 6px !important;
+}
+
+.react-flow__edge-path {
+  stroke: #d4d4d4;
+  stroke-width: 2;
+}
+
+/* Remove default node styling so our custom shapes shine */
+.react-flow__node {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  width: auto !important;
+}
+
+.react-flow__handle {
+  width: 14px !important;
+  height: 14px !important;
+  background-color: #a3a3a3 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.react-flow__handle:hover {
+  background-color: #171717 !important;
+}
+
+/* Scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+
+/* NDV slide-in animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.2s ease-out;
+}
+
+/* Connection status pulse animation */
+@keyframes connection-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.connection-pulse {
+  animation: connection-pulse 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Execution animation - scale in for badges */
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out forwards;
+}
+
+/* Fade in animation for edge labels */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Execution running pulse */
+@keyframes execution-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+  }
+}
+
+.animate-execution-pulse {
+  animation: execution-pulse 1s ease-in-out infinite;
+}
+
+/* n8n style running ring animation - rotating border */
+@keyframes execution-ring-rotate {
+  0% {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+.execution-ring-running {
+  position: relative;
+  overflow: visible;
+}
+
+.execution-ring-running::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 60deg,
+    #22c55e 120deg,
+    #22c55e 180deg,
+    transparent 240deg,
+    transparent 360deg
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: execution-ring-spin 1.2s linear infinite;
+}
+
+@keyframes execution-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Simple border pulse animation for running state */
+@keyframes execution-border-pulse {
+  0%, 100% {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    border-color: #16a34a;
+    box-shadow: 0 0 8px 2px rgba(34, 197, 94, 0.3);
+  }
+}
+
+.execution-border-running {
+  animation: execution-border-pulse 1.2s ease-in-out infinite;
+}

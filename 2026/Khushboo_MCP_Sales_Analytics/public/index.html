@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Sales Analytics — Test Dashboard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      padding: 24px;
+    }
+
+    .container { max-width: 860px; margin: auto; }
+
+    .header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .header h1 { font-size: 20px; font-weight: 600; color: #111; }
+    .header p  { font-size: 13px; color: #666; margin-top: 4px; }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+      font-size: 13px;
+      margin-bottom: 1.25rem;
+    }
+
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #aaa; flex-shrink: 0; }
+    .dot.online  { background: #3B6D11; }
+    .dot.offline { background: #A32D2D; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 1.25rem;
+    }
+    .metric {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      padding: 14px 16px;
+    }
+    .metric-label { font-size: 12px; color: #888; margin-bottom: 6px; }
+    .metric-value { font-size: 26px; font-weight: 600; color: #111; }
+    .metric-value.green { color: #3B6D11; }
+    .metric-value.red   { color: #A32D2D; }
+
+    .progress-bar {
+      height: 5px;
+      border-radius: 3px;
+      background: #e8e8e8;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: #639922;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    .run-btn {
+      width: 100%;
+      padding: 11px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
+      color: #111;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 1.5rem;
+      transition: background 0.15s;
+    }
+    .run-btn:hover    { background: #f0f0f0; }
+    .run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .test-card {
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      padding: 12px 14px;
+      background: #fff;
+    }
+    .test-card.pass    { border-color: #639922; }
+    .test-card.fail    { border-color: #E24B4A; }
+    .test-card.pending { opacity: 0.5; }
+
+    .test-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+    .test-name { font-size: 13px; font-weight: 600; color: #111; }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+    .badge.pass    { background: #EAF3DE; color: #3B6D11; }
+    .badge.fail    { background: #FCEBEB; color: #A32D2D; }
+    .badge.pending { background: #f0f0f0; color: #888; }
+
+    .test-desc { font-size: 12px; color: #888; }
+
+    .log {
+      background: #1a1a2e;
+      color: #a0c4a0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 12px;
+      min-height: 80px;
+      max-height: 160px;
+      overflow-y: auto;
+      margin-bottom: 1.5rem;
+    }
+    .log-line        { margin-bottom: 3px; }
+    .log-line.ok     { color: #7ec87e; }
+    .log-line.err    { color: #e87e7e; }
+    .log-line.info   { color: #a0a0c0; }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .tool-chip {
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-family: "Consolas", monospace;
+      color: #555;
+      background: #fafafa;
+    }
+
+    @media (max-width: 600px) {
+      .metrics    { grid-template-columns: repeat(2, 1fr); }
+      .test-grid  { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>🧪 MCP Sales Analytics — Test Dashboard</h1>
+    <p>GSoC PoC · Tests the <code>sample-mcp-apps-chatflow</code> MCP server via your Express proxy</p>
+  </div>
+
+  <div class="status-bar">
+    <div class="dot" id="status-dot"></div>
+    <span id="status-text" style="color:#888;">Click "Run all tests" to check server connection</span>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-label">Total tests</div><div class="metric-value" id="m-total">—</div></div>
+    <div class="metric"><div class="metric-label">Passed</div><div class="metric-value green" id="m-pass">—</div></div>
+    <div class="metric"><div class="metric-label">Failed</div><div class="metric-value red" id="m-fail">—</div></div>
+    <div class="metric"><div class="metric-label">Score</div><div class="metric-value" id="m-score">—</div></div>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+  <button class="run-btn" id="run-btn" onclick="runTests()">🚀 Run all tests</button>
+
+  <div class="section-title">Test results</div>
+  <div class="test-grid" id="test-grid">
+    <div class="test-card pending"><div class="test-header"><span class="test-name">Initialize</span><span class="badge pending">—</span></div><div class="test-desc">Protocol handshake &amp; session</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">List tools</span><span class="badge pending">—</span></div><div class="test-desc">Discover available MCP tools</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">select-sales-metric</span><span class="badge pending">—</span></div><div class="test-desc">Invoke metric selector tool</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">get-sales-data</span><span class="badge pending">—</span></div><div class="test-desc">Fetch MH + TN revenue, 2025</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">Edge case</span><span class="badge pending">—</span></div><div class="test-desc">Invalid metric → graceful error</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">visualize-sales-data</span><span class="badge pending">—</span></div><div class="test-desc">Chart generation tool</div></div>
+    <div class="test-card pending"><div class="test-header"><span class="test-name">show-sales-pdf-report</span><span class="badge pending">—</span></div><div class="test-desc">PDF generation + base64 check</div></div>
+  </div>
+
+  <div class="log" id="log">
+    <div class="log-line info">Waiting to run…</div>
+  </div>
+
+  <div class="section-title">Expected MCP tools</div>
+  <div class="tools-grid">
+    <div class="tool-chip">select-sales-metric</div>
+    <div class="tool-chip">get-sales-data</div>
+    <div class="tool-chip">visualize-sales-data</div>
+    <div class="tool-chip">show-sales-pdf-report</div>
+  </div>
+
+</div>
+
+<script>
+  const TEST_NAMES = [
+    "Initialize", "List tools", "select-sales-metric",
+    "get-sales-data", "Edge case", "visualize-sales-data", "show-sales-pdf-report"
+  ];
+  const TEST_DESCS = [
+    "Protocol handshake & session",
+    "Discover available MCP tools",
+    "Invoke metric selector tool",
+    "Fetch MH + TN revenue, 2025",
+    "Invalid metric → graceful error",
+    "Chart generation tool",
+    "PDF generation + base64 check"
+  ];
+
+  function log(msg, type = "info") {
+    const el = document.getElementById("log");
+    const line = document.createElement("div");
+    line.className = "log-line " + type;
+    const ts = new Date().toLocaleTimeString();
+    line.textContent = `[${ts}] ${msg}`;
+    el.appendChild(line);
+    el.scrollTop = el.scrollHeight;
+  }
+
+  function setStatus(online, text) {
+    const dot = document.getElementById("status-dot");
+    const txt = document.getElementById("status-text");
+    dot.className = "dot " + (online ? "online" : "offline");
+    txt.textContent = text;
+    txt.style.color = online ? "#3B6D11" : "#A32D2D";
+  }
+
+  function renderCards(tests) {
+    const grid = document.getElementById("test-grid");
+    grid.innerHTML = "";
+    tests.forEach((t, i) => {
+      const cls = t.status === "PASS" ? "pass" : "fail";
+      const div = document.createElement("div");
+      div.className = `test-card ${cls}`;
+      div.innerHTML = `
+        <div class="test-header">
+          <span class="test-name">${TEST_NAMES[i] || t.name}</span>
+          <span class="badge ${cls}">${t.status}</span>
+        </div>
+        <div class="test-desc">${TEST_DESCS[i] || ""}</div>
+      `;
+      grid.appendChild(div);
+    });
+  }
+
+  function updateMetrics(data) {
+    document.getElementById("m-total").textContent = data.total;
+    document.getElementById("m-pass").textContent  = data.passed;
+    document.getElementById("m-fail").textContent  = data.failed;
+    document.getElementById("m-score").textContent = data.score + "%";
+
+    const bar = document.getElementById("progress");
+    bar.style.width = data.score + "%";
+    bar.style.background =
+      data.score === 100 ? "#3B6D11" :
+      data.score >= 70   ? "#BA7517" : "#A32D2D";
+  }
+
+  async function runTests() {
+    const btn = document.getElementById("run-btn");
+    btn.disabled = true;
+    btn.textContent = "⏳ Running…";
+    document.getElementById("log").innerHTML = "";
+    log("Starting test suite…");
+
+    try {
+      // Step 1: Health check — calls /api/health on THIS server (port 4000)
+      log("Checking MCP server health…");
+      const healthRes = await fetch("/api/health");
+      const health = await healthRes.json();
+
+      if (health.success) {
+        setStatus(true, `MCP connected · ${health.toolCount} tools · ${health.mcpUrl}`);
+        log(`MCP server online. Tools: ${health.toolNames.join(", ")}`, "ok");
+      } else {
+        setStatus(false, "MCP server offline — " + health.error);
+        log("MCP server offline: " + health.error, "err");
+        log("Fix: make sure your MCP server is running on port 3000", "info");
+        btn.disabled = false;
+        btn.textContent = "🚀 Run all tests";
+        return;
+      }
+
+      // Step 2: Run all tests
+      log("Running full test suite…");
+      const res  = await fetch("/api/run-tests");
+      const data = await res.json();
+
+      updateMetrics(data);
+      renderCards(data.tests);
+
+      data.tests.forEach(t => {
+        log(`${t.status}  ${t.name}`, t.status === "PASS" ? "ok" : "err");
+      });
+
+      log(
+        `Done · ${data.passed}/${data.total} passed · score: ${data.score}%`,
+        data.score === 100 ? "ok" : "info"
+      );
+
+    } catch (err) {
+      setStatus(false, "Could not reach server on port 4000");
+      log("Error: " + err.message, "err");
+      log("Make sure server.js is running: node server.js", "info");
+    }
+
+    btn.disabled = false;
+    btn.textContent = "🚀 Run all tests";
+  }
+</script>
+</body>
+</html>
