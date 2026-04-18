@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .subject-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .subject-btn:hover:not(.active) {
+            transform: translateX(4px);
+        }
+
+        .recording-active {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+            70%       { box-shadow: 0 0 0 20px rgba(239, 68, 68, 0); }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-border {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .sidebar-gradient {
+            background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+        }
+
+        /* Custom subject input focus ring */
+        #customSubjectInput:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Divider line between preset and custom */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #52525b;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #27272a;
+        }
+    </style>
+</head>
+
+<body class="bg-black min-h-screen text-white font-inter">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="w-full lg:w-1/5 sidebar-gradient border-b lg:border-b-0 lg:border-r border-zinc-800/50 p-4 lg:p-6 flex flex-col">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-12 h-12 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/30">
+                    <i class="fas fa-robot text-white text-xl"></i>
+                </div>
+                <span class="font-space font-bold text-2xl tracking-tight gradient-heading">AI Interview</span>
+            </div>
+
+            <!-- Preset Topics Label -->
+            <h3 class="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-3">Select Topic</h3>
+
+            <!-- Preset Subject Buttons -->
+            <div class="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0">
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="Self Introduction">
+                    <div class="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-user text-blue-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">Self Introduction</span>
+                </button>
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="Generative AI">
+                    <div class="w-9 h-9 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-brain text-purple-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">Generative AI</span>
+                </button>
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="Python">
+                    <div class="w-9 h-9 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-python text-yellow-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">Python</span>
+                </button>
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="English">
+                    <div class="w-9 h-9 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-language text-green-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">English</span>
+                </button>
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="HTML">
+                    <div class="w-9 h-9 bg-orange-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-html5 text-orange-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">HTML</span>
+                </button>
+
+                <button class="subject-btn flex items-center gap-3 bg-zinc-900/30 hover:bg-zinc-800/50 border border-zinc-700/50 hover:border-zinc-500 rounded-xl p-3 transition-all duration-300 text-left whitespace-nowrap flex-shrink-0" data-subject="CSS">
+                    <div class="w-9 h-9 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fab fa-css3-alt text-blue-400"></i>
+                    </div>
+                    <span class="font-medium text-sm text-white">CSS</span>
+                </button>
+
+            </div>
+
+            <!-- ===== CUSTOM SUBJECT SECTION ===== -->
+            <div class="mt-4 lg:mt-6">
+                <div class="divider mb-3">or type your own</div>
+
+                <div class="flex flex-col gap-2">
+                    <input
+                        id="customSubjectInput"
+                        type="text"
+                        maxlength="60"
+                        placeholder="e.g. Machine Learning, React, SQL..."
+                        class="w-full bg-zinc-900/50 border border-zinc-700/50 rounded-xl px-4 py-2.5 text-sm text-white placeholder-zinc-500 transition-all duration-200"
+                    />
+                    <button
+                        id="startCustomBtn"
+                        class="w-full bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                        <i class="fas fa-plus text-xs"></i>
+                        Start Custom Interview
+                    </button>
+                </div>
+            </div>
+            <!-- ===== END CUSTOM SUBJECT SECTION ===== -->
+
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="flex-1 flex flex-col items-center justify-center p-6 lg:p-10">
+            <div class="w-full max-w-2xl">
+
+                <!-- Welcome Screen -->
+                <div id="welcomeState" class="text-center py-16">
+                    <div class="w-20 h-20 bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-purple-500/30">
+                        <i class="fas fa-robot text-white text-3xl"></i>
+                    </div>
+                    <h2 class="font-space text-2xl lg:text-3xl font-bold gradient-heading mb-3">Ready to Practice?</h2>
+                    <p class="text-gray-400 text-base lg:text-lg">Select a topic from the sidebar — or type your own subject!</p>
+                </div>
+
+                <!-- Interview Screen -->
+                <div id="interviewState" class="hidden">
+
+                    <!-- Subject Badge and Question Counter -->
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <span id="subjectBadge" class="bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-5 py-2 rounded-full font-semibold shadow-lg">Python</span>
+                            <i id="subjectIcon" class="fab fa-python text-2xl text-yellow-400"></i>
+                        </div>
+                        <span class="text-gray-300 text-base font-medium">
+                            Question <span id="questionNum" class="text-white font-bold text-lg">1</span>/<span id="totalQuestions" class="text-white font-bold text-lg">5</span>
+                        </span>
+                    </div>
+
+                    <!-- Natalie Profile -->
+                    <div class="flex flex-col items-center mb-6">
+                        <div class="w-44 h-44 lg:w-56 lg:h-56 xl:w-64 xl:h-64 rounded-full overflow-hidden border-4 border-zinc-700/50 mb-4 shadow-2xl">
+                            <img src="https://www.whiteroomstudio.com.sg/wordpress/wp-content/uploads/2021/10/professional-headshot-photography-linkedin-singapore-5.jpeg" alt="Natalie" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-gray-300 text-lg lg:text-xl font-medium">Natalie</p>
+                    </div>
+
+                    <!-- Speaking Bubble -->
+                    <div class="max-w-2xl mx-auto mb-6">
+                        <div id="speakingBubble" class="hidden flex justify-center items-center gap-3 p-5 bg-zinc-900/50 rounded-2xl border border-zinc-800/50">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 bg-[#667eea] rounded-full animate-bounce" style="animation-delay: 0s;"></div>
+                                <div class="w-3 h-3 bg-[#764ba2] rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                <div class="w-3 h-3 bg-[#f093fb] rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+                            </div>
+                            <span class="text-gray-200 ml-2 font-medium">Natalie is speaking...</span>
+                        </div>
+                    </div>
+
+                    <!-- Recording Controls -->
+                    <div class="flex flex-col items-center gap-4 mb-6">
+                        <button id="startInterviewBtn" class="bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-8 py-3 rounded-full font-bold text-base hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                            Start Interview
+                        </button>
+
+                        <button id="recordBtn" disabled class="hidden w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-zinc-800/80 text-gray-300 flex items-center justify-center transition-all duration-300 border-2 border-zinc-700/50 hover:border-zinc-500">
+                            <i id="micIcon" class="fas fa-microphone text-2xl lg:text-3xl"></i>
+                            <i id="stopIcon" class="fas fa-stop text-2xl lg:text-3xl hidden"></i>
+                        </button>
+                        <p id="recordingStatus" class="text-gray-400 text-base">Click Start Interview to begin</p>
+
+                        <button id="submitBtn" disabled class="hidden bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-8 py-3 rounded-full font-bold text-base hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                            Submit Answer
+                        </button>
+                    </div>
+
+                    <!-- End Interview -->
+                    <div class="text-center">
+                        <button id="endInterviewBtn" disabled class="border-2 border-zinc-700 text-gray-300 px-6 py-2.5 rounded-xl transition-all duration-300 hover:border-red-500/50 hover:text-red-400 font-medium text-sm">
+                            End Interview
+                        </button>
+                    </div>
+
+                    <!-- Feedback Section -->
+                    <div id="feedbackSection" class="hidden mt-10 pt-6 border-t border-zinc-800/50">
+
+                        <div id="getFeedbackArea" class="text-center mb-6">
+                            <p class="text-gray-300 mb-4 text-base">Interview completed!</p>
+                            <button id="getFeedbackBtn" class="bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#f093fb] text-white px-8 py-3 rounded-full font-bold text-base hover:opacity-90 transition-all duration-300 shadow-lg shadow-purple-500/30">
+                                Get Feedback
+                            </button>
+                        </div>
+
+                        <div id="feedbackContent" class="hidden max-w-xl mx-auto">
+
+                            <div class="flex flex-col sm:flex-row justify-between items-start gap-6 mb-6">
+                                <div>
+                                    <p class="text-gray-400 text-xs mb-1 uppercase tracking-wider">Detailed Feedback</p>
+                                    <h3 id="feedbackSubject" class="font-space text-2xl font-bold gradient-heading">Subject</h3>
+                                </div>
+                                <div class="text-center">
+                                    <div class="relative w-24 h-24">
+                                        <svg class="w-24 h-24 transform -rotate-90">
+                                            <circle cx="48" cy="48" r="40" stroke="#27272a" stroke-width="5" fill="none" />
+                                            <!-- stroke-dasharray = 2 * π * 40 = 251.2 -->
+                                            <circle id="scoreCircle" cx="48" cy="48" r="40"
+                                                stroke="url(#scoreGradient)"
+                                                stroke-width="5"
+                                                fill="none"
+                                                stroke-dasharray="251.2"
+                                                stroke-dashoffset="251.2"
+                                                stroke-linecap="round"
+                                                class="transition-all duration-1000" />
+                                            <defs>
+                                                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#667eea" />
+                                                    <stop offset="100%" stop-color="#764ba2" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                            <span id="scoreValue" class="text-2xl font-bold text-white">0</span>
+                                            <span class="text-xs text-gray-400">/5</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-gray-400 mt-1">Score</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-zinc-900/30 rounded-xl p-5 border border-zinc-800/50">
+                                    <h4 class="text-lg font-bold mb-2 flex items-center gap-2 gradient-heading">
+                                        <i class="fas fa-star text-yellow-400"></i> Feedback
+                                    </h4>
+                                    <p id="feedbackText" class="text-gray-200 leading-relaxed text-sm"></p>
+                                </div>
+                                <div class="bg-zinc-900/30 rounded-xl p-5 border border-zinc-800/50">
+                                    <h4 class="text-lg font-bold mb-2 flex items-center gap-2 gradient-heading">
+                                        <i class="fas fa-chart-line text-cyan-400"></i> Areas of Improvement
+                                    </h4>
+                                    <p id="improvementText" class="text-gray-200 leading-relaxed text-sm"></p>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-8">
+                                <button id="newInterviewBtn" class="bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white px-10 py-3 rounded-xl font-bold text-base hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                                    Start New Interview
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
