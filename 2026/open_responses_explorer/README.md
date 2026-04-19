@@ -40,9 +40,8 @@ flowchart TB
 		Parser["OpenResponseParser"]
 		Models["response_models"]
 		Detector["OpenResponsesDetector"]
-		Session["StreamingSession"]
-		Reducer["StreamingReducer"]
-		GenUIModel["GenUI Models + Registry"]
+		Reducer["StreamingReducer + StreamingSession"]
+		GenUIModel["GenUI Models + Component Builders"]
 	end
 
 	Main --> Input
@@ -54,8 +53,7 @@ flowchart TB
 	Detector --> GenUIPreview
 	GenUIPreview --> GenUIModel
 	Explorer --> StreamUI
-	StreamUI --> Session
-	Session --> Reducer
+	StreamUI --> Reducer
 	Reducer --> Models
 ```
 
@@ -75,20 +73,18 @@ flowchart TB
 
 ### 2. Domain Layer
 
-- `lib/domain/response_models.dart`
+- `lib/response_models.dart`
 	- Core domain entities: `ParsedResponse`, `ResponseItem` variants, `CorrelatedCall`.
-- `lib/domain/open_response_parser.dart`
+- `lib/open_response_parser.dart`
 	- Converts raw JSON into typed domain models.
 	- Correlates function calls with function_call_output items.
 	- Provides fallback handling for generic JSON payloads.
-- `lib/domain/open_responses_detector.dart`
+- `lib/open_responses_detector.dart`
 	- Detects GenUI descriptors inside messages, unknown items, and tool outputs.
-- `lib/domain/streaming_reducer.dart`
-	- Reducer that applies streaming events to incremental response state.
-- `lib/domain/streaming_session.dart`
-	- Session wrapper exposing a stream of reducer state updates.
-- `lib/domain/gen_ui_*.dart`
-	- GenUI descriptor models, registry, and sample descriptors.
+- `lib/streaming_reducer.dart`
+	- Reducer that applies streaming events and exposes `StreamingSession` for stream-based playback state updates.
+- `lib/gen_ui_*.dart`
+	- GenUI descriptor models and sample descriptors.
 
 ### 3. App Shell
 
@@ -101,8 +97,6 @@ flowchart TB
 
 - `lib/app_colors.dart`
 	- Centralized app color constants used across screens/themes.
-- `lib/routing.dart`
-	- Reusable slide-up route transition helper.
 
 ## Data Flow
 
@@ -122,15 +116,15 @@ flowchart TB
 
 1. A parsed response is passed into `StreamingSimulatorScreen` as seed state.
 2. Simulation events are generated or loaded.
-3. `StreamingSession` forwards each event to `StreamingReducer`.
-4. Reducer updates session state with the latest `ParsedResponse` snapshot.
+3. `StreamingSession` (defined in `streaming_reducer.dart`) forwards each event to `StreamingReducer`.
+4. The reducer updates session state with the latest `ParsedResponse` snapshot.
 5. UI reads synchronized snapshots to keep event timeline and live response panel aligned.
 
 ### GenUI Detection Flow
 
 1. Explorer checks parsed items via `OpenResponsesDetector`.
 2. If a valid descriptor is found, user can open `GenUIPreviewScreen`.
-3. Descriptor is rendered using the GenUI component registry.
+3. Descriptor is rendered using GenUI component builders.
 
 ## UX and Performance Notes
 
@@ -153,16 +147,12 @@ flowchart TB
 		lib/
 			main.dart
 			app_colors.dart
-			routing.dart
-			domain/
-				gen_ui_component_registry.dart
-				gen_ui_models.dart
-				gen_ui_samples.dart
-				open_response_parser.dart
-				open_responses_detector.dart
-				response_models.dart
-				streaming_reducer.dart
-				streaming_session.dart
+			gen_ui_models.dart
+			gen_ui_samples.dart
+			open_response_parser.dart
+			open_responses_detector.dart
+			response_models.dart
+			streaming_reducer.dart
 			screens/
 				input_screen.dart
 				response_explorer_screen.dart
@@ -183,15 +173,21 @@ From `2026/open_responses_explorer`:
 
 	 `flutter pub get`
 
-2. Run the app
+2. (Optional) Generate local platform scaffolding for your machine
 
-	 `flutter run`
+	 `flutter create --platforms=windows,linux,macos .`
 
-3. Run smoke test
+	Do not commit generated platform folders. This PoC keeps source and tests only.
+
+3. Run the app
+
+	 `flutter run -d windows`
+
+4. Run smoke test
 
 	 `flutter test test/response_explorer_smoke_test.dart`
 
-4. Run analyzer and full test suite
+5. Run analyzer and full test suite
 
 	 `flutter analyze`
 
