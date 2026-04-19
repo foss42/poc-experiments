@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 import 'screens/input_screen.dart';
-import 'screens/gen_ui_preview_screen.dart';
-import 'screens/streaming_simulator_screen.dart';
 
 void main() {
   runApp(const OpenResponsesExplorerApp());
@@ -11,9 +9,6 @@ void main() {
 
 class OpenResponsesExplorerApp extends StatefulWidget {
   const OpenResponsesExplorerApp({super.key});
-
-  static const String streamingRoute = '/streaming-simulator';
-  static const String genUiPreviewRoute = '/genui-preview';
 
   @override
   State<OpenResponsesExplorerApp> createState() =>
@@ -60,15 +55,6 @@ class _OpenResponsesExplorerAppState extends State<OpenResponsesExplorerApp> {
       darkTheme: _darkTheme,
       themeAnimationDuration: const Duration(milliseconds: 320),
       themeAnimationCurve: Curves.easeInOutCubic,
-      routes: <String, WidgetBuilder>{
-        OpenResponsesExplorerApp.streamingRoute: (BuildContext context) =>
-            const StreamingSimulatorScreen(),
-        OpenResponsesExplorerApp.genUiPreviewRoute: (BuildContext context) =>
-            GenUIPreviewScreen.fromRawJson(
-              rawDescriptorJson:
-                  GenUIPreviewScreen.defaultRouteDescriptorJson(),
-            ),
-      },
       home: InputScreen(themeMode: _themeMode, onToggleTheme: _toggleTheme),
     );
   }

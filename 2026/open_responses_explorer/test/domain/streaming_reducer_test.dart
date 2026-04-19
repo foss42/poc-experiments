@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:open_responses_explorer/domain/response_models.dart';
-import 'package:open_responses_explorer/domain/streaming_reducer.dart';
+import 'package:open_responses_explorer/response_models.dart';
+import 'package:open_responses_explorer/streaming_reducer.dart';
 
 void main() {
   group('StreamingReducer', () {

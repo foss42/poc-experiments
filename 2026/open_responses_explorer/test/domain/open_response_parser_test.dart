@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:open_responses_explorer/domain/open_response_parser.dart';
-import 'package:open_responses_explorer/domain/response_models.dart';
+import 'package:open_responses_explorer/open_response_parser.dart';
+import 'package:open_responses_explorer/response_models.dart';
 
 void main() {
   group('OpenResponseParser', () {

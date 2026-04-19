@@ -8,11 +8,10 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../app_colors.dart';
-import '../domain/gen_ui_models.dart';
-import '../domain/gen_ui_samples.dart';
-import '../domain/open_response_parser.dart';
-import '../domain/response_models.dart';
-import '../routing.dart';
+import '../gen_ui_models.dart';
+import '../gen_ui_samples.dart';
+import '../open_response_parser.dart';
+import '../response_models.dart';
 import 'gen_ui_preview_screen.dart';
 import 'response_explorer_screen.dart';
 import 'streaming_simulator_screen.dart';
@@ -875,22 +874,23 @@ class _InputScreenState extends State<InputScreen>
   }
 
   Route<void> _buildExplorerRoute(ParsedResponse response) {
-    return slideUpRoute(
-      ResponseExplorerScreen(response: response),
-      durationMs: 360,
+    return MaterialPageRoute<void>(
+      builder: (_) => ResponseExplorerScreen(response: response),
     );
   }
 
   Route<void> _buildStreamingRoute() {
-    return slideUpRoute(const StreamingSimulatorScreen());
+    return MaterialPageRoute<void>(
+      builder: (_) => const StreamingSimulatorScreen(),
+    );
   }
 
   Route<void> _buildGenUiPreviewRoute(
     GenUIDescriptor descriptor,
     Map<String, dynamic> descriptorJson,
   ) {
-    return slideUpRoute(
-      GenUIPreviewScreen(
+    return MaterialPageRoute<void>(
+      builder: (_) => GenUIPreviewScreen(
         descriptor: descriptor,
         rawDescriptorJson: descriptorJson,
       ),

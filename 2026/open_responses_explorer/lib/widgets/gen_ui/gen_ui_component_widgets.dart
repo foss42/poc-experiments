@@ -1,8 +1,51 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/gen_ui_models.dart';
+import '../../gen_ui_models.dart';
 
 const Color _primaryBlue = Color(0xFF2563EB);
+
+typedef GenUIChildBuilder = Widget Function(GenUIComponent component);
+
+bool genUISupports(String type) {
+  return const {'text', 'button', 'card', 'input', 'divider', 'table'}
+      .contains(type);
+}
+
+Widget buildGenUIComponent(
+  BuildContext context,
+  GenUIComponent component,
+  GenUIChildBuilder childBuilder,
+) {
+  try {
+    switch (component.type) {
+      case 'text':
+        return GenUITextWidget(component: component as TextComponent);
+      case 'button':
+        return GenUIButtonWidget(component: component as ButtonComponent);
+      case 'card':
+        final card = component as CardComponent;
+        return GenUICardWidget(
+          component: card,
+          children: card.children
+              .map((c) => childBuilder(c))
+              .toList(growable: false),
+        );
+      case 'input':
+        return GenUIInputWidget(component: component as InputComponent);
+      case 'divider':
+        return const GenUIDividerWidget();
+      case 'table':
+        return GenUITableWidget(component: component as TableComponent);
+      default:
+        final unknown = component is UnknownComponent
+            ? component
+            : UnknownComponent(id: component.id, raw: component.toJson());
+        return UnknownComponentCard(raw: unknown.raw, type: component.type);
+    }
+  } catch (_) {
+    return UnknownComponentCard(raw: component.toJson(), type: component.type);
+  }
+}
 
 class GenUITextWidget extends StatelessWidget {
   const GenUITextWidget({super.key, required this.component});

@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../app_colors.dart';
-import '../domain/gen_ui_models.dart';
-import '../domain/open_responses_detector.dart';
-import '../domain/response_models.dart';
-import '../routing.dart';
+import '../gen_ui_models.dart';
+import '../open_responses_detector.dart';
+import '../response_models.dart';
 import 'gen_ui_preview_screen.dart';
 import 'streaming_simulator_screen.dart';
 
@@ -121,16 +120,16 @@ class _ResponseExplorerScreenState extends State<ResponseExplorerScreen>
   }
 
   Route<void> _buildStreamingRoute() {
-    return slideUpRoute(
-      StreamingSimulatorScreen(seedResponse: widget.response),
+    return MaterialPageRoute<void>(
+      builder: (_) => StreamingSimulatorScreen(seedResponse: widget.response),
     );
   }
 
   Route<void> _buildGenUIPreviewRoute(Map<String, dynamic> descriptorJson) {
     final descriptor = GenUIDescriptor.fromJson(descriptorJson);
 
-    return slideUpRoute(
-      GenUIPreviewScreen(
+    return MaterialPageRoute<void>(
+      builder: (_) => GenUIPreviewScreen(
         descriptor: descriptor,
         rawDescriptorJson: descriptorJson,
       ),

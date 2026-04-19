@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../app_colors.dart';
-import '../domain/gen_ui_component_registry.dart';
-import '../domain/gen_ui_models.dart';
-import '../domain/gen_ui_samples.dart';
+import '../gen_ui_models.dart';
+import '../gen_ui_samples.dart';
+import '../widgets/gen_ui/gen_ui_component_widgets.dart';
 
 const Color _previewAccent = Color(0xFF2563EB);
 const Color _successGreen = Color(0xFF16A34A);
@@ -52,7 +52,6 @@ class GenUIPreviewScreen extends StatefulWidget {
 }
 
 class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
-  final GenUIComponentRegistry _registry = GenUIComponentRegistry();
   final ScrollController _descriptorScrollController = ScrollController();
 
   bool _splitMode = false;
@@ -137,7 +136,7 @@ class _GenUIPreviewScreenState extends State<GenUIPreviewScreen> {
                       """
 import 'dart:convert';
 
-import 'package:open_responses_explorer/domain/gen_ui_models.dart';
+import 'package:open_responses_explorer/gen_ui_models.dart';
 
 const String descriptorJson = r'''
 $escaped
@@ -874,7 +873,7 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
     for (int i = 0; i < widget.descriptor.components.length; i++) {
       final component = widget.descriptor.components[i];
       final key = _topLevelKey(component, i);
-      final successful = _registry.supports(component.type);
+      final successful = genUISupports(component.type);
 
       Widget built;
       try {
@@ -905,10 +904,10 @@ final GenUIDescriptor descriptor = GenUIDescriptor.fromJsonString(descriptorJson
     required String keyPath,
     required bool isTopLevel,
   }) {
-    final rawChild = _registry.build(
-      context: context,
-      component: component,
-      childBuilder: (GenUIComponent child) {
+    final rawChild = buildGenUIComponent(
+      context,
+      component,
+      (GenUIComponent child) {
         final childKey = '$keyPath/${child.id}_${identityHashCode(child)}';
         return _buildInteractiveComponent(
           component: child,

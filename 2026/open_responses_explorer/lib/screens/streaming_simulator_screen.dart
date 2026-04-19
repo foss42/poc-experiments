@@ -7,9 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../app_colors.dart';
-import '../domain/response_models.dart';
-import '../domain/streaming_reducer.dart';
-import '../domain/streaming_session.dart';
+import '../response_models.dart';
+import '../streaming_reducer.dart';
 
 const Color _processingBlue = Color(0xFF2563EB);
 const Color _completedGreen = Color(0xFF16A34A);
