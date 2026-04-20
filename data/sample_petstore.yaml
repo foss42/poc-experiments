@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Petstore API
+  description: A sample API for testing YAML support
+  version: 1.0.0
+servers:
+  - url: https://petstore.swagger.io/v2
+    description: Production server
+paths:
+  /pets:
+    get:
+      summary: List all pets
+      description: Returns a list of pets from the store
+      responses:
+        '200':
+          description: A list of pets
+    post:
+      summary: Create a pet
+      description: Add a new pet to the store
+      responses:
+        '201':
+          description: Pet created successfully
+  /pets/{petId}:
+    get:
+      summary: Get pet by ID
+      description: Returns a single pet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Pet details
+        '404':
+          description: Pet not found
+    put:
+      summary: Update pet
+      description: Update an existing pet
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Pet updated successfully
+    delete:
+      summary: Delete pet
+      description: Remove a pet from the store
+      parameters:
+        - name: petId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Pet deleted successfully
