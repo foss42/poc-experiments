@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "apiId": "6f7c887ecd63",
+    "generatedAt": "2026-04-16T16:18:24.401769",
+    "endpointCount": 2
+  },
+  "endpoints": [
+    {
+      "path": "/chat/completions",
+      "method": "POST",
+      "authType": "bearer",
+      "templates": {
+        "curl": "curl -X POST \\\n  \"https://api.openai.com/v1/chat/completions\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\" \\\n  -d '{\n  \"name\": \"Sample Name\",\n  \"description\": \"Sample description\"\n}'",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.openai.com/v1/chat/completions\" `\n  -Method POST `\n  -Headers @{\"Content-Type\" = \"application/json\"; \"Authorization\" = \"Bearer YOUR_TOKEN\"} `\n  -Body '{\n  \"\"name\"\": \"\"Sample Name\"\",\n  \"\"description\"\": \"\"Sample description\"\"\n}'"
+      }
+    },
+    {
+      "path": "/models",
+      "method": "GET",
+      "authType": "bearer",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://api.openai.com/v1/models\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.openai.com/v1/models\" `\n  -Method GET `\n  -Headers @{\"Authorization\" = \"Bearer YOUR_TOKEN\"}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "E-commerce Store API",
+    "description": "Complete shopping platform API for managing products, orders, cart, and payment processing",
+    "version": "3.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.shopify.com/v1",
+      "description": "E-commerce platform"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "List products",
+        "description": "Browse store catalog and inventory with filtering options",
+        "responses": {
+          "200": {
+            "description": "Product catalog"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create product",
+        "description": "Add new product to store inventory",
+        "responses": {
+          "201": {
+            "description": "Product created"
+          }
+        }
+      }
+    },
+    "/cart": {
+      "get": {
+        "summary": "Get shopping cart",
+        "description": "Retrieve current shopping cart contents",
+        "responses": {
+          "200": {
+            "description": "Shopping cart data"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add to cart",
+        "description": "Add product to shopping cart for checkout",
+        "responses": {
+          "200": {
+            "description": "Item added to cart"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "summary": "Create order",
+        "description": "Process purchase and create new order",
+        "responses": {
+          "201": {
+            "description": "Order created successfully"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Shop-Token"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

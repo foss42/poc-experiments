@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "apiId": "0e1d358dbd5f",
+    "generatedAt": "2026-04-16T16:18:24.473310",
+    "endpointCount": 2
+  },
+  "endpoints": [
+    {
+      "path": "/weather/current",
+      "method": "GET",
+      "authType": "apiKey",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://api.weather.com/v1/weather/current\" \\\n  -H \"X-API-Key: YOUR_API_KEY\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.weather.com/v1/weather/current\" `\n  -Method GET `\n  -Headers @{\"X-API-Key\" = \"YOUR_API_KEY\"}"
+      }
+    },
+    {
+      "path": "/weather/forecast",
+      "method": "GET",
+      "authType": "apiKey",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://api.weather.com/v1/weather/forecast\" \\\n  -H \"X-API-Key: YOUR_API_KEY\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.weather.com/v1/weather/forecast\" `\n  -Method GET `\n  -Headers @{\"X-API-Key\" = \"YOUR_API_KEY\"}"
+      }
+    }
+  ]
+}

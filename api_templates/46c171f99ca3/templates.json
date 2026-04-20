@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "apiId": "46c171f99ca3",
+    "generatedAt": "2026-04-16T16:18:24.423054",
+    "endpointCount": 3
+  },
+  "endpoints": [
+    {
+      "path": "/admin",
+      "method": "POST",
+      "authType": "bearer",
+      "templates": {
+        "curl": "curl -X POST \\\n  \"https://api.example.com/v1/admin\" \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\" \\\n  -d '{\n  \"name\": \"Sample Name\",\n  \"description\": \"Sample description\"\n}'",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/admin\" `\n  -Method POST `\n  -Headers @{\"Content-Type\" = \"application/json\"; \"Authorization\" = \"Bearer YOUR_TOKEN\"} `\n  -Body '{\n  \"\"name\"\": \"\"Sample Name\"\",\n  \"\"description\"\": \"\"Sample description\"\"\n}'"
+      }
+    },
+    {
+      "path": "/public",
+      "method": "GET",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/public\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/public\" `\n  -Method GET"
+      }
+    },
+    {
+      "path": "/users",
+      "method": "GET",
+      "authType": "bearer",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/users\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/users\" `\n  -Method GET `\n  -Headers @{\"Authorization\" = \"Bearer YOUR_TOKEN\"}"
+      }
+    }
+  ]
+}

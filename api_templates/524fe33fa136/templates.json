@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "apiId": "524fe33fa136",
+    "generatedAt": "2026-04-16T16:18:24.384149",
+    "endpointCount": 5
+  },
+  "endpoints": [
+    {
+      "path": "/pets",
+      "method": "GET",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://petstore.swagger.io/v2/pets\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://petstore.swagger.io/v2/pets\" `\n  -Method GET"
+      }
+    },
+    {
+      "path": "/pets",
+      "method": "POST",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X POST \\\n  \"https://petstore.swagger.io/v2/pets\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n  \"name\": \"Fluffy\",\n  \"species\": \"cat\",\n  \"age\": 3\n}'",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://petstore.swagger.io/v2/pets\" `\n  -Method POST `\n  -Headers @{\"Content-Type\" = \"application/json\"} `\n  -Body '{\n  \"\"name\"\": \"\"Fluffy\"\",\n  \"\"species\"\": \"\"cat\"\",\n  \"\"age\"\": 3\n}'"
+      }
+    },
+    {
+      "path": "/pets/{petId}",
+      "method": "DELETE",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X DELETE \\\n  \"https://petstore.swagger.io/v2/pets/123\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://petstore.swagger.io/v2/pets/123\" `\n  -Method DELETE"
+      }
+    },
+    {
+      "path": "/pets/{petId}",
+      "method": "GET",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X GET \\\n  \"https://petstore.swagger.io/v2/pets/123\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://petstore.swagger.io/v2/pets/123\" `\n  -Method GET"
+      }
+    },
+    {
+      "path": "/pets/{petId}",
+      "method": "PUT",
+      "authType": "none",
+      "templates": {
+        "curl": "curl -X PUT \\\n  \"https://petstore.swagger.io/v2/pets/123\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n  \"name\": \"Fluffy\",\n  \"species\": \"cat\",\n  \"age\": 3\n}'",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://petstore.swagger.io/v2/pets/123\" `\n  -Method PUT `\n  -Headers @{\"Content-Type\" = \"application/json\"} `\n  -Body '{\n  \"\"name\"\": \"\"Fluffy\"\",\n  \"\"species\"\": \"\"cat\"\",\n  \"\"age\"\": 3\n}'"
+      }
+    }
+  ]
+}

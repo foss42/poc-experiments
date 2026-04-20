@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Weather Forecast API",
+    "description": "Get current weather conditions, forecasts, and climate data for any location worldwide",
+    "version": "2.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.weather.com/v1",
+      "description": "Production weather server"
+    }
+  ],
+  "paths": {
+    "/weather/current": {
+      "get": {
+        "summary": "Get current weather",
+        "description": "Returns current weather conditions including temperature, humidity, and wind data",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current weather data"
+          }
+        }
+      }
+    },
+    "/weather/forecast": {
+      "get": {
+        "summary": "Get weather forecast",
+        "description": "Returns 7-day weather forecast with temperature and precipitation predictions",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Weather forecast data"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}
