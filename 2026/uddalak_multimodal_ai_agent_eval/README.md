@@ -37,7 +37,7 @@ Today, running LLM benchmarks requires CLI tools, complex local setup, and deep 
 ```
 Traditional workflow              EvalForge
 ────────────────────              ─────────
-$ pip install lm-eval             → Open http://localhost:5173
+$ pip install lm-eval             → Open http://localhost:8080
 $ lm_eval --model openai ...      → Select provider + dataset
 $ parse JSON output manually      → Click "Initiate Evaluation"
 $ write comparison scripts        → Compare providers side-by-side
@@ -91,62 +91,52 @@ EvalForge exposes an MCP server with three tools:
 
 ---
 
-## Quick Start
+---
 
-### Prerequisites
+## ⚡ Quick Start
 
-- Python 3.11+
-- Node.js 20+
-- API key for at least one provider (Groq has a generous free tier — [get one here](https://console.groq.com))
+### The Fastest Way: Docker Compose
+The entire stack (FastAPI, React, and MCP Server) is orchestrated for a single-command launch.
 
-### 1. Clone and configure
+1. **Clone and Configure**:
+   ```bash
+   git clone https://github.com/uddalak2005/gsoc-poc
+   cd 2026/uddalak_multimodal_ai_agent_eval
+   ```
 
-```bash
-git clone https://github.com/uddalak2005/gsoc-poc
-cd 2026/uddalak_multimodal_ai_agent_eval
-```
+2. **Set API Keys**:
+   Create a `.env` file in the `backend/` directory:
+   ```env
+   GEMINI_API_KEY=AIzaSy...
+   GROQ_API_KEY=gsk_...
+   ```
+   > **Note:** Only `backend/.env` is required for the Docker setup. API keys are shared across the framework automatically. Get free keys from [Google AI Studio](https://ai.google.dev) and [Groq Console](https://console.groq.com).
 
-Create `backend/.env`:
+3. **Launch**:
+   ```bash
+   docker compose up --build
+   ```
 
-```env
-GROQ_API_KEY=your_groq_key        # Free — https://console.groq.com
-GEMINI_API_KEY=your_google_key    # Free tier — https://ai.google.dev
-OPENAI_API_KEY=                   # Optional
-ANTHROPIC_API_KEY=                # Optional
-```
+4. **Access the Framework**:
+   - 🖥️ **Dashboard (Frontend)**: [http://localhost:8080](http://localhost:8080)
+   - ⚙️ **API (Backend)**: [http://localhost:8000/docs](http://localhost:8000/docs)
+   - 🔌 **MCP Server**: [http://localhost:3001/mcp](http://localhost:3001/mcp)
 
-### 2. Start all three services
+---
 
-Open **three terminal windows**:
+## 📖 User Guide
+For detailed instructions on how to use the **Forge**, understanding **TFS metrics**, and testing **MCP Apps**, please refer to our comprehensive guide:
 
-```bash
-# Terminal 1 — FastAPI backend (port 8000)
-cd backend
-uv run main.py
-# ✅ Uvicorn running on http://0.0.0.0:8000
-```
+👉 **[Read the EvalForge User Guide](docs/USER_GUIDE.md)**
 
-```bash
-# Terminal 2 — MCP server (port 3001)
-cd mcp-server
-npx tsx src/index.ts
-# ✅ EvalForge MCP server running on port 3001
-```
+---
 
-```bash
-# Terminal 3 — React frontend (port 5173)
-cd frontend
-npm install && npm run dev
-# ✅ Local: http://localhost:5173
-```
+## 🛠️ Advanced: Local Development
+If you prefer to run services manually without Docker:
 
-Open **http://localhost:5173** and run your first eval.
-
-### Or use Docker Compose
-
-```bash
-OPENAI_API_KEY=sk-... GROQ_API_KEY=gsk_... docker-compose up
-```
+1. **Backend**: `cd backend && uv run main.py` (Port 8000)
+2. **MCP Server**: `cd mcp-server && npm install && npx tsx src/index.ts` (Port 3001)
+3. **Frontend**: `cd frontend && npm install && npm run dev` (Port 8080)
 
 ---
 

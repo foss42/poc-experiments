@@ -23,11 +23,11 @@ npx tsx src/index.ts
 # ✅ "EvalForge MCP server running on port 3001"
 ```
 
-### Terminal 3 — Frontend (React, port 5173)
+### Terminal 3 — Frontend (React, port 8080)
 ```bash
 cd frontend
 npm run dev
-# ✅ "Local: http://localhost:5173"
+# ✅ "Local: http://localhost:8080"
 ```
 
 ### Environment — `backend/.env`
@@ -37,7 +37,7 @@ GROQ_API_KEY=your_groq_key
 ```
 > **Free keys**: Groq → https://console.groq.com | Gemini → https://ai.google.dev
 
-Then open **http://localhost:5173**.
+Then open **http://localhost:8080**.
 
 ---
 
