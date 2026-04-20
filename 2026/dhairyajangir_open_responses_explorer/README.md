@@ -143,7 +143,7 @@ flowchart TB
 ```
 2026/
 	README.md
-	open_responses_explorer/
+	dhairyajangir_open_responses_explorer/
 		lib/
 			main.dart
 			app_colors.dart
@@ -167,7 +167,7 @@ flowchart TB
 
 ## Local Setup
 
-From `2026/open_responses_explorer`:
+From `2026/dhairyajangir_open_responses_explorer`:
 
 1. Install dependencies
 

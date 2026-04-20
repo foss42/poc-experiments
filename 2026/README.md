@@ -4,7 +4,7 @@ This directory contains candidate Proof of Concept projects for GSoC 2026.
 
 ## Available PoCs
 
-- `open_responses_explorer/`: Open Responses + GenUI exploration platform.
+- `dhairyajangir_open_responses_explorer/`: Open Responses + GenUI exploration platform.
 
 ## Notes for Reviewers
 
