@@ -4,10 +4,11 @@ import { EvalProvider } from './context/EvalContext';
 import { ResultsDashboard } from './pages/ResultsDashboard';
 import { EvalForge } from './pages/EvalForge';
 import { MCPPanel } from './pages/MCPPanel';
+import { LiveDemo } from './pages/LiveDemo';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 
 // Only 3 working views — Datasets and Leaderboard removed (no implementation)
-type ViewType = 'dashboard' | 'forge' | 'mcp';
+type ViewType = 'dashboard' | 'forge' | 'mcp' | 'live';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType>('dashboard');
@@ -17,6 +18,7 @@ function App() {
       case 'dashboard': return <ErrorBoundary><ResultsDashboard /></ErrorBoundary>;
       case 'forge':     return <ErrorBoundary><EvalForge /></ErrorBoundary>;
       case 'mcp':       return <ErrorBoundary><MCPPanel /></ErrorBoundary>;
+      case 'live':      return <ErrorBoundary><LiveDemo /></ErrorBoundary>;
       default:          return <ErrorBoundary><ResultsDashboard /></ErrorBoundary>;
     }
   };

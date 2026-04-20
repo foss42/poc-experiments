@@ -4,9 +4,14 @@ from fastapi import APIRouter, HTTPException
 
 router = APIRouter(prefix="/datasets", tags=["datasets"])
 
-DATASETS_DIR = os.path.join(
-    os.path.dirname(__file__), "..", "..", "..", "datasets"
+DATASETS_DIR = os.getenv(
+    "DATASETS_DIR",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "datasets"))
 )
+
+# In Docker, the path might be /app/datasets if mounted there
+if not os.path.exists(DATASETS_DIR) and os.path.exists("/app/datasets"):
+    DATASETS_DIR = "/app/datasets"
 
 
 @router.get("/")

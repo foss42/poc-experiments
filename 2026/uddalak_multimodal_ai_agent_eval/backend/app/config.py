@@ -11,6 +11,12 @@ class Settings:
     # Optional / legacy
     OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
     ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
+    # Networking
+    ALLOWED_ORIGINS_RAW: str = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:5174,http://localhost:3000,null")
+    
+    @property
+    def ALLOWED_ORIGINS(self) -> list[str]:
+        return [orig.strip() for orig in self.ALLOWED_ORIGINS_RAW.split(",") if orig.strip()]
 
 
 settings = Settings()

@@ -77,9 +77,25 @@ class GeminiAdapter(AIProviderAdapter):
         if tools:
             gemini_tools = self._convert_tools(tools)
 
+        # Safety settings (unrestrictive for eval/research purposes)
+        safety_settings = [
+            genai_types.SafetySetting(
+                category=cat,
+                threshold="BLOCK_NONE",
+            )
+            for cat in [
+                "HARM_CATEGORY_HATE_SPEECH",
+                "HARM_CATEGORY_HARASSMENT",
+                "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                "HARM_CATEGORY_DANGEROUS_CONTENT",
+                "HARM_CATEGORY_CIVIC_INTEGRITY",
+            ]
+        ]
+
         generation_config = genai_types.GenerateContentConfig(
             **config_kwargs,
             tools=gemini_tools,
+            safety_settings=safety_settings,
         )
 
         loop = asyncio.get_event_loop()
@@ -98,20 +114,25 @@ class GeminiAdapter(AIProviderAdapter):
         tool_calls = None
 
         try:
-            for part in response.candidates[0].content.parts:
-                if part.text:
-                    content += part.text
-                if part.function_call:
-                    if tool_calls is None:
-                        tool_calls = []
-                    fc = part.function_call
-                    tool_calls.append({
-                        "name": fc.name,
-                        "arguments": dict(fc.args) if fc.args else {},
-                        "call_id": f"gemini_{fc.name}",
-                    })
-        except Exception:
-            content = response.text if hasattr(response, "text") else ""
+            if response.candidates and response.candidates[0].content and response.candidates[0].content.parts:
+                for part in response.candidates[0].content.parts:
+                    if part.text:
+                        content += part.text
+                    if part.function_call:
+                        if tool_calls is None:
+                            tool_calls = []
+                        fc = part.function_call
+                        tool_calls.append({
+                            "name": fc.name,
+                            "arguments": dict(fc.args) if fc.args else {},
+                            "call_id": f"gemini_{fc.name}",
+                        })
+            else:
+                # Fallback for blocked or empty response
+                content = "[Response blocked or empty]"
+        except Exception as e:
+            print(f"[GeminiAdapter] Error parsing response: {e}")
+            content = "[Parse Error]"
 
         # Token cost
         tokens_used = 0

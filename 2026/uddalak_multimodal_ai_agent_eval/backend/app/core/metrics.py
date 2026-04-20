@@ -5,18 +5,50 @@ All functions are deterministic and testable in isolation.
 import numpy as np
 from math import comb
 from typing import List
+import re
+
+
+def is_prediction_correct(prediction: str, ground_truth: str) -> bool:
+    """Robust correctness check for MMLU/MCQ style generations."""
+    if not prediction or not ground_truth:
+        return False
+        
+    p_clean = prediction.strip()
+    g_clean = ground_truth.strip().upper()
+    if not p_clean or not g_clean:
+        return False
+        
+    p_upper = p_clean.upper()
+    
+    # 1. Exact or simple start match
+    if p_upper == g_clean or p_upper.startswith(f"{g_clean})") or p_upper.startswith(f"{g_clean} ") or p_upper.startswith(f"{g_clean}."):
+        return True
+        
+    # 2. Look for answer prefixes
+    match = re.search(r'(?:answer(?:\s+is)?\s*:?\s*\*?\*?|option)\s*([A-Za-z])\b', p_clean, re.IGNORECASE)
+    if match and match.group(1).upper() == g_clean:
+        return True
+        
+    # 3. Look for the ground truth as an isolated character
+    extracted = re.findall(r'\b([A-Z])\b', p_clean, re.IGNORECASE)
+    if extracted:
+        # If the last mentioned isolated letter is the ground truth
+        if extracted[-1].upper() == g_clean:
+            return True
+        # Or if the ONLY mentioned isolated letter is the ground truth
+        unique_letters = set(e.upper() for e in extracted)
+        if len(unique_letters) == 1 and g_clean in unique_letters:
+            return True
+
+    return False
 
 
 def calculate_accuracy(predictions: List[str], ground_truth: List[str]) -> float:
-    """Exact-match accuracy for MCQ benchmarks (MMLU-style).
-
-    Comparison is case-insensitive and strips whitespace.
-    Returns 0.0 for empty input.
-    """
+    """Calculates average accuracy for MMLU-style benchmarks using robust extraction."""
     if not predictions or not ground_truth:
         return 0.0
     correct = sum(
-        p.strip().upper() == g.strip().upper()
+        is_prediction_correct(p, g)
         for p, g in zip(predictions, ground_truth)
     )
     return round(correct / len(predictions), 4)

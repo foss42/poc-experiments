@@ -1,7 +1,7 @@
 import axios from 'axios';
 import type { EvalRequest, EvalResult } from '../types/eval';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

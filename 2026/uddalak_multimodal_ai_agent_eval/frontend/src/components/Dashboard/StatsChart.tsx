@@ -18,7 +18,7 @@ export const StatsChart: React.FC<StatsChartProps> = ({ type, data, dataKey, cat
     data
   };
 
-  const chartColor = '#E8FF00'; // Lime accent
+  const chartColor = 'var(--accent)'; 
 
   return (
     // Explicit pixel height is required — Recharts ResponsiveContainer
@@ -27,21 +27,21 @@ export const StatsChart: React.FC<StatsChartProps> = ({ type, data, dataKey, cat
     <ResponsiveContainer width="100%" height="100%">
       {type === 'area' ? (
         <AreaChart {...commonProps}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--surface-container-high)" vertical={false} />
           <XAxis 
             dataKey={categoryKey} 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#888888', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
+            tick={{ fill: 'var(--text-muted)', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
           />
           <YAxis 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#888888', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
+            tick={{ fill: 'var(--text-muted)', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
           />
           <Tooltip 
-            contentStyle={{ backgroundColor: '#1A1A1A', border: '1px solid #353535', borderRadius: 0 }}
-            itemStyle={{ color: '#FFFFFF', fontFamily: 'IBM Plex Mono', fontSize: 12 }}
+            contentStyle={{ backgroundColor: 'var(--surface-container)', border: '1px solid var(--surface-container-high)', borderRadius: 0 }}
+            itemStyle={{ color: 'var(--primary)', fontFamily: 'IBM Plex Mono', fontSize: 12 }}
           />
           <Area 
             type="monotone" 
@@ -54,21 +54,21 @@ export const StatsChart: React.FC<StatsChartProps> = ({ type, data, dataKey, cat
         </AreaChart>
       ) : (
         <BarChart {...commonProps}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2A" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--surface-container-high)" vertical={false} />
           <XAxis 
             dataKey={categoryKey} 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#888888', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
+            tick={{ fill: 'var(--text-muted)', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
           />
           <YAxis 
             axisLine={false} 
             tickLine={false} 
-            tick={{ fill: '#888888', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
+            tick={{ fill: 'var(--text-muted)', fontSize: 10, fontFamily: 'IBM Plex Mono' }} 
           />
           <Tooltip 
-            cursor={{ fill: '#2A2A2A' }}
-            contentStyle={{ backgroundColor: '#1A1A1A', border: '1px solid #353535', borderRadius: 0 }}
+            cursor={{ fill: 'var(--surface-container-high)' }}
+            contentStyle={{ backgroundColor: 'var(--surface-container)', border: '1px solid var(--surface-container-high)', borderRadius: 0 }}
           />
           <Bar dataKey={dataKey} fill={chartColor} radius={0} />
         </BarChart>

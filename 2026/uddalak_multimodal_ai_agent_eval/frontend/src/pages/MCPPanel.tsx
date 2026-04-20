@@ -8,18 +8,20 @@ interface AppConfig {
   url: string;
 }
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+
 const APPS: AppConfig[] = [
   {
     id: 'eval-dashboard',
     name: 'Eval Dashboard App',
     description: 'Standard Evaluation UI for core metrics.',
-    url: 'http://localhost:8000/static/eval-dashboard.html'
+    url: `${BACKEND_URL}/static/eval-dashboard.html`
   },
   {
     id: 'sales-analytics',
     name: 'Sales Analytics Verifier',
     description: 'Specialized grading UI for Sales MCP.',
-    url: 'http://localhost:8000/static/sales-analytics-test.html'
+    url: `${BACKEND_URL}/static/sales-analytics-test.html`
   }
 ];
 

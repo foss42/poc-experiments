@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useEval } from '../../context/EvalContext';
+import { Sun, Moon } from 'lucide-react';
 
 export const Header: React.FC = () => {
   const { results } = useEval();
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
+
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
 
   // Derive live stats from real results
   const totalJobs = results.length;
@@ -69,6 +81,15 @@ export const Header: React.FC = () => {
             </div>
           ))
         )}
+
+        {/* Theme Toggle */}
+        <button 
+          onClick={() => setIsDark(!isDark)} 
+          style={{ marginLeft: '16px', background: 'transparent', color: 'var(--text-muted)' }}
+          title="Toggle Theme"
+        >
+          {isDark ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
       </div>
     </header>
   );

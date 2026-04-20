@@ -6,47 +6,72 @@
     <title>EvalForge Dashboard App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0A0A0A; color: #ffffff; font-family: 'Inter', sans-serif; overflow: hidden; }
-        .accent { color: #E8FF00; }
-        .bg-accent { background-color: #E8FF00; }
-        .border-brutal { border: 1px solid #222222; }
-        .button-brutal { border: 1px solid #E8FF00; color: #E8FF00; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; }
-        .button-brutal:hover:not(:disabled) { background-color: #E8FF00; color: #111111; box-shadow: 0 0 15px rgba(232, 255, 0, 0.3); }
-        .button-brutal:disabled { opacity: 0.5; cursor: not-allowed; border-color: #444; color: #444; }
-        .modality-btn.active { background-color: #E8FF00; color: #000; border-color: #E8FF00; }
+        :root {
+          --surface-dim: #f4f5f7;
+          --surface-container: #ffffff;
+          --surface-container-high: #e1e4e8;
+          --surface-container-highest: #ebecf0;
+          --primary: #172b4d;
+          --primary-invert: #ffffff;
+          --accent: #0b69ff;
+          --text-muted: #5e6c84;
+        }
+        [data-theme="dark"] {
+          --surface-dim: #111111;
+          --surface-container: #1A1A1A;
+          --surface-container-high: #2A2A2A;
+          --surface-container-highest: #353535;
+          --primary: #FFFFFF;
+          --primary-invert: #111111;
+          --accent: #E8FF00;
+          --text-muted: #888888;
+        }
+        body { background-color: var(--surface-dim); color: var(--primary); font-family: 'Inter', sans-serif; overflow: hidden; }
+        .container-bg { background-color: var(--surface-container); }
+        .accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .border-brutal { border: 1px solid var(--surface-container-high); }
+        .button-brutal { border: 1px solid var(--accent); color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; }
+        .button-brutal:hover:not(:disabled) { background-color: var(--accent); color: var(--primary-invert); box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        .button-brutal:disabled { opacity: 0.5; cursor: not-allowed; border-color: var(--surface-container-highest); color: var(--text-muted); }
+        .modality-btn { background-color: var(--surface-container); color: var(--text-muted); border: 1px solid var(--surface-container-high); transition: all 0.2s ease; }
+        .modality-btn.active { background-color: var(--accent); color: var(--primary-invert); border-color: var(--accent); }
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #111; }
-        ::-webkit-scrollbar-thumb { background: #333; }
-        ::-webkit-scrollbar-thumb:hover { background: #E8FF00; }
+        ::-webkit-scrollbar-track { background: var(--surface-dim); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-container-highest); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
     </style>
 </head>
 <body class="p-6 h-screen flex flex-col">
     <div id="app" class="flex flex-col h-full max-w-4xl mx-auto w-full">
-        <div class="flex justify-between items-end mb-8 border-b border-[#222] pb-4">
+        <div class="flex justify-between items-end mb-8 border-b border-[color:var(--surface-container-high)] pb-4">
             <div>
                 <h1 class="text-2xl font-black accent tracking-tighter leading-none mb-1">EVALFORGE / MCP</h1>
-                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em]">Isolated Evaluation Interface • v0.1.0</p>
+                <p class="text-[9px] text-[color:var(--text-muted)] font-bold uppercase tracking-[0.2em]">Isolated Evaluation Interface • v0.1.0</p>
             </div>
-            <div id="status-indicator" class="flex items-center gap-3 bg-[#111] px-3 py-1.5 border border-[#222] rounded-sm">
-                <div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
-                <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Disconnected</span>
+            <div class="flex gap-4">
+                <button id="theme-toggle" onclick="toggleTheme()" class="text-[color:var(--text-muted)] hover:text-[color:var(--primary)] transition-colors">🌓</button>
+                <div id="status-indicator" class="flex items-center gap-3 container-bg px-3 py-1.5 border border-[color:var(--surface-container-high)] rounded-sm">
+                    <div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
+                    <span class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Disconnected</span>
+                </div>
             </div>
         </div>
 
         <div class="grid grid-cols-12 gap-6 flex-1 min-h-0">
             <!-- Left: Config -->
-            <div class="col-span-5 bg-[#111] border border-brutal p-5 flex flex-col gap-6">
+            <div class="col-span-5 container-bg border border-brutal p-5 flex flex-col gap-6">
                 <div class="flex items-center justify-between">
-                    <h2 class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Configuration</h2>
+                    <h2 class="text-[10px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Configuration</h2>
                     <div class="flex items-center gap-2">
-                        <span class="text-[9px] font-bold text-gray-600 uppercase">Mock Mode</span>
-                        <input type="checkbox" id="mock-toggle" class="accent-lime-400">
+                        <span class="text-[9px] font-bold text-[color:var(--text-muted)] uppercase">Mock Mode</span>
+                        <input type="checkbox" id="mock-toggle" class="accent-blue-500">
                     </div>
                 </div>
                 
                 <div class="flex flex-col gap-2">
-                    <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Target Dataset</label>
-                    <select id="dataset-select" class="bg-black border border-[#222] text-xs p-2.5 outline-none focus:border-accent transition-colors">
+                    <label class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Target Dataset</label>
+                    <select id="dataset-select" class="bg-transparent border border-brutal text-xs p-2.5 outline-none focus:border-accent transition-colors">
                         <option value="mmlu_tiny">MMLU Tiny (Text)</option>
                         <option value="vqa_sample">VQA Sample (Multimodal)</option>
                         <option value="agent_trajectory">Agent Trajectory (Agent)</option>
@@ -54,15 +79,15 @@
                 </div>
 
                 <div class="flex flex-col gap-3">
-                    <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest">Modality</label>
+                    <label class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Modality</label>
                     <div class="flex gap-2">
-                        <button id="btn-text" onclick="setModality('text')" class="modality-btn active flex-1 py-2 text-[10px] font-black border border-[#222] bg-black text-gray-400 uppercase transition-all">Text</button>
-                        <button id="btn-multimodal" onclick="setModality('multimodal')" class="modality-btn flex-1 py-2 text-[10px] font-black border border-[#222] bg-black text-gray-400 uppercase transition-all">VQA</button>
-                        <button id="btn-agent" onclick="setModality('agent')" class="modality-btn flex-1 py-2 text-[10px] font-black border border-[#222] bg-black text-gray-400 uppercase transition-all">Agent</button>
+                        <button id="btn-text" onclick="setModality('text')" class="modality-btn active flex-1 py-2 text-[10px] font-black uppercase">Text</button>
+                        <button id="btn-multimodal" onclick="setModality('multimodal')" class="modality-btn flex-1 py-2 text-[10px] font-black uppercase">VQA</button>
+                        <button id="btn-agent" onclick="setModality('agent')" class="modality-btn flex-1 py-2 text-[10px] font-black uppercase">Agent</button>
                     </div>
                 </div>
 
-                <div class="mt-auto pt-6 border-t border-[#222]">
+                <div class="mt-auto pt-6 border-t border-[color:var(--surface-container-high)]">
                     <button id="run-btn" onclick="runEval()" class="w-full py-4 button-brutal text-center text-xs">
                         Initiate Evaluation
                     </button>
@@ -70,12 +95,12 @@
             </div>
 
             <!-- Right: Live Trace -->
-            <div class="col-span-7 bg-[#111] border border-brutal p-0 flex flex-col min-h-0">
-                <div class="p-4 border-b border-[#222] flex justify-between items-center bg-[#0d0d0d]">
-                    <h2 class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Live Execution Trace</h2>
-                    <span class="text-[9px] font-mono text-gray-600">eval_session_01</span>
+            <div class="col-span-7 container-bg border border-brutal p-0 flex flex-col min-h-0">
+                <div class="p-4 border-b border-[color:var(--surface-container-high)] flex justify-between items-center bg-[color:var(--surface-dim)]">
+                    <h2 class="text-[10px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Live Execution Trace</h2>
+                    <span class="text-[9px] font-mono text-[color:var(--text-muted)]">eval_session_01</span>
                 </div>
-                <div id="console" class="flex-1 p-5 font-mono text-[10px] text-gray-500 overflow-y-auto whitespace-pre-wrap leading-relaxed">
+                <div id="console" class="flex-1 p-5 font-mono text-[10px] text-[color:var(--text-muted)] overflow-y-auto whitespace-pre-wrap leading-relaxed">
 > Waiting for host handshake...
                 </div>
             </div>
@@ -85,6 +110,22 @@
     <script>
         let isConnected = false;
         let activeModality = 'text';
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Init Theme immediately
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
 
         function log(msg, type = 'info') {
             const consoleEl = document.getElementById('console');
@@ -150,13 +191,18 @@
             }
 
             try {
-                const response = await fetch('http://localhost:8000/eval/run', {
+                const response = await fetch('/eval/run', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         modality: activeModality,
                         providers: [{ name: 'gemini', model: 'gemini-2.0-flash' }],
-                        dataset: [{ prompt: `Run ${activeModality} eval on dataset: ${dataset}`, ground_truth: '' }]
+                        dataset: [{
+                            prompt: `Run ${activeModality} eval on dataset: ${dataset}`,
+                            ground_truth: '',
+                            ...(activeModality === 'multimodal' ? { images: ['iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='] } : {}),
+                            ...(activeModality === 'agent' ? { tools_spec: [{ type: 'function', function: { name: 'mock_tool', description: 'mock' } }] } : {})
+                        }]
                     })
                 });
 

@@ -5,6 +5,7 @@ from .metrics import (
     calculate_accuracy,
     calculate_trajectory_fidelity_score,
     summarize_latencies,
+    is_prediction_correct,
 )
 
 
@@ -55,7 +56,60 @@ class EvalOrchestrator:
                     "prompt": dataset[i]["prompt"],
                     "prediction": predictions[i],
                     "ground_truth": ground_truth[i],
-                    "correct": predictions[i].strip().upper() == ground_truth[i].strip().upper(),
+                    "correct": is_prediction_correct(predictions[i], ground_truth[i]),
+                    "latency_ms": latencies[i],
+                }
+                for i in range(len(dataset))
+            ],
+        }
+
+    async def run_multimodal_eval(
+        self,
+        provider: AIProviderAdapter,
+        dataset: List[Dict],
+    ) -> Dict[str, Any]:
+        """Run multimodal (image + text) VQA eval against a single provider."""
+        tasks = [
+            provider.generate_response(
+                prompt=item["prompt"],
+                images=item.get("images", [])
+            )
+            for item in dataset
+        ]
+        responses = await asyncio.gather(*tasks, return_exceptions=True)
+
+        predictions, latencies, costs, tokens = [], [], [], []
+        for resp in responses:
+            if isinstance(resp, Exception):
+                print(f"[Orchestrator] Multimodal sample failed: {resp}")
+                import traceback
+                traceback.print_exc()
+                predictions.append("ERROR")
+                latencies.append(0.0)
+                costs.append(0.0)
+                tokens.append(0)
+            else:
+                predictions.append(resp.get("content", ""))
+                latencies.append(resp.get("latency_ms", 0.0))
+                costs.append(resp.get("cost_usd", 0.0))
+                tokens.append(resp.get("tokens_used", 0))
+
+        ground_truth = [item.get("ground_truth", "") for item in dataset]
+
+        return {
+            "provider": provider.get_provider_name(),
+            "modality": "multimodal",
+            "num_samples": len(dataset),
+            "accuracy": calculate_accuracy(predictions, ground_truth),
+            "latency": summarize_latencies([l for l in latencies if l > 0]),
+            "total_cost_usd": round(sum(costs), 6),
+            "total_tokens": sum(tokens),
+            "per_sample_results": [
+                {
+                    "prompt": dataset[i]["prompt"],
+                    "prediction": predictions[i],
+                    "ground_truth": ground_truth[i],
+                    "correct": is_prediction_correct(predictions[i], ground_truth[i]),
                     "latency_ms": latencies[i],
                 }
                 for i in range(len(dataset))
@@ -136,6 +190,8 @@ class EvalOrchestrator:
         """
         if modality == "agent":
             runner_tasks = [self.run_agent_eval(p, dataset) for p in providers]
+        elif modality == "multimodal":
+            runner_tasks = [self.run_multimodal_eval(p, dataset) for p in providers]
         else:
             runner_tasks = [self.run_text_eval(p, dataset) for p in providers]
 
@@ -144,6 +200,9 @@ class EvalOrchestrator:
         output = []
         for i, result in enumerate(results):
             if isinstance(result, Exception):
+                print(f"[Orchestrator] Provider {providers[i].get_provider_name()} failed: {result}")
+                import traceback
+                traceback.print_exc()
                 output.append({
                     "provider": providers[i].get_provider_name(),
                     "error": str(result),

@@ -7,9 +7,12 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { randomUUID } from "crypto";
+import dotenv from "dotenv";
 
-const API_BASE_URL = "http://localhost:8000";
-const HTTP_PORT = 3001;
+dotenv.config();
+
+const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8000";
+const HTTP_PORT = process.env.HTTP_PORT ? parseInt(process.env.HTTP_PORT, 10) : 3001;
 
 // ─── Tool Definitions ─────────────────────────────────────────────────────────
 export const TOOLS = [

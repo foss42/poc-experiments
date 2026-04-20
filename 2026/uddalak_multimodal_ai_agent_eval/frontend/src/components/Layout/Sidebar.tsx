@@ -1,10 +1,11 @@
 import React from 'react';
-import { LayoutDashboard, PlayCircle, Cpu } from 'lucide-react';
+import { LayoutDashboard, PlayCircle, Cpu, ImagePlus } from 'lucide-react';
 
 // Only include nav items that have real, working implementations
 const navItems = [
   { icon: LayoutDashboard, label: 'Analytics',  id: 'dashboard' },
   { icon: PlayCircle,      label: 'Forge Eval', id: 'forge'     },
+  { icon: ImagePlus,       label: 'Live Demo',  id: 'live'      },
   { icon: Cpu,             label: 'MCP Apps',   id: 'mcp'       },
 ];
 
