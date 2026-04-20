@@ -5,30 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Explorer - Interactive API Documentation</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Local emoji icons instead of Font Awesome to avoid tracking prevention -->
-    <style>
-        .fas, .fab { font-family: Arial, sans-serif; }
-        .fas::before, .fab::before { margin-right: 5px; }
-        .fa-code::before { content: "💻"; }
-        .fa-list::before { content: "📋"; }
-        .fa-search::before { content: "🔍"; }
-        .fa-spinner::before { content: "⏳"; }
-        .fa-spin { animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .fa-exclamation-triangle::before { content: "⚠️"; }
-        .fa-rocket::before { content: "🚀"; }
-        .fa-shield-alt::before { content: "🛡️"; }
-        .fa-copy::before { content: "📋"; }
-        .fa-unlock::before { content: "🔓"; }
-        .fa-key::before { content: "🔑"; }
-        .fa-user-shield::before { content: "👤"; }
-        .fa-terminal::before { content: "💻"; }
-        .fa-microsoft::before { content: "🪟"; }
-        .fa-times::before { content: "❌"; }
-        .fa-check::before { content: "✅"; }
-        .fa-robot::before { content: "🤖"; }
-        .fa-paper-plane::before { content: "📤"; }
-    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
@@ -57,18 +34,6 @@
                 </div>
                 
                 <div class="filter-container">
-                    <label>Filter by Category:</label>
-                    <select id="category-filter" class="filter-select">
-                        <option value="">All Categories</option>
-                        <option value="AI">🤖 AI</option>
-                        <option value="Finance">💰 Finance</option>
-                        <option value="Weather">🌤️ Weather</option>
-                        <option value="Social">📱 Social</option>
-                        <option value="General">📋 General</option>
-                    </select>
-                </div>
-                
-                <div class="filter-container">
                     <label>Filter by Auth:</label>
                     <select id="auth-filter" class="filter-select">
                         <option value="">All Auth Types</option>
@@ -90,7 +55,7 @@
 
                 <div id="error-message" class="error-message" style="display: none;">
                     <i class="fas fa-exclamation-triangle"></i>
-                    <p>Backend server not running. Please start the server on port 3002.</p>
+                    <p>Failed to load APIs</p>
                     <button onclick="loadAPIs()" class="retry-btn">Retry</button>
                 </div>
             </aside>
@@ -101,19 +66,19 @@
                     <div class="welcome-content">
                         <i class="fas fa-rocket welcome-icon"></i>
                         <h2>Welcome to API Explorer</h2>
-                        <p>Browse and explore APIs from the sidebar. Select an API to view endpoints and generate request templates.</p>
+                        <p>Select an API from the sidebar to view its endpoints and generate request templates.</p>
                         <div class="feature-list">
-                            <div class="feature-item">
-                                <i class="fas fa-search"></i>
-                                <span>Search and filter APIs</span>
-                            </div>
                             <div class="feature-item">
                                 <i class="fas fa-code"></i>
                                 <span>Generate curl & PowerShell templates</span>
                             </div>
                             <div class="feature-item">
                                 <i class="fas fa-shield-alt"></i>
-                                <span>View authentication requirements</span>
+                                <span>Handle authentication automatically</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy templates with one click</span>
                             </div>
                         </div>
                     </div>
@@ -170,103 +135,6 @@
                     <div id="endpoints-list" class="endpoints-list">
                         <!-- Endpoints will be loaded here -->
                     </div>
-
-                    <!-- Compact AI Agent Interface -->
-                    <div class="ai-agent-panel" id="ai-agent-panel">
-                        <div class="ai-agent-header">
-                            <h3>
-                                <i class="fas fa-robot"></i> 
-                                AI Agent (MCP-Style)
-                                <button class="ai-toggle-btn" onclick="toggleAIAgent()" title="Toggle AI Agent">
-                                    <i class="fas fa-chevron-up" id="ai-toggle-icon"></i>
-                                </button>
-                            </h3>
-                            <p>MCP-compatible AI agent for API discovery and execution</p>
-                        </div>
-                        
-                        <div class="ai-agent-content" id="ai-agent-content">
-                            <!-- AI Mode Toggle -->
-                            <div class="ai-mode-toggle">
-                                <label class="ai-mode-label">
-                                    <input type="checkbox" id="ai-agent-mode" onchange="toggleAIMode()" checked>
-                                    <span class="ai-mode-slider"></span>
-                                    <span class="ai-mode-text">AI Agent Mode</span>
-                                </label>
-                                <div class="ai-mode-indicator">
-                                    <span class="ai-mode-status" id="ai-mode-status">MCP Active</span>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Status Bar -->
-                            <div class="ai-status-bar">
-                                <div class="ai-status-indicator">
-                                    <div class="ai-status-dot"></div>
-                                    <span>AI Ready</span>
-                                </div>
-                                <div class="ai-status-indicator">
-                                    <i class="fas fa-database"></i>
-                                    <span id="ai-api-count">0 APIs Loaded</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ai-query-container">
-                                <div class="ai-input-group">
-                                    <input type="text" id="ai-query-input" 
-                                           placeholder="e.g., 'get users', 'create pet', 'delete user'..." 
-                                           class="ai-input">
-                                    <button id="ai-query-btn" onclick="queryAgentMCP()" class="ai-query-btn">
-                                        <i class="fas fa-search"></i> Search
-                                    </button>
-                                </div>
-                                
-                                <!-- Quick Action Buttons -->
-                                <div class="ai-quick-actions" id="ai-quick-actions">
-                                    <button class="ai-quick-action" onclick="setQuickQuery('get users')">👥 Get Users</button>
-                                    <button class="ai-quick-action" onclick="setQuickQuery('create pet')">🐕 Create Pet</button>
-                                    <button class="ai-quick-action" onclick="setQuickQuery('update user')">✏️ Update User</button>
-                                    <button class="ai-quick-action" onclick="setQuickQuery('delete item')">🗑️ Delete Item</button>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Typing Indicator -->
-                            <div id="ai-typing" class="ai-typing" style="display: none;">
-                                <i class="fas fa-robot"></i>
-                                <span>AI is processing</span>
-                                <div class="ai-typing-dots">
-                                    <div class="ai-typing-dot"></div>
-                                    <div class="ai-typing-dot"></div>
-                                    <div class="ai-typing-dot"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Response -->
-                            <div id="ai-response" class="ai-response" style="display: none;">
-                                <div class="ai-response-header">
-                                    <span><i class="fas fa-robot"></i> AI API Discovery</span>
-                                    <button class="close-btn" onclick="closeAIResponse()">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                                <div id="ai-response-content" class="ai-response-content">
-                                    <!-- Enhanced AI response will be populated here -->
-                                </div>
-                                <div id="ai-response-metadata" class="ai-response-metadata" style="display: none;">
-                                    <div class="metadata-item">
-                                        <span class="metadata-label">Confidence:</span>
-                                        <span id="ai-confidence" class="confidence-score">95%</span>
-                                    </div>
-                                    <div class="metadata-item">
-                                        <span class="metadata-label">Category:</span>
-                                        <span id="ai-category" class="category-tag">AI</span>
-                                    </div>
-                                    <div class="metadata-item">
-                                        <span class="metadata-label">Matched Keywords:</span>
-                                        <span id="ai-keywords" class="matched-keywords">user, get, api</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Enhanced Template Modal -->
@@ -318,6 +186,47 @@
                     </div>
                 </div>
 
+                <!-- API Response Modal -->
+                <div id="response-modal" class="modal response-modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <h3>API Response</h3>
+                                <div id="response-endpoint-info" class="modal-endpoint-info">
+                                    <span class="method-badge GET" id="response-method">GET</span>
+                                    <code id="response-path">/endpoint</code>
+                                </div>
+                            </div>
+                            <button class="close-btn" onclick="closeResponseModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="response-content">
+                            <div class="response-header">
+                                <div class="response-status">
+                                    <span>Status:</span>
+                                    <span id="response-status" class="status-badge">200 OK</span>
+                                </div>
+                                <div class="response-time">
+                                    <span>Time:</span>
+                                    <span id="response-time">0ms</span>
+                                </div>
+                            </div>
+                            
+                            <div class="response-body">
+                                <div class="response-body-header">
+                                    <span><i class="fas fa-code"></i> Response Body</span>
+                                    <button class="copy-btn" onclick="copyResponse()">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <pre class="code-block"><code id="response-body-content"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Copy notification -->
                 <div id="copy-notification" class="copy-notification">
                     <i class="fas fa-check"></i>
@@ -327,7 +236,11 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- CORRECT SCRIPT REFERENCE -->
     <script src="script.js?v=3"></script>
+=======
+    <script src="script.js"></script>
+>>>>>>> 96f6c37531234fd132f5461a23274c79829f416b
 </body>
 </html>
