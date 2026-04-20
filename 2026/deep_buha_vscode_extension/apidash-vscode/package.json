@@ -1,0 +1,64 @@
+{
+  "name": "apidash-vscode",
+  "displayName": "API Dash",
+  "description": "API Dash for VS Code - Send HTTP requests, view responses, and generate code snippets",
+  "version": "0.0.1",
+  "publisher": "DeepBuha",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Testing", "Other"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "apidash.newRequest",
+        "title": "API Dash: New Request",
+        "icon": "$(add)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "apidash-sidebar",
+          "title": "API Dash",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "apidash-sidebar": [
+        {
+          "id": "apidash.requests",
+          "name": "Requests"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "apidash.newRequest",
+          "when": "view == apidash.requests",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.0",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "@types/nunjucks": "^3.2.6",
+    "typescript": "^5.3.0"
+  }
+}

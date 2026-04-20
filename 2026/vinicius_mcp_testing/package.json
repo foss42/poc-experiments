@@ -1,0 +1,28 @@
+{
+  "name": "mcp-conformance",
+  "version": "0.4.0",
+  "description": "Transport-agnostic conformance testing for MCP servers — supports stdio and Streamable HTTP, with full MCP Apps host simulation",
+  "type": "module",
+  "bin": {
+    "mcp-conformance": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/cli.ts",
+    "test": "tsx src/cli.ts --server 'tsx fixtures/test-server.ts'",
+    "test:http": "tsx src/cli.ts --transport http --url http://localhost:3000/mcp",
+    "test:apps": "tsx src/cli.ts --transport http --url http://localhost:3000/mcp --suite mcp-apps",
+    "test:host": "tsx src/cli.ts --transport http --url http://localhost:3000/mcp --suite mcp-apps-host",
+    "viewer": "tsx src/cli.ts --transport http --url http://localhost:3000/mcp --viewer"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.0",
+    "tsx": "^4.7.0",
+    "@types/node": "^20.0.0",
+    "playwright": "1.52.0"
+  }
+}

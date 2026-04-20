@@ -1,0 +1,336 @@
+{
+  "api_id": "1password.local:connect:1.5.7",
+  "endpoint_count": 13,
+  "endpoints": [
+    {
+      "id": "retrieve-a-list-of-api-requests-that-have-been-made",
+      "name": "Retrieve a list of API Requests that have been made.",
+      "description": "Retrieve a list of API Requests that have been made.",
+      "method": "GET",
+      "url": "http://1password.local/activity",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY."
+    },
+    {
+      "id": "get-state-of-the-server-and-its-dependencies",
+      "name": "Get state of the server and its dependencies.",
+      "description": "Get state of the server and its dependencies.",
+      "method": "GET",
+      "url": "http://1password.local/health",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY."
+    },
+    {
+      "id": "ping-the-server-for-liveness",
+      "name": "Ping the server for liveness",
+      "description": "Ping the server for liveness",
+      "method": "GET",
+      "url": "http://1password.local/heartbeat",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY."
+    },
+    {
+      "id": "query-server-for-exposed-prometheus-metrics",
+      "name": "Query server for exposed Prometheus metrics",
+      "description": "See Prometheus documentation for a complete data model.",
+      "method": "GET",
+      "url": "http://1password.local/metrics",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY."
+    },
+    {
+      "id": "get-all-vaults",
+      "name": "Get all Vaults",
+      "description": "Get all Vaults",
+      "method": "GET",
+      "url": "http://1password.local/vaults",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY."
+    },
+    {
+      "id": "get-vault-details-and-metadata",
+      "name": "Get Vault details and metadata",
+      "description": "Get Vault details and metadata",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid."
+    },
+    {
+      "id": "get-all-items-for-inside-a-vault",
+      "name": "Get all items for inside a Vault",
+      "description": "Get all items for inside a Vault",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid."
+    },
+    {
+      "id": "get-the-details-of-an-item",
+      "name": "Get the details of an Item",
+      "description": "Get the details of an Item",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{ITEMUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid."
+    },
+    {
+      "id": "delete-an-item",
+      "name": "Delete an Item",
+      "description": "Delete an Item",
+      "method": "DELETE",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{ITEMUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid."
+    },
+    {
+      "id": "update-a-subset-of-item-attributes",
+      "name": "Update a subset of Item attributes",
+      "description": "Applies a modified [RFC6902 JSON Patch](https://tools.ietf.org/html/rfc6902) document to an Item or ItemField. This endpoint only supports `add`, `remove` and `replace` operations.\n\nWhen modifying a specific ItemField, the ItemField's ID in the `path` attribute of the operation object: `/fields/{fieldId}`\n",
+      "method": "PATCH",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "PatchItemAttr": {
+          "summary": "Update specific Item attributes",
+          "value": [
+            {
+              "op": "replace",
+              "path": "/favorite",
+              "value": true
+            },
+            {
+              "op": "remove",
+              "path": "/tags/1"
+            }
+          ]
+        },
+        "PatchItemField": {
+          "summary": "Add a new ItemField to the Item",
+          "value": [
+            {
+              "op": "add",
+              "path": "/fields",
+              "value": {
+                "label": "New Field",
+                "type": "string",
+                "value": "hunter2"
+              }
+            }
+          ]
+        },
+        "PatchItemFieldAttr": {
+          "summary": "Modify a specific ItemField attribute.",
+          "value": [
+            {
+              "op": "add",
+              "path": "/fields/s2ju540zlna8bdj4uro7sj64rk/label",
+              "value": "New field name"
+            },
+            {
+              "op": "remove",
+              "path": "/fields/s2ju540zlna8bdj4uro7sj64rk/value"
+            }
+          ]
+        },
+        "PatchItemFieldWithID": {
+          "summary": "Modify or remove an ItemField.",
+          "value": [
+            {
+              "op": "replace",
+              "path": "/fields/r9qxq7xnhfhukoxsc8ymqr0y11",
+              "value": {
+                "label": "Replacement Title",
+                "type": "string",
+                "value": "new value"
+              }
+            },
+            {
+              "op": "remove",
+              "path": "/fields/h2nl155dshi043yse7wa3u1hs7"
+            }
+          ]
+        },
+        "ReplaceAllAttributes": {
+          "summary": "Replace an entire Item with new fields. Equivalent to a PUT request.",
+          "value": [
+            {
+              "op": "replace",
+              "path": "/",
+              "value": {
+                "...": "Any attr from FullItem schema",
+                "favorite": true,
+                "tags": [
+                  "tag1",
+                  "tag2"
+                ],
+                "title": "New Title"
+              }
+            }
+          ]
+        }
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{ITEMUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid."
+    },
+    {
+      "id": "get-all-the-files-inside-an-item",
+      "name": "Get all the files inside an Item",
+      "description": "Get all the files inside an Item",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}/files",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{ITEMUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid."
+    },
+    {
+      "id": "get-the-details-of-a-file",
+      "name": "Get the details of a File",
+      "description": "Get the details of a File",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}/files/{{FILEUUID}}",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{ITEMUUID}}",
+        "{{FILEUUID}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid. Replace {{FILEUUID}} with a real fileuuid."
+    },
+    {
+      "id": "get-the-content-of-a-file",
+      "name": "Get the content of a File",
+      "description": "Get the content of a File",
+      "method": "GET",
+      "url": "http://1password.local/vaults/{{VAULTUUID}}/items/{{ITEMUUID}}/files/{{FILEUUID}}/content",
+      "headers": {
+        "Authorization": "Bearer{{1PASSWORD_LOCAL_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{VAULTUUID}}",
+        "{{1PASSWORD_API_KEY}}",
+        "{{ITEMUUID}}",
+        "{{FILEUUID}}",
+        "{{1PASSWORD_LOCAL_API_KEY}}"
+      ],
+      "notes": "Replace {{1PASSWORD_API_KEY}} with your 1PASSWORD API KEY. Replace {{VAULTUUID}} with a real vaultuuid. Replace {{ITEMUUID}} with a real itemuuid. Replace {{FILEUUID}} with a real fileuuid."
+    }
+  ]
+}

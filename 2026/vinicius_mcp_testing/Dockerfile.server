@@ -1,0 +1,24 @@
+# Sales Analytics MCP Apps Server — the test target
+#
+# Clones the reference MCP Apps server (sample-mcp-apps-chatflow) and runs it.
+# This ensures a fully self-contained test environment.
+
+FROM node:22-slim
+
+WORKDIR /app
+
+# Clone the Sales Analytics MCP Apps server
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN git clone --depth 1 https://github.com/AshitaPrasad/sample-mcp-apps-chatflow.git .
+
+# Install dependencies
+RUN npm install
+
+# Expose the MCP HTTP endpoint
+EXPOSE 3000
+
+# Health check — waits for the server to respond
+HEALTHCHECK --interval=2s --timeout=3s --start-period=10s --retries=15 \
+  CMD node -e "fetch('http://localhost:3000/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"
+
+CMD ["npx", "tsx", "src/index.ts"]

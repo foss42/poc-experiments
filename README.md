@@ -9,6 +9,7 @@
 
 ---
 
+<<<<<<< HEAD
 ## 🎯 Overview
 
 AI-Compatible API Explorer is a full-stack system that bridges the gap between static OpenAPI specifications and AI agents. It enables natural language API discovery, automatic template generation, and seamless integration with AI systems through the Model Context Protocol (MCP).
@@ -561,3 +562,10 @@ If you find this project useful, please consider giving it a star! ⭐
 - **HTML/CSS**: 18.4% (UI styling)
 - **Shell**: 4.3% (Automation scripts)
 >>>>>>> a1983a4cf804b643fab4802c6791d89764c83422
+=======
+👉 PoC containing the developed PoC codes should be sent through this process. You can have a version hosted on personal repo or any website/link, but this way it will be easier to keep track of and review the submitted PoC codes as your PoC link might be buried in your proposal. It will also ease the review process and declutter the main repo PRs.  
+
+## LICENSE
+
+All PoCs/Experiments submitted to this repository is under Apache 2.0 license.
+>>>>>>> upstream/main

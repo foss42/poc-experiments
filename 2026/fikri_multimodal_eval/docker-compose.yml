@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8001:8001"
+    environment:
+      # Point to your host's Ollama if running locally
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      # Optional: set to "cuda" if you have a GPU in the container
+      - DEVICE=cpu
+    volumes:
+      # Persist SQLite results across container restarts
+      - eval_data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  eval_data:
