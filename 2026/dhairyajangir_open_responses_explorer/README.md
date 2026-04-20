@@ -198,5 +198,6 @@ From `2026/dhairyajangir_open_responses_explorer`:
 - GSoC proposal PR: https://github.com/foss42/apidash/pull/1608
 - Old test PoC PR: https://github.com/foss42/gsoc-poc/pull/29
 - Final PoC PR: https://github.com/foss42/gsoc-poc/pull/51
+- Demo video: https://youtu.be/Co3v0J-jtrg
 - Author profile: https://github.com/dhairyajangir
 
