@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Explorer - Interactive API Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-code"></i> API Explorer</h1>
+                <p>Interactive API Documentation & Template Generator</p>
+            </div>
+            <div class="header-stats">
+                <span id="api-count" class="stat-badge">0 APIs</span>
+                <span id="endpoint-count" class="stat-badge">0 Endpoints</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar - API List -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2><i class="fas fa-list"></i> APIs</h2>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search APIs..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="filter-container">
+                    <label>Filter by Auth:</label>
+                    <select id="auth-filter" class="filter-select">
+                        <option value="">All Auth Types</option>
+                        <option value="none">No Auth</option>
+                        <option value="apiKey">API Key</option>
+                        <option value="bearer">Bearer Token</option>
+                        <option value="oauth2">OAuth2</option>
+                    </select>
+                </div>
+
+                <div id="api-list" class="api-list">
+                    <!-- APIs will be loaded here -->
+                </div>
+
+                <div id="loading" class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading APIs...</p>
+                </div>
+
+                <div id="error-message" class="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Failed to load APIs</p>
+                    <button onclick="loadAPIs()" class="retry-btn">Retry</button>
+                </div>
+            </aside>
+
+            <!-- Main Panel - API Details -->
+            <main class="main-panel">
+                <div id="welcome-screen" class="welcome-screen">
+                    <div class="welcome-content">
+                        <i class="fas fa-rocket welcome-icon"></i>
+                        <h2>Welcome to API Explorer</h2>
+                        <p>Select an API from the sidebar to view its endpoints and generate request templates.</p>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <i class="fas fa-code"></i>
+                                <span>Generate curl & PowerShell templates</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Handle authentication automatically</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy templates with one click</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="api-details" class="api-details" style="display: none;">
+                    <!-- API details header -->
+                    <div class="api-header">
+                        <div class="api-title">
+                            <h2 id="api-name">API Name</h2>
+                            <div class="auth-badge-container">
+                                <span id="api-auth-badge" class="auth-badge enhanced none">
+                                    <i class="fas fa-unlock"></i>
+                                    <span>Public</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="api-info">
+                            <div class="base-url-container">
+                                <strong>Base URL:</strong> 
+                                <span id="api-base-url-display">
+                                    <code id="api-base-url">https://api.example.com</code>
+                                </span>
+                                <div id="base-url-warning" class="base-url-warning" style="display: none;">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Base URL not specified in OpenAPI spec</span>
+                                </div>
+                            </div>
+                            <p><strong>Endpoints:</strong> <span id="api-endpoint-count">0</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Method filter -->
+                    <div class="method-filter">
+                        <label>Filter by Method:</label>
+                        <div class="method-buttons">
+                            <button class="method-btn active" data-method="">All</button>
+                            <button class="method-btn method-get" data-method="GET">
+                                <span class="method-badge-mini GET">GET</span>
+                            </button>
+                            <button class="method-btn method-post" data-method="POST">
+                                <span class="method-badge-mini POST">POST</span>
+                            </button>
+                            <button class="method-btn method-put" data-method="PUT">
+                                <span class="method-badge-mini PUT">PUT</span>
+                            </button>
+                            <button class="method-btn method-delete" data-method="DELETE">
+                                <span class="method-badge-mini DELETE">DELETE</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Endpoints list -->
+                    <div id="endpoints-list" class="endpoints-list">
+                        <!-- Endpoints will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Enhanced Template Modal -->
+                <div id="template-modal" class="modal enhanced-modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <h3 id="modal-title">Request Templates</h3>
+                                <div id="modal-endpoint-info" class="modal-endpoint-info">
+                                    <span class="method-badge GET" id="modal-method">GET</span>
+                                    <code id="modal-path">/endpoint</code>
+                                </div>
+                            </div>
+                            <button class="close-btn" onclick="closeTemplateModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="template-tabs">
+                            <button class="tab-btn active" data-tab="curl">
+                                <i class="fas fa-terminal"></i> curl
+                            </button>
+                            <button class="tab-btn" data-tab="powershell">
+                                <i class="fab fa-microsoft"></i> PowerShell
+                            </button>
+                        </div>
+
+                        <div class="template-content">
+                            <div id="curl-template" class="template-panel active">
+                                <div class="template-header">
+                                    <span><i class="fas fa-terminal"></i> curl Command</span>
+                                    <button class="copy-btn" onclick="copyTemplate('curl')">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <pre class="code-block"><code id="curl-code"></code></pre>
+                            </div>
+
+                            <div id="powershell-template" class="template-panel">
+                                <div class="template-header">
+                                    <span><i class="fab fa-microsoft"></i> PowerShell Command</span>
+                                    <button class="copy-btn" onclick="copyTemplate('powershell')">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <pre class="code-block"><code id="powershell-code"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Response Modal -->
+                <div id="response-modal" class="modal response-modal" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <h3>API Response</h3>
+                                <div id="response-endpoint-info" class="modal-endpoint-info">
+                                    <span class="method-badge GET" id="response-method">GET</span>
+                                    <code id="response-path">/endpoint</code>
+                                </div>
+                            </div>
+                            <button class="close-btn" onclick="closeResponseModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="response-content">
+                            <div class="response-header">
+                                <div class="response-status">
+                                    <span>Status:</span>
+                                    <span id="response-status" class="status-badge">200 OK</span>
+                                </div>
+                                <div class="response-time">
+                                    <span>Time:</span>
+                                    <span id="response-time">0ms</span>
+                                </div>
+                            </div>
+                            
+                            <div class="response-body">
+                                <div class="response-body-header">
+                                    <span><i class="fas fa-code"></i> Response Body</span>
+                                    <button class="copy-btn" onclick="copyResponse()">
+                                        <i class="fas fa-copy"></i> Copy
+                                    </button>
+                                </div>
+                                <pre class="code-block"><code id="response-body-content"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copy notification -->
+                <div id="copy-notification" class="copy-notification">
+                    <i class="fas fa-check"></i>
+                    <span>Copied to clipboard!</span>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
