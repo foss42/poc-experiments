@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Analytics MCP Manual Test Page</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-2: #1f2937;
+      --border: #374151;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #2563eb;
+      --success: #16a34a;
+      --error: #dc2626;
+      --warning: #d97706;
+      --mono: Consolas, Monaco, monospace;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    h1, h2 { margin: 0 0 12px; }
+    p { margin: 0 0 12px; color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      font: inherit;
+      margin-bottom: 12px;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font: inherit;
+      cursor: pointer;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    button.secondary { background: #475569; }
+    button.success { background: var(--success); }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      background: #1e293b;
+      border: 1px solid var(--border);
+    }
+
+    .status.ok { color: #86efac; }
+    .status.error { color: #fca5a5; }
+    .status.warn { color: #fdba74; }
+
+    pre {
+      margin: 0;
+      padding: 12px;
+      border-radius: 10px;
+      background: #020617;
+      border: 1px solid #1e293b;
+      overflow: auto;
+      font-family: var(--mono);
+      font-size: 12px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .checklist label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .muted { color: var(--muted); }
+    .row { display: flex; gap: 12px; }
+    .row > div { flex: 1; }
+    .download-area { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Sales Analytics MCP Manual Test Page</h1>
+      <p>这个页面用于手动验证 <strong>sample-mcp-apps-chatflow</strong> 的 MCP workflow。它不会替代自动化测试，而是帮你补一层“我认真手动看过”的验证证据。</p>
+      <div class="actions">
+        <button onclick="checkHealth()">检查 Health</button>
+        <span id="healthStatus" class="status warn">未检查</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>测试参数</h2>
+        <label for="states">States（逗号分隔）</label>
+        <input id="states" value="MH,KA,TN" />
+
+        <div class="row">
+          <div>
+            <label for="metric">Metric</label>
+            <select id="metric">
+              <option value="revenue">Revenue</option>
+              <option value="orders">Orders</option>
+              <option value="aov">AOV</option>
+              <option value="conversion">Conversion Rate</option>
+              <option value="clv">CLV</option>
+              <option value="growth">Growth</option>
+              <option value="returns">Returns</option>
+              <option value="cart_value">Cart Value</option>
+              <option value="new_customers">New Customers</option>
+              <option value="repeat_rate">Repeat Rate</option>
+            </select>
+          </div>
+          <div>
+            <label for="period">Period</label>
+            <select id="period">
+              <option value="monthly">monthly</option>
+              <option value="quarterly">quarterly</option>
+            </select>
+          </div>
+          <div>
+            <label for="year">Year</label>
+            <select id="year">
+              <option value="2025" selected>2025</option>
+              <option value="2024">2024</option>
+              <option value="2023">2023</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button onclick="runGetSalesData()">运行 get-sales-data</button>
+          <button class="secondary" onclick="runVisualization()">运行 visualize-sales-data</button>
+          <button class="success" onclick="runFullWorkflow()">运行完整 workflow</button>
+        </div>
+        <p class="muted">建议先跑一次 get-sales-data，再跑 visualization 或 full workflow。</p>
+      </div>
+
+      <div class="card checklist">
+        <h2>手动验证清单</h2>
+        <label><input type="checkbox" /> 我确认 sample MCP server 已经启动并且 health 正常。</label>
+        <label><input type="checkbox" /> 我手动运行了 get-sales-data，并看到了 structuredContent 摘要。</label>
+        <label><input type="checkbox" /> 我手动运行了 visualize-sales-data，并确认 workflow 数据可继续流转。</label>
+        <label><input type="checkbox" /> 我手动运行了完整 workflow，并看到了 PDF 文件名与大小。</label>
+        <label><input type="checkbox" /> 我确认这次 PoC 的重点是测试思路、workflow 覆盖与验证方法，而不是刻意找 bug。</label>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Result summary</h2>
+        <pre id="summaryOutput">等待操作...</pre>
+        <div id="downloadArea" class="download-area"></div>
+      </div>
+      <div class="card">
+        <h2>Raw JSON</h2>
+        <pre id="jsonOutput">等待操作...</pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let lastSelections = null;
+    let lastReport = null;
+    let lastPdf = null;
+
+    function getSelections() {
+      const states = document.getElementById('states').value
+        .split(',')
+        .map(item => item.trim())
+        .filter(Boolean);
+
+      return {
+        states,
+        metric: document.getElementById('metric').value,
+        period: document.getElementById('period').value,
+        year: document.getElementById('year').value,
+      };
+    }
+
+    async function apiGet(url) {
+      const response = await fetch(url);
+      return response.json();
+    }
+
+    async function apiPost(url, payload) {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      return response.json();
+    }
+
+    function renderJson(data) {
+      document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2);
+    }
+
+    function renderSummary(lines) {
+      document.getElementById('summaryOutput').textContent = lines.join('\n');
+    }
+
+    function setHealthStatus(label, className) {
+      const status = document.getElementById('healthStatus');
+      status.textContent = label;
+      status.className = 'status ' + className;
+    }
+
+    function renderDownload(pdfBase64, fileName) {
+      const area = document.getElementById('downloadArea');
+      area.innerHTML = '';
+      if (!pdfBase64 || !fileName) {
+        return;
+      }
+
+      const button = document.createElement('button');
+      button.textContent = '下载当前 PDF';
+      button.className = 'success';
+      button.onclick = () => {
+        const binary = atob(pdfBase64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        const blob = new Blob([bytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        link.click();
+        URL.revokeObjectURL(url);
+      };
+      area.appendChild(button);
+    }
+
+    async function checkHealth() {
+      const result = await apiGet('/api/health');
+      renderJson(result);
+      if (result.ok) {
+        setHealthStatus('健康', 'ok');
+        renderSummary([
+          'Health check passed',
+          'status: ' + result.data.status,
+          'server: ' + result.data.server,
+        ]);
+      } else {
+        setHealthStatus('异常', 'error');
+        renderSummary(['Health check failed', result.error || 'Unknown error']);
+      }
+    }
+
+    async function runGetSalesData() {
+      lastSelections = getSelections();
+      const result = await apiPost('/api/get-sales-data', lastSelections);
+      renderJson(result);
+      if (!result.ok) {
+        renderSummary(['get-sales-data failed', result.error || 'Unknown error']);
+        return;
+      }
+
+      lastReport = result.data.structuredContent;
+      renderSummary([
+        'get-sales-data succeeded',
+        'states: ' + lastSelections.states.join(', '),
+        'metric: ' + lastSelections.metric,
+        'period count: ' + (lastReport.periods || []).length,
+        'top state: ' + (lastReport.topState ? lastReport.topState.name : 'N/A'),
+        'total: ' + (lastReport.summary ? lastReport.summary.total : 'N/A'),
+      ]);
+      renderDownload(null, null);
+    }
+
+    async function runVisualization() {
+      if (!lastSelections || !lastReport) {
+        renderSummary(['请先运行 get-sales-data，再执行 visualize-sales-data']);
+        return;
+      }
+
+      const result = await apiPost('/api/visualize-sales-data', {
+        selections: lastSelections,
+        report: lastReport,
+      });
+      renderJson(result);
+      if (!result.ok) {
+        renderSummary(['visualize-sales-data failed', result.error || 'Unknown error']);
+        return;
+      }
+
+      renderSummary([
+        'visualize-sales-data succeeded',
+        'message: ' + (result.data.textContent || []).join(' | '),
+        'resource data preserved: ' + Boolean(result.data.structuredContent && result.data.structuredContent.report),
+      ]);
+    }
+
+    async function runFullWorkflow() {
+      lastSelections = getSelections();
+      const result = await apiPost('/api/run-full-workflow', lastSelections);
+      renderJson(result);
+      if (!result.ok) {
+        renderSummary(['full workflow failed', result.error || 'Unknown error']);
+        return;
+      }
+
+      const report = result.data.report;
+      const pdf = result.data.pdf.structuredContent;
+      lastReport = report;
+      lastPdf = pdf;
+
+      renderSummary([
+        'Full workflow succeeded',
+        'states: ' + lastSelections.states.join(', '),
+        'metric: ' + lastSelections.metric,
+        'period count: ' + (report.periods || []).length,
+        'visualization: ' + (result.data.visualization.textContent || []).join(' | '),
+        'pdf file: ' + (pdf.fileName || 'N/A'),
+        'pdf size: ' + String(pdf.fileSize || 0) + ' bytes',
+      ]);
+      renderDownload(pdf.pdfBase64, pdf.fileName);
+    }
+  </script>
+</body>
+</html>
