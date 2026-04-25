@@ -27,8 +27,8 @@ jobs:
       - name: Validate OpenAPI files
         run: |
           echo "🔍 Validating OpenAPI files..."
-          if [ -d "data" ]; then
-            find data/ -name "*.json" -exec python -m json.tool {} \; > /dev/null 2>&1 || echo "⚠️  Some JSON files may have issues"
+          if [ -d "projects/api-explorer-pipeline/data" ]; then
+            find projects/api-explorer-pipeline/data/ -name "*.json" -exec python -m json.tool {} \; > /dev/null 2>&1 || echo "⚠️  Some JSON files may have issues"
             echo "✅ OpenAPI file validation completed"
           else
             echo "⚠️  data/ folder not found, skipping validation"
@@ -37,7 +37,8 @@ jobs:
       - name: Run API processing pipeline
         run: |
           echo "🚀 Running API processing pipeline..."
-          if [ -d "pipeline" ] && [ -d "data" ]; then
+          if [ -d "projects/api-explorer-pipeline/pipeline" ] && [ -d "projects/api-explorer-pipeline/data" ]; then
+            cd projects/api-explorer-pipeline
             python pipeline/batch_processor.py data --clear
             echo "✅ Pipeline completed successfully"
           else
@@ -47,9 +48,9 @@ jobs:
       - name: Verify registry structure
         run: |
           echo "🔍 Verifying registry structure..."
-          if [ -f "registry/global_index.json" ]; then
+          if [ -f "projects/api-explorer-pipeline/registry/global_index.json" ]; then
             echo "✅ Global index created"
-            python -m json.tool registry/global_index.json > /dev/null
+            python -m json.tool projects/api-explorer-pipeline/registry/global_index.json > /dev/null
             echo "✅ Global index is valid JSON"
           else
             echo "⚠️  Registry not found (may not exist yet)"
@@ -78,8 +79,8 @@ jobs:
 
       - name: Install backend dependencies
         run: |
-          if [ -d "backend" ]; then
-            cd backend
+          if [ -d "projects/api-explorer-pipeline/backend" ]; then
+            cd projects/api-explorer-pipeline/backend
             npm install
             echo "✅ Backend dependencies installed"
           else
@@ -90,7 +91,8 @@ jobs:
       - name: Set up test data
         run: |
           echo "🔧 Setting up test data..."
-          if [ -d "pipeline" ] && [ -d "data" ]; then
+          if [ -d "projects/api-explorer-pipeline/pipeline" ] && [ -d "projects/api-explorer-pipeline/data" ]; then
+            cd projects/api-explorer-pipeline
             python pipeline/batch_processor.py data --clear
             echo "✅ Test data ready"
           else
@@ -99,8 +101,8 @@ jobs:
 
       - name: Start backend server
         run: |
-          if [ -f "backend/simple-server.js" ]; then
-            cd backend
+          if [ -f "projects/api-explorer-pipeline/backend/simple-server.js" ]; then
+            cd projects/api-explorer-pipeline/backend
             timeout 30s node simple-server.js &
             sleep 5
             echo "✅ Backend server started"
@@ -134,7 +136,7 @@ jobs:
       - name: Validate HTML
         run: |
           echo "🔍 Validating HTML structure..."
-          if [ -f "frontend/index.html" ] && grep -q "API Explorer" frontend/index.html; then
+          if [ -f "projects/api-explorer-pipeline/frontend/index.html" ] && grep -q "API Explorer" projects/api-explorer-pipeline/frontend/index.html; then
             echo "✅ HTML contains expected content"
           else
             echo "⚠️  HTML validation skipped"
@@ -143,8 +145,8 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           echo "🔍 Checking JavaScript syntax..."
-          if [ -f "frontend/script.js" ]; then
-            node -c frontend/script.js
+          if [ -f "projects/api-explorer-pipeline/frontend/script.js" ]; then
+            node -c projects/api-explorer-pipeline/frontend/script.js
             echo "✅ JavaScript syntax is valid"
           else
             echo "⚠️  JavaScript file not found"
@@ -153,7 +155,7 @@ jobs:
       - name: Validate CSS
         run: |
           echo "🔍 Validating CSS..."
-          if [ -f "frontend/style.css" ]; then
+          if [ -f "projects/api-explorer-pipeline/frontend/style.css" ]; then
             echo "✅ CSS file exists"
           else
             echo "⚠️  CSS file not found"
@@ -180,27 +182,28 @@ jobs:
       - name: Install all dependencies
         run: |
           pip install pyyaml
-          if [ -d "backend" ]; then
-            cd backend && npm install
+          if [ -d "projects/api-explorer-pipeline/backend" ]; then
+            cd projects/api-explorer-pipeline/backend && npm install
           fi
 
       - name: Run full integration test
         run: |
           echo "🚀 Running full integration test..."
           
-          if [ ! -d "pipeline" ] || [ ! -d "data" ] || [ ! -d "backend" ]; then
+          if [ ! -d "projects/api-explorer-pipeline/pipeline" ] || [ ! -d "projects/api-explorer-pipeline/data" ] || [ ! -d "projects/api-explorer-pipeline/backend" ]; then
             echo "⚠️  Required directories not found, skipping integration test"
             exit 0
           fi
 
           # Process APIs
+          cd projects/api-explorer-pipeline
           python pipeline/batch_processor.py data --clear
 
           # Start backend
           cd backend
           timeout 60s node simple-server.js &
           sleep 10
-          cd ..
+          cd ../..
 
           # Test API listing
           response=$(curl -s http://localhost:3002/apis 2>/dev/null || echo "")
@@ -233,15 +236,17 @@ jobs:
         run: |
           echo "📦 Generating demo artifacts..."
           
-          if [ -d "pipeline" ] && [ -d "data" ]; then
+          if [ -d "projects/api-explorer-pipeline/pipeline" ] && [ -d "projects/api-explorer-pipeline/data" ]; then
+            cd projects/api-explorer-pipeline
             python pipeline/batch_processor.py data --clear
             
+            cd ..
             mkdir -p demo-artifacts
-            [ -d "registry" ] && cp -r registry demo-artifacts/
-            [ -d "apis" ] && cp -r apis demo-artifacts/
-            [ -d "api_templates" ] && cp -r api_templates demo-artifacts/
-            [ -d "frontend" ] && cp -r frontend demo-artifacts/
-            [ -d "backend" ] && cp -r backend demo-artifacts/
+            [ -d "api-explorer-pipeline/registry" ] && cp -r api-explorer-pipeline/registry demo-artifacts/
+            [ -d "api-explorer-pipeline/apis" ] && cp -r api-explorer-pipeline/apis demo-artifacts/
+            [ -d "api-explorer-pipeline/api_templates" ] && cp -r api-explorer-pipeline/api_templates demo-artifacts/
+            [ -d "api-explorer-pipeline/frontend" ] && cp -r api-explorer-pipeline/frontend demo-artifacts/
+            [ -d "api-explorer-pipeline/backend" ] && cp -r api-explorer-pipeline/backend demo-artifacts/
             
             echo "✅ Demo artifacts generated"
           else
