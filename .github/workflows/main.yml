@@ -28,12 +28,15 @@ jobs:
       run: |
         echo "🔍 Validating OpenAPI files..."
         find projects/api-explorer-pipeline/data/ -name "*.json" -exec python -m json.tool {} \; > /dev/null
-        echo "✅ All JSON files are valid"
+        find projects/api-explorer-pipeline/data/ -name "*.yaml" -exec python -c "import yaml; yaml.safe_load(open('{}', 'r', encoding='utf-8'))" \; > /dev/null
+        find projects/api-explorer-pipeline/data/ -name "*.yml" -exec python -c "import yaml; yaml.safe_load(open('{}', 'r', encoding='utf-8'))" \; > /dev/null
+        echo "✅ All JSON and YAML files are valid"
         
     - name: Run API processing pipeline
       run: |
         echo "🚀 Running API processing pipeline..."
-        python projects/api-explorer-pipeline/pipeline/batch_processor.py projects/api-explorer-pipeline/data --clear
+        cd projects/api-explorer-pipeline
+        python pipeline/batch_processor.py data --clear
         echo "✅ Pipeline completed successfully"
         
     - name: Verify registry structure
@@ -81,10 +84,11 @@ jobs:
     - name: Set up test data
       run: |
         echo "🔧 Setting up test data..."
-        python projects/api-explorer-pipeline/pipeline/batch_processor.py projects/api-explorer-pipeline/data --clear
-        cp -r projects/api-explorer-pipeline/registry ./
-        cp -r projects/api-explorer-pipeline/apis ./
-        cp -r projects/api-explorer-pipeline/api_templates ./
+        cd projects/api-explorer-pipeline
+        python pipeline/batch_processor.py data --clear
+        cp -r registry ../../
+        cp -r apis ../../
+        cp -r api_templates ../../
         
     - name: Start backend server
       run: |
@@ -181,10 +185,12 @@ jobs:
         echo "🚀 Running full integration test..."
         
         # Process APIs
-        python projects/api-explorer-pipeline/pipeline/batch_processor.py projects/api-explorer-pipeline/data --clear
-        cp -r projects/api-explorer-pipeline/registry ./
-        cp -r projects/api-explorer-pipeline/apis ./
-        cp -r projects/api-explorer-pipeline/api_templates ./
+        cd projects/api-explorer-pipeline
+        python pipeline/batch_processor.py data --clear
+        cp -r registry ../../
+        cp -r apis ../../
+        cp -r api_templates ../../
+        cd ..
         
         # Start backend
         cd projects/api-explorer-pipeline/backend
@@ -230,10 +236,11 @@ jobs:
         echo "📦 Generating demo artifacts..."
         
         # Process APIs for demo
-        python projects/api-explorer-pipeline/pipeline/batch_processor.py projects/api-explorer-pipeline/data --clear
-        cp -r projects/api-explorer-pipeline/registry ./demo-registry
-        cp -r projects/api-explorer-pipeline/apis ./demo-apis
-        cp -r projects/api-explorer-pipeline/api_templates ./demo-templates
+        cd projects/api-explorer-pipeline
+        python pipeline/batch_processor.py data --clear
+        cp -r registry ../../demo-registry
+        cp -r apis ../../demo-apis
+        cp -r api_templates ../../demo-templates
         
         echo "✅ Demo artifacts generated"
         
