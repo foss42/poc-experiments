@@ -289,11 +289,18 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"query":"get users"}')
           
-          if echo "$search_response" | grep -q "results"; then
+          # Check for both "success": true AND "results" field
+          if echo "$search_response" | grep -q '"success"[[:space:]]*:[[:space:]]*true' && \
+             echo "$search_response" | grep -q '"results"'; then
             echo "✅ AI search endpoint working"
+            echo "Sample response: $(echo "$search_response" | head -c 200)..."
           else
             echo "❌ AI search endpoint failed"
-            echo "Response: $search_response"
+            echo "Full response: $search_response"
+            
+            # Debug: Check what fields are present
+            echo "Debug - Checking response structure:"
+            echo "$search_response" | grep -o '"[^"]*"[[:space:]]*:' | head -10
             exit 1
           fi
           
@@ -512,11 +519,17 @@ jobs:
               -H "Content-Type: application/json" \
               -d "{\"query\":\"$query\"}")
             
-            if echo "$search_response" | grep -q "results"; then
+            # Check for both "success": true AND "results" field
+            if echo "$search_response" | grep -q '"success"[[:space:]]*:[[:space:]]*true' && \
+               echo "$search_response" | grep -q '"results"'; then
               echo "  ✅ Query '$query' processed"
             else
               echo "  ❌ Query '$query' failed"
-              echo "  Response: $search_response"
+              echo "  Full response: $search_response"
+              
+              # Debug: Show response structure
+              echo "  Debug - Response fields:"
+              echo "$search_response" | grep -o '"[^"]*"[[:space:]]*:' | head -10
               exit 1
             fi
           done
