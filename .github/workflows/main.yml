@@ -284,7 +284,8 @@ jobs:
           # Test 1: Root endpoint
           echo "Test 1: Root endpoint"
           root_response=$(curl -s http://localhost:3002/)
-          echo "Response: $root_response"
+          echo "Response received:"
+          echo "$root_response"
           
           if echo "$root_response" | grep -q '"message"'; then
             echo "✅ Root endpoint OK"
@@ -295,30 +296,32 @@ jobs:
           
           # Test 2: APIs endpoint
           echo "Test 2: APIs endpoint"
-          apis_response=$(curl -s http://localhost:3002/apis)
-          echo "Response: $apis_response"
+          response=$(curl -s http://localhost:3002/apis)
+          echo "Response received:"
+          echo "$response"
           
-          # Use Node.js for reliable JSON validation
-          if node -e "const res = JSON.parse(process.argv[1]); if (!res.success) process.exit(1);" "$apis_response" 2>/dev/null; then
+          if echo "$response" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
             echo "✅ APIs endpoint OK"
           else
             echo "❌ APIs endpoint failed"
+            echo "Response: $response"
             exit 1
           fi
           
-          # Test 3: AI search endpoint (relaxed validation)
+          # Test 3: AI search endpoint
           echo "Test 3: AI search endpoint"
           search_response=$(curl -s -X POST http://localhost:3002/agent/tools/search \
             -H "Content-Type: application/json" \
             -d '{"query":"get users"}')
           
-          echo "Response: $search_response"
+          echo "Response received:"
+          echo "$search_response"
           
-          # Only check for success field using Node.js JSON parser
-          if node -e "const res = JSON.parse(process.argv[1]); console.log('Success:', res.success); if (res.success !== true && res.success !== false) process.exit(1);" "$search_response" 2>/dev/null; then
-            echo "✅ AI search endpoint responding with valid JSON"
+          if echo "$search_response" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
+            echo "✅ AI search endpoint OK"
           else
-            echo "❌ AI search endpoint failed - invalid JSON or missing success field"
+            echo "❌ AI search endpoint failed"
+            echo "Response: $search_response"
             exit 1
           fi
           
@@ -463,9 +466,10 @@ jobs:
           # Test API listing
           echo "Test 1: API listing"
           apis_response=$(curl -s http://localhost:3002/apis)
-          echo "Response: $apis_response"
+          echo "Response received:"
+          echo "$apis_response"
           
-          if node -e "const res = JSON.parse(process.argv[1]); if (!res.success) process.exit(1);" "$apis_response" 2>/dev/null; then
+          if echo "$apis_response" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
             echo "✅ API listing works"
           else
             echo "❌ API listing failed"
@@ -476,18 +480,19 @@ jobs:
           queries=("get users" "create pet" "weather forecast")
           
           for query in "${queries[@]}"; do
-            echo "Test: $query"
+            echo "Testing: $query"
             response=$(curl -s -X POST http://localhost:3002/agent/tools/search \
               -H "Content-Type: application/json" \
               -d "{\"query\":\"$query\"}")
             
-            echo "Response: $response"
+            echo "Response received:"
+            echo "$response"
             
-            # Only validate that response has success field (true or false)
-            if node -e "const res = JSON.parse(process.argv[1]); if (res.success !== true && res.success !== false) process.exit(1);" "$response" 2>/dev/null; then
+            if echo "$response" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
               echo "✅ Query '$query' OK"
             else
-              echo "❌ Query '$query' failed - invalid response"
+              echo "❌ Query '$query' failed"
+              echo "Response: $response"
               exit 1
             fi
           done
