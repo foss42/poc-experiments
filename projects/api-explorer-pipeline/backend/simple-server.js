@@ -59,8 +59,8 @@ app.post('/agent/tools/search', (req, res) => {
         const result = agentTools.searchAPIs(query);
         
         // Format response for MCP compatibility
-        if (result.success && result.matches.length > 0) {
-            const bestMatch = result.matches[0];
+        if (result.success && result.results && result.results.length > 0) {
+            const bestMatch = result.results[0];
             
             res.json({
                 success: true,
@@ -80,7 +80,8 @@ app.post('/agent/tools/search', (req, res) => {
                     curl: bestMatch.templates?.curl || `curl -X ${bestMatch.endpoint.method} "${bestMatch.baseUrl}${bestMatch.endpoint.path}"`,
                     powershell: bestMatch.templates?.powershell || `Invoke-RestMethod -Uri "${bestMatch.baseUrl}${bestMatch.endpoint.path}" -Method ${bestMatch.endpoint.method}`
                 },
-                alternatives: result.matches.slice(1, 3).map(match => ({
+                results: result.results,  // Include full results array
+                alternatives: result.results.slice(1, 3).map(match => ({
                     api: match.api,
                     endpoint: `${match.endpoint.method} ${match.endpoint.path}`,
                     confidence: Math.round(match.score * 100)
@@ -818,6 +819,119 @@ app.get('/apis/:id/metadata', (req, res) => {
         res.status(500).json({
             success: false,
             error: 'Failed to load metadata',
+            message: error.message
+        });
+    }
+});
+
+// NEW: Get API details with endpoints and templates
+app.get('/apis/:id/details', (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // Load metadata
+        const metadataPath = path.join(__dirname, '..', 'apis', id, 'metadata.json');
+        const metadata = fs.existsSync(metadataPath) 
+            ? JSON.parse(fs.readFileSync(metadataPath, 'utf8'))
+            : {};
+        
+        // Load OpenAPI spec
+        const openapiPath = path.join(__dirname, '..', 'apis', id, 'openapi.json');
+        if (!fs.existsSync(openapiPath)) {
+            return res.status(404).json({
+                success: false,
+                error: 'API specification not found'
+            });
+        }
+        
+        const openapi = JSON.parse(fs.readFileSync(openapiPath, 'utf8'));
+        
+        // Extract endpoints with templates
+        const endpoints = [];
+        if (openapi.paths) {
+            for (const [pathStr, pathObj] of Object.entries(openapi.paths)) {
+                for (const [method, methodObj] of Object.entries(pathObj)) {
+                    if (['get', 'post', 'put', 'delete', 'patch'].includes(method.toLowerCase())) {
+                        // Generate templates for this endpoint
+                        const endpoint = {
+                            path: pathStr,
+                            method: method.toUpperCase(),
+                            summary: methodObj.summary || `${method.toUpperCase()} ${pathStr}`,
+                            description: methodObj.description || '',
+                            tags: methodObj.tags || []
+                        };
+                        
+                        // Generate curl template
+                        const baseUrl = metadata.baseUrl || openapi.servers?.[0]?.url || 'https://api.example.com';
+                        const fullUrl = `${baseUrl}${pathStr}`;
+                        
+                        let curlTemplate = `curl -X ${endpoint.method} "${fullUrl}"`;
+                        curlTemplate += ` \\\n  -H "Content-Type: application/json"`;
+                        
+                        // Add auth headers
+                        if (metadata.authType === 'apiKey') {
+                            const keyName = metadata.authDetails?.name || 'X-API-Key';
+                            curlTemplate += ` \\\n  -H "${keyName}: YOUR_API_KEY"`;
+                        } else if (metadata.authType === 'bearer') {
+                            curlTemplate += ` \\\n  -H "Authorization: Bearer YOUR_TOKEN"`;
+                        }
+                        
+                        // Add body for POST/PUT
+                        if (['POST', 'PUT', 'PATCH'].includes(endpoint.method)) {
+                            curlTemplate += ` \\\n  -d '{"key": "value"}'`;
+                        }
+                        
+                        // Generate PowerShell template
+                        let powershellTemplate = `$headers = @{\n    "Content-Type" = "application/json"`;
+                        
+                        if (metadata.authType === 'apiKey') {
+                            const keyName = metadata.authDetails?.name || 'X-API-Key';
+                            powershellTemplate += `\n    "${keyName}" = "YOUR_API_KEY"`;
+                        } else if (metadata.authType === 'bearer') {
+                            powershellTemplate += `\n    "Authorization" = "Bearer YOUR_TOKEN"`;
+                        }
+                        
+                        powershellTemplate += `\n}\n\n`;
+                        
+                        if (['POST', 'PUT', 'PATCH'].includes(endpoint.method)) {
+                            powershellTemplate += `$body = @{\n    "key" = "value"\n} | ConvertTo-Json\n\n`;
+                            powershellTemplate += `Invoke-RestMethod -Uri "${fullUrl}" -Method ${endpoint.method} -Headers $headers -Body $body`;
+                        } else {
+                            powershellTemplate += `Invoke-RestMethod -Uri "${fullUrl}" -Method ${endpoint.method} -Headers $headers`;
+                        }
+                        
+                        endpoint.templates = {
+                            curl: curlTemplate,
+                            powershell: powershellTemplate
+                        };
+                        
+                        endpoints.push(endpoint);
+                    }
+                }
+            }
+        }
+        
+        res.json({
+            success: true,
+            api: {
+                id: id,
+                name: metadata.name || openapi.info?.title || 'Unknown API',
+                description: metadata.description || openapi.info?.description || '',
+                baseUrl: metadata.baseUrl || openapi.servers?.[0]?.url || '',
+                authType: metadata.authType || 'none',
+                category: metadata.category || 'General',
+                tags: metadata.tags || [],
+                rating: metadata.rating || 4.0,
+                endpointCount: endpoints.length
+            },
+            endpoints: endpoints
+        });
+        
+    } catch (error) {
+        console.error('Error loading API details:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Failed to load API details',
             message: error.message
         });
     }

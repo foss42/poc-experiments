@@ -109,7 +109,8 @@ class AgentTools {
             query: query,
             intent,
             entity,
-            matches: topMatches,
+            results: topMatches,  // Changed from "matches" to "results" for consistency
+            matches: topMatches,  // Keep "matches" for backward compatibility
             totalFound: matches.length,
             responseTime
         };

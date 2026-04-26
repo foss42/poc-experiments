@@ -321,7 +321,7 @@ function getTagsDisplay(tags) {
 /**
  * Select and display an API
  */
-function selectAPI(apiId) {
+async function selectAPI(apiId) {
     console.log(`🎯 Selecting API: ${apiId}`);
     
     // Find the API
@@ -376,23 +376,29 @@ function selectAPI(apiId) {
         btn.classList.toggle('active', btn.dataset.method === '');
     });
     
-    // Create mock endpoints for display
-    currentEndpoints = [
-        {
-            method: 'GET',
-            path: '/users',
-            summary: 'Get all users',
-            description: 'Retrieve a list of all users',
-            authType: currentAPI.authType
-        },
-        {
-            method: 'POST',
-            path: '/users',
-            summary: 'Create user',
-            description: 'Create a new user',
-            authType: currentAPI.authType
+    // Fetch real endpoints from backend
+    try {
+        console.log(`📡 Fetching endpoints for API: ${apiId}`);
+        const response = await fetch(`${API_BASE_URL}/apis/${apiId}/details`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
-    ];
+        
+        const data = await response.json();
+        
+        if (data.success && data.endpoints) {
+            currentEndpoints = data.endpoints;
+            console.log(`✅ Loaded ${currentEndpoints.length} endpoints`);
+        } else {
+            console.warn('No endpoints found in response');
+            currentEndpoints = [];
+        }
+    } catch (error) {
+        console.error('❌ Failed to load endpoints:', error);
+        // Fallback to empty array
+        currentEndpoints = [];
+    }
     
     renderEndpoints(currentEndpoints);
 }
@@ -420,7 +426,7 @@ function renderEndpoints(endpoints) {
                 <span class="endpoint-path">${escapeHtml(endpoint.path)}</span>
                 <div class="endpoint-auth">
                     ${getAuthIcon(endpoint.authType)}
-                    ${getEnhancedAuthBadge(endpoint.authType, true)}
+                    ${getAuthBadge(endpoint.authType)}
                 </div>
             </div>
             
