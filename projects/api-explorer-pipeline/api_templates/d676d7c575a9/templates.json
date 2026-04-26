@@ -1,7 +1,7 @@
 {
   "metadata": {
     "apiId": "d676d7c575a9",
-    "generatedAt": "2026-04-16T16:18:24.333966",
+    "generatedAt": "2026-04-26T16:28:24.205374",
     "endpointCount": 3
   },
   "endpoints": [
@@ -17,10 +17,10 @@
     {
       "path": "/public",
       "method": "GET",
-      "authType": "none",
+      "authType": "apiKey",
       "templates": {
-        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/public\"",
-        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/public\" `\n  -Method GET"
+        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/public\" \\\n  -H \"X-API-Key: YOUR_API_KEY\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/public\" `\n  -Method GET `\n  -Headers @{\"X-API-Key\" = \"YOUR_API_KEY\"}"
       }
     },
     {

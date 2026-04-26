@@ -4,7 +4,16 @@ Backend server for the API Explorer system with authentication filtering and AI 
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+Make sure you're in the backend directory:
+
+```bash
+cd /c/Users/YOUR_USERNAME/Documents/gsoc-poc/projects/api-explorer-pipeline/backend
+```
+
 ### Install Dependencies
+
 ```bash
 npm install
 ```
@@ -12,20 +21,19 @@ npm install
 ### Start Backend
 
 **Option 1: Simple Server (Port 3002) - AI Agent**
+
 ```bash
-npm start
-# or
 node simple-server.js
 ```
 
 **Option 2: Complete Server (Port 3001) - Auth Filtering**
+
 ```bash
-npm run start:server
-# or
 node server.js
 ```
 
 **Option 3: Development Mode (with auto-reload)**
+
 ```bash
 npm run dev:watch
 ```
@@ -72,25 +80,39 @@ node server.js
 ## 🧪 Testing
 
 ### Test Simple Server (Port 3002)
-```bash
-# Start server
-node simple-server.js
 
-# Test in another terminal
+**Terminal 1 - Start server:**
+
+```bash
+cd /c/Users/YOUR_USERNAME/Documents/gsoc-poc/projects/api-explorer-pipeline/backend
+node simple-server.js
+```
+
+**Terminal 2 - Test it:**
+
+```bash
+# Test root endpoint
 curl http://localhost:3002/
 
-# AI search
+# Test AI search
 curl -X POST http://localhost:3002/agent/tools/search \
   -H "Content-Type: application/json" \
   -d '{"query": "get users"}'
 ```
 
 ### Test Complete Server (Port 3001)
-```bash
-# Start server
-node server.js
 
-# Test in another terminal
+**Terminal 1 - Start server:**
+
+```bash
+cd /c/Users/YOUR_USERNAME/Documents/gsoc-poc/projects/api-explorer-pipeline/backend
+node server.js
+```
+
+**Terminal 2 - Test it:**
+
+```bash
+# Test root endpoint
 curl http://localhost:3001/
 
 # Get all APIs
@@ -122,15 +144,18 @@ const PORT = process.env.PORT || 3002;
 ```
 
 ### Registry Path
+
 The backend reads from:
+
 ```
 ../registry/global_index.json
 ```
 
 Make sure to run the pipeline first:
+
 ```bash
-cd ../pipeline
-python batch_processor.py ../data --clear
+cd /c/Users/YOUR_USERNAME/Documents/gsoc-poc/projects/api-explorer-pipeline
+python pipeline/batch_processor.py data --clear
 ```
 
 ## 🐛 Troubleshooting
@@ -149,10 +174,12 @@ node simple-server.js
 ```
 
 ### "Registry not found"
+
 Run the pipeline to generate the registry:
+
 ```bash
-cd ../pipeline
-python batch_processor.py ../data --clear
+cd /c/Users/YOUR_USERNAME/Documents/gsoc-poc/projects/api-explorer-pipeline
+python pipeline/batch_processor.py data --clear
 ```
 
 ### "Port already in use"

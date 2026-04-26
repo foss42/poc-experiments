@@ -1,17 +1,17 @@
 {
   "metadata": {
     "apiId": "eabdaadb1a37",
-    "generatedAt": "2026-04-16T16:18:24.280447",
+    "generatedAt": "2026-04-26T16:28:24.127484",
     "endpointCount": 2
   },
   "endpoints": [
     {
       "path": "/protected",
       "method": "GET",
-      "authType": "bearer",
+      "authType": "apiKey",
       "templates": {
-        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/protected\" \\\n  -H \"Authorization: Bearer YOUR_TOKEN\"",
-        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/protected\" `\n  -Method GET `\n  -Headers @{\"Authorization\" = \"Bearer YOUR_TOKEN\"}"
+        "curl": "curl -X GET \\\n  \"https://api.example.com/v1/protected\" \\\n  -H \"X-API-Key: YOUR_API_KEY\"",
+        "powershell": "Invoke-RestMethod `\n  -Uri \"https://api.example.com/v1/protected\" `\n  -Method GET `\n  -Headers @{\"X-API-Key\" = \"YOUR_API_KEY\"}"
       }
     },
     {
