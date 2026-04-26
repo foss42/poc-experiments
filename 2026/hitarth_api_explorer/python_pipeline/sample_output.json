@@ -1,0 +1,47 @@
+{
+  "id": "openweathermap-current-weather",
+  "name": "OpenWeatherMap API",
+  "provider": "OpenWeatherMap",
+  "category": "Weather",
+  "auth_type": "api_key",
+  "base_url": "https://api.openweathermap.org/data/2.5",
+  "description": "Access current weather data for any location on Earth. Collect and process weather data from different sources such as global and local weather models, satellites, radars and vast network of weather stations.",
+  "docs_url": "https://openweathermap.org/api",
+  "version": "2.5.0",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/weather",
+      "summary": "Current weather by city name",
+      "params": [
+        { "name": "q", "in": "query", "required": true, "type": "string", "example": "London" },
+        { "name": "appid", "in": "query", "required": true, "type": "string", "example": "YOUR_API_KEY" },
+        { "name": "units", "in": "query", "required": false, "type": "string", "example": "metric" }
+      ],
+      "sample_body": null,
+      "sample_response": {
+        "cod": 200,
+        "name": "London",
+        "main": { "temp": 285.5, "feels_like": 283.2, "humidity": 81 },
+        "weather": [{ "main": "Clouds", "description": "overcast clouds" }],
+        "wind": { "speed": 5.1 }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/forecast",
+      "summary": "5 day weather forecast",
+      "params": [
+        { "name": "q", "in": "query", "required": true, "type": "string", "example": "Paris" },
+        { "name": "appid", "in": "query", "required": true, "type": "string", "example": "YOUR_API_KEY" },
+        { "name": "cnt", "in": "query", "required": false, "type": "integer", "example": 5 }
+      ],
+      "sample_body": null,
+      "sample_response": {
+        "cod": "200",
+        "cnt": 5,
+        "list": [{ "dt": 1735000000, "main": { "temp": 280.1 }, "weather": [{ "main": "Rain" }] }]
+      }
+    }
+  ]
+} 

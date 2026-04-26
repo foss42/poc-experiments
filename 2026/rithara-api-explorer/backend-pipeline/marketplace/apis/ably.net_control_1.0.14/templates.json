@@ -1,0 +1,435 @@
+{
+  "api_id": "ably.net:control:1.0.14",
+  "endpoint_count": 20,
+  "endpoints": [
+    {
+      "id": "lists-apps",
+      "name": "Lists apps",
+      "description": "List all applications for the specified account ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/accounts/{{ACCOUNT_ID}}/apps",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{ACCOUNT_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{ACCOUNT_ID}} with a real account_id."
+    },
+    {
+      "id": "creates-an-app",
+      "name": "Creates an app",
+      "description": "Creates an application with the specified properties.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/accounts/{{ACCOUNT_ID}}/apps",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "My App"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{ACCOUNT_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{ACCOUNT_ID}} with a real account_id."
+    },
+    {
+      "id": "lists-app-keys",
+      "name": "Lists app keys",
+      "description": "Lists the API keys associated with the application ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/keys",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "creates-a-key",
+      "name": "Creates a key",
+      "description": "Creates an API key for the application specified.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/keys",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "",
+        "channels": "",
+        "capabilities": []
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "updates-a-key",
+      "name": "Updates a key",
+      "description": "Update the API key with the specified key ID, for the application with the specified application ID.",
+      "method": "PATCH",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/keys/{{KEY_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "capabilities": [],
+        "channels": "",
+        "name": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{KEY_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{KEY_ID}} with a real key_id."
+    },
+    {
+      "id": "revokes-a-key",
+      "name": "Revokes a key",
+      "description": "Revokes the API key with the specified ID, with the Application ID. This deletes the key.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/keys/{{KEY_ID}}/revoke",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{KEY_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{KEY_ID}} with a real key_id."
+    },
+    {
+      "id": "lists-namespaces",
+      "name": "Lists namespaces",
+      "description": "List the namespaces for the specified application ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/namespaces",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "creates-a-namespace",
+      "name": "Creates a namespace",
+      "description": "Creates a namespace for the specified application ID.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/namespaces",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "id": "namespace"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "deletes-a-namespace",
+      "name": "Deletes a namespace",
+      "description": "Deletes the namespace with the specified ID, for the specified application ID.",
+      "method": "DELETE",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/namespaces/{{NAMESPACE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{NAMESPACE_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{NAMESPACE_ID}} with a real namespace_id."
+    },
+    {
+      "id": "updates-a-namespace",
+      "name": "Updates a namespace",
+      "description": "Updates the namespace with the specified ID, for the application with the specified application ID.",
+      "method": "PATCH",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/namespaces/{{NAMESPACE_ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "authenticated": false,
+        "persistLast": false,
+        "persisted": false,
+        "pushEnabled": false,
+        "tlsOnly": false
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{NAMESPACE_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{NAMESPACE_ID}} with a real namespace_id."
+    },
+    {
+      "id": "lists-queues",
+      "name": "Lists queues",
+      "description": "Lists the queues associated with the specified application ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/queues",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "creates-a-queue",
+      "name": "Creates a queue",
+      "description": "Creates a queue for the application specified by application ID. The properties for the queue to be created are specified in the request body.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/queues",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "name": "My queue",
+        "ttl": 60,
+        "maxLength": 10000,
+        "region": "us-east-1-a"
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "deletes-a-queue",
+      "name": "Deletes a queue",
+      "description": "Delete the queue with the specified queue name, from the application with the specified application ID.",
+      "method": "DELETE",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/queues/{{QUEUE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{QUEUE_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{QUEUE_ID}} with a real queue_id."
+    },
+    {
+      "id": "lists-reactor-rules",
+      "name": "Lists Reactor rules",
+      "description": "Lists the rules for the application specified by the application ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/rules",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id."
+    },
+    {
+      "id": "gets-a-reactor-rule-by-rule-id",
+      "name": "Gets a reactor rule by rule ID",
+      "description": "Returns the rule specified by the rule ID, for the application specified by application ID.",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{RULE_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "deletes-a-reactor-rule",
+      "name": "Deletes a Reactor rule",
+      "description": "Deletes a Reactor rule",
+      "method": "DELETE",
+      "url": "https://control.ably.net/v1/apps/{{APP_ID}}/rules/{{RULE_ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{APP_ID}}",
+        "{{RULE_ID}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{APP_ID}} with a real app_id. Replace {{RULE_ID}} with a real rule_id."
+    },
+    {
+      "id": "deletes-an-app",
+      "name": "Deletes an app",
+      "description": "Deletes the application with the specified application ID.",
+      "method": "DELETE",
+      "url": "https://control.ably.net/v1/apps/{{ID}}",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ABLY_API_KEY}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "updates-an-app",
+      "name": "Updates an app",
+      "description": "Updates the application with the specified application ID.",
+      "method": "PATCH",
+      "url": "https://control.ably.net/v1/apps/{{ID}}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "apnsCertificate": "",
+        "apnsPrivateKey": "",
+        "apnsUseSandboxEndpoint": false,
+        "fcmKey": false,
+        "name": "My App",
+        "status": "enabled",
+        "tlsOnly": true
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ABLY_API_KEY}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "updates-app-s-apns-info-from-a-p12-file",
+      "name": "Updates app's APNs info from a `.p12` file",
+      "description": "Updates the application's Apple Push Notification service (APNs) information.",
+      "method": "POST",
+      "url": "https://control.ably.net/v1/apps/{{ID}}/pkcs12",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": {
+        "p12File": "",
+        "p12Pass": ""
+      },
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ID}}",
+        "{{ABLY_API_KEY}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY. Replace {{ID}} with a real id."
+    },
+    {
+      "id": "get-token-details",
+      "name": "Get token details",
+      "description": "Get token details",
+      "method": "GET",
+      "url": "https://control.ably.net/v1/me",
+      "headers": {
+        "Authorization": "Bearer{{ABLY_NET_API_KEY}}"
+      },
+      "query_params": {},
+      "body": null,
+      "sample_response": {},
+      "auth_placeholders": [
+        "{{ABLY_API_KEY}}",
+        "{{ABLY_NET_API_KEY}}"
+      ],
+      "notes": "Replace {{ABLY_API_KEY}} with your ABLY API KEY."
+    }
+  ]
+}

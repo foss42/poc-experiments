@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>API Template Generator</title>
+  </head>
+  <body style="font-family: Arial; padding: 20px">
+    <h2>API Dash – OpenAPI Template Generator</h2>
+    <p>
+      Paste an OpenAPI specification to automatically generate ready-to-use API
+      request templates.
+    </p>
+
+    <textarea
+      id="input"
+      rows="15"
+      cols="80"
+      placeholder="Paste OpenAPI JSON here..."
+    ></textarea>
+
+    <br /><br />
+
+    <button onclick="generate()">Generate</button>
+
+    <h3>Output:</h3>
+    <pre id="output"></pre>
+
+    <script>
+      async function generate() {
+        const input = document.getElementById("input").value;
+        const output = document.getElementById("output");
+
+        output.textContent = "⏳ Generating templates...";
+
+        try {
+          const res = await fetch("/generate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: input,
+          });
+
+          const data = await res.json();
+
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          output.textContent = "❌ Error: " + err.message;
+        }
+      }
+    </script>
+  </body>
+</html>
