@@ -2,19 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
 
 // Performance optimizations
+app.use(compression()); // Enable gzip compression
 app.use(cors());
 app.use(express.json({ limit: '1mb' }));
 app.disable('x-powered-by');
+app.set('etag', false); // Disable etag for faster responses
 
 // Cache for registry and API details
 let registryCache = null;
 let registryCacheTime = 0;
-const CACHE_TTL = 60000; // 60 seconds
+let detailsCache = {}; // Cache for API details
+const CACHE_TTL = 120000; // 120 seconds
 
 function getRegistry() {
     const now = Date.now();
@@ -57,7 +61,7 @@ app.get('/', (req, res) => {
     });
 });
 
-// Get all APIs
+// Get all APIs - OPTIMIZED for speed
 app.get('/apis', (req, res) => {
     try {
         const globalIndex = getRegistry();
@@ -68,8 +72,7 @@ app.get('/apis', (req, res) => {
                 count: 0,
                 totalCount: 0,
                 apis: [],
-                categories: [],
-                message: 'No registry file found'
+                categories: []
             });
         }
         
@@ -83,27 +86,34 @@ app.get('/apis', (req, res) => {
             );
         }
         
-        // Get unique categories for frontend
+        // Get unique categories
         const allCategories = [...new Set(
             (globalIndex.apis || [])
                 .map(api => api.category)
                 .filter(cat => cat)
         )].sort();
         
+        // Send only essential fields for list view
+        const minimalAPIs = apis.map(api => ({
+            id: api.id,
+            name: api.name,
+            baseUrl: api.baseUrl,
+            authType: api.authType,
+            endpointCount: api.endpointCount,
+            category: api.category
+        }));
+        
         res.json({
             success: true,
             count: apis.length,
             totalCount: globalIndex.apis?.length || 0,
-            apis: apis,
-            categories: allCategories,
-            appliedFilter: category || null,
-            timestamp: new Date().toISOString()
+            apis: minimalAPIs,
+            categories: allCategories
         });
     } catch (error) {
         res.status(500).json({
             success: false,
-            error: 'Failed to load APIs',
-            message: error.message
+            error: 'Failed to load APIs'
         });
     }
 });
@@ -210,10 +220,15 @@ app.get('/apis/:id/metadata', (req, res) => {
     }
 });
 
-// Get API details with endpoints
+// Get API details with endpoints - CACHED
 app.get('/apis/:id/details', (req, res) => {
     try {
         const { id } = req.params;
+        
+        // Check cache first
+        if (detailsCache[id]) {
+            return res.json(detailsCache[id]);
+        }
         
         // Load OpenAPI spec
         const openapiPath = path.join(__dirname, '..', 'apis', id, 'openapi.json');
@@ -226,7 +241,7 @@ app.get('/apis/:id/details', (req, res) => {
         
         const openapi = JSON.parse(fs.readFileSync(openapiPath, 'utf8'));
         
-        // Extract endpoints
+        // Extract endpoints - minimal data
         const endpoints = [];
         if (openapi.paths) {
             for (const [pathStr, pathObj] of Object.entries(openapi.paths)) {
@@ -235,30 +250,29 @@ app.get('/apis/:id/details', (req, res) => {
                         endpoints.push({
                             path: pathStr,
                             method: method.toUpperCase(),
-                            summary: methodObj.summary || `${method.toUpperCase()} ${pathStr}`,
-                            description: methodObj.description || '',
-                            tags: methodObj.tags || [],
-                            parameters: methodObj.parameters || [],
-                            requestBody: methodObj.requestBody || null
+                            summary: methodObj.summary || ''
                         });
                     }
                 }
             }
         }
         
-        res.json({
+        const response = {
             success: true,
             id: id,
-            spec: openapi,
             endpoints: endpoints,
             endpointCount: endpoints.length
-        });
+        };
+        
+        // Cache the response
+        detailsCache[id] = response;
+        
+        res.json(response);
         
     } catch (error) {
         res.status(500).json({
             success: false,
-            error: 'Failed to load API details',
-            message: error.message
+            error: 'Failed to load API details'
         });
     }
 });

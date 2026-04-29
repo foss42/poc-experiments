@@ -105,7 +105,13 @@ async function loadAPIs() {
             ? `${API_BASE_URL}/apis?category=${encodeURIComponent(categoryFilter)}` 
             : `${API_BASE_URL}/apis`;
         
-        const response = await fetch(url, { signal: AbortSignal.timeout(8000) });
+        // Create abort controller with timeout fallback
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
         const data = await response.json();
@@ -176,15 +182,12 @@ function renderAPIList(apis) {
         elements.apiList.innerHTML = '<div class="empty-state"><p>No APIs found</p></div>';
         return;
     }
-    // Use DocumentFragment for faster DOM insertion
-    const fragment = document.createDocumentFragment();
-    apis.forEach(api => {
-        const div = document.createElement('div');
-        div.className = 'api-item';
-        div.dataset.apiId = api.id;
-        div.style.cursor = 'pointer';
-        div.onclick = () => selectAPI(api.id);
-        div.innerHTML = `
+    
+    // Use innerHTML for speed (faster than DocumentFragment for large lists)
+    let html = '';
+    for (let i = 0; i < apis.length; i++) {
+        const api = apis[i];
+        html += `<div class="api-item" data-api-id="${api.id}" onclick="selectAPI('${api.id}')" style="cursor: pointer;">
             <div class="api-item-header">
                 <h3>${escapeHtml(api.name)}</h3>
                 ${getAuthBadge(api.authType)}
@@ -195,11 +198,9 @@ function renderAPIList(apis) {
             <div class="api-item-meta">
                 <i class="fas fa-link"></i> ${api.endpointCount || 0} endpoint${(api.endpointCount || 0) !== 1 ? 's' : ''}
             </div>
-        `;
-        fragment.appendChild(div);
-    });
-    elements.apiList.innerHTML = '';
-    elements.apiList.appendChild(fragment);
+        </div>`;
+    }
+    elements.apiList.innerHTML = html;
 }
 
 function getAuthBadge(authType) {
@@ -238,7 +239,12 @@ async function selectAPI(apiId) {
     }
     
     try {
-        const response = await fetch(`${API_BASE_URL}/apis/${apiId}/details`, { signal: AbortSignal.timeout(8000) });
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        
+        const response = await fetch(`${API_BASE_URL}/apis/${apiId}/details`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         currentEndpoints = data.endpoints || [];
@@ -255,28 +261,25 @@ function renderEndpoints(endpoints) {
         elements.endpointsList.innerHTML = '<div class="empty-state"><p>No endpoints found</p></div>';
         return;
     }
-    // Use DocumentFragment for faster DOM insertion
-    const fragment = document.createDocumentFragment();
-    endpoints.forEach((endpoint, index) => {
-        const div = document.createElement('div');
-        div.className = 'endpoint-item';
-        div.dataset.method = endpoint.method;
-        div.innerHTML = `
+    
+    // Use innerHTML for speed
+    let html = '';
+    for (let i = 0; i < endpoints.length; i++) {
+        const endpoint = endpoints[i];
+        html += `<div class="endpoint-item" data-method="${endpoint.method}">
             <div class="endpoint-header">
                 <span class="method-badge ${endpoint.method}">${endpoint.method}</span>
                 <span class="endpoint-path">${escapeHtml(endpoint.path)}</span>
             </div>
-            ${endpoint.description ? `<div class="endpoint-description">${escapeHtml(endpoint.description)}</div>` : ''}
+            ${endpoint.summary ? `<div class="endpoint-description">${escapeHtml(endpoint.summary)}</div>` : ''}
             <div class="endpoint-actions">
-                <button class="template-btn" onclick="showTemplates(${index})">
+                <button class="template-btn" onclick="showTemplates(${i})">
                     <i class="fas fa-code"></i> View Templates
                 </button>
             </div>
-        `;
-        fragment.appendChild(div);
-    });
-    elements.endpointsList.innerHTML = '';
-    elements.endpointsList.appendChild(fragment);
+        </div>`;
+    }
+    elements.endpointsList.innerHTML = html;
 }
 
 // ========================================
@@ -430,4 +433,9 @@ window.switchTab = switchTab;
 // START APPLICATION
 // ========================================
 
-document.addEventListener('DOMContentLoaded', init);
+// Start immediately since script is loaded at end of body
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
