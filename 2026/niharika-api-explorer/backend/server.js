@@ -129,6 +129,63 @@ app.get('/apis/:id', (req, res) => {
     }
 });
 
+// Get API details (alternative endpoint for compatibility)
+app.get('/apis/:id/details', (req, res) => {
+    try {
+        const registry = loadRegistry();
+        const api = registry.apis.find(a => a.id === req.params.id);
+        
+        if (!api) {
+            return res.status(404).json({
+                success: false,
+                error: 'API not found'
+            });
+        }
+        
+        res.json({
+            success: true,
+            api: api
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
+// Get API metadata
+app.get('/apis/:id/metadata', (req, res) => {
+    try {
+        const registry = loadRegistry();
+        const api = registry.apis.find(a => a.id === req.params.id);
+        
+        if (!api) {
+            return res.status(404).json({
+                success: false,
+                error: 'API not found'
+            });
+        }
+        
+        res.json({
+            success: true,
+            metadata: {
+                name: api.name,
+                category: api.category,
+                description: api.description,
+                auth: api.auth,
+                rating: api.rating,
+                tags: api.tags
+            }
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
 // Get categories
 app.get('/categories', (req, res) => {
     try {
