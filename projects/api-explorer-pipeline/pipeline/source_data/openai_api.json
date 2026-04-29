@@ -1,0 +1,105 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenAI API",
+    "description": "OpenAI GPT models for chat completions, embeddings, and image generation",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://api.openai.com/v1",
+      "description": "OpenAI Production API"
+    }
+  ],
+  "paths": {
+    "/chat/completions": {
+      "post": {
+        "summary": "Create chat completion",
+        "description": "Generate a response from GPT-4 or GPT-3.5-turbo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model":    { "type": "string",  "example": "gpt-4" },
+                  "messages": { "type": "array",   "example": [{ "role": "user", "content": "Hello!" }] },
+                  "max_tokens": { "type": "integer", "example": 100 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Chat completion response" }
+        }
+      }
+    },
+    "/models": {
+      "get": {
+        "summary": "List models",
+        "description": "List all available OpenAI models",
+        "responses": {
+          "200": { "description": "List of models" }
+        }
+      }
+    },
+    "/embeddings": {
+      "post": {
+        "summary": "Create embeddings",
+        "description": "Generate vector embeddings for text",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "model": { "type": "string",  "example": "text-embedding-ada-002" },
+                  "input": { "type": "string",  "example": "The quick brown fox" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Embedding vectors" }
+        }
+      }
+    },
+    "/images/generations": {
+      "post": {
+        "summary": "Generate image",
+        "description": "Generate an image using DALL-E",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": { "type": "string",  "example": "A sunset over mountains" },
+                  "n":      { "type": "integer", "example": 1 },
+                  "size":   { "type": "string",  "example": "1024x1024" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Generated image URL" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [{ "BearerAuth": [] }]
+}

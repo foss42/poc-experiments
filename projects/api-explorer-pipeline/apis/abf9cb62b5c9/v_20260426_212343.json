@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Dog CEO API",
+    "description": "Free public API for random dog images — no auth required",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://dog.ceo/api",
+      "description": "Dog CEO public API"
+    }
+  ],
+  "paths": {
+    "/breeds/image/random": {
+      "get": {
+        "summary": "Get random dog image",
+        "description": "Returns a random dog image URL",
+        "responses": {
+          "200": {
+            "description": "Random dog image"
+          }
+        }
+      }
+    },
+    "/breeds/list/all": {
+      "get": {
+        "summary": "List all breeds",
+        "description": "Returns a list of all dog breeds",
+        "responses": {
+          "200": {
+            "description": "All dog breeds"
+          }
+        }
+      }
+    },
+    "/breed/{breed}/images": {
+      "get": {
+        "summary": "Get images by breed",
+        "description": "Returns all images for a specific breed",
+        "parameters": [
+          {
+            "name": "breed",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Breed images"
+          }
+        }
+      }
+    },
+    "/breed/{breed}/images/random": {
+      "get": {
+        "summary": "Get random image by breed",
+        "parameters": [
+          {
+            "name": "breed",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Random breed image"
+          }
+        }
+      }
+    }
+  }
+}

@@ -185,6 +185,24 @@ function updateStats(displayedCount = null, totalCount = null) {
         elements.endpointCount.textContent = `${totalEndpoints} Endpoint${totalEndpoints !== 1 ? 's' : ''}`;
     }
     
+    // Update pipeline info in header
+    const totalApisInfo = document.getElementById('total-apis-info');
+    const totalEndpointsInfo = document.getElementById('total-endpoints-info');
+    if (totalApisInfo) totalApisInfo.textContent = total;
+    if (totalEndpointsInfo) totalEndpointsInfo.textContent = totalEndpoints;
+    
+    // Update filter status
+    const filterStatusText = document.getElementById('filter-status-text');
+    const totalCountSpan = document.getElementById('total-count');
+    if (filterStatusText && totalCountSpan) {
+        totalCountSpan.textContent = total;
+        if (count !== total) {
+            filterStatusText.innerHTML = `📦 Total APIs: <strong>${total}</strong> | 🔍 Showing: <strong>${count}</strong> (Filtered)`;
+        } else {
+            filterStatusText.innerHTML = `📦 Total APIs: <strong>${total}</strong>`;
+        }
+    }
+    
     // Update AI status bar (both welcome and details)
     const aiApiCount = document.getElementById('ai-api-count');
     if (aiApiCount) {
@@ -461,22 +479,18 @@ function getAuthIcon(authType) {
 
 /**
  * Show templates modal for an endpoint
+ * Fetches real templates from backend using the strict generator
  */
-function showTemplates(endpointIndex) {
+async function showTemplates(endpointIndex) {
     const endpoint = currentEndpoints[endpointIndex];
     if (!endpoint) {
         console.error('No endpoint found for index:', endpointIndex);
         return;
     }
-    
+
     console.log('📋 Showing templates for:', endpoint.method, endpoint.path);
-    
     currentEndpoint = endpoint;
-    
-    // Generate templates
-    const curlTemplate = generateCurlTemplate(endpoint.method, endpoint.path, currentAPI);
-    const powershellTemplate = generatePowerShellTemplate(endpoint.method, endpoint.path, currentAPI);
-    
+
     // Update modal title and endpoint info
     if (elements.modalTitle) elements.modalTitle.textContent = 'Request Templates';
     if (elements.modalMethod) {
@@ -484,63 +498,115 @@ function showTemplates(endpointIndex) {
         elements.modalMethod.className = `method-badge ${endpoint.method}`;
     }
     if (elements.modalPath) elements.modalPath.textContent = endpoint.path;
-    
-    // Populate templates
-    if (elements.curlCode) elements.curlCode.textContent = curlTemplate;
-    if (elements.powershellCode) elements.powershellCode.textContent = powershellTemplate;
-    
-    // Show modal
+
+    // Show modal immediately with loading state
+    if (elements.curlCode) elements.curlCode.textContent = 'Generating...';
+    if (elements.powershellCode) elements.powershellCode.textContent = 'Generating...';
     if (elements.templateModal) elements.templateModal.style.display = 'flex';
-    
-    // Reset to curl tab
     switchTab('curl');
+
+    try {
+        // Call backend strict generator
+        const response = await fetch(`${API_BASE_URL}/agent/tools/generate/curl`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                api_name:     currentAPI.name,
+                base_url:     currentAPI.baseUrl,
+                method:       endpoint.method,
+                path:         endpoint.path,
+                auth_type:    currentAPI.authType,
+                headers:      { keyName: currentAPI.authDetails?.name || 'X-API-Key' },
+                body:         endpoint.requestBody || null,
+                is_validated: true   // data comes from validated registry
+            })
+        });
+
+        const curlData = await response.json();
+
+        const psResponse = await fetch(`${API_BASE_URL}/agent/tools/generate/powershell`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                api_name:     currentAPI.name,
+                base_url:     currentAPI.baseUrl,
+                method:       endpoint.method,
+                path:         endpoint.path,
+                auth_type:    currentAPI.authType,
+                headers:      { keyName: currentAPI.authDetails?.name || 'X-API-Key' },
+                body:         endpoint.requestBody || null,
+                is_validated: true   // data comes from validated registry
+            })
+        });
+
+        const psData = await psResponse.json();
+
+        // Show error if validation failed
+        if (curlData.error) {
+            if (elements.curlCode) elements.curlCode.textContent = curlData.error;
+        } else {
+            if (elements.curlCode) elements.curlCode.textContent = curlData.curl;
+        }
+
+        if (psData.error) {
+            if (elements.powershellCode) elements.powershellCode.textContent = psData.error;
+        } else {
+            if (elements.powershellCode) elements.powershellCode.textContent = psData.powershell;
+        }
+
+    } catch (error) {
+        console.error('❌ Failed to generate templates:', error);
+        // Fallback to local generation
+        if (elements.curlCode) elements.curlCode.textContent = generateCurlTemplate(endpoint.method, endpoint.path, currentAPI);
+        if (elements.powershellCode) elements.powershellCode.textContent = generatePowerShellTemplate(endpoint.method, endpoint.path, currentAPI);
+    }
 }
 
 /**
- * Generate curl template
+ * Fallback curl template (used only if backend is unreachable)
  */
 function generateCurlTemplate(method, path, api) {
-    const baseUrl = api.baseUrl || 'https://api.example.com';
+    const baseUrl = api.baseUrl || '[BASE_URL_MISSING]';
     let template = `curl -X ${method} "${baseUrl}${path}"`;
     template += ` \\\n  -H "Content-Type: application/json"`;
-    
+
     if (api.authType === 'apiKey') {
         const keyName = api.authDetails?.name || 'X-API-Key';
         template += ` \\\n  -H "${keyName}: YOUR_API_KEY"`;
     } else if (api.authType === 'bearer') {
-        template += ` \\\n  -H "Authorization: Bearer YOUR_TOKEN"`;
+        template += ` \\\n  -H "Authorization: Bearer YOUR_BEARER_TOKEN"`;
     }
-    
+
     if (['POST', 'PUT', 'PATCH'].includes(method)) {
         template += ` \\\n  -d '{"key": "value"}'`;
     }
-    
+
     return template;
 }
 
 /**
- * Generate PowerShell template
+ * Fallback PowerShell template (used only if backend is unreachable)
  */
 function generatePowerShellTemplate(method, path, api) {
-    const baseUrl = api.baseUrl || 'https://api.example.com';
+    const baseUrl = api.baseUrl || '[BASE_URL_MISSING]';
     let template = `$headers = @{\n    "Content-Type" = "application/json"`;
-    
+
     if (api.authType === 'apiKey') {
         const keyName = api.authDetails?.name || 'X-API-Key';
         template += `\n    "${keyName}" = "YOUR_API_KEY"`;
     } else if (api.authType === 'bearer') {
-        template += `\n    "Authorization" = "Bearer YOUR_TOKEN"`;
+        template += `\n    "Authorization" = "Bearer YOUR_BEARER_TOKEN"`;
     }
-    
+
     template += `\n}\n\n`;
-    
+
     if (['POST', 'PUT', 'PATCH'].includes(method)) {
-        template += `$body = @{\n    "key" = "value"\n} | ConvertTo-Json\n\n`;
+        template += `$body = '{"key": "value"}'\n\n`;
         template += `Invoke-RestMethod -Uri "${baseUrl}${path}" -Method ${method} -Headers $headers -Body $body`;
     } else {
         template += `Invoke-RestMethod -Uri "${baseUrl}${path}" -Method ${method} -Headers $headers`;
     }
-    
+
     return template;
 }
 
@@ -700,7 +766,7 @@ function toggleAIMode() {
 }
 
 /**
- * MCP-Style Agent Query
+ * MCP-Style Agent Query - Enhanced with Intelligent Search
  */
 async function queryAgentMCP() {
     const input = document.getElementById('ai-query-input');
@@ -721,7 +787,7 @@ async function queryAgentMCP() {
         return;
     }
     
-    console.log('🔍 MCP Agent Query:', query);
+    console.log(`🔍 Agent Query:`, query);
     
     // Show loading state
     const originalButtonContent = button.innerHTML;
@@ -733,8 +799,8 @@ async function queryAgentMCP() {
     responseDiv.style.display = 'none';
     
     try {
-        // Make request to MCP search endpoint
-        const response = await fetch(`${API_BASE_URL}/agent/tools/search`, {
+        // Call the integrated agent API
+        const response = await fetch(`${API_BASE_URL}/api/agent`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -743,14 +809,14 @@ async function queryAgentMCP() {
         });
         
         const data = await response.json();
-        console.log('🔍 MCP Response:', data);
+        console.log(`🔍 Agent Response:`, data);
         
         // Hide typing indicator
         hideAITyping();
         
-        // Display structured MCP response
+        // Display structured response
         if (data.success) {
-            responseContent.innerHTML = generateMCPSuccessResponse(data);
+            responseContent.innerHTML = generateAgentResponse(data);
         } else {
             responseContent.innerHTML = generateMCPErrorResponse(data);
         }
@@ -758,7 +824,7 @@ async function queryAgentMCP() {
         responseDiv.style.display = 'block';
         
     } catch (error) {
-        console.error('❌ MCP Agent query failed:', error);
+        console.error('❌ Agent query failed:', error);
         hideAITyping();
         
         responseContent.innerHTML = `
@@ -766,12 +832,12 @@ async function queryAgentMCP() {
                 <div class="ai-status-indicator ai-status-error">
                     <i class="fas fa-exclamation-triangle"></i> Connection Error
                 </div>
-                <h4><i class="fas fa-wifi"></i> MCP Connection Failed</h4>
-                <p class="ai-error">Failed to connect to MCP agent: ${escapeHtml(error.message)}</p>
+                <h4><i class="fas fa-wifi"></i> Connection Failed</h4>
+                <p class="ai-error">Failed to connect to agent: ${escapeHtml(error.message)}</p>
                 <div class="ai-suggestion">
                     <strong>🔧 Troubleshooting:</strong><br>
                     • Ensure backend server is running on port 3002<br>
-                    • Check MCP agent tools are loaded<br>
+                    • Check agent tools are loaded<br>
                     • Try refreshing the page
                 </div>
             </div>
@@ -785,29 +851,476 @@ async function queryAgentMCP() {
 }
 
 /**
+ * Generate Agent Response HTML (MCP-Style)
+ */
+function generateAgentResponse(data) {
+    const confidenceColor = data.confidence >= 80 ? '#22c55e' :
+                            data.confidence >= 50 ? '#f59e0b' : '#ef4444';
+    
+    // Calculate confidence breakdown
+    const breakdown = calculateConfidenceBreakdown(data);
+    
+    // Parse explanation for structured display
+    const structuredExplanation = parseExplanation(data);
+    
+    let html = `
+        <div class="ai-result ai-result-success">
+            <!-- Agent Understanding -->
+            <div class="agent-section agent-section-enhanced">
+                <h4>🤖 Agent Understanding</h4>
+                <div class="understanding-box">
+                    <div class="understanding-row">
+                        <span class="label">Intent:</span>
+                        <span class="intent-badge intent-${data.intent}">${data.intent}</span>
+                    </div>
+                    <div class="understanding-row">
+                        <span class="label">Keywords:</span>
+                        <div class="keywords-list">
+                            ${data.keywords && data.keywords.length > 0 
+                                ? data.keywords.map(kw => `<span class="keyword-tag">${escapeHtml(kw)}</span>`).join('')
+                                : '<span class="no-keywords">None extracted</span>'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match Found - ENHANCED CARD -->
+            <div class="agent-section agent-section-enhanced match-card">
+                <h4>🎯 Match Found</h4>
+                <div class="match-box-enhanced">
+                    <div class="match-item-enhanced">
+                        <span class="match-icon">📡</span>
+                        <div class="match-content">
+                            <span class="match-label-small">Endpoint</span>
+                            <code class="endpoint-code-large">${escapeHtml(data.match.endpoint)}</code>
+                        </div>
+                    </div>
+                    <div class="match-item-enhanced">
+                        <span class="match-icon">📚</span>
+                        <div class="match-content">
+                            <span class="match-label-small">Collection</span>
+                            <strong>${escapeHtml(data.match.collection)}</strong>
+                        </div>
+                    </div>
+                    <div class="match-item-enhanced">
+                        <span class="match-icon">🔥</span>
+                        <div class="match-content">
+                            <span class="match-label-small">Confidence</span>
+                            <span class="confidence-badge-large confidence-${data.confidence >= 80 ? 'high' : data.confidence >= 50 ? 'medium' : 'low'}">${data.confidence}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation - STRUCTURED -->
+            <div class="agent-section agent-section-enhanced">
+                <h4>💡 Why this match?</h4>
+                <div class="explanation-structured">
+                    ${structuredExplanation.map(item => `
+                        <div class="explanation-item">
+                            <span class="check-icon">✔</span>
+                            <span class="explanation-text">${item}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Confidence Breakdown - NEW -->
+            <div class="agent-section agent-section-enhanced">
+                <h4>📊 Confidence Breakdown</h4>
+                <div class="confidence-breakdown-box">
+                    ${breakdown.map(item => `
+                        <div class="breakdown-row">
+                            <span class="breakdown-label">${item.label}:</span>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: ${item.value}%; background: ${item.color}"></div>
+                            </div>
+                            <span class="breakdown-value">+${item.value}</span>
+                        </div>
+                    `).join('')}
+                    <div class="breakdown-total">
+                        <span class="breakdown-label"><strong>Final Score:</strong></span>
+                        <span class="breakdown-value-large" style="color: ${confidenceColor}">${data.confidence}%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternatives - STYLED CARDS -->
+            ${data.alternatives && data.alternatives.length > 0 ? `
+                <div class="agent-section agent-section-enhanced">
+                    <h4>🔄 Alternatives</h4>
+                    <div class="alternatives-grid">
+                        ${data.alternatives.map(alt => `
+                            <div class="alternative-card">
+                                <div class="alternative-endpoint-text">${escapeHtml(alt.endpoint)}</div>
+                                <div class="alternative-confidence-badge">${alt.confidence}%</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+
+            <!-- Execution Result - ENHANCED -->
+            <div class="agent-section agent-section-enhanced">
+                <h4>⚡ Execution Result</h4>
+                <div class="execution-status-enhanced ${data.execution && data.execution.success ? 'execution-success' : 'execution-error'}">
+                    <div class="execution-icon">${data.execution && data.execution.success ? '✅' : '❌'}</div>
+                    <div class="execution-details">
+                        <div class="execution-status-text">
+                            <strong>Status:</strong> ${data.execution && data.execution.success ? data.execution.status : 'Failed'} 
+                            ${data.execution && data.execution.success ? data.execution.statusText || 'OK' : ''}
+                        </div>
+                        <div class="execution-indicator ${data.execution && data.execution.success ? 'success-indicator' : 'error-indicator'}">
+                            ${data.execution && data.execution.success ? '🟢 Success' : '🔴 Error'}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response - WITH IMAGE TABS -->
+            ${data.execution && data.execution.success ? `
+                <div class="agent-section agent-section-enhanced">
+                    <h4>📦 Response</h4>
+                    ${extractImageUrl(data.execution.data) ? `
+                        <!-- Response Tabs -->
+                        <div class="response-tabs">
+                            <button class="response-tab active" onclick="switchResponseTab('image')">🖼️ Image</button>
+                            <button class="response-tab" onclick="switchResponseTab('json')">📄 JSON</button>
+                        </div>
+                        
+                        <!-- Image Tab -->
+                        <div id="response-tab-image" class="response-tab-content active">
+                            <div class="image-preview-section-enhanced">
+                                <div class="image-preview-header-enhanced">
+                                    <span class="image-title">🐶 Image Preview</span>
+                                </div>
+                                <div class="image-preview-container-enhanced">
+                                    <img src="${extractImageUrl(data.execution.data)}" 
+                                         alt="API Response Image" 
+                                         class="response-image-enhanced"
+                                         onload="this.classList.add('loaded')"
+                                         onerror="this.parentElement.innerHTML='<div class=image-error>Failed to load image</div>'">
+                                </div>
+                                <a href="${extractImageUrl(data.execution.data)}" target="_blank" class="image-link-enhanced">
+                                    🔗 Open Full Size
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- JSON Tab -->
+                        <div id="response-tab-json" class="response-tab-content">
+                            <div class="json-section">
+                                <div class="json-header">
+                                    <span>📄 JSON Response</span>
+                                    <button class="copy-btn-inline" onclick="copyToClipboard(\`${JSON.stringify(data.execution.data, null, 2).replace(/`/g, '\\`')}\`)">
+                                        📋 Copy JSON
+                                    </button>
+                                </div>
+                                <pre class="json-response">${JSON.stringify(data.execution.data, null, 2)}</pre>
+                            </div>
+                        </div>
+                    ` : `
+                        <!-- JSON Only (No Image) -->
+                        <div class="json-section">
+                            <div class="json-header">
+                                <span>📄 JSON Response</span>
+                                <button class="copy-btn-inline" onclick="copyToClipboard(\`${JSON.stringify(data.execution.data, null, 2).replace(/`/g, '\\`')}\`)">
+                                    📋 Copy JSON
+                                </button>
+                            </div>
+                            <pre class="json-response">${JSON.stringify(data.execution.data, null, 2)}</pre>
+                        </div>
+                    `}
+                </div>
+            ` : ''}
+
+            <!-- Curl Command - POLISHED -->
+            ${data.curlCommand ? `
+                <div class="agent-section agent-section-enhanced">
+                    <h4>💻 Ready-to-Use Command</h4>
+                    <div class="curl-box-enhanced">
+                        <button class="copy-curl-btn-enhanced" onclick="copyToClipboard(\`${escapeHtml(data.curlCommand).replace(/`/g, '\\`')}\`)">
+                            📋 Copy
+                        </button>
+                        <pre class="curl-code-enhanced">${escapeHtml(data.curlCommand)}</pre>
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+    
+    return html;
+}
+
+/**
+ * Calculate confidence breakdown
+ */
+function calculateConfidenceBreakdown(data) {
+    const breakdown = [];
+    
+    // Method match
+    if (data.intent) {
+        breakdown.push({ label: 'Method match', value: 50, color: '#48bb78' });
+    }
+    
+    // Keyword match
+    if (data.keywords && data.keywords.length > 0) {
+        breakdown.push({ label: 'Keyword match', value: 20, color: '#4299e1' });
+    }
+    
+    // Collection relevance (remaining to reach confidence)
+    const remaining = data.confidence - breakdown.reduce((sum, item) => sum + item.value, 0);
+    if (remaining > 0) {
+        breakdown.push({ label: 'API relevance', value: remaining, color: '#ed8936' });
+    }
+    
+    return breakdown;
+}
+
+/**
+ * Parse explanation into structured format
+ */
+function parseExplanation(data) {
+    const items = [];
+    
+    // HTTP Method
+    if (data.intent) {
+        items.push(`Matched intent: <strong>${data.intent}</strong> request`);
+    }
+    
+    // Keywords
+    if (data.keywords && data.keywords.length > 0) {
+        items.push(`Matched keywords: <strong>${data.keywords.join(', ')}</strong>`);
+    }
+    
+    // Collection
+    if (data.match && data.match.collection) {
+        items.push(`Selected from curated API registry: <strong>${data.match.collection}</strong> (pipeline-generated)`);
+    }
+    
+    // Confidence note
+    if (data.confidence >= 80) {
+        items.push(`High confidence match from semantic search engine`);
+    } else if (data.confidence >= 50) {
+        items.push(`Moderate confidence match - consider alternatives below`);
+    }
+    
+    return items;
+}
+
+/**
+ * Switch response tabs
+ */
+function switchResponseTab(tabName) {
+    // Update tab buttons
+    document.querySelectorAll('.response-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Update tab content
+    document.querySelectorAll('.response-tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    document.getElementById(`response-tab-${tabName}`).classList.add('active');
+}
+
+/**
+ * Extract image URL from response data
+ */
+function extractImageUrl(data) {
+    if (typeof data === 'object') {
+        // Check for "message" field (Dog API pattern)
+        if (data.message && typeof data.message === 'string' && isImageUrl(data.message)) {
+            return data.message;
+        }
+        // Check for "url" field
+        if (data.url && isImageUrl(data.url)) {
+            return data.url;
+        }
+        // Check for "image" field
+        if (data.image && isImageUrl(data.image)) {
+            return data.image;
+        }
+    }
+    return null;
+}
+
+/**
+ * Check if URL is an image
+ */
+function isImageUrl(url) {
+    return typeof url === 'string' && 
+           (url.startsWith('http://') || url.startsWith('https://')) &&
+           /\.(jpg|jpeg|png|gif|webp)$/i.test(url);
+}
+
+/**
+ * Copy to clipboard helper
+ */
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        showNotification('Copied to clipboard!', 'success');
+    }).catch(err => {
+        console.error('Failed to copy:', err);
+        showNotification('Failed to copy', 'error');
+    });
+}
+
+/**
+ * Generate Intelligent Search response HTML
+ */
+function generateIntelligentSearchResponse(data) {
+    const confidenceColor = data.confidence >= 90 ? '#22c55e' :
+                            data.confidence >= 70 ? '#f59e0b' : '#ef4444';
+    
+    return `
+        <div class="ai-result ai-result-success intelligent-result">
+            <div class="ai-status-indicator ai-status-success">
+                <i class="fas fa-brain"></i> Intelligent Match
+            </div>
+
+            <h4><i class="fas fa-robot"></i> ${escapeHtml(data.selected_api)}</h4>
+
+            <div class="intelligent-match-info">
+                <div class="intelligent-confidence">
+                    <span>Confidence:</span>
+                    <div class="ai-confidence-bar">
+                        <div class="ai-confidence-fill" style="width: ${data.confidence}%; background: ${confidenceColor}"></div>
+                    </div>
+                    <span class="ai-confidence-text" style="color: ${confidenceColor}">${data.confidence}%</span>
+                </div>
+
+                <div class="intelligent-analysis">
+                    <div class="analysis-row">
+                        <span class="analysis-label">🎯 Intent:</span>
+                        <span class="analysis-value intent-badge">${escapeHtml(data.intent.toUpperCase())}</span>
+                    </div>
+                    <div class="analysis-row">
+                        <span class="analysis-label">📡 Endpoint:</span>
+                        <span class="method-badge ${data.method}">${data.method}</span>
+                        <code class="endpoint-path">${escapeHtml(data.endpoint)}</code>
+                    </div>
+                </div>
+
+                ${Object.keys(data.parameters).length > 0 ? `
+                    <div class="intelligent-parameters">
+                        <strong>🔧 Auto-Filled Parameters:</strong>
+                        <div class="parameters-grid">
+                            ${Object.entries(data.parameters).map(([key, value]) => `
+                                <div class="parameter-item">
+                                    <code class="param-key">${escapeHtml(key)}</code>
+                                    <code class="param-value">${escapeHtml(String(value))}</code>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                ${data.explanation ? `
+                    <div class="intelligent-explanation">
+                        <strong>💡 Explanation:</strong>
+                        <p>${escapeHtml(data.explanation)}</p>
+                    </div>
+                ` : ''}
+
+                <div class="intelligent-curl">
+                    <div class="curl-header">
+                        <strong>💻 Ready-to-Use Command:</strong>
+                        <button class="copy-btn-inline" onclick="copyIntelligentCurl()">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <pre class="code-block"><code id="intelligent-curl-code">${escapeHtml(data.curl)}</code></pre>
+                </div>
+
+                ${data.response_preview ? `
+                    <div class="intelligent-preview">
+                        <strong>📦 Response Preview:</strong>
+                        <pre class="code-block"><code>${escapeHtml(JSON.stringify(data.response_preview, null, 2))}</code></pre>
+                    </div>
+                ` : ''}
+
+                ${data.alternatives && data.alternatives.length > 0 ? `
+                    <div class="intelligent-alternatives">
+                        <strong>🔄 Alternative Matches:</strong>
+                        <div class="alternatives-list">
+                            ${data.alternatives.map(alt => `
+                                <div class="alternative-item">
+                                    <span class="alt-api">${escapeHtml(alt.api)}</span>
+                                    <span class="alt-endpoint">${escapeHtml(alt.endpoint)}</span>
+                                    <span class="alt-confidence">${alt.confidence}%</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+
+                <div class="intelligent-actions">
+                    <button class="action-btn primary" onclick="executeIntelligentCurl()">
+                        <i class="fas fa-play"></i> Execute Request
+                    </button>
+                    <button class="action-btn secondary" onclick="copyIntelligentCurl()">
+                        <i class="fas fa-copy"></i> Copy Command
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Copy intelligent curl command
+ */
+function copyIntelligentCurl() {
+    const codeElement = document.getElementById('intelligent-curl-code');
+    if (codeElement) {
+        const text = codeElement.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification('Curl command copied!', 'success');
+        }).catch(err => {
+            console.error('Failed to copy:', err);
+            showNotification('Failed to copy', 'error');
+        });
+    }
+}
+
+/**
+ * Execute intelligent curl (placeholder for future implementation)
+ */
+function executeIntelligentCurl() {
+    showNotification('API execution coming soon!', 'info');
+}
+
+/**
  * Generate MCP success response HTML
  */
 function generateMCPSuccessResponse(data) {
+    const confidenceColor = data.confidence === 100 ? '#22c55e' :
+                            data.confidence >= 70  ? '#f59e0b' : '#ef4444';
     return `
         <div class="ai-result ai-result-success">
             <div class="ai-status-indicator ai-status-success">
-                <i class="fas fa-check-circle"></i> MCP Match Found
+                <i class="fas fa-check-circle"></i> Schema Match Found
             </div>
-            
+
             <h4><i class="fas fa-robot"></i> API Match Found</h4>
-            
+
             <div class="mcp-match-info">
                 <div class="mcp-confidence">
                     <span>Confidence:</span>
                     <div class="ai-confidence-bar">
-                        <div class="ai-confidence-fill" style="width: ${data.confidence}%"></div>
+                        <div class="ai-confidence-fill" style="width: ${data.confidence}%; background: ${confidenceColor}"></div>
                     </div>
-                    <span class="ai-confidence-text">${data.confidence}%</span>
+                    <span class="ai-confidence-text" style="color: ${confidenceColor}">${data.confidence}%</span>
                 </div>
-                
+
                 <div class="mcp-api-info">
                     <div class="mcp-field">
                         <strong>🎯 API:</strong> ${escapeHtml(data.api)}
+                    </div>
+                    <div class="mcp-field">
+                        <strong>🌐 Base URL:</strong> <code>${escapeHtml(data.baseUrl || '')}</code>
                     </div>
                     <div class="mcp-field">
                         <strong>📡 Endpoint:</strong>
@@ -822,13 +1335,32 @@ function generateMCPSuccessResponse(data) {
                     <div class="mcp-field">
                         <strong>🔐 Auth:</strong> ${getAuthLabel(data.authType)}
                     </div>
+                    ${data.keywords && data.keywords.length > 0 ? `
+                        <div class="mcp-field">
+                            <strong>🔑 Keywords:</strong> ${data.keywords.map(k => `<code>${escapeHtml(k)}</code>`).join(' ')}
+                        </div>
+                    ` : ''}
                 </div>
             </div>
-            
-            ${data.alternativeMatches && data.alternativeMatches.length > 0 ? `
+
+            ${data.explanation ? `
+                <div class="mcp-explanation">
+                    <strong>💡 Why this match:</strong>
+                    <p>${escapeHtml(data.explanation)}</p>
+                </div>
+            ` : ''}
+
+            ${data.responseType ? `
+                <div class="mcp-response-hint">
+                    <strong>📦 Expected Response:</strong>
+                    <span class="response-type-badge">${escapeHtml(data.responseType.hint)}</span>
+                </div>
+            ` : ''}
+
+            ${data.alternatives && data.alternatives.length > 0 ? `
                 <div class="mcp-alternatives">
-                    <strong>🔄 Alternative Matches:</strong>
-                    ${data.alternativeMatches.map(alt => `
+                    <strong>🔄 Other Schema Matches:</strong>
+                    ${data.alternatives.map(alt => `
                         <div class="mcp-alt-match">
                             <span class="mcp-alt-api">${escapeHtml(alt.api)}</span>
                             <span class="mcp-alt-endpoint">${escapeHtml(alt.endpoint)}</span>
@@ -837,7 +1369,7 @@ function generateMCPSuccessResponse(data) {
                     `).join('')}
                 </div>
             ` : ''}
-            
+
             <div class="mcp-templates">
                 <div class="mcp-template">
                     <h5>
@@ -848,10 +1380,10 @@ function generateMCPSuccessResponse(data) {
                     </h5>
                     <pre><code>${escapeHtml(data.templates.curl)}</code></pre>
                 </div>
-                
+
                 <div class="mcp-template">
                     <h5>
-                        <span><i class="fas fa-microsoft"></i> PowerShell Command</span>
+                        <span>🪟 PowerShell Command</span>
                         <button class="copy-template-btn" onclick="copyMCPTemplate('powershell', this)">
                             <i class="fas fa-copy"></i> Copy
                         </button>
@@ -859,22 +1391,12 @@ function generateMCPSuccessResponse(data) {
                     <pre><code>${escapeHtml(data.templates.powershell)}</code></pre>
                 </div>
             </div>
-            
-            <div class="mcp-execute-section">
-                <h4>🚀 Execute API</h4>
-                <p>Test this endpoint with mock execution:</p>
-                <button class="mcp-execute-btn" onclick="executeMCPEndpoint('${escapeHtml(data.endpoint.method)}', '${escapeHtml(data.endpoint.path)}', '${escapeHtml(data.api)}')">
-                    <i class="fas fa-play"></i> Execute ${data.endpoint.method} ${data.endpoint.path}
-                </button>
-            </div>
-            
+
             <div class="mcp-metadata">
                 <small>
-                    <strong>Metadata:</strong> 
-                    Intent: ${data.intent || 'unknown'} | 
-                    Entity: ${data.entity || 'unknown'} | 
-                    Response: ${data.responseTime || 0}ms |
-                    Found: ${data.totalFound || 0} matches
+                    Intent: <strong>${data.intent || 'GET'}</strong> |
+                    Candidates: <strong>${data.totalCandidates || 1}</strong> |
+                    Source: <strong>OpenAPI Registry</strong>
                 </small>
             </div>
         </div>
@@ -885,34 +1407,26 @@ function generateMCPSuccessResponse(data) {
  * Generate MCP error response HTML
  */
 function generateMCPErrorResponse(data) {
+    const suggestions = data.suggestions || [];
     return `
         <div class="ai-result ai-result-warning">
             <div class="ai-status-indicator ai-status-error">
-                <i class="fas fa-search"></i> No MCP Match
+                <i class="fas fa-search"></i> NO VALID ENDPOINT FOUND IN REGISTRY
             </div>
-            
-            <h4><i class="fas fa-question-circle"></i> No API Match Found</h4>
-            <p class="ai-error">${escapeHtml(data.message)}</p>
-            
-            <div class="mcp-suggestions">
-                <strong>💡 Try these MCP queries:</strong>
-                <div class="mcp-suggestion-grid">
-                    ${data.suggestions.map(suggestion => `
-                        <button class="mcp-suggestion-btn" onclick="setQuickQuery('${escapeHtml(suggestion)}')">
-                            ${escapeHtml(suggestion)}
-                        </button>
-                    `).join('')}
-                </div>
-            </div>
-            
-            ${data.responseTime ? `
-                <div class="mcp-metadata">
-                    <small>
-                        <strong>Analysis:</strong> 
-                        Intent: ${data.intent || 'unknown'} | 
-                        Entity: ${data.entity || 'unknown'} | 
-                        Response: ${data.responseTime || 0}ms
-                    </small>
+
+            <h4><i class="fas fa-question-circle"></i> No Schema Match</h4>
+            <p class="ai-error">${escapeHtml(data.reason || data.message || 'No matching endpoint found in registry')}</p>
+
+            ${suggestions.length > 0 ? `
+                <div class="mcp-suggestions">
+                    <strong>💡 Try these real endpoints from the registry:</strong>
+                    <div class="mcp-suggestion-grid">
+                        ${suggestions.slice(0, 8).map(s => `
+                            <button class="mcp-suggestion-btn" onclick="setQuickQuery('${escapeHtml(s)}')">
+                                ${escapeHtml(s)}
+                            </button>
+                        `).join('')}
+                    </div>
                 </div>
             ` : ''}
         </div>
@@ -1125,6 +1639,43 @@ function setQuickQuery(query) {
         setTimeout(() => {
             input.style.background = '';
         }, 500);
+    }
+}
+
+/**
+ * Toggle AI Agent Mode (Intelligent vs Regular Search)
+ */
+function toggleAIMode() {
+    const checkbox = document.getElementById('ai-agent-mode');
+    const statusText = document.getElementById('ai-mode-status');
+    const quickActions = document.getElementById('ai-quick-actions');
+    
+    if (checkbox && statusText) {
+        if (checkbox.checked) {
+            statusText.textContent = 'Intelligent Mode';
+            statusText.style.color = '#8b5cf6';
+            // Update quick actions for intelligent search
+            if (quickActions) {
+                quickActions.innerHTML = `
+                    <button class="ai-quick-action" onclick="setQuickQuery('get weather in Vijayawada')">🌤️ Weather</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('chat with gpt about AI')">🤖 Chat GPT</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('get github repos')">📦 GitHub</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('get random dog image')">🐕 Dog API</button>
+                `;
+            }
+        } else {
+            statusText.textContent = 'MCP Mode';
+            statusText.style.color = '#6366f1';
+            // Update quick actions for MCP search
+            if (quickActions) {
+                quickActions.innerHTML = `
+                    <button class="ai-quick-action" onclick="setQuickQuery('get users')">👥 Get Users</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('create pet')">🐕 Create Pet</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('update user')">✏️ Update User</button>
+                    <button class="ai-quick-action" onclick="setQuickQuery('delete item')">🗑️ Delete Item</button>
+                `;
+            }
+        }
     }
 }
 
@@ -1939,3 +2490,141 @@ document.addEventListener('DOMContentLoaded', () => {
 window.setQuickQueryWelcome = setQuickQueryWelcome;
 window.queryAgentMCPWelcome = queryAgentMCPWelcome;
 window.closeAIResponseWelcome = closeAIResponseWelcome;
+
+
+/* ===== AI FULLSCREEN FUNCTIONS ===== */
+
+function expandAIAgent() {
+    const modal = document.getElementById('ai-fullscreen-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Update API count in fullscreen
+        const apiCount = document.getElementById('ai-fullscreen-api-count');
+        const mainApiCount = document.getElementById('ai-api-count');
+        if (apiCount && mainApiCount) {
+            apiCount.textContent = mainApiCount.textContent;
+        }
+    }
+}
+
+function closeAIFullscreen() {
+    const modal = document.getElementById('ai-fullscreen-modal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function closeAIFullscreenResponse() {
+    const responseDiv = document.getElementById('ai-fullscreen-response');
+    if (responseDiv) {
+        responseDiv.style.display = 'none';
+    }
+}
+
+function setQuickQueryFullscreen(query) {
+    const input = document.getElementById('ai-fullscreen-query-input');
+    if (input) {
+        input.value = query;
+        input.focus();
+    }
+}
+
+function queryAgentMCPFullscreen() {
+    const input = document.getElementById('ai-fullscreen-query-input');
+    const button = document.getElementById('ai-fullscreen-query-btn');
+    const responseDiv = document.getElementById('ai-fullscreen-response');
+    const responseContent = document.getElementById('ai-fullscreen-response-content');
+    const typingDiv = document.getElementById('ai-fullscreen-typing');
+    
+    if (!input || !button || !responseDiv || !responseContent) {
+        console.error('Fullscreen AI interface elements not found');
+        return;
+    }
+    
+    const query = input.value.trim();
+    
+    if (!query) {
+        alert('Please enter a query');
+        input.focus();
+        return;
+    }
+    
+    console.log(`🔍 Fullscreen Agent Query:`, query);
+    
+    // Show loading state
+    const originalButtonContent = button.innerHTML;
+    button.innerHTML = '⏳ Searching...';
+    button.disabled = true;
+    
+    // Show typing indicator
+    if (typingDiv) typingDiv.style.display = 'flex';
+    responseDiv.style.display = 'none';
+    
+    (async () => {
+        try {
+            // Call the integrated agent API
+            const response = await fetch(`${API_BASE_URL}/api/agent`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query })
+            });
+            
+            const data = await response.json();
+            console.log(`🔍 Fullscreen Agent Response:`, data);
+            
+            // Hide typing indicator
+            if (typingDiv) typingDiv.style.display = 'none';
+            
+            // Display structured response
+            if (data.success) {
+                responseContent.innerHTML = generateAgentResponse(data);
+            } else {
+                responseContent.innerHTML = generateMCPErrorResponse(data);
+            }
+            
+            responseDiv.style.display = 'block';
+            
+        } catch (error) {
+            console.error('❌ Fullscreen agent query failed:', error);
+            if (typingDiv) typingDiv.style.display = 'none';
+            
+            responseContent.innerHTML = `
+                <div class="ai-result ai-result-error">
+                    <h4>⚠️ Connection Error</h4>
+                    <p>Failed to connect to agent: ${escapeHtml(error.message)}</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">
+                        Ensure backend server is running on port 3002
+                    </p>
+                </div>
+            `;
+            responseDiv.style.display = 'block';
+        } finally {
+            // Reset button state
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+    })();
+}
+
+// Override the generateAgentResponse to also update fullscreen
+// (Removed - fullscreen now handles its own response display)
+
+// Close fullscreen when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('ai-fullscreen-modal');
+    if (modal && event.target === modal) {
+        closeAIFullscreen();
+    }
+});
+
+// Close fullscreen on Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('ai-fullscreen-modal');
+        if (modal && modal.style.display === 'flex') {
+            closeAIFullscreen();
+        }
+    }
+});

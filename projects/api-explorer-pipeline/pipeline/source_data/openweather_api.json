@@ -1,0 +1,71 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "OpenWeatherMap API",
+    "description": "Real-time weather data, forecasts, and historical weather for any location",
+    "version": "2.5"
+  },
+  "servers": [
+    {
+      "url": "https://api.openweathermap.org/data/2.5",
+      "description": "OpenWeatherMap production API"
+    }
+  ],
+  "paths": {
+    "/weather": {
+      "get": {
+        "summary": "Get current weather",
+        "description": "Get current weather by city name or coordinates",
+        "parameters": [
+          { "name": "q",    "in": "query", "required": false, "schema": { "type": "string" }, "description": "City name e.g. London" },
+          { "name": "lat",  "in": "query", "required": false, "schema": { "type": "number" } },
+          { "name": "lon",  "in": "query", "required": false, "schema": { "type": "number" } },
+          { "name": "appid","in": "query", "required": true,  "schema": { "type": "string" }, "description": "Your API key" },
+          { "name": "units","in": "query", "required": false, "schema": { "type": "string" }, "description": "metric or imperial" }
+        ],
+        "responses": {
+          "200": { "description": "Current weather data" },
+          "401": { "description": "Invalid API key" }
+        }
+      }
+    },
+    "/forecast": {
+      "get": {
+        "summary": "Get 5-day forecast",
+        "description": "5-day weather forecast with 3-hour intervals",
+        "parameters": [
+          { "name": "q",    "in": "query", "required": false, "schema": { "type": "string" } },
+          { "name": "appid","in": "query", "required": true,  "schema": { "type": "string" } },
+          { "name": "units","in": "query", "required": false, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "5-day forecast data" }
+        }
+      }
+    },
+    "/air_pollution": {
+      "get": {
+        "summary": "Get air pollution data",
+        "description": "Current air quality index and pollutant data",
+        "parameters": [
+          { "name": "lat",  "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "lon",  "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "appid","in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Air pollution data" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "appid"
+      }
+    }
+  },
+  "security": [{ "ApiKeyAuth": [] }]
+}

@@ -28,8 +28,9 @@ except ImportError:
 if sys.platform == "win32":
     try:
         import codecs
-        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
-        sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
+        if hasattr(sys.stdout, 'detach'):
+            sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+            sys.stderr = codecs.getwriter("utf-8")(sys.stderr.detach())
     except:
         pass
 

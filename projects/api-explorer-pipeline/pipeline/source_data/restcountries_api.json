@@ -1,0 +1,62 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "REST Countries API",
+    "description": "Get information about countries — no auth required, completely free",
+    "version": "v3.1"
+  },
+  "servers": [
+    {
+      "url": "https://restcountries.com/v3.1",
+      "description": "REST Countries public API"
+    }
+  ],
+  "paths": {
+    "/all": {
+      "get": {
+        "summary": "Get all countries",
+        "description": "Returns data for all countries in the world",
+        "responses": {
+          "200": { "description": "List of all countries" }
+        }
+      }
+    },
+    "/name/{name}": {
+      "get": {
+        "summary": "Search country by name",
+        "description": "Search for a country by its common or official name",
+        "parameters": [
+          { "name": "name", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Country data" },
+          "404": { "description": "Country not found" }
+        }
+      }
+    },
+    "/alpha/{code}": {
+      "get": {
+        "summary": "Get country by code",
+        "description": "Get country by ISO 3166-1 alpha-2 or alpha-3 code",
+        "parameters": [
+          { "name": "code", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Country data" }
+        }
+      }
+    },
+    "/region/{region}": {
+      "get": {
+        "summary": "Get countries by region",
+        "description": "Filter countries by region: Africa, Americas, Asia, Europe, Oceania",
+        "parameters": [
+          { "name": "region", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Countries in region" }
+        }
+      }
+    }
+  }
+}
