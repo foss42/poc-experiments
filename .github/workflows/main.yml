@@ -155,14 +155,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
-          cache-dependency-path: "${{ env.PROJECT_DIR }}/backend/package-lock.json"
 
       - name: Install backend dependencies
         working-directory: ${{ env.PROJECT_DIR }}/backend
         run: |
           echo "📦 Installing backend dependencies..."
-          npm ci --prefer-offline --no-audit
+          npm install --prefer-offline --no-audit
           echo "✅ Dependencies installed"
 
       - name: Start backend server
@@ -387,7 +385,7 @@ jobs:
         working-directory: ${{ env.PROJECT_DIR }}/backend
         run: |
           echo "📦 Installing dependencies..."
-          npm ci --prefer-offline --no-audit
+          npm install --prefer-offline --no-audit
 
       - name: Start backend
         working-directory: ${{ env.PROJECT_DIR }}/backend
