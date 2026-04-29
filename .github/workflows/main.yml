@@ -71,23 +71,30 @@ jobs:
 
           echo "✅ apis/ directory found"
 
-          # Fast validation - count and validate in one pass
+          # Validate all openapi.json files using find + while loop
           file_count=0
           error_count=0
 
-          for file in $(find apis -type f -name "openapi.json" 2>/dev/null | sort); do
+          find apis -type f -name "openapi.json" 2>/dev/null | sort | while read -r file; do
             if python3 -c "import json; json.load(open('$file'))" 2>/dev/null; then
-              echo "✅ $(dirname $file | xargs basename)/openapi.json"
-              ((file_count++))
+              api_name=$(basename $(dirname "$file"))
+              echo "✅ $api_name/openapi.json"
+              echo "1" >> /tmp/validation_count.txt
             else
               echo "❌ $file - Invalid JSON"
-              ((error_count++))
+              echo "0" >> /tmp/validation_count.txt
             fi
           done
+
+          # Count results
+          file_count=$(grep -c "1" /tmp/validation_count.txt 2>/dev/null || echo "0")
+          error_count=$(grep -c "0" /tmp/validation_count.txt 2>/dev/null || echo "0")
+          rm -f /tmp/validation_count.txt
 
           echo ""
           echo "📊 Validation Summary:"
           echo "  Total OpenAPI files: $file_count"
+          echo "  Invalid files: $error_count"
           echo ""
 
           if [ "$file_count" -eq 0 ]; then
