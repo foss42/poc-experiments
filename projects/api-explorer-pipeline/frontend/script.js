@@ -414,6 +414,116 @@ function escapeHtml(text) {
 }
 
 // ========================================
+// AI AGENT FUNCTIONS
+// ========================================
+
+async function queryAgentMCP() {
+    const input = document.getElementById('ai-query-input');
+    const query = input?.value?.trim();
+    
+    if (!query) return;
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/agent/tools/search`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query })
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        
+        const responseDiv = document.getElementById('ai-response');
+        const contentDiv = document.getElementById('ai-response-content');
+        
+        if (data.success && data.matches?.length > 0) {
+            let html = '<div class="matches-list">';
+            data.matches.forEach(match => {
+                html += `
+                    <div class="match-item">
+                        <strong>${escapeHtml(match.apiName)}</strong><br>
+                        <code>${match.endpoint.method} ${escapeHtml(match.endpoint.path)}</code><br>
+                        <small>${escapeHtml(match.endpoint.summary || '')}</small>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            if (contentDiv) contentDiv.innerHTML = html;
+        } else {
+            if (contentDiv) contentDiv.innerHTML = '<p>No matching endpoints found. Try queries like "get users", "create pet"</p>';
+        }
+        
+        if (responseDiv) responseDiv.style.display = 'block';
+    } catch (error) {
+        const contentDiv = document.getElementById('ai-response-content');
+        if (contentDiv) contentDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+}
+
+async function queryAgentMCPFullscreen() {
+    const input = document.getElementById('ai-fullscreen-query-input');
+    const query = input?.value?.trim();
+    
+    if (!query) return;
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/agent/tools/search`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query })
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        
+        const responseDiv = document.getElementById('ai-fullscreen-response');
+        const contentDiv = document.getElementById('ai-fullscreen-response-content');
+        
+        if (data.success && data.matches?.length > 0) {
+            let html = '<div class="matches-list">';
+            data.matches.forEach(match => {
+                html += `
+                    <div class="match-item">
+                        <strong>${escapeHtml(match.apiName)}</strong><br>
+                        <code>${match.endpoint.method} ${escapeHtml(match.endpoint.path)}</code><br>
+                        <small>${escapeHtml(match.endpoint.summary || '')}</small>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            if (contentDiv) contentDiv.innerHTML = html;
+        } else {
+            if (contentDiv) contentDiv.innerHTML = '<p>No matching endpoints found. Try queries like "get users", "create pet"</p>';
+        }
+        
+        if (responseDiv) responseDiv.style.display = 'block';
+    } catch (error) {
+        const contentDiv = document.getElementById('ai-fullscreen-response-content');
+        if (contentDiv) contentDiv.innerHTML = `<p>Error: ${error.message}</p>`;
+    }
+}
+
+function expandAIAgent() {
+    const modal = document.getElementById('ai-fullscreen-modal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeAIFullscreen() {
+    const modal = document.getElementById('ai-fullscreen-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function closeAIResponse() {
+    const responseDiv = document.getElementById('ai-response');
+    if (responseDiv) responseDiv.style.display = 'none';
+}
+
+function closeAIFullscreenResponse() {
+    const responseDiv = document.getElementById('ai-fullscreen-response');
+    if (responseDiv) responseDiv.style.display = 'none';
+}
+
+// ========================================
 // GLOBAL EXPORTS
 // ========================================
 
@@ -446,6 +556,12 @@ window.handleCategoryFilter = handleCategoryFilter;
 window.switchTab = switchTab;
 window.setQuickQuery = setQuickQuery;
 window.setQuickQueryFullscreen = setQuickQueryFullscreen;
+window.queryAgentMCP = queryAgentMCP;
+window.queryAgentMCPFullscreen = queryAgentMCPFullscreen;
+window.expandAIAgent = expandAIAgent;
+window.closeAIFullscreen = closeAIFullscreen;
+window.closeAIResponse = closeAIResponse;
+window.closeAIFullscreenResponse = closeAIFullscreenResponse;
 
 // ========================================
 // START APPLICATION
