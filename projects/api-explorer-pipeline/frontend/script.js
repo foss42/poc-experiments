@@ -417,6 +417,22 @@ function escapeHtml(text) {
 // GLOBAL EXPORTS
 // ========================================
 
+function setQuickQuery(query) {
+    const input = document.getElementById('ai-query-input');
+    if (input) {
+        input.value = query;
+        queryAgentMCP();
+    }
+}
+
+function setQuickQueryFullscreen(query) {
+    const input = document.getElementById('ai-fullscreen-query-input');
+    if (input) {
+        input.value = query;
+        queryAgentMCPFullscreen();
+    }
+}
+
 window.selectAPI = selectAPI;
 window.showTemplates = showTemplates;
 window.closeTemplateModal = closeTemplateModal;
@@ -428,6 +444,8 @@ window.handleMethodFilter = handleMethodFilter;
 window.handleKeyboardShortcuts = handleKeyboardShortcuts;
 window.handleCategoryFilter = handleCategoryFilter;
 window.switchTab = switchTab;
+window.setQuickQuery = setQuickQuery;
+window.setQuickQueryFullscreen = setQuickQueryFullscreen;
 
 // ========================================
 // START APPLICATION
