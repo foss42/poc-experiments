@@ -14,6 +14,9 @@ app.use(express.json({ limit: '1mb' }));
 app.disable('x-powered-by');
 app.set('etag', false); // Disable etag for faster responses
 
+// Serve static files from frontend directory
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
 // Cache for registry and API details
 let registryCache = null;
 let registryCacheTime = 0;
