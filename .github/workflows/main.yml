@@ -67,9 +67,14 @@ jobs:
           # Check if apis directory exists
           if [ ! -d "apis" ]; then
             echo "❌ apis/ directory not found"
+            echo ""
+            echo "📋 Debugging - Current directory contents:"
+            ls -la
             exit 1
           fi
 
+          echo "✅ apis/ directory found"
+          echo ""
           echo "📁 Directory structure:"
           ls -la apis/ | head -20
           echo ""
@@ -84,7 +89,7 @@ jobs:
             echo "📋 Debugging info:"
             echo "Current directory: $(pwd)"
             echo "apis/ contents:"
-            find apis -type f | head -20
+            find apis -type f | head -30
             exit 1
           fi
 
@@ -100,38 +105,47 @@ jobs:
           done
           echo ""
 
-          # Validate each file
+          # Validate each file and count valid ones
+          echo "🔍 Validating JSON syntax..."
           json_count=0
           errors=0
 
-          echo "🔍 Validating JSON syntax..."
-          echo "$openapi_files" | while read file; do
+          # Use a temporary file to store results (avoid subshell issues)
+          temp_results=$(mktemp)
+
+          while IFS= read -r file; do
             if [ -f "$file" ]; then
               if python -m json.tool "$file" > /dev/null 2>&1; then
                 echo "✅ $(basename $(dirname $file))/openapi.json"
-                json_count=$((json_count + 1))
+                echo "1" >> "$temp_results"
               else
                 echo "❌ $(basename $file) - Invalid JSON"
-                errors=$((errors + 1))
+                echo "0" >> "$temp_results"
               fi
             fi
-          done
+          done <<< "$openapi_files"
 
-          # Final validation
-          final_count=$(echo "$openapi_files" | while read file; do
-            if [ -f "$file" ] && python -m json.tool "$file" > /dev/null 2>&1; then
-              echo "1"
-            fi
-          done | wc -l)
+          # Count valid files
+          final_count=$(grep -c "1" "$temp_results" 2>/dev/null || echo "0")
+          error_count=$(grep -c "0" "$temp_results" 2>/dev/null || echo "0")
+
+          # Cleanup
+          rm -f "$temp_results"
 
           echo ""
           echo "📊 Validation Summary:"
           echo "  Total files found: $file_count"
           echo "  Valid JSON files: $final_count"
+          echo "  Invalid files: $error_count"
           echo ""
 
           if [ "$final_count" -eq 0 ]; then
             echo "❌ No valid OpenAPI files found"
+            exit 1
+          fi
+
+          if [ "$error_count" -gt 0 ]; then
+            echo "⚠️  Warning: $error_count file(s) have invalid JSON"
             exit 1
           fi
 
@@ -275,48 +289,95 @@ jobs:
         working-directory: ${{ env.PROJECT_DIR }}
         run: |
           echo "🔍 Validating frontend files..."
+          echo ""
+
+          # Define frontend path (relative to PROJECT_DIR)
+          FRONTEND_DIR="frontend"
+
+          echo "📁 Checking directory structure..."
+          echo "Current directory: $(pwd)"
+          echo "Looking for frontend in: $FRONTEND_DIR"
+          echo ""
 
           # Check if frontend directory exists
-          if [ ! -d "frontend" ]; then
-            echo "❌ frontend/ directory not found"
+          if [ ! -d "$FRONTEND_DIR" ]; then
+            echo "❌ ERROR: $FRONTEND_DIR/ directory not found"
+            echo ""
+            echo "📋 Debugging - Current directory contents:"
+            ls -la
+            echo ""
+            echo "📋 Debugging - Project structure:"
+            find . -maxdepth 2 -type d | head -20
             exit 1
           fi
 
-          # Check HTML
-          if [ -f "frontend/index.html" ]; then
-            echo "✅ HTML file found"
+          echo "✅ Frontend directory found"
+          echo ""
+
+          # Check HTML file
+          echo "🔍 Checking HTML file..."
+          if [ ! -f "$FRONTEND_DIR/index.html" ]; then
+            echo "❌ ERROR: $FRONTEND_DIR/index.html not found"
+            echo ""
+            echo "📋 Debugging - Frontend directory contents:"
+            ls -la "$FRONTEND_DIR/"
+            exit 1
+          fi
+
+          # Validate HTML content
+          if grep -q "API Explorer" "$FRONTEND_DIR/index.html"; then
+            echo "✅ HTML file found and contains expected content"
           else
-            echo "❌ frontend/index.html not found"
+            echo "⚠️  HTML file found but may be incomplete"
+            echo "✅ HTML file exists"
+          fi
+          echo ""
+
+          # Check JavaScript file
+          echo "🔍 Checking JavaScript file..."
+          if [ ! -f "$FRONTEND_DIR/script.js" ]; then
+            echo "❌ ERROR: $FRONTEND_DIR/script.js not found"
+            echo ""
+            echo "📋 Debugging - Frontend directory contents:"
+            ls -la "$FRONTEND_DIR/"
             exit 1
           fi
 
-          # Check JavaScript
-          if [ -f "frontend/script.js" ]; then
-            if node -c frontend/script.js 2>&1; then
-              echo "✅ JavaScript syntax valid"
-            else
-              echo "❌ JavaScript syntax error"
-              exit 1
-            fi
+          # Validate JavaScript syntax
+          if node -c "$FRONTEND_DIR/script.js" 2>&1; then
+            echo "✅ JavaScript syntax valid"
           else
-            echo "❌ frontend/script.js not found"
+            echo "❌ JavaScript syntax error"
+            exit 1
+          fi
+          echo ""
+
+          # Check CSS file
+          echo "🔍 Checking CSS file..."
+          if [ ! -f "$FRONTEND_DIR/style.css" ]; then
+            echo "❌ ERROR: $FRONTEND_DIR/style.css not found"
+            echo ""
+            echo "📋 Debugging - Frontend directory contents:"
+            ls -la "$FRONTEND_DIR/"
             exit 1
           fi
 
-          # Check CSS
-          if [ -f "frontend/style.css" ]; then
-            file_size=$(wc -c < frontend/style.css)
-            if [ $file_size -gt 100 ]; then
-              echo "✅ CSS valid ($file_size bytes)"
-            else
-              echo "⚠️  CSS file too small ($file_size bytes)"
-            fi
+          # Validate CSS file size
+          file_size=$(wc -c < "$FRONTEND_DIR/style.css")
+          if [ "$file_size" -gt 100 ]; then
+            echo "✅ CSS valid ($file_size bytes)"
           else
-            echo "❌ frontend/style.css not found"
-            exit 1
+            echo "⚠️  CSS file exists but is small ($file_size bytes)"
+            echo "✅ CSS file found"
           fi
+          echo ""
 
-          echo "✅ All frontend files validated"
+          echo "📊 Frontend Validation Summary:"
+          echo "  ✅ HTML: $FRONTEND_DIR/index.html"
+          echo "  ✅ JavaScript: $FRONTEND_DIR/script.js"
+          echo "  ✅ CSS: $FRONTEND_DIR/style.css"
+          echo ""
+          echo "✅ All frontend files validated successfully"
 
   integration-test:
     name: Integration Test
