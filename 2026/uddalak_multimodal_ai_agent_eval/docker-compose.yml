@@ -1,0 +1,31 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+      - ./datasets:/app/datasets
+    environment:
+      - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:8080,http://localhost:3000,null
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: always
+
+  mcp-server:
+    build: ./mcp-server
+    ports:
+      - "3001:3001"
+    environment:
+      - API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: always

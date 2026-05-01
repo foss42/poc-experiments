@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --surface-dim: #f4f5f7;
+  --surface-container: #ffffff;
+  --surface-container-high: #e1e4e8;
+  --surface-container-highest: #ebecf0;
+  --primary: #172b4d;
+  --primary-invert: #ffffff;
+  --accent: #0b69ff;
+  --text-muted: #5e6c84;
+  
+  --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  
+  --grid-unit: 8px;
+}
+
+[data-theme="dark"] {
+  --surface-dim: #111111;
+  --surface-container: #1A1A1A;
+  --surface-container-high: #2A2A2A;
+  --surface-container-highest: #353535;
+  --primary: #FFFFFF;
+  --primary-invert: #111111;
+  --accent: #E8FF00;
+  --text-muted: #888888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--surface-dim);
+  color: var(--primary);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Brutalist Signature Label */
+.label-sm {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Numeric Data Class */
+.data-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  transition: all 0.1s ease;
+}
+
+/* Custom Scrollbar for Brutalist aesthetic */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-dim);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-container-high);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

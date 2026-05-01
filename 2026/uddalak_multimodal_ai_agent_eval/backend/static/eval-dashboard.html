@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvalForge Dashboard App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+          --surface-dim: #f4f5f7;
+          --surface-container: #ffffff;
+          --surface-container-high: #e1e4e8;
+          --surface-container-highest: #ebecf0;
+          --primary: #172b4d;
+          --primary-invert: #ffffff;
+          --accent: #0b69ff;
+          --text-muted: #5e6c84;
+        }
+        [data-theme="dark"] {
+          --surface-dim: #111111;
+          --surface-container: #1A1A1A;
+          --surface-container-high: #2A2A2A;
+          --surface-container-highest: #353535;
+          --primary: #FFFFFF;
+          --primary-invert: #111111;
+          --accent: #E8FF00;
+          --text-muted: #888888;
+        }
+        body { background-color: var(--surface-dim); color: var(--primary); font-family: 'Inter', sans-serif; overflow: hidden; }
+        .container-bg { background-color: var(--surface-container); }
+        .accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        .border-brutal { border: 1px solid var(--surface-container-high); }
+        .button-brutal { border: 1px solid var(--accent); color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; }
+        .button-brutal:hover:not(:disabled) { background-color: var(--accent); color: var(--primary-invert); box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); }
+        .button-brutal:disabled { opacity: 0.5; cursor: not-allowed; border-color: var(--surface-container-highest); color: var(--text-muted); }
+        .modality-btn { background-color: var(--surface-container); color: var(--text-muted); border: 1px solid var(--surface-container-high); transition: all 0.2s ease; }
+        .modality-btn.active { background-color: var(--accent); color: var(--primary-invert); border-color: var(--accent); }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--surface-dim); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-container-highest); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+    </style>
+</head>
+<body class="p-6 h-screen flex flex-col">
+    <div id="app" class="flex flex-col h-full max-w-4xl mx-auto w-full">
+        <div class="flex justify-between items-end mb-8 border-b border-[color:var(--surface-container-high)] pb-4">
+            <div>
+                <h1 class="text-2xl font-black accent tracking-tighter leading-none mb-1">EVALFORGE / MCP</h1>
+                <p class="text-[9px] text-[color:var(--text-muted)] font-bold uppercase tracking-[0.2em]">Isolated Evaluation Interface • v0.1.0</p>
+            </div>
+            <div class="flex gap-4">
+                <button id="theme-toggle" onclick="toggleTheme()" class="text-[color:var(--text-muted)] hover:text-[color:var(--primary)] transition-colors">🌓</button>
+                <div id="status-indicator" class="flex items-center gap-3 container-bg px-3 py-1.5 border border-[color:var(--surface-container-high)] rounded-sm">
+                    <div class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></div>
+                    <span class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Disconnected</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-6 flex-1 min-h-0">
+            <!-- Left: Config -->
+            <div class="col-span-5 container-bg border border-brutal p-5 flex flex-col gap-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-[10px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Configuration</h2>
+                    <div class="flex items-center gap-2">
+                        <span class="text-[9px] font-bold text-[color:var(--text-muted)] uppercase">Mock Mode</span>
+                        <input type="checkbox" id="mock-toggle" class="accent-blue-500">
+                    </div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <label class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Target Dataset</label>
+                    <select id="dataset-select" class="bg-transparent border border-brutal text-xs p-2.5 outline-none focus:border-accent transition-colors">
+                        <option value="mmlu_tiny">MMLU Tiny (Text)</option>
+                        <option value="vqa_sample">VQA Sample (Multimodal)</option>
+                        <option value="agent_trajectory">Agent Trajectory (Agent)</option>
+                    </select>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <label class="text-[9px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Modality</label>
+                    <div class="flex gap-2">
+                        <button id="btn-text" onclick="setModality('text')" class="modality-btn active flex-1 py-2 text-[10px] font-black uppercase">Text</button>
+                        <button id="btn-multimodal" onclick="setModality('multimodal')" class="modality-btn flex-1 py-2 text-[10px] font-black uppercase">VQA</button>
+                        <button id="btn-agent" onclick="setModality('agent')" class="modality-btn flex-1 py-2 text-[10px] font-black uppercase">Agent</button>
+                    </div>
+                </div>
+
+                <div class="mt-auto pt-6 border-t border-[color:var(--surface-container-high)]">
+                    <button id="run-btn" onclick="runEval()" class="w-full py-4 button-brutal text-center text-xs">
+                        Initiate Evaluation
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Live Trace -->
+            <div class="col-span-7 container-bg border border-brutal p-0 flex flex-col min-h-0">
+                <div class="p-4 border-b border-[color:var(--surface-container-high)] flex justify-between items-center bg-[color:var(--surface-dim)]">
+                    <h2 class="text-[10px] font-black text-[color:var(--text-muted)] uppercase tracking-widest">Live Execution Trace</h2>
+                    <span class="text-[9px] font-mono text-[color:var(--text-muted)]">eval_session_01</span>
+                </div>
+                <div id="console" class="flex-1 p-5 font-mono text-[10px] text-[color:var(--text-muted)] overflow-y-auto whitespace-pre-wrap leading-relaxed">
+> Waiting for host handshake...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isConnected = false;
+        let activeModality = 'text';
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Init Theme immediately
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        function log(msg, type = 'info') {
+            const consoleEl = document.getElementById('console');
+            const timestamp = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const prefix = type === 'error' ? '<span class="text-red-500">FAILED</span>' : type === 'success' ? '<span class="accent">SUCCESS</span>' : 'INFO';
+            consoleEl.innerHTML += `\n<span class="text-gray-700">[${timestamp}]</span> ${prefix} ${msg}`;
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+
+        function setModality(m) {
+            activeModality = m;
+            document.querySelectorAll('.modality-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${m}`).classList.add('active');
+            log(`Modality switched to: <span class="text-white font-bold">${m.toUpperCase()}</span>`);
+        }
+
+        // Handshake Protocol
+        window.addEventListener('message', (event) => {
+            if (event.data?.type === 'mcp-apps-handshake') {
+                log('Handshake received from host', 'success');
+                isConnected = true;
+                const indicator = document.getElementById('status-indicator');
+                indicator.innerHTML = `
+                    <div class="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                    <span class="text-[9px] font-black accent uppercase tracking-widest">Connected</span>
+                `;
+                indicator.classList.add('border-accent');
+                window.parent.postMessage({ type: 'mcp-apps-ready' }, '*');
+                log('mcp-apps-ready signal dispatched to parent host context');
+            }
+        });
+
+        async function runEval() {
+            const isMock = document.getElementById('mock-toggle').checked;
+            
+            if (!isConnected && !isMock) {
+                log('Security block: Host connection required for live jobs', 'error');
+                return;
+            }
+
+            const dataset = document.getElementById('dataset-select').value;
+            log(`Starting job: <span class="text-white">${dataset}</span> / <span class="text-white">${activeModality}</span>`);
+            
+            const runBtn = document.getElementById('run-btn');
+            runBtn.innerHTML = 'Forging Job...';
+            runBtn.disabled = true;
+
+            if (isMock) {
+                setTimeout(() => {
+                    const mockJobId = 'job_' + Math.random().toString(36).substr(2, 9);
+                    log(`MOCK JOB INITIATED: ${mockJobId}`, 'success');
+                    log(`Metrics: ACCURACY=0.92, LATENCY=142ms`);
+                    
+                    window.parent.postMessage({ 
+                        type: 'ui/message',
+                        params: { text: `[Mock] Evaluation complete for ${dataset}. Accuracy: 92%` }
+                    }, '*');
+                    
+                    runBtn.innerHTML = 'Initiate Evaluation';
+                    runBtn.disabled = false;
+                }, 1500);
+                return;
+            }
+
+            try {
+                const response = await fetch('/eval/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        modality: activeModality,
+                        providers: [{ name: 'gemini', model: 'gemini-2.0-flash' }],
+                        dataset: [{
+                            prompt: `Run ${activeModality} eval on dataset: ${dataset}`,
+                            ground_truth: '',
+                            ...(activeModality === 'multimodal' ? { images: ['iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='] } : {}),
+                            ...(activeModality === 'agent' ? { tools_spec: [{ type: 'function', function: { name: 'mock_tool', description: 'mock' } }] } : {})
+                        }]
+                    })
+                });
+
+                if (!response.ok) throw new Error(`Backend: ${response.statusText}`);
+                
+                const data = await response.json();
+                log(`LIVE JOB CREATED: <span class="accent font-bold">${data.job_id}</span>`, 'success');
+                
+                window.parent.postMessage({ 
+                    type: 'ui/message',
+                    params: { text: `Evaluation job ${data.job_id} initiated successfully.` }
+                }, '*');
+
+            } catch (e) {
+                log(`EXECUTION ERROR: ${e.message}`, 'error');
+            } finally {
+                runBtn.innerHTML = 'Initiate Evaluation';
+                runBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
